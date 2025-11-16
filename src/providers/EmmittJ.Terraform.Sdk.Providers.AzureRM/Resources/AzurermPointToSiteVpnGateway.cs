@@ -191,9 +191,9 @@ public partial class AzurermPointToSiteVpnGateway(string name) : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionConfiguration block(s) required")]
-    public required AzurermPointToSiteVpnGatewayConnectionConfigurationBlock ConnectionConfiguration
+    public required TerraformList<AzurermPointToSiteVpnGatewayConnectionConfigurationBlock> ConnectionConfiguration
     {
-        get => GetRequiredArgument<AzurermPointToSiteVpnGatewayConnectionConfigurationBlock>("connection_configuration");
+        get => GetRequiredArgument<TerraformList<AzurermPointToSiteVpnGatewayConnectionConfigurationBlock>>("connection_configuration");
         set => SetArgument("connection_configuration", value);
     }
 

@@ -144,9 +144,9 @@ public partial class AzurermCapacityReservation(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermCapacityReservationSkuBlock Sku
+    public required TerraformList<AzurermCapacityReservationSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermCapacityReservationSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermCapacityReservationSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 

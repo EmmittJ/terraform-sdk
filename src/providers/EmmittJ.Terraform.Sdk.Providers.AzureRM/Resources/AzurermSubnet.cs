@@ -226,9 +226,9 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// <summary>
     /// Delegation block (nesting mode: list).
     /// </summary>
-    public AzurermSubnetDelegationBlock? Delegation
+    public TerraformList<AzurermSubnetDelegationBlock>? Delegation
     {
-        get => GetArgument<AzurermSubnetDelegationBlock>("delegation");
+        get => GetArgument<TerraformList<AzurermSubnetDelegationBlock>>("delegation");
         set => SetArgument("delegation", value);
     }
 
@@ -236,9 +236,9 @@ public partial class AzurermSubnet(string name) : TerraformResource("azurerm_sub
     /// IpAddressPool block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpAddressPool block(s) allowed")]
-    public AzurermSubnetIpAddressPoolBlock? IpAddressPool
+    public TerraformList<AzurermSubnetIpAddressPoolBlock>? IpAddressPool
     {
-        get => GetArgument<AzurermSubnetIpAddressPoolBlock>("ip_address_pool");
+        get => GetArgument<TerraformList<AzurermSubnetIpAddressPoolBlock>>("ip_address_pool");
         set => SetArgument("ip_address_pool", value);
     }
 

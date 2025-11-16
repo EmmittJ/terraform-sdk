@@ -160,9 +160,9 @@ public partial class AzurermVirtualHubRouteTable(string name) : TerraformResourc
     /// <summary>
     /// Route block (nesting mode: set).
     /// </summary>
-    public AzurermVirtualHubRouteTableRouteBlock? Route
+    public TerraformSet<AzurermVirtualHubRouteTableRouteBlock>? Route
     {
-        get => GetArgument<AzurermVirtualHubRouteTableRouteBlock>("route");
+        get => GetArgument<TerraformSet<AzurermVirtualHubRouteTableRouteBlock>>("route");
         set => SetArgument("route", value);
     }
 

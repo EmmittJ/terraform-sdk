@@ -182,9 +182,9 @@ public partial class AzurermStackHciLogicalNetwork(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnet is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subnet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
-    public required AzurermStackHciLogicalNetworkSubnetBlock Subnet
+    public required TerraformList<AzurermStackHciLogicalNetworkSubnetBlock> Subnet
     {
-        get => GetRequiredArgument<AzurermStackHciLogicalNetworkSubnetBlock>("subnet");
+        get => GetRequiredArgument<TerraformList<AzurermStackHciLogicalNetworkSubnetBlock>>("subnet");
         set => SetArgument("subnet", value);
     }
 

@@ -138,9 +138,9 @@ public partial class AzurermMonitorAadDiagnosticSetting(string name) : Terraform
     /// <summary>
     /// EnabledLog block (nesting mode: set).
     /// </summary>
-    public AzurermMonitorAadDiagnosticSettingEnabledLogBlock? EnabledLog
+    public TerraformSet<AzurermMonitorAadDiagnosticSettingEnabledLogBlock>? EnabledLog
     {
-        get => GetArgument<AzurermMonitorAadDiagnosticSettingEnabledLogBlock>("enabled_log");
+        get => GetArgument<TerraformSet<AzurermMonitorAadDiagnosticSettingEnabledLogBlock>>("enabled_log");
         set => SetArgument("enabled_log", value);
     }
 

@@ -1751,9 +1751,9 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// <summary>
     /// AuthenticationCertificate block (nesting mode: list).
     /// </summary>
-    public AzurermApplicationGatewayAuthenticationCertificateBlock? AuthenticationCertificate
+    public TerraformList<AzurermApplicationGatewayAuthenticationCertificateBlock>? AuthenticationCertificate
     {
-        get => GetArgument<AzurermApplicationGatewayAuthenticationCertificateBlock>("authentication_certificate");
+        get => GetArgument<TerraformList<AzurermApplicationGatewayAuthenticationCertificateBlock>>("authentication_certificate");
         set => SetArgument("authentication_certificate", value);
     }
 
@@ -1761,9 +1761,9 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// AutoscaleConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleConfiguration block(s) allowed")]
-    public AzurermApplicationGatewayAutoscaleConfigurationBlock? AutoscaleConfiguration
+    public TerraformList<AzurermApplicationGatewayAutoscaleConfigurationBlock>? AutoscaleConfiguration
     {
-        get => GetArgument<AzurermApplicationGatewayAutoscaleConfigurationBlock>("autoscale_configuration");
+        get => GetArgument<TerraformList<AzurermApplicationGatewayAutoscaleConfigurationBlock>>("autoscale_configuration");
         set => SetArgument("autoscale_configuration", value);
     }
 
@@ -1773,9 +1773,9 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendAddressPool block(s) required")]
-    public required AzurermApplicationGatewayBackendAddressPoolBlock BackendAddressPool
+    public required TerraformSet<AzurermApplicationGatewayBackendAddressPoolBlock> BackendAddressPool
     {
-        get => GetRequiredArgument<AzurermApplicationGatewayBackendAddressPoolBlock>("backend_address_pool");
+        get => GetRequiredArgument<TerraformSet<AzurermApplicationGatewayBackendAddressPoolBlock>>("backend_address_pool");
         set => SetArgument("backend_address_pool", value);
     }
 
@@ -1785,18 +1785,18 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendHttpSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendHttpSettings block(s) required")]
-    public required AzurermApplicationGatewayBackendHttpSettingsBlock BackendHttpSettings
+    public required TerraformSet<AzurermApplicationGatewayBackendHttpSettingsBlock> BackendHttpSettings
     {
-        get => GetRequiredArgument<AzurermApplicationGatewayBackendHttpSettingsBlock>("backend_http_settings");
+        get => GetRequiredArgument<TerraformSet<AzurermApplicationGatewayBackendHttpSettingsBlock>>("backend_http_settings");
         set => SetArgument("backend_http_settings", value);
     }
 
     /// <summary>
     /// CustomErrorConfiguration block (nesting mode: list).
     /// </summary>
-    public AzurermApplicationGatewayCustomErrorConfigurationBlock? CustomErrorConfiguration
+    public TerraformList<AzurermApplicationGatewayCustomErrorConfigurationBlock>? CustomErrorConfiguration
     {
-        get => GetArgument<AzurermApplicationGatewayCustomErrorConfigurationBlock>("custom_error_configuration");
+        get => GetArgument<TerraformList<AzurermApplicationGatewayCustomErrorConfigurationBlock>>("custom_error_configuration");
         set => SetArgument("custom_error_configuration", value);
     }
 
@@ -1806,9 +1806,9 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendIpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendIpConfiguration block(s) required")]
-    public required AzurermApplicationGatewayFrontendIpConfigurationBlock FrontendIpConfiguration
+    public required TerraformList<AzurermApplicationGatewayFrontendIpConfigurationBlock> FrontendIpConfiguration
     {
-        get => GetRequiredArgument<AzurermApplicationGatewayFrontendIpConfigurationBlock>("frontend_ip_configuration");
+        get => GetRequiredArgument<TerraformList<AzurermApplicationGatewayFrontendIpConfigurationBlock>>("frontend_ip_configuration");
         set => SetArgument("frontend_ip_configuration", value);
     }
 
@@ -1818,9 +1818,9 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPort is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendPort block(s) required")]
-    public required AzurermApplicationGatewayFrontendPortBlock FrontendPort
+    public required TerraformSet<AzurermApplicationGatewayFrontendPortBlock> FrontendPort
     {
-        get => GetRequiredArgument<AzurermApplicationGatewayFrontendPortBlock>("frontend_port");
+        get => GetRequiredArgument<TerraformSet<AzurermApplicationGatewayFrontendPortBlock>>("frontend_port");
         set => SetArgument("frontend_port", value);
     }
 
@@ -1831,9 +1831,9 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayIpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GatewayIpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 GatewayIpConfiguration block(s) allowed")]
-    public required AzurermApplicationGatewayGatewayIpConfigurationBlock GatewayIpConfiguration
+    public required TerraformList<AzurermApplicationGatewayGatewayIpConfigurationBlock> GatewayIpConfiguration
     {
-        get => GetRequiredArgument<AzurermApplicationGatewayGatewayIpConfigurationBlock>("gateway_ip_configuration");
+        get => GetRequiredArgument<TerraformList<AzurermApplicationGatewayGatewayIpConfigurationBlock>>("gateway_ip_configuration");
         set => SetArgument("gateway_ip_configuration", value);
     }
 
@@ -1841,9 +1841,9 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// GlobalAttribute block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GlobalAttribute block(s) allowed")]
-    public AzurermApplicationGatewayGlobalAttributeBlock? GlobalAttribute
+    public TerraformList<AzurermApplicationGatewayGlobalAttributeBlock>? GlobalAttribute
     {
-        get => GetArgument<AzurermApplicationGatewayGlobalAttributeBlock>("global");
+        get => GetArgument<TerraformList<AzurermApplicationGatewayGlobalAttributeBlock>>("global");
         set => SetArgument("global", value);
     }
 
@@ -1853,9 +1853,9 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpListener is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HttpListener block(s) required")]
-    public required AzurermApplicationGatewayHttpListenerBlock HttpListener
+    public required TerraformSet<AzurermApplicationGatewayHttpListenerBlock> HttpListener
     {
-        get => GetRequiredArgument<AzurermApplicationGatewayHttpListenerBlock>("http_listener");
+        get => GetRequiredArgument<TerraformSet<AzurermApplicationGatewayHttpListenerBlock>>("http_listener");
         set => SetArgument("http_listener", value);
     }
 
@@ -1863,36 +1863,36 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermApplicationGatewayIdentityBlock? Identity
+    public TerraformList<AzurermApplicationGatewayIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermApplicationGatewayIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermApplicationGatewayIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// PrivateLinkConfiguration block (nesting mode: set).
     /// </summary>
-    public AzurermApplicationGatewayPrivateLinkConfigurationBlock? PrivateLinkConfiguration
+    public TerraformSet<AzurermApplicationGatewayPrivateLinkConfigurationBlock>? PrivateLinkConfiguration
     {
-        get => GetArgument<AzurermApplicationGatewayPrivateLinkConfigurationBlock>("private_link_configuration");
+        get => GetArgument<TerraformSet<AzurermApplicationGatewayPrivateLinkConfigurationBlock>>("private_link_configuration");
         set => SetArgument("private_link_configuration", value);
     }
 
     /// <summary>
     /// Probe block (nesting mode: set).
     /// </summary>
-    public AzurermApplicationGatewayProbeBlock? Probe
+    public TerraformSet<AzurermApplicationGatewayProbeBlock>? Probe
     {
-        get => GetArgument<AzurermApplicationGatewayProbeBlock>("probe");
+        get => GetArgument<TerraformSet<AzurermApplicationGatewayProbeBlock>>("probe");
         set => SetArgument("probe", value);
     }
 
     /// <summary>
     /// RedirectConfiguration block (nesting mode: set).
     /// </summary>
-    public AzurermApplicationGatewayRedirectConfigurationBlock? RedirectConfiguration
+    public TerraformSet<AzurermApplicationGatewayRedirectConfigurationBlock>? RedirectConfiguration
     {
-        get => GetArgument<AzurermApplicationGatewayRedirectConfigurationBlock>("redirect_configuration");
+        get => GetArgument<TerraformSet<AzurermApplicationGatewayRedirectConfigurationBlock>>("redirect_configuration");
         set => SetArgument("redirect_configuration", value);
     }
 
@@ -1902,18 +1902,18 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RequestRoutingRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RequestRoutingRule block(s) required")]
-    public required AzurermApplicationGatewayRequestRoutingRuleBlock RequestRoutingRule
+    public required TerraformSet<AzurermApplicationGatewayRequestRoutingRuleBlock> RequestRoutingRule
     {
-        get => GetRequiredArgument<AzurermApplicationGatewayRequestRoutingRuleBlock>("request_routing_rule");
+        get => GetRequiredArgument<TerraformSet<AzurermApplicationGatewayRequestRoutingRuleBlock>>("request_routing_rule");
         set => SetArgument("request_routing_rule", value);
     }
 
     /// <summary>
     /// RewriteRuleSet block (nesting mode: list).
     /// </summary>
-    public AzurermApplicationGatewayRewriteRuleSetBlock? RewriteRuleSet
+    public TerraformList<AzurermApplicationGatewayRewriteRuleSetBlock>? RewriteRuleSet
     {
-        get => GetArgument<AzurermApplicationGatewayRewriteRuleSetBlock>("rewrite_rule_set");
+        get => GetArgument<TerraformList<AzurermApplicationGatewayRewriteRuleSetBlock>>("rewrite_rule_set");
         set => SetArgument("rewrite_rule_set", value);
     }
 
@@ -1924,18 +1924,18 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermApplicationGatewaySkuBlock Sku
+    public required TerraformList<AzurermApplicationGatewaySkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermApplicationGatewaySkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermApplicationGatewaySkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 
     /// <summary>
     /// SslCertificate block (nesting mode: set).
     /// </summary>
-    public AzurermApplicationGatewaySslCertificateBlock? SslCertificate
+    public TerraformSet<AzurermApplicationGatewaySslCertificateBlock>? SslCertificate
     {
-        get => GetArgument<AzurermApplicationGatewaySslCertificateBlock>("ssl_certificate");
+        get => GetArgument<TerraformSet<AzurermApplicationGatewaySslCertificateBlock>>("ssl_certificate");
         set => SetArgument("ssl_certificate", value);
     }
 
@@ -1943,18 +1943,18 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// SslPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslPolicy block(s) allowed")]
-    public AzurermApplicationGatewaySslPolicyBlock? SslPolicy
+    public TerraformList<AzurermApplicationGatewaySslPolicyBlock>? SslPolicy
     {
-        get => GetArgument<AzurermApplicationGatewaySslPolicyBlock>("ssl_policy");
+        get => GetArgument<TerraformList<AzurermApplicationGatewaySslPolicyBlock>>("ssl_policy");
         set => SetArgument("ssl_policy", value);
     }
 
     /// <summary>
     /// SslProfile block (nesting mode: list).
     /// </summary>
-    public AzurermApplicationGatewaySslProfileBlock? SslProfile
+    public TerraformList<AzurermApplicationGatewaySslProfileBlock>? SslProfile
     {
-        get => GetArgument<AzurermApplicationGatewaySslProfileBlock>("ssl_profile");
+        get => GetArgument<TerraformList<AzurermApplicationGatewaySslProfileBlock>>("ssl_profile");
         set => SetArgument("ssl_profile", value);
     }
 
@@ -1970,27 +1970,27 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// <summary>
     /// TrustedClientCertificate block (nesting mode: list).
     /// </summary>
-    public AzurermApplicationGatewayTrustedClientCertificateBlock? TrustedClientCertificate
+    public TerraformList<AzurermApplicationGatewayTrustedClientCertificateBlock>? TrustedClientCertificate
     {
-        get => GetArgument<AzurermApplicationGatewayTrustedClientCertificateBlock>("trusted_client_certificate");
+        get => GetArgument<TerraformList<AzurermApplicationGatewayTrustedClientCertificateBlock>>("trusted_client_certificate");
         set => SetArgument("trusted_client_certificate", value);
     }
 
     /// <summary>
     /// TrustedRootCertificate block (nesting mode: list).
     /// </summary>
-    public AzurermApplicationGatewayTrustedRootCertificateBlock? TrustedRootCertificate
+    public TerraformList<AzurermApplicationGatewayTrustedRootCertificateBlock>? TrustedRootCertificate
     {
-        get => GetArgument<AzurermApplicationGatewayTrustedRootCertificateBlock>("trusted_root_certificate");
+        get => GetArgument<TerraformList<AzurermApplicationGatewayTrustedRootCertificateBlock>>("trusted_root_certificate");
         set => SetArgument("trusted_root_certificate", value);
     }
 
     /// <summary>
     /// UrlPathMap block (nesting mode: list).
     /// </summary>
-    public AzurermApplicationGatewayUrlPathMapBlock? UrlPathMap
+    public TerraformList<AzurermApplicationGatewayUrlPathMapBlock>? UrlPathMap
     {
-        get => GetArgument<AzurermApplicationGatewayUrlPathMapBlock>("url_path_map");
+        get => GetArgument<TerraformList<AzurermApplicationGatewayUrlPathMapBlock>>("url_path_map");
         set => SetArgument("url_path_map", value);
     }
 
@@ -1998,9 +1998,9 @@ public partial class AzurermApplicationGateway(string name) : TerraformResource(
     /// WafConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WafConfiguration block(s) allowed")]
-    public AzurermApplicationGatewayWafConfigurationBlock? WafConfiguration
+    public TerraformList<AzurermApplicationGatewayWafConfigurationBlock>? WafConfiguration
     {
-        get => GetArgument<AzurermApplicationGatewayWafConfigurationBlock>("waf_configuration");
+        get => GetArgument<TerraformList<AzurermApplicationGatewayWafConfigurationBlock>>("waf_configuration");
         set => SetArgument("waf_configuration", value);
     }
 

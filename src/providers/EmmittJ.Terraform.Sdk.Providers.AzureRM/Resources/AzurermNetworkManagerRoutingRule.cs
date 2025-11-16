@@ -167,9 +167,9 @@ public partial class AzurermNetworkManagerRoutingRule(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
-    public required AzurermNetworkManagerRoutingRuleDestinationBlock Destination
+    public required TerraformList<AzurermNetworkManagerRoutingRuleDestinationBlock> Destination
     {
-        get => GetRequiredArgument<AzurermNetworkManagerRoutingRuleDestinationBlock>("destination");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkManagerRoutingRuleDestinationBlock>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -180,9 +180,9 @@ public partial class AzurermNetworkManagerRoutingRule(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHop is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NextHop block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NextHop block(s) allowed")]
-    public required AzurermNetworkManagerRoutingRuleNextHopBlock NextHop
+    public required TerraformList<AzurermNetworkManagerRoutingRuleNextHopBlock> NextHop
     {
-        get => GetRequiredArgument<AzurermNetworkManagerRoutingRuleNextHopBlock>("next_hop");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkManagerRoutingRuleNextHopBlock>>("next_hop");
         set => SetArgument("next_hop", value);
     }
 

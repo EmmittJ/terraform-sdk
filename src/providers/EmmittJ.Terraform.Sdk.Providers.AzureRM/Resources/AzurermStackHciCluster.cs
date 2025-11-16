@@ -175,9 +175,9 @@ public partial class AzurermStackHciCluster(string name) : TerraformResource("az
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermStackHciClusterIdentityBlock? Identity
+    public TerraformList<AzurermStackHciClusterIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermStackHciClusterIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermStackHciClusterIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

@@ -157,9 +157,9 @@ public partial class AzurermDigitalTwinsInstance(string name) : TerraformResourc
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermDigitalTwinsInstanceIdentityBlock? Identity
+    public TerraformList<AzurermDigitalTwinsInstanceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermDigitalTwinsInstanceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermDigitalTwinsInstanceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

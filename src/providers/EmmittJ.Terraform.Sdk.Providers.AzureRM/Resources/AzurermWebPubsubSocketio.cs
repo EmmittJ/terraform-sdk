@@ -270,9 +270,9 @@ public partial class AzurermWebPubsubSocketio(string name) : TerraformResource("
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermWebPubsubSocketioIdentityBlock? Identity
+    public TerraformList<AzurermWebPubsubSocketioIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermWebPubsubSocketioIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermWebPubsubSocketioIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -283,9 +283,9 @@ public partial class AzurermWebPubsubSocketio(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermWebPubsubSocketioSkuBlock Sku
+    public required TerraformList<AzurermWebPubsubSocketioSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermWebPubsubSocketioSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermWebPubsubSocketioSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 

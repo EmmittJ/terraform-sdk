@@ -238,9 +238,9 @@ public partial class AzurermServicebusSubscription(string name) : TerraformResou
     /// ClientScopedSubscription block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientScopedSubscription block(s) allowed")]
-    public AzurermServicebusSubscriptionClientScopedSubscriptionBlock? ClientScopedSubscription
+    public TerraformList<AzurermServicebusSubscriptionClientScopedSubscriptionBlock>? ClientScopedSubscription
     {
-        get => GetArgument<AzurermServicebusSubscriptionClientScopedSubscriptionBlock>("client_scoped_subscription");
+        get => GetArgument<TerraformList<AzurermServicebusSubscriptionClientScopedSubscriptionBlock>>("client_scoped_subscription");
         set => SetArgument("client_scoped_subscription", value);
     }
 

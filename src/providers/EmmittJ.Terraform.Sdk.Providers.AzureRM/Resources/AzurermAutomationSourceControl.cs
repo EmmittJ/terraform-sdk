@@ -201,9 +201,9 @@ public partial class AzurermAutomationSourceControl(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Security is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Security block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
-    public required AzurermAutomationSourceControlSecurityBlock Security
+    public required TerraformList<AzurermAutomationSourceControlSecurityBlock> Security
     {
-        get => GetRequiredArgument<AzurermAutomationSourceControlSecurityBlock>("security");
+        get => GetRequiredArgument<TerraformList<AzurermAutomationSourceControlSecurityBlock>>("security");
         set => SetArgument("security", value);
     }
 

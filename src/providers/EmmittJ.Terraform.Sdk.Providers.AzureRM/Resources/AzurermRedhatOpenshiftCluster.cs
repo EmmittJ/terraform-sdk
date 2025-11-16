@@ -464,9 +464,9 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiServerProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ApiServerProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiServerProfile block(s) allowed")]
-    public required AzurermRedhatOpenshiftClusterApiServerProfileBlock ApiServerProfile
+    public required TerraformList<AzurermRedhatOpenshiftClusterApiServerProfileBlock> ApiServerProfile
     {
-        get => GetRequiredArgument<AzurermRedhatOpenshiftClusterApiServerProfileBlock>("api_server_profile");
+        get => GetRequiredArgument<TerraformList<AzurermRedhatOpenshiftClusterApiServerProfileBlock>>("api_server_profile");
         set => SetArgument("api_server_profile", value);
     }
 
@@ -477,9 +477,9 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ClusterProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterProfile block(s) allowed")]
-    public required AzurermRedhatOpenshiftClusterClusterProfileBlock ClusterProfile
+    public required TerraformList<AzurermRedhatOpenshiftClusterClusterProfileBlock> ClusterProfile
     {
-        get => GetRequiredArgument<AzurermRedhatOpenshiftClusterClusterProfileBlock>("cluster_profile");
+        get => GetRequiredArgument<TerraformList<AzurermRedhatOpenshiftClusterClusterProfileBlock>>("cluster_profile");
         set => SetArgument("cluster_profile", value);
     }
 
@@ -490,9 +490,9 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IngressProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IngressProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressProfile block(s) allowed")]
-    public required AzurermRedhatOpenshiftClusterIngressProfileBlock IngressProfile
+    public required TerraformList<AzurermRedhatOpenshiftClusterIngressProfileBlock> IngressProfile
     {
-        get => GetRequiredArgument<AzurermRedhatOpenshiftClusterIngressProfileBlock>("ingress_profile");
+        get => GetRequiredArgument<TerraformList<AzurermRedhatOpenshiftClusterIngressProfileBlock>>("ingress_profile");
         set => SetArgument("ingress_profile", value);
     }
 
@@ -503,9 +503,9 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MainProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MainProfile block(s) allowed")]
-    public required AzurermRedhatOpenshiftClusterMainProfileBlock MainProfile
+    public required TerraformList<AzurermRedhatOpenshiftClusterMainProfileBlock> MainProfile
     {
-        get => GetRequiredArgument<AzurermRedhatOpenshiftClusterMainProfileBlock>("main_profile");
+        get => GetRequiredArgument<TerraformList<AzurermRedhatOpenshiftClusterMainProfileBlock>>("main_profile");
         set => SetArgument("main_profile", value);
     }
 
@@ -516,9 +516,9 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
-    public required AzurermRedhatOpenshiftClusterNetworkProfileBlock NetworkProfile
+    public required TerraformList<AzurermRedhatOpenshiftClusterNetworkProfileBlock> NetworkProfile
     {
-        get => GetRequiredArgument<AzurermRedhatOpenshiftClusterNetworkProfileBlock>("network_profile");
+        get => GetRequiredArgument<TerraformList<AzurermRedhatOpenshiftClusterNetworkProfileBlock>>("network_profile");
         set => SetArgument("network_profile", value);
     }
 
@@ -529,9 +529,9 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipal is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServicePrincipal block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipal block(s) allowed")]
-    public required AzurermRedhatOpenshiftClusterServicePrincipalBlock ServicePrincipal
+    public required TerraformList<AzurermRedhatOpenshiftClusterServicePrincipalBlock> ServicePrincipal
     {
-        get => GetRequiredArgument<AzurermRedhatOpenshiftClusterServicePrincipalBlock>("service_principal");
+        get => GetRequiredArgument<TerraformList<AzurermRedhatOpenshiftClusterServicePrincipalBlock>>("service_principal");
         set => SetArgument("service_principal", value);
     }
 
@@ -551,9 +551,9 @@ public partial class AzurermRedhatOpenshiftCluster(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WorkerProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerProfile block(s) allowed")]
-    public required AzurermRedhatOpenshiftClusterWorkerProfileBlock WorkerProfile
+    public required TerraformList<AzurermRedhatOpenshiftClusterWorkerProfileBlock> WorkerProfile
     {
-        get => GetRequiredArgument<AzurermRedhatOpenshiftClusterWorkerProfileBlock>("worker_profile");
+        get => GetRequiredArgument<TerraformList<AzurermRedhatOpenshiftClusterWorkerProfileBlock>>("worker_profile");
         set => SetArgument("worker_profile", value);
     }
 

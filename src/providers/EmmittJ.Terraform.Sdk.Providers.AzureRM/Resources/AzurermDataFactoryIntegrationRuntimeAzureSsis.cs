@@ -514,9 +514,9 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// CatalogInfo block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogInfo block(s) allowed")]
-    public AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock? CatalogInfo
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock>? CatalogInfo
     {
-        get => GetArgument<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock>("catalog_info");
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock>>("catalog_info");
         set => SetArgument("catalog_info", value);
     }
 
@@ -524,9 +524,9 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// CopyComputeScale block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CopyComputeScale block(s) allowed")]
-    public AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock? CopyComputeScale
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock>? CopyComputeScale
     {
-        get => GetArgument<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock>("copy_compute_scale");
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock>>("copy_compute_scale");
         set => SetArgument("copy_compute_scale", value);
     }
 
@@ -534,9 +534,9 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// CustomSetupScript block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomSetupScript block(s) allowed")]
-    public AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock? CustomSetupScript
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock>? CustomSetupScript
     {
-        get => GetArgument<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock>("custom_setup_script");
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock>>("custom_setup_script");
         set => SetArgument("custom_setup_script", value);
     }
 
@@ -544,9 +544,9 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// ExpressCustomSetup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpressCustomSetup block(s) allowed")]
-    public AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock? ExpressCustomSetup
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock>? ExpressCustomSetup
     {
-        get => GetArgument<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock>("express_custom_setup");
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock>>("express_custom_setup");
         set => SetArgument("express_custom_setup", value);
     }
 
@@ -554,18 +554,18 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// ExpressVnetIntegration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExpressVnetIntegration block(s) allowed")]
-    public AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock? ExpressVnetIntegration
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock>? ExpressVnetIntegration
     {
-        get => GetArgument<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock>("express_vnet_integration");
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock>>("express_vnet_integration");
         set => SetArgument("express_vnet_integration", value);
     }
 
     /// <summary>
     /// PackageStore block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock? PackageStore
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock>? PackageStore
     {
-        get => GetArgument<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock>("package_store");
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock>>("package_store");
         set => SetArgument("package_store", value);
     }
 
@@ -573,9 +573,9 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// PipelineExternalComputeScale block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PipelineExternalComputeScale block(s) allowed")]
-    public AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock? PipelineExternalComputeScale
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock>? PipelineExternalComputeScale
     {
-        get => GetArgument<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock>("pipeline_external_compute_scale");
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock>>("pipeline_external_compute_scale");
         set => SetArgument("pipeline_external_compute_scale", value);
     }
 
@@ -583,9 +583,9 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// Proxy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
-    public AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock? Proxy
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock>? Proxy
     {
-        get => GetArgument<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock>("proxy");
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock>>("proxy");
         set => SetArgument("proxy", value);
     }
 
@@ -602,9 +602,9 @@ public partial class AzurermDataFactoryIntegrationRuntimeAzureSsis(string name) 
     /// VnetIntegration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VnetIntegration block(s) allowed")]
-    public AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock? VnetIntegration
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock>? VnetIntegration
     {
-        get => GetArgument<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock>("vnet_integration");
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock>>("vnet_integration");
         set => SetArgument("vnet_integration", value);
     }
 

@@ -662,9 +662,9 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentVersion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
-    public required AzurermHdinsightKafkaClusterComponentVersionBlock ComponentVersion
+    public required TerraformList<AzurermHdinsightKafkaClusterComponentVersionBlock> ComponentVersion
     {
-        get => GetRequiredArgument<AzurermHdinsightKafkaClusterComponentVersionBlock>("component_version");
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightKafkaClusterComponentVersionBlock>>("component_version");
         set => SetArgument("component_version", value);
     }
 
@@ -672,18 +672,18 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// ComputeIsolation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
-    public AzurermHdinsightKafkaClusterComputeIsolationBlock? ComputeIsolation
+    public TerraformList<AzurermHdinsightKafkaClusterComputeIsolationBlock>? ComputeIsolation
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterComputeIsolationBlock>("compute_isolation");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterComputeIsolationBlock>>("compute_isolation");
         set => SetArgument("compute_isolation", value);
     }
 
     /// <summary>
     /// DiskEncryption block (nesting mode: list).
     /// </summary>
-    public AzurermHdinsightKafkaClusterDiskEncryptionBlock? DiskEncryption
+    public TerraformList<AzurermHdinsightKafkaClusterDiskEncryptionBlock>? DiskEncryption
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterDiskEncryptionBlock>("disk_encryption");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterDiskEncryptionBlock>>("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
@@ -691,9 +691,9 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// Extension block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
-    public AzurermHdinsightKafkaClusterExtensionBlock? Extension
+    public TerraformList<AzurermHdinsightKafkaClusterExtensionBlock>? Extension
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterExtensionBlock>("extension");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterExtensionBlock>>("extension");
         set => SetArgument("extension", value);
     }
 
@@ -704,9 +704,9 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gateway is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
-    public required AzurermHdinsightKafkaClusterGatewayBlock Gateway
+    public required TerraformList<AzurermHdinsightKafkaClusterGatewayBlock> Gateway
     {
-        get => GetRequiredArgument<AzurermHdinsightKafkaClusterGatewayBlock>("gateway");
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightKafkaClusterGatewayBlock>>("gateway");
         set => SetArgument("gateway", value);
     }
 
@@ -714,9 +714,9 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// Metastores block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
-    public AzurermHdinsightKafkaClusterMetastoresBlock? Metastores
+    public TerraformList<AzurermHdinsightKafkaClusterMetastoresBlock>? Metastores
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterMetastoresBlock>("metastores");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterMetastoresBlock>>("metastores");
         set => SetArgument("metastores", value);
     }
 
@@ -724,9 +724,9 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// Monitor block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
-    public AzurermHdinsightKafkaClusterMonitorBlock? Monitor
+    public TerraformList<AzurermHdinsightKafkaClusterMonitorBlock>? Monitor
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterMonitorBlock>("monitor");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterMonitorBlock>>("monitor");
         set => SetArgument("monitor", value);
     }
 
@@ -734,9 +734,9 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// Network block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
-    public AzurermHdinsightKafkaClusterNetworkBlock? Network
+    public TerraformList<AzurermHdinsightKafkaClusterNetworkBlock>? Network
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterNetworkBlock>("network");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterNetworkBlock>>("network");
         set => SetArgument("network", value);
     }
 
@@ -744,9 +744,9 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// PrivateLinkConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
-    public AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock? PrivateLinkConfiguration
+    public TerraformList<AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock>? PrivateLinkConfiguration
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock>("private_link_configuration");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock>>("private_link_configuration");
         set => SetArgument("private_link_configuration", value);
     }
 
@@ -754,9 +754,9 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// RestProxy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestProxy block(s) allowed")]
-    public AzurermHdinsightKafkaClusterRestProxyBlock? RestProxy
+    public TerraformList<AzurermHdinsightKafkaClusterRestProxyBlock>? RestProxy
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterRestProxyBlock>("rest_proxy");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterRestProxyBlock>>("rest_proxy");
         set => SetArgument("rest_proxy", value);
     }
 
@@ -767,9 +767,9 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
-    public required AzurermHdinsightKafkaClusterRolesBlock Roles
+    public required TerraformList<AzurermHdinsightKafkaClusterRolesBlock> Roles
     {
-        get => GetRequiredArgument<AzurermHdinsightKafkaClusterRolesBlock>("roles");
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightKafkaClusterRolesBlock>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -777,18 +777,18 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// SecurityProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
-    public AzurermHdinsightKafkaClusterSecurityProfileBlock? SecurityProfile
+    public TerraformList<AzurermHdinsightKafkaClusterSecurityProfileBlock>? SecurityProfile
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterSecurityProfileBlock>("security_profile");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterSecurityProfileBlock>>("security_profile");
         set => SetArgument("security_profile", value);
     }
 
     /// <summary>
     /// StorageAccount block (nesting mode: list).
     /// </summary>
-    public AzurermHdinsightKafkaClusterStorageAccountBlock? StorageAccount
+    public TerraformList<AzurermHdinsightKafkaClusterStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 
@@ -796,9 +796,9 @@ public partial class AzurermHdinsightKafkaCluster(string name) : TerraformResour
     /// StorageAccountGen2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
-    public AzurermHdinsightKafkaClusterStorageAccountGen2Block? StorageAccountGen2
+    public TerraformList<AzurermHdinsightKafkaClusterStorageAccountGen2Block>? StorageAccountGen2
     {
-        get => GetArgument<AzurermHdinsightKafkaClusterStorageAccountGen2Block>("storage_account_gen2");
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterStorageAccountGen2Block>>("storage_account_gen2");
         set => SetArgument("storage_account_gen2", value);
     }
 

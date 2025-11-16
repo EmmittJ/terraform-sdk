@@ -162,9 +162,9 @@ public partial class AzurermDataProtectionBackupPolicyPostgresql(string name) : 
     /// <summary>
     /// RetentionRule block (nesting mode: list).
     /// </summary>
-    public AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock? RetentionRule
+    public TerraformList<AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock>? RetentionRule
     {
-        get => GetArgument<AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock>("retention_rule");
+        get => GetArgument<TerraformList<AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock>>("retention_rule");
         set => SetArgument("retention_rule", value);
     }
 

@@ -260,9 +260,9 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// <summary>
     /// Pipeline block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryTriggerSchedulePipelineBlock? Pipeline
+    public TerraformList<AzurermDataFactoryTriggerSchedulePipelineBlock>? Pipeline
     {
-        get => GetArgument<AzurermDataFactoryTriggerSchedulePipelineBlock>("pipeline");
+        get => GetArgument<TerraformList<AzurermDataFactoryTriggerSchedulePipelineBlock>>("pipeline");
         set => SetArgument("pipeline", value);
     }
 
@@ -270,9 +270,9 @@ public partial class AzurermDataFactoryTriggerSchedule(string name) : TerraformR
     /// Schedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public AzurermDataFactoryTriggerScheduleScheduleBlock? Schedule
+    public TerraformList<AzurermDataFactoryTriggerScheduleScheduleBlock>? Schedule
     {
-        get => GetArgument<AzurermDataFactoryTriggerScheduleScheduleBlock>("schedule");
+        get => GetArgument<TerraformList<AzurermDataFactoryTriggerScheduleScheduleBlock>>("schedule");
         set => SetArgument("schedule", value);
     }
 

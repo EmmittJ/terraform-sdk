@@ -736,9 +736,9 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// AdditionalCapabilities block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
-    public AzurermVirtualMachineAdditionalCapabilitiesBlock? AdditionalCapabilities
+    public TerraformList<AzurermVirtualMachineAdditionalCapabilitiesBlock>? AdditionalCapabilities
     {
-        get => GetArgument<AzurermVirtualMachineAdditionalCapabilitiesBlock>("additional_capabilities");
+        get => GetArgument<TerraformList<AzurermVirtualMachineAdditionalCapabilitiesBlock>>("additional_capabilities");
         set => SetArgument("additional_capabilities", value);
     }
 
@@ -746,9 +746,9 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// BootDiagnostics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
-    public AzurermVirtualMachineBootDiagnosticsBlock? BootDiagnostics
+    public TerraformList<AzurermVirtualMachineBootDiagnosticsBlock>? BootDiagnostics
     {
-        get => GetArgument<AzurermVirtualMachineBootDiagnosticsBlock>("boot_diagnostics");
+        get => GetArgument<TerraformList<AzurermVirtualMachineBootDiagnosticsBlock>>("boot_diagnostics");
         set => SetArgument("boot_diagnostics", value);
     }
 
@@ -756,9 +756,9 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermVirtualMachineIdentityBlock? Identity
+    public TerraformList<AzurermVirtualMachineIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermVirtualMachineIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermVirtualMachineIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -766,9 +766,9 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// OsProfile block (nesting mode: set).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfile block(s) allowed")]
-    public AzurermVirtualMachineOsProfileBlock? OsProfile
+    public TerraformSet<AzurermVirtualMachineOsProfileBlock>? OsProfile
     {
-        get => GetArgument<AzurermVirtualMachineOsProfileBlock>("os_profile");
+        get => GetArgument<TerraformSet<AzurermVirtualMachineOsProfileBlock>>("os_profile");
         set => SetArgument("os_profile", value);
     }
 
@@ -776,18 +776,18 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// OsProfileLinuxConfig block (nesting mode: set).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfileLinuxConfig block(s) allowed")]
-    public AzurermVirtualMachineOsProfileLinuxConfigBlock? OsProfileLinuxConfig
+    public TerraformSet<AzurermVirtualMachineOsProfileLinuxConfigBlock>? OsProfileLinuxConfig
     {
-        get => GetArgument<AzurermVirtualMachineOsProfileLinuxConfigBlock>("os_profile_linux_config");
+        get => GetArgument<TerraformSet<AzurermVirtualMachineOsProfileLinuxConfigBlock>>("os_profile_linux_config");
         set => SetArgument("os_profile_linux_config", value);
     }
 
     /// <summary>
     /// OsProfileSecrets block (nesting mode: list).
     /// </summary>
-    public AzurermVirtualMachineOsProfileSecretsBlock? OsProfileSecrets
+    public TerraformList<AzurermVirtualMachineOsProfileSecretsBlock>? OsProfileSecrets
     {
-        get => GetArgument<AzurermVirtualMachineOsProfileSecretsBlock>("os_profile_secrets");
+        get => GetArgument<TerraformList<AzurermVirtualMachineOsProfileSecretsBlock>>("os_profile_secrets");
         set => SetArgument("os_profile_secrets", value);
     }
 
@@ -795,9 +795,9 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// OsProfileWindowsConfig block (nesting mode: set).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfileWindowsConfig block(s) allowed")]
-    public AzurermVirtualMachineOsProfileWindowsConfigBlock? OsProfileWindowsConfig
+    public TerraformSet<AzurermVirtualMachineOsProfileWindowsConfigBlock>? OsProfileWindowsConfig
     {
-        get => GetArgument<AzurermVirtualMachineOsProfileWindowsConfigBlock>("os_profile_windows_config");
+        get => GetArgument<TerraformSet<AzurermVirtualMachineOsProfileWindowsConfigBlock>>("os_profile_windows_config");
         set => SetArgument("os_profile_windows_config", value);
     }
 
@@ -805,18 +805,18 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// Plan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public AzurermVirtualMachinePlanBlock? Plan
+    public TerraformList<AzurermVirtualMachinePlanBlock>? Plan
     {
-        get => GetArgument<AzurermVirtualMachinePlanBlock>("plan");
+        get => GetArgument<TerraformList<AzurermVirtualMachinePlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 
     /// <summary>
     /// StorageDataDisk block (nesting mode: list).
     /// </summary>
-    public AzurermVirtualMachineStorageDataDiskBlock? StorageDataDisk
+    public TerraformList<AzurermVirtualMachineStorageDataDiskBlock>? StorageDataDisk
     {
-        get => GetArgument<AzurermVirtualMachineStorageDataDiskBlock>("storage_data_disk");
+        get => GetArgument<TerraformList<AzurermVirtualMachineStorageDataDiskBlock>>("storage_data_disk");
         set => SetArgument("storage_data_disk", value);
     }
 
@@ -824,9 +824,9 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     /// StorageImageReference block (nesting mode: set).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageImageReference block(s) allowed")]
-    public AzurermVirtualMachineStorageImageReferenceBlock? StorageImageReference
+    public TerraformSet<AzurermVirtualMachineStorageImageReferenceBlock>? StorageImageReference
     {
-        get => GetArgument<AzurermVirtualMachineStorageImageReferenceBlock>("storage_image_reference");
+        get => GetArgument<TerraformSet<AzurermVirtualMachineStorageImageReferenceBlock>>("storage_image_reference");
         set => SetArgument("storage_image_reference", value);
     }
 
@@ -837,9 +837,9 @@ public partial class AzurermVirtualMachine(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageOsDisk is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageOsDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageOsDisk block(s) allowed")]
-    public required AzurermVirtualMachineStorageOsDiskBlock StorageOsDisk
+    public required TerraformList<AzurermVirtualMachineStorageOsDiskBlock> StorageOsDisk
     {
-        get => GetRequiredArgument<AzurermVirtualMachineStorageOsDiskBlock>("storage_os_disk");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualMachineStorageOsDiskBlock>>("storage_os_disk");
         set => SetArgument("storage_os_disk", value);
     }
 

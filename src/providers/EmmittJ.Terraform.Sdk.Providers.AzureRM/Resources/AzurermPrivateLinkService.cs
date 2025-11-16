@@ -227,9 +227,9 @@ public partial class AzurermPrivateLinkService(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatIpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NatIpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 NatIpConfiguration block(s) allowed")]
-    public required AzurermPrivateLinkServiceNatIpConfigurationBlock NatIpConfiguration
+    public required TerraformList<AzurermPrivateLinkServiceNatIpConfigurationBlock> NatIpConfiguration
     {
-        get => GetRequiredArgument<AzurermPrivateLinkServiceNatIpConfigurationBlock>("nat_ip_configuration");
+        get => GetRequiredArgument<TerraformList<AzurermPrivateLinkServiceNatIpConfigurationBlock>>("nat_ip_configuration");
         set => SetArgument("nat_ip_configuration", value);
     }
 

@@ -233,9 +233,9 @@ public partial class AzurermDataFactoryDataFlow(string name) : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sink is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sink block(s) required")]
-    public required AzurermDataFactoryDataFlowSinkBlock Sink
+    public required TerraformList<AzurermDataFactoryDataFlowSinkBlock> Sink
     {
-        get => GetRequiredArgument<AzurermDataFactoryDataFlowSinkBlock>("sink");
+        get => GetRequiredArgument<TerraformList<AzurermDataFactoryDataFlowSinkBlock>>("sink");
         set => SetArgument("sink", value);
     }
 
@@ -245,9 +245,9 @@ public partial class AzurermDataFactoryDataFlow(string name) : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
-    public required AzurermDataFactoryDataFlowSourceBlock Source
+    public required TerraformList<AzurermDataFactoryDataFlowSourceBlock> Source
     {
-        get => GetRequiredArgument<AzurermDataFactoryDataFlowSourceBlock>("source");
+        get => GetRequiredArgument<TerraformList<AzurermDataFactoryDataFlowSourceBlock>>("source");
         set => SetArgument("source", value);
     }
 
@@ -263,9 +263,9 @@ public partial class AzurermDataFactoryDataFlow(string name) : TerraformResource
     /// <summary>
     /// Transformation block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryDataFlowTransformationBlock? Transformation
+    public TerraformList<AzurermDataFactoryDataFlowTransformationBlock>? Transformation
     {
-        get => GetArgument<AzurermDataFactoryDataFlowTransformationBlock>("transformation");
+        get => GetArgument<TerraformList<AzurermDataFactoryDataFlowTransformationBlock>>("transformation");
         set => SetArgument("transformation", value);
     }
 

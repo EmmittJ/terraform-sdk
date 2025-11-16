@@ -167,9 +167,9 @@ public partial class AzurermVirtualHubConnection(string name) : TerraformResourc
     /// Routing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
-    public AzurermVirtualHubConnectionRoutingBlock? Routing
+    public TerraformList<AzurermVirtualHubConnectionRoutingBlock>? Routing
     {
-        get => GetArgument<AzurermVirtualHubConnectionRoutingBlock>("routing");
+        get => GetArgument<TerraformList<AzurermVirtualHubConnectionRoutingBlock>>("routing");
         set => SetArgument("routing", value);
     }
 

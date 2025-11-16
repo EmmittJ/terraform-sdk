@@ -234,9 +234,9 @@ public partial class AzurermMachineLearningInferenceCluster(string name) : Terra
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMachineLearningInferenceClusterIdentityBlock? Identity
+    public TerraformList<AzurermMachineLearningInferenceClusterIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMachineLearningInferenceClusterIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMachineLearningInferenceClusterIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -244,9 +244,9 @@ public partial class AzurermMachineLearningInferenceCluster(string name) : Terra
     /// Ssl block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssl block(s) allowed")]
-    public AzurermMachineLearningInferenceClusterSslBlock? Ssl
+    public TerraformList<AzurermMachineLearningInferenceClusterSslBlock>? Ssl
     {
-        get => GetArgument<AzurermMachineLearningInferenceClusterSslBlock>("ssl");
+        get => GetArgument<TerraformList<AzurermMachineLearningInferenceClusterSslBlock>>("ssl");
         set => SetArgument("ssl", value);
     }
 

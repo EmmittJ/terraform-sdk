@@ -1076,9 +1076,9 @@ public partial class AzurermLinuxFunctionApp(string name) : TerraformResource("a
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    public AzurermLinuxFunctionAppAuthSettingsBlock? AuthSettings
+    public TerraformList<AzurermLinuxFunctionAppAuthSettingsBlock>? AuthSettings
     {
-        get => GetArgument<AzurermLinuxFunctionAppAuthSettingsBlock>("auth_settings");
+        get => GetArgument<TerraformList<AzurermLinuxFunctionAppAuthSettingsBlock>>("auth_settings");
         set => SetArgument("auth_settings", value);
     }
 
@@ -1086,9 +1086,9 @@ public partial class AzurermLinuxFunctionApp(string name) : TerraformResource("a
     /// AuthSettingsV2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
-    public AzurermLinuxFunctionAppAuthSettingsV2Block? AuthSettingsV2
+    public TerraformList<AzurermLinuxFunctionAppAuthSettingsV2Block>? AuthSettingsV2
     {
-        get => GetArgument<AzurermLinuxFunctionAppAuthSettingsV2Block>("auth_settings_v2");
+        get => GetArgument<TerraformList<AzurermLinuxFunctionAppAuthSettingsV2Block>>("auth_settings_v2");
         set => SetArgument("auth_settings_v2", value);
     }
 
@@ -1096,18 +1096,18 @@ public partial class AzurermLinuxFunctionApp(string name) : TerraformResource("a
     /// Backup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public AzurermLinuxFunctionAppBackupBlock? Backup
+    public TerraformList<AzurermLinuxFunctionAppBackupBlock>? Backup
     {
-        get => GetArgument<AzurermLinuxFunctionAppBackupBlock>("backup");
+        get => GetArgument<TerraformList<AzurermLinuxFunctionAppBackupBlock>>("backup");
         set => SetArgument("backup", value);
     }
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermLinuxFunctionAppConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermLinuxFunctionAppConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermLinuxFunctionAppConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermLinuxFunctionAppConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -1115,9 +1115,9 @@ public partial class AzurermLinuxFunctionApp(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermLinuxFunctionAppIdentityBlock? Identity
+    public TerraformList<AzurermLinuxFunctionAppIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermLinuxFunctionAppIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermLinuxFunctionAppIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -1128,9 +1128,9 @@ public partial class AzurermLinuxFunctionApp(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public required AzurermLinuxFunctionAppSiteConfigBlock SiteConfig
+    public required TerraformList<AzurermLinuxFunctionAppSiteConfigBlock> SiteConfig
     {
-        get => GetRequiredArgument<AzurermLinuxFunctionAppSiteConfigBlock>("site_config");
+        get => GetRequiredArgument<TerraformList<AzurermLinuxFunctionAppSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 
@@ -1138,18 +1138,18 @@ public partial class AzurermLinuxFunctionApp(string name) : TerraformResource("a
     /// StickySettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StickySettings block(s) allowed")]
-    public AzurermLinuxFunctionAppStickySettingsBlock? StickySettings
+    public TerraformList<AzurermLinuxFunctionAppStickySettingsBlock>? StickySettings
     {
-        get => GetArgument<AzurermLinuxFunctionAppStickySettingsBlock>("sticky_settings");
+        get => GetArgument<TerraformList<AzurermLinuxFunctionAppStickySettingsBlock>>("sticky_settings");
         set => SetArgument("sticky_settings", value);
     }
 
     /// <summary>
     /// StorageAccount block (nesting mode: set).
     /// </summary>
-    public AzurermLinuxFunctionAppStorageAccountBlock? StorageAccount
+    public TerraformSet<AzurermLinuxFunctionAppStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermLinuxFunctionAppStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformSet<AzurermLinuxFunctionAppStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 

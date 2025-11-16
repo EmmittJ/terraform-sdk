@@ -153,9 +153,9 @@ public partial class AzurermPrivateDnsResolverInboundEndpoint(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfigurations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfigurations block(s) allowed")]
-    public required AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock IpConfigurations
+    public required TerraformList<AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock> IpConfigurations
     {
-        get => GetRequiredArgument<AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock>("ip_configurations");
+        get => GetRequiredArgument<TerraformList<AzurermPrivateDnsResolverInboundEndpointIpConfigurationsBlock>>("ip_configurations");
         set => SetArgument("ip_configurations", value);
     }
 

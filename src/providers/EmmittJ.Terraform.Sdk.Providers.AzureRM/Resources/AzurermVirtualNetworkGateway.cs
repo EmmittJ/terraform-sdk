@@ -467,9 +467,9 @@ public partial class AzurermVirtualNetworkGateway(string name) : TerraformResour
     /// BgpSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
-    public AzurermVirtualNetworkGatewayBgpSettingsBlock? BgpSettings
+    public TerraformList<AzurermVirtualNetworkGatewayBgpSettingsBlock>? BgpSettings
     {
-        get => GetArgument<AzurermVirtualNetworkGatewayBgpSettingsBlock>("bgp_settings");
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayBgpSettingsBlock>>("bgp_settings");
         set => SetArgument("bgp_settings", value);
     }
 
@@ -477,9 +477,9 @@ public partial class AzurermVirtualNetworkGateway(string name) : TerraformResour
     /// CustomRoute block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomRoute block(s) allowed")]
-    public AzurermVirtualNetworkGatewayCustomRouteBlock? CustomRoute
+    public TerraformList<AzurermVirtualNetworkGatewayCustomRouteBlock>? CustomRoute
     {
-        get => GetArgument<AzurermVirtualNetworkGatewayCustomRouteBlock>("custom_route");
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayCustomRouteBlock>>("custom_route");
         set => SetArgument("custom_route", value);
     }
 
@@ -490,18 +490,18 @@ public partial class AzurermVirtualNetworkGateway(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 IpConfiguration block(s) allowed")]
-    public required AzurermVirtualNetworkGatewayIpConfigurationBlock IpConfiguration
+    public required TerraformList<AzurermVirtualNetworkGatewayIpConfigurationBlock> IpConfiguration
     {
-        get => GetRequiredArgument<AzurermVirtualNetworkGatewayIpConfigurationBlock>("ip_configuration");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualNetworkGatewayIpConfigurationBlock>>("ip_configuration");
         set => SetArgument("ip_configuration", value);
     }
 
     /// <summary>
     /// PolicyGroup block (nesting mode: list).
     /// </summary>
-    public AzurermVirtualNetworkGatewayPolicyGroupBlock? PolicyGroup
+    public TerraformList<AzurermVirtualNetworkGatewayPolicyGroupBlock>? PolicyGroup
     {
-        get => GetArgument<AzurermVirtualNetworkGatewayPolicyGroupBlock>("policy_group");
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayPolicyGroupBlock>>("policy_group");
         set => SetArgument("policy_group", value);
     }
 
@@ -518,9 +518,9 @@ public partial class AzurermVirtualNetworkGateway(string name) : TerraformResour
     /// VpnClientConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpnClientConfiguration block(s) allowed")]
-    public AzurermVirtualNetworkGatewayVpnClientConfigurationBlock? VpnClientConfiguration
+    public TerraformList<AzurermVirtualNetworkGatewayVpnClientConfigurationBlock>? VpnClientConfiguration
     {
-        get => GetArgument<AzurermVirtualNetworkGatewayVpnClientConfigurationBlock>("vpn_client_configuration");
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayVpnClientConfigurationBlock>>("vpn_client_configuration");
         set => SetArgument("vpn_client_configuration", value);
     }
 

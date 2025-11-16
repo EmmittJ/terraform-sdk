@@ -441,18 +441,18 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermKustoClusterIdentityBlock? Identity
+    public TerraformList<AzurermKustoClusterIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermKustoClusterIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermKustoClusterIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// LanguageExtension block (nesting mode: list).
     /// </summary>
-    public AzurermKustoClusterLanguageExtensionBlock? LanguageExtension
+    public TerraformList<AzurermKustoClusterLanguageExtensionBlock>? LanguageExtension
     {
-        get => GetArgument<AzurermKustoClusterLanguageExtensionBlock>("language_extension");
+        get => GetArgument<TerraformList<AzurermKustoClusterLanguageExtensionBlock>>("language_extension");
         set => SetArgument("language_extension", value);
     }
 
@@ -460,9 +460,9 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// LanguageExtensions block (nesting mode: list).
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public AzurermKustoClusterLanguageExtensionsBlock? LanguageExtensions
+    public TerraformList<AzurermKustoClusterLanguageExtensionsBlock>? LanguageExtensions
     {
-        get => GetArgument<AzurermKustoClusterLanguageExtensionsBlock>("language_extensions");
+        get => GetArgument<TerraformList<AzurermKustoClusterLanguageExtensionsBlock>>("language_extensions");
         set => SetArgument("language_extensions", value);
     }
 
@@ -470,9 +470,9 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// OptimizedAutoScale block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OptimizedAutoScale block(s) allowed")]
-    public AzurermKustoClusterOptimizedAutoScaleBlock? OptimizedAutoScale
+    public TerraformList<AzurermKustoClusterOptimizedAutoScaleBlock>? OptimizedAutoScale
     {
-        get => GetArgument<AzurermKustoClusterOptimizedAutoScaleBlock>("optimized_auto_scale");
+        get => GetArgument<TerraformList<AzurermKustoClusterOptimizedAutoScaleBlock>>("optimized_auto_scale");
         set => SetArgument("optimized_auto_scale", value);
     }
 
@@ -483,9 +483,9 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermKustoClusterSkuBlock Sku
+    public required TerraformList<AzurermKustoClusterSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermKustoClusterSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermKustoClusterSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -503,9 +503,9 @@ public partial class AzurermKustoCluster(string name) : TerraformResource("azure
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualNetworkConfiguration block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public AzurermKustoClusterVirtualNetworkConfigurationBlock? VirtualNetworkConfiguration
+    public TerraformList<AzurermKustoClusterVirtualNetworkConfigurationBlock>? VirtualNetworkConfiguration
     {
-        get => GetArgument<AzurermKustoClusterVirtualNetworkConfigurationBlock>("virtual_network_configuration");
+        get => GetArgument<TerraformList<AzurermKustoClusterVirtualNetworkConfigurationBlock>>("virtual_network_configuration");
         set => SetArgument("virtual_network_configuration", value);
     }
 

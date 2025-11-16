@@ -152,9 +152,9 @@ public partial class AzurermPrivateDnsResolverForwardingRule(string name) : Terr
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetDnsServers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetDnsServers block(s) required")]
-    public required AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock TargetDnsServers
+    public required TerraformList<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock> TargetDnsServers
     {
-        get => GetRequiredArgument<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock>("target_dns_servers");
+        get => GetRequiredArgument<TerraformList<AzurermPrivateDnsResolverForwardingRuleTargetDnsServersBlock>>("target_dns_servers");
         set => SetArgument("target_dns_servers", value);
     }
 

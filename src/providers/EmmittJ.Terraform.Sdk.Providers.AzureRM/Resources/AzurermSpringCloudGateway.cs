@@ -460,9 +460,9 @@ public partial class AzurermSpringCloudGateway(string name) : TerraformResource(
     /// ApiMetadata block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApiMetadata block(s) allowed")]
-    public AzurermSpringCloudGatewayApiMetadataBlock? ApiMetadata
+    public TerraformList<AzurermSpringCloudGatewayApiMetadataBlock>? ApiMetadata
     {
-        get => GetArgument<AzurermSpringCloudGatewayApiMetadataBlock>("api_metadata");
+        get => GetArgument<TerraformList<AzurermSpringCloudGatewayApiMetadataBlock>>("api_metadata");
         set => SetArgument("api_metadata", value);
     }
 
@@ -470,9 +470,9 @@ public partial class AzurermSpringCloudGateway(string name) : TerraformResource(
     /// ClientAuthorization block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthorization block(s) allowed")]
-    public AzurermSpringCloudGatewayClientAuthorizationBlock? ClientAuthorization
+    public TerraformList<AzurermSpringCloudGatewayClientAuthorizationBlock>? ClientAuthorization
     {
-        get => GetArgument<AzurermSpringCloudGatewayClientAuthorizationBlock>("client_authorization");
+        get => GetArgument<TerraformList<AzurermSpringCloudGatewayClientAuthorizationBlock>>("client_authorization");
         set => SetArgument("client_authorization", value);
     }
 
@@ -480,9 +480,9 @@ public partial class AzurermSpringCloudGateway(string name) : TerraformResource(
     /// Cors block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
-    public AzurermSpringCloudGatewayCorsBlock? Cors
+    public TerraformList<AzurermSpringCloudGatewayCorsBlock>? Cors
     {
-        get => GetArgument<AzurermSpringCloudGatewayCorsBlock>("cors");
+        get => GetArgument<TerraformList<AzurermSpringCloudGatewayCorsBlock>>("cors");
         set => SetArgument("cors", value);
     }
 
@@ -490,9 +490,9 @@ public partial class AzurermSpringCloudGateway(string name) : TerraformResource(
     /// LocalResponseCachePerInstance block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalResponseCachePerInstance block(s) allowed")]
-    public AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock? LocalResponseCachePerInstance
+    public TerraformList<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock>? LocalResponseCachePerInstance
     {
-        get => GetArgument<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock>("local_response_cache_per_instance");
+        get => GetArgument<TerraformList<AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock>>("local_response_cache_per_instance");
         set => SetArgument("local_response_cache_per_instance", value);
     }
 
@@ -500,9 +500,9 @@ public partial class AzurermSpringCloudGateway(string name) : TerraformResource(
     /// LocalResponseCachePerRoute block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalResponseCachePerRoute block(s) allowed")]
-    public AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock? LocalResponseCachePerRoute
+    public TerraformList<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock>? LocalResponseCachePerRoute
     {
-        get => GetArgument<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock>("local_response_cache_per_route");
+        get => GetArgument<TerraformList<AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock>>("local_response_cache_per_route");
         set => SetArgument("local_response_cache_per_route", value);
     }
 
@@ -510,9 +510,9 @@ public partial class AzurermSpringCloudGateway(string name) : TerraformResource(
     /// Quota block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
-    public AzurermSpringCloudGatewayQuotaBlock? Quota
+    public TerraformList<AzurermSpringCloudGatewayQuotaBlock>? Quota
     {
-        get => GetArgument<AzurermSpringCloudGatewayQuotaBlock>("quota");
+        get => GetArgument<TerraformList<AzurermSpringCloudGatewayQuotaBlock>>("quota");
         set => SetArgument("quota", value);
     }
 
@@ -520,9 +520,9 @@ public partial class AzurermSpringCloudGateway(string name) : TerraformResource(
     /// Sso block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
-    public AzurermSpringCloudGatewaySsoBlock? Sso
+    public TerraformList<AzurermSpringCloudGatewaySsoBlock>? Sso
     {
-        get => GetArgument<AzurermSpringCloudGatewaySsoBlock>("sso");
+        get => GetArgument<TerraformList<AzurermSpringCloudGatewaySsoBlock>>("sso");
         set => SetArgument("sso", value);
     }
 

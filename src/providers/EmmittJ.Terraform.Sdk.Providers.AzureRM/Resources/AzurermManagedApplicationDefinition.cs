@@ -206,9 +206,9 @@ public partial class AzurermManagedApplicationDefinition(string name) : Terrafor
     /// <summary>
     /// Authorization block (nesting mode: set).
     /// </summary>
-    public AzurermManagedApplicationDefinitionAuthorizationBlock? Authorization
+    public TerraformSet<AzurermManagedApplicationDefinitionAuthorizationBlock>? Authorization
     {
-        get => GetArgument<AzurermManagedApplicationDefinitionAuthorizationBlock>("authorization");
+        get => GetArgument<TerraformSet<AzurermManagedApplicationDefinitionAuthorizationBlock>>("authorization");
         set => SetArgument("authorization", value);
     }
 

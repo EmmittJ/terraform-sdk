@@ -843,9 +843,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// <summary>
     /// AdditionalLocation block (nesting mode: list).
     /// </summary>
-    public AzurermApiManagementAdditionalLocationBlock? AdditionalLocation
+    public TerraformList<AzurermApiManagementAdditionalLocationBlock>? AdditionalLocation
     {
-        get => GetArgument<AzurermApiManagementAdditionalLocationBlock>("additional_location");
+        get => GetArgument<TerraformList<AzurermApiManagementAdditionalLocationBlock>>("additional_location");
         set => SetArgument("additional_location", value);
     }
 
@@ -853,9 +853,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// Certificate block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 Certificate block(s) allowed")]
-    public AzurermApiManagementCertificateBlock? Certificate
+    public TerraformList<AzurermApiManagementCertificateBlock>? Certificate
     {
-        get => GetArgument<AzurermApiManagementCertificateBlock>("certificate");
+        get => GetArgument<TerraformList<AzurermApiManagementCertificateBlock>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -863,9 +863,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// Delegation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Delegation block(s) allowed")]
-    public AzurermApiManagementDelegationBlock? Delegation
+    public TerraformList<AzurermApiManagementDelegationBlock>? Delegation
     {
-        get => GetArgument<AzurermApiManagementDelegationBlock>("delegation");
+        get => GetArgument<TerraformList<AzurermApiManagementDelegationBlock>>("delegation");
         set => SetArgument("delegation", value);
     }
 
@@ -873,9 +873,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// HostnameConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HostnameConfiguration block(s) allowed")]
-    public AzurermApiManagementHostnameConfigurationBlock? HostnameConfiguration
+    public TerraformList<AzurermApiManagementHostnameConfigurationBlock>? HostnameConfiguration
     {
-        get => GetArgument<AzurermApiManagementHostnameConfigurationBlock>("hostname_configuration");
+        get => GetArgument<TerraformList<AzurermApiManagementHostnameConfigurationBlock>>("hostname_configuration");
         set => SetArgument("hostname_configuration", value);
     }
 
@@ -883,9 +883,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermApiManagementIdentityBlock? Identity
+    public TerraformList<AzurermApiManagementIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermApiManagementIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermApiManagementIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -893,9 +893,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// Protocols block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Protocols block(s) allowed")]
-    public AzurermApiManagementProtocolsBlock? Protocols
+    public TerraformList<AzurermApiManagementProtocolsBlock>? Protocols
     {
-        get => GetArgument<AzurermApiManagementProtocolsBlock>("protocols");
+        get => GetArgument<TerraformList<AzurermApiManagementProtocolsBlock>>("protocols");
         set => SetArgument("protocols", value);
     }
 
@@ -903,9 +903,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// Security block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
-    public AzurermApiManagementSecurityBlock? Security
+    public TerraformList<AzurermApiManagementSecurityBlock>? Security
     {
-        get => GetArgument<AzurermApiManagementSecurityBlock>("security");
+        get => GetArgument<TerraformList<AzurermApiManagementSecurityBlock>>("security");
         set => SetArgument("security", value);
     }
 
@@ -913,9 +913,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// SignIn block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignIn block(s) allowed")]
-    public AzurermApiManagementSignInBlock? SignIn
+    public TerraformList<AzurermApiManagementSignInBlock>? SignIn
     {
-        get => GetArgument<AzurermApiManagementSignInBlock>("sign_in");
+        get => GetArgument<TerraformList<AzurermApiManagementSignInBlock>>("sign_in");
         set => SetArgument("sign_in", value);
     }
 
@@ -923,9 +923,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// SignUp block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignUp block(s) allowed")]
-    public AzurermApiManagementSignUpBlock? SignUp
+    public TerraformList<AzurermApiManagementSignUpBlock>? SignUp
     {
-        get => GetArgument<AzurermApiManagementSignUpBlock>("sign_up");
+        get => GetArgument<TerraformList<AzurermApiManagementSignUpBlock>>("sign_up");
         set => SetArgument("sign_up", value);
     }
 
@@ -933,9 +933,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// TenantAccess block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TenantAccess block(s) allowed")]
-    public AzurermApiManagementTenantAccessBlock? TenantAccess
+    public TerraformList<AzurermApiManagementTenantAccessBlock>? TenantAccess
     {
-        get => GetArgument<AzurermApiManagementTenantAccessBlock>("tenant_access");
+        get => GetArgument<TerraformList<AzurermApiManagementTenantAccessBlock>>("tenant_access");
         set => SetArgument("tenant_access", value);
     }
 
@@ -952,9 +952,9 @@ public partial class AzurermApiManagement(string name) : TerraformResource("azur
     /// VirtualNetworkConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualNetworkConfiguration block(s) allowed")]
-    public AzurermApiManagementVirtualNetworkConfigurationBlock? VirtualNetworkConfiguration
+    public TerraformList<AzurermApiManagementVirtualNetworkConfigurationBlock>? VirtualNetworkConfiguration
     {
-        get => GetArgument<AzurermApiManagementVirtualNetworkConfigurationBlock>("virtual_network_configuration");
+        get => GetArgument<TerraformList<AzurermApiManagementVirtualNetworkConfigurationBlock>>("virtual_network_configuration");
         set => SetArgument("virtual_network_configuration", value);
     }
 

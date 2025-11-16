@@ -311,18 +311,18 @@ public partial class AzurermDevTestLinuxVirtualMachine(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GalleryImageReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GalleryImageReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GalleryImageReference block(s) allowed")]
-    public required AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock GalleryImageReference
+    public required TerraformList<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock> GalleryImageReference
     {
-        get => GetRequiredArgument<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock>("gallery_image_reference");
+        get => GetRequiredArgument<TerraformList<AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock>>("gallery_image_reference");
         set => SetArgument("gallery_image_reference", value);
     }
 
     /// <summary>
     /// InboundNatRule block (nesting mode: set).
     /// </summary>
-    public AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock? InboundNatRule
+    public TerraformSet<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock>? InboundNatRule
     {
-        get => GetArgument<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock>("inbound_nat_rule");
+        get => GetArgument<TerraformSet<AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock>>("inbound_nat_rule");
         set => SetArgument("inbound_nat_rule", value);
     }
 

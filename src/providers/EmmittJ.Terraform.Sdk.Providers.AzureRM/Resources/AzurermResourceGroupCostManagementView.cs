@@ -222,27 +222,27 @@ public partial class AzurermResourceGroupCostManagementView(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Dataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
-    public required AzurermResourceGroupCostManagementViewDatasetBlock Dataset
+    public required TerraformList<AzurermResourceGroupCostManagementViewDatasetBlock> Dataset
     {
-        get => GetRequiredArgument<AzurermResourceGroupCostManagementViewDatasetBlock>("dataset");
+        get => GetRequiredArgument<TerraformList<AzurermResourceGroupCostManagementViewDatasetBlock>>("dataset");
         set => SetArgument("dataset", value);
     }
 
     /// <summary>
     /// Kpi block (nesting mode: list).
     /// </summary>
-    public AzurermResourceGroupCostManagementViewKpiBlock? Kpi
+    public TerraformList<AzurermResourceGroupCostManagementViewKpiBlock>? Kpi
     {
-        get => GetArgument<AzurermResourceGroupCostManagementViewKpiBlock>("kpi");
+        get => GetArgument<TerraformList<AzurermResourceGroupCostManagementViewKpiBlock>>("kpi");
         set => SetArgument("kpi", value);
     }
 
     /// <summary>
     /// Pivot block (nesting mode: list).
     /// </summary>
-    public AzurermResourceGroupCostManagementViewPivotBlock? Pivot
+    public TerraformList<AzurermResourceGroupCostManagementViewPivotBlock>? Pivot
     {
-        get => GetArgument<AzurermResourceGroupCostManagementViewPivotBlock>("pivot");
+        get => GetArgument<TerraformList<AzurermResourceGroupCostManagementViewPivotBlock>>("pivot");
         set => SetArgument("pivot", value);
     }
 

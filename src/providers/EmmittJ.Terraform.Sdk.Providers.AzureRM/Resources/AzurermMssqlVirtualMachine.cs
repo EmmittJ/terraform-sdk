@@ -511,9 +511,9 @@ public partial class AzurermMssqlVirtualMachine(string name) : TerraformResource
     /// Assessment block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Assessment block(s) allowed")]
-    public AzurermMssqlVirtualMachineAssessmentBlock? Assessment
+    public TerraformList<AzurermMssqlVirtualMachineAssessmentBlock>? Assessment
     {
-        get => GetArgument<AzurermMssqlVirtualMachineAssessmentBlock>("assessment");
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineAssessmentBlock>>("assessment");
         set => SetArgument("assessment", value);
     }
 
@@ -521,9 +521,9 @@ public partial class AzurermMssqlVirtualMachine(string name) : TerraformResource
     /// AutoBackup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoBackup block(s) allowed")]
-    public AzurermMssqlVirtualMachineAutoBackupBlock? AutoBackup
+    public TerraformList<AzurermMssqlVirtualMachineAutoBackupBlock>? AutoBackup
     {
-        get => GetArgument<AzurermMssqlVirtualMachineAutoBackupBlock>("auto_backup");
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineAutoBackupBlock>>("auto_backup");
         set => SetArgument("auto_backup", value);
     }
 
@@ -531,9 +531,9 @@ public partial class AzurermMssqlVirtualMachine(string name) : TerraformResource
     /// AutoPatching block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoPatching block(s) allowed")]
-    public AzurermMssqlVirtualMachineAutoPatchingBlock? AutoPatching
+    public TerraformList<AzurermMssqlVirtualMachineAutoPatchingBlock>? AutoPatching
     {
-        get => GetArgument<AzurermMssqlVirtualMachineAutoPatchingBlock>("auto_patching");
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineAutoPatchingBlock>>("auto_patching");
         set => SetArgument("auto_patching", value);
     }
 
@@ -541,9 +541,9 @@ public partial class AzurermMssqlVirtualMachine(string name) : TerraformResource
     /// KeyVaultCredential block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultCredential block(s) allowed")]
-    public AzurermMssqlVirtualMachineKeyVaultCredentialBlock? KeyVaultCredential
+    public TerraformList<AzurermMssqlVirtualMachineKeyVaultCredentialBlock>? KeyVaultCredential
     {
-        get => GetArgument<AzurermMssqlVirtualMachineKeyVaultCredentialBlock>("key_vault_credential");
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineKeyVaultCredentialBlock>>("key_vault_credential");
         set => SetArgument("key_vault_credential", value);
     }
 
@@ -551,9 +551,9 @@ public partial class AzurermMssqlVirtualMachine(string name) : TerraformResource
     /// SqlInstance block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SqlInstance block(s) allowed")]
-    public AzurermMssqlVirtualMachineSqlInstanceBlock? SqlInstance
+    public TerraformList<AzurermMssqlVirtualMachineSqlInstanceBlock>? SqlInstance
     {
-        get => GetArgument<AzurermMssqlVirtualMachineSqlInstanceBlock>("sql_instance");
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineSqlInstanceBlock>>("sql_instance");
         set => SetArgument("sql_instance", value);
     }
 
@@ -561,9 +561,9 @@ public partial class AzurermMssqlVirtualMachine(string name) : TerraformResource
     /// StorageConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageConfiguration block(s) allowed")]
-    public AzurermMssqlVirtualMachineStorageConfigurationBlock? StorageConfiguration
+    public TerraformList<AzurermMssqlVirtualMachineStorageConfigurationBlock>? StorageConfiguration
     {
-        get => GetArgument<AzurermMssqlVirtualMachineStorageConfigurationBlock>("storage_configuration");
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineStorageConfigurationBlock>>("storage_configuration");
         set => SetArgument("storage_configuration", value);
     }
 
@@ -580,9 +580,9 @@ public partial class AzurermMssqlVirtualMachine(string name) : TerraformResource
     /// WsfcDomainCredential block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WsfcDomainCredential block(s) allowed")]
-    public AzurermMssqlVirtualMachineWsfcDomainCredentialBlock? WsfcDomainCredential
+    public TerraformList<AzurermMssqlVirtualMachineWsfcDomainCredentialBlock>? WsfcDomainCredential
     {
-        get => GetArgument<AzurermMssqlVirtualMachineWsfcDomainCredentialBlock>("wsfc_domain_credential");
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineWsfcDomainCredentialBlock>>("wsfc_domain_credential");
         set => SetArgument("wsfc_domain_credential", value);
     }
 

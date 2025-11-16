@@ -194,9 +194,9 @@ public partial class AzurermDataFactoryDatasetCosmosdbSqlapi(string name) : Terr
     /// <summary>
     /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock? SchemaColumn
+    public TerraformList<AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock>? SchemaColumn
     {
-        get => GetArgument<AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock>("schema_column");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock>>("schema_column");
         set => SetArgument("schema_column", value);
     }
 

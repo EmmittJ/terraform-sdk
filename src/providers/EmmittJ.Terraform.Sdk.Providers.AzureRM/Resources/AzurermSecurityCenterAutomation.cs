@@ -212,9 +212,9 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
-    public required AzurermSecurityCenterAutomationActionBlock Action
+    public required TerraformList<AzurermSecurityCenterAutomationActionBlock> Action
     {
-        get => GetRequiredArgument<AzurermSecurityCenterAutomationActionBlock>("action");
+        get => GetRequiredArgument<TerraformList<AzurermSecurityCenterAutomationActionBlock>>("action");
         set => SetArgument("action", value);
     }
 
@@ -224,9 +224,9 @@ public partial class AzurermSecurityCenterAutomation(string name) : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
-    public required AzurermSecurityCenterAutomationSourceBlock Source
+    public required TerraformList<AzurermSecurityCenterAutomationSourceBlock> Source
     {
-        get => GetRequiredArgument<AzurermSecurityCenterAutomationSourceBlock>("source");
+        get => GetRequiredArgument<TerraformList<AzurermSecurityCenterAutomationSourceBlock>>("source");
         set => SetArgument("source", value);
     }
 

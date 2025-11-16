@@ -180,18 +180,18 @@ public partial class AzurermVpnGatewayNatRule(string name) : TerraformResource("
     /// <summary>
     /// ExternalMapping block (nesting mode: list).
     /// </summary>
-    public AzurermVpnGatewayNatRuleExternalMappingBlock? ExternalMapping
+    public TerraformList<AzurermVpnGatewayNatRuleExternalMappingBlock>? ExternalMapping
     {
-        get => GetArgument<AzurermVpnGatewayNatRuleExternalMappingBlock>("external_mapping");
+        get => GetArgument<TerraformList<AzurermVpnGatewayNatRuleExternalMappingBlock>>("external_mapping");
         set => SetArgument("external_mapping", value);
     }
 
     /// <summary>
     /// InternalMapping block (nesting mode: list).
     /// </summary>
-    public AzurermVpnGatewayNatRuleInternalMappingBlock? InternalMapping
+    public TerraformList<AzurermVpnGatewayNatRuleInternalMappingBlock>? InternalMapping
     {
-        get => GetArgument<AzurermVpnGatewayNatRuleInternalMappingBlock>("internal_mapping");
+        get => GetArgument<TerraformList<AzurermVpnGatewayNatRuleInternalMappingBlock>>("internal_mapping");
         set => SetArgument("internal_mapping", value);
     }
 

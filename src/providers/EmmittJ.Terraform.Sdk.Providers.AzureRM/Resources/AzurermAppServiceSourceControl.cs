@@ -155,9 +155,9 @@ public partial class AzurermAppServiceSourceControl(string name) : TerraformReso
     /// GithubActionConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubActionConfiguration block(s) allowed")]
-    public AzurermAppServiceSourceControlGithubActionConfigurationBlock? GithubActionConfiguration
+    public TerraformList<AzurermAppServiceSourceControlGithubActionConfigurationBlock>? GithubActionConfiguration
     {
-        get => GetArgument<AzurermAppServiceSourceControlGithubActionConfigurationBlock>("github_action_configuration");
+        get => GetArgument<TerraformList<AzurermAppServiceSourceControlGithubActionConfigurationBlock>>("github_action_configuration");
         set => SetArgument("github_action_configuration", value);
     }
 

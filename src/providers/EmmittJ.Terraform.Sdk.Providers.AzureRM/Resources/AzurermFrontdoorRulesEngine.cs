@@ -142,9 +142,9 @@ public partial class AzurermFrontdoorRulesEngine(string name) : TerraformResourc
     /// Rule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Rule block(s) allowed")]
-    public AzurermFrontdoorRulesEngineRuleBlock? Rule
+    public TerraformList<AzurermFrontdoorRulesEngineRuleBlock>? Rule
     {
-        get => GetArgument<AzurermFrontdoorRulesEngineRuleBlock>("rule");
+        get => GetArgument<TerraformList<AzurermFrontdoorRulesEngineRuleBlock>>("rule");
         set => SetArgument("rule", value);
     }
 

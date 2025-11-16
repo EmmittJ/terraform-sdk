@@ -251,9 +251,9 @@ public partial class AzurermBastionHost(string name) : TerraformResource("azurer
     /// IpConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfiguration block(s) allowed")]
-    public AzurermBastionHostIpConfigurationBlock? IpConfiguration
+    public TerraformList<AzurermBastionHostIpConfigurationBlock>? IpConfiguration
     {
-        get => GetArgument<AzurermBastionHostIpConfigurationBlock>("ip_configuration");
+        get => GetArgument<TerraformList<AzurermBastionHostIpConfigurationBlock>>("ip_configuration");
         set => SetArgument("ip_configuration", value);
     }
 

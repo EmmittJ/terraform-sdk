@@ -190,18 +190,18 @@ public partial class AzurermWebPubsubHub(string name) : TerraformResource("azure
     /// <summary>
     /// EventHandler block (nesting mode: list).
     /// </summary>
-    public AzurermWebPubsubHubEventHandlerBlock? EventHandler
+    public TerraformList<AzurermWebPubsubHubEventHandlerBlock>? EventHandler
     {
-        get => GetArgument<AzurermWebPubsubHubEventHandlerBlock>("event_handler");
+        get => GetArgument<TerraformList<AzurermWebPubsubHubEventHandlerBlock>>("event_handler");
         set => SetArgument("event_handler", value);
     }
 
     /// <summary>
     /// EventListener block (nesting mode: list).
     /// </summary>
-    public AzurermWebPubsubHubEventListenerBlock? EventListener
+    public TerraformList<AzurermWebPubsubHubEventListenerBlock>? EventListener
     {
-        get => GetArgument<AzurermWebPubsubHubEventListenerBlock>("event_listener");
+        get => GetArgument<TerraformList<AzurermWebPubsubHubEventListenerBlock>>("event_listener");
         set => SetArgument("event_listener", value);
     }
 

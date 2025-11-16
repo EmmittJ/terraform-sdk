@@ -222,9 +222,9 @@ public partial class AzurermFirewallNatRuleCollection(string name) : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
-    public required AzurermFirewallNatRuleCollectionRuleBlock Rule
+    public required TerraformList<AzurermFirewallNatRuleCollectionRuleBlock> Rule
     {
-        get => GetRequiredArgument<AzurermFirewallNatRuleCollectionRuleBlock>("rule");
+        get => GetRequiredArgument<TerraformList<AzurermFirewallNatRuleCollectionRuleBlock>>("rule");
         set => SetArgument("rule", value);
     }
 

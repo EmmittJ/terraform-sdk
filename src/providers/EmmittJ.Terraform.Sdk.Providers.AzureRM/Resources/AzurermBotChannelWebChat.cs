@@ -149,9 +149,9 @@ public partial class AzurermBotChannelWebChat(string name) : TerraformResource("
     /// <summary>
     /// Site block (nesting mode: set).
     /// </summary>
-    public AzurermBotChannelWebChatSiteBlock? Site
+    public TerraformSet<AzurermBotChannelWebChatSiteBlock>? Site
     {
-        get => GetArgument<AzurermBotChannelWebChatSiteBlock>("site");
+        get => GetArgument<TerraformSet<AzurermBotChannelWebChatSiteBlock>>("site");
         set => SetArgument("site", value);
     }
 

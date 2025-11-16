@@ -276,9 +276,9 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Request is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Request block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Request block(s) allowed")]
-    public required AzurermApplicationInsightsStandardWebTestRequestBlock Request
+    public required TerraformList<AzurermApplicationInsightsStandardWebTestRequestBlock> Request
     {
-        get => GetRequiredArgument<AzurermApplicationInsightsStandardWebTestRequestBlock>("request");
+        get => GetRequiredArgument<TerraformList<AzurermApplicationInsightsStandardWebTestRequestBlock>>("request");
         set => SetArgument("request", value);
     }
 
@@ -295,9 +295,9 @@ public partial class AzurermApplicationInsightsStandardWebTest(string name) : Te
     /// ValidationRules block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ValidationRules block(s) allowed")]
-    public AzurermApplicationInsightsStandardWebTestValidationRulesBlock? ValidationRules
+    public TerraformList<AzurermApplicationInsightsStandardWebTestValidationRulesBlock>? ValidationRules
     {
-        get => GetArgument<AzurermApplicationInsightsStandardWebTestValidationRulesBlock>("validation_rules");
+        get => GetArgument<TerraformList<AzurermApplicationInsightsStandardWebTestValidationRulesBlock>>("validation_rules");
         set => SetArgument("validation_rules", value);
     }
 

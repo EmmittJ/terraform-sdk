@@ -222,9 +222,9 @@ public partial class AzurermContainerConnectedRegistry(string name) : TerraformR
     /// <summary>
     /// Notification block (nesting mode: list).
     /// </summary>
-    public AzurermContainerConnectedRegistryNotificationBlock? Notification
+    public TerraformList<AzurermContainerConnectedRegistryNotificationBlock>? Notification
     {
-        get => GetArgument<AzurermContainerConnectedRegistryNotificationBlock>("notification");
+        get => GetArgument<TerraformList<AzurermContainerConnectedRegistryNotificationBlock>>("notification");
         set => SetArgument("notification", value);
     }
 

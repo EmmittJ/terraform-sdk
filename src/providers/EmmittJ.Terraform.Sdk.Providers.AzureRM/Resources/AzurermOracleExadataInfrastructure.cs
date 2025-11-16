@@ -261,9 +261,9 @@ public partial class AzurermOracleExadataInfrastructure(string name) : Terraform
     /// <summary>
     /// MaintenanceWindow block (nesting mode: list).
     /// </summary>
-    public AzurermOracleExadataInfrastructureMaintenanceWindowBlock? MaintenanceWindow
+    public TerraformList<AzurermOracleExadataInfrastructureMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetArgument<AzurermOracleExadataInfrastructureMaintenanceWindowBlock>("maintenance_window");
+        get => GetArgument<TerraformList<AzurermOracleExadataInfrastructureMaintenanceWindowBlock>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 

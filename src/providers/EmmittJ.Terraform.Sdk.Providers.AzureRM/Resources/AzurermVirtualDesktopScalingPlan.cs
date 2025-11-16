@@ -369,9 +369,9 @@ public partial class AzurermVirtualDesktopScalingPlan(string name) : TerraformRe
     /// <summary>
     /// HostPool block (nesting mode: list).
     /// </summary>
-    public AzurermVirtualDesktopScalingPlanHostPoolBlock? HostPool
+    public TerraformList<AzurermVirtualDesktopScalingPlanHostPoolBlock>? HostPool
     {
-        get => GetArgument<AzurermVirtualDesktopScalingPlanHostPoolBlock>("host_pool");
+        get => GetArgument<TerraformList<AzurermVirtualDesktopScalingPlanHostPoolBlock>>("host_pool");
         set => SetArgument("host_pool", value);
     }
 
@@ -381,9 +381,9 @@ public partial class AzurermVirtualDesktopScalingPlan(string name) : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
-    public required AzurermVirtualDesktopScalingPlanScheduleBlock Schedule
+    public required TerraformList<AzurermVirtualDesktopScalingPlanScheduleBlock> Schedule
     {
-        get => GetRequiredArgument<AzurermVirtualDesktopScalingPlanScheduleBlock>("schedule");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualDesktopScalingPlanScheduleBlock>>("schedule");
         set => SetArgument("schedule", value);
     }
 

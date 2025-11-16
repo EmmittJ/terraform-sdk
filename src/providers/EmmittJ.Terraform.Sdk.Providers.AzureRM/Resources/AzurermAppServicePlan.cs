@@ -218,9 +218,9 @@ public partial class AzurermAppServicePlan(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermAppServicePlanSkuBlock Sku
+    public required TerraformList<AzurermAppServicePlanSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermAppServicePlanSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermAppServicePlanSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 

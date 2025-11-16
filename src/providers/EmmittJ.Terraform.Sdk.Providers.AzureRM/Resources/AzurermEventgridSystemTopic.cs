@@ -186,9 +186,9 @@ public partial class AzurermEventgridSystemTopic(string name) : TerraformResourc
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermEventgridSystemTopicIdentityBlock? Identity
+    public TerraformList<AzurermEventgridSystemTopicIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermEventgridSystemTopicIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

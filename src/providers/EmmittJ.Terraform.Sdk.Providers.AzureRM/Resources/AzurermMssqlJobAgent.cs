@@ -151,9 +151,9 @@ public partial class AzurermMssqlJobAgent(string name) : TerraformResource("azur
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMssqlJobAgentIdentityBlock? Identity
+    public TerraformList<AzurermMssqlJobAgentIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMssqlJobAgentIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMssqlJobAgentIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

@@ -212,9 +212,9 @@ public partial class AzurermMobileNetworkService(string name) : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PccRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PccRule block(s) required")]
-    public required AzurermMobileNetworkServicePccRuleBlock PccRule
+    public required TerraformList<AzurermMobileNetworkServicePccRuleBlock> PccRule
     {
-        get => GetRequiredArgument<AzurermMobileNetworkServicePccRuleBlock>("pcc_rule");
+        get => GetRequiredArgument<TerraformList<AzurermMobileNetworkServicePccRuleBlock>>("pcc_rule");
         set => SetArgument("pcc_rule", value);
     }
 
@@ -222,9 +222,9 @@ public partial class AzurermMobileNetworkService(string name) : TerraformResourc
     /// ServiceQosPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceQosPolicy block(s) allowed")]
-    public AzurermMobileNetworkServiceServiceQosPolicyBlock? ServiceQosPolicy
+    public TerraformList<AzurermMobileNetworkServiceServiceQosPolicyBlock>? ServiceQosPolicy
     {
-        get => GetArgument<AzurermMobileNetworkServiceServiceQosPolicyBlock>("service_qos_policy");
+        get => GetArgument<TerraformList<AzurermMobileNetworkServiceServiceQosPolicyBlock>>("service_qos_policy");
         set => SetArgument("service_qos_policy", value);
     }
 

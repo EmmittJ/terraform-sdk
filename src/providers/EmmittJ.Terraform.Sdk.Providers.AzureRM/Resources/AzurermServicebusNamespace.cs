@@ -303,9 +303,9 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public AzurermServicebusNamespaceCustomerManagedKeyBlock? CustomerManagedKey
+    public TerraformList<AzurermServicebusNamespaceCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetArgument<AzurermServicebusNamespaceCustomerManagedKeyBlock>("customer_managed_key");
+        get => GetArgument<TerraformList<AzurermServicebusNamespaceCustomerManagedKeyBlock>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -313,9 +313,9 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermServicebusNamespaceIdentityBlock? Identity
+    public TerraformList<AzurermServicebusNamespaceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermServicebusNamespaceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermServicebusNamespaceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -323,9 +323,9 @@ public partial class AzurermServicebusNamespace(string name) : TerraformResource
     /// NetworkRuleSet block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkRuleSet block(s) allowed")]
-    public AzurermServicebusNamespaceNetworkRuleSetBlock? NetworkRuleSet
+    public TerraformList<AzurermServicebusNamespaceNetworkRuleSetBlock>? NetworkRuleSet
     {
-        get => GetArgument<AzurermServicebusNamespaceNetworkRuleSetBlock>("network_rule_set");
+        get => GetArgument<TerraformList<AzurermServicebusNamespaceNetworkRuleSetBlock>>("network_rule_set");
         set => SetArgument("network_rule_set", value);
     }
 

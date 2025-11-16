@@ -306,9 +306,9 @@ public partial class AzurermMachineLearningComputeCluster(string name) : Terrafo
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMachineLearningComputeClusterIdentityBlock? Identity
+    public TerraformList<AzurermMachineLearningComputeClusterIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMachineLearningComputeClusterIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMachineLearningComputeClusterIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -319,9 +319,9 @@ public partial class AzurermMachineLearningComputeCluster(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScaleSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScaleSettings block(s) allowed")]
-    public required AzurermMachineLearningComputeClusterScaleSettingsBlock ScaleSettings
+    public required TerraformList<AzurermMachineLearningComputeClusterScaleSettingsBlock> ScaleSettings
     {
-        get => GetRequiredArgument<AzurermMachineLearningComputeClusterScaleSettingsBlock>("scale_settings");
+        get => GetRequiredArgument<TerraformList<AzurermMachineLearningComputeClusterScaleSettingsBlock>>("scale_settings");
         set => SetArgument("scale_settings", value);
     }
 
@@ -329,9 +329,9 @@ public partial class AzurermMachineLearningComputeCluster(string name) : Terrafo
     /// Ssh block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssh block(s) allowed")]
-    public AzurermMachineLearningComputeClusterSshBlock? Ssh
+    public TerraformList<AzurermMachineLearningComputeClusterSshBlock>? Ssh
     {
-        get => GetArgument<AzurermMachineLearningComputeClusterSshBlock>("ssh");
+        get => GetArgument<TerraformList<AzurermMachineLearningComputeClusterSshBlock>>("ssh");
         set => SetArgument("ssh", value);
     }
 

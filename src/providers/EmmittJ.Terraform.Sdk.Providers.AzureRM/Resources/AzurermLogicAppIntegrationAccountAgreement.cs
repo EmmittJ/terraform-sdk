@@ -218,9 +218,9 @@ public partial class AzurermLogicAppIntegrationAccountAgreement(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuestIdentity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GuestIdentity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GuestIdentity block(s) allowed")]
-    public required AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock GuestIdentity
+    public required TerraformList<AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock> GuestIdentity
     {
-        get => GetRequiredArgument<AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock>("guest_identity");
+        get => GetRequiredArgument<TerraformList<AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock>>("guest_identity");
         set => SetArgument("guest_identity", value);
     }
 
@@ -231,9 +231,9 @@ public partial class AzurermLogicAppIntegrationAccountAgreement(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostIdentity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HostIdentity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HostIdentity block(s) allowed")]
-    public required AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock HostIdentity
+    public required TerraformList<AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock> HostIdentity
     {
-        get => GetRequiredArgument<AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock>("host_identity");
+        get => GetRequiredArgument<TerraformList<AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock>>("host_identity");
         set => SetArgument("host_identity", value);
     }
 

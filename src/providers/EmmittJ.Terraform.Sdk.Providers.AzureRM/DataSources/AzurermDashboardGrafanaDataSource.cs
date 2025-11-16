@@ -111,9 +111,9 @@ public partial class AzurermDashboardGrafanaDataSource(string name) : TerraformD
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermDashboardGrafanaDataSourceIdentityBlock? Identity
+    public TerraformList<AzurermDashboardGrafanaDataSourceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermDashboardGrafanaDataSourceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermDashboardGrafanaDataSourceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

@@ -446,9 +446,9 @@ public partial class AzurermFirewallPolicy(string name) : TerraformResource("azu
     /// Dns block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns block(s) allowed")]
-    public AzurermFirewallPolicyDnsBlock? Dns
+    public TerraformList<AzurermFirewallPolicyDnsBlock>? Dns
     {
-        get => GetArgument<AzurermFirewallPolicyDnsBlock>("dns");
+        get => GetArgument<TerraformList<AzurermFirewallPolicyDnsBlock>>("dns");
         set => SetArgument("dns", value);
     }
 
@@ -456,9 +456,9 @@ public partial class AzurermFirewallPolicy(string name) : TerraformResource("azu
     /// ExplicitProxy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExplicitProxy block(s) allowed")]
-    public AzurermFirewallPolicyExplicitProxyBlock? ExplicitProxy
+    public TerraformList<AzurermFirewallPolicyExplicitProxyBlock>? ExplicitProxy
     {
-        get => GetArgument<AzurermFirewallPolicyExplicitProxyBlock>("explicit_proxy");
+        get => GetArgument<TerraformList<AzurermFirewallPolicyExplicitProxyBlock>>("explicit_proxy");
         set => SetArgument("explicit_proxy", value);
     }
 
@@ -466,9 +466,9 @@ public partial class AzurermFirewallPolicy(string name) : TerraformResource("azu
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermFirewallPolicyIdentityBlock? Identity
+    public TerraformList<AzurermFirewallPolicyIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermFirewallPolicyIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermFirewallPolicyIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -476,9 +476,9 @@ public partial class AzurermFirewallPolicy(string name) : TerraformResource("azu
     /// Insights block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Insights block(s) allowed")]
-    public AzurermFirewallPolicyInsightsBlock? Insights
+    public TerraformList<AzurermFirewallPolicyInsightsBlock>? Insights
     {
-        get => GetArgument<AzurermFirewallPolicyInsightsBlock>("insights");
+        get => GetArgument<TerraformList<AzurermFirewallPolicyInsightsBlock>>("insights");
         set => SetArgument("insights", value);
     }
 
@@ -486,9 +486,9 @@ public partial class AzurermFirewallPolicy(string name) : TerraformResource("azu
     /// IntrusionDetection block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IntrusionDetection block(s) allowed")]
-    public AzurermFirewallPolicyIntrusionDetectionBlock? IntrusionDetection
+    public TerraformList<AzurermFirewallPolicyIntrusionDetectionBlock>? IntrusionDetection
     {
-        get => GetArgument<AzurermFirewallPolicyIntrusionDetectionBlock>("intrusion_detection");
+        get => GetArgument<TerraformList<AzurermFirewallPolicyIntrusionDetectionBlock>>("intrusion_detection");
         set => SetArgument("intrusion_detection", value);
     }
 
@@ -496,9 +496,9 @@ public partial class AzurermFirewallPolicy(string name) : TerraformResource("azu
     /// ThreatIntelligenceAllowlist block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatIntelligenceAllowlist block(s) allowed")]
-    public AzurermFirewallPolicyThreatIntelligenceAllowlistBlock? ThreatIntelligenceAllowlist
+    public TerraformList<AzurermFirewallPolicyThreatIntelligenceAllowlistBlock>? ThreatIntelligenceAllowlist
     {
-        get => GetArgument<AzurermFirewallPolicyThreatIntelligenceAllowlistBlock>("threat_intelligence_allowlist");
+        get => GetArgument<TerraformList<AzurermFirewallPolicyThreatIntelligenceAllowlistBlock>>("threat_intelligence_allowlist");
         set => SetArgument("threat_intelligence_allowlist", value);
     }
 
@@ -515,9 +515,9 @@ public partial class AzurermFirewallPolicy(string name) : TerraformResource("azu
     /// TlsCertificate block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsCertificate block(s) allowed")]
-    public AzurermFirewallPolicyTlsCertificateBlock? TlsCertificate
+    public TerraformList<AzurermFirewallPolicyTlsCertificateBlock>? TlsCertificate
     {
-        get => GetArgument<AzurermFirewallPolicyTlsCertificateBlock>("tls_certificate");
+        get => GetArgument<TerraformList<AzurermFirewallPolicyTlsCertificateBlock>>("tls_certificate");
         set => SetArgument("tls_certificate", value);
     }
 

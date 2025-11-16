@@ -158,9 +158,9 @@ public partial class AzurermNetworkFunctionCollectorPolicy(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpfxEmission is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpfxEmission block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpfxEmission block(s) allowed")]
-    public required AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock IpfxEmission
+    public required TerraformList<AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock> IpfxEmission
     {
-        get => GetRequiredArgument<AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock>("ipfx_emission");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock>>("ipfx_emission");
         set => SetArgument("ipfx_emission", value);
     }
 
@@ -171,9 +171,9 @@ public partial class AzurermNetworkFunctionCollectorPolicy(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpfxIngestion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpfxIngestion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpfxIngestion block(s) allowed")]
-    public required AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock IpfxIngestion
+    public required TerraformList<AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock> IpfxIngestion
     {
-        get => GetRequiredArgument<AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock>("ipfx_ingestion");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock>>("ipfx_ingestion");
         set => SetArgument("ipfx_ingestion", value);
     }
 

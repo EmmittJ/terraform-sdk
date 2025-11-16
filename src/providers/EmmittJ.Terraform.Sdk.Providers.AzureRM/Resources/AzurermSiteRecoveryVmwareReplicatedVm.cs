@@ -368,18 +368,18 @@ public partial class AzurermSiteRecoveryVmwareReplicatedVm(string name) : Terraf
     /// <summary>
     /// ManagedDisk block (nesting mode: list).
     /// </summary>
-    public AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock? ManagedDisk
+    public TerraformList<AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock>? ManagedDisk
     {
-        get => GetArgument<AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock>("managed_disk");
+        get => GetArgument<TerraformList<AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock>>("managed_disk");
         set => SetArgument("managed_disk", value);
     }
 
     /// <summary>
     /// NetworkInterface block (nesting mode: list).
     /// </summary>
-    public AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock? NetworkInterface
+    public TerraformList<AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock>? NetworkInterface
     {
-        get => GetArgument<AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock>("network_interface");
+        get => GetArgument<TerraformList<AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock>>("network_interface");
         set => SetArgument("network_interface", value);
     }
 

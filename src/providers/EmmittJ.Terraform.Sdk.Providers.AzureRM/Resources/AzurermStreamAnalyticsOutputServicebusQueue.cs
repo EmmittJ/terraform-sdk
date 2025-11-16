@@ -218,9 +218,9 @@ public partial class AzurermStreamAnalyticsOutputServicebusQueue(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serialization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
-    public required AzurermStreamAnalyticsOutputServicebusQueueSerializationBlock Serialization
+    public required TerraformList<AzurermStreamAnalyticsOutputServicebusQueueSerializationBlock> Serialization
     {
-        get => GetRequiredArgument<AzurermStreamAnalyticsOutputServicebusQueueSerializationBlock>("serialization");
+        get => GetRequiredArgument<TerraformList<AzurermStreamAnalyticsOutputServicebusQueueSerializationBlock>>("serialization");
         set => SetArgument("serialization", value);
     }
 

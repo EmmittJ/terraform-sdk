@@ -227,18 +227,18 @@ public partial class AzurermContainerAppEnvironmentDaprComponent(string name) : 
     /// <summary>
     /// Metadata block (nesting mode: list).
     /// </summary>
-    public AzurermContainerAppEnvironmentDaprComponentMetadataBlock? Metadata
+    public TerraformList<AzurermContainerAppEnvironmentDaprComponentMetadataBlock>? Metadata
     {
-        get => GetArgument<AzurermContainerAppEnvironmentDaprComponentMetadataBlock>("metadata");
+        get => GetArgument<TerraformList<AzurermContainerAppEnvironmentDaprComponentMetadataBlock>>("metadata");
         set => SetArgument("metadata", value);
     }
 
     /// <summary>
     /// Secret block (nesting mode: set).
     /// </summary>
-    public AzurermContainerAppEnvironmentDaprComponentSecretBlock? Secret
+    public TerraformSet<AzurermContainerAppEnvironmentDaprComponentSecretBlock>? Secret
     {
-        get => GetArgument<AzurermContainerAppEnvironmentDaprComponentSecretBlock>("secret");
+        get => GetArgument<TerraformSet<AzurermContainerAppEnvironmentDaprComponentSecretBlock>>("secret");
         set => SetArgument("secret", value);
     }
 

@@ -304,9 +304,9 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    public AzurermAiFoundryEncryptionBlock? Encryption
+    public TerraformList<AzurermAiFoundryEncryptionBlock>? Encryption
     {
-        get => GetArgument<AzurermAiFoundryEncryptionBlock>("encryption");
+        get => GetArgument<TerraformList<AzurermAiFoundryEncryptionBlock>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -317,9 +317,9 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermAiFoundryIdentityBlock Identity
+    public required TerraformList<AzurermAiFoundryIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermAiFoundryIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermAiFoundryIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -327,9 +327,9 @@ public partial class AzurermAiFoundry(string name) : TerraformResource("azurerm_
     /// ManagedNetwork block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedNetwork block(s) allowed")]
-    public AzurermAiFoundryManagedNetworkBlock? ManagedNetwork
+    public TerraformList<AzurermAiFoundryManagedNetworkBlock>? ManagedNetwork
     {
-        get => GetArgument<AzurermAiFoundryManagedNetworkBlock>("managed_network");
+        get => GetArgument<TerraformList<AzurermAiFoundryManagedNetworkBlock>>("managed_network");
         set => SetArgument("managed_network", value);
     }
 

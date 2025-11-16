@@ -212,9 +212,9 @@ public partial class AzurermDataFactoryDatasetSnowflake(string name) : Terraform
     /// <summary>
     /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock? SchemaColumn
+    public TerraformList<AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock>? SchemaColumn
     {
-        get => GetArgument<AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock>("schema_column");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock>>("schema_column");
         set => SetArgument("schema_column", value);
     }
 

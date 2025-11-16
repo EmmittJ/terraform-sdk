@@ -381,9 +381,9 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermPostgresqlServerIdentityBlock? Identity
+    public TerraformList<AzurermPostgresqlServerIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermPostgresqlServerIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermPostgresqlServerIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -391,9 +391,9 @@ public partial class AzurermPostgresqlServer(string name) : TerraformResource("a
     /// ThreatDetectionPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatDetectionPolicy block(s) allowed")]
-    public AzurermPostgresqlServerThreatDetectionPolicyBlock? ThreatDetectionPolicy
+    public TerraformList<AzurermPostgresqlServerThreatDetectionPolicyBlock>? ThreatDetectionPolicy
     {
-        get => GetArgument<AzurermPostgresqlServerThreatDetectionPolicyBlock>("threat_detection_policy");
+        get => GetArgument<TerraformList<AzurermPostgresqlServerThreatDetectionPolicyBlock>>("threat_detection_policy");
         set => SetArgument("threat_detection_policy", value);
     }
 

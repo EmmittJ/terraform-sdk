@@ -406,18 +406,18 @@ public partial class AzurermOracleCloudVmCluster(string name) : TerraformResourc
     /// DataCollectionOptions block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataCollectionOptions block(s) allowed")]
-    public AzurermOracleCloudVmClusterDataCollectionOptionsBlock? DataCollectionOptions
+    public TerraformList<AzurermOracleCloudVmClusterDataCollectionOptionsBlock>? DataCollectionOptions
     {
-        get => GetArgument<AzurermOracleCloudVmClusterDataCollectionOptionsBlock>("data_collection_options");
+        get => GetArgument<TerraformList<AzurermOracleCloudVmClusterDataCollectionOptionsBlock>>("data_collection_options");
         set => SetArgument("data_collection_options", value);
     }
 
     /// <summary>
     /// FileSystemConfiguration block (nesting mode: list).
     /// </summary>
-    public AzurermOracleCloudVmClusterFileSystemConfigurationBlock? FileSystemConfiguration
+    public TerraformList<AzurermOracleCloudVmClusterFileSystemConfigurationBlock>? FileSystemConfiguration
     {
-        get => GetArgument<AzurermOracleCloudVmClusterFileSystemConfigurationBlock>("file_system_configuration");
+        get => GetArgument<TerraformList<AzurermOracleCloudVmClusterFileSystemConfigurationBlock>>("file_system_configuration");
         set => SetArgument("file_system_configuration", value);
     }
 

@@ -169,9 +169,9 @@ public partial class AzurermLbBackendAddressPool(string name) : TerraformResourc
     /// <summary>
     /// TunnelInterface block (nesting mode: list).
     /// </summary>
-    public AzurermLbBackendAddressPoolTunnelInterfaceBlock? TunnelInterface
+    public TerraformList<AzurermLbBackendAddressPoolTunnelInterfaceBlock>? TunnelInterface
     {
-        get => GetArgument<AzurermLbBackendAddressPoolTunnelInterfaceBlock>("tunnel_interface");
+        get => GetArgument<TerraformList<AzurermLbBackendAddressPoolTunnelInterfaceBlock>>("tunnel_interface");
         set => SetArgument("tunnel_interface", value);
     }
 

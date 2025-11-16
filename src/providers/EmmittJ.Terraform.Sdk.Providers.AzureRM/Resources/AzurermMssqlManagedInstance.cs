@@ -394,9 +394,9 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     /// AzureActiveDirectoryAdministrator block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectoryAdministrator block(s) allowed")]
-    public AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock? AzureActiveDirectoryAdministrator
+    public TerraformList<AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock>? AzureActiveDirectoryAdministrator
     {
-        get => GetArgument<AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock>("azure_active_directory_administrator");
+        get => GetArgument<TerraformList<AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock>>("azure_active_directory_administrator");
         set => SetArgument("azure_active_directory_administrator", value);
     }
 
@@ -404,9 +404,9 @@ public partial class AzurermMssqlManagedInstance(string name) : TerraformResourc
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMssqlManagedInstanceIdentityBlock? Identity
+    public TerraformList<AzurermMssqlManagedInstanceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMssqlManagedInstanceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMssqlManagedInstanceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

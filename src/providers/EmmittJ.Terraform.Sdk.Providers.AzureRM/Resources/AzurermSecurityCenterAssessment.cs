@@ -143,9 +143,9 @@ public partial class AzurermSecurityCenterAssessment(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Status block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Status block(s) allowed")]
-    public required AzurermSecurityCenterAssessmentStatusBlock Status
+    public required TerraformList<AzurermSecurityCenterAssessmentStatusBlock> Status
     {
-        get => GetRequiredArgument<AzurermSecurityCenterAssessmentStatusBlock>("status");
+        get => GetRequiredArgument<TerraformList<AzurermSecurityCenterAssessmentStatusBlock>>("status");
         set => SetArgument("status", value);
     }
 

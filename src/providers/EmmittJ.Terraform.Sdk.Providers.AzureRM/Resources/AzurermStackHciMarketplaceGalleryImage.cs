@@ -204,9 +204,9 @@ public partial class AzurermStackHciMarketplaceGalleryImage(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identifier block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identifier block(s) allowed")]
-    public required AzurermStackHciMarketplaceGalleryImageIdentifierBlock Identifier
+    public required TerraformList<AzurermStackHciMarketplaceGalleryImageIdentifierBlock> Identifier
     {
-        get => GetRequiredArgument<AzurermStackHciMarketplaceGalleryImageIdentifierBlock>("identifier");
+        get => GetRequiredArgument<TerraformList<AzurermStackHciMarketplaceGalleryImageIdentifierBlock>>("identifier");
         set => SetArgument("identifier", value);
     }
 

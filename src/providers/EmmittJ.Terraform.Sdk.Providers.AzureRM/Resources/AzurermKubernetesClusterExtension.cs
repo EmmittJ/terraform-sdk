@@ -215,9 +215,9 @@ public partial class AzurermKubernetesClusterExtension(string name) : TerraformR
     /// Plan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public AzurermKubernetesClusterExtensionPlanBlock? Plan
+    public TerraformList<AzurermKubernetesClusterExtensionPlanBlock>? Plan
     {
-        get => GetArgument<AzurermKubernetesClusterExtensionPlanBlock>("plan");
+        get => GetArgument<TerraformList<AzurermKubernetesClusterExtensionPlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 

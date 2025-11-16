@@ -253,18 +253,18 @@ public partial class AzurermSpringCloudGatewayRouteConfig(string name) : Terrafo
     /// OpenApi block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenApi block(s) allowed")]
-    public AzurermSpringCloudGatewayRouteConfigOpenApiBlock? OpenApi
+    public TerraformList<AzurermSpringCloudGatewayRouteConfigOpenApiBlock>? OpenApi
     {
-        get => GetArgument<AzurermSpringCloudGatewayRouteConfigOpenApiBlock>("open_api");
+        get => GetArgument<TerraformList<AzurermSpringCloudGatewayRouteConfigOpenApiBlock>>("open_api");
         set => SetArgument("open_api", value);
     }
 
     /// <summary>
     /// Route block (nesting mode: set).
     /// </summary>
-    public AzurermSpringCloudGatewayRouteConfigRouteBlock? Route
+    public TerraformSet<AzurermSpringCloudGatewayRouteConfigRouteBlock>? Route
     {
-        get => GetArgument<AzurermSpringCloudGatewayRouteConfigRouteBlock>("route");
+        get => GetArgument<TerraformSet<AzurermSpringCloudGatewayRouteConfigRouteBlock>>("route");
         set => SetArgument("route", value);
     }
 

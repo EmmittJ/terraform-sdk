@@ -212,9 +212,9 @@ public partial class AzurermDataFactoryDatasetHttp(string name) : TerraformResou
     /// <summary>
     /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryDatasetHttpSchemaColumnBlock? SchemaColumn
+    public TerraformList<AzurermDataFactoryDatasetHttpSchemaColumnBlock>? SchemaColumn
     {
-        get => GetArgument<AzurermDataFactoryDatasetHttpSchemaColumnBlock>("schema_column");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetHttpSchemaColumnBlock>>("schema_column");
         set => SetArgument("schema_column", value);
     }
 

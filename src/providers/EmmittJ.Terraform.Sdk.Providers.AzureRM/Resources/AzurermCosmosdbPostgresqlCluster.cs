@@ -312,9 +312,9 @@ public partial class AzurermCosmosdbPostgresqlCluster(string name) : TerraformRe
     /// MaintenanceWindow block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
-    public AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock? MaintenanceWindow
+    public TerraformList<AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetArgument<AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock>("maintenance_window");
+        get => GetArgument<TerraformList<AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 

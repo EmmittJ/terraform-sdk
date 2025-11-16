@@ -222,27 +222,27 @@ public partial class AzurermSubscriptionCostManagementView(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Dataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
-    public required AzurermSubscriptionCostManagementViewDatasetBlock Dataset
+    public required TerraformList<AzurermSubscriptionCostManagementViewDatasetBlock> Dataset
     {
-        get => GetRequiredArgument<AzurermSubscriptionCostManagementViewDatasetBlock>("dataset");
+        get => GetRequiredArgument<TerraformList<AzurermSubscriptionCostManagementViewDatasetBlock>>("dataset");
         set => SetArgument("dataset", value);
     }
 
     /// <summary>
     /// Kpi block (nesting mode: list).
     /// </summary>
-    public AzurermSubscriptionCostManagementViewKpiBlock? Kpi
+    public TerraformList<AzurermSubscriptionCostManagementViewKpiBlock>? Kpi
     {
-        get => GetArgument<AzurermSubscriptionCostManagementViewKpiBlock>("kpi");
+        get => GetArgument<TerraformList<AzurermSubscriptionCostManagementViewKpiBlock>>("kpi");
         set => SetArgument("kpi", value);
     }
 
     /// <summary>
     /// Pivot block (nesting mode: list).
     /// </summary>
-    public AzurermSubscriptionCostManagementViewPivotBlock? Pivot
+    public TerraformList<AzurermSubscriptionCostManagementViewPivotBlock>? Pivot
     {
-        get => GetArgument<AzurermSubscriptionCostManagementViewPivotBlock>("pivot");
+        get => GetArgument<TerraformList<AzurermSubscriptionCostManagementViewPivotBlock>>("pivot");
         set => SetArgument("pivot", value);
     }
 

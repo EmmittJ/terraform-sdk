@@ -155,9 +155,9 @@ public partial class AzurermStorageBlobInventoryPolicy(string name) : TerraformR
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
-    public required AzurermStorageBlobInventoryPolicyRulesBlock Rules
+    public required TerraformSet<AzurermStorageBlobInventoryPolicyRulesBlock> Rules
     {
-        get => GetRequiredArgument<AzurermStorageBlobInventoryPolicyRulesBlock>("rules");
+        get => GetRequiredArgument<TerraformSet<AzurermStorageBlobInventoryPolicyRulesBlock>>("rules");
         set => SetArgument("rules", value);
     }
 

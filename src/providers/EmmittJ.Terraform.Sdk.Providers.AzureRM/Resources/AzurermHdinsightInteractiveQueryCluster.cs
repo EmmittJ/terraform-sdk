@@ -629,9 +629,9 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentVersion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ComponentVersion block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComponentVersion block(s) allowed")]
-    public required AzurermHdinsightInteractiveQueryClusterComponentVersionBlock ComponentVersion
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterComponentVersionBlock> ComponentVersion
     {
-        get => GetRequiredArgument<AzurermHdinsightInteractiveQueryClusterComponentVersionBlock>("component_version");
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterComponentVersionBlock>>("component_version");
         set => SetArgument("component_version", value);
     }
 
@@ -639,18 +639,18 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     /// ComputeIsolation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeIsolation block(s) allowed")]
-    public AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock? ComputeIsolation
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock>? ComputeIsolation
     {
-        get => GetArgument<AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock>("compute_isolation");
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock>>("compute_isolation");
         set => SetArgument("compute_isolation", value);
     }
 
     /// <summary>
     /// DiskEncryption block (nesting mode: list).
     /// </summary>
-    public AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock? DiskEncryption
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock>? DiskEncryption
     {
-        get => GetArgument<AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock>("disk_encryption");
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock>>("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
@@ -658,9 +658,9 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     /// Extension block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Extension block(s) allowed")]
-    public AzurermHdinsightInteractiveQueryClusterExtensionBlock? Extension
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterExtensionBlock>? Extension
     {
-        get => GetArgument<AzurermHdinsightInteractiveQueryClusterExtensionBlock>("extension");
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterExtensionBlock>>("extension");
         set => SetArgument("extension", value);
     }
 
@@ -671,9 +671,9 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gateway is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Gateway block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gateway block(s) allowed")]
-    public required AzurermHdinsightInteractiveQueryClusterGatewayBlock Gateway
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterGatewayBlock> Gateway
     {
-        get => GetRequiredArgument<AzurermHdinsightInteractiveQueryClusterGatewayBlock>("gateway");
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterGatewayBlock>>("gateway");
         set => SetArgument("gateway", value);
     }
 
@@ -681,9 +681,9 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     /// Metastores block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metastores block(s) allowed")]
-    public AzurermHdinsightInteractiveQueryClusterMetastoresBlock? Metastores
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterMetastoresBlock>? Metastores
     {
-        get => GetArgument<AzurermHdinsightInteractiveQueryClusterMetastoresBlock>("metastores");
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterMetastoresBlock>>("metastores");
         set => SetArgument("metastores", value);
     }
 
@@ -691,9 +691,9 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     /// Monitor block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitor block(s) allowed")]
-    public AzurermHdinsightInteractiveQueryClusterMonitorBlock? Monitor
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterMonitorBlock>? Monitor
     {
-        get => GetArgument<AzurermHdinsightInteractiveQueryClusterMonitorBlock>("monitor");
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterMonitorBlock>>("monitor");
         set => SetArgument("monitor", value);
     }
 
@@ -701,9 +701,9 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     /// Network block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
-    public AzurermHdinsightInteractiveQueryClusterNetworkBlock? Network
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterNetworkBlock>? Network
     {
-        get => GetArgument<AzurermHdinsightInteractiveQueryClusterNetworkBlock>("network");
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterNetworkBlock>>("network");
         set => SetArgument("network", value);
     }
 
@@ -711,9 +711,9 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     /// PrivateLinkConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLinkConfiguration block(s) allowed")]
-    public AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock? PrivateLinkConfiguration
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock>? PrivateLinkConfiguration
     {
-        get => GetArgument<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock>("private_link_configuration");
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock>>("private_link_configuration");
         set => SetArgument("private_link_configuration", value);
     }
 
@@ -724,9 +724,9 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Roles is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Roles block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Roles block(s) allowed")]
-    public required AzurermHdinsightInteractiveQueryClusterRolesBlock Roles
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlock> Roles
     {
-        get => GetRequiredArgument<AzurermHdinsightInteractiveQueryClusterRolesBlock>("roles");
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlock>>("roles");
         set => SetArgument("roles", value);
     }
 
@@ -734,18 +734,18 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     /// SecurityProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
-    public AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock? SecurityProfile
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock>? SecurityProfile
     {
-        get => GetArgument<AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock>("security_profile");
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock>>("security_profile");
         set => SetArgument("security_profile", value);
     }
 
     /// <summary>
     /// StorageAccount block (nesting mode: list).
     /// </summary>
-    public AzurermHdinsightInteractiveQueryClusterStorageAccountBlock? StorageAccount
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermHdinsightInteractiveQueryClusterStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 
@@ -753,9 +753,9 @@ public partial class AzurermHdinsightInteractiveQueryCluster(string name) : Terr
     /// StorageAccountGen2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccountGen2 block(s) allowed")]
-    public AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block? StorageAccountGen2
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block>? StorageAccountGen2
     {
-        get => GetArgument<AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block>("storage_account_gen2");
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block>>("storage_account_gen2");
         set => SetArgument("storage_account_gen2", value);
     }
 

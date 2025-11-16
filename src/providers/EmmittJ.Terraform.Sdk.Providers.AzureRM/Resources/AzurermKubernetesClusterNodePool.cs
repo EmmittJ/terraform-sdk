@@ -661,9 +661,9 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// KubeletConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubeletConfig block(s) allowed")]
-    public AzurermKubernetesClusterNodePoolKubeletConfigBlock? KubeletConfig
+    public TerraformList<AzurermKubernetesClusterNodePoolKubeletConfigBlock>? KubeletConfig
     {
-        get => GetArgument<AzurermKubernetesClusterNodePoolKubeletConfigBlock>("kubelet_config");
+        get => GetArgument<TerraformList<AzurermKubernetesClusterNodePoolKubeletConfigBlock>>("kubelet_config");
         set => SetArgument("kubelet_config", value);
     }
 
@@ -671,9 +671,9 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// LinuxOsConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinuxOsConfig block(s) allowed")]
-    public AzurermKubernetesClusterNodePoolLinuxOsConfigBlock? LinuxOsConfig
+    public TerraformList<AzurermKubernetesClusterNodePoolLinuxOsConfigBlock>? LinuxOsConfig
     {
-        get => GetArgument<AzurermKubernetesClusterNodePoolLinuxOsConfigBlock>("linux_os_config");
+        get => GetArgument<TerraformList<AzurermKubernetesClusterNodePoolLinuxOsConfigBlock>>("linux_os_config");
         set => SetArgument("linux_os_config", value);
     }
 
@@ -681,9 +681,9 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// NodeNetworkProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeNetworkProfile block(s) allowed")]
-    public AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock? NodeNetworkProfile
+    public TerraformList<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock>? NodeNetworkProfile
     {
-        get => GetArgument<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock>("node_network_profile");
+        get => GetArgument<TerraformList<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock>>("node_network_profile");
         set => SetArgument("node_network_profile", value);
     }
 
@@ -700,9 +700,9 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// UpgradeSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradeSettings block(s) allowed")]
-    public AzurermKubernetesClusterNodePoolUpgradeSettingsBlock? UpgradeSettings
+    public TerraformList<AzurermKubernetesClusterNodePoolUpgradeSettingsBlock>? UpgradeSettings
     {
-        get => GetArgument<AzurermKubernetesClusterNodePoolUpgradeSettingsBlock>("upgrade_settings");
+        get => GetArgument<TerraformList<AzurermKubernetesClusterNodePoolUpgradeSettingsBlock>>("upgrade_settings");
         set => SetArgument("upgrade_settings", value);
     }
 
@@ -710,9 +710,9 @@ public partial class AzurermKubernetesClusterNodePool(string name) : TerraformRe
     /// WindowsProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WindowsProfile block(s) allowed")]
-    public AzurermKubernetesClusterNodePoolWindowsProfileBlock? WindowsProfile
+    public TerraformList<AzurermKubernetesClusterNodePoolWindowsProfileBlock>? WindowsProfile
     {
-        get => GetArgument<AzurermKubernetesClusterNodePoolWindowsProfileBlock>("windows_profile");
+        get => GetArgument<TerraformList<AzurermKubernetesClusterNodePoolWindowsProfileBlock>>("windows_profile");
         set => SetArgument("windows_profile", value);
     }
 

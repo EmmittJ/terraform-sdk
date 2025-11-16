@@ -157,9 +157,9 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUda(string name) : 
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Input is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Input block(s) required")]
-    public required AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock Input
+    public required TerraformList<AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock> Input
     {
-        get => GetRequiredArgument<AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock>("input");
+        get => GetRequiredArgument<TerraformList<AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock>>("input");
         set => SetArgument("input", value);
     }
 
@@ -170,9 +170,9 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUda(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Output is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Output block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Output block(s) allowed")]
-    public required AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock Output
+    public required TerraformList<AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock> Output
     {
-        get => GetRequiredArgument<AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock>("output");
+        get => GetRequiredArgument<TerraformList<AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock>>("output");
         set => SetArgument("output", value);
     }
 

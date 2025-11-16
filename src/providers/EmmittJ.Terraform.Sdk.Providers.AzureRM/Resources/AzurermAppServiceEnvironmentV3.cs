@@ -186,9 +186,9 @@ public partial class AzurermAppServiceEnvironmentV3(string name) : TerraformReso
     /// <summary>
     /// ClusterSetting block (nesting mode: list).
     /// </summary>
-    public AzurermAppServiceEnvironmentV3ClusterSettingBlock? ClusterSetting
+    public TerraformList<AzurermAppServiceEnvironmentV3ClusterSettingBlock>? ClusterSetting
     {
-        get => GetArgument<AzurermAppServiceEnvironmentV3ClusterSettingBlock>("cluster_setting");
+        get => GetArgument<TerraformList<AzurermAppServiceEnvironmentV3ClusterSettingBlock>>("cluster_setting");
         set => SetArgument("cluster_setting", value);
     }
 

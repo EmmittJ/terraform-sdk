@@ -251,9 +251,9 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance(string name) :
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock? Identity
+    public TerraformList<AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermWorkloadsSapSingleNodeVirtualInstanceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -264,9 +264,9 @@ public partial class AzurermWorkloadsSapSingleNodeVirtualInstance(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SingleServerConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SingleServerConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleServerConfiguration block(s) allowed")]
-    public required AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock SingleServerConfiguration
+    public required TerraformList<AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock> SingleServerConfiguration
     {
-        get => GetRequiredArgument<AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock>("single_server_configuration");
+        get => GetRequiredArgument<TerraformList<AzurermWorkloadsSapSingleNodeVirtualInstanceSingleServerConfigurationBlock>>("single_server_configuration");
         set => SetArgument("single_server_configuration", value);
     }
 

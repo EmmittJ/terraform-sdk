@@ -287,9 +287,9 @@ public partial class AzurermStorageAccountQueueProperties(string name) : Terrafo
     /// CorsRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 CorsRule block(s) allowed")]
-    public AzurermStorageAccountQueuePropertiesCorsRuleBlock? CorsRule
+    public TerraformList<AzurermStorageAccountQueuePropertiesCorsRuleBlock>? CorsRule
     {
-        get => GetArgument<AzurermStorageAccountQueuePropertiesCorsRuleBlock>("cors_rule");
+        get => GetArgument<TerraformList<AzurermStorageAccountQueuePropertiesCorsRuleBlock>>("cors_rule");
         set => SetArgument("cors_rule", value);
     }
 
@@ -297,9 +297,9 @@ public partial class AzurermStorageAccountQueueProperties(string name) : Terrafo
     /// HourMetrics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourMetrics block(s) allowed")]
-    public AzurermStorageAccountQueuePropertiesHourMetricsBlock? HourMetrics
+    public TerraformList<AzurermStorageAccountQueuePropertiesHourMetricsBlock>? HourMetrics
     {
-        get => GetArgument<AzurermStorageAccountQueuePropertiesHourMetricsBlock>("hour_metrics");
+        get => GetArgument<TerraformList<AzurermStorageAccountQueuePropertiesHourMetricsBlock>>("hour_metrics");
         set => SetArgument("hour_metrics", value);
     }
 
@@ -307,9 +307,9 @@ public partial class AzurermStorageAccountQueueProperties(string name) : Terrafo
     /// Logging block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
-    public AzurermStorageAccountQueuePropertiesLoggingBlock? Logging
+    public TerraformList<AzurermStorageAccountQueuePropertiesLoggingBlock>? Logging
     {
-        get => GetArgument<AzurermStorageAccountQueuePropertiesLoggingBlock>("logging");
+        get => GetArgument<TerraformList<AzurermStorageAccountQueuePropertiesLoggingBlock>>("logging");
         set => SetArgument("logging", value);
     }
 
@@ -317,9 +317,9 @@ public partial class AzurermStorageAccountQueueProperties(string name) : Terrafo
     /// MinuteMetrics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinuteMetrics block(s) allowed")]
-    public AzurermStorageAccountQueuePropertiesMinuteMetricsBlock? MinuteMetrics
+    public TerraformList<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock>? MinuteMetrics
     {
-        get => GetArgument<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock>("minute_metrics");
+        get => GetArgument<TerraformList<AzurermStorageAccountQueuePropertiesMinuteMetricsBlock>>("minute_metrics");
         set => SetArgument("minute_metrics", value);
     }
 

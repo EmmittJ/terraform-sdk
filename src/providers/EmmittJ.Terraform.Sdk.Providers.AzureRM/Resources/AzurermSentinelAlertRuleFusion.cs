@@ -140,9 +140,9 @@ public partial class AzurermSentinelAlertRuleFusion(string name) : TerraformReso
     /// <summary>
     /// Source block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelAlertRuleFusionSourceBlock? Source
+    public TerraformList<AzurermSentinelAlertRuleFusionSourceBlock>? Source
     {
-        get => GetArgument<AzurermSentinelAlertRuleFusionSourceBlock>("source");
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleFusionSourceBlock>>("source");
         set => SetArgument("source", value);
     }
 

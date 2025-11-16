@@ -440,9 +440,9 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// Linux block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Linux block(s) allowed")]
-    public AzurermAutomationSoftwareUpdateConfigurationLinuxBlock? Linux
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock>? Linux
     {
-        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock>("linux");
+        get => GetArgument<TerraformList<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock>>("linux");
         set => SetArgument("linux", value);
     }
 
@@ -450,9 +450,9 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// PostTask block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostTask block(s) allowed")]
-    public AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock? PostTask
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock>? PostTask
     {
-        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock>("post_task");
+        get => GetArgument<TerraformList<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock>>("post_task");
         set => SetArgument("post_task", value);
     }
 
@@ -460,9 +460,9 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// PreTask block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreTask block(s) allowed")]
-    public AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock? PreTask
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock>? PreTask
     {
-        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock>("pre_task");
+        get => GetArgument<TerraformList<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock>>("pre_task");
         set => SetArgument("pre_task", value);
     }
 
@@ -473,9 +473,9 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public required AzurermAutomationSoftwareUpdateConfigurationScheduleBlock Schedule
+    public required TerraformList<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock> Schedule
     {
-        get => GetRequiredArgument<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock>("schedule");
+        get => GetRequiredArgument<TerraformList<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -483,9 +483,9 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// Target block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
-    public AzurermAutomationSoftwareUpdateConfigurationTargetBlock? Target
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationTargetBlock>? Target
     {
-        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationTargetBlock>("target");
+        get => GetArgument<TerraformList<AzurermAutomationSoftwareUpdateConfigurationTargetBlock>>("target");
         set => SetArgument("target", value);
     }
 
@@ -502,9 +502,9 @@ public partial class AzurermAutomationSoftwareUpdateConfiguration(string name) :
     /// Windows block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Windows block(s) allowed")]
-    public AzurermAutomationSoftwareUpdateConfigurationWindowsBlock? Windows
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock>? Windows
     {
-        get => GetArgument<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock>("windows");
+        get => GetArgument<TerraformList<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock>>("windows");
         set => SetArgument("windows", value);
     }
 

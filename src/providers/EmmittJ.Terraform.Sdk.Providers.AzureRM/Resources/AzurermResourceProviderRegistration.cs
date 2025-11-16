@@ -112,9 +112,9 @@ public partial class AzurermResourceProviderRegistration(string name) : Terrafor
     /// <summary>
     /// Feature block (nesting mode: set).
     /// </summary>
-    public AzurermResourceProviderRegistrationFeatureBlock? Feature
+    public TerraformSet<AzurermResourceProviderRegistrationFeatureBlock>? Feature
     {
-        get => GetArgument<AzurermResourceProviderRegistrationFeatureBlock>("feature");
+        get => GetArgument<TerraformSet<AzurermResourceProviderRegistrationFeatureBlock>>("feature");
         set => SetArgument("feature", value);
     }
 

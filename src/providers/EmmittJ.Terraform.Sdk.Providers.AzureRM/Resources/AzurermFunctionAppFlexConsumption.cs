@@ -936,9 +936,9 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     /// <summary>
     /// AlwaysReady block (nesting mode: list).
     /// </summary>
-    public AzurermFunctionAppFlexConsumptionAlwaysReadyBlock? AlwaysReady
+    public TerraformList<AzurermFunctionAppFlexConsumptionAlwaysReadyBlock>? AlwaysReady
     {
-        get => GetArgument<AzurermFunctionAppFlexConsumptionAlwaysReadyBlock>("always_ready");
+        get => GetArgument<TerraformList<AzurermFunctionAppFlexConsumptionAlwaysReadyBlock>>("always_ready");
         set => SetArgument("always_ready", value);
     }
 
@@ -946,9 +946,9 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    public AzurermFunctionAppFlexConsumptionAuthSettingsBlock? AuthSettings
+    public TerraformList<AzurermFunctionAppFlexConsumptionAuthSettingsBlock>? AuthSettings
     {
-        get => GetArgument<AzurermFunctionAppFlexConsumptionAuthSettingsBlock>("auth_settings");
+        get => GetArgument<TerraformList<AzurermFunctionAppFlexConsumptionAuthSettingsBlock>>("auth_settings");
         set => SetArgument("auth_settings", value);
     }
 
@@ -956,18 +956,18 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     /// AuthSettingsV2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
-    public AzurermFunctionAppFlexConsumptionAuthSettingsV2Block? AuthSettingsV2
+    public TerraformList<AzurermFunctionAppFlexConsumptionAuthSettingsV2Block>? AuthSettingsV2
     {
-        get => GetArgument<AzurermFunctionAppFlexConsumptionAuthSettingsV2Block>("auth_settings_v2");
+        get => GetArgument<TerraformList<AzurermFunctionAppFlexConsumptionAuthSettingsV2Block>>("auth_settings_v2");
         set => SetArgument("auth_settings_v2", value);
     }
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermFunctionAppFlexConsumptionConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermFunctionAppFlexConsumptionConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermFunctionAppFlexConsumptionConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermFunctionAppFlexConsumptionConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -975,9 +975,9 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermFunctionAppFlexConsumptionIdentityBlock? Identity
+    public TerraformList<AzurermFunctionAppFlexConsumptionIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermFunctionAppFlexConsumptionIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermFunctionAppFlexConsumptionIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -988,9 +988,9 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public required AzurermFunctionAppFlexConsumptionSiteConfigBlock SiteConfig
+    public required TerraformList<AzurermFunctionAppFlexConsumptionSiteConfigBlock> SiteConfig
     {
-        get => GetRequiredArgument<AzurermFunctionAppFlexConsumptionSiteConfigBlock>("site_config");
+        get => GetRequiredArgument<TerraformList<AzurermFunctionAppFlexConsumptionSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 
@@ -998,9 +998,9 @@ public partial class AzurermFunctionAppFlexConsumption(string name) : TerraformR
     /// StickySettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StickySettings block(s) allowed")]
-    public AzurermFunctionAppFlexConsumptionStickySettingsBlock? StickySettings
+    public TerraformList<AzurermFunctionAppFlexConsumptionStickySettingsBlock>? StickySettings
     {
-        get => GetArgument<AzurermFunctionAppFlexConsumptionStickySettingsBlock>("sticky_settings");
+        get => GetArgument<TerraformList<AzurermFunctionAppFlexConsumptionStickySettingsBlock>>("sticky_settings");
         set => SetArgument("sticky_settings", value);
     }
 

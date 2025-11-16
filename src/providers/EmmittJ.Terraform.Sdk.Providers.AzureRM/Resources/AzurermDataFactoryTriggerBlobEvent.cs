@@ -207,9 +207,9 @@ public partial class AzurermDataFactoryTriggerBlobEvent(string name) : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
-    public required AzurermDataFactoryTriggerBlobEventPipelineBlock Pipeline
+    public required TerraformSet<AzurermDataFactoryTriggerBlobEventPipelineBlock> Pipeline
     {
-        get => GetRequiredArgument<AzurermDataFactoryTriggerBlobEventPipelineBlock>("pipeline");
+        get => GetRequiredArgument<TerraformSet<AzurermDataFactoryTriggerBlobEventPipelineBlock>>("pipeline");
         set => SetArgument("pipeline", value);
     }
 

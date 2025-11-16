@@ -408,9 +408,9 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermExpressRoutePortIdentityBlock? Identity
+    public TerraformList<AzurermExpressRoutePortIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermExpressRoutePortIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermExpressRoutePortIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -418,9 +418,9 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     /// Link1 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Link1 block(s) allowed")]
-    public AzurermExpressRoutePortLink1Block? Link1
+    public TerraformList<AzurermExpressRoutePortLink1Block>? Link1
     {
-        get => GetArgument<AzurermExpressRoutePortLink1Block>("link1");
+        get => GetArgument<TerraformList<AzurermExpressRoutePortLink1Block>>("link1");
         set => SetArgument("link1", value);
     }
 
@@ -428,9 +428,9 @@ public partial class AzurermExpressRoutePort(string name) : TerraformResource("a
     /// Link2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Link2 block(s) allowed")]
-    public AzurermExpressRoutePortLink2Block? Link2
+    public TerraformList<AzurermExpressRoutePortLink2Block>? Link2
     {
-        get => GetArgument<AzurermExpressRoutePortLink2Block>("link2");
+        get => GetArgument<TerraformList<AzurermExpressRoutePortLink2Block>>("link2");
         set => SetArgument("link2", value);
     }
 

@@ -157,9 +157,9 @@ public partial class AzurermDevTestVirtualNetwork(string name) : TerraformResour
     /// Subnet block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
-    public AzurermDevTestVirtualNetworkSubnetBlock? Subnet
+    public TerraformList<AzurermDevTestVirtualNetworkSubnetBlock>? Subnet
     {
-        get => GetArgument<AzurermDevTestVirtualNetworkSubnetBlock>("subnet");
+        get => GetArgument<TerraformList<AzurermDevTestVirtualNetworkSubnetBlock>>("subnet");
         set => SetArgument("subnet", value);
     }
 

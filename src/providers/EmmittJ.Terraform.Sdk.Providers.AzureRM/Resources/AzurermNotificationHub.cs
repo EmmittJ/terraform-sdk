@@ -248,9 +248,9 @@ public partial class AzurermNotificationHub(string name) : TerraformResource("az
     /// ApnsCredential block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApnsCredential block(s) allowed")]
-    public AzurermNotificationHubApnsCredentialBlock? ApnsCredential
+    public TerraformList<AzurermNotificationHubApnsCredentialBlock>? ApnsCredential
     {
-        get => GetArgument<AzurermNotificationHubApnsCredentialBlock>("apns_credential");
+        get => GetArgument<TerraformList<AzurermNotificationHubApnsCredentialBlock>>("apns_credential");
         set => SetArgument("apns_credential", value);
     }
 
@@ -258,9 +258,9 @@ public partial class AzurermNotificationHub(string name) : TerraformResource("az
     /// BrowserCredential block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BrowserCredential block(s) allowed")]
-    public AzurermNotificationHubBrowserCredentialBlock? BrowserCredential
+    public TerraformList<AzurermNotificationHubBrowserCredentialBlock>? BrowserCredential
     {
-        get => GetArgument<AzurermNotificationHubBrowserCredentialBlock>("browser_credential");
+        get => GetArgument<TerraformList<AzurermNotificationHubBrowserCredentialBlock>>("browser_credential");
         set => SetArgument("browser_credential", value);
     }
 
@@ -268,9 +268,9 @@ public partial class AzurermNotificationHub(string name) : TerraformResource("az
     /// GcmCredential block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcmCredential block(s) allowed")]
-    public AzurermNotificationHubGcmCredentialBlock? GcmCredential
+    public TerraformList<AzurermNotificationHubGcmCredentialBlock>? GcmCredential
     {
-        get => GetArgument<AzurermNotificationHubGcmCredentialBlock>("gcm_credential");
+        get => GetArgument<TerraformList<AzurermNotificationHubGcmCredentialBlock>>("gcm_credential");
         set => SetArgument("gcm_credential", value);
     }
 

@@ -176,9 +176,9 @@ public partial class AzurermStorageDataLakeGen2Filesystem(string name) : Terrafo
     /// <summary>
     /// Ace block (nesting mode: set).
     /// </summary>
-    public AzurermStorageDataLakeGen2FilesystemAceBlock? Ace
+    public TerraformSet<AzurermStorageDataLakeGen2FilesystemAceBlock>? Ace
     {
-        get => GetArgument<AzurermStorageDataLakeGen2FilesystemAceBlock>("ace");
+        get => GetArgument<TerraformSet<AzurermStorageDataLakeGen2FilesystemAceBlock>>("ace");
         set => SetArgument("ace", value);
     }
 

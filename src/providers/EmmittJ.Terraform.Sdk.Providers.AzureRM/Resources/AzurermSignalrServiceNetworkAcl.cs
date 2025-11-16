@@ -161,9 +161,9 @@ public partial class AzurermSignalrServiceNetworkAcl(string name) : TerraformRes
     /// <summary>
     /// PrivateEndpoint block (nesting mode: set).
     /// </summary>
-    public AzurermSignalrServiceNetworkAclPrivateEndpointBlock? PrivateEndpoint
+    public TerraformSet<AzurermSignalrServiceNetworkAclPrivateEndpointBlock>? PrivateEndpoint
     {
-        get => GetArgument<AzurermSignalrServiceNetworkAclPrivateEndpointBlock>("private_endpoint");
+        get => GetArgument<TerraformSet<AzurermSignalrServiceNetworkAclPrivateEndpointBlock>>("private_endpoint");
         set => SetArgument("private_endpoint", value);
     }
 
@@ -174,9 +174,9 @@ public partial class AzurermSignalrServiceNetworkAcl(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetwork is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PublicNetwork block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicNetwork block(s) allowed")]
-    public required AzurermSignalrServiceNetworkAclPublicNetworkBlock PublicNetwork
+    public required TerraformList<AzurermSignalrServiceNetworkAclPublicNetworkBlock> PublicNetwork
     {
-        get => GetRequiredArgument<AzurermSignalrServiceNetworkAclPublicNetworkBlock>("public_network");
+        get => GetRequiredArgument<TerraformList<AzurermSignalrServiceNetworkAclPublicNetworkBlock>>("public_network");
         set => SetArgument("public_network", value);
     }
 

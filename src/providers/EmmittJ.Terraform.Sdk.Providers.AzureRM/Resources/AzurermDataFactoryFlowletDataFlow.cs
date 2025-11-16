@@ -230,18 +230,18 @@ public partial class AzurermDataFactoryFlowletDataFlow(string name) : TerraformR
     /// <summary>
     /// Sink block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryFlowletDataFlowSinkBlock? Sink
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlock>? Sink
     {
-        get => GetArgument<AzurermDataFactoryFlowletDataFlowSinkBlock>("sink");
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlock>>("sink");
         set => SetArgument("sink", value);
     }
 
     /// <summary>
     /// Source block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryFlowletDataFlowSourceBlock? Source
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlock>? Source
     {
-        get => GetArgument<AzurermDataFactoryFlowletDataFlowSourceBlock>("source");
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlock>>("source");
         set => SetArgument("source", value);
     }
 
@@ -257,9 +257,9 @@ public partial class AzurermDataFactoryFlowletDataFlow(string name) : TerraformR
     /// <summary>
     /// Transformation block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryFlowletDataFlowTransformationBlock? Transformation
+    public TerraformList<AzurermDataFactoryFlowletDataFlowTransformationBlock>? Transformation
     {
-        get => GetArgument<AzurermDataFactoryFlowletDataFlowTransformationBlock>("transformation");
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowTransformationBlock>>("transformation");
         set => SetArgument("transformation", value);
     }
 

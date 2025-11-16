@@ -333,9 +333,9 @@ public partial class AzurermNetappVolumeGroupOracle(string name) : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Volume block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(12, ErrorMessage = "Maximum 12 Volume block(s) allowed")]
-    public AzurermNetappVolumeGroupOracleVolumeBlock? Volume
+    public TerraformList<AzurermNetappVolumeGroupOracleVolumeBlock>? Volume
     {
-        get => GetArgument<AzurermNetappVolumeGroupOracleVolumeBlock>("volume");
+        get => GetArgument<TerraformList<AzurermNetappVolumeGroupOracleVolumeBlock>>("volume");
         set => SetArgument("volume", value);
     }
 

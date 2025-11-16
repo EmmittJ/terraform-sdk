@@ -163,9 +163,9 @@ public partial class AzurermMssqlManagedInstanceFailoverGroup(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadWriteEndpointFailoverPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadWriteEndpointFailoverPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadWriteEndpointFailoverPolicy block(s) allowed")]
-    public required AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock ReadWriteEndpointFailoverPolicy
+    public required TerraformList<AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock> ReadWriteEndpointFailoverPolicy
     {
-        get => GetRequiredArgument<AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock>("read_write_endpoint_failover_policy");
+        get => GetRequiredArgument<TerraformList<AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock>>("read_write_endpoint_failover_policy");
         set => SetArgument("read_write_endpoint_failover_policy", value);
     }
 

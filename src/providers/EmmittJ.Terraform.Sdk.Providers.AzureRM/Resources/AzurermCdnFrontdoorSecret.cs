@@ -97,9 +97,9 @@ public partial class AzurermCdnFrontdoorSecret(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Secret block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Secret block(s) allowed")]
-    public required AzurermCdnFrontdoorSecretSecretBlock Secret
+    public required TerraformList<AzurermCdnFrontdoorSecretSecretBlock> Secret
     {
-        get => GetRequiredArgument<AzurermCdnFrontdoorSecretSecretBlock>("secret");
+        get => GetRequiredArgument<TerraformList<AzurermCdnFrontdoorSecretSecretBlock>>("secret");
         set => SetArgument("secret", value);
     }
 

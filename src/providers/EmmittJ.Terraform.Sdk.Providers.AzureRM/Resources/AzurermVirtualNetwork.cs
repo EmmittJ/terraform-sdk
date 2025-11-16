@@ -269,9 +269,9 @@ public partial class AzurermVirtualNetwork(string name) : TerraformResource("azu
     /// DdosProtectionPlan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionPlan block(s) allowed")]
-    public AzurermVirtualNetworkDdosProtectionPlanBlock? DdosProtectionPlan
+    public TerraformList<AzurermVirtualNetworkDdosProtectionPlanBlock>? DdosProtectionPlan
     {
-        get => GetArgument<AzurermVirtualNetworkDdosProtectionPlanBlock>("ddos_protection_plan");
+        get => GetArgument<TerraformList<AzurermVirtualNetworkDdosProtectionPlanBlock>>("ddos_protection_plan");
         set => SetArgument("ddos_protection_plan", value);
     }
 
@@ -279,9 +279,9 @@ public partial class AzurermVirtualNetwork(string name) : TerraformResource("azu
     /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    public AzurermVirtualNetworkEncryptionBlock? Encryption
+    public TerraformList<AzurermVirtualNetworkEncryptionBlock>? Encryption
     {
-        get => GetArgument<AzurermVirtualNetworkEncryptionBlock>("encryption");
+        get => GetArgument<TerraformList<AzurermVirtualNetworkEncryptionBlock>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -289,9 +289,9 @@ public partial class AzurermVirtualNetwork(string name) : TerraformResource("azu
     /// IpAddressPool block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 IpAddressPool block(s) allowed")]
-    public AzurermVirtualNetworkIpAddressPoolBlock? IpAddressPool
+    public TerraformList<AzurermVirtualNetworkIpAddressPoolBlock>? IpAddressPool
     {
-        get => GetArgument<AzurermVirtualNetworkIpAddressPoolBlock>("ip_address_pool");
+        get => GetArgument<TerraformList<AzurermVirtualNetworkIpAddressPoolBlock>>("ip_address_pool");
         set => SetArgument("ip_address_pool", value);
     }
 

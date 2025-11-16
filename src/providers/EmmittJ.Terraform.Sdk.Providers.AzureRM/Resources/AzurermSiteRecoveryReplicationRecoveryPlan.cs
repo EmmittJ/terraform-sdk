@@ -207,9 +207,9 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     /// AzureToAzureSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureToAzureSettings block(s) allowed")]
-    public AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock? AzureToAzureSettings
+    public TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock>? AzureToAzureSettings
     {
-        get => GetArgument<AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock>("azure_to_azure_settings");
+        get => GetArgument<TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanAzureToAzureSettingsBlock>>("azure_to_azure_settings");
         set => SetArgument("azure_to_azure_settings", value);
     }
 
@@ -219,9 +219,9 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BootRecoveryGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BootRecoveryGroup block(s) required")]
-    public required AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock BootRecoveryGroup
+    public required TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock> BootRecoveryGroup
     {
-        get => GetRequiredArgument<AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock>("boot_recovery_group");
+        get => GetRequiredArgument<TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanBootRecoveryGroupBlock>>("boot_recovery_group");
         set => SetArgument("boot_recovery_group", value);
     }
 
@@ -232,9 +232,9 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FailoverRecoveryGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FailoverRecoveryGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FailoverRecoveryGroup block(s) allowed")]
-    public required AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBlock FailoverRecoveryGroup
+    public required TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBlock> FailoverRecoveryGroup
     {
-        get => GetRequiredArgument<AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBlock>("failover_recovery_group");
+        get => GetRequiredArgument<TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanFailoverRecoveryGroupBlock>>("failover_recovery_group");
         set => SetArgument("failover_recovery_group", value);
     }
 
@@ -245,9 +245,9 @@ public partial class AzurermSiteRecoveryReplicationRecoveryPlan(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShutdownRecoveryGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ShutdownRecoveryGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShutdownRecoveryGroup block(s) allowed")]
-    public required AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBlock ShutdownRecoveryGroup
+    public required TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBlock> ShutdownRecoveryGroup
     {
-        get => GetRequiredArgument<AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBlock>("shutdown_recovery_group");
+        get => GetRequiredArgument<TerraformList<AzurermSiteRecoveryReplicationRecoveryPlanShutdownRecoveryGroupBlock>>("shutdown_recovery_group");
         set => SetArgument("shutdown_recovery_group", value);
     }
 

@@ -207,9 +207,9 @@ public partial class AzurermBillingAccountCostManagementExport(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportDataOptions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataOptions block(s) allowed")]
-    public required AzurermBillingAccountCostManagementExportExportDataOptionsBlock ExportDataOptions
+    public required TerraformList<AzurermBillingAccountCostManagementExportExportDataOptionsBlock> ExportDataOptions
     {
-        get => GetRequiredArgument<AzurermBillingAccountCostManagementExportExportDataOptionsBlock>("export_data_options");
+        get => GetRequiredArgument<TerraformList<AzurermBillingAccountCostManagementExportExportDataOptionsBlock>>("export_data_options");
         set => SetArgument("export_data_options", value);
     }
 
@@ -220,9 +220,9 @@ public partial class AzurermBillingAccountCostManagementExport(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportDataStorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataStorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataStorageLocation block(s) allowed")]
-    public required AzurermBillingAccountCostManagementExportExportDataStorageLocationBlock ExportDataStorageLocation
+    public required TerraformList<AzurermBillingAccountCostManagementExportExportDataStorageLocationBlock> ExportDataStorageLocation
     {
-        get => GetRequiredArgument<AzurermBillingAccountCostManagementExportExportDataStorageLocationBlock>("export_data_storage_location");
+        get => GetRequiredArgument<TerraformList<AzurermBillingAccountCostManagementExportExportDataStorageLocationBlock>>("export_data_storage_location");
         set => SetArgument("export_data_storage_location", value);
     }
 

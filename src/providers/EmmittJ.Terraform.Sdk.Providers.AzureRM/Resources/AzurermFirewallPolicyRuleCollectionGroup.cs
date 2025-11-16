@@ -228,27 +228,27 @@ public partial class AzurermFirewallPolicyRuleCollectionGroup(string name) : Ter
     /// <summary>
     /// ApplicationRuleCollection block (nesting mode: list).
     /// </summary>
-    public AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock? ApplicationRuleCollection
+    public TerraformList<AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock>? ApplicationRuleCollection
     {
-        get => GetArgument<AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock>("application_rule_collection");
+        get => GetArgument<TerraformList<AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock>>("application_rule_collection");
         set => SetArgument("application_rule_collection", value);
     }
 
     /// <summary>
     /// NatRuleCollection block (nesting mode: list).
     /// </summary>
-    public AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock? NatRuleCollection
+    public TerraformList<AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock>? NatRuleCollection
     {
-        get => GetArgument<AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock>("nat_rule_collection");
+        get => GetArgument<TerraformList<AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock>>("nat_rule_collection");
         set => SetArgument("nat_rule_collection", value);
     }
 
     /// <summary>
     /// NetworkRuleCollection block (nesting mode: list).
     /// </summary>
-    public AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock? NetworkRuleCollection
+    public TerraformList<AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock>? NetworkRuleCollection
     {
-        get => GetArgument<AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock>("network_rule_collection");
+        get => GetArgument<TerraformList<AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock>>("network_rule_collection");
         set => SetArgument("network_rule_collection", value);
     }
 

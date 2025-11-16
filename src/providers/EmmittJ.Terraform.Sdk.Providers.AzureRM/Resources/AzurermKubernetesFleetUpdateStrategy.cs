@@ -124,9 +124,9 @@ public partial class AzurermKubernetesFleetUpdateStrategy(string name) : Terrafo
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stage block(s) required")]
-    public required AzurermKubernetesFleetUpdateStrategyStageBlock Stage
+    public required TerraformList<AzurermKubernetesFleetUpdateStrategyStageBlock> Stage
     {
-        get => GetRequiredArgument<AzurermKubernetesFleetUpdateStrategyStageBlock>("stage");
+        get => GetRequiredArgument<TerraformList<AzurermKubernetesFleetUpdateStrategyStageBlock>>("stage");
         set => SetArgument("stage", value);
     }
 

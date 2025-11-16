@@ -405,9 +405,9 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialReplicaSet is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InitialReplicaSet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialReplicaSet block(s) allowed")]
-    public required AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock InitialReplicaSet
+    public required TerraformList<AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock> InitialReplicaSet
     {
-        get => GetRequiredArgument<AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock>("initial_replica_set");
+        get => GetRequiredArgument<TerraformList<AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock>>("initial_replica_set");
         set => SetArgument("initial_replica_set", value);
     }
 
@@ -415,9 +415,9 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     /// Notifications block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notifications block(s) allowed")]
-    public AzurermActiveDirectoryDomainServiceNotificationsBlock? Notifications
+    public TerraformList<AzurermActiveDirectoryDomainServiceNotificationsBlock>? Notifications
     {
-        get => GetArgument<AzurermActiveDirectoryDomainServiceNotificationsBlock>("notifications");
+        get => GetArgument<TerraformList<AzurermActiveDirectoryDomainServiceNotificationsBlock>>("notifications");
         set => SetArgument("notifications", value);
     }
 
@@ -425,9 +425,9 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     /// SecureLdap block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecureLdap block(s) allowed")]
-    public AzurermActiveDirectoryDomainServiceSecureLdapBlock? SecureLdap
+    public TerraformList<AzurermActiveDirectoryDomainServiceSecureLdapBlock>? SecureLdap
     {
-        get => GetArgument<AzurermActiveDirectoryDomainServiceSecureLdapBlock>("secure_ldap");
+        get => GetArgument<TerraformList<AzurermActiveDirectoryDomainServiceSecureLdapBlock>>("secure_ldap");
         set => SetArgument("secure_ldap", value);
     }
 
@@ -435,9 +435,9 @@ public partial class AzurermActiveDirectoryDomainService(string name) : Terrafor
     /// Security block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
-    public AzurermActiveDirectoryDomainServiceSecurityBlock? Security
+    public TerraformList<AzurermActiveDirectoryDomainServiceSecurityBlock>? Security
     {
-        get => GetArgument<AzurermActiveDirectoryDomainServiceSecurityBlock>("security");
+        get => GetArgument<TerraformList<AzurermActiveDirectoryDomainServiceSecurityBlock>>("security");
         set => SetArgument("security", value);
     }
 

@@ -209,9 +209,9 @@ public partial class AzurermManagedApplication(string name) : TerraformResource(
     /// Plan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public AzurermManagedApplicationPlanBlock? Plan
+    public TerraformList<AzurermManagedApplicationPlanBlock>? Plan
     {
-        get => GetArgument<AzurermManagedApplicationPlanBlock>("plan");
+        get => GetArgument<TerraformList<AzurermManagedApplicationPlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 

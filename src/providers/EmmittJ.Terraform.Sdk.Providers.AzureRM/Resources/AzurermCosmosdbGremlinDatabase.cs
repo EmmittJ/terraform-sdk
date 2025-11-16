@@ -131,9 +131,9 @@ public partial class AzurermCosmosdbGremlinDatabase(string name) : TerraformReso
     /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    public AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock? AutoscaleSettings
+    public TerraformList<AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetArgument<AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock>("autoscale_settings");
+        get => GetArgument<TerraformList<AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock>>("autoscale_settings");
         set => SetArgument("autoscale_settings", value);
     }
 

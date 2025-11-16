@@ -419,9 +419,9 @@ public partial class AzurermBackupPolicyVm(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Backup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public required AzurermBackupPolicyVmBackupBlock Backup
+    public required TerraformList<AzurermBackupPolicyVmBackupBlock> Backup
     {
-        get => GetRequiredArgument<AzurermBackupPolicyVmBackupBlock>("backup");
+        get => GetRequiredArgument<TerraformList<AzurermBackupPolicyVmBackupBlock>>("backup");
         set => SetArgument("backup", value);
     }
 
@@ -429,9 +429,9 @@ public partial class AzurermBackupPolicyVm(string name) : TerraformResource("azu
     /// InstantRestoreResourceGroup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstantRestoreResourceGroup block(s) allowed")]
-    public AzurermBackupPolicyVmInstantRestoreResourceGroupBlock? InstantRestoreResourceGroup
+    public TerraformList<AzurermBackupPolicyVmInstantRestoreResourceGroupBlock>? InstantRestoreResourceGroup
     {
-        get => GetArgument<AzurermBackupPolicyVmInstantRestoreResourceGroupBlock>("instant_restore_resource_group");
+        get => GetArgument<TerraformList<AzurermBackupPolicyVmInstantRestoreResourceGroupBlock>>("instant_restore_resource_group");
         set => SetArgument("instant_restore_resource_group", value);
     }
 
@@ -439,9 +439,9 @@ public partial class AzurermBackupPolicyVm(string name) : TerraformResource("azu
     /// RetentionDaily block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDaily block(s) allowed")]
-    public AzurermBackupPolicyVmRetentionDailyBlock? RetentionDaily
+    public TerraformList<AzurermBackupPolicyVmRetentionDailyBlock>? RetentionDaily
     {
-        get => GetArgument<AzurermBackupPolicyVmRetentionDailyBlock>("retention_daily");
+        get => GetArgument<TerraformList<AzurermBackupPolicyVmRetentionDailyBlock>>("retention_daily");
         set => SetArgument("retention_daily", value);
     }
 
@@ -449,9 +449,9 @@ public partial class AzurermBackupPolicyVm(string name) : TerraformResource("azu
     /// RetentionMonthly block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionMonthly block(s) allowed")]
-    public AzurermBackupPolicyVmRetentionMonthlyBlock? RetentionMonthly
+    public TerraformList<AzurermBackupPolicyVmRetentionMonthlyBlock>? RetentionMonthly
     {
-        get => GetArgument<AzurermBackupPolicyVmRetentionMonthlyBlock>("retention_monthly");
+        get => GetArgument<TerraformList<AzurermBackupPolicyVmRetentionMonthlyBlock>>("retention_monthly");
         set => SetArgument("retention_monthly", value);
     }
 
@@ -459,9 +459,9 @@ public partial class AzurermBackupPolicyVm(string name) : TerraformResource("azu
     /// RetentionWeekly block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionWeekly block(s) allowed")]
-    public AzurermBackupPolicyVmRetentionWeeklyBlock? RetentionWeekly
+    public TerraformList<AzurermBackupPolicyVmRetentionWeeklyBlock>? RetentionWeekly
     {
-        get => GetArgument<AzurermBackupPolicyVmRetentionWeeklyBlock>("retention_weekly");
+        get => GetArgument<TerraformList<AzurermBackupPolicyVmRetentionWeeklyBlock>>("retention_weekly");
         set => SetArgument("retention_weekly", value);
     }
 
@@ -469,9 +469,9 @@ public partial class AzurermBackupPolicyVm(string name) : TerraformResource("azu
     /// RetentionYearly block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionYearly block(s) allowed")]
-    public AzurermBackupPolicyVmRetentionYearlyBlock? RetentionYearly
+    public TerraformList<AzurermBackupPolicyVmRetentionYearlyBlock>? RetentionYearly
     {
-        get => GetArgument<AzurermBackupPolicyVmRetentionYearlyBlock>("retention_yearly");
+        get => GetArgument<TerraformList<AzurermBackupPolicyVmRetentionYearlyBlock>>("retention_yearly");
         set => SetArgument("retention_yearly", value);
     }
 
@@ -479,9 +479,9 @@ public partial class AzurermBackupPolicyVm(string name) : TerraformResource("azu
     /// TieringPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TieringPolicy block(s) allowed")]
-    public AzurermBackupPolicyVmTieringPolicyBlock? TieringPolicy
+    public TerraformList<AzurermBackupPolicyVmTieringPolicyBlock>? TieringPolicy
     {
-        get => GetArgument<AzurermBackupPolicyVmTieringPolicyBlock>("tiering_policy");
+        get => GetArgument<TerraformList<AzurermBackupPolicyVmTieringPolicyBlock>>("tiering_policy");
         set => SetArgument("tiering_policy", value);
     }
 

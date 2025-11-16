@@ -1034,9 +1034,9 @@ public partial class AzurermLinuxFunctionAppSlot(string name) : TerraformResourc
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    public AzurermLinuxFunctionAppSlotAuthSettingsBlock? AuthSettings
+    public TerraformList<AzurermLinuxFunctionAppSlotAuthSettingsBlock>? AuthSettings
     {
-        get => GetArgument<AzurermLinuxFunctionAppSlotAuthSettingsBlock>("auth_settings");
+        get => GetArgument<TerraformList<AzurermLinuxFunctionAppSlotAuthSettingsBlock>>("auth_settings");
         set => SetArgument("auth_settings", value);
     }
 
@@ -1044,9 +1044,9 @@ public partial class AzurermLinuxFunctionAppSlot(string name) : TerraformResourc
     /// AuthSettingsV2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
-    public AzurermLinuxFunctionAppSlotAuthSettingsV2Block? AuthSettingsV2
+    public TerraformList<AzurermLinuxFunctionAppSlotAuthSettingsV2Block>? AuthSettingsV2
     {
-        get => GetArgument<AzurermLinuxFunctionAppSlotAuthSettingsV2Block>("auth_settings_v2");
+        get => GetArgument<TerraformList<AzurermLinuxFunctionAppSlotAuthSettingsV2Block>>("auth_settings_v2");
         set => SetArgument("auth_settings_v2", value);
     }
 
@@ -1054,18 +1054,18 @@ public partial class AzurermLinuxFunctionAppSlot(string name) : TerraformResourc
     /// Backup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public AzurermLinuxFunctionAppSlotBackupBlock? Backup
+    public TerraformList<AzurermLinuxFunctionAppSlotBackupBlock>? Backup
     {
-        get => GetArgument<AzurermLinuxFunctionAppSlotBackupBlock>("backup");
+        get => GetArgument<TerraformList<AzurermLinuxFunctionAppSlotBackupBlock>>("backup");
         set => SetArgument("backup", value);
     }
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermLinuxFunctionAppSlotConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermLinuxFunctionAppSlotConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermLinuxFunctionAppSlotConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermLinuxFunctionAppSlotConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -1073,9 +1073,9 @@ public partial class AzurermLinuxFunctionAppSlot(string name) : TerraformResourc
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermLinuxFunctionAppSlotIdentityBlock? Identity
+    public TerraformList<AzurermLinuxFunctionAppSlotIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermLinuxFunctionAppSlotIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermLinuxFunctionAppSlotIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -1086,18 +1086,18 @@ public partial class AzurermLinuxFunctionAppSlot(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public required AzurermLinuxFunctionAppSlotSiteConfigBlock SiteConfig
+    public required TerraformList<AzurermLinuxFunctionAppSlotSiteConfigBlock> SiteConfig
     {
-        get => GetRequiredArgument<AzurermLinuxFunctionAppSlotSiteConfigBlock>("site_config");
+        get => GetRequiredArgument<TerraformList<AzurermLinuxFunctionAppSlotSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 
     /// <summary>
     /// StorageAccount block (nesting mode: set).
     /// </summary>
-    public AzurermLinuxFunctionAppSlotStorageAccountBlock? StorageAccount
+    public TerraformSet<AzurermLinuxFunctionAppSlotStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermLinuxFunctionAppSlotStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformSet<AzurermLinuxFunctionAppSlotStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 

@@ -144,9 +144,9 @@ public partial class AzurermKeyVaultCertificate(string name) : TerraformResource
     /// Certificate block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Certificate block(s) allowed")]
-    public AzurermKeyVaultCertificateCertificateBlock? Certificate
+    public TerraformList<AzurermKeyVaultCertificateCertificateBlock>? Certificate
     {
-        get => GetArgument<AzurermKeyVaultCertificateCertificateBlock>("certificate");
+        get => GetArgument<TerraformList<AzurermKeyVaultCertificateCertificateBlock>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -154,9 +154,9 @@ public partial class AzurermKeyVaultCertificate(string name) : TerraformResource
     /// CertificatePolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificatePolicy block(s) allowed")]
-    public AzurermKeyVaultCertificateCertificatePolicyBlock? CertificatePolicy
+    public TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlock>? CertificatePolicy
     {
-        get => GetArgument<AzurermKeyVaultCertificateCertificatePolicyBlock>("certificate_policy");
+        get => GetArgument<TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlock>>("certificate_policy");
         set => SetArgument("certificate_policy", value);
     }
 

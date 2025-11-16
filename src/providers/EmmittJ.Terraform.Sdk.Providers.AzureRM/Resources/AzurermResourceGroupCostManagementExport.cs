@@ -207,9 +207,9 @@ public partial class AzurermResourceGroupCostManagementExport(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportDataOptions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataOptions block(s) allowed")]
-    public required AzurermResourceGroupCostManagementExportExportDataOptionsBlock ExportDataOptions
+    public required TerraformList<AzurermResourceGroupCostManagementExportExportDataOptionsBlock> ExportDataOptions
     {
-        get => GetRequiredArgument<AzurermResourceGroupCostManagementExportExportDataOptionsBlock>("export_data_options");
+        get => GetRequiredArgument<TerraformList<AzurermResourceGroupCostManagementExportExportDataOptionsBlock>>("export_data_options");
         set => SetArgument("export_data_options", value);
     }
 
@@ -220,9 +220,9 @@ public partial class AzurermResourceGroupCostManagementExport(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportDataStorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportDataStorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExportDataStorageLocation block(s) allowed")]
-    public required AzurermResourceGroupCostManagementExportExportDataStorageLocationBlock ExportDataStorageLocation
+    public required TerraformList<AzurermResourceGroupCostManagementExportExportDataStorageLocationBlock> ExportDataStorageLocation
     {
-        get => GetRequiredArgument<AzurermResourceGroupCostManagementExportExportDataStorageLocationBlock>("export_data_storage_location");
+        get => GetRequiredArgument<TerraformList<AzurermResourceGroupCostManagementExportExportDataStorageLocationBlock>>("export_data_storage_location");
         set => SetArgument("export_data_storage_location", value);
     }
 

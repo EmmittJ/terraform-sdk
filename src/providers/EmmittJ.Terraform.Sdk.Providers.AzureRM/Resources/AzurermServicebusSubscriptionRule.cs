@@ -212,9 +212,9 @@ public partial class AzurermServicebusSubscriptionRule(string name) : TerraformR
     /// CorrelationFilter block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorrelationFilter block(s) allowed")]
-    public AzurermServicebusSubscriptionRuleCorrelationFilterBlock? CorrelationFilter
+    public TerraformList<AzurermServicebusSubscriptionRuleCorrelationFilterBlock>? CorrelationFilter
     {
-        get => GetArgument<AzurermServicebusSubscriptionRuleCorrelationFilterBlock>("correlation_filter");
+        get => GetArgument<TerraformList<AzurermServicebusSubscriptionRuleCorrelationFilterBlock>>("correlation_filter");
         set => SetArgument("correlation_filter", value);
     }
 

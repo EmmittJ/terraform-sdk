@@ -303,9 +303,9 @@ public partial class AzurermWebApplicationFirewallPolicy(string name) : Terrafor
     /// <summary>
     /// CustomRules block (nesting mode: list).
     /// </summary>
-    public AzurermWebApplicationFirewallPolicyCustomRulesBlock? CustomRules
+    public TerraformList<AzurermWebApplicationFirewallPolicyCustomRulesBlock>? CustomRules
     {
-        get => GetArgument<AzurermWebApplicationFirewallPolicyCustomRulesBlock>("custom_rules");
+        get => GetArgument<TerraformList<AzurermWebApplicationFirewallPolicyCustomRulesBlock>>("custom_rules");
         set => SetArgument("custom_rules", value);
     }
 
@@ -316,9 +316,9 @@ public partial class AzurermWebApplicationFirewallPolicy(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedRules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagedRules block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedRules block(s) allowed")]
-    public required AzurermWebApplicationFirewallPolicyManagedRulesBlock ManagedRules
+    public required TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlock> ManagedRules
     {
-        get => GetRequiredArgument<AzurermWebApplicationFirewallPolicyManagedRulesBlock>("managed_rules");
+        get => GetRequiredArgument<TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlock>>("managed_rules");
         set => SetArgument("managed_rules", value);
     }
 
@@ -326,9 +326,9 @@ public partial class AzurermWebApplicationFirewallPolicy(string name) : Terrafor
     /// PolicySettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PolicySettings block(s) allowed")]
-    public AzurermWebApplicationFirewallPolicyPolicySettingsBlock? PolicySettings
+    public TerraformList<AzurermWebApplicationFirewallPolicyPolicySettingsBlock>? PolicySettings
     {
-        get => GetArgument<AzurermWebApplicationFirewallPolicyPolicySettingsBlock>("policy_settings");
+        get => GetArgument<TerraformList<AzurermWebApplicationFirewallPolicyPolicySettingsBlock>>("policy_settings");
         set => SetArgument("policy_settings", value);
     }
 

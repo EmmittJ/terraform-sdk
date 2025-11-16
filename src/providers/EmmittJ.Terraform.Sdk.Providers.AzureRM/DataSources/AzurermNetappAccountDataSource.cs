@@ -111,9 +111,9 @@ public partial class AzurermNetappAccountDataSource(string name) : TerraformData
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermNetappAccountDataSourceIdentityBlock? Identity
+    public TerraformList<AzurermNetappAccountDataSourceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermNetappAccountDataSourceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermNetappAccountDataSourceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

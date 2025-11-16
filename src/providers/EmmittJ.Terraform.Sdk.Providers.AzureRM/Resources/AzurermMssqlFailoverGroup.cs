@@ -190,9 +190,9 @@ public partial class AzurermMssqlFailoverGroup(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerServer is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartnerServer block(s) required")]
-    public required AzurermMssqlFailoverGroupPartnerServerBlock PartnerServer
+    public required TerraformList<AzurermMssqlFailoverGroupPartnerServerBlock> PartnerServer
     {
-        get => GetRequiredArgument<AzurermMssqlFailoverGroupPartnerServerBlock>("partner_server");
+        get => GetRequiredArgument<TerraformList<AzurermMssqlFailoverGroupPartnerServerBlock>>("partner_server");
         set => SetArgument("partner_server", value);
     }
 
@@ -203,9 +203,9 @@ public partial class AzurermMssqlFailoverGroup(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadWriteEndpointFailoverPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadWriteEndpointFailoverPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadWriteEndpointFailoverPolicy block(s) allowed")]
-    public required AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock ReadWriteEndpointFailoverPolicy
+    public required TerraformList<AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock> ReadWriteEndpointFailoverPolicy
     {
-        get => GetRequiredArgument<AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock>("read_write_endpoint_failover_policy");
+        get => GetRequiredArgument<TerraformList<AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock>>("read_write_endpoint_failover_policy");
         set => SetArgument("read_write_endpoint_failover_policy", value);
     }
 

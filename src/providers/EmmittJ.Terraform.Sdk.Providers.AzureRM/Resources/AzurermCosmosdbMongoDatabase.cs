@@ -131,9 +131,9 @@ public partial class AzurermCosmosdbMongoDatabase(string name) : TerraformResour
     /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    public AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock? AutoscaleSettings
+    public TerraformList<AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetArgument<AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock>("autoscale_settings");
+        get => GetArgument<TerraformList<AzurermCosmosdbMongoDatabaseAutoscaleSettingsBlock>>("autoscale_settings");
         set => SetArgument("autoscale_settings", value);
     }
 

@@ -178,9 +178,9 @@ public partial class AzurermStorageDataLakeGen2Path(string name) : TerraformReso
     /// <summary>
     /// Ace block (nesting mode: set).
     /// </summary>
-    public AzurermStorageDataLakeGen2PathAceBlock? Ace
+    public TerraformSet<AzurermStorageDataLakeGen2PathAceBlock>? Ace
     {
-        get => GetArgument<AzurermStorageDataLakeGen2PathAceBlock>("ace");
+        get => GetArgument<TerraformSet<AzurermStorageDataLakeGen2PathAceBlock>>("ace");
         set => SetArgument("ace", value);
     }
 

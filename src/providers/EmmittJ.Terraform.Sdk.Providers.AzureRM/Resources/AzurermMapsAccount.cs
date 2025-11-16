@@ -231,18 +231,18 @@ public partial class AzurermMapsAccount(string name) : TerraformResource("azurer
     /// Cors block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
-    public AzurermMapsAccountCorsBlock? Cors
+    public TerraformList<AzurermMapsAccountCorsBlock>? Cors
     {
-        get => GetArgument<AzurermMapsAccountCorsBlock>("cors");
+        get => GetArgument<TerraformList<AzurermMapsAccountCorsBlock>>("cors");
         set => SetArgument("cors", value);
     }
 
     /// <summary>
     /// DataStore block (nesting mode: list).
     /// </summary>
-    public AzurermMapsAccountDataStoreBlock? DataStore
+    public TerraformList<AzurermMapsAccountDataStoreBlock>? DataStore
     {
-        get => GetArgument<AzurermMapsAccountDataStoreBlock>("data_store");
+        get => GetArgument<TerraformList<AzurermMapsAccountDataStoreBlock>>("data_store");
         set => SetArgument("data_store", value);
     }
 
@@ -250,9 +250,9 @@ public partial class AzurermMapsAccount(string name) : TerraformResource("azurer
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMapsAccountIdentityBlock? Identity
+    public TerraformList<AzurermMapsAccountIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMapsAccountIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMapsAccountIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

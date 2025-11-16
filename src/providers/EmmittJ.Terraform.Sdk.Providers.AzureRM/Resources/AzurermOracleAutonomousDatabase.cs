@@ -338,9 +338,9 @@ public partial class AzurermOracleAutonomousDatabase(string name) : TerraformRes
     /// LongTermBackupSchedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermBackupSchedule block(s) allowed")]
-    public AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock? LongTermBackupSchedule
+    public TerraformList<AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock>? LongTermBackupSchedule
     {
-        get => GetArgument<AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock>("long_term_backup_schedule");
+        get => GetArgument<TerraformList<AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock>>("long_term_backup_schedule");
         set => SetArgument("long_term_backup_schedule", value);
     }
 

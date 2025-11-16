@@ -221,9 +221,9 @@ public partial class AzurermAppServiceConnection(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    public required AzurermAppServiceConnectionAuthenticationBlock Authentication
+    public required TerraformList<AzurermAppServiceConnectionAuthenticationBlock> Authentication
     {
-        get => GetRequiredArgument<AzurermAppServiceConnectionAuthenticationBlock>("authentication");
+        get => GetRequiredArgument<TerraformList<AzurermAppServiceConnectionAuthenticationBlock>>("authentication");
         set => SetArgument("authentication", value);
     }
 
@@ -231,9 +231,9 @@ public partial class AzurermAppServiceConnection(string name) : TerraformResourc
     /// SecretStore block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretStore block(s) allowed")]
-    public AzurermAppServiceConnectionSecretStoreBlock? SecretStore
+    public TerraformList<AzurermAppServiceConnectionSecretStoreBlock>? SecretStore
     {
-        get => GetArgument<AzurermAppServiceConnectionSecretStoreBlock>("secret_store");
+        get => GetArgument<TerraformList<AzurermAppServiceConnectionSecretStoreBlock>>("secret_store");
         set => SetArgument("secret_store", value);
     }
 

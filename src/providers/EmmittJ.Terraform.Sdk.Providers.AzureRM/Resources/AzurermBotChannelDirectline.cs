@@ -221,9 +221,9 @@ public partial class AzurermBotChannelDirectline(string name) : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Site is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Site block(s) required")]
-    public required AzurermBotChannelDirectlineSiteBlock Site
+    public required TerraformSet<AzurermBotChannelDirectlineSiteBlock> Site
     {
-        get => GetRequiredArgument<AzurermBotChannelDirectlineSiteBlock>("site");
+        get => GetRequiredArgument<TerraformSet<AzurermBotChannelDirectlineSiteBlock>>("site");
         set => SetArgument("site", value);
     }
 

@@ -330,9 +330,9 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// <summary>
     /// IpConfiguration block (nesting mode: list).
     /// </summary>
-    public AzurermFirewallIpConfigurationBlock? IpConfiguration
+    public TerraformList<AzurermFirewallIpConfigurationBlock>? IpConfiguration
     {
-        get => GetArgument<AzurermFirewallIpConfigurationBlock>("ip_configuration");
+        get => GetArgument<TerraformList<AzurermFirewallIpConfigurationBlock>>("ip_configuration");
         set => SetArgument("ip_configuration", value);
     }
 
@@ -340,9 +340,9 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// ManagementIpConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementIpConfiguration block(s) allowed")]
-    public AzurermFirewallManagementIpConfigurationBlock? ManagementIpConfiguration
+    public TerraformList<AzurermFirewallManagementIpConfigurationBlock>? ManagementIpConfiguration
     {
-        get => GetArgument<AzurermFirewallManagementIpConfigurationBlock>("management_ip_configuration");
+        get => GetArgument<TerraformList<AzurermFirewallManagementIpConfigurationBlock>>("management_ip_configuration");
         set => SetArgument("management_ip_configuration", value);
     }
 
@@ -359,9 +359,9 @@ public partial class AzurermFirewall(string name) : TerraformResource("azurerm_f
     /// VirtualHub block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualHub block(s) allowed")]
-    public AzurermFirewallVirtualHubBlock? VirtualHub
+    public TerraformList<AzurermFirewallVirtualHubBlock>? VirtualHub
     {
-        get => GetArgument<AzurermFirewallVirtualHubBlock>("virtual_hub");
+        get => GetArgument<TerraformList<AzurermFirewallVirtualHubBlock>>("virtual_hub");
         set => SetArgument("virtual_hub", value);
     }
 

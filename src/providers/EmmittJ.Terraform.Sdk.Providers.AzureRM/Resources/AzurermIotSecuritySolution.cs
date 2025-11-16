@@ -381,9 +381,9 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// <summary>
     /// AdditionalWorkspace block (nesting mode: set).
     /// </summary>
-    public AzurermIotSecuritySolutionAdditionalWorkspaceBlock? AdditionalWorkspace
+    public TerraformSet<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>? AdditionalWorkspace
     {
-        get => GetArgument<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>("additional_workspace");
+        get => GetArgument<TerraformSet<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>>("additional_workspace");
         set => SetArgument("additional_workspace", value);
     }
 
@@ -391,9 +391,9 @@ public partial class AzurermIotSecuritySolution(string name) : TerraformResource
     /// RecommendationsEnabled block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecommendationsEnabled block(s) allowed")]
-    public AzurermIotSecuritySolutionRecommendationsEnabledBlock? RecommendationsEnabled
+    public TerraformList<AzurermIotSecuritySolutionRecommendationsEnabledBlock>? RecommendationsEnabled
     {
-        get => GetArgument<AzurermIotSecuritySolutionRecommendationsEnabledBlock>("recommendations_enabled");
+        get => GetArgument<TerraformList<AzurermIotSecuritySolutionRecommendationsEnabledBlock>>("recommendations_enabled");
         set => SetArgument("recommendations_enabled", value);
     }
 

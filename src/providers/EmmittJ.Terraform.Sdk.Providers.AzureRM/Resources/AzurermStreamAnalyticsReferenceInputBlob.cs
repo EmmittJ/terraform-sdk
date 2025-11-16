@@ -212,9 +212,9 @@ public partial class AzurermStreamAnalyticsReferenceInputBlob(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serialization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
-    public required AzurermStreamAnalyticsReferenceInputBlobSerializationBlock Serialization
+    public required TerraformList<AzurermStreamAnalyticsReferenceInputBlobSerializationBlock> Serialization
     {
-        get => GetRequiredArgument<AzurermStreamAnalyticsReferenceInputBlobSerializationBlock>("serialization");
+        get => GetRequiredArgument<TerraformList<AzurermStreamAnalyticsReferenceInputBlobSerializationBlock>>("serialization");
         set => SetArgument("serialization", value);
     }
 

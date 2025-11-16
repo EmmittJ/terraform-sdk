@@ -459,9 +459,9 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// AzureDevopsRepo block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureDevopsRepo block(s) allowed")]
-    public AzurermSynapseWorkspaceAzureDevopsRepoBlock? AzureDevopsRepo
+    public TerraformList<AzurermSynapseWorkspaceAzureDevopsRepoBlock>? AzureDevopsRepo
     {
-        get => GetArgument<AzurermSynapseWorkspaceAzureDevopsRepoBlock>("azure_devops_repo");
+        get => GetArgument<TerraformList<AzurermSynapseWorkspaceAzureDevopsRepoBlock>>("azure_devops_repo");
         set => SetArgument("azure_devops_repo", value);
     }
 
@@ -469,9 +469,9 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public AzurermSynapseWorkspaceCustomerManagedKeyBlock? CustomerManagedKey
+    public TerraformList<AzurermSynapseWorkspaceCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetArgument<AzurermSynapseWorkspaceCustomerManagedKeyBlock>("customer_managed_key");
+        get => GetArgument<TerraformList<AzurermSynapseWorkspaceCustomerManagedKeyBlock>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -479,9 +479,9 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// GithubRepo block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubRepo block(s) allowed")]
-    public AzurermSynapseWorkspaceGithubRepoBlock? GithubRepo
+    public TerraformList<AzurermSynapseWorkspaceGithubRepoBlock>? GithubRepo
     {
-        get => GetArgument<AzurermSynapseWorkspaceGithubRepoBlock>("github_repo");
+        get => GetArgument<TerraformList<AzurermSynapseWorkspaceGithubRepoBlock>>("github_repo");
         set => SetArgument("github_repo", value);
     }
 
@@ -489,9 +489,9 @@ public partial class AzurermSynapseWorkspace(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermSynapseWorkspaceIdentityBlock? Identity
+    public TerraformList<AzurermSynapseWorkspaceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermSynapseWorkspaceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermSynapseWorkspaceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

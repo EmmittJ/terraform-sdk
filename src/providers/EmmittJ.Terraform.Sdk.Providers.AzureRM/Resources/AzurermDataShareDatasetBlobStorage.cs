@@ -155,9 +155,9 @@ public partial class AzurermDataShareDatasetBlobStorage(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccount is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageAccount block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
-    public required AzurermDataShareDatasetBlobStorageStorageAccountBlock StorageAccount
+    public required TerraformList<AzurermDataShareDatasetBlobStorageStorageAccountBlock> StorageAccount
     {
-        get => GetRequiredArgument<AzurermDataShareDatasetBlobStorageStorageAccountBlock>("storage_account");
+        get => GetRequiredArgument<TerraformList<AzurermDataShareDatasetBlobStorageStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 

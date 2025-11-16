@@ -107,9 +107,9 @@ public partial class AzurermElasticCloudElasticsearchDataSource(string name) : T
     /// <summary>
     /// Logs block (nesting mode: list).
     /// </summary>
-    public AzurermElasticCloudElasticsearchDataSourceLogsBlock? Logs
+    public TerraformList<AzurermElasticCloudElasticsearchDataSourceLogsBlock>? Logs
     {
-        get => GetArgument<AzurermElasticCloudElasticsearchDataSourceLogsBlock>("logs");
+        get => GetArgument<TerraformList<AzurermElasticCloudElasticsearchDataSourceLogsBlock>>("logs");
         set => SetArgument("logs", value);
     }
 

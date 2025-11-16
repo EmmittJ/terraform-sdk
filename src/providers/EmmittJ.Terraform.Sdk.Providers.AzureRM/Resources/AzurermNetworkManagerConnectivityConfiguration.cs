@@ -213,9 +213,9 @@ public partial class AzurermNetworkManagerConnectivityConfiguration(string name)
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppliesToGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AppliesToGroup block(s) required")]
-    public required AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock AppliesToGroup
+    public required TerraformList<AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock> AppliesToGroup
     {
-        get => GetRequiredArgument<AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock>("applies_to_group");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock>>("applies_to_group");
         set => SetArgument("applies_to_group", value);
     }
 
@@ -223,9 +223,9 @@ public partial class AzurermNetworkManagerConnectivityConfiguration(string name)
     /// Hub block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hub block(s) allowed")]
-    public AzurermNetworkManagerConnectivityConfigurationHubBlock? Hub
+    public TerraformList<AzurermNetworkManagerConnectivityConfigurationHubBlock>? Hub
     {
-        get => GetArgument<AzurermNetworkManagerConnectivityConfigurationHubBlock>("hub");
+        get => GetArgument<TerraformList<AzurermNetworkManagerConnectivityConfigurationHubBlock>>("hub");
         set => SetArgument("hub", value);
     }
 

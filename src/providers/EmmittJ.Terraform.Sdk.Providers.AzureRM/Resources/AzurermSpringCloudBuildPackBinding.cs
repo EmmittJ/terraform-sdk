@@ -130,9 +130,9 @@ public partial class AzurermSpringCloudBuildPackBinding(string name) : Terraform
     /// Launch block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Launch block(s) allowed")]
-    public AzurermSpringCloudBuildPackBindingLaunchBlock? Launch
+    public TerraformList<AzurermSpringCloudBuildPackBindingLaunchBlock>? Launch
     {
-        get => GetArgument<AzurermSpringCloudBuildPackBindingLaunchBlock>("launch");
+        get => GetArgument<TerraformList<AzurermSpringCloudBuildPackBindingLaunchBlock>>("launch");
         set => SetArgument("launch", value);
     }
 

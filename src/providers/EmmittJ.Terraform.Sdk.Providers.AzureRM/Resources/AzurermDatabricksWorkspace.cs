@@ -406,9 +406,9 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// CustomParameters block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomParameters block(s) allowed")]
-    public AzurermDatabricksWorkspaceCustomParametersBlock? CustomParameters
+    public TerraformList<AzurermDatabricksWorkspaceCustomParametersBlock>? CustomParameters
     {
-        get => GetArgument<AzurermDatabricksWorkspaceCustomParametersBlock>("custom_parameters");
+        get => GetArgument<TerraformList<AzurermDatabricksWorkspaceCustomParametersBlock>>("custom_parameters");
         set => SetArgument("custom_parameters", value);
     }
 
@@ -416,9 +416,9 @@ public partial class AzurermDatabricksWorkspace(string name) : TerraformResource
     /// EnhancedSecurityCompliance block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EnhancedSecurityCompliance block(s) allowed")]
-    public AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock? EnhancedSecurityCompliance
+    public TerraformList<AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock>? EnhancedSecurityCompliance
     {
-        get => GetArgument<AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock>("enhanced_security_compliance");
+        get => GetArgument<TerraformList<AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock>>("enhanced_security_compliance");
         set => SetArgument("enhanced_security_compliance", value);
     }
 

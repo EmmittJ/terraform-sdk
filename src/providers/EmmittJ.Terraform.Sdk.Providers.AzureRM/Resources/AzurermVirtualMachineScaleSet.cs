@@ -886,18 +886,18 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     /// BootDiagnostics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
-    public AzurermVirtualMachineScaleSetBootDiagnosticsBlock? BootDiagnostics
+    public TerraformList<AzurermVirtualMachineScaleSetBootDiagnosticsBlock>? BootDiagnostics
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetBootDiagnosticsBlock>("boot_diagnostics");
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetBootDiagnosticsBlock>>("boot_diagnostics");
         set => SetArgument("boot_diagnostics", value);
     }
 
     /// <summary>
     /// Extension block (nesting mode: set).
     /// </summary>
-    public AzurermVirtualMachineScaleSetExtensionBlock? Extension
+    public TerraformSet<AzurermVirtualMachineScaleSetExtensionBlock>? Extension
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetExtensionBlock>("extension");
+        get => GetArgument<TerraformSet<AzurermVirtualMachineScaleSetExtensionBlock>>("extension");
         set => SetArgument("extension", value);
     }
 
@@ -905,9 +905,9 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermVirtualMachineScaleSetIdentityBlock? Identity
+    public TerraformList<AzurermVirtualMachineScaleSetIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -917,9 +917,9 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
-    public required AzurermVirtualMachineScaleSetNetworkProfileBlock NetworkProfile
+    public required TerraformSet<AzurermVirtualMachineScaleSetNetworkProfileBlock> NetworkProfile
     {
-        get => GetRequiredArgument<AzurermVirtualMachineScaleSetNetworkProfileBlock>("network_profile");
+        get => GetRequiredArgument<TerraformSet<AzurermVirtualMachineScaleSetNetworkProfileBlock>>("network_profile");
         set => SetArgument("network_profile", value);
     }
 
@@ -930,9 +930,9 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfile block(s) allowed")]
-    public required AzurermVirtualMachineScaleSetOsProfileBlock OsProfile
+    public required TerraformList<AzurermVirtualMachineScaleSetOsProfileBlock> OsProfile
     {
-        get => GetRequiredArgument<AzurermVirtualMachineScaleSetOsProfileBlock>("os_profile");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualMachineScaleSetOsProfileBlock>>("os_profile");
         set => SetArgument("os_profile", value);
     }
 
@@ -940,18 +940,18 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     /// OsProfileLinuxConfig block (nesting mode: set).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfileLinuxConfig block(s) allowed")]
-    public AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock? OsProfileLinuxConfig
+    public TerraformSet<AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock>? OsProfileLinuxConfig
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock>("os_profile_linux_config");
+        get => GetArgument<TerraformSet<AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock>>("os_profile_linux_config");
         set => SetArgument("os_profile_linux_config", value);
     }
 
     /// <summary>
     /// OsProfileSecrets block (nesting mode: set).
     /// </summary>
-    public AzurermVirtualMachineScaleSetOsProfileSecretsBlock? OsProfileSecrets
+    public TerraformSet<AzurermVirtualMachineScaleSetOsProfileSecretsBlock>? OsProfileSecrets
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetOsProfileSecretsBlock>("os_profile_secrets");
+        get => GetArgument<TerraformSet<AzurermVirtualMachineScaleSetOsProfileSecretsBlock>>("os_profile_secrets");
         set => SetArgument("os_profile_secrets", value);
     }
 
@@ -959,9 +959,9 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     /// OsProfileWindowsConfig block (nesting mode: set).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfileWindowsConfig block(s) allowed")]
-    public AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock? OsProfileWindowsConfig
+    public TerraformSet<AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock>? OsProfileWindowsConfig
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock>("os_profile_windows_config");
+        get => GetArgument<TerraformSet<AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock>>("os_profile_windows_config");
         set => SetArgument("os_profile_windows_config", value);
     }
 
@@ -969,9 +969,9 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     /// Plan block (nesting mode: set).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public AzurermVirtualMachineScaleSetPlanBlock? Plan
+    public TerraformSet<AzurermVirtualMachineScaleSetPlanBlock>? Plan
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetPlanBlock>("plan");
+        get => GetArgument<TerraformSet<AzurermVirtualMachineScaleSetPlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 
@@ -979,9 +979,9 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     /// RollingUpgradePolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RollingUpgradePolicy block(s) allowed")]
-    public AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock? RollingUpgradePolicy
+    public TerraformList<AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock>? RollingUpgradePolicy
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock>("rolling_upgrade_policy");
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock>>("rolling_upgrade_policy");
         set => SetArgument("rolling_upgrade_policy", value);
     }
 
@@ -992,18 +992,18 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermVirtualMachineScaleSetSkuBlock Sku
+    public required TerraformList<AzurermVirtualMachineScaleSetSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermVirtualMachineScaleSetSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualMachineScaleSetSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 
     /// <summary>
     /// StorageProfileDataDisk block (nesting mode: list).
     /// </summary>
-    public AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock? StorageProfileDataDisk
+    public TerraformList<AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock>? StorageProfileDataDisk
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock>("storage_profile_data_disk");
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock>>("storage_profile_data_disk");
         set => SetArgument("storage_profile_data_disk", value);
     }
 
@@ -1011,9 +1011,9 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     /// StorageProfileImageReference block (nesting mode: set).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageProfileImageReference block(s) allowed")]
-    public AzurermVirtualMachineScaleSetStorageProfileImageReferenceBlock? StorageProfileImageReference
+    public TerraformSet<AzurermVirtualMachineScaleSetStorageProfileImageReferenceBlock>? StorageProfileImageReference
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetStorageProfileImageReferenceBlock>("storage_profile_image_reference");
+        get => GetArgument<TerraformSet<AzurermVirtualMachineScaleSetStorageProfileImageReferenceBlock>>("storage_profile_image_reference");
         set => SetArgument("storage_profile_image_reference", value);
     }
 
@@ -1024,9 +1024,9 @@ public partial class AzurermVirtualMachineScaleSet(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageProfileOsDisk is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageProfileOsDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageProfileOsDisk block(s) allowed")]
-    public required AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock StorageProfileOsDisk
+    public required TerraformSet<AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock> StorageProfileOsDisk
     {
-        get => GetRequiredArgument<AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock>("storage_profile_os_disk");
+        get => GetRequiredArgument<TerraformSet<AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock>>("storage_profile_os_disk");
         set => SetArgument("storage_profile_os_disk", value);
     }
 

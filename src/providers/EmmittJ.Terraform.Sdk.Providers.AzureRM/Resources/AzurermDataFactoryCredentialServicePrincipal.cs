@@ -170,9 +170,9 @@ public partial class AzurermDataFactoryCredentialServicePrincipal(string name) :
     /// ServicePrincipalKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipalKey block(s) allowed")]
-    public AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock? ServicePrincipalKey
+    public TerraformList<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock>? ServicePrincipalKey
     {
-        get => GetArgument<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock>("service_principal_key");
+        get => GetArgument<TerraformList<AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock>>("service_principal_key");
         set => SetArgument("service_principal_key", value);
     }
 

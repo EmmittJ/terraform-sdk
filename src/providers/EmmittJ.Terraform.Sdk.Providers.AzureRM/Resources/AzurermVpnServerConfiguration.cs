@@ -342,27 +342,27 @@ public partial class AzurermVpnServerConfiguration(string name) : TerraformResou
     /// <summary>
     /// AzureActiveDirectoryAuthentication block (nesting mode: list).
     /// </summary>
-    public AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBlock? AzureActiveDirectoryAuthentication
+    public TerraformList<AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBlock>? AzureActiveDirectoryAuthentication
     {
-        get => GetArgument<AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBlock>("azure_active_directory_authentication");
+        get => GetArgument<TerraformList<AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBlock>>("azure_active_directory_authentication");
         set => SetArgument("azure_active_directory_authentication", value);
     }
 
     /// <summary>
     /// ClientRevokedCertificate block (nesting mode: set).
     /// </summary>
-    public AzurermVpnServerConfigurationClientRevokedCertificateBlock? ClientRevokedCertificate
+    public TerraformSet<AzurermVpnServerConfigurationClientRevokedCertificateBlock>? ClientRevokedCertificate
     {
-        get => GetArgument<AzurermVpnServerConfigurationClientRevokedCertificateBlock>("client_revoked_certificate");
+        get => GetArgument<TerraformSet<AzurermVpnServerConfigurationClientRevokedCertificateBlock>>("client_revoked_certificate");
         set => SetArgument("client_revoked_certificate", value);
     }
 
     /// <summary>
     /// ClientRootCertificate block (nesting mode: set).
     /// </summary>
-    public AzurermVpnServerConfigurationClientRootCertificateBlock? ClientRootCertificate
+    public TerraformSet<AzurermVpnServerConfigurationClientRootCertificateBlock>? ClientRootCertificate
     {
-        get => GetArgument<AzurermVpnServerConfigurationClientRootCertificateBlock>("client_root_certificate");
+        get => GetArgument<TerraformSet<AzurermVpnServerConfigurationClientRootCertificateBlock>>("client_root_certificate");
         set => SetArgument("client_root_certificate", value);
     }
 
@@ -370,9 +370,9 @@ public partial class AzurermVpnServerConfiguration(string name) : TerraformResou
     /// IpsecPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpsecPolicy block(s) allowed")]
-    public AzurermVpnServerConfigurationIpsecPolicyBlock? IpsecPolicy
+    public TerraformList<AzurermVpnServerConfigurationIpsecPolicyBlock>? IpsecPolicy
     {
-        get => GetArgument<AzurermVpnServerConfigurationIpsecPolicyBlock>("ipsec_policy");
+        get => GetArgument<TerraformList<AzurermVpnServerConfigurationIpsecPolicyBlock>>("ipsec_policy");
         set => SetArgument("ipsec_policy", value);
     }
 
@@ -380,9 +380,9 @@ public partial class AzurermVpnServerConfiguration(string name) : TerraformResou
     /// Radius block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Radius block(s) allowed")]
-    public AzurermVpnServerConfigurationRadiusBlock? Radius
+    public TerraformList<AzurermVpnServerConfigurationRadiusBlock>? Radius
     {
-        get => GetArgument<AzurermVpnServerConfigurationRadiusBlock>("radius");
+        get => GetArgument<TerraformList<AzurermVpnServerConfigurationRadiusBlock>>("radius");
         set => SetArgument("radius", value);
     }
 

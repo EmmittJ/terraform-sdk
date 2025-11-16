@@ -263,9 +263,9 @@ public partial class AzurermSharedImageVersion(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRegion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRegion block(s) required")]
-    public required AzurermSharedImageVersionTargetRegionBlock TargetRegion
+    public required TerraformList<AzurermSharedImageVersionTargetRegionBlock> TargetRegion
     {
-        get => GetRequiredArgument<AzurermSharedImageVersionTargetRegionBlock>("target_region");
+        get => GetRequiredArgument<TerraformList<AzurermSharedImageVersionTargetRegionBlock>>("target_region");
         set => SetArgument("target_region", value);
     }
 

@@ -1016,9 +1016,9 @@ public partial class AzurermWindowsFunctionAppSlot(string name) : TerraformResou
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    public AzurermWindowsFunctionAppSlotAuthSettingsBlock? AuthSettings
+    public TerraformList<AzurermWindowsFunctionAppSlotAuthSettingsBlock>? AuthSettings
     {
-        get => GetArgument<AzurermWindowsFunctionAppSlotAuthSettingsBlock>("auth_settings");
+        get => GetArgument<TerraformList<AzurermWindowsFunctionAppSlotAuthSettingsBlock>>("auth_settings");
         set => SetArgument("auth_settings", value);
     }
 
@@ -1026,9 +1026,9 @@ public partial class AzurermWindowsFunctionAppSlot(string name) : TerraformResou
     /// AuthSettingsV2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
-    public AzurermWindowsFunctionAppSlotAuthSettingsV2Block? AuthSettingsV2
+    public TerraformList<AzurermWindowsFunctionAppSlotAuthSettingsV2Block>? AuthSettingsV2
     {
-        get => GetArgument<AzurermWindowsFunctionAppSlotAuthSettingsV2Block>("auth_settings_v2");
+        get => GetArgument<TerraformList<AzurermWindowsFunctionAppSlotAuthSettingsV2Block>>("auth_settings_v2");
         set => SetArgument("auth_settings_v2", value);
     }
 
@@ -1036,18 +1036,18 @@ public partial class AzurermWindowsFunctionAppSlot(string name) : TerraformResou
     /// Backup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public AzurermWindowsFunctionAppSlotBackupBlock? Backup
+    public TerraformList<AzurermWindowsFunctionAppSlotBackupBlock>? Backup
     {
-        get => GetArgument<AzurermWindowsFunctionAppSlotBackupBlock>("backup");
+        get => GetArgument<TerraformList<AzurermWindowsFunctionAppSlotBackupBlock>>("backup");
         set => SetArgument("backup", value);
     }
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermWindowsFunctionAppSlotConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermWindowsFunctionAppSlotConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermWindowsFunctionAppSlotConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermWindowsFunctionAppSlotConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -1055,9 +1055,9 @@ public partial class AzurermWindowsFunctionAppSlot(string name) : TerraformResou
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermWindowsFunctionAppSlotIdentityBlock? Identity
+    public TerraformList<AzurermWindowsFunctionAppSlotIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermWindowsFunctionAppSlotIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermWindowsFunctionAppSlotIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -1068,18 +1068,18 @@ public partial class AzurermWindowsFunctionAppSlot(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public required AzurermWindowsFunctionAppSlotSiteConfigBlock SiteConfig
+    public required TerraformList<AzurermWindowsFunctionAppSlotSiteConfigBlock> SiteConfig
     {
-        get => GetRequiredArgument<AzurermWindowsFunctionAppSlotSiteConfigBlock>("site_config");
+        get => GetRequiredArgument<TerraformList<AzurermWindowsFunctionAppSlotSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 
     /// <summary>
     /// StorageAccount block (nesting mode: set).
     /// </summary>
-    public AzurermWindowsFunctionAppSlotStorageAccountBlock? StorageAccount
+    public TerraformSet<AzurermWindowsFunctionAppSlotStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermWindowsFunctionAppSlotStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformSet<AzurermWindowsFunctionAppSlotStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 

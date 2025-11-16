@@ -1058,9 +1058,9 @@ public partial class AzurermWindowsFunctionApp(string name) : TerraformResource(
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    public AzurermWindowsFunctionAppAuthSettingsBlock? AuthSettings
+    public TerraformList<AzurermWindowsFunctionAppAuthSettingsBlock>? AuthSettings
     {
-        get => GetArgument<AzurermWindowsFunctionAppAuthSettingsBlock>("auth_settings");
+        get => GetArgument<TerraformList<AzurermWindowsFunctionAppAuthSettingsBlock>>("auth_settings");
         set => SetArgument("auth_settings", value);
     }
 
@@ -1068,9 +1068,9 @@ public partial class AzurermWindowsFunctionApp(string name) : TerraformResource(
     /// AuthSettingsV2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
-    public AzurermWindowsFunctionAppAuthSettingsV2Block? AuthSettingsV2
+    public TerraformList<AzurermWindowsFunctionAppAuthSettingsV2Block>? AuthSettingsV2
     {
-        get => GetArgument<AzurermWindowsFunctionAppAuthSettingsV2Block>("auth_settings_v2");
+        get => GetArgument<TerraformList<AzurermWindowsFunctionAppAuthSettingsV2Block>>("auth_settings_v2");
         set => SetArgument("auth_settings_v2", value);
     }
 
@@ -1078,18 +1078,18 @@ public partial class AzurermWindowsFunctionApp(string name) : TerraformResource(
     /// Backup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public AzurermWindowsFunctionAppBackupBlock? Backup
+    public TerraformList<AzurermWindowsFunctionAppBackupBlock>? Backup
     {
-        get => GetArgument<AzurermWindowsFunctionAppBackupBlock>("backup");
+        get => GetArgument<TerraformList<AzurermWindowsFunctionAppBackupBlock>>("backup");
         set => SetArgument("backup", value);
     }
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermWindowsFunctionAppConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermWindowsFunctionAppConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermWindowsFunctionAppConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermWindowsFunctionAppConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -1097,9 +1097,9 @@ public partial class AzurermWindowsFunctionApp(string name) : TerraformResource(
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermWindowsFunctionAppIdentityBlock? Identity
+    public TerraformList<AzurermWindowsFunctionAppIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermWindowsFunctionAppIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermWindowsFunctionAppIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -1110,9 +1110,9 @@ public partial class AzurermWindowsFunctionApp(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public required AzurermWindowsFunctionAppSiteConfigBlock SiteConfig
+    public required TerraformList<AzurermWindowsFunctionAppSiteConfigBlock> SiteConfig
     {
-        get => GetRequiredArgument<AzurermWindowsFunctionAppSiteConfigBlock>("site_config");
+        get => GetRequiredArgument<TerraformList<AzurermWindowsFunctionAppSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 
@@ -1120,18 +1120,18 @@ public partial class AzurermWindowsFunctionApp(string name) : TerraformResource(
     /// StickySettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StickySettings block(s) allowed")]
-    public AzurermWindowsFunctionAppStickySettingsBlock? StickySettings
+    public TerraformList<AzurermWindowsFunctionAppStickySettingsBlock>? StickySettings
     {
-        get => GetArgument<AzurermWindowsFunctionAppStickySettingsBlock>("sticky_settings");
+        get => GetArgument<TerraformList<AzurermWindowsFunctionAppStickySettingsBlock>>("sticky_settings");
         set => SetArgument("sticky_settings", value);
     }
 
     /// <summary>
     /// StorageAccount block (nesting mode: set).
     /// </summary>
-    public AzurermWindowsFunctionAppStorageAccountBlock? StorageAccount
+    public TerraformSet<AzurermWindowsFunctionAppStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermWindowsFunctionAppStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformSet<AzurermWindowsFunctionAppStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 

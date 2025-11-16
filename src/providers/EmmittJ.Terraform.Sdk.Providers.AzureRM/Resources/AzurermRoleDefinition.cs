@@ -165,9 +165,9 @@ public partial class AzurermRoleDefinition(string name) : TerraformResource("azu
     /// <summary>
     /// Permissions block (nesting mode: list).
     /// </summary>
-    public AzurermRoleDefinitionPermissionsBlock? Permissions
+    public TerraformList<AzurermRoleDefinitionPermissionsBlock>? Permissions
     {
-        get => GetArgument<AzurermRoleDefinitionPermissionsBlock>("permissions");
+        get => GetArgument<TerraformList<AzurermRoleDefinitionPermissionsBlock>>("permissions");
         set => SetArgument("permissions", value);
     }
 

@@ -152,9 +152,9 @@ public partial class AzurermPolicyVirtualMachineConfigurationAssignment(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Configuration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Configuration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
-    public required AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock Configuration
+    public required TerraformList<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock> Configuration
     {
-        get => GetRequiredArgument<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock>("configuration");
+        get => GetRequiredArgument<TerraformList<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock>>("configuration");
         set => SetArgument("configuration", value);
     }
 

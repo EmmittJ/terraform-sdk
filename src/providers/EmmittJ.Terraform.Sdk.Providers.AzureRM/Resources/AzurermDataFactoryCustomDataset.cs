@@ -199,9 +199,9 @@ public partial class AzurermDataFactoryCustomDataset(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedService is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LinkedService block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedService block(s) allowed")]
-    public required AzurermDataFactoryCustomDatasetLinkedServiceBlock LinkedService
+    public required TerraformList<AzurermDataFactoryCustomDatasetLinkedServiceBlock> LinkedService
     {
-        get => GetRequiredArgument<AzurermDataFactoryCustomDatasetLinkedServiceBlock>("linked_service");
+        get => GetRequiredArgument<TerraformList<AzurermDataFactoryCustomDatasetLinkedServiceBlock>>("linked_service");
         set => SetArgument("linked_service", value);
     }
 

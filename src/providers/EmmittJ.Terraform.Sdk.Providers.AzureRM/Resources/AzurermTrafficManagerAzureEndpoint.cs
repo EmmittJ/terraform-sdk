@@ -218,18 +218,18 @@ public partial class AzurermTrafficManagerAzureEndpoint(string name) : Terraform
     /// <summary>
     /// CustomHeader block (nesting mode: list).
     /// </summary>
-    public AzurermTrafficManagerAzureEndpointCustomHeaderBlock? CustomHeader
+    public TerraformList<AzurermTrafficManagerAzureEndpointCustomHeaderBlock>? CustomHeader
     {
-        get => GetArgument<AzurermTrafficManagerAzureEndpointCustomHeaderBlock>("custom_header");
+        get => GetArgument<TerraformList<AzurermTrafficManagerAzureEndpointCustomHeaderBlock>>("custom_header");
         set => SetArgument("custom_header", value);
     }
 
     /// <summary>
     /// Subnet block (nesting mode: list).
     /// </summary>
-    public AzurermTrafficManagerAzureEndpointSubnetBlock? Subnet
+    public TerraformList<AzurermTrafficManagerAzureEndpointSubnetBlock>? Subnet
     {
-        get => GetArgument<AzurermTrafficManagerAzureEndpointSubnetBlock>("subnet");
+        get => GetArgument<TerraformList<AzurermTrafficManagerAzureEndpointSubnetBlock>>("subnet");
         set => SetArgument("subnet", value);
     }
 

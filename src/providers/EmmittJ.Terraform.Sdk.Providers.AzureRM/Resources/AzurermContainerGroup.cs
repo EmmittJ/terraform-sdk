@@ -540,9 +540,9 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Container is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Container block(s) required")]
-    public required AzurermContainerGroupContainerBlock Container
+    public required TerraformList<AzurermContainerGroupContainerBlock> Container
     {
-        get => GetRequiredArgument<AzurermContainerGroupContainerBlock>("container");
+        get => GetRequiredArgument<TerraformList<AzurermContainerGroupContainerBlock>>("container");
         set => SetArgument("container", value);
     }
 
@@ -550,9 +550,9 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// Diagnostics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Diagnostics block(s) allowed")]
-    public AzurermContainerGroupDiagnosticsBlock? Diagnostics
+    public TerraformList<AzurermContainerGroupDiagnosticsBlock>? Diagnostics
     {
-        get => GetArgument<AzurermContainerGroupDiagnosticsBlock>("diagnostics");
+        get => GetArgument<TerraformList<AzurermContainerGroupDiagnosticsBlock>>("diagnostics");
         set => SetArgument("diagnostics", value);
     }
 
@@ -560,9 +560,9 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// DnsConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
-    public AzurermContainerGroupDnsConfigBlock? DnsConfig
+    public TerraformList<AzurermContainerGroupDnsConfigBlock>? DnsConfig
     {
-        get => GetArgument<AzurermContainerGroupDnsConfigBlock>("dns_config");
+        get => GetArgument<TerraformList<AzurermContainerGroupDnsConfigBlock>>("dns_config");
         set => SetArgument("dns_config", value);
     }
 
@@ -570,27 +570,27 @@ public partial class AzurermContainerGroup(string name) : TerraformResource("azu
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermContainerGroupIdentityBlock? Identity
+    public TerraformList<AzurermContainerGroupIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermContainerGroupIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermContainerGroupIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// ImageRegistryCredential block (nesting mode: list).
     /// </summary>
-    public AzurermContainerGroupImageRegistryCredentialBlock? ImageRegistryCredential
+    public TerraformList<AzurermContainerGroupImageRegistryCredentialBlock>? ImageRegistryCredential
     {
-        get => GetArgument<AzurermContainerGroupImageRegistryCredentialBlock>("image_registry_credential");
+        get => GetArgument<TerraformList<AzurermContainerGroupImageRegistryCredentialBlock>>("image_registry_credential");
         set => SetArgument("image_registry_credential", value);
     }
 
     /// <summary>
     /// InitContainer block (nesting mode: list).
     /// </summary>
-    public AzurermContainerGroupInitContainerBlock? InitContainer
+    public TerraformList<AzurermContainerGroupInitContainerBlock>? InitContainer
     {
-        get => GetArgument<AzurermContainerGroupInitContainerBlock>("init_container");
+        get => GetArgument<TerraformList<AzurermContainerGroupInitContainerBlock>>("init_container");
         set => SetArgument("init_container", value);
     }
 

@@ -265,9 +265,9 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     /// <summary>
     /// DestinationNat block (nesting mode: list).
     /// </summary>
-    public AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock? DestinationNat
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock>? DestinationNat
     {
-        get => GetArgument<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock>("destination_nat");
+        get => GetArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock>>("destination_nat");
         set => SetArgument("destination_nat", value);
     }
 
@@ -275,9 +275,9 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     /// DnsSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
-    public AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock? DnsSettings
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock>? DnsSettings
     {
-        get => GetArgument<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock>("dns_settings");
+        get => GetArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock>>("dns_settings");
         set => SetArgument("dns_settings", value);
     }
 
@@ -288,9 +288,9 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
-    public required AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock NetworkProfile
+    public required TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock> NetworkProfile
     {
-        get => GetRequiredArgument<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock>("network_profile");
+        get => GetRequiredArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock>>("network_profile");
         set => SetArgument("network_profile", value);
     }
 

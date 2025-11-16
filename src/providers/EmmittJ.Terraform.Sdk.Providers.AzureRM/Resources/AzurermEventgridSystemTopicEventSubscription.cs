@@ -574,9 +574,9 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// AdvancedFilter block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedFilter block(s) allowed")]
-    public AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlock? AdvancedFilter
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlock>? AdvancedFilter
     {
-        get => GetArgument<AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlock>("advanced_filter");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicEventSubscriptionAdvancedFilterBlock>>("advanced_filter");
         set => SetArgument("advanced_filter", value);
     }
 
@@ -584,9 +584,9 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// AzureFunctionEndpoint block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureFunctionEndpoint block(s) allowed")]
-    public AzurermEventgridSystemTopicEventSubscriptionAzureFunctionEndpointBlock? AzureFunctionEndpoint
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionAzureFunctionEndpointBlock>? AzureFunctionEndpoint
     {
-        get => GetArgument<AzurermEventgridSystemTopicEventSubscriptionAzureFunctionEndpointBlock>("azure_function_endpoint");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicEventSubscriptionAzureFunctionEndpointBlock>>("azure_function_endpoint");
         set => SetArgument("azure_function_endpoint", value);
     }
 
@@ -594,9 +594,9 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// DeadLetterIdentity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterIdentity block(s) allowed")]
-    public AzurermEventgridSystemTopicEventSubscriptionDeadLetterIdentityBlock? DeadLetterIdentity
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionDeadLetterIdentityBlock>? DeadLetterIdentity
     {
-        get => GetArgument<AzurermEventgridSystemTopicEventSubscriptionDeadLetterIdentityBlock>("dead_letter_identity");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicEventSubscriptionDeadLetterIdentityBlock>>("dead_letter_identity");
         set => SetArgument("dead_letter_identity", value);
     }
 
@@ -604,18 +604,18 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// DeliveryIdentity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryIdentity block(s) allowed")]
-    public AzurermEventgridSystemTopicEventSubscriptionDeliveryIdentityBlock? DeliveryIdentity
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionDeliveryIdentityBlock>? DeliveryIdentity
     {
-        get => GetArgument<AzurermEventgridSystemTopicEventSubscriptionDeliveryIdentityBlock>("delivery_identity");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicEventSubscriptionDeliveryIdentityBlock>>("delivery_identity");
         set => SetArgument("delivery_identity", value);
     }
 
     /// <summary>
     /// DeliveryProperty block (nesting mode: list).
     /// </summary>
-    public AzurermEventgridSystemTopicEventSubscriptionDeliveryPropertyBlock? DeliveryProperty
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionDeliveryPropertyBlock>? DeliveryProperty
     {
-        get => GetArgument<AzurermEventgridSystemTopicEventSubscriptionDeliveryPropertyBlock>("delivery_property");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicEventSubscriptionDeliveryPropertyBlock>>("delivery_property");
         set => SetArgument("delivery_property", value);
     }
 
@@ -623,9 +623,9 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// RetryPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
-    public AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBlock? RetryPolicy
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBlock>? RetryPolicy
     {
-        get => GetArgument<AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBlock>("retry_policy");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicEventSubscriptionRetryPolicyBlock>>("retry_policy");
         set => SetArgument("retry_policy", value);
     }
 
@@ -633,9 +633,9 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// StorageBlobDeadLetterDestination block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageBlobDeadLetterDestination block(s) allowed")]
-    public AzurermEventgridSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationBlock? StorageBlobDeadLetterDestination
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationBlock>? StorageBlobDeadLetterDestination
     {
-        get => GetArgument<AzurermEventgridSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationBlock>("storage_blob_dead_letter_destination");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationBlock>>("storage_blob_dead_letter_destination");
         set => SetArgument("storage_blob_dead_letter_destination", value);
     }
 
@@ -643,9 +643,9 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// StorageQueueEndpoint block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageQueueEndpoint block(s) allowed")]
-    public AzurermEventgridSystemTopicEventSubscriptionStorageQueueEndpointBlock? StorageQueueEndpoint
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionStorageQueueEndpointBlock>? StorageQueueEndpoint
     {
-        get => GetArgument<AzurermEventgridSystemTopicEventSubscriptionStorageQueueEndpointBlock>("storage_queue_endpoint");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicEventSubscriptionStorageQueueEndpointBlock>>("storage_queue_endpoint");
         set => SetArgument("storage_queue_endpoint", value);
     }
 
@@ -653,9 +653,9 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// SubjectFilter block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubjectFilter block(s) allowed")]
-    public AzurermEventgridSystemTopicEventSubscriptionSubjectFilterBlock? SubjectFilter
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionSubjectFilterBlock>? SubjectFilter
     {
-        get => GetArgument<AzurermEventgridSystemTopicEventSubscriptionSubjectFilterBlock>("subject_filter");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicEventSubscriptionSubjectFilterBlock>>("subject_filter");
         set => SetArgument("subject_filter", value);
     }
 
@@ -672,9 +672,9 @@ public partial class AzurermEventgridSystemTopicEventSubscription(string name) :
     /// WebhookEndpoint block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebhookEndpoint block(s) allowed")]
-    public AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock? WebhookEndpoint
+    public TerraformList<AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock>? WebhookEndpoint
     {
-        get => GetArgument<AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock>("webhook_endpoint");
+        get => GetArgument<TerraformList<AzurermEventgridSystemTopicEventSubscriptionWebhookEndpointBlock>>("webhook_endpoint");
         set => SetArgument("webhook_endpoint", value);
     }
 

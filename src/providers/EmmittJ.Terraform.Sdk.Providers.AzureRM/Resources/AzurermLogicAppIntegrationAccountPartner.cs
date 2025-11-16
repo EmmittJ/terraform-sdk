@@ -144,9 +144,9 @@ public partial class AzurermLogicAppIntegrationAccountPartner(string name) : Ter
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BusinessIdentity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BusinessIdentity block(s) required")]
-    public required AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock BusinessIdentity
+    public required TerraformSet<AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock> BusinessIdentity
     {
-        get => GetRequiredArgument<AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock>("business_identity");
+        get => GetRequiredArgument<TerraformSet<AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock>>("business_identity");
         set => SetArgument("business_identity", value);
     }
 

@@ -206,18 +206,18 @@ public partial class AzurermCustomProvider(string name) : TerraformResource("azu
     /// <summary>
     /// Action block (nesting mode: set).
     /// </summary>
-    public AzurermCustomProviderActionBlock? Action
+    public TerraformSet<AzurermCustomProviderActionBlock>? Action
     {
-        get => GetArgument<AzurermCustomProviderActionBlock>("action");
+        get => GetArgument<TerraformSet<AzurermCustomProviderActionBlock>>("action");
         set => SetArgument("action", value);
     }
 
     /// <summary>
     /// ResourceTypeAttribute block (nesting mode: set).
     /// </summary>
-    public AzurermCustomProviderResourceTypeAttributeBlock? ResourceTypeAttribute
+    public TerraformSet<AzurermCustomProviderResourceTypeAttributeBlock>? ResourceTypeAttribute
     {
-        get => GetArgument<AzurermCustomProviderResourceTypeAttributeBlock>("resource_type");
+        get => GetArgument<TerraformSet<AzurermCustomProviderResourceTypeAttributeBlock>>("resource_type");
         set => SetArgument("resource_type", value);
     }
 
@@ -233,9 +233,9 @@ public partial class AzurermCustomProvider(string name) : TerraformResource("azu
     /// <summary>
     /// Validation block (nesting mode: set).
     /// </summary>
-    public AzurermCustomProviderValidationBlock? Validation
+    public TerraformSet<AzurermCustomProviderValidationBlock>? Validation
     {
-        get => GetArgument<AzurermCustomProviderValidationBlock>("validation");
+        get => GetArgument<TerraformSet<AzurermCustomProviderValidationBlock>>("validation");
         set => SetArgument("validation", value);
     }
 

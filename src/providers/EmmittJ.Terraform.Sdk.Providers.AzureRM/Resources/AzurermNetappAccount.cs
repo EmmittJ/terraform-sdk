@@ -301,9 +301,9 @@ public partial class AzurermNetappAccount(string name) : TerraformResource("azur
     /// ActiveDirectory block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectory block(s) allowed")]
-    public AzurermNetappAccountActiveDirectoryBlock? ActiveDirectory
+    public TerraformList<AzurermNetappAccountActiveDirectoryBlock>? ActiveDirectory
     {
-        get => GetArgument<AzurermNetappAccountActiveDirectoryBlock>("active_directory");
+        get => GetArgument<TerraformList<AzurermNetappAccountActiveDirectoryBlock>>("active_directory");
         set => SetArgument("active_directory", value);
     }
 
@@ -311,9 +311,9 @@ public partial class AzurermNetappAccount(string name) : TerraformResource("azur
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermNetappAccountIdentityBlock? Identity
+    public TerraformList<AzurermNetappAccountIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermNetappAccountIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermNetappAccountIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

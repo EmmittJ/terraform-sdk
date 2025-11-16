@@ -172,9 +172,9 @@ public partial class AzurermElasticSan(string name) : TerraformResource("azurerm
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermElasticSanSkuBlock Sku
+    public required TerraformList<AzurermElasticSanSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermElasticSanSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermElasticSanSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 

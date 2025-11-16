@@ -161,9 +161,9 @@ public partial class AzurermNetworkManager(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Scope block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scope block(s) allowed")]
-    public required AzurermNetworkManagerScopeBlock Scope
+    public required TerraformList<AzurermNetworkManagerScopeBlock> Scope
     {
-        get => GetRequiredArgument<AzurermNetworkManagerScopeBlock>("scope");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkManagerScopeBlock>>("scope");
         set => SetArgument("scope", value);
     }
 

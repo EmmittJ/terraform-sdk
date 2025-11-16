@@ -291,9 +291,9 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     /// <summary>
     /// EnvironmentProperties block (nesting mode: list).
     /// </summary>
-    public AzurermDynatraceMonitorEnvironmentPropertiesBlock? EnvironmentProperties
+    public TerraformList<AzurermDynatraceMonitorEnvironmentPropertiesBlock>? EnvironmentProperties
     {
-        get => GetArgument<AzurermDynatraceMonitorEnvironmentPropertiesBlock>("environment_properties");
+        get => GetArgument<TerraformList<AzurermDynatraceMonitorEnvironmentPropertiesBlock>>("environment_properties");
         set => SetArgument("environment_properties", value);
     }
 
@@ -304,9 +304,9 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermDynatraceMonitorIdentityBlock Identity
+    public required TerraformList<AzurermDynatraceMonitorIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermDynatraceMonitorIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermDynatraceMonitorIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -317,9 +317,9 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public required AzurermDynatraceMonitorPlanBlock Plan
+    public required TerraformList<AzurermDynatraceMonitorPlanBlock> Plan
     {
-        get => GetRequiredArgument<AzurermDynatraceMonitorPlanBlock>("plan");
+        get => GetRequiredArgument<TerraformList<AzurermDynatraceMonitorPlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 
@@ -339,9 +339,9 @@ public partial class AzurermDynatraceMonitor(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
-    public required AzurermDynatraceMonitorUserBlock User
+    public required TerraformList<AzurermDynatraceMonitorUserBlock> User
     {
-        get => GetRequiredArgument<AzurermDynatraceMonitorUserBlock>("user");
+        get => GetRequiredArgument<TerraformList<AzurermDynatraceMonitorUserBlock>>("user");
         set => SetArgument("user", value);
     }
 

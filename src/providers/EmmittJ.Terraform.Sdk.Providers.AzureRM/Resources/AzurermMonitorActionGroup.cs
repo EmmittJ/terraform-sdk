@@ -700,81 +700,81 @@ public partial class AzurermMonitorActionGroup(string name) : TerraformResource(
     /// <summary>
     /// ArmRoleReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupArmRoleReceiverBlock? ArmRoleReceiver
+    public TerraformList<AzurermMonitorActionGroupArmRoleReceiverBlock>? ArmRoleReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupArmRoleReceiverBlock>("arm_role_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupArmRoleReceiverBlock>>("arm_role_receiver");
         set => SetArgument("arm_role_receiver", value);
     }
 
     /// <summary>
     /// AutomationRunbookReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupAutomationRunbookReceiverBlock? AutomationRunbookReceiver
+    public TerraformList<AzurermMonitorActionGroupAutomationRunbookReceiverBlock>? AutomationRunbookReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupAutomationRunbookReceiverBlock>("automation_runbook_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupAutomationRunbookReceiverBlock>>("automation_runbook_receiver");
         set => SetArgument("automation_runbook_receiver", value);
     }
 
     /// <summary>
     /// AzureAppPushReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupAzureAppPushReceiverBlock? AzureAppPushReceiver
+    public TerraformList<AzurermMonitorActionGroupAzureAppPushReceiverBlock>? AzureAppPushReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupAzureAppPushReceiverBlock>("azure_app_push_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupAzureAppPushReceiverBlock>>("azure_app_push_receiver");
         set => SetArgument("azure_app_push_receiver", value);
     }
 
     /// <summary>
     /// AzureFunctionReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupAzureFunctionReceiverBlock? AzureFunctionReceiver
+    public TerraformList<AzurermMonitorActionGroupAzureFunctionReceiverBlock>? AzureFunctionReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupAzureFunctionReceiverBlock>("azure_function_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupAzureFunctionReceiverBlock>>("azure_function_receiver");
         set => SetArgument("azure_function_receiver", value);
     }
 
     /// <summary>
     /// EmailReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupEmailReceiverBlock? EmailReceiver
+    public TerraformList<AzurermMonitorActionGroupEmailReceiverBlock>? EmailReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupEmailReceiverBlock>("email_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupEmailReceiverBlock>>("email_receiver");
         set => SetArgument("email_receiver", value);
     }
 
     /// <summary>
     /// EventHubReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupEventHubReceiverBlock? EventHubReceiver
+    public TerraformList<AzurermMonitorActionGroupEventHubReceiverBlock>? EventHubReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupEventHubReceiverBlock>("event_hub_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupEventHubReceiverBlock>>("event_hub_receiver");
         set => SetArgument("event_hub_receiver", value);
     }
 
     /// <summary>
     /// ItsmReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupItsmReceiverBlock? ItsmReceiver
+    public TerraformList<AzurermMonitorActionGroupItsmReceiverBlock>? ItsmReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupItsmReceiverBlock>("itsm_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupItsmReceiverBlock>>("itsm_receiver");
         set => SetArgument("itsm_receiver", value);
     }
 
     /// <summary>
     /// LogicAppReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupLogicAppReceiverBlock? LogicAppReceiver
+    public TerraformList<AzurermMonitorActionGroupLogicAppReceiverBlock>? LogicAppReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupLogicAppReceiverBlock>("logic_app_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupLogicAppReceiverBlock>>("logic_app_receiver");
         set => SetArgument("logic_app_receiver", value);
     }
 
     /// <summary>
     /// SmsReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupSmsReceiverBlock? SmsReceiver
+    public TerraformList<AzurermMonitorActionGroupSmsReceiverBlock>? SmsReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupSmsReceiverBlock>("sms_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupSmsReceiverBlock>>("sms_receiver");
         set => SetArgument("sms_receiver", value);
     }
 
@@ -790,18 +790,18 @@ public partial class AzurermMonitorActionGroup(string name) : TerraformResource(
     /// <summary>
     /// VoiceReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupVoiceReceiverBlock? VoiceReceiver
+    public TerraformList<AzurermMonitorActionGroupVoiceReceiverBlock>? VoiceReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupVoiceReceiverBlock>("voice_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupVoiceReceiverBlock>>("voice_receiver");
         set => SetArgument("voice_receiver", value);
     }
 
     /// <summary>
     /// WebhookReceiver block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActionGroupWebhookReceiverBlock? WebhookReceiver
+    public TerraformList<AzurermMonitorActionGroupWebhookReceiverBlock>? WebhookReceiver
     {
-        get => GetArgument<AzurermMonitorActionGroupWebhookReceiverBlock>("webhook_receiver");
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupWebhookReceiverBlock>>("webhook_receiver");
         set => SetArgument("webhook_receiver", value);
     }
 

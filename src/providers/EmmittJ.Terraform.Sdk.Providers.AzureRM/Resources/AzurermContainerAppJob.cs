@@ -411,9 +411,9 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     /// EventTriggerConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventTriggerConfig block(s) allowed")]
-    public AzurermContainerAppJobEventTriggerConfigBlock? EventTriggerConfig
+    public TerraformList<AzurermContainerAppJobEventTriggerConfigBlock>? EventTriggerConfig
     {
-        get => GetArgument<AzurermContainerAppJobEventTriggerConfigBlock>("event_trigger_config");
+        get => GetArgument<TerraformList<AzurermContainerAppJobEventTriggerConfigBlock>>("event_trigger_config");
         set => SetArgument("event_trigger_config", value);
     }
 
@@ -421,9 +421,9 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermContainerAppJobIdentityBlock? Identity
+    public TerraformList<AzurermContainerAppJobIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermContainerAppJobIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermContainerAppJobIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -431,18 +431,18 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     /// ManualTriggerConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualTriggerConfig block(s) allowed")]
-    public AzurermContainerAppJobManualTriggerConfigBlock? ManualTriggerConfig
+    public TerraformList<AzurermContainerAppJobManualTriggerConfigBlock>? ManualTriggerConfig
     {
-        get => GetArgument<AzurermContainerAppJobManualTriggerConfigBlock>("manual_trigger_config");
+        get => GetArgument<TerraformList<AzurermContainerAppJobManualTriggerConfigBlock>>("manual_trigger_config");
         set => SetArgument("manual_trigger_config", value);
     }
 
     /// <summary>
     /// Registry block (nesting mode: list).
     /// </summary>
-    public AzurermContainerAppJobRegistryBlock? Registry
+    public TerraformList<AzurermContainerAppJobRegistryBlock>? Registry
     {
-        get => GetArgument<AzurermContainerAppJobRegistryBlock>("registry");
+        get => GetArgument<TerraformList<AzurermContainerAppJobRegistryBlock>>("registry");
         set => SetArgument("registry", value);
     }
 
@@ -450,18 +450,18 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     /// ScheduleTriggerConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleTriggerConfig block(s) allowed")]
-    public AzurermContainerAppJobScheduleTriggerConfigBlock? ScheduleTriggerConfig
+    public TerraformList<AzurermContainerAppJobScheduleTriggerConfigBlock>? ScheduleTriggerConfig
     {
-        get => GetArgument<AzurermContainerAppJobScheduleTriggerConfigBlock>("schedule_trigger_config");
+        get => GetArgument<TerraformList<AzurermContainerAppJobScheduleTriggerConfigBlock>>("schedule_trigger_config");
         set => SetArgument("schedule_trigger_config", value);
     }
 
     /// <summary>
     /// Secret block (nesting mode: set).
     /// </summary>
-    public AzurermContainerAppJobSecretBlock? Secret
+    public TerraformSet<AzurermContainerAppJobSecretBlock>? Secret
     {
-        get => GetArgument<AzurermContainerAppJobSecretBlock>("secret");
+        get => GetArgument<TerraformSet<AzurermContainerAppJobSecretBlock>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -472,9 +472,9 @@ public partial class AzurermContainerAppJob(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
-    public required AzurermContainerAppJobTemplateBlock Template
+    public required TerraformList<AzurermContainerAppJobTemplateBlock> Template
     {
-        get => GetRequiredArgument<AzurermContainerAppJobTemplateBlock>("template");
+        get => GetRequiredArgument<TerraformList<AzurermContainerAppJobTemplateBlock>>("template");
         set => SetArgument("template", value);
     }
 

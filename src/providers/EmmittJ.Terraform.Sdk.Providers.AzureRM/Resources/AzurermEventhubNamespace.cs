@@ -239,9 +239,9 @@ public partial class AzurermEventhubNamespace(string name) : TerraformResource("
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermEventhubNamespaceIdentityBlock? Identity
+    public TerraformList<AzurermEventhubNamespaceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermEventhubNamespaceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermEventhubNamespaceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

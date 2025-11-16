@@ -315,27 +315,27 @@ public partial class AzurermSentinelAutomationRule(string name) : TerraformResou
     /// <summary>
     /// ActionIncident block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelAutomationRuleActionIncidentBlock? ActionIncident
+    public TerraformList<AzurermSentinelAutomationRuleActionIncidentBlock>? ActionIncident
     {
-        get => GetArgument<AzurermSentinelAutomationRuleActionIncidentBlock>("action_incident");
+        get => GetArgument<TerraformList<AzurermSentinelAutomationRuleActionIncidentBlock>>("action_incident");
         set => SetArgument("action_incident", value);
     }
 
     /// <summary>
     /// ActionIncidentTask block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelAutomationRuleActionIncidentTaskBlock? ActionIncidentTask
+    public TerraformList<AzurermSentinelAutomationRuleActionIncidentTaskBlock>? ActionIncidentTask
     {
-        get => GetArgument<AzurermSentinelAutomationRuleActionIncidentTaskBlock>("action_incident_task");
+        get => GetArgument<TerraformList<AzurermSentinelAutomationRuleActionIncidentTaskBlock>>("action_incident_task");
         set => SetArgument("action_incident_task", value);
     }
 
     /// <summary>
     /// ActionPlaybook block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelAutomationRuleActionPlaybookBlock? ActionPlaybook
+    public TerraformList<AzurermSentinelAutomationRuleActionPlaybookBlock>? ActionPlaybook
     {
-        get => GetArgument<AzurermSentinelAutomationRuleActionPlaybookBlock>("action_playbook");
+        get => GetArgument<TerraformList<AzurermSentinelAutomationRuleActionPlaybookBlock>>("action_playbook");
         set => SetArgument("action_playbook", value);
     }
 

@@ -197,18 +197,18 @@ public partial class AzurermConfidentialLedger(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureadBasedServicePrincipal is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AzureadBasedServicePrincipal block(s) required")]
-    public required AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock AzureadBasedServicePrincipal
+    public required TerraformList<AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock> AzureadBasedServicePrincipal
     {
-        get => GetRequiredArgument<AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock>("azuread_based_service_principal");
+        get => GetRequiredArgument<TerraformList<AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock>>("azuread_based_service_principal");
         set => SetArgument("azuread_based_service_principal", value);
     }
 
     /// <summary>
     /// CertificateBasedSecurityPrincipal block (nesting mode: list).
     /// </summary>
-    public AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock? CertificateBasedSecurityPrincipal
+    public TerraformList<AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock>? CertificateBasedSecurityPrincipal
     {
-        get => GetArgument<AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock>("certificate_based_security_principal");
+        get => GetArgument<TerraformList<AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock>>("certificate_based_security_principal");
         set => SetArgument("certificate_based_security_principal", value);
     }
 

@@ -178,9 +178,9 @@ public partial class AzurermElasticCloudElasticsearch(string name) : TerraformRe
     /// Logs block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
-    public AzurermElasticCloudElasticsearchLogsBlock? Logs
+    public TerraformList<AzurermElasticCloudElasticsearchLogsBlock>? Logs
     {
-        get => GetArgument<AzurermElasticCloudElasticsearchLogsBlock>("logs");
+        get => GetArgument<TerraformList<AzurermElasticCloudElasticsearchLogsBlock>>("logs");
         set => SetArgument("logs", value);
     }
 

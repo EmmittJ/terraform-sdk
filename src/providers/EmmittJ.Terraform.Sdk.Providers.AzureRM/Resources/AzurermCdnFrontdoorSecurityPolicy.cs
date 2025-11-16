@@ -106,9 +106,9 @@ public partial class AzurermCdnFrontdoorSecurityPolicy(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicies is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecurityPolicies block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityPolicies block(s) allowed")]
-    public required AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock SecurityPolicies
+    public required TerraformList<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock> SecurityPolicies
     {
-        get => GetRequiredArgument<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock>("security_policies");
+        get => GetRequiredArgument<TerraformList<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock>>("security_policies");
         set => SetArgument("security_policies", value);
     }
 

@@ -153,9 +153,9 @@ public partial class AzurermLogicAppIntegrationAccountBatchConfiguration(string 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseCriteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReleaseCriteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReleaseCriteria block(s) allowed")]
-    public required AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaBlock ReleaseCriteria
+    public required TerraformList<AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaBlock> ReleaseCriteria
     {
-        get => GetRequiredArgument<AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaBlock>("release_criteria");
+        get => GetRequiredArgument<TerraformList<AzurermLogicAppIntegrationAccountBatchConfigurationReleaseCriteriaBlock>>("release_criteria");
         set => SetArgument("release_criteria", value);
     }
 

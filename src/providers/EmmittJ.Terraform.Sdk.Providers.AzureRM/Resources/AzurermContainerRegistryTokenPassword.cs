@@ -143,9 +143,9 @@ public partial class AzurermContainerRegistryTokenPassword(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password1 is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Password1 block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password1 block(s) allowed")]
-    public required AzurermContainerRegistryTokenPasswordPassword1Block Password1
+    public required TerraformList<AzurermContainerRegistryTokenPasswordPassword1Block> Password1
     {
-        get => GetRequiredArgument<AzurermContainerRegistryTokenPasswordPassword1Block>("password1");
+        get => GetRequiredArgument<TerraformList<AzurermContainerRegistryTokenPasswordPassword1Block>>("password1");
         set => SetArgument("password1", value);
     }
 
@@ -153,9 +153,9 @@ public partial class AzurermContainerRegistryTokenPassword(string name) : Terraf
     /// Password2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Password2 block(s) allowed")]
-    public AzurermContainerRegistryTokenPasswordPassword2Block? Password2
+    public TerraformList<AzurermContainerRegistryTokenPasswordPassword2Block>? Password2
     {
-        get => GetArgument<AzurermContainerRegistryTokenPasswordPassword2Block>("password2");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTokenPasswordPassword2Block>>("password2");
         set => SetArgument("password2", value);
     }
 

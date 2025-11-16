@@ -161,9 +161,9 @@ public partial class AzurermDataShare(string name) : TerraformResource("azurerm_
     /// SnapshotSchedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotSchedule block(s) allowed")]
-    public AzurermDataShareSnapshotScheduleBlock? SnapshotSchedule
+    public TerraformList<AzurermDataShareSnapshotScheduleBlock>? SnapshotSchedule
     {
-        get => GetArgument<AzurermDataShareSnapshotScheduleBlock>("snapshot_schedule");
+        get => GetArgument<TerraformList<AzurermDataShareSnapshotScheduleBlock>>("snapshot_schedule");
         set => SetArgument("snapshot_schedule", value);
     }
 

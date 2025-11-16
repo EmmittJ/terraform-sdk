@@ -855,9 +855,9 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    public AzurermAppServiceAuthSettingsBlock? AuthSettings
+    public TerraformList<AzurermAppServiceAuthSettingsBlock>? AuthSettings
     {
-        get => GetArgument<AzurermAppServiceAuthSettingsBlock>("auth_settings");
+        get => GetArgument<TerraformList<AzurermAppServiceAuthSettingsBlock>>("auth_settings");
         set => SetArgument("auth_settings", value);
     }
 
@@ -865,18 +865,18 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// Backup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public AzurermAppServiceBackupBlock? Backup
+    public TerraformList<AzurermAppServiceBackupBlock>? Backup
     {
-        get => GetArgument<AzurermAppServiceBackupBlock>("backup");
+        get => GetArgument<TerraformList<AzurermAppServiceBackupBlock>>("backup");
         set => SetArgument("backup", value);
     }
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermAppServiceConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermAppServiceConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermAppServiceConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermAppServiceConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -884,9 +884,9 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermAppServiceIdentityBlock? Identity
+    public TerraformList<AzurermAppServiceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermAppServiceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermAppServiceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -894,9 +894,9 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// Logs block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
-    public AzurermAppServiceLogsBlock? Logs
+    public TerraformList<AzurermAppServiceLogsBlock>? Logs
     {
-        get => GetArgument<AzurermAppServiceLogsBlock>("logs");
+        get => GetArgument<TerraformList<AzurermAppServiceLogsBlock>>("logs");
         set => SetArgument("logs", value);
     }
 
@@ -904,9 +904,9 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// SiteConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public AzurermAppServiceSiteConfigBlock? SiteConfig
+    public TerraformList<AzurermAppServiceSiteConfigBlock>? SiteConfig
     {
-        get => GetArgument<AzurermAppServiceSiteConfigBlock>("site_config");
+        get => GetArgument<TerraformList<AzurermAppServiceSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 
@@ -914,18 +914,18 @@ public partial class AzurermAppService(string name) : TerraformResource("azurerm
     /// SourceControl block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceControl block(s) allowed")]
-    public AzurermAppServiceSourceControlBlock? SourceControl
+    public TerraformList<AzurermAppServiceSourceControlBlock>? SourceControl
     {
-        get => GetArgument<AzurermAppServiceSourceControlBlock>("source_control");
+        get => GetArgument<TerraformList<AzurermAppServiceSourceControlBlock>>("source_control");
         set => SetArgument("source_control", value);
     }
 
     /// <summary>
     /// StorageAccount block (nesting mode: set).
     /// </summary>
-    public AzurermAppServiceStorageAccountBlock? StorageAccount
+    public TerraformSet<AzurermAppServiceStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermAppServiceStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformSet<AzurermAppServiceStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 

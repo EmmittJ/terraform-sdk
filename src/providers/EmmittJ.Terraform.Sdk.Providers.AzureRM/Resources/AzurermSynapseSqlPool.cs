@@ -197,9 +197,9 @@ public partial class AzurermSynapseSqlPool(string name) : TerraformResource("azu
     /// Restore block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restore block(s) allowed")]
-    public AzurermSynapseSqlPoolRestoreBlock? Restore
+    public TerraformList<AzurermSynapseSqlPoolRestoreBlock>? Restore
     {
-        get => GetArgument<AzurermSynapseSqlPoolRestoreBlock>("restore");
+        get => GetArgument<TerraformList<AzurermSynapseSqlPoolRestoreBlock>>("restore");
         set => SetArgument("restore", value);
     }
 

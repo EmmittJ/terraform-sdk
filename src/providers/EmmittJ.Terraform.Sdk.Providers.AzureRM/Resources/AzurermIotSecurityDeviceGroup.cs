@@ -192,18 +192,18 @@ public partial class AzurermIotSecurityDeviceGroup(string name) : TerraformResou
     /// AllowRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllowRule block(s) allowed")]
-    public AzurermIotSecurityDeviceGroupAllowRuleBlock? AllowRule
+    public TerraformList<AzurermIotSecurityDeviceGroupAllowRuleBlock>? AllowRule
     {
-        get => GetArgument<AzurermIotSecurityDeviceGroupAllowRuleBlock>("allow_rule");
+        get => GetArgument<TerraformList<AzurermIotSecurityDeviceGroupAllowRuleBlock>>("allow_rule");
         set => SetArgument("allow_rule", value);
     }
 
     /// <summary>
     /// RangeRule block (nesting mode: set).
     /// </summary>
-    public AzurermIotSecurityDeviceGroupRangeRuleBlock? RangeRule
+    public TerraformSet<AzurermIotSecurityDeviceGroupRangeRuleBlock>? RangeRule
     {
-        get => GetArgument<AzurermIotSecurityDeviceGroupRangeRuleBlock>("range_rule");
+        get => GetArgument<TerraformSet<AzurermIotSecurityDeviceGroupRangeRuleBlock>>("range_rule");
         set => SetArgument("range_rule", value);
     }
 

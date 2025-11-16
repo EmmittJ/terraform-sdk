@@ -905,18 +905,18 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     /// AutoScale block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScale block(s) allowed")]
-    public AzurermBatchPoolAutoScaleBlock? AutoScale
+    public TerraformList<AzurermBatchPoolAutoScaleBlock>? AutoScale
     {
-        get => GetArgument<AzurermBatchPoolAutoScaleBlock>("auto_scale");
+        get => GetArgument<TerraformList<AzurermBatchPoolAutoScaleBlock>>("auto_scale");
         set => SetArgument("auto_scale", value);
     }
 
     /// <summary>
     /// Certificate block (nesting mode: list).
     /// </summary>
-    public AzurermBatchPoolCertificateBlock? Certificate
+    public TerraformList<AzurermBatchPoolCertificateBlock>? Certificate
     {
-        get => GetArgument<AzurermBatchPoolCertificateBlock>("certificate");
+        get => GetArgument<TerraformList<AzurermBatchPoolCertificateBlock>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -924,36 +924,36 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     /// ContainerConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerConfiguration block(s) allowed")]
-    public AzurermBatchPoolContainerConfigurationBlock? ContainerConfiguration
+    public TerraformList<AzurermBatchPoolContainerConfigurationBlock>? ContainerConfiguration
     {
-        get => GetArgument<AzurermBatchPoolContainerConfigurationBlock>("container_configuration");
+        get => GetArgument<TerraformList<AzurermBatchPoolContainerConfigurationBlock>>("container_configuration");
         set => SetArgument("container_configuration", value);
     }
 
     /// <summary>
     /// DataDisks block (nesting mode: list).
     /// </summary>
-    public AzurermBatchPoolDataDisksBlock? DataDisks
+    public TerraformList<AzurermBatchPoolDataDisksBlock>? DataDisks
     {
-        get => GetArgument<AzurermBatchPoolDataDisksBlock>("data_disks");
+        get => GetArgument<TerraformList<AzurermBatchPoolDataDisksBlock>>("data_disks");
         set => SetArgument("data_disks", value);
     }
 
     /// <summary>
     /// DiskEncryption block (nesting mode: list).
     /// </summary>
-    public AzurermBatchPoolDiskEncryptionBlock? DiskEncryption
+    public TerraformList<AzurermBatchPoolDiskEncryptionBlock>? DiskEncryption
     {
-        get => GetArgument<AzurermBatchPoolDiskEncryptionBlock>("disk_encryption");
+        get => GetArgument<TerraformList<AzurermBatchPoolDiskEncryptionBlock>>("disk_encryption");
         set => SetArgument("disk_encryption", value);
     }
 
     /// <summary>
     /// Extensions block (nesting mode: list).
     /// </summary>
-    public AzurermBatchPoolExtensionsBlock? Extensions
+    public TerraformList<AzurermBatchPoolExtensionsBlock>? Extensions
     {
-        get => GetArgument<AzurermBatchPoolExtensionsBlock>("extensions");
+        get => GetArgument<TerraformList<AzurermBatchPoolExtensionsBlock>>("extensions");
         set => SetArgument("extensions", value);
     }
 
@@ -961,9 +961,9 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     /// FixedScale block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FixedScale block(s) allowed")]
-    public AzurermBatchPoolFixedScaleBlock? FixedScale
+    public TerraformList<AzurermBatchPoolFixedScaleBlock>? FixedScale
     {
-        get => GetArgument<AzurermBatchPoolFixedScaleBlock>("fixed_scale");
+        get => GetArgument<TerraformList<AzurermBatchPoolFixedScaleBlock>>("fixed_scale");
         set => SetArgument("fixed_scale", value);
     }
 
@@ -971,18 +971,18 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermBatchPoolIdentityBlock? Identity
+    public TerraformList<AzurermBatchPoolIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermBatchPoolIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermBatchPoolIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// Mount block (nesting mode: list).
     /// </summary>
-    public AzurermBatchPoolMountBlock? Mount
+    public TerraformList<AzurermBatchPoolMountBlock>? Mount
     {
-        get => GetArgument<AzurermBatchPoolMountBlock>("mount");
+        get => GetArgument<TerraformList<AzurermBatchPoolMountBlock>>("mount");
         set => SetArgument("mount", value);
     }
 
@@ -990,18 +990,18 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     /// NetworkConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
-    public AzurermBatchPoolNetworkConfigurationBlock? NetworkConfiguration
+    public TerraformList<AzurermBatchPoolNetworkConfigurationBlock>? NetworkConfiguration
     {
-        get => GetArgument<AzurermBatchPoolNetworkConfigurationBlock>("network_configuration");
+        get => GetArgument<TerraformList<AzurermBatchPoolNetworkConfigurationBlock>>("network_configuration");
         set => SetArgument("network_configuration", value);
     }
 
     /// <summary>
     /// NodePlacement block (nesting mode: list).
     /// </summary>
-    public AzurermBatchPoolNodePlacementBlock? NodePlacement
+    public TerraformList<AzurermBatchPoolNodePlacementBlock>? NodePlacement
     {
-        get => GetArgument<AzurermBatchPoolNodePlacementBlock>("node_placement");
+        get => GetArgument<TerraformList<AzurermBatchPoolNodePlacementBlock>>("node_placement");
         set => SetArgument("node_placement", value);
     }
 
@@ -1009,9 +1009,9 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     /// SecurityProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityProfile block(s) allowed")]
-    public AzurermBatchPoolSecurityProfileBlock? SecurityProfile
+    public TerraformList<AzurermBatchPoolSecurityProfileBlock>? SecurityProfile
     {
-        get => GetArgument<AzurermBatchPoolSecurityProfileBlock>("security_profile");
+        get => GetArgument<TerraformList<AzurermBatchPoolSecurityProfileBlock>>("security_profile");
         set => SetArgument("security_profile", value);
     }
 
@@ -1019,9 +1019,9 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     /// StartTask block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StartTask block(s) allowed")]
-    public AzurermBatchPoolStartTaskBlock? StartTask
+    public TerraformList<AzurermBatchPoolStartTaskBlock>? StartTask
     {
-        get => GetArgument<AzurermBatchPoolStartTaskBlock>("start_task");
+        get => GetArgument<TerraformList<AzurermBatchPoolStartTaskBlock>>("start_task");
         set => SetArgument("start_task", value);
     }
 
@@ -1032,18 +1032,18 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageImageReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageImageReference block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageImageReference block(s) allowed")]
-    public required AzurermBatchPoolStorageImageReferenceBlock StorageImageReference
+    public required TerraformList<AzurermBatchPoolStorageImageReferenceBlock> StorageImageReference
     {
-        get => GetRequiredArgument<AzurermBatchPoolStorageImageReferenceBlock>("storage_image_reference");
+        get => GetRequiredArgument<TerraformList<AzurermBatchPoolStorageImageReferenceBlock>>("storage_image_reference");
         set => SetArgument("storage_image_reference", value);
     }
 
     /// <summary>
     /// TaskSchedulingPolicy block (nesting mode: list).
     /// </summary>
-    public AzurermBatchPoolTaskSchedulingPolicyBlock? TaskSchedulingPolicy
+    public TerraformList<AzurermBatchPoolTaskSchedulingPolicyBlock>? TaskSchedulingPolicy
     {
-        get => GetArgument<AzurermBatchPoolTaskSchedulingPolicyBlock>("task_scheduling_policy");
+        get => GetArgument<TerraformList<AzurermBatchPoolTaskSchedulingPolicyBlock>>("task_scheduling_policy");
         set => SetArgument("task_scheduling_policy", value);
     }
 
@@ -1059,18 +1059,18 @@ public partial class AzurermBatchPool(string name) : TerraformResource("azurerm_
     /// <summary>
     /// UserAccounts block (nesting mode: list).
     /// </summary>
-    public AzurermBatchPoolUserAccountsBlock? UserAccounts
+    public TerraformList<AzurermBatchPoolUserAccountsBlock>? UserAccounts
     {
-        get => GetArgument<AzurermBatchPoolUserAccountsBlock>("user_accounts");
+        get => GetArgument<TerraformList<AzurermBatchPoolUserAccountsBlock>>("user_accounts");
         set => SetArgument("user_accounts", value);
     }
 
     /// <summary>
     /// Windows block (nesting mode: list).
     /// </summary>
-    public AzurermBatchPoolWindowsBlock? Windows
+    public TerraformList<AzurermBatchPoolWindowsBlock>? Windows
     {
-        get => GetArgument<AzurermBatchPoolWindowsBlock>("windows");
+        get => GetArgument<TerraformList<AzurermBatchPoolWindowsBlock>>("windows");
         set => SetArgument("windows", value);
     }
 

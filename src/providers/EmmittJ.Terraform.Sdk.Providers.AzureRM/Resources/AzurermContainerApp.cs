@@ -459,9 +459,9 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     /// Dapr block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dapr block(s) allowed")]
-    public AzurermContainerAppDaprBlock? Dapr
+    public TerraformList<AzurermContainerAppDaprBlock>? Dapr
     {
-        get => GetArgument<AzurermContainerAppDaprBlock>("dapr");
+        get => GetArgument<TerraformList<AzurermContainerAppDaprBlock>>("dapr");
         set => SetArgument("dapr", value);
     }
 
@@ -469,9 +469,9 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermContainerAppIdentityBlock? Identity
+    public TerraformList<AzurermContainerAppIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermContainerAppIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermContainerAppIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -479,27 +479,27 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     /// Ingress block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ingress block(s) allowed")]
-    public AzurermContainerAppIngressBlock? Ingress
+    public TerraformList<AzurermContainerAppIngressBlock>? Ingress
     {
-        get => GetArgument<AzurermContainerAppIngressBlock>("ingress");
+        get => GetArgument<TerraformList<AzurermContainerAppIngressBlock>>("ingress");
         set => SetArgument("ingress", value);
     }
 
     /// <summary>
     /// Registry block (nesting mode: list).
     /// </summary>
-    public AzurermContainerAppRegistryBlock? Registry
+    public TerraformList<AzurermContainerAppRegistryBlock>? Registry
     {
-        get => GetArgument<AzurermContainerAppRegistryBlock>("registry");
+        get => GetArgument<TerraformList<AzurermContainerAppRegistryBlock>>("registry");
         set => SetArgument("registry", value);
     }
 
     /// <summary>
     /// Secret block (nesting mode: set).
     /// </summary>
-    public AzurermContainerAppSecretBlock? Secret
+    public TerraformSet<AzurermContainerAppSecretBlock>? Secret
     {
-        get => GetArgument<AzurermContainerAppSecretBlock>("secret");
+        get => GetArgument<TerraformSet<AzurermContainerAppSecretBlock>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -510,9 +510,9 @@ public partial class AzurermContainerApp(string name) : TerraformResource("azure
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Template is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Template block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
-    public required AzurermContainerAppTemplateBlock Template
+    public required TerraformList<AzurermContainerAppTemplateBlock> Template
     {
-        get => GetRequiredArgument<AzurermContainerAppTemplateBlock>("template");
+        get => GetRequiredArgument<TerraformList<AzurermContainerAppTemplateBlock>>("template");
         set => SetArgument("template", value);
     }
 

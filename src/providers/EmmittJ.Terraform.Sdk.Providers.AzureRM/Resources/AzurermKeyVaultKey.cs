@@ -186,9 +186,9 @@ public partial class AzurermKeyVaultKey(string name) : TerraformResource("azurer
     /// RotationPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RotationPolicy block(s) allowed")]
-    public AzurermKeyVaultKeyRotationPolicyBlock? RotationPolicy
+    public TerraformList<AzurermKeyVaultKeyRotationPolicyBlock>? RotationPolicy
     {
-        get => GetArgument<AzurermKeyVaultKeyRotationPolicyBlock>("rotation_policy");
+        get => GetArgument<TerraformList<AzurermKeyVaultKeyRotationPolicyBlock>>("rotation_policy");
         set => SetArgument("rotation_policy", value);
     }
 

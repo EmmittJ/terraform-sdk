@@ -323,36 +323,36 @@ public partial class AzurermSentinelAlertRuleAnomalyDuplicate(string name) : Ter
     /// <summary>
     /// MultiSelectObservation block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock? MultiSelectObservation
+    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock>? MultiSelectObservation
     {
-        get => GetArgument<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock>("multi_select_observation");
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock>>("multi_select_observation");
         set => SetArgument("multi_select_observation", value);
     }
 
     /// <summary>
     /// PrioritizedExcludeObservation block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock? PrioritizedExcludeObservation
+    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock>? PrioritizedExcludeObservation
     {
-        get => GetArgument<AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock>("prioritized_exclude_observation");
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock>>("prioritized_exclude_observation");
         set => SetArgument("prioritized_exclude_observation", value);
     }
 
     /// <summary>
     /// SingleSelectObservation block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock? SingleSelectObservation
+    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock>? SingleSelectObservation
     {
-        get => GetArgument<AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock>("single_select_observation");
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock>>("single_select_observation");
         set => SetArgument("single_select_observation", value);
     }
 
     /// <summary>
     /// ThresholdObservation block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock? ThresholdObservation
+    public TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock>? ThresholdObservation
     {
-        get => GetArgument<AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock>("threshold_observation");
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock>>("threshold_observation");
         set => SetArgument("threshold_observation", value);
     }
 

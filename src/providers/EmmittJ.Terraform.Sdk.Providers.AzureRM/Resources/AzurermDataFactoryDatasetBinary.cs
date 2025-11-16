@@ -357,9 +357,9 @@ public partial class AzurermDataFactoryDatasetBinary(string name) : TerraformRes
     /// AzureBlobStorageLocation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorageLocation block(s) allowed")]
-    public AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock? AzureBlobStorageLocation
+    public TerraformList<AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock>? AzureBlobStorageLocation
     {
-        get => GetArgument<AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock>("azure_blob_storage_location");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock>>("azure_blob_storage_location");
         set => SetArgument("azure_blob_storage_location", value);
     }
 
@@ -367,9 +367,9 @@ public partial class AzurermDataFactoryDatasetBinary(string name) : TerraformRes
     /// Compression block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Compression block(s) allowed")]
-    public AzurermDataFactoryDatasetBinaryCompressionBlock? Compression
+    public TerraformList<AzurermDataFactoryDatasetBinaryCompressionBlock>? Compression
     {
-        get => GetArgument<AzurermDataFactoryDatasetBinaryCompressionBlock>("compression");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetBinaryCompressionBlock>>("compression");
         set => SetArgument("compression", value);
     }
 
@@ -377,9 +377,9 @@ public partial class AzurermDataFactoryDatasetBinary(string name) : TerraformRes
     /// HttpServerLocation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpServerLocation block(s) allowed")]
-    public AzurermDataFactoryDatasetBinaryHttpServerLocationBlock? HttpServerLocation
+    public TerraformList<AzurermDataFactoryDatasetBinaryHttpServerLocationBlock>? HttpServerLocation
     {
-        get => GetArgument<AzurermDataFactoryDatasetBinaryHttpServerLocationBlock>("http_server_location");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetBinaryHttpServerLocationBlock>>("http_server_location");
         set => SetArgument("http_server_location", value);
     }
 
@@ -387,9 +387,9 @@ public partial class AzurermDataFactoryDatasetBinary(string name) : TerraformRes
     /// SftpServerLocation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SftpServerLocation block(s) allowed")]
-    public AzurermDataFactoryDatasetBinarySftpServerLocationBlock? SftpServerLocation
+    public TerraformList<AzurermDataFactoryDatasetBinarySftpServerLocationBlock>? SftpServerLocation
     {
-        get => GetArgument<AzurermDataFactoryDatasetBinarySftpServerLocationBlock>("sftp_server_location");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetBinarySftpServerLocationBlock>>("sftp_server_location");
         set => SetArgument("sftp_server_location", value);
     }
 

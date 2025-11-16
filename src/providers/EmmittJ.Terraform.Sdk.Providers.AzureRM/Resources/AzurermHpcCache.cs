@@ -444,9 +444,9 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     /// DefaultAccessPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultAccessPolicy block(s) allowed")]
-    public AzurermHpcCacheDefaultAccessPolicyBlock? DefaultAccessPolicy
+    public TerraformList<AzurermHpcCacheDefaultAccessPolicyBlock>? DefaultAccessPolicy
     {
-        get => GetArgument<AzurermHpcCacheDefaultAccessPolicyBlock>("default_access_policy");
+        get => GetArgument<TerraformList<AzurermHpcCacheDefaultAccessPolicyBlock>>("default_access_policy");
         set => SetArgument("default_access_policy", value);
     }
 
@@ -454,9 +454,9 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     /// DirectoryActiveDirectory block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryActiveDirectory block(s) allowed")]
-    public AzurermHpcCacheDirectoryActiveDirectoryBlock? DirectoryActiveDirectory
+    public TerraformList<AzurermHpcCacheDirectoryActiveDirectoryBlock>? DirectoryActiveDirectory
     {
-        get => GetArgument<AzurermHpcCacheDirectoryActiveDirectoryBlock>("directory_active_directory");
+        get => GetArgument<TerraformList<AzurermHpcCacheDirectoryActiveDirectoryBlock>>("directory_active_directory");
         set => SetArgument("directory_active_directory", value);
     }
 
@@ -464,9 +464,9 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     /// DirectoryFlatFile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryFlatFile block(s) allowed")]
-    public AzurermHpcCacheDirectoryFlatFileBlock? DirectoryFlatFile
+    public TerraformList<AzurermHpcCacheDirectoryFlatFileBlock>? DirectoryFlatFile
     {
-        get => GetArgument<AzurermHpcCacheDirectoryFlatFileBlock>("directory_flat_file");
+        get => GetArgument<TerraformList<AzurermHpcCacheDirectoryFlatFileBlock>>("directory_flat_file");
         set => SetArgument("directory_flat_file", value);
     }
 
@@ -474,9 +474,9 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     /// DirectoryLdap block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DirectoryLdap block(s) allowed")]
-    public AzurermHpcCacheDirectoryLdapBlock? DirectoryLdap
+    public TerraformList<AzurermHpcCacheDirectoryLdapBlock>? DirectoryLdap
     {
-        get => GetArgument<AzurermHpcCacheDirectoryLdapBlock>("directory_ldap");
+        get => GetArgument<TerraformList<AzurermHpcCacheDirectoryLdapBlock>>("directory_ldap");
         set => SetArgument("directory_ldap", value);
     }
 
@@ -484,9 +484,9 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     /// Dns block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns block(s) allowed")]
-    public AzurermHpcCacheDnsBlock? Dns
+    public TerraformList<AzurermHpcCacheDnsBlock>? Dns
     {
-        get => GetArgument<AzurermHpcCacheDnsBlock>("dns");
+        get => GetArgument<TerraformList<AzurermHpcCacheDnsBlock>>("dns");
         set => SetArgument("dns", value);
     }
 
@@ -494,9 +494,9 @@ public partial class AzurermHpcCache(string name) : TerraformResource("azurerm_h
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermHpcCacheIdentityBlock? Identity
+    public TerraformList<AzurermHpcCacheIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermHpcCacheIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermHpcCacheIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

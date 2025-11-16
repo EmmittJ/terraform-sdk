@@ -896,18 +896,18 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// AdditionalCapabilities block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
-    public AzurermLinuxVirtualMachineAdditionalCapabilitiesBlock? AdditionalCapabilities
+    public TerraformList<AzurermLinuxVirtualMachineAdditionalCapabilitiesBlock>? AdditionalCapabilities
     {
-        get => GetArgument<AzurermLinuxVirtualMachineAdditionalCapabilitiesBlock>("additional_capabilities");
+        get => GetArgument<TerraformList<AzurermLinuxVirtualMachineAdditionalCapabilitiesBlock>>("additional_capabilities");
         set => SetArgument("additional_capabilities", value);
     }
 
     /// <summary>
     /// AdminSshKey block (nesting mode: set).
     /// </summary>
-    public AzurermLinuxVirtualMachineAdminSshKeyBlock? AdminSshKey
+    public TerraformSet<AzurermLinuxVirtualMachineAdminSshKeyBlock>? AdminSshKey
     {
-        get => GetArgument<AzurermLinuxVirtualMachineAdminSshKeyBlock>("admin_ssh_key");
+        get => GetArgument<TerraformSet<AzurermLinuxVirtualMachineAdminSshKeyBlock>>("admin_ssh_key");
         set => SetArgument("admin_ssh_key", value);
     }
 
@@ -915,9 +915,9 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// BootDiagnostics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
-    public AzurermLinuxVirtualMachineBootDiagnosticsBlock? BootDiagnostics
+    public TerraformList<AzurermLinuxVirtualMachineBootDiagnosticsBlock>? BootDiagnostics
     {
-        get => GetArgument<AzurermLinuxVirtualMachineBootDiagnosticsBlock>("boot_diagnostics");
+        get => GetArgument<TerraformList<AzurermLinuxVirtualMachineBootDiagnosticsBlock>>("boot_diagnostics");
         set => SetArgument("boot_diagnostics", value);
     }
 
@@ -925,9 +925,9 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// GalleryApplication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 GalleryApplication block(s) allowed")]
-    public AzurermLinuxVirtualMachineGalleryApplicationBlock? GalleryApplication
+    public TerraformList<AzurermLinuxVirtualMachineGalleryApplicationBlock>? GalleryApplication
     {
-        get => GetArgument<AzurermLinuxVirtualMachineGalleryApplicationBlock>("gallery_application");
+        get => GetArgument<TerraformList<AzurermLinuxVirtualMachineGalleryApplicationBlock>>("gallery_application");
         set => SetArgument("gallery_application", value);
     }
 
@@ -935,9 +935,9 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermLinuxVirtualMachineIdentityBlock? Identity
+    public TerraformList<AzurermLinuxVirtualMachineIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermLinuxVirtualMachineIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermLinuxVirtualMachineIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -948,9 +948,9 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsDisk is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
-    public required AzurermLinuxVirtualMachineOsDiskBlock OsDisk
+    public required TerraformList<AzurermLinuxVirtualMachineOsDiskBlock> OsDisk
     {
-        get => GetRequiredArgument<AzurermLinuxVirtualMachineOsDiskBlock>("os_disk");
+        get => GetRequiredArgument<TerraformList<AzurermLinuxVirtualMachineOsDiskBlock>>("os_disk");
         set => SetArgument("os_disk", value);
     }
 
@@ -958,9 +958,9 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// OsImageNotification block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsImageNotification block(s) allowed")]
-    public AzurermLinuxVirtualMachineOsImageNotificationBlock? OsImageNotification
+    public TerraformList<AzurermLinuxVirtualMachineOsImageNotificationBlock>? OsImageNotification
     {
-        get => GetArgument<AzurermLinuxVirtualMachineOsImageNotificationBlock>("os_image_notification");
+        get => GetArgument<TerraformList<AzurermLinuxVirtualMachineOsImageNotificationBlock>>("os_image_notification");
         set => SetArgument("os_image_notification", value);
     }
 
@@ -968,18 +968,18 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// Plan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public AzurermLinuxVirtualMachinePlanBlock? Plan
+    public TerraformList<AzurermLinuxVirtualMachinePlanBlock>? Plan
     {
-        get => GetArgument<AzurermLinuxVirtualMachinePlanBlock>("plan");
+        get => GetArgument<TerraformList<AzurermLinuxVirtualMachinePlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 
     /// <summary>
     /// Secret block (nesting mode: list).
     /// </summary>
-    public AzurermLinuxVirtualMachineSecretBlock? Secret
+    public TerraformList<AzurermLinuxVirtualMachineSecretBlock>? Secret
     {
-        get => GetArgument<AzurermLinuxVirtualMachineSecretBlock>("secret");
+        get => GetArgument<TerraformList<AzurermLinuxVirtualMachineSecretBlock>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -987,9 +987,9 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// SourceImageReference block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageReference block(s) allowed")]
-    public AzurermLinuxVirtualMachineSourceImageReferenceBlock? SourceImageReference
+    public TerraformList<AzurermLinuxVirtualMachineSourceImageReferenceBlock>? SourceImageReference
     {
-        get => GetArgument<AzurermLinuxVirtualMachineSourceImageReferenceBlock>("source_image_reference");
+        get => GetArgument<TerraformList<AzurermLinuxVirtualMachineSourceImageReferenceBlock>>("source_image_reference");
         set => SetArgument("source_image_reference", value);
     }
 
@@ -997,9 +997,9 @@ public partial class AzurermLinuxVirtualMachine(string name) : TerraformResource
     /// TerminationNotification block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TerminationNotification block(s) allowed")]
-    public AzurermLinuxVirtualMachineTerminationNotificationBlock? TerminationNotification
+    public TerraformList<AzurermLinuxVirtualMachineTerminationNotificationBlock>? TerminationNotification
     {
-        get => GetArgument<AzurermLinuxVirtualMachineTerminationNotificationBlock>("termination_notification");
+        get => GetArgument<TerraformList<AzurermLinuxVirtualMachineTerminationNotificationBlock>>("termination_notification");
         set => SetArgument("termination_notification", value);
     }
 

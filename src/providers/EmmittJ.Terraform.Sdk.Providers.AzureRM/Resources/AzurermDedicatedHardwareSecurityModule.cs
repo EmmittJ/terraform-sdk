@@ -203,9 +203,9 @@ public partial class AzurermDedicatedHardwareSecurityModule(string name) : Terra
     /// ManagementNetworkProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementNetworkProfile block(s) allowed")]
-    public AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock? ManagementNetworkProfile
+    public TerraformList<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock>? ManagementNetworkProfile
     {
-        get => GetArgument<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock>("management_network_profile");
+        get => GetArgument<TerraformList<AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock>>("management_network_profile");
         set => SetArgument("management_network_profile", value);
     }
 
@@ -216,9 +216,9 @@ public partial class AzurermDedicatedHardwareSecurityModule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
-    public required AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock NetworkProfile
+    public required TerraformList<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock> NetworkProfile
     {
-        get => GetRequiredArgument<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock>("network_profile");
+        get => GetRequiredArgument<TerraformList<AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock>>("network_profile");
         set => SetArgument("network_profile", value);
     }
 

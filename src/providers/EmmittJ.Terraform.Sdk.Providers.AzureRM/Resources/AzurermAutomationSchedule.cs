@@ -206,9 +206,9 @@ public partial class AzurermAutomationSchedule(string name) : TerraformResource(
     /// MonthlyOccurrence block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonthlyOccurrence block(s) allowed")]
-    public AzurermAutomationScheduleMonthlyOccurrenceBlock? MonthlyOccurrence
+    public TerraformList<AzurermAutomationScheduleMonthlyOccurrenceBlock>? MonthlyOccurrence
     {
-        get => GetArgument<AzurermAutomationScheduleMonthlyOccurrenceBlock>("monthly_occurrence");
+        get => GetArgument<TerraformList<AzurermAutomationScheduleMonthlyOccurrenceBlock>>("monthly_occurrence");
         set => SetArgument("monthly_occurrence", value);
     }
 

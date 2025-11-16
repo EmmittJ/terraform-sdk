@@ -152,9 +152,9 @@ public partial class AzurermDynatraceTagRules(string name) : TerraformResource("
     /// LogRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogRule block(s) allowed")]
-    public AzurermDynatraceTagRulesLogRuleBlock? LogRule
+    public TerraformList<AzurermDynatraceTagRulesLogRuleBlock>? LogRule
     {
-        get => GetArgument<AzurermDynatraceTagRulesLogRuleBlock>("log_rule");
+        get => GetArgument<TerraformList<AzurermDynatraceTagRulesLogRuleBlock>>("log_rule");
         set => SetArgument("log_rule", value);
     }
 
@@ -162,9 +162,9 @@ public partial class AzurermDynatraceTagRules(string name) : TerraformResource("
     /// MetricRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricRule block(s) allowed")]
-    public AzurermDynatraceTagRulesMetricRuleBlock? MetricRule
+    public TerraformList<AzurermDynatraceTagRulesMetricRuleBlock>? MetricRule
     {
-        get => GetArgument<AzurermDynatraceTagRulesMetricRuleBlock>("metric_rule");
+        get => GetArgument<TerraformList<AzurermDynatraceTagRulesMetricRuleBlock>>("metric_rule");
         set => SetArgument("metric_rule", value);
     }
 

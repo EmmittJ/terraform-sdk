@@ -201,18 +201,18 @@ public partial class AzurermNewRelicTagRule(string name) : TerraformResource("az
     /// <summary>
     /// LogTagFilter block (nesting mode: list).
     /// </summary>
-    public AzurermNewRelicTagRuleLogTagFilterBlock? LogTagFilter
+    public TerraformList<AzurermNewRelicTagRuleLogTagFilterBlock>? LogTagFilter
     {
-        get => GetArgument<AzurermNewRelicTagRuleLogTagFilterBlock>("log_tag_filter");
+        get => GetArgument<TerraformList<AzurermNewRelicTagRuleLogTagFilterBlock>>("log_tag_filter");
         set => SetArgument("log_tag_filter", value);
     }
 
     /// <summary>
     /// MetricTagFilter block (nesting mode: list).
     /// </summary>
-    public AzurermNewRelicTagRuleMetricTagFilterBlock? MetricTagFilter
+    public TerraformList<AzurermNewRelicTagRuleMetricTagFilterBlock>? MetricTagFilter
     {
-        get => GetArgument<AzurermNewRelicTagRuleMetricTagFilterBlock>("metric_tag_filter");
+        get => GetArgument<TerraformList<AzurermNewRelicTagRuleMetricTagFilterBlock>>("metric_tag_filter");
         set => SetArgument("metric_tag_filter", value);
     }
 

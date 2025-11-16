@@ -175,9 +175,9 @@ public partial class AzurermIothubDeviceUpdateAccount(string name) : TerraformRe
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermIothubDeviceUpdateAccountIdentityBlock? Identity
+    public TerraformList<AzurermIothubDeviceUpdateAccountIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermIothubDeviceUpdateAccountIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermIothubDeviceUpdateAccountIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

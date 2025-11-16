@@ -172,9 +172,9 @@ public partial class AzurermMonitorScheduledQueryRulesLog(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
-    public required AzurermMonitorScheduledQueryRulesLogCriteriaBlock Criteria
+    public required TerraformList<AzurermMonitorScheduledQueryRulesLogCriteriaBlock> Criteria
     {
-        get => GetRequiredArgument<AzurermMonitorScheduledQueryRulesLogCriteriaBlock>("criteria");
+        get => GetRequiredArgument<TerraformList<AzurermMonitorScheduledQueryRulesLogCriteriaBlock>>("criteria");
         set => SetArgument("criteria", value);
     }
 

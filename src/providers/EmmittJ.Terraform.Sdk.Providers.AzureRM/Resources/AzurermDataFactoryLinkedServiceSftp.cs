@@ -327,9 +327,9 @@ public partial class AzurermDataFactoryLinkedServiceSftp(string name) : Terrafor
     /// <summary>
     /// KeyVaultPassword block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock? KeyVaultPassword
+    public TerraformList<AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock>? KeyVaultPassword
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock>("key_vault_password");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock>>("key_vault_password");
         set => SetArgument("key_vault_password", value);
     }
 
@@ -337,9 +337,9 @@ public partial class AzurermDataFactoryLinkedServiceSftp(string name) : Terrafor
     /// KeyVaultPrivateKeyContentBase64 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPrivateKeyContentBase64 block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block? KeyVaultPrivateKeyContentBase64
+    public TerraformList<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block>? KeyVaultPrivateKeyContentBase64
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block>("key_vault_private_key_content_base64");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block>>("key_vault_private_key_content_base64");
         set => SetArgument("key_vault_private_key_content_base64", value);
     }
 
@@ -347,9 +347,9 @@ public partial class AzurermDataFactoryLinkedServiceSftp(string name) : Terrafor
     /// KeyVaultPrivateKeyPassphrase block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPrivateKeyPassphrase block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock? KeyVaultPrivateKeyPassphrase
+    public TerraformList<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock>? KeyVaultPrivateKeyPassphrase
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock>("key_vault_private_key_passphrase");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock>>("key_vault_private_key_passphrase");
         set => SetArgument("key_vault_private_key_passphrase", value);
     }
 

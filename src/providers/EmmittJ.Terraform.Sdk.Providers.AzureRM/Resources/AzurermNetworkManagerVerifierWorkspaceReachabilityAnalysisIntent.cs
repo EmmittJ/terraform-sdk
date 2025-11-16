@@ -176,9 +176,9 @@ public partial class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisI
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpTraffic is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpTraffic block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpTraffic block(s) allowed")]
-    public required AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock IpTraffic
+    public required TerraformList<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock> IpTraffic
     {
-        get => GetRequiredArgument<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock>("ip_traffic");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock>>("ip_traffic");
         set => SetArgument("ip_traffic", value);
     }
 

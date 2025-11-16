@@ -151,9 +151,9 @@ public partial class AzurermMobileNetworkSimGroup(string name) : TerraformResour
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMobileNetworkSimGroupIdentityBlock? Identity
+    public TerraformList<AzurermMobileNetworkSimGroupIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMobileNetworkSimGroupIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMobileNetworkSimGroupIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

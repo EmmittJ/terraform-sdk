@@ -341,9 +341,9 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     /// EncryptionKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionKey block(s) allowed")]
-    public AzurermManagedLustreFileSystemEncryptionKeyBlock? EncryptionKey
+    public TerraformList<AzurermManagedLustreFileSystemEncryptionKeyBlock>? EncryptionKey
     {
-        get => GetArgument<AzurermManagedLustreFileSystemEncryptionKeyBlock>("encryption_key");
+        get => GetArgument<TerraformList<AzurermManagedLustreFileSystemEncryptionKeyBlock>>("encryption_key");
         set => SetArgument("encryption_key", value);
     }
 
@@ -351,9 +351,9 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     /// HsmSetting block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HsmSetting block(s) allowed")]
-    public AzurermManagedLustreFileSystemHsmSettingBlock? HsmSetting
+    public TerraformList<AzurermManagedLustreFileSystemHsmSettingBlock>? HsmSetting
     {
-        get => GetArgument<AzurermManagedLustreFileSystemHsmSettingBlock>("hsm_setting");
+        get => GetArgument<TerraformList<AzurermManagedLustreFileSystemHsmSettingBlock>>("hsm_setting");
         set => SetArgument("hsm_setting", value);
     }
 
@@ -361,9 +361,9 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermManagedLustreFileSystemIdentityBlock? Identity
+    public TerraformList<AzurermManagedLustreFileSystemIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermManagedLustreFileSystemIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermManagedLustreFileSystemIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -374,9 +374,9 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceWindow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MaintenanceWindow block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
-    public required AzurermManagedLustreFileSystemMaintenanceWindowBlock MaintenanceWindow
+    public required TerraformList<AzurermManagedLustreFileSystemMaintenanceWindowBlock> MaintenanceWindow
     {
-        get => GetRequiredArgument<AzurermManagedLustreFileSystemMaintenanceWindowBlock>("maintenance_window");
+        get => GetRequiredArgument<TerraformList<AzurermManagedLustreFileSystemMaintenanceWindowBlock>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -384,9 +384,9 @@ public partial class AzurermManagedLustreFileSystem(string name) : TerraformReso
     /// RootSquash block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootSquash block(s) allowed")]
-    public AzurermManagedLustreFileSystemRootSquashBlock? RootSquash
+    public TerraformList<AzurermManagedLustreFileSystemRootSquashBlock>? RootSquash
     {
-        get => GetArgument<AzurermManagedLustreFileSystemRootSquashBlock>("root_squash");
+        get => GetArgument<TerraformList<AzurermManagedLustreFileSystemRootSquashBlock>>("root_squash");
         set => SetArgument("root_squash", value);
     }
 

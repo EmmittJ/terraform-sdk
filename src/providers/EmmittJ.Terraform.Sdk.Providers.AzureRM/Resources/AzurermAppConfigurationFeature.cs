@@ -224,9 +224,9 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// <summary>
     /// TargetingFilter block (nesting mode: list).
     /// </summary>
-    public AzurermAppConfigurationFeatureTargetingFilterBlock? TargetingFilter
+    public TerraformList<AzurermAppConfigurationFeatureTargetingFilterBlock>? TargetingFilter
     {
-        get => GetArgument<AzurermAppConfigurationFeatureTargetingFilterBlock>("targeting_filter");
+        get => GetArgument<TerraformList<AzurermAppConfigurationFeatureTargetingFilterBlock>>("targeting_filter");
         set => SetArgument("targeting_filter", value);
     }
 
@@ -242,9 +242,9 @@ public partial class AzurermAppConfigurationFeature(string name) : TerraformReso
     /// <summary>
     /// TimewindowFilter block (nesting mode: list).
     /// </summary>
-    public AzurermAppConfigurationFeatureTimewindowFilterBlock? TimewindowFilter
+    public TerraformList<AzurermAppConfigurationFeatureTimewindowFilterBlock>? TimewindowFilter
     {
-        get => GetArgument<AzurermAppConfigurationFeatureTimewindowFilterBlock>("timewindow_filter");
+        get => GetArgument<TerraformList<AzurermAppConfigurationFeatureTimewindowFilterBlock>>("timewindow_filter");
         set => SetArgument("timewindow_filter", value);
     }
 

@@ -180,9 +180,9 @@ public partial class AzurermSiteRecoveryProtectionContainerMapping(string name) 
     /// AutomaticUpdate block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticUpdate block(s) allowed")]
-    public AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock? AutomaticUpdate
+    public TerraformList<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock>? AutomaticUpdate
     {
-        get => GetArgument<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock>("automatic_update");
+        get => GetArgument<TerraformList<AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock>>("automatic_update");
         set => SetArgument("automatic_update", value);
     }
 

@@ -332,9 +332,9 @@ public partial class AzurermSynapseSparkPool(string name) : TerraformResource("a
     /// AutoPause block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoPause block(s) allowed")]
-    public AzurermSynapseSparkPoolAutoPauseBlock? AutoPause
+    public TerraformList<AzurermSynapseSparkPoolAutoPauseBlock>? AutoPause
     {
-        get => GetArgument<AzurermSynapseSparkPoolAutoPauseBlock>("auto_pause");
+        get => GetArgument<TerraformList<AzurermSynapseSparkPoolAutoPauseBlock>>("auto_pause");
         set => SetArgument("auto_pause", value);
     }
 
@@ -342,9 +342,9 @@ public partial class AzurermSynapseSparkPool(string name) : TerraformResource("a
     /// AutoScale block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScale block(s) allowed")]
-    public AzurermSynapseSparkPoolAutoScaleBlock? AutoScale
+    public TerraformList<AzurermSynapseSparkPoolAutoScaleBlock>? AutoScale
     {
-        get => GetArgument<AzurermSynapseSparkPoolAutoScaleBlock>("auto_scale");
+        get => GetArgument<TerraformList<AzurermSynapseSparkPoolAutoScaleBlock>>("auto_scale");
         set => SetArgument("auto_scale", value);
     }
 
@@ -352,9 +352,9 @@ public partial class AzurermSynapseSparkPool(string name) : TerraformResource("a
     /// LibraryRequirement block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LibraryRequirement block(s) allowed")]
-    public AzurermSynapseSparkPoolLibraryRequirementBlock? LibraryRequirement
+    public TerraformList<AzurermSynapseSparkPoolLibraryRequirementBlock>? LibraryRequirement
     {
-        get => GetArgument<AzurermSynapseSparkPoolLibraryRequirementBlock>("library_requirement");
+        get => GetArgument<TerraformList<AzurermSynapseSparkPoolLibraryRequirementBlock>>("library_requirement");
         set => SetArgument("library_requirement", value);
     }
 
@@ -362,9 +362,9 @@ public partial class AzurermSynapseSparkPool(string name) : TerraformResource("a
     /// SparkConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkConfig block(s) allowed")]
-    public AzurermSynapseSparkPoolSparkConfigBlock? SparkConfig
+    public TerraformList<AzurermSynapseSparkPoolSparkConfigBlock>? SparkConfig
     {
-        get => GetArgument<AzurermSynapseSparkPoolSparkConfigBlock>("spark_config");
+        get => GetArgument<TerraformList<AzurermSynapseSparkPoolSparkConfigBlock>>("spark_config");
         set => SetArgument("spark_config", value);
     }
 

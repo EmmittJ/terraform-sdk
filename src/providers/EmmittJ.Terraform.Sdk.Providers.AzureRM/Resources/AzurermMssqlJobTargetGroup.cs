@@ -156,9 +156,9 @@ public partial class AzurermMssqlJobTargetGroup(string name) : TerraformResource
     /// <summary>
     /// JobTarget block (nesting mode: set).
     /// </summary>
-    public AzurermMssqlJobTargetGroupJobTargetBlock? JobTarget
+    public TerraformSet<AzurermMssqlJobTargetGroupJobTargetBlock>? JobTarget
     {
-        get => GetArgument<AzurermMssqlJobTargetGroupJobTargetBlock>("job_target");
+        get => GetArgument<TerraformSet<AzurermMssqlJobTargetGroupJobTargetBlock>>("job_target");
         set => SetArgument("job_target", value);
     }
 

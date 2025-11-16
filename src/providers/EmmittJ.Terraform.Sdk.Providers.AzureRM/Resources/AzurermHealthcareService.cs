@@ -300,9 +300,9 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     /// AuthenticationConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationConfiguration block(s) allowed")]
-    public AzurermHealthcareServiceAuthenticationConfigurationBlock? AuthenticationConfiguration
+    public TerraformList<AzurermHealthcareServiceAuthenticationConfigurationBlock>? AuthenticationConfiguration
     {
-        get => GetArgument<AzurermHealthcareServiceAuthenticationConfigurationBlock>("authentication_configuration");
+        get => GetArgument<TerraformList<AzurermHealthcareServiceAuthenticationConfigurationBlock>>("authentication_configuration");
         set => SetArgument("authentication_configuration", value);
     }
 
@@ -310,9 +310,9 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     /// CorsConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsConfiguration block(s) allowed")]
-    public AzurermHealthcareServiceCorsConfigurationBlock? CorsConfiguration
+    public TerraformList<AzurermHealthcareServiceCorsConfigurationBlock>? CorsConfiguration
     {
-        get => GetArgument<AzurermHealthcareServiceCorsConfigurationBlock>("cors_configuration");
+        get => GetArgument<TerraformList<AzurermHealthcareServiceCorsConfigurationBlock>>("cors_configuration");
         set => SetArgument("cors_configuration", value);
     }
 
@@ -320,9 +320,9 @@ public partial class AzurermHealthcareService(string name) : TerraformResource("
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermHealthcareServiceIdentityBlock? Identity
+    public TerraformList<AzurermHealthcareServiceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermHealthcareServiceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermHealthcareServiceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

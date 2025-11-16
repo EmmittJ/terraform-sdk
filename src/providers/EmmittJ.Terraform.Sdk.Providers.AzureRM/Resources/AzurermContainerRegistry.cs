@@ -324,9 +324,9 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// <summary>
     /// Georeplications block (nesting mode: list).
     /// </summary>
-    public AzurermContainerRegistryGeoreplicationsBlock? Georeplications
+    public TerraformList<AzurermContainerRegistryGeoreplicationsBlock>? Georeplications
     {
-        get => GetArgument<AzurermContainerRegistryGeoreplicationsBlock>("georeplications");
+        get => GetArgument<TerraformList<AzurermContainerRegistryGeoreplicationsBlock>>("georeplications");
         set => SetArgument("georeplications", value);
     }
 
@@ -334,9 +334,9 @@ public partial class AzurermContainerRegistry(string name) : TerraformResource("
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermContainerRegistryIdentityBlock? Identity
+    public TerraformList<AzurermContainerRegistryIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermContainerRegistryIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermContainerRegistryIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

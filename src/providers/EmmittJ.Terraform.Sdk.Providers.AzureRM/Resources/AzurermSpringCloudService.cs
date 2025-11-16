@@ -441,18 +441,18 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     /// ConfigServerGitSetting block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConfigServerGitSetting block(s) allowed")]
-    public AzurermSpringCloudServiceConfigServerGitSettingBlock? ConfigServerGitSetting
+    public TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlock>? ConfigServerGitSetting
     {
-        get => GetArgument<AzurermSpringCloudServiceConfigServerGitSettingBlock>("config_server_git_setting");
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlock>>("config_server_git_setting");
         set => SetArgument("config_server_git_setting", value);
     }
 
     /// <summary>
     /// ContainerRegistry block (nesting mode: list).
     /// </summary>
-    public AzurermSpringCloudServiceContainerRegistryBlock? ContainerRegistry
+    public TerraformList<AzurermSpringCloudServiceContainerRegistryBlock>? ContainerRegistry
     {
-        get => GetArgument<AzurermSpringCloudServiceContainerRegistryBlock>("container_registry");
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceContainerRegistryBlock>>("container_registry");
         set => SetArgument("container_registry", value);
     }
 
@@ -460,9 +460,9 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     /// DefaultBuildService block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultBuildService block(s) allowed")]
-    public AzurermSpringCloudServiceDefaultBuildServiceBlock? DefaultBuildService
+    public TerraformList<AzurermSpringCloudServiceDefaultBuildServiceBlock>? DefaultBuildService
     {
-        get => GetArgument<AzurermSpringCloudServiceDefaultBuildServiceBlock>("default_build_service");
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceDefaultBuildServiceBlock>>("default_build_service");
         set => SetArgument("default_build_service", value);
     }
 
@@ -470,9 +470,9 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     /// Marketplace block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Marketplace block(s) allowed")]
-    public AzurermSpringCloudServiceMarketplaceBlock? Marketplace
+    public TerraformList<AzurermSpringCloudServiceMarketplaceBlock>? Marketplace
     {
-        get => GetArgument<AzurermSpringCloudServiceMarketplaceBlock>("marketplace");
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceMarketplaceBlock>>("marketplace");
         set => SetArgument("marketplace", value);
     }
 
@@ -480,9 +480,9 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     /// Network block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Network block(s) allowed")]
-    public AzurermSpringCloudServiceNetworkBlock? Network
+    public TerraformList<AzurermSpringCloudServiceNetworkBlock>? Network
     {
-        get => GetArgument<AzurermSpringCloudServiceNetworkBlock>("network");
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceNetworkBlock>>("network");
         set => SetArgument("network", value);
     }
 
@@ -499,9 +499,9 @@ public partial class AzurermSpringCloudService(string name) : TerraformResource(
     /// Trace block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Trace block(s) allowed")]
-    public AzurermSpringCloudServiceTraceBlock? Trace
+    public TerraformList<AzurermSpringCloudServiceTraceBlock>? Trace
     {
-        get => GetArgument<AzurermSpringCloudServiceTraceBlock>("trace");
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceTraceBlock>>("trace");
         set => SetArgument("trace", value);
     }
 

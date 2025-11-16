@@ -956,18 +956,18 @@ public partial class AzurermWindowsVirtualMachine(string name) : TerraformResour
     /// AdditionalCapabilities block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
-    public AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock? AdditionalCapabilities
+    public TerraformList<AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock>? AdditionalCapabilities
     {
-        get => GetArgument<AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock>("additional_capabilities");
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock>>("additional_capabilities");
         set => SetArgument("additional_capabilities", value);
     }
 
     /// <summary>
     /// AdditionalUnattendContent block (nesting mode: list).
     /// </summary>
-    public AzurermWindowsVirtualMachineAdditionalUnattendContentBlock? AdditionalUnattendContent
+    public TerraformList<AzurermWindowsVirtualMachineAdditionalUnattendContentBlock>? AdditionalUnattendContent
     {
-        get => GetArgument<AzurermWindowsVirtualMachineAdditionalUnattendContentBlock>("additional_unattend_content");
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachineAdditionalUnattendContentBlock>>("additional_unattend_content");
         set => SetArgument("additional_unattend_content", value);
     }
 
@@ -975,9 +975,9 @@ public partial class AzurermWindowsVirtualMachine(string name) : TerraformResour
     /// BootDiagnostics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
-    public AzurermWindowsVirtualMachineBootDiagnosticsBlock? BootDiagnostics
+    public TerraformList<AzurermWindowsVirtualMachineBootDiagnosticsBlock>? BootDiagnostics
     {
-        get => GetArgument<AzurermWindowsVirtualMachineBootDiagnosticsBlock>("boot_diagnostics");
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachineBootDiagnosticsBlock>>("boot_diagnostics");
         set => SetArgument("boot_diagnostics", value);
     }
 
@@ -985,9 +985,9 @@ public partial class AzurermWindowsVirtualMachine(string name) : TerraformResour
     /// GalleryApplication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 GalleryApplication block(s) allowed")]
-    public AzurermWindowsVirtualMachineGalleryApplicationBlock? GalleryApplication
+    public TerraformList<AzurermWindowsVirtualMachineGalleryApplicationBlock>? GalleryApplication
     {
-        get => GetArgument<AzurermWindowsVirtualMachineGalleryApplicationBlock>("gallery_application");
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachineGalleryApplicationBlock>>("gallery_application");
         set => SetArgument("gallery_application", value);
     }
 
@@ -995,9 +995,9 @@ public partial class AzurermWindowsVirtualMachine(string name) : TerraformResour
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermWindowsVirtualMachineIdentityBlock? Identity
+    public TerraformList<AzurermWindowsVirtualMachineIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermWindowsVirtualMachineIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachineIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -1008,9 +1008,9 @@ public partial class AzurermWindowsVirtualMachine(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsDisk is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
-    public required AzurermWindowsVirtualMachineOsDiskBlock OsDisk
+    public required TerraformList<AzurermWindowsVirtualMachineOsDiskBlock> OsDisk
     {
-        get => GetRequiredArgument<AzurermWindowsVirtualMachineOsDiskBlock>("os_disk");
+        get => GetRequiredArgument<TerraformList<AzurermWindowsVirtualMachineOsDiskBlock>>("os_disk");
         set => SetArgument("os_disk", value);
     }
 
@@ -1018,9 +1018,9 @@ public partial class AzurermWindowsVirtualMachine(string name) : TerraformResour
     /// OsImageNotification block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsImageNotification block(s) allowed")]
-    public AzurermWindowsVirtualMachineOsImageNotificationBlock? OsImageNotification
+    public TerraformList<AzurermWindowsVirtualMachineOsImageNotificationBlock>? OsImageNotification
     {
-        get => GetArgument<AzurermWindowsVirtualMachineOsImageNotificationBlock>("os_image_notification");
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachineOsImageNotificationBlock>>("os_image_notification");
         set => SetArgument("os_image_notification", value);
     }
 
@@ -1028,18 +1028,18 @@ public partial class AzurermWindowsVirtualMachine(string name) : TerraformResour
     /// Plan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public AzurermWindowsVirtualMachinePlanBlock? Plan
+    public TerraformList<AzurermWindowsVirtualMachinePlanBlock>? Plan
     {
-        get => GetArgument<AzurermWindowsVirtualMachinePlanBlock>("plan");
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachinePlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 
     /// <summary>
     /// Secret block (nesting mode: list).
     /// </summary>
-    public AzurermWindowsVirtualMachineSecretBlock? Secret
+    public TerraformList<AzurermWindowsVirtualMachineSecretBlock>? Secret
     {
-        get => GetArgument<AzurermWindowsVirtualMachineSecretBlock>("secret");
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachineSecretBlock>>("secret");
         set => SetArgument("secret", value);
     }
 
@@ -1047,9 +1047,9 @@ public partial class AzurermWindowsVirtualMachine(string name) : TerraformResour
     /// SourceImageReference block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageReference block(s) allowed")]
-    public AzurermWindowsVirtualMachineSourceImageReferenceBlock? SourceImageReference
+    public TerraformList<AzurermWindowsVirtualMachineSourceImageReferenceBlock>? SourceImageReference
     {
-        get => GetArgument<AzurermWindowsVirtualMachineSourceImageReferenceBlock>("source_image_reference");
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachineSourceImageReferenceBlock>>("source_image_reference");
         set => SetArgument("source_image_reference", value);
     }
 
@@ -1057,9 +1057,9 @@ public partial class AzurermWindowsVirtualMachine(string name) : TerraformResour
     /// TerminationNotification block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TerminationNotification block(s) allowed")]
-    public AzurermWindowsVirtualMachineTerminationNotificationBlock? TerminationNotification
+    public TerraformList<AzurermWindowsVirtualMachineTerminationNotificationBlock>? TerminationNotification
     {
-        get => GetArgument<AzurermWindowsVirtualMachineTerminationNotificationBlock>("termination_notification");
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachineTerminationNotificationBlock>>("termination_notification");
         set => SetArgument("termination_notification", value);
     }
 
@@ -1075,9 +1075,9 @@ public partial class AzurermWindowsVirtualMachine(string name) : TerraformResour
     /// <summary>
     /// WinrmListener block (nesting mode: set).
     /// </summary>
-    public AzurermWindowsVirtualMachineWinrmListenerBlock? WinrmListener
+    public TerraformSet<AzurermWindowsVirtualMachineWinrmListenerBlock>? WinrmListener
     {
-        get => GetArgument<AzurermWindowsVirtualMachineWinrmListenerBlock>("winrm_listener");
+        get => GetArgument<TerraformSet<AzurermWindowsVirtualMachineWinrmListenerBlock>>("winrm_listener");
         set => SetArgument("winrm_listener", value);
     }
 

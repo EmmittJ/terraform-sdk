@@ -201,9 +201,9 @@ public partial class AzurermVideoIndexerAccount(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermVideoIndexerAccountIdentityBlock Identity
+    public required TerraformList<AzurermVideoIndexerAccountIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermVideoIndexerAccountIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermVideoIndexerAccountIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -214,9 +214,9 @@ public partial class AzurermVideoIndexerAccount(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Storage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Storage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
-    public required AzurermVideoIndexerAccountStorageBlock Storage
+    public required TerraformList<AzurermVideoIndexerAccountStorageBlock> Storage
     {
-        get => GetRequiredArgument<AzurermVideoIndexerAccountStorageBlock>("storage");
+        get => GetRequiredArgument<TerraformList<AzurermVideoIndexerAccountStorageBlock>>("storage");
         set => SetArgument("storage", value);
     }
 

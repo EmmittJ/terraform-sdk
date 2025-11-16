@@ -256,9 +256,9 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// CustomRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CustomRule block(s) allowed")]
-    public AzurermFrontdoorFirewallPolicyCustomRuleBlock? CustomRule
+    public TerraformList<AzurermFrontdoorFirewallPolicyCustomRuleBlock>? CustomRule
     {
-        get => GetArgument<AzurermFrontdoorFirewallPolicyCustomRuleBlock>("custom_rule");
+        get => GetArgument<TerraformList<AzurermFrontdoorFirewallPolicyCustomRuleBlock>>("custom_rule");
         set => SetArgument("custom_rule", value);
     }
 
@@ -266,9 +266,9 @@ public partial class AzurermFrontdoorFirewallPolicy(string name) : TerraformReso
     /// ManagedRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 ManagedRule block(s) allowed")]
-    public AzurermFrontdoorFirewallPolicyManagedRuleBlock? ManagedRule
+    public TerraformList<AzurermFrontdoorFirewallPolicyManagedRuleBlock>? ManagedRule
     {
-        get => GetArgument<AzurermFrontdoorFirewallPolicyManagedRuleBlock>("managed_rule");
+        get => GetArgument<TerraformList<AzurermFrontdoorFirewallPolicyManagedRuleBlock>>("managed_rule");
         set => SetArgument("managed_rule", value);
     }
 

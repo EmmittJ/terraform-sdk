@@ -197,9 +197,9 @@ public partial class AzurermDataProtectionBackupInstanceKubernetesCluster(string
     /// BackupDatasourceParameters block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupDatasourceParameters block(s) allowed")]
-    public AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock? BackupDatasourceParameters
+    public TerraformList<AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock>? BackupDatasourceParameters
     {
-        get => GetArgument<AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock>("backup_datasource_parameters");
+        get => GetArgument<TerraformList<AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock>>("backup_datasource_parameters");
         set => SetArgument("backup_datasource_parameters", value);
     }
 

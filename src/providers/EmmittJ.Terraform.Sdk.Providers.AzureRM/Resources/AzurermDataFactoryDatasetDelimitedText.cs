@@ -463,9 +463,9 @@ public partial class AzurermDataFactoryDatasetDelimitedText(string name) : Terra
     /// AzureBlobFsLocation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobFsLocation block(s) allowed")]
-    public AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock? AzureBlobFsLocation
+    public TerraformList<AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock>? AzureBlobFsLocation
     {
-        get => GetArgument<AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock>("azure_blob_fs_location");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock>>("azure_blob_fs_location");
         set => SetArgument("azure_blob_fs_location", value);
     }
 
@@ -473,9 +473,9 @@ public partial class AzurermDataFactoryDatasetDelimitedText(string name) : Terra
     /// AzureBlobStorageLocation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorageLocation block(s) allowed")]
-    public AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock? AzureBlobStorageLocation
+    public TerraformList<AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock>? AzureBlobStorageLocation
     {
-        get => GetArgument<AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock>("azure_blob_storage_location");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock>>("azure_blob_storage_location");
         set => SetArgument("azure_blob_storage_location", value);
     }
 
@@ -483,18 +483,18 @@ public partial class AzurermDataFactoryDatasetDelimitedText(string name) : Terra
     /// HttpServerLocation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpServerLocation block(s) allowed")]
-    public AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock? HttpServerLocation
+    public TerraformList<AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock>? HttpServerLocation
     {
-        get => GetArgument<AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock>("http_server_location");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock>>("http_server_location");
         set => SetArgument("http_server_location", value);
     }
 
     /// <summary>
     /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock? SchemaColumn
+    public TerraformList<AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock>? SchemaColumn
     {
-        get => GetArgument<AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock>("schema_column");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock>>("schema_column");
         set => SetArgument("schema_column", value);
     }
 

@@ -539,9 +539,9 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermLogicAppStandardConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermLogicAppStandardConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermLogicAppStandardConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermLogicAppStandardConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -549,9 +549,9 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermLogicAppStandardIdentityBlock? Identity
+    public TerraformList<AzurermLogicAppStandardIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermLogicAppStandardIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermLogicAppStandardIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -559,9 +559,9 @@ public partial class AzurermLogicAppStandard(string name) : TerraformResource("a
     /// SiteConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public AzurermLogicAppStandardSiteConfigBlock? SiteConfig
+    public TerraformList<AzurermLogicAppStandardSiteConfigBlock>? SiteConfig
     {
-        get => GetArgument<AzurermLogicAppStandardSiteConfigBlock>("site_config");
+        get => GetArgument<TerraformList<AzurermLogicAppStandardSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 

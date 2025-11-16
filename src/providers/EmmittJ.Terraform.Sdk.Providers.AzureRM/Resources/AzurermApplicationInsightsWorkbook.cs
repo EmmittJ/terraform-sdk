@@ -213,9 +213,9 @@ public partial class AzurermApplicationInsightsWorkbook(string name) : Terraform
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermApplicationInsightsWorkbookIdentityBlock? Identity
+    public TerraformList<AzurermApplicationInsightsWorkbookIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermApplicationInsightsWorkbookIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermApplicationInsightsWorkbookIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

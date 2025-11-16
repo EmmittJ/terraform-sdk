@@ -753,9 +753,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// AzureFilesAuthentication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureFilesAuthentication block(s) allowed")]
-    public AzurermStorageAccountAzureFilesAuthenticationBlock? AzureFilesAuthentication
+    public TerraformList<AzurermStorageAccountAzureFilesAuthenticationBlock>? AzureFilesAuthentication
     {
-        get => GetArgument<AzurermStorageAccountAzureFilesAuthenticationBlock>("azure_files_authentication");
+        get => GetArgument<TerraformList<AzurermStorageAccountAzureFilesAuthenticationBlock>>("azure_files_authentication");
         set => SetArgument("azure_files_authentication", value);
     }
 
@@ -763,9 +763,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// BlobProperties block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlobProperties block(s) allowed")]
-    public AzurermStorageAccountBlobPropertiesBlock? BlobProperties
+    public TerraformList<AzurermStorageAccountBlobPropertiesBlock>? BlobProperties
     {
-        get => GetArgument<AzurermStorageAccountBlobPropertiesBlock>("blob_properties");
+        get => GetArgument<TerraformList<AzurermStorageAccountBlobPropertiesBlock>>("blob_properties");
         set => SetArgument("blob_properties", value);
     }
 
@@ -773,9 +773,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// CustomDomain block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomDomain block(s) allowed")]
-    public AzurermStorageAccountCustomDomainBlock? CustomDomain
+    public TerraformList<AzurermStorageAccountCustomDomainBlock>? CustomDomain
     {
-        get => GetArgument<AzurermStorageAccountCustomDomainBlock>("custom_domain");
+        get => GetArgument<TerraformList<AzurermStorageAccountCustomDomainBlock>>("custom_domain");
         set => SetArgument("custom_domain", value);
     }
 
@@ -783,9 +783,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public AzurermStorageAccountCustomerManagedKeyBlock? CustomerManagedKey
+    public TerraformList<AzurermStorageAccountCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetArgument<AzurermStorageAccountCustomerManagedKeyBlock>("customer_managed_key");
+        get => GetArgument<TerraformList<AzurermStorageAccountCustomerManagedKeyBlock>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -793,9 +793,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermStorageAccountIdentityBlock? Identity
+    public TerraformList<AzurermStorageAccountIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermStorageAccountIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermStorageAccountIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -803,9 +803,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// ImmutabilityPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImmutabilityPolicy block(s) allowed")]
-    public AzurermStorageAccountImmutabilityPolicyBlock? ImmutabilityPolicy
+    public TerraformList<AzurermStorageAccountImmutabilityPolicyBlock>? ImmutabilityPolicy
     {
-        get => GetArgument<AzurermStorageAccountImmutabilityPolicyBlock>("immutability_policy");
+        get => GetArgument<TerraformList<AzurermStorageAccountImmutabilityPolicyBlock>>("immutability_policy");
         set => SetArgument("immutability_policy", value);
     }
 
@@ -813,9 +813,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// NetworkRules block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkRules block(s) allowed")]
-    public AzurermStorageAccountNetworkRulesBlock? NetworkRules
+    public TerraformList<AzurermStorageAccountNetworkRulesBlock>? NetworkRules
     {
-        get => GetArgument<AzurermStorageAccountNetworkRulesBlock>("network_rules");
+        get => GetArgument<TerraformList<AzurermStorageAccountNetworkRulesBlock>>("network_rules");
         set => SetArgument("network_rules", value);
     }
 
@@ -824,9 +824,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueueProperties block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public AzurermStorageAccountQueuePropertiesBlock? QueueProperties
+    public TerraformList<AzurermStorageAccountQueuePropertiesBlock>? QueueProperties
     {
-        get => GetArgument<AzurermStorageAccountQueuePropertiesBlock>("queue_properties");
+        get => GetArgument<TerraformList<AzurermStorageAccountQueuePropertiesBlock>>("queue_properties");
         set => SetArgument("queue_properties", value);
     }
 
@@ -834,9 +834,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// Routing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
-    public AzurermStorageAccountRoutingBlock? Routing
+    public TerraformList<AzurermStorageAccountRoutingBlock>? Routing
     {
-        get => GetArgument<AzurermStorageAccountRoutingBlock>("routing");
+        get => GetArgument<TerraformList<AzurermStorageAccountRoutingBlock>>("routing");
         set => SetArgument("routing", value);
     }
 
@@ -844,9 +844,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// SasPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SasPolicy block(s) allowed")]
-    public AzurermStorageAccountSasPolicyBlock? SasPolicy
+    public TerraformList<AzurermStorageAccountSasPolicyBlock>? SasPolicy
     {
-        get => GetArgument<AzurermStorageAccountSasPolicyBlock>("sas_policy");
+        get => GetArgument<TerraformList<AzurermStorageAccountSasPolicyBlock>>("sas_policy");
         set => SetArgument("sas_policy", value);
     }
 
@@ -854,9 +854,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// ShareProperties block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareProperties block(s) allowed")]
-    public AzurermStorageAccountSharePropertiesBlock? ShareProperties
+    public TerraformList<AzurermStorageAccountSharePropertiesBlock>? ShareProperties
     {
-        get => GetArgument<AzurermStorageAccountSharePropertiesBlock>("share_properties");
+        get => GetArgument<TerraformList<AzurermStorageAccountSharePropertiesBlock>>("share_properties");
         set => SetArgument("share_properties", value);
     }
 
@@ -865,9 +865,9 @@ public partial class AzurermStorageAccount(string name) : TerraformResource("azu
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StaticWebsite block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public AzurermStorageAccountStaticWebsiteBlock? StaticWebsite
+    public TerraformList<AzurermStorageAccountStaticWebsiteBlock>? StaticWebsite
     {
-        get => GetArgument<AzurermStorageAccountStaticWebsiteBlock>("static_website");
+        get => GetArgument<TerraformList<AzurermStorageAccountStaticWebsiteBlock>>("static_website");
         set => SetArgument("static_website", value);
     }
 

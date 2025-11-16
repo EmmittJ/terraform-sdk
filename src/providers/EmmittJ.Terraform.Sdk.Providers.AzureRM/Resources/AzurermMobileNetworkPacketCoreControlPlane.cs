@@ -325,9 +325,9 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock? Identity
+    public TerraformList<AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -338,9 +338,9 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocalDiagnosticsAccess is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LocalDiagnosticsAccess block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalDiagnosticsAccess block(s) allowed")]
-    public required AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock LocalDiagnosticsAccess
+    public required TerraformList<AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock> LocalDiagnosticsAccess
     {
-        get => GetRequiredArgument<AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock>("local_diagnostics_access");
+        get => GetRequiredArgument<TerraformList<AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock>>("local_diagnostics_access");
         set => SetArgument("local_diagnostics_access", value);
     }
 
@@ -348,9 +348,9 @@ public partial class AzurermMobileNetworkPacketCoreControlPlane(string name) : T
     /// Platform block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Platform block(s) allowed")]
-    public AzurermMobileNetworkPacketCoreControlPlanePlatformBlock? Platform
+    public TerraformList<AzurermMobileNetworkPacketCoreControlPlanePlatformBlock>? Platform
     {
-        get => GetArgument<AzurermMobileNetworkPacketCoreControlPlanePlatformBlock>("platform");
+        get => GetArgument<TerraformList<AzurermMobileNetworkPacketCoreControlPlanePlatformBlock>>("platform");
         set => SetArgument("platform", value);
     }
 

@@ -209,9 +209,9 @@ public partial class AzurermStreamAnalyticsStreamInputEventhub(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serialization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
-    public required AzurermStreamAnalyticsStreamInputEventhubSerializationBlock Serialization
+    public required TerraformList<AzurermStreamAnalyticsStreamInputEventhubSerializationBlock> Serialization
     {
-        get => GetRequiredArgument<AzurermStreamAnalyticsStreamInputEventhubSerializationBlock>("serialization");
+        get => GetRequiredArgument<TerraformList<AzurermStreamAnalyticsStreamInputEventhubSerializationBlock>>("serialization");
         set => SetArgument("serialization", value);
     }
 

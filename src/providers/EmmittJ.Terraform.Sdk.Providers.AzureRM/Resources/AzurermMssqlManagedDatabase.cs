@@ -199,9 +199,9 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     /// LongTermRetentionPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermRetentionPolicy block(s) allowed")]
-    public AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock? LongTermRetentionPolicy
+    public TerraformList<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock>? LongTermRetentionPolicy
     {
-        get => GetArgument<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock>("long_term_retention_policy");
+        get => GetArgument<TerraformList<AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock>>("long_term_retention_policy");
         set => SetArgument("long_term_retention_policy", value);
     }
 
@@ -209,9 +209,9 @@ public partial class AzurermMssqlManagedDatabase(string name) : TerraformResourc
     /// PointInTimeRestore block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PointInTimeRestore block(s) allowed")]
-    public AzurermMssqlManagedDatabasePointInTimeRestoreBlock? PointInTimeRestore
+    public TerraformList<AzurermMssqlManagedDatabasePointInTimeRestoreBlock>? PointInTimeRestore
     {
-        get => GetArgument<AzurermMssqlManagedDatabasePointInTimeRestoreBlock>("point_in_time_restore");
+        get => GetArgument<TerraformList<AzurermMssqlManagedDatabasePointInTimeRestoreBlock>>("point_in_time_restore");
         set => SetArgument("point_in_time_restore", value);
     }
 

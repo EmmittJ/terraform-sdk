@@ -429,9 +429,9 @@ public partial class AzurermVirtualNetworkGatewayConnection(string name) : Terra
     /// CustomBgpAddresses block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomBgpAddresses block(s) allowed")]
-    public AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock? CustomBgpAddresses
+    public TerraformList<AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock>? CustomBgpAddresses
     {
-        get => GetArgument<AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock>("custom_bgp_addresses");
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock>>("custom_bgp_addresses");
         set => SetArgument("custom_bgp_addresses", value);
     }
 
@@ -439,9 +439,9 @@ public partial class AzurermVirtualNetworkGatewayConnection(string name) : Terra
     /// IpsecPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpsecPolicy block(s) allowed")]
-    public AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock? IpsecPolicy
+    public TerraformList<AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock>? IpsecPolicy
     {
-        get => GetArgument<AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock>("ipsec_policy");
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock>>("ipsec_policy");
         set => SetArgument("ipsec_policy", value);
     }
 
@@ -457,9 +457,9 @@ public partial class AzurermVirtualNetworkGatewayConnection(string name) : Terra
     /// <summary>
     /// TrafficSelectorPolicy block (nesting mode: list).
     /// </summary>
-    public AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock? TrafficSelectorPolicy
+    public TerraformList<AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock>? TrafficSelectorPolicy
     {
-        get => GetArgument<AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock>("traffic_selector_policy");
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock>>("traffic_selector_policy");
         set => SetArgument("traffic_selector_policy", value);
     }
 

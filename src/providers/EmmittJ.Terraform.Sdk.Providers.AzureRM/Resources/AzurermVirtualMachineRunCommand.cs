@@ -313,9 +313,9 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     /// ErrorBlobManagedIdentity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorBlobManagedIdentity block(s) allowed")]
-    public AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock? ErrorBlobManagedIdentity
+    public TerraformList<AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock>? ErrorBlobManagedIdentity
     {
-        get => GetArgument<AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock>("error_blob_managed_identity");
+        get => GetArgument<TerraformList<AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock>>("error_blob_managed_identity");
         set => SetArgument("error_blob_managed_identity", value);
     }
 
@@ -323,27 +323,27 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     /// OutputBlobManagedIdentity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputBlobManagedIdentity block(s) allowed")]
-    public AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock? OutputBlobManagedIdentity
+    public TerraformList<AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock>? OutputBlobManagedIdentity
     {
-        get => GetArgument<AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock>("output_blob_managed_identity");
+        get => GetArgument<TerraformList<AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock>>("output_blob_managed_identity");
         set => SetArgument("output_blob_managed_identity", value);
     }
 
     /// <summary>
     /// Parameter block (nesting mode: list).
     /// </summary>
-    public AzurermVirtualMachineRunCommandParameterBlock? Parameter
+    public TerraformList<AzurermVirtualMachineRunCommandParameterBlock>? Parameter
     {
-        get => GetArgument<AzurermVirtualMachineRunCommandParameterBlock>("parameter");
+        get => GetArgument<TerraformList<AzurermVirtualMachineRunCommandParameterBlock>>("parameter");
         set => SetArgument("parameter", value);
     }
 
     /// <summary>
     /// ProtectedParameter block (nesting mode: list).
     /// </summary>
-    public AzurermVirtualMachineRunCommandProtectedParameterBlock? ProtectedParameter
+    public TerraformList<AzurermVirtualMachineRunCommandProtectedParameterBlock>? ProtectedParameter
     {
-        get => GetArgument<AzurermVirtualMachineRunCommandProtectedParameterBlock>("protected_parameter");
+        get => GetArgument<TerraformList<AzurermVirtualMachineRunCommandProtectedParameterBlock>>("protected_parameter");
         set => SetArgument("protected_parameter", value);
     }
 
@@ -354,9 +354,9 @@ public partial class AzurermVirtualMachineRunCommand(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public required AzurermVirtualMachineRunCommandSourceBlock Source
+    public required TerraformList<AzurermVirtualMachineRunCommandSourceBlock> Source
     {
-        get => GetRequiredArgument<AzurermVirtualMachineRunCommandSourceBlock>("source");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualMachineRunCommandSourceBlock>>("source");
         set => SetArgument("source", value);
     }
 

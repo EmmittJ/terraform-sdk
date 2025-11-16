@@ -291,9 +291,9 @@ public partial class AzurermManagedRedis(string name) : TerraformResource("azure
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public AzurermManagedRedisCustomerManagedKeyBlock? CustomerManagedKey
+    public TerraformList<AzurermManagedRedisCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetArgument<AzurermManagedRedisCustomerManagedKeyBlock>("customer_managed_key");
+        get => GetArgument<TerraformList<AzurermManagedRedisCustomerManagedKeyBlock>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -301,9 +301,9 @@ public partial class AzurermManagedRedis(string name) : TerraformResource("azure
     /// DefaultDatabase block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultDatabase block(s) allowed")]
-    public AzurermManagedRedisDefaultDatabaseBlock? DefaultDatabase
+    public TerraformList<AzurermManagedRedisDefaultDatabaseBlock>? DefaultDatabase
     {
-        get => GetArgument<AzurermManagedRedisDefaultDatabaseBlock>("default_database");
+        get => GetArgument<TerraformList<AzurermManagedRedisDefaultDatabaseBlock>>("default_database");
         set => SetArgument("default_database", value);
     }
 
@@ -311,9 +311,9 @@ public partial class AzurermManagedRedis(string name) : TerraformResource("azure
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermManagedRedisIdentityBlock? Identity
+    public TerraformList<AzurermManagedRedisIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermManagedRedisIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermManagedRedisIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

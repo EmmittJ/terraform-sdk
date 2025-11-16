@@ -206,9 +206,9 @@ public partial class AzurermDevCenterCatalog(string name) : TerraformResource("a
     /// CatalogAdogit block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogAdogit block(s) allowed")]
-    public AzurermDevCenterCatalogCatalogAdogitBlock? CatalogAdogit
+    public TerraformList<AzurermDevCenterCatalogCatalogAdogitBlock>? CatalogAdogit
     {
-        get => GetArgument<AzurermDevCenterCatalogCatalogAdogitBlock>("catalog_adogit");
+        get => GetArgument<TerraformList<AzurermDevCenterCatalogCatalogAdogitBlock>>("catalog_adogit");
         set => SetArgument("catalog_adogit", value);
     }
 
@@ -216,9 +216,9 @@ public partial class AzurermDevCenterCatalog(string name) : TerraformResource("a
     /// CatalogGithub block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogGithub block(s) allowed")]
-    public AzurermDevCenterCatalogCatalogGithubBlock? CatalogGithub
+    public TerraformList<AzurermDevCenterCatalogCatalogGithubBlock>? CatalogGithub
     {
-        get => GetArgument<AzurermDevCenterCatalogCatalogGithubBlock>("catalog_github");
+        get => GetArgument<TerraformList<AzurermDevCenterCatalogCatalogGithubBlock>>("catalog_github");
         set => SetArgument("catalog_github", value);
     }
 

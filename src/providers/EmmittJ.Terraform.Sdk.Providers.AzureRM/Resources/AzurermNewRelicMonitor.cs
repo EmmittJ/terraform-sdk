@@ -287,9 +287,9 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermNewRelicMonitorIdentityBlock? Identity
+    public TerraformList<AzurermNewRelicMonitorIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermNewRelicMonitorIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermNewRelicMonitorIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -300,9 +300,9 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public required AzurermNewRelicMonitorPlanBlock Plan
+    public required TerraformList<AzurermNewRelicMonitorPlanBlock> Plan
     {
-        get => GetRequiredArgument<AzurermNewRelicMonitorPlanBlock>("plan");
+        get => GetRequiredArgument<TerraformList<AzurermNewRelicMonitorPlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 
@@ -322,9 +322,9 @@ public partial class AzurermNewRelicMonitor(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
-    public required AzurermNewRelicMonitorUserBlock User
+    public required TerraformList<AzurermNewRelicMonitorUserBlock> User
     {
-        get => GetRequiredArgument<AzurermNewRelicMonitorUserBlock>("user");
+        get => GetRequiredArgument<TerraformList<AzurermNewRelicMonitorUserBlock>>("user");
         set => SetArgument("user", value);
     }
 

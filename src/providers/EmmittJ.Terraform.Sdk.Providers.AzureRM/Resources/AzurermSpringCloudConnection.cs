@@ -221,9 +221,9 @@ public partial class AzurermSpringCloudConnection(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    public required AzurermSpringCloudConnectionAuthenticationBlock Authentication
+    public required TerraformList<AzurermSpringCloudConnectionAuthenticationBlock> Authentication
     {
-        get => GetRequiredArgument<AzurermSpringCloudConnectionAuthenticationBlock>("authentication");
+        get => GetRequiredArgument<TerraformList<AzurermSpringCloudConnectionAuthenticationBlock>>("authentication");
         set => SetArgument("authentication", value);
     }
 
@@ -231,9 +231,9 @@ public partial class AzurermSpringCloudConnection(string name) : TerraformResour
     /// SecretStore block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretStore block(s) allowed")]
-    public AzurermSpringCloudConnectionSecretStoreBlock? SecretStore
+    public TerraformList<AzurermSpringCloudConnectionSecretStoreBlock>? SecretStore
     {
-        get => GetArgument<AzurermSpringCloudConnectionSecretStoreBlock>("secret_store");
+        get => GetArgument<TerraformList<AzurermSpringCloudConnectionSecretStoreBlock>>("secret_store");
         set => SetArgument("secret_store", value);
     }
 

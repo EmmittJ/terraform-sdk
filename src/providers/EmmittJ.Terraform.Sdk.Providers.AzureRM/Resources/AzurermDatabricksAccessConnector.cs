@@ -157,9 +157,9 @@ public partial class AzurermDatabricksAccessConnector(string name) : TerraformRe
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermDatabricksAccessConnectorIdentityBlock? Identity
+    public TerraformList<AzurermDatabricksAccessConnectorIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermDatabricksAccessConnectorIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermDatabricksAccessConnectorIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

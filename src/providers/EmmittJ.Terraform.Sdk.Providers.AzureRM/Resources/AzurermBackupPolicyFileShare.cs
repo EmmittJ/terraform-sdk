@@ -328,9 +328,9 @@ public partial class AzurermBackupPolicyFileShare(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Backup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public required AzurermBackupPolicyFileShareBackupBlock Backup
+    public required TerraformList<AzurermBackupPolicyFileShareBackupBlock> Backup
     {
-        get => GetRequiredArgument<AzurermBackupPolicyFileShareBackupBlock>("backup");
+        get => GetRequiredArgument<TerraformList<AzurermBackupPolicyFileShareBackupBlock>>("backup");
         set => SetArgument("backup", value);
     }
 
@@ -341,9 +341,9 @@ public partial class AzurermBackupPolicyFileShare(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionDaily is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RetentionDaily block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDaily block(s) allowed")]
-    public required AzurermBackupPolicyFileShareRetentionDailyBlock RetentionDaily
+    public required TerraformList<AzurermBackupPolicyFileShareRetentionDailyBlock> RetentionDaily
     {
-        get => GetRequiredArgument<AzurermBackupPolicyFileShareRetentionDailyBlock>("retention_daily");
+        get => GetRequiredArgument<TerraformList<AzurermBackupPolicyFileShareRetentionDailyBlock>>("retention_daily");
         set => SetArgument("retention_daily", value);
     }
 
@@ -351,9 +351,9 @@ public partial class AzurermBackupPolicyFileShare(string name) : TerraformResour
     /// RetentionMonthly block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionMonthly block(s) allowed")]
-    public AzurermBackupPolicyFileShareRetentionMonthlyBlock? RetentionMonthly
+    public TerraformList<AzurermBackupPolicyFileShareRetentionMonthlyBlock>? RetentionMonthly
     {
-        get => GetArgument<AzurermBackupPolicyFileShareRetentionMonthlyBlock>("retention_monthly");
+        get => GetArgument<TerraformList<AzurermBackupPolicyFileShareRetentionMonthlyBlock>>("retention_monthly");
         set => SetArgument("retention_monthly", value);
     }
 
@@ -361,9 +361,9 @@ public partial class AzurermBackupPolicyFileShare(string name) : TerraformResour
     /// RetentionWeekly block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionWeekly block(s) allowed")]
-    public AzurermBackupPolicyFileShareRetentionWeeklyBlock? RetentionWeekly
+    public TerraformList<AzurermBackupPolicyFileShareRetentionWeeklyBlock>? RetentionWeekly
     {
-        get => GetArgument<AzurermBackupPolicyFileShareRetentionWeeklyBlock>("retention_weekly");
+        get => GetArgument<TerraformList<AzurermBackupPolicyFileShareRetentionWeeklyBlock>>("retention_weekly");
         set => SetArgument("retention_weekly", value);
     }
 
@@ -371,9 +371,9 @@ public partial class AzurermBackupPolicyFileShare(string name) : TerraformResour
     /// RetentionYearly block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionYearly block(s) allowed")]
-    public AzurermBackupPolicyFileShareRetentionYearlyBlock? RetentionYearly
+    public TerraformList<AzurermBackupPolicyFileShareRetentionYearlyBlock>? RetentionYearly
     {
-        get => GetArgument<AzurermBackupPolicyFileShareRetentionYearlyBlock>("retention_yearly");
+        get => GetArgument<TerraformList<AzurermBackupPolicyFileShareRetentionYearlyBlock>>("retention_yearly");
         set => SetArgument("retention_yearly", value);
     }
 

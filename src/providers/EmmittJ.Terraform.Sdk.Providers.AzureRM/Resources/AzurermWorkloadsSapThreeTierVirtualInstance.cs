@@ -241,9 +241,9 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock? Identity
+    public TerraformList<AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermWorkloadsSapThreeTierVirtualInstanceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -254,9 +254,9 @@ public partial class AzurermWorkloadsSapThreeTierVirtualInstance(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThreeTierConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ThreeTierConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreeTierConfiguration block(s) allowed")]
-    public required AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock ThreeTierConfiguration
+    public required TerraformList<AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock> ThreeTierConfiguration
     {
-        get => GetRequiredArgument<AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock>("three_tier_configuration");
+        get => GetRequiredArgument<TerraformList<AzurermWorkloadsSapThreeTierVirtualInstanceThreeTierConfigurationBlock>>("three_tier_configuration");
         set => SetArgument("three_tier_configuration", value);
     }
 

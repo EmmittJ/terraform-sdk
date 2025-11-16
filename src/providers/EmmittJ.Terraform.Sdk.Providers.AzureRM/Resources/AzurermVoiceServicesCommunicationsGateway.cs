@@ -256,9 +256,9 @@ public partial class AzurermVoiceServicesCommunicationsGateway(string name) : Te
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceLocation block(s) required")]
-    public required AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock ServiceLocation
+    public required TerraformSet<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock> ServiceLocation
     {
-        get => GetRequiredArgument<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock>("service_location");
+        get => GetRequiredArgument<TerraformSet<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock>>("service_location");
         set => SetArgument("service_location", value);
     }
 

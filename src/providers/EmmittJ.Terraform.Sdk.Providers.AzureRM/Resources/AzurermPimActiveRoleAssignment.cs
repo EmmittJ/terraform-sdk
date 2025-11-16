@@ -153,9 +153,9 @@ public partial class AzurermPimActiveRoleAssignment(string name) : TerraformReso
     /// Schedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public AzurermPimActiveRoleAssignmentScheduleBlock? Schedule
+    public TerraformList<AzurermPimActiveRoleAssignmentScheduleBlock>? Schedule
     {
-        get => GetArgument<AzurermPimActiveRoleAssignmentScheduleBlock>("schedule");
+        get => GetArgument<TerraformList<AzurermPimActiveRoleAssignmentScheduleBlock>>("schedule");
         set => SetArgument("schedule", value);
     }
 
@@ -163,9 +163,9 @@ public partial class AzurermPimActiveRoleAssignment(string name) : TerraformReso
     /// Ticket block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ticket block(s) allowed")]
-    public AzurermPimActiveRoleAssignmentTicketBlock? Ticket
+    public TerraformList<AzurermPimActiveRoleAssignmentTicketBlock>? Ticket
     {
-        get => GetArgument<AzurermPimActiveRoleAssignmentTicketBlock>("ticket");
+        get => GetArgument<TerraformList<AzurermPimActiveRoleAssignmentTicketBlock>>("ticket");
         set => SetArgument("ticket", value);
     }
 

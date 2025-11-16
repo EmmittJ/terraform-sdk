@@ -266,9 +266,9 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermBatchAccountIdentityBlock? Identity
+    public TerraformList<AzurermBatchAccountIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermBatchAccountIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermBatchAccountIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -276,9 +276,9 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// KeyVaultReference block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultReference block(s) allowed")]
-    public AzurermBatchAccountKeyVaultReferenceBlock? KeyVaultReference
+    public TerraformList<AzurermBatchAccountKeyVaultReferenceBlock>? KeyVaultReference
     {
-        get => GetArgument<AzurermBatchAccountKeyVaultReferenceBlock>("key_vault_reference");
+        get => GetArgument<TerraformList<AzurermBatchAccountKeyVaultReferenceBlock>>("key_vault_reference");
         set => SetArgument("key_vault_reference", value);
     }
 
@@ -286,9 +286,9 @@ public partial class AzurermBatchAccount(string name) : TerraformResource("azure
     /// NetworkProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
-    public AzurermBatchAccountNetworkProfileBlock? NetworkProfile
+    public TerraformList<AzurermBatchAccountNetworkProfileBlock>? NetworkProfile
     {
-        get => GetArgument<AzurermBatchAccountNetworkProfileBlock>("network_profile");
+        get => GetArgument<TerraformList<AzurermBatchAccountNetworkProfileBlock>>("network_profile");
         set => SetArgument("network_profile", value);
     }
 

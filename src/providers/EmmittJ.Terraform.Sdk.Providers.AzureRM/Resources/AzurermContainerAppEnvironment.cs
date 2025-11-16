@@ -289,9 +289,9 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermContainerAppEnvironmentIdentityBlock? Identity
+    public TerraformList<AzurermContainerAppEnvironmentIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermContainerAppEnvironmentIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermContainerAppEnvironmentIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -307,9 +307,9 @@ public partial class AzurermContainerAppEnvironment(string name) : TerraformReso
     /// <summary>
     /// WorkloadProfile block (nesting mode: set).
     /// </summary>
-    public AzurermContainerAppEnvironmentWorkloadProfileBlock? WorkloadProfile
+    public TerraformSet<AzurermContainerAppEnvironmentWorkloadProfileBlock>? WorkloadProfile
     {
-        get => GetArgument<AzurermContainerAppEnvironmentWorkloadProfileBlock>("workload_profile");
+        get => GetArgument<TerraformSet<AzurermContainerAppEnvironmentWorkloadProfileBlock>>("workload_profile");
         set => SetArgument("workload_profile", value);
     }
 

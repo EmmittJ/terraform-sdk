@@ -204,9 +204,9 @@ public partial class AzurermChaosStudioExperiment(string name) : TerraformResour
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermChaosStudioExperimentIdentityBlock? Identity
+    public TerraformList<AzurermChaosStudioExperimentIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermChaosStudioExperimentIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermChaosStudioExperimentIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -216,9 +216,9 @@ public partial class AzurermChaosStudioExperiment(string name) : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selectors is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Selectors block(s) required")]
-    public required AzurermChaosStudioExperimentSelectorsBlock Selectors
+    public required TerraformList<AzurermChaosStudioExperimentSelectorsBlock> Selectors
     {
-        get => GetRequiredArgument<AzurermChaosStudioExperimentSelectorsBlock>("selectors");
+        get => GetRequiredArgument<TerraformList<AzurermChaosStudioExperimentSelectorsBlock>>("selectors");
         set => SetArgument("selectors", value);
     }
 
@@ -228,9 +228,9 @@ public partial class AzurermChaosStudioExperiment(string name) : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Steps is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Steps block(s) required")]
-    public required AzurermChaosStudioExperimentStepsBlock Steps
+    public required TerraformList<AzurermChaosStudioExperimentStepsBlock> Steps
     {
-        get => GetRequiredArgument<AzurermChaosStudioExperimentStepsBlock>("steps");
+        get => GetRequiredArgument<TerraformList<AzurermChaosStudioExperimentStepsBlock>>("steps");
         set => SetArgument("steps", value);
     }
 

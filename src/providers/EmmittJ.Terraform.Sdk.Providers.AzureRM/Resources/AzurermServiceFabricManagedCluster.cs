@@ -494,18 +494,18 @@ public partial class AzurermServiceFabricManagedCluster(string name) : Terraform
     /// Authentication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    public AzurermServiceFabricManagedClusterAuthenticationBlock? Authentication
+    public TerraformList<AzurermServiceFabricManagedClusterAuthenticationBlock>? Authentication
     {
-        get => GetArgument<AzurermServiceFabricManagedClusterAuthenticationBlock>("authentication");
+        get => GetArgument<TerraformList<AzurermServiceFabricManagedClusterAuthenticationBlock>>("authentication");
         set => SetArgument("authentication", value);
     }
 
     /// <summary>
     /// CustomFabricSetting block (nesting mode: list).
     /// </summary>
-    public AzurermServiceFabricManagedClusterCustomFabricSettingBlock? CustomFabricSetting
+    public TerraformList<AzurermServiceFabricManagedClusterCustomFabricSettingBlock>? CustomFabricSetting
     {
-        get => GetArgument<AzurermServiceFabricManagedClusterCustomFabricSettingBlock>("custom_fabric_setting");
+        get => GetArgument<TerraformList<AzurermServiceFabricManagedClusterCustomFabricSettingBlock>>("custom_fabric_setting");
         set => SetArgument("custom_fabric_setting", value);
     }
 
@@ -515,18 +515,18 @@ public partial class AzurermServiceFabricManagedCluster(string name) : Terraform
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LbRule block(s) required")]
-    public required AzurermServiceFabricManagedClusterLbRuleBlock LbRule
+    public required TerraformList<AzurermServiceFabricManagedClusterLbRuleBlock> LbRule
     {
-        get => GetRequiredArgument<AzurermServiceFabricManagedClusterLbRuleBlock>("lb_rule");
+        get => GetRequiredArgument<TerraformList<AzurermServiceFabricManagedClusterLbRuleBlock>>("lb_rule");
         set => SetArgument("lb_rule", value);
     }
 
     /// <summary>
     /// NodeType block (nesting mode: list).
     /// </summary>
-    public AzurermServiceFabricManagedClusterNodeTypeBlock? NodeType
+    public TerraformList<AzurermServiceFabricManagedClusterNodeTypeBlock>? NodeType
     {
-        get => GetArgument<AzurermServiceFabricManagedClusterNodeTypeBlock>("node_type");
+        get => GetArgument<TerraformList<AzurermServiceFabricManagedClusterNodeTypeBlock>>("node_type");
         set => SetArgument("node_type", value);
     }
 

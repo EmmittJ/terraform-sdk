@@ -289,9 +289,9 @@ public partial class AzurermMonitorScheduledQueryRulesAlert(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
-    public required AzurermMonitorScheduledQueryRulesAlertActionBlock Action
+    public required TerraformList<AzurermMonitorScheduledQueryRulesAlertActionBlock> Action
     {
-        get => GetRequiredArgument<AzurermMonitorScheduledQueryRulesAlertActionBlock>("action");
+        get => GetRequiredArgument<TerraformList<AzurermMonitorScheduledQueryRulesAlertActionBlock>>("action");
         set => SetArgument("action", value);
     }
 
@@ -311,9 +311,9 @@ public partial class AzurermMonitorScheduledQueryRulesAlert(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Trigger is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Trigger block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Trigger block(s) allowed")]
-    public required AzurermMonitorScheduledQueryRulesAlertTriggerBlock Trigger
+    public required TerraformList<AzurermMonitorScheduledQueryRulesAlertTriggerBlock> Trigger
     {
-        get => GetRequiredArgument<AzurermMonitorScheduledQueryRulesAlertTriggerBlock>("trigger");
+        get => GetRequiredArgument<TerraformList<AzurermMonitorScheduledQueryRulesAlertTriggerBlock>>("trigger");
         set => SetArgument("trigger", value);
     }
 

@@ -265,9 +265,9 @@ public partial class AzurermEventgridNamespace(string name) : TerraformResource(
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermEventgridNamespaceIdentityBlock? Identity
+    public TerraformList<AzurermEventgridNamespaceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermEventgridNamespaceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermEventgridNamespaceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -275,9 +275,9 @@ public partial class AzurermEventgridNamespace(string name) : TerraformResource(
     /// InboundIpRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(128, ErrorMessage = "Maximum 128 InboundIpRule block(s) allowed")]
-    public AzurermEventgridNamespaceInboundIpRuleBlock? InboundIpRule
+    public TerraformList<AzurermEventgridNamespaceInboundIpRuleBlock>? InboundIpRule
     {
-        get => GetArgument<AzurermEventgridNamespaceInboundIpRuleBlock>("inbound_ip_rule");
+        get => GetArgument<TerraformList<AzurermEventgridNamespaceInboundIpRuleBlock>>("inbound_ip_rule");
         set => SetArgument("inbound_ip_rule", value);
     }
 
@@ -293,9 +293,9 @@ public partial class AzurermEventgridNamespace(string name) : TerraformResource(
     /// <summary>
     /// TopicSpacesConfiguration block (nesting mode: list).
     /// </summary>
-    public AzurermEventgridNamespaceTopicSpacesConfigurationBlock? TopicSpacesConfiguration
+    public TerraformList<AzurermEventgridNamespaceTopicSpacesConfigurationBlock>? TopicSpacesConfiguration
     {
-        get => GetArgument<AzurermEventgridNamespaceTopicSpacesConfigurationBlock>("topic_spaces_configuration");
+        get => GetArgument<TerraformList<AzurermEventgridNamespaceTopicSpacesConfigurationBlock>>("topic_spaces_configuration");
         set => SetArgument("topic_spaces_configuration", value);
     }
 

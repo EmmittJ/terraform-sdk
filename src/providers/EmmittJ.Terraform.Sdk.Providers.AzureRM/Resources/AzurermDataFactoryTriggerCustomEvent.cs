@@ -198,9 +198,9 @@ public partial class AzurermDataFactoryTriggerCustomEvent(string name) : Terrafo
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
-    public required AzurermDataFactoryTriggerCustomEventPipelineBlock Pipeline
+    public required TerraformSet<AzurermDataFactoryTriggerCustomEventPipelineBlock> Pipeline
     {
-        get => GetRequiredArgument<AzurermDataFactoryTriggerCustomEventPipelineBlock>("pipeline");
+        get => GetRequiredArgument<TerraformSet<AzurermDataFactoryTriggerCustomEventPipelineBlock>>("pipeline");
         set => SetArgument("pipeline", value);
     }
 

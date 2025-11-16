@@ -194,9 +194,9 @@ public partial class AzurermDataFactoryDatasetMysql(string name) : TerraformReso
     /// <summary>
     /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryDatasetMysqlSchemaColumnBlock? SchemaColumn
+    public TerraformList<AzurermDataFactoryDatasetMysqlSchemaColumnBlock>? SchemaColumn
     {
-        get => GetArgument<AzurermDataFactoryDatasetMysqlSchemaColumnBlock>("schema_column");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetMysqlSchemaColumnBlock>>("schema_column");
         set => SetArgument("schema_column", value);
     }
 

@@ -130,9 +130,9 @@ public partial class AzurermIotcentralApplicationNetworkRuleSet(string name) : T
     /// <summary>
     /// IpRule block (nesting mode: list).
     /// </summary>
-    public AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock? IpRule
+    public TerraformList<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock>? IpRule
     {
-        get => GetArgument<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock>("ip_rule");
+        get => GetArgument<TerraformList<AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock>>("ip_rule");
         set => SetArgument("ip_rule", value);
     }
 

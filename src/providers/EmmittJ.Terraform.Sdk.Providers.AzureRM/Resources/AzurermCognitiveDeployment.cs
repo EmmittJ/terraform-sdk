@@ -221,9 +221,9 @@ public partial class AzurermCognitiveDeployment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Model is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Model block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Model block(s) allowed")]
-    public required AzurermCognitiveDeploymentModelBlock Model
+    public required TerraformList<AzurermCognitiveDeploymentModelBlock> Model
     {
-        get => GetRequiredArgument<AzurermCognitiveDeploymentModelBlock>("model");
+        get => GetRequiredArgument<TerraformList<AzurermCognitiveDeploymentModelBlock>>("model");
         set => SetArgument("model", value);
     }
 
@@ -234,9 +234,9 @@ public partial class AzurermCognitiveDeployment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermCognitiveDeploymentSkuBlock Sku
+    public required TerraformList<AzurermCognitiveDeploymentSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermCognitiveDeploymentSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermCognitiveDeploymentSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 

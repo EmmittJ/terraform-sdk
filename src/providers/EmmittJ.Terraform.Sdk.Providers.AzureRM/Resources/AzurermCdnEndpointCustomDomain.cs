@@ -174,9 +174,9 @@ public partial class AzurermCdnEndpointCustomDomain(string name) : TerraformReso
     /// CdnManagedHttps block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CdnManagedHttps block(s) allowed")]
-    public AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock? CdnManagedHttps
+    public TerraformList<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock>? CdnManagedHttps
     {
-        get => GetArgument<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock>("cdn_managed_https");
+        get => GetArgument<TerraformList<AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock>>("cdn_managed_https");
         set => SetArgument("cdn_managed_https", value);
     }
 
@@ -193,9 +193,9 @@ public partial class AzurermCdnEndpointCustomDomain(string name) : TerraformReso
     /// UserManagedHttps block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserManagedHttps block(s) allowed")]
-    public AzurermCdnEndpointCustomDomainUserManagedHttpsBlock? UserManagedHttps
+    public TerraformList<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock>? UserManagedHttps
     {
-        get => GetArgument<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock>("user_managed_https");
+        get => GetArgument<TerraformList<AzurermCdnEndpointCustomDomainUserManagedHttpsBlock>>("user_managed_https");
         set => SetArgument("user_managed_https", value);
     }
 

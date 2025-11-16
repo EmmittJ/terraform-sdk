@@ -217,9 +217,9 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModule(string name) :
     /// NetworkAcls block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
-    public AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock? NetworkAcls
+    public TerraformList<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock>? NetworkAcls
     {
-        get => GetArgument<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock>("network_acls");
+        get => GetArgument<TerraformList<AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock>>("network_acls");
         set => SetArgument("network_acls", value);
     }
 

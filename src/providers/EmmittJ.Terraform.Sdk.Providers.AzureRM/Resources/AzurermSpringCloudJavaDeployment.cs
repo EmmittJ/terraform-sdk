@@ -157,9 +157,9 @@ public partial class AzurermSpringCloudJavaDeployment(string name) : TerraformRe
     /// Quota block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
-    public AzurermSpringCloudJavaDeploymentQuotaBlock? Quota
+    public TerraformList<AzurermSpringCloudJavaDeploymentQuotaBlock>? Quota
     {
-        get => GetArgument<AzurermSpringCloudJavaDeploymentQuotaBlock>("quota");
+        get => GetArgument<TerraformList<AzurermSpringCloudJavaDeploymentQuotaBlock>>("quota");
         set => SetArgument("quota", value);
     }
 

@@ -208,9 +208,9 @@ public partial class AzurermApplicationInsightsWorkbookTemplate(string name) : T
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Galleries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Galleries block(s) required")]
-    public required AzurermApplicationInsightsWorkbookTemplateGalleriesBlock Galleries
+    public required TerraformList<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock> Galleries
     {
-        get => GetRequiredArgument<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock>("galleries");
+        get => GetRequiredArgument<TerraformList<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock>>("galleries");
         set => SetArgument("galleries", value);
     }
 

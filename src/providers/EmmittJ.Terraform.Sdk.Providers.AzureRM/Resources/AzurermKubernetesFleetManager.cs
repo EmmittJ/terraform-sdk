@@ -150,9 +150,9 @@ public partial class AzurermKubernetesFleetManager(string name) : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HubProfile block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public AzurermKubernetesFleetManagerHubProfileBlock? HubProfile
+    public TerraformList<AzurermKubernetesFleetManagerHubProfileBlock>? HubProfile
     {
-        get => GetArgument<AzurermKubernetesFleetManagerHubProfileBlock>("hub_profile");
+        get => GetArgument<TerraformList<AzurermKubernetesFleetManagerHubProfileBlock>>("hub_profile");
         set => SetArgument("hub_profile", value);
     }
 

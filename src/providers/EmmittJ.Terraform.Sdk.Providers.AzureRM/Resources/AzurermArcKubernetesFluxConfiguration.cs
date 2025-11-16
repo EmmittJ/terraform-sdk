@@ -474,9 +474,9 @@ public partial class AzurermArcKubernetesFluxConfiguration(string name) : Terraf
     /// BlobStorage block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlobStorage block(s) allowed")]
-    public AzurermArcKubernetesFluxConfigurationBlobStorageBlock? BlobStorage
+    public TerraformList<AzurermArcKubernetesFluxConfigurationBlobStorageBlock>? BlobStorage
     {
-        get => GetArgument<AzurermArcKubernetesFluxConfigurationBlobStorageBlock>("blob_storage");
+        get => GetArgument<TerraformList<AzurermArcKubernetesFluxConfigurationBlobStorageBlock>>("blob_storage");
         set => SetArgument("blob_storage", value);
     }
 
@@ -484,9 +484,9 @@ public partial class AzurermArcKubernetesFluxConfiguration(string name) : Terraf
     /// Bucket block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bucket block(s) allowed")]
-    public AzurermArcKubernetesFluxConfigurationBucketBlock? Bucket
+    public TerraformList<AzurermArcKubernetesFluxConfigurationBucketBlock>? Bucket
     {
-        get => GetArgument<AzurermArcKubernetesFluxConfigurationBucketBlock>("bucket");
+        get => GetArgument<TerraformList<AzurermArcKubernetesFluxConfigurationBucketBlock>>("bucket");
         set => SetArgument("bucket", value);
     }
 
@@ -494,9 +494,9 @@ public partial class AzurermArcKubernetesFluxConfiguration(string name) : Terraf
     /// GitRepository block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepository block(s) allowed")]
-    public AzurermArcKubernetesFluxConfigurationGitRepositoryBlock? GitRepository
+    public TerraformList<AzurermArcKubernetesFluxConfigurationGitRepositoryBlock>? GitRepository
     {
-        get => GetArgument<AzurermArcKubernetesFluxConfigurationGitRepositoryBlock>("git_repository");
+        get => GetArgument<TerraformList<AzurermArcKubernetesFluxConfigurationGitRepositoryBlock>>("git_repository");
         set => SetArgument("git_repository", value);
     }
 
@@ -506,9 +506,9 @@ public partial class AzurermArcKubernetesFluxConfiguration(string name) : Terraf
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kustomizations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Kustomizations block(s) required")]
-    public required AzurermArcKubernetesFluxConfigurationKustomizationsBlock Kustomizations
+    public required TerraformSet<AzurermArcKubernetesFluxConfigurationKustomizationsBlock> Kustomizations
     {
-        get => GetRequiredArgument<AzurermArcKubernetesFluxConfigurationKustomizationsBlock>("kustomizations");
+        get => GetRequiredArgument<TerraformSet<AzurermArcKubernetesFluxConfigurationKustomizationsBlock>>("kustomizations");
         set => SetArgument("kustomizations", value);
     }
 

@@ -181,9 +181,9 @@ public partial class AzurermDevTestGlobalVmShutdownSchedule(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NotificationSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationSettings block(s) allowed")]
-    public required AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock NotificationSettings
+    public required TerraformList<AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock> NotificationSettings
     {
-        get => GetRequiredArgument<AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock>("notification_settings");
+        get => GetRequiredArgument<TerraformList<AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock>>("notification_settings");
         set => SetArgument("notification_settings", value);
     }
 

@@ -230,18 +230,18 @@ public partial class AzurermMonitorDiagnosticSetting(string name) : TerraformRes
     /// <summary>
     /// EnabledLog block (nesting mode: set).
     /// </summary>
-    public AzurermMonitorDiagnosticSettingEnabledLogBlock? EnabledLog
+    public TerraformSet<AzurermMonitorDiagnosticSettingEnabledLogBlock>? EnabledLog
     {
-        get => GetArgument<AzurermMonitorDiagnosticSettingEnabledLogBlock>("enabled_log");
+        get => GetArgument<TerraformSet<AzurermMonitorDiagnosticSettingEnabledLogBlock>>("enabled_log");
         set => SetArgument("enabled_log", value);
     }
 
     /// <summary>
     /// EnabledMetric block (nesting mode: set).
     /// </summary>
-    public AzurermMonitorDiagnosticSettingEnabledMetricBlock? EnabledMetric
+    public TerraformSet<AzurermMonitorDiagnosticSettingEnabledMetricBlock>? EnabledMetric
     {
-        get => GetArgument<AzurermMonitorDiagnosticSettingEnabledMetricBlock>("enabled_metric");
+        get => GetArgument<TerraformSet<AzurermMonitorDiagnosticSettingEnabledMetricBlock>>("enabled_metric");
         set => SetArgument("enabled_metric", value);
     }
 
@@ -249,9 +249,9 @@ public partial class AzurermMonitorDiagnosticSetting(string name) : TerraformRes
     /// Metric block (nesting mode: set).
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public AzurermMonitorDiagnosticSettingMetricBlock? Metric
+    public TerraformSet<AzurermMonitorDiagnosticSettingMetricBlock>? Metric
     {
-        get => GetArgument<AzurermMonitorDiagnosticSettingMetricBlock>("metric");
+        get => GetArgument<TerraformSet<AzurermMonitorDiagnosticSettingMetricBlock>>("metric");
         set => SetArgument("metric", value);
     }
 

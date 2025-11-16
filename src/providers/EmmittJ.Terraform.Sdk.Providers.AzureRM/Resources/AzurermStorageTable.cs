@@ -112,9 +112,9 @@ public partial class AzurermStorageTable(string name) : TerraformResource("azure
     /// <summary>
     /// Acl block (nesting mode: set).
     /// </summary>
-    public AzurermStorageTableAclBlock? Acl
+    public TerraformSet<AzurermStorageTableAclBlock>? Acl
     {
-        get => GetArgument<AzurermStorageTableAclBlock>("acl");
+        get => GetArgument<TerraformSet<AzurermStorageTableAclBlock>>("acl");
         set => SetArgument("acl", value);
     }
 

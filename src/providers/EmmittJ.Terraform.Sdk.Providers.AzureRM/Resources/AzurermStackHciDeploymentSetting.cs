@@ -263,9 +263,9 @@ public partial class AzurermStackHciDeploymentSetting(string name) : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScaleUnit is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ScaleUnit block(s) required")]
-    public required AzurermStackHciDeploymentSettingScaleUnitBlock ScaleUnit
+    public required TerraformList<AzurermStackHciDeploymentSettingScaleUnitBlock> ScaleUnit
     {
-        get => GetRequiredArgument<AzurermStackHciDeploymentSettingScaleUnitBlock>("scale_unit");
+        get => GetRequiredArgument<TerraformList<AzurermStackHciDeploymentSettingScaleUnitBlock>>("scale_unit");
         set => SetArgument("scale_unit", value);
     }
 

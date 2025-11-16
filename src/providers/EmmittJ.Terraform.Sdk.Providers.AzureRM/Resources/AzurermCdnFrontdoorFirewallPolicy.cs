@@ -326,9 +326,9 @@ public partial class AzurermCdnFrontdoorFirewallPolicy(string name) : TerraformR
     /// CustomRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CustomRule block(s) allowed")]
-    public AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock? CustomRule
+    public TerraformList<AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock>? CustomRule
     {
-        get => GetArgument<AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock>("custom_rule");
+        get => GetArgument<TerraformList<AzurermCdnFrontdoorFirewallPolicyCustomRuleBlock>>("custom_rule");
         set => SetArgument("custom_rule", value);
     }
 
@@ -336,9 +336,9 @@ public partial class AzurermCdnFrontdoorFirewallPolicy(string name) : TerraformR
     /// LogScrubbing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogScrubbing block(s) allowed")]
-    public AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock? LogScrubbing
+    public TerraformList<AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock>? LogScrubbing
     {
-        get => GetArgument<AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock>("log_scrubbing");
+        get => GetArgument<TerraformList<AzurermCdnFrontdoorFirewallPolicyLogScrubbingBlock>>("log_scrubbing");
         set => SetArgument("log_scrubbing", value);
     }
 
@@ -346,9 +346,9 @@ public partial class AzurermCdnFrontdoorFirewallPolicy(string name) : TerraformR
     /// ManagedRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 ManagedRule block(s) allowed")]
-    public AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock? ManagedRule
+    public TerraformList<AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock>? ManagedRule
     {
-        get => GetArgument<AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock>("managed_rule");
+        get => GetArgument<TerraformList<AzurermCdnFrontdoorFirewallPolicyManagedRuleBlock>>("managed_rule");
         set => SetArgument("managed_rule", value);
     }
 

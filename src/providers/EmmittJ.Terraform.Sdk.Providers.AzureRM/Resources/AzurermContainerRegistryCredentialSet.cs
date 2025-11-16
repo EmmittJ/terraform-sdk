@@ -175,9 +175,9 @@ public partial class AzurermContainerRegistryCredentialSet(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationCredentials is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationCredentials block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationCredentials block(s) allowed")]
-    public required AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock AuthenticationCredentials
+    public required TerraformList<AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock> AuthenticationCredentials
     {
-        get => GetRequiredArgument<AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock>("authentication_credentials");
+        get => GetRequiredArgument<TerraformList<AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock>>("authentication_credentials");
         set => SetArgument("authentication_credentials", value);
     }
 
@@ -188,9 +188,9 @@ public partial class AzurermContainerRegistryCredentialSet(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermContainerRegistryCredentialSetIdentityBlock Identity
+    public required TerraformList<AzurermContainerRegistryCredentialSetIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermContainerRegistryCredentialSetIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermContainerRegistryCredentialSetIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

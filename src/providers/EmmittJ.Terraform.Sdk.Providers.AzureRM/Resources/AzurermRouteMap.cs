@@ -121,9 +121,9 @@ public partial class AzurermRouteMap(string name) : TerraformResource("azurerm_r
     /// <summary>
     /// Rule block (nesting mode: list).
     /// </summary>
-    public AzurermRouteMapRuleBlock? Rule
+    public TerraformList<AzurermRouteMapRuleBlock>? Rule
     {
-        get => GetArgument<AzurermRouteMapRuleBlock>("rule");
+        get => GetArgument<TerraformList<AzurermRouteMapRuleBlock>>("rule");
         set => SetArgument("rule", value);
     }
 

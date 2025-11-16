@@ -205,9 +205,9 @@ public partial class AzurermMobileNetworkSimPolicy(string name) : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Slice is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Slice block(s) required")]
-    public required AzurermMobileNetworkSimPolicySliceBlock Slice
+    public required TerraformList<AzurermMobileNetworkSimPolicySliceBlock> Slice
     {
-        get => GetRequiredArgument<AzurermMobileNetworkSimPolicySliceBlock>("slice");
+        get => GetRequiredArgument<TerraformList<AzurermMobileNetworkSimPolicySliceBlock>>("slice");
         set => SetArgument("slice", value);
     }
 
@@ -227,9 +227,9 @@ public partial class AzurermMobileNetworkSimPolicy(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserEquipmentAggregateMaximumBitRate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 UserEquipmentAggregateMaximumBitRate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserEquipmentAggregateMaximumBitRate block(s) allowed")]
-    public required AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock UserEquipmentAggregateMaximumBitRate
+    public required TerraformList<AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock> UserEquipmentAggregateMaximumBitRate
     {
-        get => GetRequiredArgument<AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock>("user_equipment_aggregate_maximum_bit_rate");
+        get => GetRequiredArgument<TerraformList<AzurermMobileNetworkSimPolicyUserEquipmentAggregateMaximumBitRateBlock>>("user_equipment_aggregate_maximum_bit_rate");
         set => SetArgument("user_equipment_aggregate_maximum_bit_rate", value);
     }
 

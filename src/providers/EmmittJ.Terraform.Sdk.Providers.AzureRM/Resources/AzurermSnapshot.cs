@@ -204,9 +204,9 @@ public partial class AzurermSnapshot(string name) : TerraformResource("azurerm_s
     /// EncryptionSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSettings block(s) allowed")]
-    public AzurermSnapshotEncryptionSettingsBlock? EncryptionSettings
+    public TerraformList<AzurermSnapshotEncryptionSettingsBlock>? EncryptionSettings
     {
-        get => GetArgument<AzurermSnapshotEncryptionSettingsBlock>("encryption_settings");
+        get => GetArgument<TerraformList<AzurermSnapshotEncryptionSettingsBlock>>("encryption_settings");
         set => SetArgument("encryption_settings", value);
     }
 

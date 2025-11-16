@@ -153,9 +153,9 @@ public partial class AzurermAutomationConnectionType(string name) : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Field block(s) required")]
-    public required AzurermAutomationConnectionTypeFieldBlock Field
+    public required TerraformList<AzurermAutomationConnectionTypeFieldBlock> Field
     {
-        get => GetRequiredArgument<AzurermAutomationConnectionTypeFieldBlock>("field");
+        get => GetRequiredArgument<TerraformList<AzurermAutomationConnectionTypeFieldBlock>>("field");
         set => SetArgument("field", value);
     }
 

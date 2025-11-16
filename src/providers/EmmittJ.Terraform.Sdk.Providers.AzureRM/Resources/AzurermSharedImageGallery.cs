@@ -141,9 +141,9 @@ public partial class AzurermSharedImageGallery(string name) : TerraformResource(
     /// Sharing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sharing block(s) allowed")]
-    public AzurermSharedImageGallerySharingBlock? Sharing
+    public TerraformList<AzurermSharedImageGallerySharingBlock>? Sharing
     {
-        get => GetArgument<AzurermSharedImageGallerySharingBlock>("sharing");
+        get => GetArgument<TerraformList<AzurermSharedImageGallerySharingBlock>>("sharing");
         set => SetArgument("sharing", value);
     }
 

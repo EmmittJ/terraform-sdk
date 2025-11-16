@@ -149,18 +149,18 @@ public partial class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServer(s
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultRetentionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRetentionRule block(s) allowed")]
-    public required AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlock DefaultRetentionRule
+    public required TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlock> DefaultRetentionRule
     {
-        get => GetRequiredArgument<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlock>("default_retention_rule");
+        get => GetRequiredArgument<TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlock>>("default_retention_rule");
         set => SetArgument("default_retention_rule", value);
     }
 
     /// <summary>
     /// RetentionRule block (nesting mode: list).
     /// </summary>
-    public AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock? RetentionRule
+    public TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock>? RetentionRule
     {
-        get => GetArgument<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock>("retention_rule");
+        get => GetArgument<TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock>>("retention_rule");
         set => SetArgument("retention_rule", value);
     }
 

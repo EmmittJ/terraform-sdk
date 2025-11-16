@@ -130,9 +130,9 @@ public partial class AzurermDataFactoryIntegrationRuntimeSelfHosted(string name)
     /// <summary>
     /// RbacAuthorization block (nesting mode: set).
     /// </summary>
-    public AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock? RbacAuthorization
+    public TerraformSet<AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock>? RbacAuthorization
     {
-        get => GetArgument<AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock>("rbac_authorization");
+        get => GetArgument<TerraformSet<AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock>>("rbac_authorization");
         set => SetArgument("rbac_authorization", value);
     }
 

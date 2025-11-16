@@ -321,18 +321,18 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// Container block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Container block(s) allowed")]
-    public AzurermResourceDeploymentScriptAzureCliContainerBlock? Container
+    public TerraformList<AzurermResourceDeploymentScriptAzureCliContainerBlock>? Container
     {
-        get => GetArgument<AzurermResourceDeploymentScriptAzureCliContainerBlock>("container");
+        get => GetArgument<TerraformList<AzurermResourceDeploymentScriptAzureCliContainerBlock>>("container");
         set => SetArgument("container", value);
     }
 
     /// <summary>
     /// EnvironmentVariable block (nesting mode: set).
     /// </summary>
-    public AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock? EnvironmentVariable
+    public TerraformSet<AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock>? EnvironmentVariable
     {
-        get => GetArgument<AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock>("environment_variable");
+        get => GetArgument<TerraformSet<AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock>>("environment_variable");
         set => SetArgument("environment_variable", value);
     }
 
@@ -340,9 +340,9 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermResourceDeploymentScriptAzureCliIdentityBlock? Identity
+    public TerraformList<AzurermResourceDeploymentScriptAzureCliIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermResourceDeploymentScriptAzureCliIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermResourceDeploymentScriptAzureCliIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -350,9 +350,9 @@ public partial class AzurermResourceDeploymentScriptAzureCli(string name) : Terr
     /// StorageAccount block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
-    public AzurermResourceDeploymentScriptAzureCliStorageAccountBlock? StorageAccount
+    public TerraformList<AzurermResourceDeploymentScriptAzureCliStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermResourceDeploymentScriptAzureCliStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformList<AzurermResourceDeploymentScriptAzureCliStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 

@@ -430,9 +430,9 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    public AzurermMachineLearningWorkspaceEncryptionBlock? Encryption
+    public TerraformList<AzurermMachineLearningWorkspaceEncryptionBlock>? Encryption
     {
-        get => GetArgument<AzurermMachineLearningWorkspaceEncryptionBlock>("encryption");
+        get => GetArgument<TerraformList<AzurermMachineLearningWorkspaceEncryptionBlock>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -440,9 +440,9 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// FeatureStore block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeatureStore block(s) allowed")]
-    public AzurermMachineLearningWorkspaceFeatureStoreBlock? FeatureStore
+    public TerraformList<AzurermMachineLearningWorkspaceFeatureStoreBlock>? FeatureStore
     {
-        get => GetArgument<AzurermMachineLearningWorkspaceFeatureStoreBlock>("feature_store");
+        get => GetArgument<TerraformList<AzurermMachineLearningWorkspaceFeatureStoreBlock>>("feature_store");
         set => SetArgument("feature_store", value);
     }
 
@@ -453,9 +453,9 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermMachineLearningWorkspaceIdentityBlock Identity
+    public required TerraformList<AzurermMachineLearningWorkspaceIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermMachineLearningWorkspaceIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermMachineLearningWorkspaceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -463,9 +463,9 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// ManagedNetwork block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedNetwork block(s) allowed")]
-    public AzurermMachineLearningWorkspaceManagedNetworkBlock? ManagedNetwork
+    public TerraformList<AzurermMachineLearningWorkspaceManagedNetworkBlock>? ManagedNetwork
     {
-        get => GetArgument<AzurermMachineLearningWorkspaceManagedNetworkBlock>("managed_network");
+        get => GetArgument<TerraformList<AzurermMachineLearningWorkspaceManagedNetworkBlock>>("managed_network");
         set => SetArgument("managed_network", value);
     }
 
@@ -473,9 +473,9 @@ public partial class AzurermMachineLearningWorkspace(string name) : TerraformRes
     /// ServerlessCompute block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerlessCompute block(s) allowed")]
-    public AzurermMachineLearningWorkspaceServerlessComputeBlock? ServerlessCompute
+    public TerraformList<AzurermMachineLearningWorkspaceServerlessComputeBlock>? ServerlessCompute
     {
-        get => GetArgument<AzurermMachineLearningWorkspaceServerlessComputeBlock>("serverless_compute");
+        get => GetArgument<TerraformList<AzurermMachineLearningWorkspaceServerlessComputeBlock>>("serverless_compute");
         set => SetArgument("serverless_compute", value);
     }
 

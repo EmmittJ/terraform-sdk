@@ -623,9 +623,9 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMssqlDatabaseIdentityBlock? Identity
+    public TerraformList<AzurermMssqlDatabaseIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMssqlDatabaseIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMssqlDatabaseIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -633,9 +633,9 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// Import block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Import block(s) allowed")]
-    public AzurermMssqlDatabaseImportBlock? Import
+    public TerraformList<AzurermMssqlDatabaseImportBlock>? Import
     {
-        get => GetArgument<AzurermMssqlDatabaseImportBlock>("import");
+        get => GetArgument<TerraformList<AzurermMssqlDatabaseImportBlock>>("import");
         set => SetArgument("import", value);
     }
 
@@ -643,9 +643,9 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// LongTermRetentionPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LongTermRetentionPolicy block(s) allowed")]
-    public AzurermMssqlDatabaseLongTermRetentionPolicyBlock? LongTermRetentionPolicy
+    public TerraformList<AzurermMssqlDatabaseLongTermRetentionPolicyBlock>? LongTermRetentionPolicy
     {
-        get => GetArgument<AzurermMssqlDatabaseLongTermRetentionPolicyBlock>("long_term_retention_policy");
+        get => GetArgument<TerraformList<AzurermMssqlDatabaseLongTermRetentionPolicyBlock>>("long_term_retention_policy");
         set => SetArgument("long_term_retention_policy", value);
     }
 
@@ -653,9 +653,9 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// ShortTermRetentionPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShortTermRetentionPolicy block(s) allowed")]
-    public AzurermMssqlDatabaseShortTermRetentionPolicyBlock? ShortTermRetentionPolicy
+    public TerraformList<AzurermMssqlDatabaseShortTermRetentionPolicyBlock>? ShortTermRetentionPolicy
     {
-        get => GetArgument<AzurermMssqlDatabaseShortTermRetentionPolicyBlock>("short_term_retention_policy");
+        get => GetArgument<TerraformList<AzurermMssqlDatabaseShortTermRetentionPolicyBlock>>("short_term_retention_policy");
         set => SetArgument("short_term_retention_policy", value);
     }
 
@@ -663,9 +663,9 @@ public partial class AzurermMssqlDatabase(string name) : TerraformResource("azur
     /// ThreatDetectionPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThreatDetectionPolicy block(s) allowed")]
-    public AzurermMssqlDatabaseThreatDetectionPolicyBlock? ThreatDetectionPolicy
+    public TerraformList<AzurermMssqlDatabaseThreatDetectionPolicyBlock>? ThreatDetectionPolicy
     {
-        get => GetArgument<AzurermMssqlDatabaseThreatDetectionPolicyBlock>("threat_detection_policy");
+        get => GetArgument<TerraformList<AzurermMssqlDatabaseThreatDetectionPolicyBlock>>("threat_detection_policy");
         set => SetArgument("threat_detection_policy", value);
     }
 

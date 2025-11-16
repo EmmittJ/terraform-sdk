@@ -280,9 +280,9 @@ public partial class AzurermLb(string name) : TerraformResource("azurerm_lb", na
     /// <summary>
     /// FrontendIpConfiguration block (nesting mode: list).
     /// </summary>
-    public AzurermLbFrontendIpConfigurationBlock? FrontendIpConfiguration
+    public TerraformList<AzurermLbFrontendIpConfigurationBlock>? FrontendIpConfiguration
     {
-        get => GetArgument<AzurermLbFrontendIpConfigurationBlock>("frontend_ip_configuration");
+        get => GetArgument<TerraformList<AzurermLbFrontendIpConfigurationBlock>>("frontend_ip_configuration");
         set => SetArgument("frontend_ip_configuration", value);
     }
 

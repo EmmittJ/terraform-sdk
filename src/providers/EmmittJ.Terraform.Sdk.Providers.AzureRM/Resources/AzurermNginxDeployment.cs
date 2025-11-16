@@ -406,18 +406,18 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// <summary>
     /// AutoScaleProfile block (nesting mode: list).
     /// </summary>
-    public AzurermNginxDeploymentAutoScaleProfileBlock? AutoScaleProfile
+    public TerraformList<AzurermNginxDeploymentAutoScaleProfileBlock>? AutoScaleProfile
     {
-        get => GetArgument<AzurermNginxDeploymentAutoScaleProfileBlock>("auto_scale_profile");
+        get => GetArgument<TerraformList<AzurermNginxDeploymentAutoScaleProfileBlock>>("auto_scale_profile");
         set => SetArgument("auto_scale_profile", value);
     }
 
     /// <summary>
     /// FrontendPrivate block (nesting mode: list).
     /// </summary>
-    public AzurermNginxDeploymentFrontendPrivateBlock? FrontendPrivate
+    public TerraformList<AzurermNginxDeploymentFrontendPrivateBlock>? FrontendPrivate
     {
-        get => GetArgument<AzurermNginxDeploymentFrontendPrivateBlock>("frontend_private");
+        get => GetArgument<TerraformList<AzurermNginxDeploymentFrontendPrivateBlock>>("frontend_private");
         set => SetArgument("frontend_private", value);
     }
 
@@ -425,9 +425,9 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// FrontendPublic block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendPublic block(s) allowed")]
-    public AzurermNginxDeploymentFrontendPublicBlock? FrontendPublic
+    public TerraformList<AzurermNginxDeploymentFrontendPublicBlock>? FrontendPublic
     {
-        get => GetArgument<AzurermNginxDeploymentFrontendPublicBlock>("frontend_public");
+        get => GetArgument<TerraformList<AzurermNginxDeploymentFrontendPublicBlock>>("frontend_public");
         set => SetArgument("frontend_public", value);
     }
 
@@ -435,9 +435,9 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermNginxDeploymentIdentityBlock? Identity
+    public TerraformList<AzurermNginxDeploymentIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermNginxDeploymentIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermNginxDeploymentIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -445,18 +445,18 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// LoggingStorageAccount block (nesting mode: list).
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public AzurermNginxDeploymentLoggingStorageAccountBlock? LoggingStorageAccount
+    public TerraformList<AzurermNginxDeploymentLoggingStorageAccountBlock>? LoggingStorageAccount
     {
-        get => GetArgument<AzurermNginxDeploymentLoggingStorageAccountBlock>("logging_storage_account");
+        get => GetArgument<TerraformList<AzurermNginxDeploymentLoggingStorageAccountBlock>>("logging_storage_account");
         set => SetArgument("logging_storage_account", value);
     }
 
     /// <summary>
     /// NetworkInterface block (nesting mode: list).
     /// </summary>
-    public AzurermNginxDeploymentNetworkInterfaceBlock? NetworkInterface
+    public TerraformList<AzurermNginxDeploymentNetworkInterfaceBlock>? NetworkInterface
     {
-        get => GetArgument<AzurermNginxDeploymentNetworkInterfaceBlock>("network_interface");
+        get => GetArgument<TerraformList<AzurermNginxDeploymentNetworkInterfaceBlock>>("network_interface");
         set => SetArgument("network_interface", value);
     }
 
@@ -473,9 +473,9 @@ public partial class AzurermNginxDeployment(string name) : TerraformResource("az
     /// WebApplicationFirewall block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebApplicationFirewall block(s) allowed")]
-    public AzurermNginxDeploymentWebApplicationFirewallBlock? WebApplicationFirewall
+    public TerraformList<AzurermNginxDeploymentWebApplicationFirewallBlock>? WebApplicationFirewall
     {
-        get => GetArgument<AzurermNginxDeploymentWebApplicationFirewallBlock>("web_application_firewall");
+        get => GetArgument<TerraformList<AzurermNginxDeploymentWebApplicationFirewallBlock>>("web_application_firewall");
         set => SetArgument("web_application_firewall", value);
     }
 

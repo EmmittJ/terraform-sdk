@@ -226,9 +226,9 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     /// <summary>
     /// Encryption block (nesting mode: list).
     /// </summary>
-    public AzurermAutomationAccountEncryptionBlock? Encryption
+    public TerraformList<AzurermAutomationAccountEncryptionBlock>? Encryption
     {
-        get => GetArgument<AzurermAutomationAccountEncryptionBlock>("encryption");
+        get => GetArgument<TerraformList<AzurermAutomationAccountEncryptionBlock>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -236,9 +236,9 @@ public partial class AzurermAutomationAccount(string name) : TerraformResource("
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermAutomationAccountIdentityBlock? Identity
+    public TerraformList<AzurermAutomationAccountIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermAutomationAccountIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermAutomationAccountIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

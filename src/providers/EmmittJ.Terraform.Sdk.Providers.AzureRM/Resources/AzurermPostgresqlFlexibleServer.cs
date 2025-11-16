@@ -490,9 +490,9 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// Authentication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    public AzurermPostgresqlFlexibleServerAuthenticationBlock? Authentication
+    public TerraformList<AzurermPostgresqlFlexibleServerAuthenticationBlock>? Authentication
     {
-        get => GetArgument<AzurermPostgresqlFlexibleServerAuthenticationBlock>("authentication");
+        get => GetArgument<TerraformList<AzurermPostgresqlFlexibleServerAuthenticationBlock>>("authentication");
         set => SetArgument("authentication", value);
     }
 
@@ -500,9 +500,9 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock? CustomerManagedKey
+    public TerraformList<AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetArgument<AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock>("customer_managed_key");
+        get => GetArgument<TerraformList<AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -510,9 +510,9 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// HighAvailability block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HighAvailability block(s) allowed")]
-    public AzurermPostgresqlFlexibleServerHighAvailabilityBlock? HighAvailability
+    public TerraformList<AzurermPostgresqlFlexibleServerHighAvailabilityBlock>? HighAvailability
     {
-        get => GetArgument<AzurermPostgresqlFlexibleServerHighAvailabilityBlock>("high_availability");
+        get => GetArgument<TerraformList<AzurermPostgresqlFlexibleServerHighAvailabilityBlock>>("high_availability");
         set => SetArgument("high_availability", value);
     }
 
@@ -520,9 +520,9 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermPostgresqlFlexibleServerIdentityBlock? Identity
+    public TerraformList<AzurermPostgresqlFlexibleServerIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermPostgresqlFlexibleServerIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermPostgresqlFlexibleServerIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -530,9 +530,9 @@ public partial class AzurermPostgresqlFlexibleServer(string name) : TerraformRes
     /// MaintenanceWindow block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
-    public AzurermPostgresqlFlexibleServerMaintenanceWindowBlock? MaintenanceWindow
+    public TerraformList<AzurermPostgresqlFlexibleServerMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetArgument<AzurermPostgresqlFlexibleServerMaintenanceWindowBlock>("maintenance_window");
+        get => GetArgument<TerraformList<AzurermPostgresqlFlexibleServerMaintenanceWindowBlock>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 

@@ -135,9 +135,9 @@ public partial class AzurermNetworkProfile(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerNetworkInterface is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContainerNetworkInterface block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerNetworkInterface block(s) allowed")]
-    public required AzurermNetworkProfileContainerNetworkInterfaceBlock ContainerNetworkInterface
+    public required TerraformList<AzurermNetworkProfileContainerNetworkInterfaceBlock> ContainerNetworkInterface
     {
-        get => GetRequiredArgument<AzurermNetworkProfileContainerNetworkInterfaceBlock>("container_network_interface");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkProfileContainerNetworkInterfaceBlock>>("container_network_interface");
         set => SetArgument("container_network_interface", value);
     }
 

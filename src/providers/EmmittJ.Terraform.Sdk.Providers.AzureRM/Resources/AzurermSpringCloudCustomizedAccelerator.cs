@@ -215,9 +215,9 @@ public partial class AzurermSpringCloudCustomizedAccelerator(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepository is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GitRepository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepository block(s) allowed")]
-    public required AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock GitRepository
+    public required TerraformList<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock> GitRepository
     {
-        get => GetRequiredArgument<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock>("git_repository");
+        get => GetRequiredArgument<TerraformList<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock>>("git_repository");
         set => SetArgument("git_repository", value);
     }
 

@@ -152,9 +152,9 @@ public partial class AzurermCosmosdbCassandraTable(string name) : TerraformResou
     /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    public AzurermCosmosdbCassandraTableAutoscaleSettingsBlock? AutoscaleSettings
+    public TerraformList<AzurermCosmosdbCassandraTableAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetArgument<AzurermCosmosdbCassandraTableAutoscaleSettingsBlock>("autoscale_settings");
+        get => GetArgument<TerraformList<AzurermCosmosdbCassandraTableAutoscaleSettingsBlock>>("autoscale_settings");
         set => SetArgument("autoscale_settings", value);
     }
 
@@ -165,9 +165,9 @@ public partial class AzurermCosmosdbCassandraTable(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schema block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schema block(s) allowed")]
-    public required AzurermCosmosdbCassandraTableSchemaBlock Schema
+    public required TerraformList<AzurermCosmosdbCassandraTableSchemaBlock> Schema
     {
-        get => GetRequiredArgument<AzurermCosmosdbCassandraTableSchemaBlock>("schema");
+        get => GetRequiredArgument<TerraformList<AzurermCosmosdbCassandraTableSchemaBlock>>("schema");
         set => SetArgument("schema", value);
     }
 

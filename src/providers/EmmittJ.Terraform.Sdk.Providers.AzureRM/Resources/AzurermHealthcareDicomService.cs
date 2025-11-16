@@ -275,9 +275,9 @@ public partial class AzurermHealthcareDicomService(string name) : TerraformResou
     /// Cors block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
-    public AzurermHealthcareDicomServiceCorsBlock? Cors
+    public TerraformList<AzurermHealthcareDicomServiceCorsBlock>? Cors
     {
-        get => GetArgument<AzurermHealthcareDicomServiceCorsBlock>("cors");
+        get => GetArgument<TerraformList<AzurermHealthcareDicomServiceCorsBlock>>("cors");
         set => SetArgument("cors", value);
     }
 
@@ -285,9 +285,9 @@ public partial class AzurermHealthcareDicomService(string name) : TerraformResou
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermHealthcareDicomServiceIdentityBlock? Identity
+    public TerraformList<AzurermHealthcareDicomServiceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermHealthcareDicomServiceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermHealthcareDicomServiceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -295,9 +295,9 @@ public partial class AzurermHealthcareDicomService(string name) : TerraformResou
     /// Storage block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
-    public AzurermHealthcareDicomServiceStorageBlock? Storage
+    public TerraformList<AzurermHealthcareDicomServiceStorageBlock>? Storage
     {
-        get => GetArgument<AzurermHealthcareDicomServiceStorageBlock>("storage");
+        get => GetArgument<TerraformList<AzurermHealthcareDicomServiceStorageBlock>>("storage");
         set => SetArgument("storage", value);
     }
 

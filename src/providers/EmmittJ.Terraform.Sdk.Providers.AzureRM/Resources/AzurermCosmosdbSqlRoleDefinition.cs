@@ -153,9 +153,9 @@ public partial class AzurermCosmosdbSqlRoleDefinition(string name) : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
-    public required AzurermCosmosdbSqlRoleDefinitionPermissionsBlock Permissions
+    public required TerraformSet<AzurermCosmosdbSqlRoleDefinitionPermissionsBlock> Permissions
     {
-        get => GetRequiredArgument<AzurermCosmosdbSqlRoleDefinitionPermissionsBlock>("permissions");
+        get => GetRequiredArgument<TerraformSet<AzurermCosmosdbSqlRoleDefinitionPermissionsBlock>>("permissions");
         set => SetArgument("permissions", value);
     }
 

@@ -151,9 +151,9 @@ public partial class AzurermMaintenanceAssignmentDynamicScope(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
-    public required AzurermMaintenanceAssignmentDynamicScopeFilterBlock Filter
+    public required TerraformList<AzurermMaintenanceAssignmentDynamicScopeFilterBlock> Filter
     {
-        get => GetRequiredArgument<AzurermMaintenanceAssignmentDynamicScopeFilterBlock>("filter");
+        get => GetRequiredArgument<TerraformList<AzurermMaintenanceAssignmentDynamicScopeFilterBlock>>("filter");
         set => SetArgument("filter", value);
     }
 

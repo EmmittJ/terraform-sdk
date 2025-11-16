@@ -295,9 +295,9 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFlow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataFlow block(s) required")]
-    public required AzurermMonitorDataCollectionRuleDataFlowBlock DataFlow
+    public required TerraformList<AzurermMonitorDataCollectionRuleDataFlowBlock> DataFlow
     {
-        get => GetRequiredArgument<AzurermMonitorDataCollectionRuleDataFlowBlock>("data_flow");
+        get => GetRequiredArgument<TerraformList<AzurermMonitorDataCollectionRuleDataFlowBlock>>("data_flow");
         set => SetArgument("data_flow", value);
     }
 
@@ -305,9 +305,9 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     /// DataSources block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSources block(s) allowed")]
-    public AzurermMonitorDataCollectionRuleDataSourcesBlock? DataSources
+    public TerraformList<AzurermMonitorDataCollectionRuleDataSourcesBlock>? DataSources
     {
-        get => GetArgument<AzurermMonitorDataCollectionRuleDataSourcesBlock>("data_sources");
+        get => GetArgument<TerraformList<AzurermMonitorDataCollectionRuleDataSourcesBlock>>("data_sources");
         set => SetArgument("data_sources", value);
     }
 
@@ -318,9 +318,9 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destinations block(s) allowed")]
-    public required AzurermMonitorDataCollectionRuleDestinationsBlock Destinations
+    public required TerraformList<AzurermMonitorDataCollectionRuleDestinationsBlock> Destinations
     {
-        get => GetRequiredArgument<AzurermMonitorDataCollectionRuleDestinationsBlock>("destinations");
+        get => GetRequiredArgument<TerraformList<AzurermMonitorDataCollectionRuleDestinationsBlock>>("destinations");
         set => SetArgument("destinations", value);
     }
 
@@ -328,18 +328,18 @@ public partial class AzurermMonitorDataCollectionRule(string name) : TerraformRe
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMonitorDataCollectionRuleIdentityBlock? Identity
+    public TerraformList<AzurermMonitorDataCollectionRuleIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMonitorDataCollectionRuleIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMonitorDataCollectionRuleIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// StreamDeclaration block (nesting mode: set).
     /// </summary>
-    public AzurermMonitorDataCollectionRuleStreamDeclarationBlock? StreamDeclaration
+    public TerraformSet<AzurermMonitorDataCollectionRuleStreamDeclarationBlock>? StreamDeclaration
     {
-        get => GetArgument<AzurermMonitorDataCollectionRuleStreamDeclarationBlock>("stream_declaration");
+        get => GetArgument<TerraformSet<AzurermMonitorDataCollectionRuleStreamDeclarationBlock>>("stream_declaration");
         set => SetArgument("stream_declaration", value);
     }
 

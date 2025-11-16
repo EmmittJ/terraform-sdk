@@ -166,9 +166,9 @@ public partial class AzurermSpringCloudDevToolPortal(string name) : TerraformRes
     /// Sso block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sso block(s) allowed")]
-    public AzurermSpringCloudDevToolPortalSsoBlock? Sso
+    public TerraformList<AzurermSpringCloudDevToolPortalSsoBlock>? Sso
     {
-        get => GetArgument<AzurermSpringCloudDevToolPortalSsoBlock>("sso");
+        get => GetArgument<TerraformList<AzurermSpringCloudDevToolPortalSsoBlock>>("sso");
         set => SetArgument("sso", value);
     }
 

@@ -261,9 +261,9 @@ public partial class AzurermWebPubsub(string name) : TerraformResource("azurerm_
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermWebPubsubIdentityBlock? Identity
+    public TerraformList<AzurermWebPubsubIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermWebPubsubIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermWebPubsubIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -271,9 +271,9 @@ public partial class AzurermWebPubsub(string name) : TerraformResource("azurerm_
     /// LiveTrace block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LiveTrace block(s) allowed")]
-    public AzurermWebPubsubLiveTraceBlock? LiveTrace
+    public TerraformList<AzurermWebPubsubLiveTraceBlock>? LiveTrace
     {
-        get => GetArgument<AzurermWebPubsubLiveTraceBlock>("live_trace");
+        get => GetArgument<TerraformList<AzurermWebPubsubLiveTraceBlock>>("live_trace");
         set => SetArgument("live_trace", value);
     }
 

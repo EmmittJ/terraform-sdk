@@ -747,18 +747,18 @@ public partial class AzurermAppServiceSlot(string name) : TerraformResource("azu
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    public AzurermAppServiceSlotAuthSettingsBlock? AuthSettings
+    public TerraformList<AzurermAppServiceSlotAuthSettingsBlock>? AuthSettings
     {
-        get => GetArgument<AzurermAppServiceSlotAuthSettingsBlock>("auth_settings");
+        get => GetArgument<TerraformList<AzurermAppServiceSlotAuthSettingsBlock>>("auth_settings");
         set => SetArgument("auth_settings", value);
     }
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermAppServiceSlotConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermAppServiceSlotConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermAppServiceSlotConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermAppServiceSlotConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -766,9 +766,9 @@ public partial class AzurermAppServiceSlot(string name) : TerraformResource("azu
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermAppServiceSlotIdentityBlock? Identity
+    public TerraformList<AzurermAppServiceSlotIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermAppServiceSlotIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermAppServiceSlotIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -776,9 +776,9 @@ public partial class AzurermAppServiceSlot(string name) : TerraformResource("azu
     /// Logs block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
-    public AzurermAppServiceSlotLogsBlock? Logs
+    public TerraformList<AzurermAppServiceSlotLogsBlock>? Logs
     {
-        get => GetArgument<AzurermAppServiceSlotLogsBlock>("logs");
+        get => GetArgument<TerraformList<AzurermAppServiceSlotLogsBlock>>("logs");
         set => SetArgument("logs", value);
     }
 
@@ -786,18 +786,18 @@ public partial class AzurermAppServiceSlot(string name) : TerraformResource("azu
     /// SiteConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public AzurermAppServiceSlotSiteConfigBlock? SiteConfig
+    public TerraformList<AzurermAppServiceSlotSiteConfigBlock>? SiteConfig
     {
-        get => GetArgument<AzurermAppServiceSlotSiteConfigBlock>("site_config");
+        get => GetArgument<TerraformList<AzurermAppServiceSlotSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 
     /// <summary>
     /// StorageAccount block (nesting mode: set).
     /// </summary>
-    public AzurermAppServiceSlotStorageAccountBlock? StorageAccount
+    public TerraformSet<AzurermAppServiceSlotStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermAppServiceSlotStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformSet<AzurermAppServiceSlotStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 

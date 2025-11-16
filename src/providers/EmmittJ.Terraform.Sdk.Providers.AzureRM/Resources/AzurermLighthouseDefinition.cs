@@ -266,18 +266,18 @@ public partial class AzurermLighthouseDefinition(string name) : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authorization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authorization block(s) required")]
-    public required AzurermLighthouseDefinitionAuthorizationBlock Authorization
+    public required TerraformSet<AzurermLighthouseDefinitionAuthorizationBlock> Authorization
     {
-        get => GetRequiredArgument<AzurermLighthouseDefinitionAuthorizationBlock>("authorization");
+        get => GetRequiredArgument<TerraformSet<AzurermLighthouseDefinitionAuthorizationBlock>>("authorization");
         set => SetArgument("authorization", value);
     }
 
     /// <summary>
     /// EligibleAuthorization block (nesting mode: set).
     /// </summary>
-    public AzurermLighthouseDefinitionEligibleAuthorizationBlock? EligibleAuthorization
+    public TerraformSet<AzurermLighthouseDefinitionEligibleAuthorizationBlock>? EligibleAuthorization
     {
-        get => GetArgument<AzurermLighthouseDefinitionEligibleAuthorizationBlock>("eligible_authorization");
+        get => GetArgument<TerraformSet<AzurermLighthouseDefinitionEligibleAuthorizationBlock>>("eligible_authorization");
         set => SetArgument("eligible_authorization", value);
     }
 
@@ -285,9 +285,9 @@ public partial class AzurermLighthouseDefinition(string name) : TerraformResourc
     /// Plan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public AzurermLighthouseDefinitionPlanBlock? Plan
+    public TerraformList<AzurermLighthouseDefinitionPlanBlock>? Plan
     {
-        get => GetArgument<AzurermLighthouseDefinitionPlanBlock>("plan");
+        get => GetArgument<TerraformList<AzurermLighthouseDefinitionPlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 

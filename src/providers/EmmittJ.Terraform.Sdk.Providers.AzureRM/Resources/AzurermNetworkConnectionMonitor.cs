@@ -319,9 +319,9 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
-    public required AzurermNetworkConnectionMonitorEndpointBlock Endpoint
+    public required TerraformSet<AzurermNetworkConnectionMonitorEndpointBlock> Endpoint
     {
-        get => GetRequiredArgument<AzurermNetworkConnectionMonitorEndpointBlock>("endpoint");
+        get => GetRequiredArgument<TerraformSet<AzurermNetworkConnectionMonitorEndpointBlock>>("endpoint");
         set => SetArgument("endpoint", value);
     }
 
@@ -331,9 +331,9 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TestConfiguration block(s) required")]
-    public required AzurermNetworkConnectionMonitorTestConfigurationBlock TestConfiguration
+    public required TerraformSet<AzurermNetworkConnectionMonitorTestConfigurationBlock> TestConfiguration
     {
-        get => GetRequiredArgument<AzurermNetworkConnectionMonitorTestConfigurationBlock>("test_configuration");
+        get => GetRequiredArgument<TerraformSet<AzurermNetworkConnectionMonitorTestConfigurationBlock>>("test_configuration");
         set => SetArgument("test_configuration", value);
     }
 
@@ -343,9 +343,9 @@ public partial class AzurermNetworkConnectionMonitor(string name) : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TestGroup block(s) required")]
-    public required AzurermNetworkConnectionMonitorTestGroupBlock TestGroup
+    public required TerraformSet<AzurermNetworkConnectionMonitorTestGroupBlock> TestGroup
     {
-        get => GetRequiredArgument<AzurermNetworkConnectionMonitorTestGroupBlock>("test_group");
+        get => GetRequiredArgument<TerraformSet<AzurermNetworkConnectionMonitorTestGroupBlock>>("test_group");
         set => SetArgument("test_group", value);
     }
 

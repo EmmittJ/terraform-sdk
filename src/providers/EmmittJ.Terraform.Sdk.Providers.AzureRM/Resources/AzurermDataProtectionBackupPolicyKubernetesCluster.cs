@@ -159,18 +159,18 @@ public partial class AzurermDataProtectionBackupPolicyKubernetesCluster(string n
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultRetentionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRetentionRule block(s) allowed")]
-    public required AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRetentionRuleBlock DefaultRetentionRule
+    public required TerraformList<AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRetentionRuleBlock> DefaultRetentionRule
     {
-        get => GetRequiredArgument<AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRetentionRuleBlock>("default_retention_rule");
+        get => GetRequiredArgument<TerraformList<AzurermDataProtectionBackupPolicyKubernetesClusterDefaultRetentionRuleBlock>>("default_retention_rule");
         set => SetArgument("default_retention_rule", value);
     }
 
     /// <summary>
     /// RetentionRule block (nesting mode: list).
     /// </summary>
-    public AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBlock? RetentionRule
+    public TerraformList<AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBlock>? RetentionRule
     {
-        get => GetArgument<AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBlock>("retention_rule");
+        get => GetArgument<TerraformList<AzurermDataProtectionBackupPolicyKubernetesClusterRetentionRuleBlock>>("retention_rule");
         set => SetArgument("retention_rule", value);
     }
 

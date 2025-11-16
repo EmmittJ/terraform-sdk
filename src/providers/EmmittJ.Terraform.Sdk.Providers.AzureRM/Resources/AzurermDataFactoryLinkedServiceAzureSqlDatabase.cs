@@ -255,9 +255,9 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// KeyVaultConnectionString block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultConnectionString block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringBlock? KeyVaultConnectionString
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringBlock>? KeyVaultConnectionString
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringBlock>("key_vault_connection_string");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringBlock>>("key_vault_connection_string");
         set => SetArgument("key_vault_connection_string", value);
     }
 
@@ -265,9 +265,9 @@ public partial class AzurermDataFactoryLinkedServiceAzureSqlDatabase(string name
     /// KeyVaultPassword block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPasswordBlock? KeyVaultPassword
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPasswordBlock>? KeyVaultPassword
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPasswordBlock>("key_vault_password");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceAzureSqlDatabaseKeyVaultPasswordBlock>>("key_vault_password");
         set => SetArgument("key_vault_password", value);
     }
 

@@ -178,9 +178,9 @@ public partial class AzurermDataFactoryLinkedServiceSnowflake(string name) : Ter
     /// KeyVaultPassword block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlock? KeyVaultPassword
+    public TerraformList<AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlock>? KeyVaultPassword
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlock>("key_vault_password");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlock>>("key_vault_password");
         set => SetArgument("key_vault_password", value);
     }
 

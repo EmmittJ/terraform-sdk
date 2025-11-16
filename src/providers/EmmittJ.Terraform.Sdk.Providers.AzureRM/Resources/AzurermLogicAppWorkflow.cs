@@ -233,9 +233,9 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// AccessControl block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessControl block(s) allowed")]
-    public AzurermLogicAppWorkflowAccessControlBlock? AccessControl
+    public TerraformList<AzurermLogicAppWorkflowAccessControlBlock>? AccessControl
     {
-        get => GetArgument<AzurermLogicAppWorkflowAccessControlBlock>("access_control");
+        get => GetArgument<TerraformList<AzurermLogicAppWorkflowAccessControlBlock>>("access_control");
         set => SetArgument("access_control", value);
     }
 
@@ -243,9 +243,9 @@ public partial class AzurermLogicAppWorkflow(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermLogicAppWorkflowIdentityBlock? Identity
+    public TerraformList<AzurermLogicAppWorkflowIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermLogicAppWorkflowIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermLogicAppWorkflowIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

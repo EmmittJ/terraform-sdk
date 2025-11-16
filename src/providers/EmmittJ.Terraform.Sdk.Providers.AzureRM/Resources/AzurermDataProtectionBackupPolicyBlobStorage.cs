@@ -149,9 +149,9 @@ public partial class AzurermDataProtectionBackupPolicyBlobStorage(string name) :
     /// <summary>
     /// RetentionRule block (nesting mode: list).
     /// </summary>
-    public AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock? RetentionRule
+    public TerraformList<AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock>? RetentionRule
     {
-        get => GetArgument<AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock>("retention_rule");
+        get => GetArgument<TerraformList<AzurermDataProtectionBackupPolicyBlobStorageRetentionRuleBlock>>("retention_rule");
         set => SetArgument("retention_rule", value);
     }
 

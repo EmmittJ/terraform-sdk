@@ -120,9 +120,9 @@ public partial class AzurermKeyVaultCertificateContacts(string name) : Terraform
     /// <summary>
     /// Contact block (nesting mode: set).
     /// </summary>
-    public AzurermKeyVaultCertificateContactsContactBlock? Contact
+    public TerraformSet<AzurermKeyVaultCertificateContactsContactBlock>? Contact
     {
-        get => GetArgument<AzurermKeyVaultCertificateContactsContactBlock>("contact");
+        get => GetArgument<TerraformSet<AzurermKeyVaultCertificateContactsContactBlock>>("contact");
         set => SetArgument("contact", value);
     }
 

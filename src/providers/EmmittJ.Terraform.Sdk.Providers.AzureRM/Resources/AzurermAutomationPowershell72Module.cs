@@ -125,9 +125,9 @@ public partial class AzurermAutomationPowershell72Module(string name) : Terrafor
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModuleLink is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ModuleLink block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ModuleLink block(s) allowed")]
-    public required AzurermAutomationPowershell72ModuleModuleLinkBlock ModuleLink
+    public required TerraformList<AzurermAutomationPowershell72ModuleModuleLinkBlock> ModuleLink
     {
-        get => GetRequiredArgument<AzurermAutomationPowershell72ModuleModuleLinkBlock>("module_link");
+        get => GetRequiredArgument<TerraformList<AzurermAutomationPowershell72ModuleModuleLinkBlock>>("module_link");
         set => SetArgument("module_link", value);
     }
 

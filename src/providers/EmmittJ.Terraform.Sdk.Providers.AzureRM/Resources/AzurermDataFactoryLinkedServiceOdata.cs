@@ -178,9 +178,9 @@ public partial class AzurermDataFactoryLinkedServiceOdata(string name) : Terrafo
     /// BasicAuthentication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAuthentication block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceOdataBasicAuthenticationBlock? BasicAuthentication
+    public TerraformList<AzurermDataFactoryLinkedServiceOdataBasicAuthenticationBlock>? BasicAuthentication
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceOdataBasicAuthenticationBlock>("basic_authentication");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceOdataBasicAuthenticationBlock>>("basic_authentication");
         set => SetArgument("basic_authentication", value);
     }
 

@@ -232,9 +232,9 @@ public partial class AzurermSpringCloudConfigurationService(string name) : Terra
     /// <summary>
     /// Repository block (nesting mode: list).
     /// </summary>
-    public AzurermSpringCloudConfigurationServiceRepositoryBlock? Repository
+    public TerraformList<AzurermSpringCloudConfigurationServiceRepositoryBlock>? Repository
     {
-        get => GetArgument<AzurermSpringCloudConfigurationServiceRepositoryBlock>("repository");
+        get => GetArgument<TerraformList<AzurermSpringCloudConfigurationServiceRepositoryBlock>>("repository");
         set => SetArgument("repository", value);
     }
 

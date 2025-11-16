@@ -149,18 +149,18 @@ public partial class AzurermDataProtectionBackupPolicyMysqlFlexibleServer(string
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRetentionRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultRetentionRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRetentionRule block(s) allowed")]
-    public required AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock DefaultRetentionRule
+    public required TerraformList<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock> DefaultRetentionRule
     {
-        get => GetRequiredArgument<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock>("default_retention_rule");
+        get => GetRequiredArgument<TerraformList<AzurermDataProtectionBackupPolicyMysqlFlexibleServerDefaultRetentionRuleBlock>>("default_retention_rule");
         set => SetArgument("default_retention_rule", value);
     }
 
     /// <summary>
     /// RetentionRule block (nesting mode: list).
     /// </summary>
-    public AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock? RetentionRule
+    public TerraformList<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock>? RetentionRule
     {
-        get => GetArgument<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock>("retention_rule");
+        get => GetArgument<TerraformList<AzurermDataProtectionBackupPolicyMysqlFlexibleServerRetentionRuleBlock>>("retention_rule");
         set => SetArgument("retention_rule", value);
     }
 

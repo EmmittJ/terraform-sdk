@@ -292,9 +292,9 @@ public partial class AzurermCosmosdbGremlinGraph(string name) : TerraformResourc
     /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    public AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock? AutoscaleSettings
+    public TerraformList<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetArgument<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock>("autoscale_settings");
+        get => GetArgument<TerraformList<AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock>>("autoscale_settings");
         set => SetArgument("autoscale_settings", value);
     }
 
@@ -302,9 +302,9 @@ public partial class AzurermCosmosdbGremlinGraph(string name) : TerraformResourc
     /// ConflictResolutionPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConflictResolutionPolicy block(s) allowed")]
-    public AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock? ConflictResolutionPolicy
+    public TerraformList<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock>? ConflictResolutionPolicy
     {
-        get => GetArgument<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock>("conflict_resolution_policy");
+        get => GetArgument<TerraformList<AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock>>("conflict_resolution_policy");
         set => SetArgument("conflict_resolution_policy", value);
     }
 
@@ -312,9 +312,9 @@ public partial class AzurermCosmosdbGremlinGraph(string name) : TerraformResourc
     /// IndexPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexPolicy block(s) allowed")]
-    public AzurermCosmosdbGremlinGraphIndexPolicyBlock? IndexPolicy
+    public TerraformList<AzurermCosmosdbGremlinGraphIndexPolicyBlock>? IndexPolicy
     {
-        get => GetArgument<AzurermCosmosdbGremlinGraphIndexPolicyBlock>("index_policy");
+        get => GetArgument<TerraformList<AzurermCosmosdbGremlinGraphIndexPolicyBlock>>("index_policy");
         set => SetArgument("index_policy", value);
     }
 
@@ -330,9 +330,9 @@ public partial class AzurermCosmosdbGremlinGraph(string name) : TerraformResourc
     /// <summary>
     /// UniqueKey block (nesting mode: set).
     /// </summary>
-    public AzurermCosmosdbGremlinGraphUniqueKeyBlock? UniqueKey
+    public TerraformSet<AzurermCosmosdbGremlinGraphUniqueKeyBlock>? UniqueKey
     {
-        get => GetArgument<AzurermCosmosdbGremlinGraphUniqueKeyBlock>("unique_key");
+        get => GetArgument<TerraformSet<AzurermCosmosdbGremlinGraphUniqueKeyBlock>>("unique_key");
         set => SetArgument("unique_key", value);
     }
 

@@ -268,18 +268,18 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener(string 
     /// LoadBalancerConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerConfiguration block(s) allowed")]
-    public AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock? LoadBalancerConfiguration
+    public TerraformList<AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock>? LoadBalancerConfiguration
     {
-        get => GetArgument<AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock>("load_balancer_configuration");
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock>>("load_balancer_configuration");
         set => SetArgument("load_balancer_configuration", value);
     }
 
     /// <summary>
     /// MultiSubnetIpConfiguration block (nesting mode: set).
     /// </summary>
-    public AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock? MultiSubnetIpConfiguration
+    public TerraformSet<AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock>? MultiSubnetIpConfiguration
     {
-        get => GetArgument<AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock>("multi_subnet_ip_configuration");
+        get => GetArgument<TerraformSet<AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock>>("multi_subnet_ip_configuration");
         set => SetArgument("multi_subnet_ip_configuration", value);
     }
 
@@ -289,9 +289,9 @@ public partial class AzurermMssqlVirtualMachineAvailabilityGroupListener(string 
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Replica is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Replica block(s) required")]
-    public required AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock Replica
+    public required TerraformSet<AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock> Replica
     {
-        get => GetRequiredArgument<AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock>("replica");
+        get => GetRequiredArgument<TerraformSet<AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock>>("replica");
         set => SetArgument("replica", value);
     }
 

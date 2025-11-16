@@ -394,9 +394,9 @@ public partial class AzurermManagedDisk(string name) : TerraformResource("azurer
     /// EncryptionSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSettings block(s) allowed")]
-    public AzurermManagedDiskEncryptionSettingsBlock? EncryptionSettings
+    public TerraformList<AzurermManagedDiskEncryptionSettingsBlock>? EncryptionSettings
     {
-        get => GetArgument<AzurermManagedDiskEncryptionSettingsBlock>("encryption_settings");
+        get => GetArgument<TerraformList<AzurermManagedDiskEncryptionSettingsBlock>>("encryption_settings");
         set => SetArgument("encryption_settings", value);
     }
 

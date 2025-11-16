@@ -172,18 +172,18 @@ public partial class AzurermNginxConfiguration(string name) : TerraformResource(
     /// <summary>
     /// ConfigFile block (nesting mode: set).
     /// </summary>
-    public AzurermNginxConfigurationConfigFileBlock? ConfigFile
+    public TerraformSet<AzurermNginxConfigurationConfigFileBlock>? ConfigFile
     {
-        get => GetArgument<AzurermNginxConfigurationConfigFileBlock>("config_file");
+        get => GetArgument<TerraformSet<AzurermNginxConfigurationConfigFileBlock>>("config_file");
         set => SetArgument("config_file", value);
     }
 
     /// <summary>
     /// ProtectedFile block (nesting mode: set).
     /// </summary>
-    public AzurermNginxConfigurationProtectedFileBlock? ProtectedFile
+    public TerraformSet<AzurermNginxConfigurationProtectedFileBlock>? ProtectedFile
     {
-        get => GetArgument<AzurermNginxConfigurationProtectedFileBlock>("protected_file");
+        get => GetArgument<TerraformSet<AzurermNginxConfigurationProtectedFileBlock>>("protected_file");
         set => SetArgument("protected_file", value);
     }
 

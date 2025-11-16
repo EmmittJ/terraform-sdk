@@ -303,9 +303,9 @@ public partial class AzurermRecoveryServicesVault(string name) : TerraformResour
     /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    public AzurermRecoveryServicesVaultEncryptionBlock? Encryption
+    public TerraformList<AzurermRecoveryServicesVaultEncryptionBlock>? Encryption
     {
-        get => GetArgument<AzurermRecoveryServicesVaultEncryptionBlock>("encryption");
+        get => GetArgument<TerraformList<AzurermRecoveryServicesVaultEncryptionBlock>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -313,9 +313,9 @@ public partial class AzurermRecoveryServicesVault(string name) : TerraformResour
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermRecoveryServicesVaultIdentityBlock? Identity
+    public TerraformList<AzurermRecoveryServicesVaultIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermRecoveryServicesVaultIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermRecoveryServicesVaultIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -323,9 +323,9 @@ public partial class AzurermRecoveryServicesVault(string name) : TerraformResour
     /// Monitoring block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Monitoring block(s) allowed")]
-    public AzurermRecoveryServicesVaultMonitoringBlock? Monitoring
+    public TerraformList<AzurermRecoveryServicesVaultMonitoringBlock>? Monitoring
     {
-        get => GetArgument<AzurermRecoveryServicesVaultMonitoringBlock>("monitoring");
+        get => GetArgument<TerraformList<AzurermRecoveryServicesVaultMonitoringBlock>>("monitoring");
         set => SetArgument("monitoring", value);
     }
 

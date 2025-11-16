@@ -398,18 +398,18 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// GithubConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubConfiguration block(s) allowed")]
-    public AzurermDataFactoryGithubConfigurationBlock? GithubConfiguration
+    public TerraformList<AzurermDataFactoryGithubConfigurationBlock>? GithubConfiguration
     {
-        get => GetArgument<AzurermDataFactoryGithubConfigurationBlock>("github_configuration");
+        get => GetArgument<TerraformList<AzurermDataFactoryGithubConfigurationBlock>>("github_configuration");
         set => SetArgument("github_configuration", value);
     }
 
     /// <summary>
     /// GlobalParameter block (nesting mode: set).
     /// </summary>
-    public AzurermDataFactoryGlobalParameterBlock? GlobalParameter
+    public TerraformSet<AzurermDataFactoryGlobalParameterBlock>? GlobalParameter
     {
-        get => GetArgument<AzurermDataFactoryGlobalParameterBlock>("global_parameter");
+        get => GetArgument<TerraformSet<AzurermDataFactoryGlobalParameterBlock>>("global_parameter");
         set => SetArgument("global_parameter", value);
     }
 
@@ -417,9 +417,9 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermDataFactoryIdentityBlock? Identity
+    public TerraformList<AzurermDataFactoryIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermDataFactoryIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermDataFactoryIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -436,9 +436,9 @@ public partial class AzurermDataFactory(string name) : TerraformResource("azurer
     /// VstsConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VstsConfiguration block(s) allowed")]
-    public AzurermDataFactoryVstsConfigurationBlock? VstsConfiguration
+    public TerraformList<AzurermDataFactoryVstsConfigurationBlock>? VstsConfiguration
     {
-        get => GetArgument<AzurermDataFactoryVstsConfigurationBlock>("vsts_configuration");
+        get => GetArgument<TerraformList<AzurermDataFactoryVstsConfigurationBlock>>("vsts_configuration");
         set => SetArgument("vsts_configuration", value);
     }
 

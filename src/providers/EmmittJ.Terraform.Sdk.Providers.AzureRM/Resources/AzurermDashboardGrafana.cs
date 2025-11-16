@@ -333,9 +333,9 @@ public partial class AzurermDashboardGrafana(string name) : TerraformResource("a
     /// <summary>
     /// AzureMonitorWorkspaceIntegrations block (nesting mode: list).
     /// </summary>
-    public AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock? AzureMonitorWorkspaceIntegrations
+    public TerraformList<AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock>? AzureMonitorWorkspaceIntegrations
     {
-        get => GetArgument<AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock>("azure_monitor_workspace_integrations");
+        get => GetArgument<TerraformList<AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock>>("azure_monitor_workspace_integrations");
         set => SetArgument("azure_monitor_workspace_integrations", value);
     }
 
@@ -343,9 +343,9 @@ public partial class AzurermDashboardGrafana(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermDashboardGrafanaIdentityBlock? Identity
+    public TerraformList<AzurermDashboardGrafanaIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermDashboardGrafanaIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermDashboardGrafanaIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -353,9 +353,9 @@ public partial class AzurermDashboardGrafana(string name) : TerraformResource("a
     /// Smtp block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Smtp block(s) allowed")]
-    public AzurermDashboardGrafanaSmtpBlock? Smtp
+    public TerraformList<AzurermDashboardGrafanaSmtpBlock>? Smtp
     {
-        get => GetArgument<AzurermDashboardGrafanaSmtpBlock>("smtp");
+        get => GetArgument<TerraformList<AzurermDashboardGrafanaSmtpBlock>>("smtp");
         set => SetArgument("smtp", value);
     }
 

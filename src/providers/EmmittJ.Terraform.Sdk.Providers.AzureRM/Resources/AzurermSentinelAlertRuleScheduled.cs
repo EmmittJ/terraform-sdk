@@ -377,9 +377,9 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// <summary>
     /// AlertDetailsOverride block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock? AlertDetailsOverride
+    public TerraformList<AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock>? AlertDetailsOverride
     {
-        get => GetArgument<AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock>("alert_details_override");
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleScheduledAlertDetailsOverrideBlock>>("alert_details_override");
         set => SetArgument("alert_details_override", value);
     }
 
@@ -387,9 +387,9 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// EntityMapping block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 EntityMapping block(s) allowed")]
-    public AzurermSentinelAlertRuleScheduledEntityMappingBlock? EntityMapping
+    public TerraformList<AzurermSentinelAlertRuleScheduledEntityMappingBlock>? EntityMapping
     {
-        get => GetArgument<AzurermSentinelAlertRuleScheduledEntityMappingBlock>("entity_mapping");
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleScheduledEntityMappingBlock>>("entity_mapping");
         set => SetArgument("entity_mapping", value);
     }
 
@@ -397,9 +397,9 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// EventGrouping block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventGrouping block(s) allowed")]
-    public AzurermSentinelAlertRuleScheduledEventGroupingBlock? EventGrouping
+    public TerraformList<AzurermSentinelAlertRuleScheduledEventGroupingBlock>? EventGrouping
     {
-        get => GetArgument<AzurermSentinelAlertRuleScheduledEventGroupingBlock>("event_grouping");
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleScheduledEventGroupingBlock>>("event_grouping");
         set => SetArgument("event_grouping", value);
     }
 
@@ -407,9 +407,9 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// Incident block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Incident block(s) allowed")]
-    public AzurermSentinelAlertRuleScheduledIncidentBlock? Incident
+    public TerraformList<AzurermSentinelAlertRuleScheduledIncidentBlock>? Incident
     {
-        get => GetArgument<AzurermSentinelAlertRuleScheduledIncidentBlock>("incident");
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleScheduledIncidentBlock>>("incident");
         set => SetArgument("incident", value);
     }
 
@@ -417,9 +417,9 @@ public partial class AzurermSentinelAlertRuleScheduled(string name) : TerraformR
     /// SentinelEntityMapping block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 SentinelEntityMapping block(s) allowed")]
-    public AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock? SentinelEntityMapping
+    public TerraformList<AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock>? SentinelEntityMapping
     {
-        get => GetArgument<AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock>("sentinel_entity_mapping");
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleScheduledSentinelEntityMappingBlock>>("sentinel_entity_mapping");
         set => SetArgument("sentinel_entity_mapping", value);
     }
 

@@ -615,9 +615,9 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// CoolAccess block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CoolAccess block(s) allowed")]
-    public AzurermNetappVolumeCoolAccessBlock? CoolAccess
+    public TerraformList<AzurermNetappVolumeCoolAccessBlock>? CoolAccess
     {
-        get => GetArgument<AzurermNetappVolumeCoolAccessBlock>("cool_access");
+        get => GetArgument<TerraformList<AzurermNetappVolumeCoolAccessBlock>>("cool_access");
         set => SetArgument("cool_access", value);
     }
 
@@ -625,9 +625,9 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// DataProtectionBackupPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionBackupPolicy block(s) allowed")]
-    public AzurermNetappVolumeDataProtectionBackupPolicyBlock? DataProtectionBackupPolicy
+    public TerraformList<AzurermNetappVolumeDataProtectionBackupPolicyBlock>? DataProtectionBackupPolicy
     {
-        get => GetArgument<AzurermNetappVolumeDataProtectionBackupPolicyBlock>("data_protection_backup_policy");
+        get => GetArgument<TerraformList<AzurermNetappVolumeDataProtectionBackupPolicyBlock>>("data_protection_backup_policy");
         set => SetArgument("data_protection_backup_policy", value);
     }
 
@@ -635,9 +635,9 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// DataProtectionReplication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionReplication block(s) allowed")]
-    public AzurermNetappVolumeDataProtectionReplicationBlock? DataProtectionReplication
+    public TerraformList<AzurermNetappVolumeDataProtectionReplicationBlock>? DataProtectionReplication
     {
-        get => GetArgument<AzurermNetappVolumeDataProtectionReplicationBlock>("data_protection_replication");
+        get => GetArgument<TerraformList<AzurermNetappVolumeDataProtectionReplicationBlock>>("data_protection_replication");
         set => SetArgument("data_protection_replication", value);
     }
 
@@ -645,9 +645,9 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// DataProtectionSnapshotPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionSnapshotPolicy block(s) allowed")]
-    public AzurermNetappVolumeDataProtectionSnapshotPolicyBlock? DataProtectionSnapshotPolicy
+    public TerraformList<AzurermNetappVolumeDataProtectionSnapshotPolicyBlock>? DataProtectionSnapshotPolicy
     {
-        get => GetArgument<AzurermNetappVolumeDataProtectionSnapshotPolicyBlock>("data_protection_snapshot_policy");
+        get => GetArgument<TerraformList<AzurermNetappVolumeDataProtectionSnapshotPolicyBlock>>("data_protection_snapshot_policy");
         set => SetArgument("data_protection_snapshot_policy", value);
     }
 
@@ -655,9 +655,9 @@ public partial class AzurermNetappVolume(string name) : TerraformResource("azure
     /// ExportPolicyRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ExportPolicyRule block(s) allowed")]
-    public AzurermNetappVolumeExportPolicyRuleBlock? ExportPolicyRule
+    public TerraformList<AzurermNetappVolumeExportPolicyRuleBlock>? ExportPolicyRule
     {
-        get => GetArgument<AzurermNetappVolumeExportPolicyRuleBlock>("export_policy_rule");
+        get => GetArgument<TerraformList<AzurermNetappVolumeExportPolicyRuleBlock>>("export_policy_rule");
         set => SetArgument("export_policy_rule", value);
     }
 

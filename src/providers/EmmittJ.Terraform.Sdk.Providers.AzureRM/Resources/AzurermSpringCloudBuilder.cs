@@ -157,9 +157,9 @@ public partial class AzurermSpringCloudBuilder(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuildPackGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BuildPackGroup block(s) required")]
-    public required AzurermSpringCloudBuilderBuildPackGroupBlock BuildPackGroup
+    public required TerraformSet<AzurermSpringCloudBuilderBuildPackGroupBlock> BuildPackGroup
     {
-        get => GetRequiredArgument<AzurermSpringCloudBuilderBuildPackGroupBlock>("build_pack_group");
+        get => GetRequiredArgument<TerraformSet<AzurermSpringCloudBuilderBuildPackGroupBlock>>("build_pack_group");
         set => SetArgument("build_pack_group", value);
     }
 
@@ -170,9 +170,9 @@ public partial class AzurermSpringCloudBuilder(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackAttribute is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StackAttribute block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StackAttribute block(s) allowed")]
-    public required AzurermSpringCloudBuilderStackAttributeBlock StackAttribute
+    public required TerraformList<AzurermSpringCloudBuilderStackAttributeBlock> StackAttribute
     {
-        get => GetRequiredArgument<AzurermSpringCloudBuilderStackAttributeBlock>("stack");
+        get => GetRequiredArgument<TerraformList<AzurermSpringCloudBuilderStackAttributeBlock>>("stack");
         set => SetArgument("stack", value);
     }
 

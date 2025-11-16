@@ -208,9 +208,9 @@ public partial class AzurermApiManagementLogger(string name) : TerraformResource
     /// ApplicationInsights block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationInsights block(s) allowed")]
-    public AzurermApiManagementLoggerApplicationInsightsBlock? ApplicationInsights
+    public TerraformList<AzurermApiManagementLoggerApplicationInsightsBlock>? ApplicationInsights
     {
-        get => GetArgument<AzurermApiManagementLoggerApplicationInsightsBlock>("application_insights");
+        get => GetArgument<TerraformList<AzurermApiManagementLoggerApplicationInsightsBlock>>("application_insights");
         set => SetArgument("application_insights", value);
     }
 
@@ -218,9 +218,9 @@ public partial class AzurermApiManagementLogger(string name) : TerraformResource
     /// Eventhub block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Eventhub block(s) allowed")]
-    public AzurermApiManagementLoggerEventhubBlock? Eventhub
+    public TerraformList<AzurermApiManagementLoggerEventhubBlock>? Eventhub
     {
-        get => GetArgument<AzurermApiManagementLoggerEventhubBlock>("eventhub");
+        get => GetArgument<TerraformList<AzurermApiManagementLoggerEventhubBlock>>("eventhub");
         set => SetArgument("eventhub", value);
     }
 

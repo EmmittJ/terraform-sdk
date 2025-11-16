@@ -152,9 +152,9 @@ public partial class AzurermApiManagementGateway(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationData is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LocationData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocationData block(s) allowed")]
-    public required AzurermApiManagementGatewayLocationDataBlock LocationData
+    public required TerraformList<AzurermApiManagementGatewayLocationDataBlock> LocationData
     {
-        get => GetRequiredArgument<AzurermApiManagementGatewayLocationDataBlock>("location_data");
+        get => GetRequiredArgument<TerraformList<AzurermApiManagementGatewayLocationDataBlock>>("location_data");
         set => SetArgument("location_data", value);
     }
 

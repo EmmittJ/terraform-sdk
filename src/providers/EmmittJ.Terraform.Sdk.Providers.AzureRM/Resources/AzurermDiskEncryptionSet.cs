@@ -205,9 +205,9 @@ public partial class AzurermDiskEncryptionSet(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermDiskEncryptionSetIdentityBlock Identity
+    public required TerraformList<AzurermDiskEncryptionSetIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermDiskEncryptionSetIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermDiskEncryptionSetIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

@@ -167,9 +167,9 @@ public partial class AzurermBackupPolicyVmWorkload(string name) : TerraformResou
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtectionPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProtectionPolicy block(s) required")]
-    public required AzurermBackupPolicyVmWorkloadProtectionPolicyBlock ProtectionPolicy
+    public required TerraformSet<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock> ProtectionPolicy
     {
-        get => GetRequiredArgument<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock>("protection_policy");
+        get => GetRequiredArgument<TerraformSet<AzurermBackupPolicyVmWorkloadProtectionPolicyBlock>>("protection_policy");
         set => SetArgument("protection_policy", value);
     }
 
@@ -180,9 +180,9 @@ public partial class AzurermBackupPolicyVmWorkload(string name) : TerraformResou
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Settings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Settings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
-    public required AzurermBackupPolicyVmWorkloadSettingsBlock Settings
+    public required TerraformList<AzurermBackupPolicyVmWorkloadSettingsBlock> Settings
     {
-        get => GetRequiredArgument<AzurermBackupPolicyVmWorkloadSettingsBlock>("settings");
+        get => GetRequiredArgument<TerraformList<AzurermBackupPolicyVmWorkloadSettingsBlock>>("settings");
         set => SetArgument("settings", value);
     }
 

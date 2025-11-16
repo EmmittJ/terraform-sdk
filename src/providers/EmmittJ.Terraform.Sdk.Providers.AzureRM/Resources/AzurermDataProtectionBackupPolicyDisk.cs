@@ -152,9 +152,9 @@ public partial class AzurermDataProtectionBackupPolicyDisk(string name) : Terraf
     /// <summary>
     /// RetentionRule block (nesting mode: list).
     /// </summary>
-    public AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock? RetentionRule
+    public TerraformList<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock>? RetentionRule
     {
-        get => GetArgument<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock>("retention_rule");
+        get => GetArgument<TerraformList<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock>>("retention_rule");
         set => SetArgument("retention_rule", value);
     }
 

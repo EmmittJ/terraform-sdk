@@ -178,9 +178,9 @@ public partial class AzurermSynapseLinkedService(string name) : TerraformResourc
     /// IntegrationRuntime block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IntegrationRuntime block(s) allowed")]
-    public AzurermSynapseLinkedServiceIntegrationRuntimeBlock? IntegrationRuntime
+    public TerraformList<AzurermSynapseLinkedServiceIntegrationRuntimeBlock>? IntegrationRuntime
     {
-        get => GetArgument<AzurermSynapseLinkedServiceIntegrationRuntimeBlock>("integration_runtime");
+        get => GetArgument<TerraformList<AzurermSynapseLinkedServiceIntegrationRuntimeBlock>>("integration_runtime");
         set => SetArgument("integration_runtime", value);
     }
 

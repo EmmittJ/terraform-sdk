@@ -228,9 +228,9 @@ public partial class AzurermMssqlVirtualMachineGroup(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WsfcDomainProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WsfcDomainProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WsfcDomainProfile block(s) allowed")]
-    public required AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock WsfcDomainProfile
+    public required TerraformList<AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock> WsfcDomainProfile
     {
-        get => GetRequiredArgument<AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock>("wsfc_domain_profile");
+        get => GetRequiredArgument<TerraformList<AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock>>("wsfc_domain_profile");
         set => SetArgument("wsfc_domain_profile", value);
     }
 

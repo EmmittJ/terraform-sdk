@@ -151,9 +151,9 @@ public partial class AzurermDataShareAccount(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermDataShareAccountIdentityBlock Identity
+    public required TerraformList<AzurermDataShareAccountIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermDataShareAccountIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermDataShareAccountIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

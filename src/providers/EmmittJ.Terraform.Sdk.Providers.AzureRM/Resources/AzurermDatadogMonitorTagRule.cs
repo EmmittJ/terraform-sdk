@@ -141,18 +141,18 @@ public partial class AzurermDatadogMonitorTagRule(string name) : TerraformResour
     /// <summary>
     /// Log block (nesting mode: list).
     /// </summary>
-    public AzurermDatadogMonitorTagRuleLogBlock? Log
+    public TerraformList<AzurermDatadogMonitorTagRuleLogBlock>? Log
     {
-        get => GetArgument<AzurermDatadogMonitorTagRuleLogBlock>("log");
+        get => GetArgument<TerraformList<AzurermDatadogMonitorTagRuleLogBlock>>("log");
         set => SetArgument("log", value);
     }
 
     /// <summary>
     /// Metric block (nesting mode: list).
     /// </summary>
-    public AzurermDatadogMonitorTagRuleMetricBlock? Metric
+    public TerraformList<AzurermDatadogMonitorTagRuleMetricBlock>? Metric
     {
-        get => GetArgument<AzurermDatadogMonitorTagRuleMetricBlock>("metric");
+        get => GetArgument<TerraformList<AzurermDatadogMonitorTagRuleMetricBlock>>("metric");
         set => SetArgument("metric", value);
     }
 

@@ -307,9 +307,9 @@ public partial class AzurermStreamAnalyticsJob(string name) : TerraformResource(
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermStreamAnalyticsJobIdentityBlock? Identity
+    public TerraformList<AzurermStreamAnalyticsJobIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermStreamAnalyticsJobIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermStreamAnalyticsJobIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -317,9 +317,9 @@ public partial class AzurermStreamAnalyticsJob(string name) : TerraformResource(
     /// JobStorageAccount block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JobStorageAccount block(s) allowed")]
-    public AzurermStreamAnalyticsJobJobStorageAccountBlock? JobStorageAccount
+    public TerraformList<AzurermStreamAnalyticsJobJobStorageAccountBlock>? JobStorageAccount
     {
-        get => GetArgument<AzurermStreamAnalyticsJobJobStorageAccountBlock>("job_storage_account");
+        get => GetArgument<TerraformList<AzurermStreamAnalyticsJobJobStorageAccountBlock>>("job_storage_account");
         set => SetArgument("job_storage_account", value);
     }
 

@@ -160,9 +160,9 @@ public partial class AzurermWebPubsubNetworkAcl(string name) : TerraformResource
     /// <summary>
     /// PrivateEndpoint block (nesting mode: set).
     /// </summary>
-    public AzurermWebPubsubNetworkAclPrivateEndpointBlock? PrivateEndpoint
+    public TerraformSet<AzurermWebPubsubNetworkAclPrivateEndpointBlock>? PrivateEndpoint
     {
-        get => GetArgument<AzurermWebPubsubNetworkAclPrivateEndpointBlock>("private_endpoint");
+        get => GetArgument<TerraformSet<AzurermWebPubsubNetworkAclPrivateEndpointBlock>>("private_endpoint");
         set => SetArgument("private_endpoint", value);
     }
 
@@ -173,9 +173,9 @@ public partial class AzurermWebPubsubNetworkAcl(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicNetwork is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PublicNetwork block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicNetwork block(s) allowed")]
-    public required AzurermWebPubsubNetworkAclPublicNetworkBlock PublicNetwork
+    public required TerraformList<AzurermWebPubsubNetworkAclPublicNetworkBlock> PublicNetwork
     {
-        get => GetRequiredArgument<AzurermWebPubsubNetworkAclPublicNetworkBlock>("public_network");
+        get => GetRequiredArgument<TerraformList<AzurermWebPubsubNetworkAclPublicNetworkBlock>>("public_network");
         set => SetArgument("public_network", value);
     }
 

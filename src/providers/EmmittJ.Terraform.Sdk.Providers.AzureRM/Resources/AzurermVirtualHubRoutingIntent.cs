@@ -135,9 +135,9 @@ public partial class AzurermVirtualHubRoutingIntent(string name) : TerraformReso
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingPolicy block(s) required")]
-    public required AzurermVirtualHubRoutingIntentRoutingPolicyBlock RoutingPolicy
+    public required TerraformList<AzurermVirtualHubRoutingIntentRoutingPolicyBlock> RoutingPolicy
     {
-        get => GetRequiredArgument<AzurermVirtualHubRoutingIntentRoutingPolicyBlock>("routing_policy");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualHubRoutingIntentRoutingPolicyBlock>>("routing_policy");
         set => SetArgument("routing_policy", value);
     }
 

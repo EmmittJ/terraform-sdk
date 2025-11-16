@@ -358,9 +358,9 @@ public partial class AzurermPaloAltoLocalRulestackRule(string name) : TerraformR
     /// Category block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Category block(s) allowed")]
-    public AzurermPaloAltoLocalRulestackRuleCategoryBlock? Category
+    public TerraformList<AzurermPaloAltoLocalRulestackRuleCategoryBlock>? Category
     {
-        get => GetArgument<AzurermPaloAltoLocalRulestackRuleCategoryBlock>("category");
+        get => GetArgument<TerraformList<AzurermPaloAltoLocalRulestackRuleCategoryBlock>>("category");
         set => SetArgument("category", value);
     }
 
@@ -371,9 +371,9 @@ public partial class AzurermPaloAltoLocalRulestackRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
-    public required AzurermPaloAltoLocalRulestackRuleDestinationBlock Destination
+    public required TerraformList<AzurermPaloAltoLocalRulestackRuleDestinationBlock> Destination
     {
-        get => GetRequiredArgument<AzurermPaloAltoLocalRulestackRuleDestinationBlock>("destination");
+        get => GetRequiredArgument<TerraformList<AzurermPaloAltoLocalRulestackRuleDestinationBlock>>("destination");
         set => SetArgument("destination", value);
     }
 
@@ -384,9 +384,9 @@ public partial class AzurermPaloAltoLocalRulestackRule(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public required AzurermPaloAltoLocalRulestackRuleSourceBlock Source
+    public required TerraformList<AzurermPaloAltoLocalRulestackRuleSourceBlock> Source
     {
-        get => GetRequiredArgument<AzurermPaloAltoLocalRulestackRuleSourceBlock>("source");
+        get => GetRequiredArgument<TerraformList<AzurermPaloAltoLocalRulestackRuleSourceBlock>>("source");
         set => SetArgument("source", value);
     }
 

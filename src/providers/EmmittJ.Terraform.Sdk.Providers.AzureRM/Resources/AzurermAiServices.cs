@@ -325,9 +325,9 @@ public partial class AzurermAiServices(string name) : TerraformResource("azurerm
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public AzurermAiServicesCustomerManagedKeyBlock? CustomerManagedKey
+    public TerraformList<AzurermAiServicesCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetArgument<AzurermAiServicesCustomerManagedKeyBlock>("customer_managed_key");
+        get => GetArgument<TerraformList<AzurermAiServicesCustomerManagedKeyBlock>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -335,9 +335,9 @@ public partial class AzurermAiServices(string name) : TerraformResource("azurerm
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermAiServicesIdentityBlock? Identity
+    public TerraformList<AzurermAiServicesIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermAiServicesIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermAiServicesIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -345,18 +345,18 @@ public partial class AzurermAiServices(string name) : TerraformResource("azurerm
     /// NetworkAcls block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
-    public AzurermAiServicesNetworkAclsBlock? NetworkAcls
+    public TerraformList<AzurermAiServicesNetworkAclsBlock>? NetworkAcls
     {
-        get => GetArgument<AzurermAiServicesNetworkAclsBlock>("network_acls");
+        get => GetArgument<TerraformList<AzurermAiServicesNetworkAclsBlock>>("network_acls");
         set => SetArgument("network_acls", value);
     }
 
     /// <summary>
     /// Storage block (nesting mode: list).
     /// </summary>
-    public AzurermAiServicesStorageBlock? Storage
+    public TerraformList<AzurermAiServicesStorageBlock>? Storage
     {
-        get => GetArgument<AzurermAiServicesStorageBlock>("storage");
+        get => GetArgument<TerraformList<AzurermAiServicesStorageBlock>>("storage");
         set => SetArgument("storage", value);
     }
 

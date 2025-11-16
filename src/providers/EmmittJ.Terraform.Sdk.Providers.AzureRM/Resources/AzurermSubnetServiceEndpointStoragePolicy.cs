@@ -160,9 +160,9 @@ public partial class AzurermSubnetServiceEndpointStoragePolicy(string name) : Te
     /// Definition block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Definition block(s) allowed")]
-    public AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock? Definition
+    public TerraformList<AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock>? Definition
     {
-        get => GetArgument<AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock>("definition");
+        get => GetArgument<TerraformList<AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock>>("definition");
         set => SetArgument("definition", value);
     }
 

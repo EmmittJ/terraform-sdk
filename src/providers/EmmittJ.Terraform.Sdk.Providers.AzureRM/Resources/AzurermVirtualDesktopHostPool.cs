@@ -259,9 +259,9 @@ public partial class AzurermVirtualDesktopHostPool(string name) : TerraformResou
     /// ScheduledAgentUpdates block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduledAgentUpdates block(s) allowed")]
-    public AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock? ScheduledAgentUpdates
+    public TerraformList<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock>? ScheduledAgentUpdates
     {
-        get => GetArgument<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock>("scheduled_agent_updates");
+        get => GetArgument<TerraformList<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock>>("scheduled_agent_updates");
         set => SetArgument("scheduled_agent_updates", value);
     }
 

@@ -178,9 +178,9 @@ public partial class AzurermDataFactoryLinkedServiceSynapse(string name) : Terra
     /// KeyVaultPassword block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceSynapseKeyVaultPasswordBlock? KeyVaultPassword
+    public TerraformList<AzurermDataFactoryLinkedServiceSynapseKeyVaultPasswordBlock>? KeyVaultPassword
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceSynapseKeyVaultPasswordBlock>("key_vault_password");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceSynapseKeyVaultPasswordBlock>>("key_vault_password");
         set => SetArgument("key_vault_password", value);
     }
 

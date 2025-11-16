@@ -147,18 +147,18 @@ public partial class AzurermKubernetesFleetUpdateRun(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedClusterUpdate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagedClusterUpdate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedClusterUpdate block(s) allowed")]
-    public required AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock ManagedClusterUpdate
+    public required TerraformList<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock> ManagedClusterUpdate
     {
-        get => GetRequiredArgument<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock>("managed_cluster_update");
+        get => GetRequiredArgument<TerraformList<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock>>("managed_cluster_update");
         set => SetArgument("managed_cluster_update", value);
     }
 
     /// <summary>
     /// Stage block (nesting mode: list).
     /// </summary>
-    public AzurermKubernetesFleetUpdateRunStageBlock? Stage
+    public TerraformList<AzurermKubernetesFleetUpdateRunStageBlock>? Stage
     {
-        get => GetArgument<AzurermKubernetesFleetUpdateRunStageBlock>("stage");
+        get => GetArgument<TerraformList<AzurermKubernetesFleetUpdateRunStageBlock>>("stage");
         set => SetArgument("stage", value);
     }
 

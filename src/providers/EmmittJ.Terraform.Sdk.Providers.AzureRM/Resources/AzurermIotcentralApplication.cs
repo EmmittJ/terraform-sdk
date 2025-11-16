@@ -194,9 +194,9 @@ public partial class AzurermIotcentralApplication(string name) : TerraformResour
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermIotcentralApplicationIdentityBlock? Identity
+    public TerraformList<AzurermIotcentralApplicationIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermIotcentralApplicationIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermIotcentralApplicationIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

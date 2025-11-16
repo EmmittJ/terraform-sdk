@@ -189,9 +189,9 @@ public partial class AzurermCdnFrontdoorProfile(string name) : TerraformResource
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermCdnFrontdoorProfileIdentityBlock? Identity
+    public TerraformList<AzurermCdnFrontdoorProfileIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermCdnFrontdoorProfileIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermCdnFrontdoorProfileIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -199,9 +199,9 @@ public partial class AzurermCdnFrontdoorProfile(string name) : TerraformResource
     /// LogScrubbingRule block (nesting mode: set).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 LogScrubbingRule block(s) allowed")]
-    public AzurermCdnFrontdoorProfileLogScrubbingRuleBlock? LogScrubbingRule
+    public TerraformSet<AzurermCdnFrontdoorProfileLogScrubbingRuleBlock>? LogScrubbingRule
     {
-        get => GetArgument<AzurermCdnFrontdoorProfileLogScrubbingRuleBlock>("log_scrubbing_rule");
+        get => GetArgument<TerraformSet<AzurermCdnFrontdoorProfileLogScrubbingRuleBlock>>("log_scrubbing_rule");
         set => SetArgument("log_scrubbing_rule", value);
     }
 

@@ -187,9 +187,9 @@ public partial class AzurermVpnGateway(string name) : TerraformResource("azurerm
     /// BgpSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
-    public AzurermVpnGatewayBgpSettingsBlock? BgpSettings
+    public TerraformList<AzurermVpnGatewayBgpSettingsBlock>? BgpSettings
     {
-        get => GetArgument<AzurermVpnGatewayBgpSettingsBlock>("bgp_settings");
+        get => GetArgument<TerraformList<AzurermVpnGatewayBgpSettingsBlock>>("bgp_settings");
         set => SetArgument("bgp_settings", value);
     }
 

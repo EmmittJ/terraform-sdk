@@ -254,9 +254,9 @@ public partial class AzurermPolicySetDefinition(string name) : TerraformResource
     /// <summary>
     /// PolicyDefinitionGroup block (nesting mode: set).
     /// </summary>
-    public AzurermPolicySetDefinitionPolicyDefinitionGroupBlock? PolicyDefinitionGroup
+    public TerraformSet<AzurermPolicySetDefinitionPolicyDefinitionGroupBlock>? PolicyDefinitionGroup
     {
-        get => GetArgument<AzurermPolicySetDefinitionPolicyDefinitionGroupBlock>("policy_definition_group");
+        get => GetArgument<TerraformSet<AzurermPolicySetDefinitionPolicyDefinitionGroupBlock>>("policy_definition_group");
         set => SetArgument("policy_definition_group", value);
     }
 
@@ -266,9 +266,9 @@ public partial class AzurermPolicySetDefinition(string name) : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionReference is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PolicyDefinitionReference block(s) required")]
-    public required AzurermPolicySetDefinitionPolicyDefinitionReferenceBlock PolicyDefinitionReference
+    public required TerraformList<AzurermPolicySetDefinitionPolicyDefinitionReferenceBlock> PolicyDefinitionReference
     {
-        get => GetRequiredArgument<AzurermPolicySetDefinitionPolicyDefinitionReferenceBlock>("policy_definition_reference");
+        get => GetRequiredArgument<TerraformList<AzurermPolicySetDefinitionPolicyDefinitionReferenceBlock>>("policy_definition_reference");
         set => SetArgument("policy_definition_reference", value);
     }
 

@@ -312,9 +312,9 @@ public partial class AzurermStorageAccountSasDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Permissions block(s) allowed")]
-    public required AzurermStorageAccountSasDataSourcePermissionsBlock Permissions
+    public required TerraformList<AzurermStorageAccountSasDataSourcePermissionsBlock> Permissions
     {
-        get => GetRequiredArgument<AzurermStorageAccountSasDataSourcePermissionsBlock>("permissions");
+        get => GetRequiredArgument<TerraformList<AzurermStorageAccountSasDataSourcePermissionsBlock>>("permissions");
         set => SetArgument("permissions", value);
     }
 
@@ -325,9 +325,9 @@ public partial class AzurermStorageAccountSasDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceTypes is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ResourceTypes block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceTypes block(s) allowed")]
-    public required AzurermStorageAccountSasDataSourceResourceTypesBlock ResourceTypes
+    public required TerraformList<AzurermStorageAccountSasDataSourceResourceTypesBlock> ResourceTypes
     {
-        get => GetRequiredArgument<AzurermStorageAccountSasDataSourceResourceTypesBlock>("resource_types");
+        get => GetRequiredArgument<TerraformList<AzurermStorageAccountSasDataSourceResourceTypesBlock>>("resource_types");
         set => SetArgument("resource_types", value);
     }
 
@@ -338,9 +338,9 @@ public partial class AzurermStorageAccountSasDataSource(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Services is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Services block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Services block(s) allowed")]
-    public required AzurermStorageAccountSasDataSourceServicesBlock Services
+    public required TerraformList<AzurermStorageAccountSasDataSourceServicesBlock> Services
     {
-        get => GetRequiredArgument<AzurermStorageAccountSasDataSourceServicesBlock>("services");
+        get => GetRequiredArgument<TerraformList<AzurermStorageAccountSasDataSourceServicesBlock>>("services");
         set => SetArgument("services", value);
     }
 

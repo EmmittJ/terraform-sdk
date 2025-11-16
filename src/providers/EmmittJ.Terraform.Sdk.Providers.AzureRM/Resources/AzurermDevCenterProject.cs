@@ -185,9 +185,9 @@ public partial class AzurermDevCenterProject(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermDevCenterProjectIdentityBlock? Identity
+    public TerraformList<AzurermDevCenterProjectIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermDevCenterProjectIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermDevCenterProjectIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

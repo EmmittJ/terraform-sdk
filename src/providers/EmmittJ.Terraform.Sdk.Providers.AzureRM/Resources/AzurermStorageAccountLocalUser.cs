@@ -181,18 +181,18 @@ public partial class AzurermStorageAccountLocalUser(string name) : TerraformReso
     /// <summary>
     /// PermissionScope block (nesting mode: list).
     /// </summary>
-    public AzurermStorageAccountLocalUserPermissionScopeBlock? PermissionScope
+    public TerraformList<AzurermStorageAccountLocalUserPermissionScopeBlock>? PermissionScope
     {
-        get => GetArgument<AzurermStorageAccountLocalUserPermissionScopeBlock>("permission_scope");
+        get => GetArgument<TerraformList<AzurermStorageAccountLocalUserPermissionScopeBlock>>("permission_scope");
         set => SetArgument("permission_scope", value);
     }
 
     /// <summary>
     /// SshAuthorizedKey block (nesting mode: list).
     /// </summary>
-    public AzurermStorageAccountLocalUserSshAuthorizedKeyBlock? SshAuthorizedKey
+    public TerraformList<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>? SshAuthorizedKey
     {
-        get => GetArgument<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>("ssh_authorized_key");
+        get => GetArgument<TerraformList<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>>("ssh_authorized_key");
         set => SetArgument("ssh_authorized_key", value);
     }
 

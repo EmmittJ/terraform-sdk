@@ -215,9 +215,9 @@ public partial class AzurermKustoAttachedDatabaseConfiguration(string name) : Te
     /// Sharing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sharing block(s) allowed")]
-    public AzurermKustoAttachedDatabaseConfigurationSharingBlock? Sharing
+    public TerraformList<AzurermKustoAttachedDatabaseConfigurationSharingBlock>? Sharing
     {
-        get => GetArgument<AzurermKustoAttachedDatabaseConfigurationSharingBlock>("sharing");
+        get => GetArgument<TerraformList<AzurermKustoAttachedDatabaseConfigurationSharingBlock>>("sharing");
         set => SetArgument("sharing", value);
     }
 

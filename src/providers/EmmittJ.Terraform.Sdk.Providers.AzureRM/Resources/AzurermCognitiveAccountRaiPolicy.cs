@@ -183,9 +183,9 @@ public partial class AzurermCognitiveAccountRaiPolicy(string name) : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentFilter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContentFilter block(s) required")]
-    public required AzurermCognitiveAccountRaiPolicyContentFilterBlock ContentFilter
+    public required TerraformList<AzurermCognitiveAccountRaiPolicyContentFilterBlock> ContentFilter
     {
-        get => GetRequiredArgument<AzurermCognitiveAccountRaiPolicyContentFilterBlock>("content_filter");
+        get => GetRequiredArgument<TerraformList<AzurermCognitiveAccountRaiPolicyContentFilterBlock>>("content_filter");
         set => SetArgument("content_filter", value);
     }
 

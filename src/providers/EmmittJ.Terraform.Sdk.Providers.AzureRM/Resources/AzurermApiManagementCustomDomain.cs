@@ -678,45 +678,45 @@ public partial class AzurermApiManagementCustomDomain(string name) : TerraformRe
     /// <summary>
     /// DeveloperPortal block (nesting mode: list).
     /// </summary>
-    public AzurermApiManagementCustomDomainDeveloperPortalBlock? DeveloperPortal
+    public TerraformList<AzurermApiManagementCustomDomainDeveloperPortalBlock>? DeveloperPortal
     {
-        get => GetArgument<AzurermApiManagementCustomDomainDeveloperPortalBlock>("developer_portal");
+        get => GetArgument<TerraformList<AzurermApiManagementCustomDomainDeveloperPortalBlock>>("developer_portal");
         set => SetArgument("developer_portal", value);
     }
 
     /// <summary>
     /// Gateway block (nesting mode: list).
     /// </summary>
-    public AzurermApiManagementCustomDomainGatewayBlock? Gateway
+    public TerraformList<AzurermApiManagementCustomDomainGatewayBlock>? Gateway
     {
-        get => GetArgument<AzurermApiManagementCustomDomainGatewayBlock>("gateway");
+        get => GetArgument<TerraformList<AzurermApiManagementCustomDomainGatewayBlock>>("gateway");
         set => SetArgument("gateway", value);
     }
 
     /// <summary>
     /// Management block (nesting mode: list).
     /// </summary>
-    public AzurermApiManagementCustomDomainManagementBlock? Management
+    public TerraformList<AzurermApiManagementCustomDomainManagementBlock>? Management
     {
-        get => GetArgument<AzurermApiManagementCustomDomainManagementBlock>("management");
+        get => GetArgument<TerraformList<AzurermApiManagementCustomDomainManagementBlock>>("management");
         set => SetArgument("management", value);
     }
 
     /// <summary>
     /// Portal block (nesting mode: list).
     /// </summary>
-    public AzurermApiManagementCustomDomainPortalBlock? Portal
+    public TerraformList<AzurermApiManagementCustomDomainPortalBlock>? Portal
     {
-        get => GetArgument<AzurermApiManagementCustomDomainPortalBlock>("portal");
+        get => GetArgument<TerraformList<AzurermApiManagementCustomDomainPortalBlock>>("portal");
         set => SetArgument("portal", value);
     }
 
     /// <summary>
     /// Scm block (nesting mode: list).
     /// </summary>
-    public AzurermApiManagementCustomDomainScmBlock? Scm
+    public TerraformList<AzurermApiManagementCustomDomainScmBlock>? Scm
     {
-        get => GetArgument<AzurermApiManagementCustomDomainScmBlock>("scm");
+        get => GetArgument<TerraformList<AzurermApiManagementCustomDomainScmBlock>>("scm");
         set => SetArgument("scm", value);
     }
 

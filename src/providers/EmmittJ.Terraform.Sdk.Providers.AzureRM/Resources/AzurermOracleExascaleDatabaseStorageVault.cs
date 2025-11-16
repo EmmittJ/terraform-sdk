@@ -191,9 +191,9 @@ public partial class AzurermOracleExascaleDatabaseStorageVault(string name) : Te
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HighCapacityDatabaseStorage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HighCapacityDatabaseStorage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HighCapacityDatabaseStorage block(s) allowed")]
-    public required AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock HighCapacityDatabaseStorage
+    public required TerraformList<AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock> HighCapacityDatabaseStorage
     {
-        get => GetRequiredArgument<AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock>("high_capacity_database_storage");
+        get => GetRequiredArgument<TerraformList<AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock>>("high_capacity_database_storage");
         set => SetArgument("high_capacity_database_storage", value);
     }
 

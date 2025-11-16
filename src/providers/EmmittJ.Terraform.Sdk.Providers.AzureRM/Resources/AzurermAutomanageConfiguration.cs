@@ -283,9 +283,9 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     /// Antimalware block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Antimalware block(s) allowed")]
-    public AzurermAutomanageConfigurationAntimalwareBlock? Antimalware
+    public TerraformList<AzurermAutomanageConfigurationAntimalwareBlock>? Antimalware
     {
-        get => GetArgument<AzurermAutomanageConfigurationAntimalwareBlock>("antimalware");
+        get => GetArgument<TerraformList<AzurermAutomanageConfigurationAntimalwareBlock>>("antimalware");
         set => SetArgument("antimalware", value);
     }
 
@@ -293,9 +293,9 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     /// AzureSecurityBaseline block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureSecurityBaseline block(s) allowed")]
-    public AzurermAutomanageConfigurationAzureSecurityBaselineBlock? AzureSecurityBaseline
+    public TerraformList<AzurermAutomanageConfigurationAzureSecurityBaselineBlock>? AzureSecurityBaseline
     {
-        get => GetArgument<AzurermAutomanageConfigurationAzureSecurityBaselineBlock>("azure_security_baseline");
+        get => GetArgument<TerraformList<AzurermAutomanageConfigurationAzureSecurityBaselineBlock>>("azure_security_baseline");
         set => SetArgument("azure_security_baseline", value);
     }
 
@@ -303,9 +303,9 @@ public partial class AzurermAutomanageConfiguration(string name) : TerraformReso
     /// Backup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public AzurermAutomanageConfigurationBackupBlock? Backup
+    public TerraformList<AzurermAutomanageConfigurationBackupBlock>? Backup
     {
-        get => GetArgument<AzurermAutomanageConfigurationBackupBlock>("backup");
+        get => GetArgument<TerraformList<AzurermAutomanageConfigurationBackupBlock>>("backup");
         set => SetArgument("backup", value);
     }
 

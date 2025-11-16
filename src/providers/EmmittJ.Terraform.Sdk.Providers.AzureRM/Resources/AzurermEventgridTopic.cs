@@ -300,9 +300,9 @@ public partial class AzurermEventgridTopic(string name) : TerraformResource("azu
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermEventgridTopicIdentityBlock? Identity
+    public TerraformList<AzurermEventgridTopicIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermEventgridTopicIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermEventgridTopicIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -310,9 +310,9 @@ public partial class AzurermEventgridTopic(string name) : TerraformResource("azu
     /// InputMappingDefaultValues block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputMappingDefaultValues block(s) allowed")]
-    public AzurermEventgridTopicInputMappingDefaultValuesBlock? InputMappingDefaultValues
+    public TerraformList<AzurermEventgridTopicInputMappingDefaultValuesBlock>? InputMappingDefaultValues
     {
-        get => GetArgument<AzurermEventgridTopicInputMappingDefaultValuesBlock>("input_mapping_default_values");
+        get => GetArgument<TerraformList<AzurermEventgridTopicInputMappingDefaultValuesBlock>>("input_mapping_default_values");
         set => SetArgument("input_mapping_default_values", value);
     }
 
@@ -320,9 +320,9 @@ public partial class AzurermEventgridTopic(string name) : TerraformResource("azu
     /// InputMappingFields block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputMappingFields block(s) allowed")]
-    public AzurermEventgridTopicInputMappingFieldsBlock? InputMappingFields
+    public TerraformList<AzurermEventgridTopicInputMappingFieldsBlock>? InputMappingFields
     {
-        get => GetArgument<AzurermEventgridTopicInputMappingFieldsBlock>("input_mapping_fields");
+        get => GetArgument<TerraformList<AzurermEventgridTopicInputMappingFieldsBlock>>("input_mapping_fields");
         set => SetArgument("input_mapping_fields", value);
     }
 

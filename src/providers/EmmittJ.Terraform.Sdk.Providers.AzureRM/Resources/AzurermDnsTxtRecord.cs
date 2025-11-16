@@ -144,9 +144,9 @@ public partial class AzurermDnsTxtRecord(string name) : TerraformResource("azure
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Record is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Record block(s) required")]
-    public required AzurermDnsTxtRecordRecordBlock Record
+    public required TerraformSet<AzurermDnsTxtRecordRecordBlock> Record
     {
-        get => GetRequiredArgument<AzurermDnsTxtRecordRecordBlock>("record");
+        get => GetRequiredArgument<TerraformSet<AzurermDnsTxtRecordRecordBlock>>("record");
         set => SetArgument("record", value);
     }
 

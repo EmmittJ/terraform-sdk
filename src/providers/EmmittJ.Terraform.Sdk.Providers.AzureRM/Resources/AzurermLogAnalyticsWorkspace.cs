@@ -266,9 +266,9 @@ public partial class AzurermLogAnalyticsWorkspace(string name) : TerraformResour
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermLogAnalyticsWorkspaceIdentityBlock? Identity
+    public TerraformList<AzurermLogAnalyticsWorkspaceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermLogAnalyticsWorkspaceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermLogAnalyticsWorkspaceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

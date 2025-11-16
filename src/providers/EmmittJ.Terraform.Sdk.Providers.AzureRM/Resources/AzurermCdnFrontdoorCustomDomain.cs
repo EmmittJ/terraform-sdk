@@ -162,9 +162,9 @@ public partial class AzurermCdnFrontdoorCustomDomain(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tls is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tls block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tls block(s) allowed")]
-    public required AzurermCdnFrontdoorCustomDomainTlsBlock Tls
+    public required TerraformList<AzurermCdnFrontdoorCustomDomainTlsBlock> Tls
     {
-        get => GetRequiredArgument<AzurermCdnFrontdoorCustomDomainTlsBlock>("tls");
+        get => GetRequiredArgument<TerraformList<AzurermCdnFrontdoorCustomDomainTlsBlock>>("tls");
         set => SetArgument("tls", value);
     }
 

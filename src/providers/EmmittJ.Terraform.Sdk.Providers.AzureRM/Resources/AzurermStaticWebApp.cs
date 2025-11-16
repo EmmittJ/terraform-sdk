@@ -271,9 +271,9 @@ public partial class AzurermStaticWebApp(string name) : TerraformResource("azure
     /// BasicAuth block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAuth block(s) allowed")]
-    public AzurermStaticWebAppBasicAuthBlock? BasicAuth
+    public TerraformList<AzurermStaticWebAppBasicAuthBlock>? BasicAuth
     {
-        get => GetArgument<AzurermStaticWebAppBasicAuthBlock>("basic_auth");
+        get => GetArgument<TerraformList<AzurermStaticWebAppBasicAuthBlock>>("basic_auth");
         set => SetArgument("basic_auth", value);
     }
 
@@ -281,9 +281,9 @@ public partial class AzurermStaticWebApp(string name) : TerraformResource("azure
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermStaticWebAppIdentityBlock? Identity
+    public TerraformList<AzurermStaticWebAppIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermStaticWebAppIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermStaticWebAppIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

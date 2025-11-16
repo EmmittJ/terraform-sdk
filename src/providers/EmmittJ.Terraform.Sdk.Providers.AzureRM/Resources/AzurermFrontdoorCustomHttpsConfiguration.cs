@@ -163,9 +163,9 @@ public partial class AzurermFrontdoorCustomHttpsConfiguration(string name) : Ter
     /// CustomHttpsConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomHttpsConfiguration block(s) allowed")]
-    public AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock? CustomHttpsConfiguration
+    public TerraformList<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock>? CustomHttpsConfiguration
     {
-        get => GetArgument<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock>("custom_https_configuration");
+        get => GetArgument<TerraformList<AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock>>("custom_https_configuration");
         set => SetArgument("custom_https_configuration", value);
     }
 

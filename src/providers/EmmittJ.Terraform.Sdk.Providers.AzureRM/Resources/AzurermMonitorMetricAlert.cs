@@ -426,9 +426,9 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// <summary>
     /// Action block (nesting mode: set).
     /// </summary>
-    public AzurermMonitorMetricAlertActionBlock? Action
+    public TerraformSet<AzurermMonitorMetricAlertActionBlock>? Action
     {
-        get => GetArgument<AzurermMonitorMetricAlertActionBlock>("action");
+        get => GetArgument<TerraformSet<AzurermMonitorMetricAlertActionBlock>>("action");
         set => SetArgument("action", value);
     }
 
@@ -436,18 +436,18 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// ApplicationInsightsWebTestLocationAvailabilityCriteria block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationInsightsWebTestLocationAvailabilityCriteria block(s) allowed")]
-    public AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock? ApplicationInsightsWebTestLocationAvailabilityCriteria
+    public TerraformList<AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock>? ApplicationInsightsWebTestLocationAvailabilityCriteria
     {
-        get => GetArgument<AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock>("application_insights_web_test_location_availability_criteria");
+        get => GetArgument<TerraformList<AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock>>("application_insights_web_test_location_availability_criteria");
         set => SetArgument("application_insights_web_test_location_availability_criteria", value);
     }
 
     /// <summary>
     /// Criteria block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorMetricAlertCriteriaBlock? Criteria
+    public TerraformList<AzurermMonitorMetricAlertCriteriaBlock>? Criteria
     {
-        get => GetArgument<AzurermMonitorMetricAlertCriteriaBlock>("criteria");
+        get => GetArgument<TerraformList<AzurermMonitorMetricAlertCriteriaBlock>>("criteria");
         set => SetArgument("criteria", value);
     }
 
@@ -455,9 +455,9 @@ public partial class AzurermMonitorMetricAlert(string name) : TerraformResource(
     /// DynamicCriteria block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DynamicCriteria block(s) allowed")]
-    public AzurermMonitorMetricAlertDynamicCriteriaBlock? DynamicCriteria
+    public TerraformList<AzurermMonitorMetricAlertDynamicCriteriaBlock>? DynamicCriteria
     {
-        get => GetArgument<AzurermMonitorMetricAlertDynamicCriteriaBlock>("dynamic_criteria");
+        get => GetArgument<TerraformList<AzurermMonitorMetricAlertDynamicCriteriaBlock>>("dynamic_criteria");
         set => SetArgument("dynamic_criteria", value);
     }
 

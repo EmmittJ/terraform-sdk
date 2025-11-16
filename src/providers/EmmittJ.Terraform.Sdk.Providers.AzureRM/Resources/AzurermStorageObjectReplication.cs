@@ -151,9 +151,9 @@ public partial class AzurermStorageObjectReplication(string name) : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
-    public required AzurermStorageObjectReplicationRulesBlock Rules
+    public required TerraformSet<AzurermStorageObjectReplicationRulesBlock> Rules
     {
-        get => GetRequiredArgument<AzurermStorageObjectReplicationRulesBlock>("rules");
+        get => GetRequiredArgument<TerraformSet<AzurermStorageObjectReplicationRulesBlock>>("rules");
         set => SetArgument("rules", value);
     }
 

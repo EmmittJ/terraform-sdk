@@ -298,9 +298,9 @@ public partial class AzurermImage(string name) : TerraformResource("azurerm_imag
     /// <summary>
     /// DataDisk block (nesting mode: list).
     /// </summary>
-    public AzurermImageDataDiskBlock? DataDisk
+    public TerraformList<AzurermImageDataDiskBlock>? DataDisk
     {
-        get => GetArgument<AzurermImageDataDiskBlock>("data_disk");
+        get => GetArgument<TerraformList<AzurermImageDataDiskBlock>>("data_disk");
         set => SetArgument("data_disk", value);
     }
 
@@ -308,9 +308,9 @@ public partial class AzurermImage(string name) : TerraformResource("azurerm_imag
     /// OsDisk block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
-    public AzurermImageOsDiskBlock? OsDisk
+    public TerraformList<AzurermImageOsDiskBlock>? OsDisk
     {
-        get => GetArgument<AzurermImageOsDiskBlock>("os_disk");
+        get => GetArgument<TerraformList<AzurermImageOsDiskBlock>>("os_disk");
         set => SetArgument("os_disk", value);
     }
 

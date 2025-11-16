@@ -1042,9 +1042,9 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// AdditionalCapabilities block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock? AdditionalCapabilities
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock>? AdditionalCapabilities
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock>("additional_capabilities");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock>>("additional_capabilities");
         set => SetArgument("additional_capabilities", value);
     }
 
@@ -1052,9 +1052,9 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// AutomaticInstanceRepair block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticInstanceRepair block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock? AutomaticInstanceRepair
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock>? AutomaticInstanceRepair
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock>("automatic_instance_repair");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock>>("automatic_instance_repair");
         set => SetArgument("automatic_instance_repair", value);
     }
 
@@ -1062,27 +1062,27 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// BootDiagnostics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock? BootDiagnostics
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock>? BootDiagnostics
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock>("boot_diagnostics");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock>>("boot_diagnostics");
         set => SetArgument("boot_diagnostics", value);
     }
 
     /// <summary>
     /// DataDisk block (nesting mode: list).
     /// </summary>
-    public AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock? DataDisk
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock>? DataDisk
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock>("data_disk");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock>>("data_disk");
         set => SetArgument("data_disk", value);
     }
 
     /// <summary>
     /// Extension block (nesting mode: set).
     /// </summary>
-    public AzurermOrchestratedVirtualMachineScaleSetExtensionBlock? Extension
+    public TerraformSet<AzurermOrchestratedVirtualMachineScaleSetExtensionBlock>? Extension
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetExtensionBlock>("extension");
+        get => GetArgument<TerraformSet<AzurermOrchestratedVirtualMachineScaleSetExtensionBlock>>("extension");
         set => SetArgument("extension", value);
     }
 
@@ -1090,18 +1090,18 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetIdentityBlock? Identity
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// NetworkInterface block (nesting mode: list).
     /// </summary>
-    public AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock? NetworkInterface
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock>? NetworkInterface
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock>("network_interface");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock>>("network_interface");
         set => SetArgument("network_interface", value);
     }
 
@@ -1109,9 +1109,9 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// OsDisk block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock? OsDisk
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock>? OsDisk
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock>("os_disk");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock>>("os_disk");
         set => SetArgument("os_disk", value);
     }
 
@@ -1119,9 +1119,9 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// OsProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfile block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock? OsProfile
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock>? OsProfile
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock>("os_profile");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock>>("os_profile");
         set => SetArgument("os_profile", value);
     }
 
@@ -1129,9 +1129,9 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// Plan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetPlanBlock? Plan
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetPlanBlock>? Plan
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetPlanBlock>("plan");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetPlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 
@@ -1139,9 +1139,9 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// PriorityMix block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PriorityMix block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock? PriorityMix
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock>? PriorityMix
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock>("priority_mix");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock>>("priority_mix");
         set => SetArgument("priority_mix", value);
     }
 
@@ -1149,9 +1149,9 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// RollingUpgradePolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RollingUpgradePolicy block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock? RollingUpgradePolicy
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock>? RollingUpgradePolicy
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock>("rolling_upgrade_policy");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock>>("rolling_upgrade_policy");
         set => SetArgument("rolling_upgrade_policy", value);
     }
 
@@ -1159,9 +1159,9 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// SkuProfile block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SkuProfile block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock? SkuProfile
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock>? SkuProfile
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock>("sku_profile");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock>>("sku_profile");
         set => SetArgument("sku_profile", value);
     }
 
@@ -1169,9 +1169,9 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// SourceImageReference block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageReference block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock? SourceImageReference
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock>? SourceImageReference
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock>("source_image_reference");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock>>("source_image_reference");
         set => SetArgument("source_image_reference", value);
     }
 
@@ -1179,9 +1179,9 @@ public partial class AzurermOrchestratedVirtualMachineScaleSet(string name) : Te
     /// TerminationNotification block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TerminationNotification block(s) allowed")]
-    public AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock? TerminationNotification
+    public TerraformList<AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock>? TerminationNotification
     {
-        get => GetArgument<AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock>("termination_notification");
+        get => GetArgument<TerraformList<AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock>>("termination_notification");
         set => SetArgument("termination_notification", value);
     }
 

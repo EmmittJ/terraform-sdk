@@ -246,9 +246,9 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     /// <summary>
     /// Filter block (nesting mode: list).
     /// </summary>
-    public AzurermVirtualMachineScaleSetPacketCaptureFilterBlock? Filter
+    public TerraformList<AzurermVirtualMachineScaleSetPacketCaptureFilterBlock>? Filter
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetPacketCaptureFilterBlock>("filter");
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetPacketCaptureFilterBlock>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -256,9 +256,9 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     /// MachineScope block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MachineScope block(s) allowed")]
-    public AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock? MachineScope
+    public TerraformList<AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock>? MachineScope
     {
-        get => GetArgument<AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock>("machine_scope");
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetPacketCaptureMachineScopeBlock>>("machine_scope");
         set => SetArgument("machine_scope", value);
     }
 
@@ -269,9 +269,9 @@ public partial class AzurermVirtualMachineScaleSetPacketCapture(string name) : T
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
-    public required AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock StorageLocation
+    public required TerraformList<AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock> StorageLocation
     {
-        get => GetRequiredArgument<AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock>("storage_location");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualMachineScaleSetPacketCaptureStorageLocationBlock>>("storage_location");
         set => SetArgument("storage_location", value);
     }
 

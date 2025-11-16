@@ -187,9 +187,9 @@ public partial class AzurermDataFactoryLinkedServiceAzureFunction(string name) :
     /// KeyVaultKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultKey block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock? KeyVaultKey
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock>? KeyVaultKey
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock>("key_vault_key");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceAzureFunctionKeyVaultKeyBlock>>("key_vault_key");
         set => SetArgument("key_vault_key", value);
     }
 

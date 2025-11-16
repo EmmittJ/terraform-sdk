@@ -320,9 +320,9 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     /// Credentials block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Credentials block(s) allowed")]
-    public AzurermApiManagementBackendCredentialsBlock? Credentials
+    public TerraformList<AzurermApiManagementBackendCredentialsBlock>? Credentials
     {
-        get => GetArgument<AzurermApiManagementBackendCredentialsBlock>("credentials");
+        get => GetArgument<TerraformList<AzurermApiManagementBackendCredentialsBlock>>("credentials");
         set => SetArgument("credentials", value);
     }
 
@@ -330,9 +330,9 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     /// Proxy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
-    public AzurermApiManagementBackendProxyBlock? Proxy
+    public TerraformList<AzurermApiManagementBackendProxyBlock>? Proxy
     {
-        get => GetArgument<AzurermApiManagementBackendProxyBlock>("proxy");
+        get => GetArgument<TerraformList<AzurermApiManagementBackendProxyBlock>>("proxy");
         set => SetArgument("proxy", value);
     }
 
@@ -340,9 +340,9 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     /// ServiceFabricCluster block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceFabricCluster block(s) allowed")]
-    public AzurermApiManagementBackendServiceFabricClusterBlock? ServiceFabricCluster
+    public TerraformList<AzurermApiManagementBackendServiceFabricClusterBlock>? ServiceFabricCluster
     {
-        get => GetArgument<AzurermApiManagementBackendServiceFabricClusterBlock>("service_fabric_cluster");
+        get => GetArgument<TerraformList<AzurermApiManagementBackendServiceFabricClusterBlock>>("service_fabric_cluster");
         set => SetArgument("service_fabric_cluster", value);
     }
 
@@ -359,9 +359,9 @@ public partial class AzurermApiManagementBackend(string name) : TerraformResourc
     /// Tls block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Tls block(s) allowed")]
-    public AzurermApiManagementBackendTlsBlock? Tls
+    public TerraformList<AzurermApiManagementBackendTlsBlock>? Tls
     {
-        get => GetArgument<AzurermApiManagementBackendTlsBlock>("tls");
+        get => GetArgument<TerraformList<AzurermApiManagementBackendTlsBlock>>("tls");
         set => SetArgument("tls", value);
     }
 

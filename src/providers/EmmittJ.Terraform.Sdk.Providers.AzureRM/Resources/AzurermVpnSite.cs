@@ -225,9 +225,9 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     /// <summary>
     /// Link block (nesting mode: list).
     /// </summary>
-    public AzurermVpnSiteLinkBlock? Link
+    public TerraformList<AzurermVpnSiteLinkBlock>? Link
     {
-        get => GetArgument<AzurermVpnSiteLinkBlock>("link");
+        get => GetArgument<TerraformList<AzurermVpnSiteLinkBlock>>("link");
         set => SetArgument("link", value);
     }
 
@@ -235,9 +235,9 @@ public partial class AzurermVpnSite(string name) : TerraformResource("azurerm_vp
     /// O365Policy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 O365Policy block(s) allowed")]
-    public AzurermVpnSiteO365PolicyBlock? O365Policy
+    public TerraformList<AzurermVpnSiteO365PolicyBlock>? O365Policy
     {
-        get => GetArgument<AzurermVpnSiteO365PolicyBlock>("o365_policy");
+        get => GetArgument<TerraformList<AzurermVpnSiteO365PolicyBlock>>("o365_policy");
         set => SetArgument("o365_policy", value);
     }
 

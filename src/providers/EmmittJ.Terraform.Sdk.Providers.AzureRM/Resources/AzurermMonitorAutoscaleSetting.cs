@@ -196,9 +196,9 @@ public partial class AzurermMonitorAutoscaleSetting(string name) : TerraformReso
     /// Notification block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notification block(s) allowed")]
-    public AzurermMonitorAutoscaleSettingNotificationBlock? Notification
+    public TerraformList<AzurermMonitorAutoscaleSettingNotificationBlock>? Notification
     {
-        get => GetArgument<AzurermMonitorAutoscaleSettingNotificationBlock>("notification");
+        get => GetArgument<TerraformList<AzurermMonitorAutoscaleSettingNotificationBlock>>("notification");
         set => SetArgument("notification", value);
     }
 
@@ -206,9 +206,9 @@ public partial class AzurermMonitorAutoscaleSetting(string name) : TerraformReso
     /// Predictive block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Predictive block(s) allowed")]
-    public AzurermMonitorAutoscaleSettingPredictiveBlock? Predictive
+    public TerraformList<AzurermMonitorAutoscaleSettingPredictiveBlock>? Predictive
     {
-        get => GetArgument<AzurermMonitorAutoscaleSettingPredictiveBlock>("predictive");
+        get => GetArgument<TerraformList<AzurermMonitorAutoscaleSettingPredictiveBlock>>("predictive");
         set => SetArgument("predictive", value);
     }
 
@@ -219,9 +219,9 @@ public partial class AzurermMonitorAutoscaleSetting(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Profile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Profile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 Profile block(s) allowed")]
-    public required AzurermMonitorAutoscaleSettingProfileBlock Profile
+    public required TerraformList<AzurermMonitorAutoscaleSettingProfileBlock> Profile
     {
-        get => GetRequiredArgument<AzurermMonitorAutoscaleSettingProfileBlock>("profile");
+        get => GetRequiredArgument<TerraformList<AzurermMonitorAutoscaleSettingProfileBlock>>("profile");
         set => SetArgument("profile", value);
     }
 

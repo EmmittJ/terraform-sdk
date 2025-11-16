@@ -282,9 +282,9 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManageAction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManageAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManageAction block(s) allowed")]
-    public required AzurermGalleryApplicationVersionManageActionBlock ManageAction
+    public required TerraformList<AzurermGalleryApplicationVersionManageActionBlock> ManageAction
     {
-        get => GetRequiredArgument<AzurermGalleryApplicationVersionManageActionBlock>("manage_action");
+        get => GetRequiredArgument<TerraformList<AzurermGalleryApplicationVersionManageActionBlock>>("manage_action");
         set => SetArgument("manage_action", value);
     }
 
@@ -295,9 +295,9 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public required AzurermGalleryApplicationVersionSourceBlock Source
+    public required TerraformList<AzurermGalleryApplicationVersionSourceBlock> Source
     {
-        get => GetRequiredArgument<AzurermGalleryApplicationVersionSourceBlock>("source");
+        get => GetRequiredArgument<TerraformList<AzurermGalleryApplicationVersionSourceBlock>>("source");
         set => SetArgument("source", value);
     }
 
@@ -307,9 +307,9 @@ public partial class AzurermGalleryApplicationVersion(string name) : TerraformRe
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRegion is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRegion block(s) required")]
-    public required AzurermGalleryApplicationVersionTargetRegionBlock TargetRegion
+    public required TerraformList<AzurermGalleryApplicationVersionTargetRegionBlock> TargetRegion
     {
-        get => GetRequiredArgument<AzurermGalleryApplicationVersionTargetRegionBlock>("target_region");
+        get => GetRequiredArgument<TerraformList<AzurermGalleryApplicationVersionTargetRegionBlock>>("target_region");
         set => SetArgument("target_region", value);
     }
 

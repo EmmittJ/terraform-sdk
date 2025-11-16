@@ -240,9 +240,9 @@ public partial class AzurermMobileNetworkAttachedDataNetwork(string name) : Terr
     /// NetworkAddressPortTranslation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAddressPortTranslation block(s) allowed")]
-    public AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock? NetworkAddressPortTranslation
+    public TerraformList<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock>? NetworkAddressPortTranslation
     {
-        get => GetArgument<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock>("network_address_port_translation");
+        get => GetArgument<TerraformList<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock>>("network_address_port_translation");
         set => SetArgument("network_address_port_translation", value);
     }
 

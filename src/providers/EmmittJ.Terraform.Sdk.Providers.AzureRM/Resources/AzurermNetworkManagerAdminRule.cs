@@ -222,18 +222,18 @@ public partial class AzurermNetworkManagerAdminRule(string name) : TerraformReso
     /// <summary>
     /// Destination block (nesting mode: list).
     /// </summary>
-    public AzurermNetworkManagerAdminRuleDestinationBlock? Destination
+    public TerraformList<AzurermNetworkManagerAdminRuleDestinationBlock>? Destination
     {
-        get => GetArgument<AzurermNetworkManagerAdminRuleDestinationBlock>("destination");
+        get => GetArgument<TerraformList<AzurermNetworkManagerAdminRuleDestinationBlock>>("destination");
         set => SetArgument("destination", value);
     }
 
     /// <summary>
     /// Source block (nesting mode: list).
     /// </summary>
-    public AzurermNetworkManagerAdminRuleSourceBlock? Source
+    public TerraformList<AzurermNetworkManagerAdminRuleSourceBlock>? Source
     {
-        get => GetArgument<AzurermNetworkManagerAdminRuleSourceBlock>("source");
+        get => GetArgument<TerraformList<AzurermNetworkManagerAdminRuleSourceBlock>>("source");
         set => SetArgument("source", value);
     }
 

@@ -161,9 +161,9 @@ public partial class AzurermArcKubernetesCluster(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermArcKubernetesClusterIdentityBlock Identity
+    public required TerraformList<AzurermArcKubernetesClusterIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermArcKubernetesClusterIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermArcKubernetesClusterIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

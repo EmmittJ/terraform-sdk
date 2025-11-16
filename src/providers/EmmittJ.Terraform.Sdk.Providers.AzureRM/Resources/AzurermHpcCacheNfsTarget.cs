@@ -193,9 +193,9 @@ public partial class AzurermHpcCacheNfsTarget(string name) : TerraformResource("
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceJunction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NamespaceJunction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 NamespaceJunction block(s) allowed")]
-    public required AzurermHpcCacheNfsTargetNamespaceJunctionBlock NamespaceJunction
+    public required TerraformSet<AzurermHpcCacheNfsTargetNamespaceJunctionBlock> NamespaceJunction
     {
-        get => GetRequiredArgument<AzurermHpcCacheNfsTargetNamespaceJunctionBlock>("namespace_junction");
+        get => GetRequiredArgument<TerraformSet<AzurermHpcCacheNfsTargetNamespaceJunctionBlock>>("namespace_junction");
         set => SetArgument("namespace_junction", value);
     }
 

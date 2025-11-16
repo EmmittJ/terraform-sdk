@@ -343,9 +343,9 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// <summary>
     /// CustomPersistentDisk block (nesting mode: list).
     /// </summary>
-    public AzurermSpringCloudAppCustomPersistentDiskBlock? CustomPersistentDisk
+    public TerraformList<AzurermSpringCloudAppCustomPersistentDiskBlock>? CustomPersistentDisk
     {
-        get => GetArgument<AzurermSpringCloudAppCustomPersistentDiskBlock>("custom_persistent_disk");
+        get => GetArgument<TerraformList<AzurermSpringCloudAppCustomPersistentDiskBlock>>("custom_persistent_disk");
         set => SetArgument("custom_persistent_disk", value);
     }
 
@@ -353,9 +353,9 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermSpringCloudAppIdentityBlock? Identity
+    public TerraformList<AzurermSpringCloudAppIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermSpringCloudAppIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermSpringCloudAppIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -363,9 +363,9 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// IngressSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressSettings block(s) allowed")]
-    public AzurermSpringCloudAppIngressSettingsBlock? IngressSettings
+    public TerraformList<AzurermSpringCloudAppIngressSettingsBlock>? IngressSettings
     {
-        get => GetArgument<AzurermSpringCloudAppIngressSettingsBlock>("ingress_settings");
+        get => GetArgument<TerraformList<AzurermSpringCloudAppIngressSettingsBlock>>("ingress_settings");
         set => SetArgument("ingress_settings", value);
     }
 
@@ -373,9 +373,9 @@ public partial class AzurermSpringCloudApp(string name) : TerraformResource("azu
     /// PersistentDisk block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistentDisk block(s) allowed")]
-    public AzurermSpringCloudAppPersistentDiskBlock? PersistentDisk
+    public TerraformList<AzurermSpringCloudAppPersistentDiskBlock>? PersistentDisk
     {
-        get => GetArgument<AzurermSpringCloudAppPersistentDiskBlock>("persistent_disk");
+        get => GetArgument<TerraformList<AzurermSpringCloudAppPersistentDiskBlock>>("persistent_disk");
         set => SetArgument("persistent_disk", value);
     }
 

@@ -197,9 +197,9 @@ public partial class AzurermAnalysisServicesServer(string name) : TerraformResou
     /// <summary>
     /// Ipv4FirewallRule block (nesting mode: set).
     /// </summary>
-    public AzurermAnalysisServicesServerIpv4FirewallRuleBlock? Ipv4FirewallRule
+    public TerraformSet<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>? Ipv4FirewallRule
     {
-        get => GetArgument<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>("ipv4_firewall_rule");
+        get => GetArgument<TerraformSet<AzurermAnalysisServicesServerIpv4FirewallRuleBlock>>("ipv4_firewall_rule");
         set => SetArgument("ipv4_firewall_rule", value);
     }
 

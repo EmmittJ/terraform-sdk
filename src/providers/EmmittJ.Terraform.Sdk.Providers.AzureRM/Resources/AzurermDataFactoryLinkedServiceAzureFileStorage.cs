@@ -214,9 +214,9 @@ public partial class AzurermDataFactoryLinkedServiceAzureFileStorage(string name
     /// KeyVaultPassword block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceAzureFileStorageKeyVaultPasswordBlock? KeyVaultPassword
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureFileStorageKeyVaultPasswordBlock>? KeyVaultPassword
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceAzureFileStorageKeyVaultPasswordBlock>("key_vault_password");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceAzureFileStorageKeyVaultPasswordBlock>>("key_vault_password");
         set => SetArgument("key_vault_password", value);
     }
 

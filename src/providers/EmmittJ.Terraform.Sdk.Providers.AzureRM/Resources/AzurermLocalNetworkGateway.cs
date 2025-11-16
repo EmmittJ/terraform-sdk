@@ -178,9 +178,9 @@ public partial class AzurermLocalNetworkGateway(string name) : TerraformResource
     /// BgpSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpSettings block(s) allowed")]
-    public AzurermLocalNetworkGatewayBgpSettingsBlock? BgpSettings
+    public TerraformList<AzurermLocalNetworkGatewayBgpSettingsBlock>? BgpSettings
     {
-        get => GetArgument<AzurermLocalNetworkGatewayBgpSettingsBlock>("bgp_settings");
+        get => GetArgument<TerraformList<AzurermLocalNetworkGatewayBgpSettingsBlock>>("bgp_settings");
         set => SetArgument("bgp_settings", value);
     }
 

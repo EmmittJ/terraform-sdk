@@ -304,9 +304,9 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// Contact block (nesting mode: set).
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    public AzurermKeyVaultContactBlock? Contact
+    public TerraformSet<AzurermKeyVaultContactBlock>? Contact
     {
-        get => GetArgument<AzurermKeyVaultContactBlock>("contact");
+        get => GetArgument<TerraformSet<AzurermKeyVaultContactBlock>>("contact");
         set => SetArgument("contact", value);
     }
 
@@ -314,9 +314,9 @@ public partial class AzurermKeyVault(string name) : TerraformResource("azurerm_k
     /// NetworkAcls block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
-    public AzurermKeyVaultNetworkAclsBlock? NetworkAcls
+    public TerraformList<AzurermKeyVaultNetworkAclsBlock>? NetworkAcls
     {
-        get => GetArgument<AzurermKeyVaultNetworkAclsBlock>("network_acls");
+        get => GetArgument<TerraformList<AzurermKeyVaultNetworkAclsBlock>>("network_acls");
         set => SetArgument("network_acls", value);
     }
 

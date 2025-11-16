@@ -153,9 +153,9 @@ public partial class AzurermVpnServerConfigurationPolicyGroup(string name) : Ter
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Policy block(s) required")]
-    public required AzurermVpnServerConfigurationPolicyGroupPolicyBlock Policy
+    public required TerraformSet<AzurermVpnServerConfigurationPolicyGroupPolicyBlock> Policy
     {
-        get => GetRequiredArgument<AzurermVpnServerConfigurationPolicyGroupPolicyBlock>("policy");
+        get => GetRequiredArgument<TerraformSet<AzurermVpnServerConfigurationPolicyGroupPolicyBlock>>("policy");
         set => SetArgument("policy", value);
     }
 

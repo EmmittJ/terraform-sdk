@@ -135,9 +135,9 @@ public partial class AzurermBotChannelLine(string name) : TerraformResource("azu
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LineChannel is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LineChannel block(s) required")]
-    public required AzurermBotChannelLineLineChannelBlock LineChannel
+    public required TerraformSet<AzurermBotChannelLineLineChannelBlock> LineChannel
     {
-        get => GetRequiredArgument<AzurermBotChannelLineLineChannelBlock>("line_channel");
+        get => GetRequiredArgument<TerraformSet<AzurermBotChannelLineLineChannelBlock>>("line_channel");
         set => SetArgument("line_channel", value);
     }
 

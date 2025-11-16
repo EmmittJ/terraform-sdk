@@ -469,9 +469,9 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// CloudToDevice block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudToDevice block(s) allowed")]
-    public AzurermIothubCloudToDeviceBlock? CloudToDevice
+    public TerraformList<AzurermIothubCloudToDeviceBlock>? CloudToDevice
     {
-        get => GetArgument<AzurermIothubCloudToDeviceBlock>("cloud_to_device");
+        get => GetArgument<TerraformList<AzurermIothubCloudToDeviceBlock>>("cloud_to_device");
         set => SetArgument("cloud_to_device", value);
     }
 
@@ -479,9 +479,9 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// FallbackRoute block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FallbackRoute block(s) allowed")]
-    public AzurermIothubFallbackRouteBlock? FallbackRoute
+    public TerraformList<AzurermIothubFallbackRouteBlock>? FallbackRoute
     {
-        get => GetArgument<AzurermIothubFallbackRouteBlock>("fallback_route");
+        get => GetArgument<TerraformList<AzurermIothubFallbackRouteBlock>>("fallback_route");
         set => SetArgument("fallback_route", value);
     }
 
@@ -489,9 +489,9 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// FileUpload block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileUpload block(s) allowed")]
-    public AzurermIothubFileUploadBlock? FileUpload
+    public TerraformList<AzurermIothubFileUploadBlock>? FileUpload
     {
-        get => GetArgument<AzurermIothubFileUploadBlock>("file_upload");
+        get => GetArgument<TerraformList<AzurermIothubFileUploadBlock>>("file_upload");
         set => SetArgument("file_upload", value);
     }
 
@@ -499,18 +499,18 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermIothubIdentityBlock? Identity
+    public TerraformList<AzurermIothubIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermIothubIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermIothubIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// NetworkRuleSet block (nesting mode: list).
     /// </summary>
-    public AzurermIothubNetworkRuleSetBlock? NetworkRuleSet
+    public TerraformList<AzurermIothubNetworkRuleSetBlock>? NetworkRuleSet
     {
-        get => GetArgument<AzurermIothubNetworkRuleSetBlock>("network_rule_set");
+        get => GetArgument<TerraformList<AzurermIothubNetworkRuleSetBlock>>("network_rule_set");
         set => SetArgument("network_rule_set", value);
     }
 
@@ -521,9 +521,9 @@ public partial class AzurermIothub(string name) : TerraformResource("azurerm_iot
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermIothubSkuBlock Sku
+    public required TerraformList<AzurermIothubSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermIothubSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermIothubSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 

@@ -190,9 +190,9 @@ public partial class AzurermMonitorAlertProcessingRuleActionGroup(string name) :
     /// Condition block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
-    public AzurermMonitorAlertProcessingRuleActionGroupConditionBlock? Condition
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlock>? Condition
     {
-        get => GetArgument<AzurermMonitorAlertProcessingRuleActionGroupConditionBlock>("condition");
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlock>>("condition");
         set => SetArgument("condition", value);
     }
 
@@ -200,9 +200,9 @@ public partial class AzurermMonitorAlertProcessingRuleActionGroup(string name) :
     /// Schedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock? Schedule
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock>? Schedule
     {
-        get => GetArgument<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock>("schedule");
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock>>("schedule");
         set => SetArgument("schedule", value);
     }
 

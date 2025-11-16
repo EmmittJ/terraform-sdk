@@ -296,9 +296,9 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     /// <summary>
     /// IpConfiguration block (nesting mode: list).
     /// </summary>
-    public AzurermPrivateEndpointIpConfigurationBlock? IpConfiguration
+    public TerraformList<AzurermPrivateEndpointIpConfigurationBlock>? IpConfiguration
     {
-        get => GetArgument<AzurermPrivateEndpointIpConfigurationBlock>("ip_configuration");
+        get => GetArgument<TerraformList<AzurermPrivateEndpointIpConfigurationBlock>>("ip_configuration");
         set => SetArgument("ip_configuration", value);
     }
 
@@ -306,9 +306,9 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     /// PrivateDnsZoneGroup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateDnsZoneGroup block(s) allowed")]
-    public AzurermPrivateEndpointPrivateDnsZoneGroupBlock? PrivateDnsZoneGroup
+    public TerraformList<AzurermPrivateEndpointPrivateDnsZoneGroupBlock>? PrivateDnsZoneGroup
     {
-        get => GetArgument<AzurermPrivateEndpointPrivateDnsZoneGroupBlock>("private_dns_zone_group");
+        get => GetArgument<TerraformList<AzurermPrivateEndpointPrivateDnsZoneGroupBlock>>("private_dns_zone_group");
         set => SetArgument("private_dns_zone_group", value);
     }
 
@@ -319,9 +319,9 @@ public partial class AzurermPrivateEndpoint(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateServiceConnection is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PrivateServiceConnection block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateServiceConnection block(s) allowed")]
-    public required AzurermPrivateEndpointPrivateServiceConnectionBlock PrivateServiceConnection
+    public required TerraformList<AzurermPrivateEndpointPrivateServiceConnectionBlock> PrivateServiceConnection
     {
-        get => GetRequiredArgument<AzurermPrivateEndpointPrivateServiceConnectionBlock>("private_service_connection");
+        get => GetRequiredArgument<TerraformList<AzurermPrivateEndpointPrivateServiceConnectionBlock>>("private_service_connection");
         set => SetArgument("private_service_connection", value);
     }
 

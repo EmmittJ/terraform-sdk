@@ -291,27 +291,27 @@ public partial class AzurermApiManagementApiOperation(string name) : TerraformRe
     /// Request block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Request block(s) allowed")]
-    public AzurermApiManagementApiOperationRequestBlock? Request
+    public TerraformList<AzurermApiManagementApiOperationRequestBlock>? Request
     {
-        get => GetArgument<AzurermApiManagementApiOperationRequestBlock>("request");
+        get => GetArgument<TerraformList<AzurermApiManagementApiOperationRequestBlock>>("request");
         set => SetArgument("request", value);
     }
 
     /// <summary>
     /// Response block (nesting mode: list).
     /// </summary>
-    public AzurermApiManagementApiOperationResponseBlock? Response
+    public TerraformList<AzurermApiManagementApiOperationResponseBlock>? Response
     {
-        get => GetArgument<AzurermApiManagementApiOperationResponseBlock>("response");
+        get => GetArgument<TerraformList<AzurermApiManagementApiOperationResponseBlock>>("response");
         set => SetArgument("response", value);
     }
 
     /// <summary>
     /// TemplateParameter block (nesting mode: list).
     /// </summary>
-    public AzurermApiManagementApiOperationTemplateParameterBlock? TemplateParameter
+    public TerraformList<AzurermApiManagementApiOperationTemplateParameterBlock>? TemplateParameter
     {
-        get => GetArgument<AzurermApiManagementApiOperationTemplateParameterBlock>("template_parameter");
+        get => GetArgument<TerraformList<AzurermApiManagementApiOperationTemplateParameterBlock>>("template_parameter");
         set => SetArgument("template_parameter", value);
     }
 

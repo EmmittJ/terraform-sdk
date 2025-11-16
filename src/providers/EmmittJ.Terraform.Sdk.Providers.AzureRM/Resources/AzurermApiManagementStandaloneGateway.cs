@@ -162,9 +162,9 @@ public partial class AzurermApiManagementStandaloneGateway(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermApiManagementStandaloneGatewaySkuBlock Sku
+    public required TerraformList<AzurermApiManagementStandaloneGatewaySkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermApiManagementStandaloneGatewaySkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermApiManagementStandaloneGatewaySkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 

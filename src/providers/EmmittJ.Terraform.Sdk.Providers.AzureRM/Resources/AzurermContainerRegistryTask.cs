@@ -675,9 +675,9 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     /// AgentSetting block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AgentSetting block(s) allowed")]
-    public AzurermContainerRegistryTaskAgentSettingBlock? AgentSetting
+    public TerraformList<AzurermContainerRegistryTaskAgentSettingBlock>? AgentSetting
     {
-        get => GetArgument<AzurermContainerRegistryTaskAgentSettingBlock>("agent_setting");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskAgentSettingBlock>>("agent_setting");
         set => SetArgument("agent_setting", value);
     }
 
@@ -685,9 +685,9 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     /// BaseImageTrigger block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BaseImageTrigger block(s) allowed")]
-    public AzurermContainerRegistryTaskBaseImageTriggerBlock? BaseImageTrigger
+    public TerraformList<AzurermContainerRegistryTaskBaseImageTriggerBlock>? BaseImageTrigger
     {
-        get => GetArgument<AzurermContainerRegistryTaskBaseImageTriggerBlock>("base_image_trigger");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskBaseImageTriggerBlock>>("base_image_trigger");
         set => SetArgument("base_image_trigger", value);
     }
 
@@ -695,9 +695,9 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     /// DockerStep block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DockerStep block(s) allowed")]
-    public AzurermContainerRegistryTaskDockerStepBlock? DockerStep
+    public TerraformList<AzurermContainerRegistryTaskDockerStepBlock>? DockerStep
     {
-        get => GetArgument<AzurermContainerRegistryTaskDockerStepBlock>("docker_step");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskDockerStepBlock>>("docker_step");
         set => SetArgument("docker_step", value);
     }
 
@@ -705,9 +705,9 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     /// EncodedStep block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncodedStep block(s) allowed")]
-    public AzurermContainerRegistryTaskEncodedStepBlock? EncodedStep
+    public TerraformList<AzurermContainerRegistryTaskEncodedStepBlock>? EncodedStep
     {
-        get => GetArgument<AzurermContainerRegistryTaskEncodedStepBlock>("encoded_step");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskEncodedStepBlock>>("encoded_step");
         set => SetArgument("encoded_step", value);
     }
 
@@ -715,9 +715,9 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     /// FileStep block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileStep block(s) allowed")]
-    public AzurermContainerRegistryTaskFileStepBlock? FileStep
+    public TerraformList<AzurermContainerRegistryTaskFileStepBlock>? FileStep
     {
-        get => GetArgument<AzurermContainerRegistryTaskFileStepBlock>("file_step");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskFileStepBlock>>("file_step");
         set => SetArgument("file_step", value);
     }
 
@@ -725,9 +725,9 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermContainerRegistryTaskIdentityBlock? Identity
+    public TerraformList<AzurermContainerRegistryTaskIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermContainerRegistryTaskIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -735,9 +735,9 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     /// Platform block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Platform block(s) allowed")]
-    public AzurermContainerRegistryTaskPlatformBlock? Platform
+    public TerraformList<AzurermContainerRegistryTaskPlatformBlock>? Platform
     {
-        get => GetArgument<AzurermContainerRegistryTaskPlatformBlock>("platform");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskPlatformBlock>>("platform");
         set => SetArgument("platform", value);
     }
 
@@ -745,18 +745,18 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     /// RegistryCredential block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RegistryCredential block(s) allowed")]
-    public AzurermContainerRegistryTaskRegistryCredentialBlock? RegistryCredential
+    public TerraformList<AzurermContainerRegistryTaskRegistryCredentialBlock>? RegistryCredential
     {
-        get => GetArgument<AzurermContainerRegistryTaskRegistryCredentialBlock>("registry_credential");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskRegistryCredentialBlock>>("registry_credential");
         set => SetArgument("registry_credential", value);
     }
 
     /// <summary>
     /// SourceTrigger block (nesting mode: list).
     /// </summary>
-    public AzurermContainerRegistryTaskSourceTriggerBlock? SourceTrigger
+    public TerraformList<AzurermContainerRegistryTaskSourceTriggerBlock>? SourceTrigger
     {
-        get => GetArgument<AzurermContainerRegistryTaskSourceTriggerBlock>("source_trigger");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskSourceTriggerBlock>>("source_trigger");
         set => SetArgument("source_trigger", value);
     }
 
@@ -772,9 +772,9 @@ public partial class AzurermContainerRegistryTask(string name) : TerraformResour
     /// <summary>
     /// TimerTrigger block (nesting mode: list).
     /// </summary>
-    public AzurermContainerRegistryTaskTimerTriggerBlock? TimerTrigger
+    public TerraformList<AzurermContainerRegistryTaskTimerTriggerBlock>? TimerTrigger
     {
-        get => GetArgument<AzurermContainerRegistryTaskTimerTriggerBlock>("timer_trigger");
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskTimerTriggerBlock>>("timer_trigger");
         set => SetArgument("timer_trigger", value);
     }
 

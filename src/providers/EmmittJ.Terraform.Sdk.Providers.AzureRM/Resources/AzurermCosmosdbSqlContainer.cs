@@ -273,9 +273,9 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    public AzurermCosmosdbSqlContainerAutoscaleSettingsBlock? AutoscaleSettings
+    public TerraformList<AzurermCosmosdbSqlContainerAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetArgument<AzurermCosmosdbSqlContainerAutoscaleSettingsBlock>("autoscale_settings");
+        get => GetArgument<TerraformList<AzurermCosmosdbSqlContainerAutoscaleSettingsBlock>>("autoscale_settings");
         set => SetArgument("autoscale_settings", value);
     }
 
@@ -283,9 +283,9 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// ConflictResolutionPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConflictResolutionPolicy block(s) allowed")]
-    public AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock? ConflictResolutionPolicy
+    public TerraformList<AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock>? ConflictResolutionPolicy
     {
-        get => GetArgument<AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock>("conflict_resolution_policy");
+        get => GetArgument<TerraformList<AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock>>("conflict_resolution_policy");
         set => SetArgument("conflict_resolution_policy", value);
     }
 
@@ -293,9 +293,9 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// IndexingPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexingPolicy block(s) allowed")]
-    public AzurermCosmosdbSqlContainerIndexingPolicyBlock? IndexingPolicy
+    public TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlock>? IndexingPolicy
     {
-        get => GetArgument<AzurermCosmosdbSqlContainerIndexingPolicyBlock>("indexing_policy");
+        get => GetArgument<TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlock>>("indexing_policy");
         set => SetArgument("indexing_policy", value);
     }
 
@@ -311,9 +311,9 @@ public partial class AzurermCosmosdbSqlContainer(string name) : TerraformResourc
     /// <summary>
     /// UniqueKey block (nesting mode: set).
     /// </summary>
-    public AzurermCosmosdbSqlContainerUniqueKeyBlock? UniqueKey
+    public TerraformSet<AzurermCosmosdbSqlContainerUniqueKeyBlock>? UniqueKey
     {
-        get => GetArgument<AzurermCosmosdbSqlContainerUniqueKeyBlock>("unique_key");
+        get => GetArgument<TerraformSet<AzurermCosmosdbSqlContainerUniqueKeyBlock>>("unique_key");
         set => SetArgument("unique_key", value);
     }
 

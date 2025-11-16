@@ -721,9 +721,9 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// AzureActiveDirectory block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectory block(s) allowed")]
-    public AzurermServiceFabricClusterAzureActiveDirectoryBlock? AzureActiveDirectory
+    public TerraformList<AzurermServiceFabricClusterAzureActiveDirectoryBlock>? AzureActiveDirectory
     {
-        get => GetArgument<AzurermServiceFabricClusterAzureActiveDirectoryBlock>("azure_active_directory");
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterAzureActiveDirectoryBlock>>("azure_active_directory");
         set => SetArgument("azure_active_directory", value);
     }
 
@@ -731,9 +731,9 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// Certificate block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Certificate block(s) allowed")]
-    public AzurermServiceFabricClusterCertificateBlock? Certificate
+    public TerraformList<AzurermServiceFabricClusterCertificateBlock>? Certificate
     {
-        get => GetArgument<AzurermServiceFabricClusterCertificateBlock>("certificate");
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterCertificateBlock>>("certificate");
         set => SetArgument("certificate", value);
     }
 
@@ -741,27 +741,27 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// CertificateCommonNames block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateCommonNames block(s) allowed")]
-    public AzurermServiceFabricClusterCertificateCommonNamesBlock? CertificateCommonNames
+    public TerraformList<AzurermServiceFabricClusterCertificateCommonNamesBlock>? CertificateCommonNames
     {
-        get => GetArgument<AzurermServiceFabricClusterCertificateCommonNamesBlock>("certificate_common_names");
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterCertificateCommonNamesBlock>>("certificate_common_names");
         set => SetArgument("certificate_common_names", value);
     }
 
     /// <summary>
     /// ClientCertificateCommonName block (nesting mode: list).
     /// </summary>
-    public AzurermServiceFabricClusterClientCertificateCommonNameBlock? ClientCertificateCommonName
+    public TerraformList<AzurermServiceFabricClusterClientCertificateCommonNameBlock>? ClientCertificateCommonName
     {
-        get => GetArgument<AzurermServiceFabricClusterClientCertificateCommonNameBlock>("client_certificate_common_name");
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterClientCertificateCommonNameBlock>>("client_certificate_common_name");
         set => SetArgument("client_certificate_common_name", value);
     }
 
     /// <summary>
     /// ClientCertificateThumbprint block (nesting mode: list).
     /// </summary>
-    public AzurermServiceFabricClusterClientCertificateThumbprintBlock? ClientCertificateThumbprint
+    public TerraformList<AzurermServiceFabricClusterClientCertificateThumbprintBlock>? ClientCertificateThumbprint
     {
-        get => GetArgument<AzurermServiceFabricClusterClientCertificateThumbprintBlock>("client_certificate_thumbprint");
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterClientCertificateThumbprintBlock>>("client_certificate_thumbprint");
         set => SetArgument("client_certificate_thumbprint", value);
     }
 
@@ -769,18 +769,18 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// DiagnosticsConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticsConfig block(s) allowed")]
-    public AzurermServiceFabricClusterDiagnosticsConfigBlock? DiagnosticsConfig
+    public TerraformList<AzurermServiceFabricClusterDiagnosticsConfigBlock>? DiagnosticsConfig
     {
-        get => GetArgument<AzurermServiceFabricClusterDiagnosticsConfigBlock>("diagnostics_config");
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterDiagnosticsConfigBlock>>("diagnostics_config");
         set => SetArgument("diagnostics_config", value);
     }
 
     /// <summary>
     /// FabricSettings block (nesting mode: list).
     /// </summary>
-    public AzurermServiceFabricClusterFabricSettingsBlock? FabricSettings
+    public TerraformList<AzurermServiceFabricClusterFabricSettingsBlock>? FabricSettings
     {
-        get => GetArgument<AzurermServiceFabricClusterFabricSettingsBlock>("fabric_settings");
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterFabricSettingsBlock>>("fabric_settings");
         set => SetArgument("fabric_settings", value);
     }
 
@@ -790,9 +790,9 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NodeType block(s) required")]
-    public required AzurermServiceFabricClusterNodeTypeBlock NodeType
+    public required TerraformList<AzurermServiceFabricClusterNodeTypeBlock> NodeType
     {
-        get => GetRequiredArgument<AzurermServiceFabricClusterNodeTypeBlock>("node_type");
+        get => GetRequiredArgument<TerraformList<AzurermServiceFabricClusterNodeTypeBlock>>("node_type");
         set => SetArgument("node_type", value);
     }
 
@@ -800,9 +800,9 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// ReverseProxyCertificate block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseProxyCertificate block(s) allowed")]
-    public AzurermServiceFabricClusterReverseProxyCertificateBlock? ReverseProxyCertificate
+    public TerraformList<AzurermServiceFabricClusterReverseProxyCertificateBlock>? ReverseProxyCertificate
     {
-        get => GetArgument<AzurermServiceFabricClusterReverseProxyCertificateBlock>("reverse_proxy_certificate");
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterReverseProxyCertificateBlock>>("reverse_proxy_certificate");
         set => SetArgument("reverse_proxy_certificate", value);
     }
 
@@ -810,9 +810,9 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// ReverseProxyCertificateCommonNames block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReverseProxyCertificateCommonNames block(s) allowed")]
-    public AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock? ReverseProxyCertificateCommonNames
+    public TerraformList<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock>? ReverseProxyCertificateCommonNames
     {
-        get => GetArgument<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock>("reverse_proxy_certificate_common_names");
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock>>("reverse_proxy_certificate_common_names");
         set => SetArgument("reverse_proxy_certificate_common_names", value);
     }
 
@@ -829,9 +829,9 @@ public partial class AzurermServiceFabricCluster(string name) : TerraformResourc
     /// UpgradePolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradePolicy block(s) allowed")]
-    public AzurermServiceFabricClusterUpgradePolicyBlock? UpgradePolicy
+    public TerraformList<AzurermServiceFabricClusterUpgradePolicyBlock>? UpgradePolicy
     {
-        get => GetArgument<AzurermServiceFabricClusterUpgradePolicyBlock>("upgrade_policy");
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterUpgradePolicyBlock>>("upgrade_policy");
         set => SetArgument("upgrade_policy", value);
     }
 

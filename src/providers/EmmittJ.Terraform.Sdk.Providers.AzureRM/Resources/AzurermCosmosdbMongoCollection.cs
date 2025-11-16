@@ -200,18 +200,18 @@ public partial class AzurermCosmosdbMongoCollection(string name) : TerraformReso
     /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    public AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock? AutoscaleSettings
+    public TerraformList<AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetArgument<AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock>("autoscale_settings");
+        get => GetArgument<TerraformList<AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock>>("autoscale_settings");
         set => SetArgument("autoscale_settings", value);
     }
 
     /// <summary>
     /// Index block (nesting mode: set).
     /// </summary>
-    public AzurermCosmosdbMongoCollectionIndexBlock? Index
+    public TerraformSet<AzurermCosmosdbMongoCollectionIndexBlock>? Index
     {
-        get => GetArgument<AzurermCosmosdbMongoCollectionIndexBlock>("index");
+        get => GetArgument<TerraformSet<AzurermCosmosdbMongoCollectionIndexBlock>>("index");
         set => SetArgument("index", value);
     }
 

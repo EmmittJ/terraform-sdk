@@ -311,9 +311,9 @@ public partial class AzurermNetappSnapshotPolicy(string name) : TerraformResourc
     /// DailySchedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailySchedule block(s) allowed")]
-    public AzurermNetappSnapshotPolicyDailyScheduleBlock? DailySchedule
+    public TerraformList<AzurermNetappSnapshotPolicyDailyScheduleBlock>? DailySchedule
     {
-        get => GetArgument<AzurermNetappSnapshotPolicyDailyScheduleBlock>("daily_schedule");
+        get => GetArgument<TerraformList<AzurermNetappSnapshotPolicyDailyScheduleBlock>>("daily_schedule");
         set => SetArgument("daily_schedule", value);
     }
 
@@ -321,9 +321,9 @@ public partial class AzurermNetappSnapshotPolicy(string name) : TerraformResourc
     /// HourlySchedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourlySchedule block(s) allowed")]
-    public AzurermNetappSnapshotPolicyHourlyScheduleBlock? HourlySchedule
+    public TerraformList<AzurermNetappSnapshotPolicyHourlyScheduleBlock>? HourlySchedule
     {
-        get => GetArgument<AzurermNetappSnapshotPolicyHourlyScheduleBlock>("hourly_schedule");
+        get => GetArgument<TerraformList<AzurermNetappSnapshotPolicyHourlyScheduleBlock>>("hourly_schedule");
         set => SetArgument("hourly_schedule", value);
     }
 
@@ -331,9 +331,9 @@ public partial class AzurermNetappSnapshotPolicy(string name) : TerraformResourc
     /// MonthlySchedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonthlySchedule block(s) allowed")]
-    public AzurermNetappSnapshotPolicyMonthlyScheduleBlock? MonthlySchedule
+    public TerraformList<AzurermNetappSnapshotPolicyMonthlyScheduleBlock>? MonthlySchedule
     {
-        get => GetArgument<AzurermNetappSnapshotPolicyMonthlyScheduleBlock>("monthly_schedule");
+        get => GetArgument<TerraformList<AzurermNetappSnapshotPolicyMonthlyScheduleBlock>>("monthly_schedule");
         set => SetArgument("monthly_schedule", value);
     }
 
@@ -350,9 +350,9 @@ public partial class AzurermNetappSnapshotPolicy(string name) : TerraformResourc
     /// WeeklySchedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklySchedule block(s) allowed")]
-    public AzurermNetappSnapshotPolicyWeeklyScheduleBlock? WeeklySchedule
+    public TerraformList<AzurermNetappSnapshotPolicyWeeklyScheduleBlock>? WeeklySchedule
     {
-        get => GetArgument<AzurermNetappSnapshotPolicyWeeklyScheduleBlock>("weekly_schedule");
+        get => GetArgument<TerraformList<AzurermNetappSnapshotPolicyWeeklyScheduleBlock>>("weekly_schedule");
         set => SetArgument("weekly_schedule", value);
     }
 

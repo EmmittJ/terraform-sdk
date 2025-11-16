@@ -112,9 +112,9 @@ public partial class AzurermStorageManagementPolicy(string name) : TerraformReso
     /// <summary>
     /// Rule block (nesting mode: list).
     /// </summary>
-    public AzurermStorageManagementPolicyRuleBlock? Rule
+    public TerraformList<AzurermStorageManagementPolicyRuleBlock>? Rule
     {
-        get => GetArgument<AzurermStorageManagementPolicyRuleBlock>("rule");
+        get => GetArgument<TerraformList<AzurermStorageManagementPolicyRuleBlock>>("rule");
         set => SetArgument("rule", value);
     }
 

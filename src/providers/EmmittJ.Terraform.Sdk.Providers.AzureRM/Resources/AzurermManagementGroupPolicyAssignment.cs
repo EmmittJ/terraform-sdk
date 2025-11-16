@@ -288,36 +288,36 @@ public partial class AzurermManagementGroupPolicyAssignment(string name) : Terra
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermManagementGroupPolicyAssignmentIdentityBlock? Identity
+    public TerraformList<AzurermManagementGroupPolicyAssignmentIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermManagementGroupPolicyAssignmentIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermManagementGroupPolicyAssignmentIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// NonComplianceMessage block (nesting mode: list).
     /// </summary>
-    public AzurermManagementGroupPolicyAssignmentNonComplianceMessageBlock? NonComplianceMessage
+    public TerraformList<AzurermManagementGroupPolicyAssignmentNonComplianceMessageBlock>? NonComplianceMessage
     {
-        get => GetArgument<AzurermManagementGroupPolicyAssignmentNonComplianceMessageBlock>("non_compliance_message");
+        get => GetArgument<TerraformList<AzurermManagementGroupPolicyAssignmentNonComplianceMessageBlock>>("non_compliance_message");
         set => SetArgument("non_compliance_message", value);
     }
 
     /// <summary>
     /// Overrides block (nesting mode: list).
     /// </summary>
-    public AzurermManagementGroupPolicyAssignmentOverridesBlock? Overrides
+    public TerraformList<AzurermManagementGroupPolicyAssignmentOverridesBlock>? Overrides
     {
-        get => GetArgument<AzurermManagementGroupPolicyAssignmentOverridesBlock>("overrides");
+        get => GetArgument<TerraformList<AzurermManagementGroupPolicyAssignmentOverridesBlock>>("overrides");
         set => SetArgument("overrides", value);
     }
 
     /// <summary>
     /// ResourceSelectors block (nesting mode: list).
     /// </summary>
-    public AzurermManagementGroupPolicyAssignmentResourceSelectorsBlock? ResourceSelectors
+    public TerraformList<AzurermManagementGroupPolicyAssignmentResourceSelectorsBlock>? ResourceSelectors
     {
-        get => GetArgument<AzurermManagementGroupPolicyAssignmentResourceSelectorsBlock>("resource_selectors");
+        get => GetArgument<TerraformList<AzurermManagementGroupPolicyAssignmentResourceSelectorsBlock>>("resource_selectors");
         set => SetArgument("resource_selectors", value);
     }
 

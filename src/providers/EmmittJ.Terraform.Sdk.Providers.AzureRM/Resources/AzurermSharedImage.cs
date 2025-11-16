@@ -396,9 +396,9 @@ public partial class AzurermSharedImage(string name) : TerraformResource("azurer
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identifier block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identifier block(s) allowed")]
-    public required AzurermSharedImageIdentifierBlock Identifier
+    public required TerraformList<AzurermSharedImageIdentifierBlock> Identifier
     {
-        get => GetRequiredArgument<AzurermSharedImageIdentifierBlock>("identifier");
+        get => GetRequiredArgument<TerraformList<AzurermSharedImageIdentifierBlock>>("identifier");
         set => SetArgument("identifier", value);
     }
 
@@ -406,9 +406,9 @@ public partial class AzurermSharedImage(string name) : TerraformResource("azurer
     /// PurchasePlan block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PurchasePlan block(s) allowed")]
-    public AzurermSharedImagePurchasePlanBlock? PurchasePlan
+    public TerraformList<AzurermSharedImagePurchasePlanBlock>? PurchasePlan
     {
-        get => GetArgument<AzurermSharedImagePurchasePlanBlock>("purchase_plan");
+        get => GetArgument<TerraformList<AzurermSharedImagePurchasePlanBlock>>("purchase_plan");
         set => SetArgument("purchase_plan", value);
     }
 

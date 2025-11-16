@@ -324,9 +324,9 @@ public partial class AzurermVpnGatewayConnection(string name) : TerraformResourc
     /// Routing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
-    public AzurermVpnGatewayConnectionRoutingBlock? Routing
+    public TerraformList<AzurermVpnGatewayConnectionRoutingBlock>? Routing
     {
-        get => GetArgument<AzurermVpnGatewayConnectionRoutingBlock>("routing");
+        get => GetArgument<TerraformList<AzurermVpnGatewayConnectionRoutingBlock>>("routing");
         set => SetArgument("routing", value);
     }
 
@@ -342,9 +342,9 @@ public partial class AzurermVpnGatewayConnection(string name) : TerraformResourc
     /// <summary>
     /// TrafficSelectorPolicy block (nesting mode: set).
     /// </summary>
-    public AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock? TrafficSelectorPolicy
+    public TerraformSet<AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock>? TrafficSelectorPolicy
     {
-        get => GetArgument<AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock>("traffic_selector_policy");
+        get => GetArgument<TerraformSet<AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock>>("traffic_selector_policy");
         set => SetArgument("traffic_selector_policy", value);
     }
 
@@ -354,9 +354,9 @@ public partial class AzurermVpnGatewayConnection(string name) : TerraformResourc
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnLink is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpnLink block(s) required")]
-    public required AzurermVpnGatewayConnectionVpnLinkBlock VpnLink
+    public required TerraformList<AzurermVpnGatewayConnectionVpnLinkBlock> VpnLink
     {
-        get => GetRequiredArgument<AzurermVpnGatewayConnectionVpnLinkBlock>("vpn_link");
+        get => GetRequiredArgument<TerraformList<AzurermVpnGatewayConnectionVpnLinkBlock>>("vpn_link");
         set => SetArgument("vpn_link", value);
     }
 

@@ -564,9 +564,9 @@ public partial class AzurermEventgridEventSubscription(string name) : TerraformR
     /// AdvancedFilter block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedFilter block(s) allowed")]
-    public AzurermEventgridEventSubscriptionAdvancedFilterBlock? AdvancedFilter
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlock>? AdvancedFilter
     {
-        get => GetArgument<AzurermEventgridEventSubscriptionAdvancedFilterBlock>("advanced_filter");
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlock>>("advanced_filter");
         set => SetArgument("advanced_filter", value);
     }
 
@@ -574,9 +574,9 @@ public partial class AzurermEventgridEventSubscription(string name) : TerraformR
     /// AzureFunctionEndpoint block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureFunctionEndpoint block(s) allowed")]
-    public AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock? AzureFunctionEndpoint
+    public TerraformList<AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock>? AzureFunctionEndpoint
     {
-        get => GetArgument<AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock>("azure_function_endpoint");
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock>>("azure_function_endpoint");
         set => SetArgument("azure_function_endpoint", value);
     }
 
@@ -584,9 +584,9 @@ public partial class AzurermEventgridEventSubscription(string name) : TerraformR
     /// DeadLetterIdentity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeadLetterIdentity block(s) allowed")]
-    public AzurermEventgridEventSubscriptionDeadLetterIdentityBlock? DeadLetterIdentity
+    public TerraformList<AzurermEventgridEventSubscriptionDeadLetterIdentityBlock>? DeadLetterIdentity
     {
-        get => GetArgument<AzurermEventgridEventSubscriptionDeadLetterIdentityBlock>("dead_letter_identity");
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionDeadLetterIdentityBlock>>("dead_letter_identity");
         set => SetArgument("dead_letter_identity", value);
     }
 
@@ -594,18 +594,18 @@ public partial class AzurermEventgridEventSubscription(string name) : TerraformR
     /// DeliveryIdentity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryIdentity block(s) allowed")]
-    public AzurermEventgridEventSubscriptionDeliveryIdentityBlock? DeliveryIdentity
+    public TerraformList<AzurermEventgridEventSubscriptionDeliveryIdentityBlock>? DeliveryIdentity
     {
-        get => GetArgument<AzurermEventgridEventSubscriptionDeliveryIdentityBlock>("delivery_identity");
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionDeliveryIdentityBlock>>("delivery_identity");
         set => SetArgument("delivery_identity", value);
     }
 
     /// <summary>
     /// DeliveryProperty block (nesting mode: list).
     /// </summary>
-    public AzurermEventgridEventSubscriptionDeliveryPropertyBlock? DeliveryProperty
+    public TerraformList<AzurermEventgridEventSubscriptionDeliveryPropertyBlock>? DeliveryProperty
     {
-        get => GetArgument<AzurermEventgridEventSubscriptionDeliveryPropertyBlock>("delivery_property");
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionDeliveryPropertyBlock>>("delivery_property");
         set => SetArgument("delivery_property", value);
     }
 
@@ -613,9 +613,9 @@ public partial class AzurermEventgridEventSubscription(string name) : TerraformR
     /// RetryPolicy block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
-    public AzurermEventgridEventSubscriptionRetryPolicyBlock? RetryPolicy
+    public TerraformList<AzurermEventgridEventSubscriptionRetryPolicyBlock>? RetryPolicy
     {
-        get => GetArgument<AzurermEventgridEventSubscriptionRetryPolicyBlock>("retry_policy");
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionRetryPolicyBlock>>("retry_policy");
         set => SetArgument("retry_policy", value);
     }
 
@@ -623,9 +623,9 @@ public partial class AzurermEventgridEventSubscription(string name) : TerraformR
     /// StorageBlobDeadLetterDestination block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageBlobDeadLetterDestination block(s) allowed")]
-    public AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBlock? StorageBlobDeadLetterDestination
+    public TerraformList<AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBlock>? StorageBlobDeadLetterDestination
     {
-        get => GetArgument<AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBlock>("storage_blob_dead_letter_destination");
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBlock>>("storage_blob_dead_letter_destination");
         set => SetArgument("storage_blob_dead_letter_destination", value);
     }
 
@@ -633,9 +633,9 @@ public partial class AzurermEventgridEventSubscription(string name) : TerraformR
     /// StorageQueueEndpoint block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageQueueEndpoint block(s) allowed")]
-    public AzurermEventgridEventSubscriptionStorageQueueEndpointBlock? StorageQueueEndpoint
+    public TerraformList<AzurermEventgridEventSubscriptionStorageQueueEndpointBlock>? StorageQueueEndpoint
     {
-        get => GetArgument<AzurermEventgridEventSubscriptionStorageQueueEndpointBlock>("storage_queue_endpoint");
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionStorageQueueEndpointBlock>>("storage_queue_endpoint");
         set => SetArgument("storage_queue_endpoint", value);
     }
 
@@ -643,9 +643,9 @@ public partial class AzurermEventgridEventSubscription(string name) : TerraformR
     /// SubjectFilter block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubjectFilter block(s) allowed")]
-    public AzurermEventgridEventSubscriptionSubjectFilterBlock? SubjectFilter
+    public TerraformList<AzurermEventgridEventSubscriptionSubjectFilterBlock>? SubjectFilter
     {
-        get => GetArgument<AzurermEventgridEventSubscriptionSubjectFilterBlock>("subject_filter");
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionSubjectFilterBlock>>("subject_filter");
         set => SetArgument("subject_filter", value);
     }
 
@@ -662,9 +662,9 @@ public partial class AzurermEventgridEventSubscription(string name) : TerraformR
     /// WebhookEndpoint block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebhookEndpoint block(s) allowed")]
-    public AzurermEventgridEventSubscriptionWebhookEndpointBlock? WebhookEndpoint
+    public TerraformList<AzurermEventgridEventSubscriptionWebhookEndpointBlock>? WebhookEndpoint
     {
-        get => GetArgument<AzurermEventgridEventSubscriptionWebhookEndpointBlock>("webhook_endpoint");
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionWebhookEndpointBlock>>("webhook_endpoint");
         set => SetArgument("webhook_endpoint", value);
     }
 

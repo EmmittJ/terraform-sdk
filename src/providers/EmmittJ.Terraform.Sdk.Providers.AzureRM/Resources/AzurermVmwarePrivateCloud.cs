@@ -198,9 +198,9 @@ public partial class AzurermVmwarePrivateCloud(string name) : TerraformResource(
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementCluster is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagementCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagementCluster block(s) allowed")]
-    public required AzurermVmwarePrivateCloudManagementClusterBlock ManagementCluster
+    public required TerraformList<AzurermVmwarePrivateCloudManagementClusterBlock> ManagementCluster
     {
-        get => GetRequiredArgument<AzurermVmwarePrivateCloudManagementClusterBlock>("management_cluster");
+        get => GetRequiredArgument<TerraformList<AzurermVmwarePrivateCloudManagementClusterBlock>>("management_cluster");
         set => SetArgument("management_cluster", value);
     }
 

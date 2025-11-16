@@ -180,9 +180,9 @@ public partial class AzurermExtendedLocationCustomLocation(string name) : Terraf
     /// Authentication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    public AzurermExtendedLocationCustomLocationAuthenticationBlock? Authentication
+    public TerraformList<AzurermExtendedLocationCustomLocationAuthenticationBlock>? Authentication
     {
-        get => GetArgument<AzurermExtendedLocationCustomLocationAuthenticationBlock>("authentication");
+        get => GetArgument<TerraformList<AzurermExtendedLocationCustomLocationAuthenticationBlock>>("authentication");
         set => SetArgument("authentication", value);
     }
 

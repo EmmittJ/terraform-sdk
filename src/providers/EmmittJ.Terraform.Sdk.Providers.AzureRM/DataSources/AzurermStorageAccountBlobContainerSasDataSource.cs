@@ -222,9 +222,9 @@ public partial class AzurermStorageAccountBlobContainerSasDataSource(string name
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Permissions block(s) allowed")]
-    public required AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock Permissions
+    public required TerraformList<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock> Permissions
     {
-        get => GetRequiredArgument<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock>("permissions");
+        get => GetRequiredArgument<TerraformList<AzurermStorageAccountBlobContainerSasDataSourcePermissionsBlock>>("permissions");
         set => SetArgument("permissions", value);
     }
 

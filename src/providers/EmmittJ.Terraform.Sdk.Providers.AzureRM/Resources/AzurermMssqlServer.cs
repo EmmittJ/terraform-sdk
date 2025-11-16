@@ -317,9 +317,9 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// AzureadAdministrator block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureadAdministrator block(s) allowed")]
-    public AzurermMssqlServerAzureadAdministratorBlock? AzureadAdministrator
+    public TerraformList<AzurermMssqlServerAzureadAdministratorBlock>? AzureadAdministrator
     {
-        get => GetArgument<AzurermMssqlServerAzureadAdministratorBlock>("azuread_administrator");
+        get => GetArgument<TerraformList<AzurermMssqlServerAzureadAdministratorBlock>>("azuread_administrator");
         set => SetArgument("azuread_administrator", value);
     }
 
@@ -327,9 +327,9 @@ public partial class AzurermMssqlServer(string name) : TerraformResource("azurer
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMssqlServerIdentityBlock? Identity
+    public TerraformList<AzurermMssqlServerIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMssqlServerIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMssqlServerIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

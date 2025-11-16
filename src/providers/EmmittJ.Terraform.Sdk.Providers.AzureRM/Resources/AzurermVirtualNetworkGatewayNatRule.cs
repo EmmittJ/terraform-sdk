@@ -193,9 +193,9 @@ public partial class AzurermVirtualNetworkGatewayNatRule(string name) : Terrafor
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExternalMapping is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExternalMapping block(s) required")]
-    public required AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock ExternalMapping
+    public required TerraformList<AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock> ExternalMapping
     {
-        get => GetRequiredArgument<AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock>("external_mapping");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock>>("external_mapping");
         set => SetArgument("external_mapping", value);
     }
 
@@ -205,9 +205,9 @@ public partial class AzurermVirtualNetworkGatewayNatRule(string name) : Terrafor
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternalMapping is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InternalMapping block(s) required")]
-    public required AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock InternalMapping
+    public required TerraformList<AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock> InternalMapping
     {
-        get => GetRequiredArgument<AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock>("internal_mapping");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock>>("internal_mapping");
         set => SetArgument("internal_mapping", value);
     }
 

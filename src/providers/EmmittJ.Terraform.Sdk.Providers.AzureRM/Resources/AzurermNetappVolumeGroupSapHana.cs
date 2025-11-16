@@ -297,9 +297,9 @@ public partial class AzurermNetappVolumeGroupSapHana(string name) : TerraformRes
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Volume block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Volume block(s) allowed")]
-    public AzurermNetappVolumeGroupSapHanaVolumeBlock? Volume
+    public TerraformList<AzurermNetappVolumeGroupSapHanaVolumeBlock>? Volume
     {
-        get => GetArgument<AzurermNetappVolumeGroupSapHanaVolumeBlock>("volume");
+        get => GetArgument<TerraformList<AzurermNetappVolumeGroupSapHanaVolumeBlock>>("volume");
         set => SetArgument("volume", value);
     }
 

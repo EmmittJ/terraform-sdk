@@ -205,9 +205,9 @@ public partial class AzurermOrbitalSpacecraft(string name) : TerraformResource("
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Links is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Links block(s) required")]
-    public required AzurermOrbitalSpacecraftLinksBlock Links
+    public required TerraformList<AzurermOrbitalSpacecraftLinksBlock> Links
     {
-        get => GetRequiredArgument<AzurermOrbitalSpacecraftLinksBlock>("links");
+        get => GetRequiredArgument<TerraformList<AzurermOrbitalSpacecraftLinksBlock>>("links");
         set => SetArgument("links", value);
     }
 

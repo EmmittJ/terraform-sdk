@@ -197,9 +197,9 @@ public partial class AzurermHealthcareMedtechService(string name) : TerraformRes
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermHealthcareMedtechServiceIdentityBlock? Identity
+    public TerraformList<AzurermHealthcareMedtechServiceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermHealthcareMedtechServiceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermHealthcareMedtechServiceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

@@ -241,9 +241,9 @@ public partial class AzurermConsumptionBudgetResourceGroup(string name) : Terraf
     /// Filter block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
-    public AzurermConsumptionBudgetResourceGroupFilterBlock? Filter
+    public TerraformList<AzurermConsumptionBudgetResourceGroupFilterBlock>? Filter
     {
-        get => GetArgument<AzurermConsumptionBudgetResourceGroupFilterBlock>("filter");
+        get => GetArgument<TerraformList<AzurermConsumptionBudgetResourceGroupFilterBlock>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -253,9 +253,9 @@ public partial class AzurermConsumptionBudgetResourceGroup(string name) : Terraf
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Notification is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Notification block(s) required")]
-    public required AzurermConsumptionBudgetResourceGroupNotificationBlock Notification
+    public required TerraformSet<AzurermConsumptionBudgetResourceGroupNotificationBlock> Notification
     {
-        get => GetRequiredArgument<AzurermConsumptionBudgetResourceGroupNotificationBlock>("notification");
+        get => GetRequiredArgument<TerraformSet<AzurermConsumptionBudgetResourceGroupNotificationBlock>>("notification");
         set => SetArgument("notification", value);
     }
 
@@ -266,9 +266,9 @@ public partial class AzurermConsumptionBudgetResourceGroup(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimePeriod is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TimePeriod block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TimePeriod block(s) allowed")]
-    public required AzurermConsumptionBudgetResourceGroupTimePeriodBlock TimePeriod
+    public required TerraformList<AzurermConsumptionBudgetResourceGroupTimePeriodBlock> TimePeriod
     {
-        get => GetRequiredArgument<AzurermConsumptionBudgetResourceGroupTimePeriodBlock>("time_period");
+        get => GetRequiredArgument<TerraformList<AzurermConsumptionBudgetResourceGroupTimePeriodBlock>>("time_period");
         set => SetArgument("time_period", value);
     }
 

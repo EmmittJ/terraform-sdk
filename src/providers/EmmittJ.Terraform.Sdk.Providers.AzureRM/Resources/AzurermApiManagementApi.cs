@@ -428,9 +428,9 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// Contact block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Contact block(s) allowed")]
-    public AzurermApiManagementApiContactBlock? Contact
+    public TerraformList<AzurermApiManagementApiContactBlock>? Contact
     {
-        get => GetArgument<AzurermApiManagementApiContactBlock>("contact");
+        get => GetArgument<TerraformList<AzurermApiManagementApiContactBlock>>("contact");
         set => SetArgument("contact", value);
     }
 
@@ -438,9 +438,9 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// Import block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Import block(s) allowed")]
-    public AzurermApiManagementApiImportBlock? Import
+    public TerraformList<AzurermApiManagementApiImportBlock>? Import
     {
-        get => GetArgument<AzurermApiManagementApiImportBlock>("import");
+        get => GetArgument<TerraformList<AzurermApiManagementApiImportBlock>>("import");
         set => SetArgument("import", value);
     }
 
@@ -448,9 +448,9 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// License block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 License block(s) allowed")]
-    public AzurermApiManagementApiLicenseBlock? License
+    public TerraformList<AzurermApiManagementApiLicenseBlock>? License
     {
-        get => GetArgument<AzurermApiManagementApiLicenseBlock>("license");
+        get => GetArgument<TerraformList<AzurermApiManagementApiLicenseBlock>>("license");
         set => SetArgument("license", value);
     }
 
@@ -458,9 +458,9 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// Oauth2Authorization block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oauth2Authorization block(s) allowed")]
-    public AzurermApiManagementApiOauth2AuthorizationBlock? Oauth2Authorization
+    public TerraformList<AzurermApiManagementApiOauth2AuthorizationBlock>? Oauth2Authorization
     {
-        get => GetArgument<AzurermApiManagementApiOauth2AuthorizationBlock>("oauth2_authorization");
+        get => GetArgument<TerraformList<AzurermApiManagementApiOauth2AuthorizationBlock>>("oauth2_authorization");
         set => SetArgument("oauth2_authorization", value);
     }
 
@@ -468,9 +468,9 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// OpenidAuthentication block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpenidAuthentication block(s) allowed")]
-    public AzurermApiManagementApiOpenidAuthenticationBlock? OpenidAuthentication
+    public TerraformList<AzurermApiManagementApiOpenidAuthenticationBlock>? OpenidAuthentication
     {
-        get => GetArgument<AzurermApiManagementApiOpenidAuthenticationBlock>("openid_authentication");
+        get => GetArgument<TerraformList<AzurermApiManagementApiOpenidAuthenticationBlock>>("openid_authentication");
         set => SetArgument("openid_authentication", value);
     }
 
@@ -478,9 +478,9 @@ public partial class AzurermApiManagementApi(string name) : TerraformResource("a
     /// SubscriptionKeyParameterNames block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubscriptionKeyParameterNames block(s) allowed")]
-    public AzurermApiManagementApiSubscriptionKeyParameterNamesBlock? SubscriptionKeyParameterNames
+    public TerraformList<AzurermApiManagementApiSubscriptionKeyParameterNamesBlock>? SubscriptionKeyParameterNames
     {
-        get => GetArgument<AzurermApiManagementApiSubscriptionKeyParameterNamesBlock>("subscription_key_parameter_names");
+        get => GetArgument<TerraformList<AzurermApiManagementApiSubscriptionKeyParameterNamesBlock>>("subscription_key_parameter_names");
         set => SetArgument("subscription_key_parameter_names", value);
     }
 

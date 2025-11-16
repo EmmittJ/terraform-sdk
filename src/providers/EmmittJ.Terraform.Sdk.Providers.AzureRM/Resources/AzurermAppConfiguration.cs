@@ -300,9 +300,9 @@ public partial class AzurermAppConfiguration(string name) : TerraformResource("a
     /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    public AzurermAppConfigurationEncryptionBlock? Encryption
+    public TerraformList<AzurermAppConfigurationEncryptionBlock>? Encryption
     {
-        get => GetArgument<AzurermAppConfigurationEncryptionBlock>("encryption");
+        get => GetArgument<TerraformList<AzurermAppConfigurationEncryptionBlock>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -310,18 +310,18 @@ public partial class AzurermAppConfiguration(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermAppConfigurationIdentityBlock? Identity
+    public TerraformList<AzurermAppConfigurationIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermAppConfigurationIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermAppConfigurationIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// Replica block (nesting mode: set).
     /// </summary>
-    public AzurermAppConfigurationReplicaBlock? Replica
+    public TerraformSet<AzurermAppConfigurationReplicaBlock>? Replica
     {
-        get => GetArgument<AzurermAppConfigurationReplicaBlock>("replica");
+        get => GetArgument<TerraformSet<AzurermAppConfigurationReplicaBlock>>("replica");
         set => SetArgument("replica", value);
     }
 

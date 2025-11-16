@@ -414,9 +414,9 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// <summary>
     /// Cors block (nesting mode: list).
     /// </summary>
-    public AzurermSignalrServiceCorsBlock? Cors
+    public TerraformList<AzurermSignalrServiceCorsBlock>? Cors
     {
-        get => GetArgument<AzurermSignalrServiceCorsBlock>("cors");
+        get => GetArgument<TerraformList<AzurermSignalrServiceCorsBlock>>("cors");
         set => SetArgument("cors", value);
     }
 
@@ -424,9 +424,9 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermSignalrServiceIdentityBlock? Identity
+    public TerraformList<AzurermSignalrServiceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermSignalrServiceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermSignalrServiceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -434,9 +434,9 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// LiveTrace block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LiveTrace block(s) allowed")]
-    public AzurermSignalrServiceLiveTraceBlock? LiveTrace
+    public TerraformList<AzurermSignalrServiceLiveTraceBlock>? LiveTrace
     {
-        get => GetArgument<AzurermSignalrServiceLiveTraceBlock>("live_trace");
+        get => GetArgument<TerraformList<AzurermSignalrServiceLiveTraceBlock>>("live_trace");
         set => SetArgument("live_trace", value);
     }
 
@@ -447,9 +447,9 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermSignalrServiceSkuBlock Sku
+    public required TerraformList<AzurermSignalrServiceSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermSignalrServiceSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermSignalrServiceSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 
@@ -465,9 +465,9 @@ public partial class AzurermSignalrService(string name) : TerraformResource("azu
     /// <summary>
     /// UpstreamEndpoint block (nesting mode: set).
     /// </summary>
-    public AzurermSignalrServiceUpstreamEndpointBlock? UpstreamEndpoint
+    public TerraformSet<AzurermSignalrServiceUpstreamEndpointBlock>? UpstreamEndpoint
     {
-        get => GetArgument<AzurermSignalrServiceUpstreamEndpointBlock>("upstream_endpoint");
+        get => GetArgument<TerraformSet<AzurermSignalrServiceUpstreamEndpointBlock>>("upstream_endpoint");
         set => SetArgument("upstream_endpoint", value);
     }
 

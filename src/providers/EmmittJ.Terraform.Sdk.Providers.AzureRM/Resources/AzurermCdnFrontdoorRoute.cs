@@ -242,9 +242,9 @@ public partial class AzurermCdnFrontdoorRoute(string name) : TerraformResource("
     /// Cache block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cache block(s) allowed")]
-    public AzurermCdnFrontdoorRouteCacheBlock? Cache
+    public TerraformList<AzurermCdnFrontdoorRouteCacheBlock>? Cache
     {
-        get => GetArgument<AzurermCdnFrontdoorRouteCacheBlock>("cache");
+        get => GetArgument<TerraformList<AzurermCdnFrontdoorRouteCacheBlock>>("cache");
         set => SetArgument("cache", value);
     }
 

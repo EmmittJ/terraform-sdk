@@ -151,9 +151,9 @@ public partial class AzurermIothubDeviceUpdateInstance(string name) : TerraformR
     /// DiagnosticStorageAccount block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiagnosticStorageAccount block(s) allowed")]
-    public AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock? DiagnosticStorageAccount
+    public TerraformList<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>? DiagnosticStorageAccount
     {
-        get => GetArgument<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>("diagnostic_storage_account");
+        get => GetArgument<TerraformList<AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock>>("diagnostic_storage_account");
         set => SetArgument("diagnostic_storage_account", value);
     }
 

@@ -339,18 +339,18 @@ public partial class AzurermCdnEndpoint(string name) : TerraformResource("azurer
     /// <summary>
     /// DeliveryRule block (nesting mode: list).
     /// </summary>
-    public AzurermCdnEndpointDeliveryRuleBlock? DeliveryRule
+    public TerraformList<AzurermCdnEndpointDeliveryRuleBlock>? DeliveryRule
     {
-        get => GetArgument<AzurermCdnEndpointDeliveryRuleBlock>("delivery_rule");
+        get => GetArgument<TerraformList<AzurermCdnEndpointDeliveryRuleBlock>>("delivery_rule");
         set => SetArgument("delivery_rule", value);
     }
 
     /// <summary>
     /// GeoFilter block (nesting mode: list).
     /// </summary>
-    public AzurermCdnEndpointGeoFilterBlock? GeoFilter
+    public TerraformList<AzurermCdnEndpointGeoFilterBlock>? GeoFilter
     {
-        get => GetArgument<AzurermCdnEndpointGeoFilterBlock>("geo_filter");
+        get => GetArgument<TerraformList<AzurermCdnEndpointGeoFilterBlock>>("geo_filter");
         set => SetArgument("geo_filter", value);
     }
 
@@ -358,9 +358,9 @@ public partial class AzurermCdnEndpoint(string name) : TerraformResource("azurer
     /// GlobalDeliveryRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GlobalDeliveryRule block(s) allowed")]
-    public AzurermCdnEndpointGlobalDeliveryRuleBlock? GlobalDeliveryRule
+    public TerraformList<AzurermCdnEndpointGlobalDeliveryRuleBlock>? GlobalDeliveryRule
     {
-        get => GetArgument<AzurermCdnEndpointGlobalDeliveryRuleBlock>("global_delivery_rule");
+        get => GetArgument<TerraformList<AzurermCdnEndpointGlobalDeliveryRuleBlock>>("global_delivery_rule");
         set => SetArgument("global_delivery_rule", value);
     }
 
@@ -370,9 +370,9 @@ public partial class AzurermCdnEndpoint(string name) : TerraformResource("azurer
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Origin block(s) required")]
-    public required AzurermCdnEndpointOriginBlock Origin
+    public required TerraformSet<AzurermCdnEndpointOriginBlock> Origin
     {
-        get => GetRequiredArgument<AzurermCdnEndpointOriginBlock>("origin");
+        get => GetRequiredArgument<TerraformSet<AzurermCdnEndpointOriginBlock>>("origin");
         set => SetArgument("origin", value);
     }
 

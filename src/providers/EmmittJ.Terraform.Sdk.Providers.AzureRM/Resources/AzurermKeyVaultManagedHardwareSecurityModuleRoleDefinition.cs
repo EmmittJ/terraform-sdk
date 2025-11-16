@@ -156,9 +156,9 @@ public partial class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinition(
     /// <summary>
     /// Permission block (nesting mode: list).
     /// </summary>
-    public AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock? Permission
+    public TerraformList<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>? Permission
     {
-        get => GetArgument<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>("permission");
+        get => GetArgument<TerraformList<AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionPermissionBlock>>("permission");
         set => SetArgument("permission", value);
     }
 

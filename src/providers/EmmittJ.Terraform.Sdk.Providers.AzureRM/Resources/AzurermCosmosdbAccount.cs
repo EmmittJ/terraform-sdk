@@ -702,9 +702,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// AnalyticalStorage block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnalyticalStorage block(s) allowed")]
-    public AzurermCosmosdbAccountAnalyticalStorageBlock? AnalyticalStorage
+    public TerraformList<AzurermCosmosdbAccountAnalyticalStorageBlock>? AnalyticalStorage
     {
-        get => GetArgument<AzurermCosmosdbAccountAnalyticalStorageBlock>("analytical_storage");
+        get => GetArgument<TerraformList<AzurermCosmosdbAccountAnalyticalStorageBlock>>("analytical_storage");
         set => SetArgument("analytical_storage", value);
     }
 
@@ -712,18 +712,18 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// Backup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public AzurermCosmosdbAccountBackupBlock? Backup
+    public TerraformList<AzurermCosmosdbAccountBackupBlock>? Backup
     {
-        get => GetArgument<AzurermCosmosdbAccountBackupBlock>("backup");
+        get => GetArgument<TerraformList<AzurermCosmosdbAccountBackupBlock>>("backup");
         set => SetArgument("backup", value);
     }
 
     /// <summary>
     /// Capabilities block (nesting mode: set).
     /// </summary>
-    public AzurermCosmosdbAccountCapabilitiesBlock? Capabilities
+    public TerraformSet<AzurermCosmosdbAccountCapabilitiesBlock>? Capabilities
     {
-        get => GetArgument<AzurermCosmosdbAccountCapabilitiesBlock>("capabilities");
+        get => GetArgument<TerraformSet<AzurermCosmosdbAccountCapabilitiesBlock>>("capabilities");
         set => SetArgument("capabilities", value);
     }
 
@@ -731,9 +731,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// Capacity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Capacity block(s) allowed")]
-    public AzurermCosmosdbAccountCapacityBlock? Capacity
+    public TerraformList<AzurermCosmosdbAccountCapacityBlock>? Capacity
     {
-        get => GetArgument<AzurermCosmosdbAccountCapacityBlock>("capacity");
+        get => GetArgument<TerraformList<AzurermCosmosdbAccountCapacityBlock>>("capacity");
         set => SetArgument("capacity", value);
     }
 
@@ -744,9 +744,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsistencyPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConsistencyPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConsistencyPolicy block(s) allowed")]
-    public required AzurermCosmosdbAccountConsistencyPolicyBlock ConsistencyPolicy
+    public required TerraformList<AzurermCosmosdbAccountConsistencyPolicyBlock> ConsistencyPolicy
     {
-        get => GetRequiredArgument<AzurermCosmosdbAccountConsistencyPolicyBlock>("consistency_policy");
+        get => GetRequiredArgument<TerraformList<AzurermCosmosdbAccountConsistencyPolicyBlock>>("consistency_policy");
         set => SetArgument("consistency_policy", value);
     }
 
@@ -754,9 +754,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// CorsRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CorsRule block(s) allowed")]
-    public AzurermCosmosdbAccountCorsRuleBlock? CorsRule
+    public TerraformList<AzurermCosmosdbAccountCorsRuleBlock>? CorsRule
     {
-        get => GetArgument<AzurermCosmosdbAccountCorsRuleBlock>("cors_rule");
+        get => GetArgument<TerraformList<AzurermCosmosdbAccountCorsRuleBlock>>("cors_rule");
         set => SetArgument("cors_rule", value);
     }
 
@@ -766,9 +766,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GeoLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GeoLocation block(s) required")]
-    public required AzurermCosmosdbAccountGeoLocationBlock GeoLocation
+    public required TerraformSet<AzurermCosmosdbAccountGeoLocationBlock> GeoLocation
     {
-        get => GetRequiredArgument<AzurermCosmosdbAccountGeoLocationBlock>("geo_location");
+        get => GetRequiredArgument<TerraformSet<AzurermCosmosdbAccountGeoLocationBlock>>("geo_location");
         set => SetArgument("geo_location", value);
     }
 
@@ -776,9 +776,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermCosmosdbAccountIdentityBlock? Identity
+    public TerraformList<AzurermCosmosdbAccountIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermCosmosdbAccountIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermCosmosdbAccountIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -786,9 +786,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// Restore block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restore block(s) allowed")]
-    public AzurermCosmosdbAccountRestoreBlock? Restore
+    public TerraformList<AzurermCosmosdbAccountRestoreBlock>? Restore
     {
-        get => GetArgument<AzurermCosmosdbAccountRestoreBlock>("restore");
+        get => GetArgument<TerraformList<AzurermCosmosdbAccountRestoreBlock>>("restore");
         set => SetArgument("restore", value);
     }
 
@@ -804,9 +804,9 @@ public partial class AzurermCosmosdbAccount(string name) : TerraformResource("az
     /// <summary>
     /// VirtualNetworkRule block (nesting mode: set).
     /// </summary>
-    public AzurermCosmosdbAccountVirtualNetworkRuleBlock? VirtualNetworkRule
+    public TerraformSet<AzurermCosmosdbAccountVirtualNetworkRuleBlock>? VirtualNetworkRule
     {
-        get => GetArgument<AzurermCosmosdbAccountVirtualNetworkRuleBlock>("virtual_network_rule");
+        get => GetArgument<TerraformSet<AzurermCosmosdbAccountVirtualNetworkRuleBlock>>("virtual_network_rule");
         set => SetArgument("virtual_network_rule", value);
     }
 

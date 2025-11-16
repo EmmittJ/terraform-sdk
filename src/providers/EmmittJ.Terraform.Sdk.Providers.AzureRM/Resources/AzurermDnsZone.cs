@@ -201,9 +201,9 @@ public partial class AzurermDnsZone(string name) : TerraformResource("azurerm_dn
     /// SoaRecord block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoaRecord block(s) allowed")]
-    public AzurermDnsZoneSoaRecordBlock? SoaRecord
+    public TerraformList<AzurermDnsZoneSoaRecordBlock>? SoaRecord
     {
-        get => GetArgument<AzurermDnsZoneSoaRecordBlock>("soa_record");
+        get => GetArgument<TerraformList<AzurermDnsZoneSoaRecordBlock>>("soa_record");
         set => SetArgument("soa_record", value);
     }
 

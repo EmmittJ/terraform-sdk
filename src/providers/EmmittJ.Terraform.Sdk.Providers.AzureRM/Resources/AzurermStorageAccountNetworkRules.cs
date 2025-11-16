@@ -148,9 +148,9 @@ public partial class AzurermStorageAccountNetworkRules(string name) : TerraformR
     /// <summary>
     /// PrivateLinkAccess block (nesting mode: list).
     /// </summary>
-    public AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock? PrivateLinkAccess
+    public TerraformList<AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock>? PrivateLinkAccess
     {
-        get => GetArgument<AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock>("private_link_access");
+        get => GetArgument<TerraformList<AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock>>("private_link_access");
         set => SetArgument("private_link_access", value);
     }
 

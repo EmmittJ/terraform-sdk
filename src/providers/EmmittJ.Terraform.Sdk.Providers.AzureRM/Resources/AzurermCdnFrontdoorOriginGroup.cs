@@ -199,9 +199,9 @@ public partial class AzurermCdnFrontdoorOriginGroup(string name) : TerraformReso
     /// HealthProbe block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthProbe block(s) allowed")]
-    public AzurermCdnFrontdoorOriginGroupHealthProbeBlock? HealthProbe
+    public TerraformList<AzurermCdnFrontdoorOriginGroupHealthProbeBlock>? HealthProbe
     {
-        get => GetArgument<AzurermCdnFrontdoorOriginGroupHealthProbeBlock>("health_probe");
+        get => GetArgument<TerraformList<AzurermCdnFrontdoorOriginGroupHealthProbeBlock>>("health_probe");
         set => SetArgument("health_probe", value);
     }
 
@@ -212,9 +212,9 @@ public partial class AzurermCdnFrontdoorOriginGroup(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancing is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoadBalancing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancing block(s) allowed")]
-    public required AzurermCdnFrontdoorOriginGroupLoadBalancingBlock LoadBalancing
+    public required TerraformList<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock> LoadBalancing
     {
-        get => GetRequiredArgument<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock>("load_balancing");
+        get => GetRequiredArgument<TerraformList<AzurermCdnFrontdoorOriginGroupLoadBalancingBlock>>("load_balancing");
         set => SetArgument("load_balancing", value);
     }
 

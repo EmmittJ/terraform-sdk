@@ -297,9 +297,9 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatadogOrganization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DatadogOrganization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DatadogOrganization block(s) allowed")]
-    public required AzurermDatadogMonitorDatadogOrganizationBlock DatadogOrganization
+    public required TerraformList<AzurermDatadogMonitorDatadogOrganizationBlock> DatadogOrganization
     {
-        get => GetRequiredArgument<AzurermDatadogMonitorDatadogOrganizationBlock>("datadog_organization");
+        get => GetRequiredArgument<TerraformList<AzurermDatadogMonitorDatadogOrganizationBlock>>("datadog_organization");
         set => SetArgument("datadog_organization", value);
     }
 
@@ -307,9 +307,9 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermDatadogMonitorIdentityBlock? Identity
+    public TerraformList<AzurermDatadogMonitorIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermDatadogMonitorIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermDatadogMonitorIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -329,9 +329,9 @@ public partial class AzurermDatadogMonitor(string name) : TerraformResource("azu
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 User block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 User block(s) allowed")]
-    public required AzurermDatadogMonitorUserBlock User
+    public required TerraformList<AzurermDatadogMonitorUserBlock> User
     {
-        get => GetRequiredArgument<AzurermDatadogMonitorUserBlock>("user");
+        get => GetRequiredArgument<TerraformList<AzurermDatadogMonitorUserBlock>>("user");
         set => SetArgument("user", value);
     }
 

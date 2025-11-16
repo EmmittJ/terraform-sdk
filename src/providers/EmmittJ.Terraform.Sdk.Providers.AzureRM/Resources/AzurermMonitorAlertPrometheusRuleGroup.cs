@@ -243,9 +243,9 @@ public partial class AzurermMonitorAlertPrometheusRuleGroup(string name) : Terra
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
-    public required AzurermMonitorAlertPrometheusRuleGroupRuleBlock Rule
+    public required TerraformList<AzurermMonitorAlertPrometheusRuleGroupRuleBlock> Rule
     {
-        get => GetRequiredArgument<AzurermMonitorAlertPrometheusRuleGroupRuleBlock>("rule");
+        get => GetRequiredArgument<TerraformList<AzurermMonitorAlertPrometheusRuleGroupRuleBlock>>("rule");
         set => SetArgument("rule", value);
     }
 

@@ -176,9 +176,9 @@ public partial class AzurermMachineLearningSynapseSpark(string name) : Terraform
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMachineLearningSynapseSparkIdentityBlock? Identity
+    public TerraformList<AzurermMachineLearningSynapseSparkIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMachineLearningSynapseSparkIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMachineLearningSynapseSparkIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

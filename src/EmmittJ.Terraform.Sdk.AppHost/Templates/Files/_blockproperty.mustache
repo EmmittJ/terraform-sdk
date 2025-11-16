@@ -13,17 +13,17 @@
     [Obsolete("This block is deprecated.")]
 {{/IsDeprecated}}
 {{#IsRequired}}
-    public required {{{ClassName}}} {{Name}}
+    public required {{{BlockPropertyType}}} {{Name}}
     {
-        get => GetRequiredArgument<{{{ClassName}}}>("{{TerraformName}}");
+        get => GetRequiredArgument<{{{BlockPropertyType}}}>("{{TerraformName}}");
         set => SetArgument("{{TerraformName}}", value);
     }
 
 {{/IsRequired}}
 {{^IsRequired}}
-    public {{{ClassName}}}? {{Name}}
+    public {{{BlockPropertyType}}}? {{Name}}
     {
-        get => GetArgument<{{{ClassName}}}>("{{TerraformName}}");
+        get => GetArgument<{{{BlockPropertyType}}}>("{{TerraformName}}");
         set => SetArgument("{{TerraformName}}", value);
     }
 

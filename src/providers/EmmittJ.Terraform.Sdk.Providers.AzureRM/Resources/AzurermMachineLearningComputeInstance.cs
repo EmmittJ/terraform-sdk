@@ -263,9 +263,9 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     /// AssignToUser block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssignToUser block(s) allowed")]
-    public AzurermMachineLearningComputeInstanceAssignToUserBlock? AssignToUser
+    public TerraformList<AzurermMachineLearningComputeInstanceAssignToUserBlock>? AssignToUser
     {
-        get => GetArgument<AzurermMachineLearningComputeInstanceAssignToUserBlock>("assign_to_user");
+        get => GetArgument<TerraformList<AzurermMachineLearningComputeInstanceAssignToUserBlock>>("assign_to_user");
         set => SetArgument("assign_to_user", value);
     }
 
@@ -273,9 +273,9 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMachineLearningComputeInstanceIdentityBlock? Identity
+    public TerraformList<AzurermMachineLearningComputeInstanceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMachineLearningComputeInstanceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMachineLearningComputeInstanceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -283,9 +283,9 @@ public partial class AzurermMachineLearningComputeInstance(string name) : Terraf
     /// Ssh block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssh block(s) allowed")]
-    public AzurermMachineLearningComputeInstanceSshBlock? Ssh
+    public TerraformList<AzurermMachineLearningComputeInstanceSshBlock>? Ssh
     {
-        get => GetArgument<AzurermMachineLearningComputeInstanceSshBlock>("ssh");
+        get => GetArgument<TerraformList<AzurermMachineLearningComputeInstanceSshBlock>>("ssh");
         set => SetArgument("ssh", value);
     }
 

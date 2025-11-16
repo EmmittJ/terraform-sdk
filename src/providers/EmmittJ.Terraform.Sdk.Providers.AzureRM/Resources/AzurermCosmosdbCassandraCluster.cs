@@ -231,9 +231,9 @@ public partial class AzurermCosmosdbCassandraCluster(string name) : TerraformRes
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermCosmosdbCassandraClusterIdentityBlock? Identity
+    public TerraformList<AzurermCosmosdbCassandraClusterIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermCosmosdbCassandraClusterIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermCosmosdbCassandraClusterIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

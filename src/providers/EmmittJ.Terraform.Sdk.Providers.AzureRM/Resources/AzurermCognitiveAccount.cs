@@ -441,9 +441,9 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public AzurermCognitiveAccountCustomerManagedKeyBlock? CustomerManagedKey
+    public TerraformList<AzurermCognitiveAccountCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetArgument<AzurermCognitiveAccountCustomerManagedKeyBlock>("customer_managed_key");
+        get => GetArgument<TerraformList<AzurermCognitiveAccountCustomerManagedKeyBlock>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -451,9 +451,9 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermCognitiveAccountIdentityBlock? Identity
+    public TerraformList<AzurermCognitiveAccountIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermCognitiveAccountIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermCognitiveAccountIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -461,9 +461,9 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// NetworkAcls block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkAcls block(s) allowed")]
-    public AzurermCognitiveAccountNetworkAclsBlock? NetworkAcls
+    public TerraformList<AzurermCognitiveAccountNetworkAclsBlock>? NetworkAcls
     {
-        get => GetArgument<AzurermCognitiveAccountNetworkAclsBlock>("network_acls");
+        get => GetArgument<TerraformList<AzurermCognitiveAccountNetworkAclsBlock>>("network_acls");
         set => SetArgument("network_acls", value);
     }
 
@@ -471,18 +471,18 @@ public partial class AzurermCognitiveAccount(string name) : TerraformResource("a
     /// NetworkInjection block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkInjection block(s) allowed")]
-    public AzurermCognitiveAccountNetworkInjectionBlock? NetworkInjection
+    public TerraformList<AzurermCognitiveAccountNetworkInjectionBlock>? NetworkInjection
     {
-        get => GetArgument<AzurermCognitiveAccountNetworkInjectionBlock>("network_injection");
+        get => GetArgument<TerraformList<AzurermCognitiveAccountNetworkInjectionBlock>>("network_injection");
         set => SetArgument("network_injection", value);
     }
 
     /// <summary>
     /// Storage block (nesting mode: list).
     /// </summary>
-    public AzurermCognitiveAccountStorageBlock? Storage
+    public TerraformList<AzurermCognitiveAccountStorageBlock>? Storage
     {
-        get => GetArgument<AzurermCognitiveAccountStorageBlock>("storage");
+        get => GetArgument<TerraformList<AzurermCognitiveAccountStorageBlock>>("storage");
         set => SetArgument("storage", value);
     }
 

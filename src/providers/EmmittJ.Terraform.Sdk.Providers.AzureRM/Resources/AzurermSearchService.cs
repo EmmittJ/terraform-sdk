@@ -257,9 +257,9 @@ public partial class AzurermSearchService(string name) : TerraformResource("azur
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermSearchServiceIdentityBlock? Identity
+    public TerraformList<AzurermSearchServiceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermSearchServiceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermSearchServiceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

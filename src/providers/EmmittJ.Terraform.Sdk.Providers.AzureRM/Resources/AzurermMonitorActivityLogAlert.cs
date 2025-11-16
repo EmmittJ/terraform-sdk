@@ -362,9 +362,9 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     /// <summary>
     /// Action block (nesting mode: list).
     /// </summary>
-    public AzurermMonitorActivityLogAlertActionBlock? Action
+    public TerraformList<AzurermMonitorActivityLogAlertActionBlock>? Action
     {
-        get => GetArgument<AzurermMonitorActivityLogAlertActionBlock>("action");
+        get => GetArgument<TerraformList<AzurermMonitorActivityLogAlertActionBlock>>("action");
         set => SetArgument("action", value);
     }
 
@@ -375,9 +375,9 @@ public partial class AzurermMonitorActivityLogAlert(string name) : TerraformReso
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
-    public required AzurermMonitorActivityLogAlertCriteriaBlock Criteria
+    public required TerraformList<AzurermMonitorActivityLogAlertCriteriaBlock> Criteria
     {
-        get => GetRequiredArgument<AzurermMonitorActivityLogAlertCriteriaBlock>("criteria");
+        get => GetRequiredArgument<TerraformList<AzurermMonitorActivityLogAlertCriteriaBlock>>("criteria");
         set => SetArgument("criteria", value);
     }
 

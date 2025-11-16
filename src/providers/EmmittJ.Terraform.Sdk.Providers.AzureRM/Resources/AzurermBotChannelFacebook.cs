@@ -155,9 +155,9 @@ public partial class AzurermBotChannelFacebook(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Page is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Page block(s) required")]
-    public required AzurermBotChannelFacebookPageBlock Page
+    public required TerraformSet<AzurermBotChannelFacebookPageBlock> Page
     {
-        get => GetRequiredArgument<AzurermBotChannelFacebookPageBlock>("page");
+        get => GetRequiredArgument<TerraformSet<AzurermBotChannelFacebookPageBlock>>("page");
         set => SetArgument("page", value);
     }
 

@@ -131,9 +131,9 @@ public partial class AzurermCosmosdbCassandraKeyspace(string name) : TerraformRe
     /// AutoscaleSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    public AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock? AutoscaleSettings
+    public TerraformList<AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock>? AutoscaleSettings
     {
-        get => GetArgument<AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock>("autoscale_settings");
+        get => GetArgument<TerraformList<AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock>>("autoscale_settings");
         set => SetArgument("autoscale_settings", value);
     }
 

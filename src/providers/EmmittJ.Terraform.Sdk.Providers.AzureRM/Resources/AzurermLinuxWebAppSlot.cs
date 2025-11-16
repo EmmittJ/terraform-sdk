@@ -966,9 +966,9 @@ public partial class AzurermLinuxWebAppSlot(string name) : TerraformResource("az
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    public AzurermLinuxWebAppSlotAuthSettingsBlock? AuthSettings
+    public TerraformList<AzurermLinuxWebAppSlotAuthSettingsBlock>? AuthSettings
     {
-        get => GetArgument<AzurermLinuxWebAppSlotAuthSettingsBlock>("auth_settings");
+        get => GetArgument<TerraformList<AzurermLinuxWebAppSlotAuthSettingsBlock>>("auth_settings");
         set => SetArgument("auth_settings", value);
     }
 
@@ -976,9 +976,9 @@ public partial class AzurermLinuxWebAppSlot(string name) : TerraformResource("az
     /// AuthSettingsV2 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettingsV2 block(s) allowed")]
-    public AzurermLinuxWebAppSlotAuthSettingsV2Block? AuthSettingsV2
+    public TerraformList<AzurermLinuxWebAppSlotAuthSettingsV2Block>? AuthSettingsV2
     {
-        get => GetArgument<AzurermLinuxWebAppSlotAuthSettingsV2Block>("auth_settings_v2");
+        get => GetArgument<TerraformList<AzurermLinuxWebAppSlotAuthSettingsV2Block>>("auth_settings_v2");
         set => SetArgument("auth_settings_v2", value);
     }
 
@@ -986,18 +986,18 @@ public partial class AzurermLinuxWebAppSlot(string name) : TerraformResource("az
     /// Backup block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Backup block(s) allowed")]
-    public AzurermLinuxWebAppSlotBackupBlock? Backup
+    public TerraformList<AzurermLinuxWebAppSlotBackupBlock>? Backup
     {
-        get => GetArgument<AzurermLinuxWebAppSlotBackupBlock>("backup");
+        get => GetArgument<TerraformList<AzurermLinuxWebAppSlotBackupBlock>>("backup");
         set => SetArgument("backup", value);
     }
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermLinuxWebAppSlotConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermLinuxWebAppSlotConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermLinuxWebAppSlotConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermLinuxWebAppSlotConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -1005,9 +1005,9 @@ public partial class AzurermLinuxWebAppSlot(string name) : TerraformResource("az
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermLinuxWebAppSlotIdentityBlock? Identity
+    public TerraformList<AzurermLinuxWebAppSlotIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermLinuxWebAppSlotIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermLinuxWebAppSlotIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -1015,9 +1015,9 @@ public partial class AzurermLinuxWebAppSlot(string name) : TerraformResource("az
     /// Logs block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logs block(s) allowed")]
-    public AzurermLinuxWebAppSlotLogsBlock? Logs
+    public TerraformList<AzurermLinuxWebAppSlotLogsBlock>? Logs
     {
-        get => GetArgument<AzurermLinuxWebAppSlotLogsBlock>("logs");
+        get => GetArgument<TerraformList<AzurermLinuxWebAppSlotLogsBlock>>("logs");
         set => SetArgument("logs", value);
     }
 
@@ -1028,18 +1028,18 @@ public partial class AzurermLinuxWebAppSlot(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SiteConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SiteConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public required AzurermLinuxWebAppSlotSiteConfigBlock SiteConfig
+    public required TerraformList<AzurermLinuxWebAppSlotSiteConfigBlock> SiteConfig
     {
-        get => GetRequiredArgument<AzurermLinuxWebAppSlotSiteConfigBlock>("site_config");
+        get => GetRequiredArgument<TerraformList<AzurermLinuxWebAppSlotSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 
     /// <summary>
     /// StorageAccount block (nesting mode: set).
     /// </summary>
-    public AzurermLinuxWebAppSlotStorageAccountBlock? StorageAccount
+    public TerraformSet<AzurermLinuxWebAppSlotStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermLinuxWebAppSlotStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformSet<AzurermLinuxWebAppSlotStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 

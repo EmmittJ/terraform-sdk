@@ -226,9 +226,9 @@ public partial class AzurermNetworkPacketCapture(string name) : TerraformResourc
     /// <summary>
     /// Filter block (nesting mode: list).
     /// </summary>
-    public AzurermNetworkPacketCaptureFilterBlock? Filter
+    public TerraformList<AzurermNetworkPacketCaptureFilterBlock>? Filter
     {
-        get => GetArgument<AzurermNetworkPacketCaptureFilterBlock>("filter");
+        get => GetArgument<TerraformList<AzurermNetworkPacketCaptureFilterBlock>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -239,9 +239,9 @@ public partial class AzurermNetworkPacketCapture(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
-    public required AzurermNetworkPacketCaptureStorageLocationBlock StorageLocation
+    public required TerraformList<AzurermNetworkPacketCaptureStorageLocationBlock> StorageLocation
     {
-        get => GetRequiredArgument<AzurermNetworkPacketCaptureStorageLocationBlock>("storage_location");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkPacketCaptureStorageLocationBlock>>("storage_location");
         set => SetArgument("storage_location", value);
     }
 

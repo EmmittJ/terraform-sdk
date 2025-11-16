@@ -180,9 +180,9 @@ public partial class AzurermArcResourceBridgeAppliance(string name) : TerraformR
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermArcResourceBridgeApplianceIdentityBlock Identity
+    public required TerraformList<AzurermArcResourceBridgeApplianceIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermArcResourceBridgeApplianceIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermArcResourceBridgeApplianceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

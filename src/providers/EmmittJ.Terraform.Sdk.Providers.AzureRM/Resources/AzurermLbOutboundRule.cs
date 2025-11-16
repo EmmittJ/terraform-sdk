@@ -177,9 +177,9 @@ public partial class AzurermLbOutboundRule(string name) : TerraformResource("azu
     /// <summary>
     /// FrontendIpConfiguration block (nesting mode: list).
     /// </summary>
-    public AzurermLbOutboundRuleFrontendIpConfigurationBlock? FrontendIpConfiguration
+    public TerraformList<AzurermLbOutboundRuleFrontendIpConfigurationBlock>? FrontendIpConfiguration
     {
-        get => GetArgument<AzurermLbOutboundRuleFrontendIpConfigurationBlock>("frontend_ip_configuration");
+        get => GetArgument<TerraformList<AzurermLbOutboundRuleFrontendIpConfigurationBlock>>("frontend_ip_configuration");
         set => SetArgument("frontend_ip_configuration", value);
     }
 

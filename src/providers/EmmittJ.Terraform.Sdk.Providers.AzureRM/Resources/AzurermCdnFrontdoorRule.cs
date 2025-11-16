@@ -138,9 +138,9 @@ public partial class AzurermCdnFrontdoorRule(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Actions block(s) allowed")]
-    public required AzurermCdnFrontdoorRuleActionsBlock Actions
+    public required TerraformList<AzurermCdnFrontdoorRuleActionsBlock> Actions
     {
-        get => GetRequiredArgument<AzurermCdnFrontdoorRuleActionsBlock>("actions");
+        get => GetRequiredArgument<TerraformList<AzurermCdnFrontdoorRuleActionsBlock>>("actions");
         set => SetArgument("actions", value);
     }
 
@@ -148,9 +148,9 @@ public partial class AzurermCdnFrontdoorRule(string name) : TerraformResource("a
     /// Conditions block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Conditions block(s) allowed")]
-    public AzurermCdnFrontdoorRuleConditionsBlock? Conditions
+    public TerraformList<AzurermCdnFrontdoorRuleConditionsBlock>? Conditions
     {
-        get => GetArgument<AzurermCdnFrontdoorRuleConditionsBlock>("conditions");
+        get => GetArgument<TerraformList<AzurermCdnFrontdoorRuleConditionsBlock>>("conditions");
         set => SetArgument("conditions", value);
     }
 

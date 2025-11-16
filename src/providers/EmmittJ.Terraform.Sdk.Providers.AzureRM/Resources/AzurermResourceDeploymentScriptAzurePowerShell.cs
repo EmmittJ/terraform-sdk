@@ -321,18 +321,18 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     /// Container block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Container block(s) allowed")]
-    public AzurermResourceDeploymentScriptAzurePowerShellContainerBlock? Container
+    public TerraformList<AzurermResourceDeploymentScriptAzurePowerShellContainerBlock>? Container
     {
-        get => GetArgument<AzurermResourceDeploymentScriptAzurePowerShellContainerBlock>("container");
+        get => GetArgument<TerraformList<AzurermResourceDeploymentScriptAzurePowerShellContainerBlock>>("container");
         set => SetArgument("container", value);
     }
 
     /// <summary>
     /// EnvironmentVariable block (nesting mode: set).
     /// </summary>
-    public AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock? EnvironmentVariable
+    public TerraformSet<AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock>? EnvironmentVariable
     {
-        get => GetArgument<AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock>("environment_variable");
+        get => GetArgument<TerraformSet<AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock>>("environment_variable");
         set => SetArgument("environment_variable", value);
     }
 
@@ -340,9 +340,9 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock? Identity
+    public TerraformList<AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -350,9 +350,9 @@ public partial class AzurermResourceDeploymentScriptAzurePowerShell(string name)
     /// StorageAccount block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageAccount block(s) allowed")]
-    public AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock? StorageAccount
+    public TerraformList<AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock>? StorageAccount
     {
-        get => GetArgument<AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock>("storage_account");
+        get => GetArgument<TerraformList<AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock>>("storage_account");
         set => SetArgument("storage_account", value);
     }
 

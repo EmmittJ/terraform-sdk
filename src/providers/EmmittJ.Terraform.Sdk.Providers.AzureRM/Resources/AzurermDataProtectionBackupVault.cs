@@ -213,9 +213,9 @@ public partial class AzurermDataProtectionBackupVault(string name) : TerraformRe
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermDataProtectionBackupVaultIdentityBlock? Identity
+    public TerraformList<AzurermDataProtectionBackupVaultIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermDataProtectionBackupVaultIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermDataProtectionBackupVaultIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

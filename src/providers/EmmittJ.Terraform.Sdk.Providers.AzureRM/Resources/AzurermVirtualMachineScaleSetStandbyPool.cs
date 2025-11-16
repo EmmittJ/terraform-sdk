@@ -165,9 +165,9 @@ public partial class AzurermVirtualMachineScaleSetStandbyPool(string name) : Ter
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ElasticityProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ElasticityProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticityProfile block(s) allowed")]
-    public required AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock ElasticityProfile
+    public required TerraformList<AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock> ElasticityProfile
     {
-        get => GetRequiredArgument<AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock>("elasticity_profile");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock>>("elasticity_profile");
         set => SetArgument("elasticity_profile", value);
     }
 

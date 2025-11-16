@@ -213,9 +213,9 @@ public partial class AzurermStreamAnalyticsStreamInputBlob(string name) : Terraf
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serialization is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Serialization block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serialization block(s) allowed")]
-    public required AzurermStreamAnalyticsStreamInputBlobSerializationBlock Serialization
+    public required TerraformList<AzurermStreamAnalyticsStreamInputBlobSerializationBlock> Serialization
     {
-        get => GetRequiredArgument<AzurermStreamAnalyticsStreamInputBlobSerializationBlock>("serialization");
+        get => GetRequiredArgument<TerraformList<AzurermStreamAnalyticsStreamInputBlobSerializationBlock>>("serialization");
         set => SetArgument("serialization", value);
     }
 

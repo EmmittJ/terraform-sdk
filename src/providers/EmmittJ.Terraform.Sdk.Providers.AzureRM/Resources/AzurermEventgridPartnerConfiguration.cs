@@ -139,9 +139,9 @@ public partial class AzurermEventgridPartnerConfiguration(string name) : Terrafo
     /// <summary>
     /// PartnerAuthorization block (nesting mode: list).
     /// </summary>
-    public AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock? PartnerAuthorization
+    public TerraformList<AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock>? PartnerAuthorization
     {
-        get => GetArgument<AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock>("partner_authorization");
+        get => GetArgument<TerraformList<AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock>>("partner_authorization");
         set => SetArgument("partner_authorization", value);
     }
 

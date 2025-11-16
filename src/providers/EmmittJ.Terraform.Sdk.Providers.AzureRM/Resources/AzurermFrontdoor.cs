@@ -474,9 +474,9 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPool is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPool block(s) required")]
-    public required AzurermFrontdoorBackendPoolBlock BackendPool
+    public required TerraformList<AzurermFrontdoorBackendPoolBlock> BackendPool
     {
-        get => GetRequiredArgument<AzurermFrontdoorBackendPoolBlock>("backend_pool");
+        get => GetRequiredArgument<TerraformList<AzurermFrontdoorBackendPoolBlock>>("backend_pool");
         set => SetArgument("backend_pool", value);
     }
 
@@ -487,9 +487,9 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolHealthProbe is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPoolHealthProbe block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5000, ErrorMessage = "Maximum 5000 BackendPoolHealthProbe block(s) allowed")]
-    public required AzurermFrontdoorBackendPoolHealthProbeBlock BackendPoolHealthProbe
+    public required TerraformList<AzurermFrontdoorBackendPoolHealthProbeBlock> BackendPoolHealthProbe
     {
-        get => GetRequiredArgument<AzurermFrontdoorBackendPoolHealthProbeBlock>("backend_pool_health_probe");
+        get => GetRequiredArgument<TerraformList<AzurermFrontdoorBackendPoolHealthProbeBlock>>("backend_pool_health_probe");
         set => SetArgument("backend_pool_health_probe", value);
     }
 
@@ -500,18 +500,18 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolLoadBalancing is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackendPoolLoadBalancing block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5000, ErrorMessage = "Maximum 5000 BackendPoolLoadBalancing block(s) allowed")]
-    public required AzurermFrontdoorBackendPoolLoadBalancingBlock BackendPoolLoadBalancing
+    public required TerraformList<AzurermFrontdoorBackendPoolLoadBalancingBlock> BackendPoolLoadBalancing
     {
-        get => GetRequiredArgument<AzurermFrontdoorBackendPoolLoadBalancingBlock>("backend_pool_load_balancing");
+        get => GetRequiredArgument<TerraformList<AzurermFrontdoorBackendPoolLoadBalancingBlock>>("backend_pool_load_balancing");
         set => SetArgument("backend_pool_load_balancing", value);
     }
 
     /// <summary>
     /// BackendPoolSettings block (nesting mode: list).
     /// </summary>
-    public AzurermFrontdoorBackendPoolSettingsBlock? BackendPoolSettings
+    public TerraformList<AzurermFrontdoorBackendPoolSettingsBlock>? BackendPoolSettings
     {
-        get => GetArgument<AzurermFrontdoorBackendPoolSettingsBlock>("backend_pool_settings");
+        get => GetArgument<TerraformList<AzurermFrontdoorBackendPoolSettingsBlock>>("backend_pool_settings");
         set => SetArgument("backend_pool_settings", value);
     }
 
@@ -522,9 +522,9 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendEndpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FrontendEndpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 FrontendEndpoint block(s) allowed")]
-    public required AzurermFrontdoorFrontendEndpointBlock FrontendEndpoint
+    public required TerraformList<AzurermFrontdoorFrontendEndpointBlock> FrontendEndpoint
     {
-        get => GetRequiredArgument<AzurermFrontdoorFrontendEndpointBlock>("frontend_endpoint");
+        get => GetRequiredArgument<TerraformList<AzurermFrontdoorFrontendEndpointBlock>>("frontend_endpoint");
         set => SetArgument("frontend_endpoint", value);
     }
 
@@ -535,9 +535,9 @@ public partial class AzurermFrontdoor(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoutingRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RoutingRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 RoutingRule block(s) allowed")]
-    public required AzurermFrontdoorRoutingRuleBlock RoutingRule
+    public required TerraformList<AzurermFrontdoorRoutingRuleBlock> RoutingRule
     {
-        get => GetRequiredArgument<AzurermFrontdoorRoutingRuleBlock>("routing_rule");
+        get => GetRequiredArgument<TerraformList<AzurermFrontdoorRoutingRuleBlock>>("routing_rule");
         set => SetArgument("routing_rule", value);
     }
 

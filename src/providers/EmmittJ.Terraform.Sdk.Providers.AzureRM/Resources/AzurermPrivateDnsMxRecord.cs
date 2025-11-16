@@ -153,9 +153,9 @@ public partial class AzurermPrivateDnsMxRecord(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Record is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Record block(s) required")]
-    public required AzurermPrivateDnsMxRecordRecordBlock Record
+    public required TerraformSet<AzurermPrivateDnsMxRecordRecordBlock> Record
     {
-        get => GetRequiredArgument<AzurermPrivateDnsMxRecordRecordBlock>("record");
+        get => GetRequiredArgument<TerraformSet<AzurermPrivateDnsMxRecordRecordBlock>>("record");
         set => SetArgument("record", value);
     }
 

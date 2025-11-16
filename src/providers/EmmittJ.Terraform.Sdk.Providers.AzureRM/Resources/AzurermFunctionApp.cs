@@ -658,18 +658,18 @@ public partial class AzurermFunctionApp(string name) : TerraformResource("azurer
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    public AzurermFunctionAppAuthSettingsBlock? AuthSettings
+    public TerraformList<AzurermFunctionAppAuthSettingsBlock>? AuthSettings
     {
-        get => GetArgument<AzurermFunctionAppAuthSettingsBlock>("auth_settings");
+        get => GetArgument<TerraformList<AzurermFunctionAppAuthSettingsBlock>>("auth_settings");
         set => SetArgument("auth_settings", value);
     }
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermFunctionAppConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermFunctionAppConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermFunctionAppConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermFunctionAppConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -677,9 +677,9 @@ public partial class AzurermFunctionApp(string name) : TerraformResource("azurer
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermFunctionAppIdentityBlock? Identity
+    public TerraformList<AzurermFunctionAppIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermFunctionAppIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermFunctionAppIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -687,9 +687,9 @@ public partial class AzurermFunctionApp(string name) : TerraformResource("azurer
     /// SiteConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public AzurermFunctionAppSiteConfigBlock? SiteConfig
+    public TerraformList<AzurermFunctionAppSiteConfigBlock>? SiteConfig
     {
-        get => GetArgument<AzurermFunctionAppSiteConfigBlock>("site_config");
+        get => GetArgument<TerraformList<AzurermFunctionAppSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 
@@ -697,9 +697,9 @@ public partial class AzurermFunctionApp(string name) : TerraformResource("azurer
     /// SourceControl block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceControl block(s) allowed")]
-    public AzurermFunctionAppSourceControlBlock? SourceControl
+    public TerraformList<AzurermFunctionAppSourceControlBlock>? SourceControl
     {
-        get => GetArgument<AzurermFunctionAppSourceControlBlock>("source_control");
+        get => GetArgument<TerraformList<AzurermFunctionAppSourceControlBlock>>("source_control");
         set => SetArgument("source_control", value);
     }
 

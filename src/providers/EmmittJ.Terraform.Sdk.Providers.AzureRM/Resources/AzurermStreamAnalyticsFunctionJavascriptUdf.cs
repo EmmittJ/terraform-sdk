@@ -167,9 +167,9 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUdf(string name) : 
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Input is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Input block(s) required")]
-    public required AzurermStreamAnalyticsFunctionJavascriptUdfInputBlock Input
+    public required TerraformList<AzurermStreamAnalyticsFunctionJavascriptUdfInputBlock> Input
     {
-        get => GetRequiredArgument<AzurermStreamAnalyticsFunctionJavascriptUdfInputBlock>("input");
+        get => GetRequiredArgument<TerraformList<AzurermStreamAnalyticsFunctionJavascriptUdfInputBlock>>("input");
         set => SetArgument("input", value);
     }
 
@@ -180,9 +180,9 @@ public partial class AzurermStreamAnalyticsFunctionJavascriptUdf(string name) : 
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Output is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Output block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Output block(s) allowed")]
-    public required AzurermStreamAnalyticsFunctionJavascriptUdfOutputBlock Output
+    public required TerraformList<AzurermStreamAnalyticsFunctionJavascriptUdfOutputBlock> Output
     {
-        get => GetRequiredArgument<AzurermStreamAnalyticsFunctionJavascriptUdfOutputBlock>("output");
+        get => GetRequiredArgument<TerraformList<AzurermStreamAnalyticsFunctionJavascriptUdfOutputBlock>>("output");
         set => SetArgument("output", value);
     }
 

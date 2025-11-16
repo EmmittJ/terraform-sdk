@@ -159,9 +159,9 @@ public partial class AzurermFunctionAppFunction(string name) : TerraformResource
     /// <summary>
     /// File block (nesting mode: list).
     /// </summary>
-    public AzurermFunctionAppFunctionFileBlock? File
+    public TerraformList<AzurermFunctionAppFunctionFileBlock>? File
     {
-        get => GetArgument<AzurermFunctionAppFunctionFileBlock>("file");
+        get => GetArgument<TerraformList<AzurermFunctionAppFunctionFileBlock>>("file");
         set => SetArgument("file", value);
     }
 

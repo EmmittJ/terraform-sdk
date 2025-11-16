@@ -178,9 +178,9 @@ public partial class AzurermEventgridPartnerNamespace(string name) : TerraformRe
     /// InboundIpRule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(16, ErrorMessage = "Maximum 16 InboundIpRule block(s) allowed")]
-    public AzurermEventgridPartnerNamespaceInboundIpRuleBlock? InboundIpRule
+    public TerraformList<AzurermEventgridPartnerNamespaceInboundIpRuleBlock>? InboundIpRule
     {
-        get => GetArgument<AzurermEventgridPartnerNamespaceInboundIpRuleBlock>("inbound_ip_rule");
+        get => GetArgument<TerraformList<AzurermEventgridPartnerNamespaceInboundIpRuleBlock>>("inbound_ip_rule");
         set => SetArgument("inbound_ip_rule", value);
     }
 

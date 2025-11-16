@@ -264,9 +264,9 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 RetentionPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
-    public required AzurermNetworkWatcherFlowLogRetentionPolicyBlock RetentionPolicy
+    public required TerraformList<AzurermNetworkWatcherFlowLogRetentionPolicyBlock> RetentionPolicy
     {
-        get => GetRequiredArgument<AzurermNetworkWatcherFlowLogRetentionPolicyBlock>("retention_policy");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkWatcherFlowLogRetentionPolicyBlock>>("retention_policy");
         set => SetArgument("retention_policy", value);
     }
 
@@ -283,9 +283,9 @@ public partial class AzurermNetworkWatcherFlowLog(string name) : TerraformResour
     /// TrafficAnalytics block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficAnalytics block(s) allowed")]
-    public AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock? TrafficAnalytics
+    public TerraformList<AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock>? TrafficAnalytics
     {
-        get => GetArgument<AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock>("traffic_analytics");
+        get => GetArgument<TerraformList<AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock>>("traffic_analytics");
         set => SetArgument("traffic_analytics", value);
     }
 

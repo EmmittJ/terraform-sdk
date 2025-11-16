@@ -178,9 +178,9 @@ public partial class AzurermApiManagementNamedValue(string name) : TerraformReso
     /// ValueFromKeyVault block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ValueFromKeyVault block(s) allowed")]
-    public AzurermApiManagementNamedValueValueFromKeyVaultBlock? ValueFromKeyVault
+    public TerraformList<AzurermApiManagementNamedValueValueFromKeyVaultBlock>? ValueFromKeyVault
     {
-        get => GetArgument<AzurermApiManagementNamedValueValueFromKeyVaultBlock>("value_from_key_vault");
+        get => GetArgument<TerraformList<AzurermApiManagementNamedValueValueFromKeyVaultBlock>>("value_from_key_vault");
         set => SetArgument("value_from_key_vault", value);
     }
 

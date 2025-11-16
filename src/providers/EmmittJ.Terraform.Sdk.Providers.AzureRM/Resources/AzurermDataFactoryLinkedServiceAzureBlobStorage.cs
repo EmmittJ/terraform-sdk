@@ -282,9 +282,9 @@ public partial class AzurermDataFactoryLinkedServiceAzureBlobStorage(string name
     /// KeyVaultSasToken block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultSasToken block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock? KeyVaultSasToken
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock>? KeyVaultSasToken
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock>("key_vault_sas_token");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock>>("key_vault_sas_token");
         set => SetArgument("key_vault_sas_token", value);
     }
 
@@ -292,9 +292,9 @@ public partial class AzurermDataFactoryLinkedServiceAzureBlobStorage(string name
     /// ServicePrincipalLinkedKeyVaultKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipalLinkedKeyVaultKey block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock? ServicePrincipalLinkedKeyVaultKey
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock>? ServicePrincipalLinkedKeyVaultKey
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock>("service_principal_linked_key_vault_key");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock>>("service_principal_linked_key_vault_key");
         set => SetArgument("service_principal_linked_key_vault_key", value);
     }
 

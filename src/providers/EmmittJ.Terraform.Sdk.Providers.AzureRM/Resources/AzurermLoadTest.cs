@@ -189,9 +189,9 @@ public partial class AzurermLoadTest(string name) : TerraformResource("azurerm_l
     /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    public AzurermLoadTestEncryptionBlock? Encryption
+    public TerraformList<AzurermLoadTestEncryptionBlock>? Encryption
     {
-        get => GetArgument<AzurermLoadTestEncryptionBlock>("encryption");
+        get => GetArgument<TerraformList<AzurermLoadTestEncryptionBlock>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -199,9 +199,9 @@ public partial class AzurermLoadTest(string name) : TerraformResource("azurerm_l
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermLoadTestIdentityBlock? Identity
+    public TerraformList<AzurermLoadTestIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermLoadTestIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermLoadTestIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

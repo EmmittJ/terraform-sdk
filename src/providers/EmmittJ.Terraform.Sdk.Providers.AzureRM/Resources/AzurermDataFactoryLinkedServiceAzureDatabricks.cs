@@ -361,9 +361,9 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// InstancePool block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstancePool block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock? InstancePool
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock>? InstancePool
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock>("instance_pool");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock>>("instance_pool");
         set => SetArgument("instance_pool", value);
     }
 
@@ -371,9 +371,9 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// KeyVaultPassword block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock? KeyVaultPassword
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock>? KeyVaultPassword
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock>("key_vault_password");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock>>("key_vault_password");
         set => SetArgument("key_vault_password", value);
     }
 
@@ -381,9 +381,9 @@ public partial class AzurermDataFactoryLinkedServiceAzureDatabricks(string name)
     /// NewClusterConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NewClusterConfig block(s) allowed")]
-    public AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock? NewClusterConfig
+    public TerraformList<AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock>? NewClusterConfig
     {
-        get => GetArgument<AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock>("new_cluster_config");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock>>("new_cluster_config");
         set => SetArgument("new_cluster_config", value);
     }
 

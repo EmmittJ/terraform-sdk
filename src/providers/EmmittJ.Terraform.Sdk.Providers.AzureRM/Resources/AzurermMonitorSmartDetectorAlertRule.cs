@@ -210,9 +210,9 @@ public partial class AzurermMonitorSmartDetectorAlertRule(string name) : Terrafo
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ActionGroup block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActionGroup block(s) allowed")]
-    public required AzurermMonitorSmartDetectorAlertRuleActionGroupBlock ActionGroup
+    public required TerraformList<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock> ActionGroup
     {
-        get => GetRequiredArgument<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock>("action_group");
+        get => GetRequiredArgument<TerraformList<AzurermMonitorSmartDetectorAlertRuleActionGroupBlock>>("action_group");
         set => SetArgument("action_group", value);
     }
 

@@ -206,9 +206,9 @@ public partial class AzurermArcKubernetesProvisionedCluster(string name) : Terra
     /// AzureActiveDirectory block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureActiveDirectory block(s) allowed")]
-    public AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock? AzureActiveDirectory
+    public TerraformList<AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock>? AzureActiveDirectory
     {
-        get => GetArgument<AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock>("azure_active_directory");
+        get => GetArgument<TerraformList<AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock>>("azure_active_directory");
         set => SetArgument("azure_active_directory", value);
     }
 
@@ -219,9 +219,9 @@ public partial class AzurermArcKubernetesProvisionedCluster(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermArcKubernetesProvisionedClusterIdentityBlock Identity
+    public required TerraformList<AzurermArcKubernetesProvisionedClusterIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermArcKubernetesProvisionedClusterIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermArcKubernetesProvisionedClusterIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

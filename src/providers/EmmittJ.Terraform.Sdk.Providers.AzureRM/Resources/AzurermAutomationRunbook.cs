@@ -264,9 +264,9 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     /// Draft block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Draft block(s) allowed")]
-    public AzurermAutomationRunbookDraftBlock? Draft
+    public TerraformList<AzurermAutomationRunbookDraftBlock>? Draft
     {
-        get => GetArgument<AzurermAutomationRunbookDraftBlock>("draft");
+        get => GetArgument<TerraformList<AzurermAutomationRunbookDraftBlock>>("draft");
         set => SetArgument("draft", value);
     }
 
@@ -274,9 +274,9 @@ public partial class AzurermAutomationRunbook(string name) : TerraformResource("
     /// PublishContentLink block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublishContentLink block(s) allowed")]
-    public AzurermAutomationRunbookPublishContentLinkBlock? PublishContentLink
+    public TerraformList<AzurermAutomationRunbookPublishContentLinkBlock>? PublishContentLink
     {
-        get => GetArgument<AzurermAutomationRunbookPublishContentLinkBlock>("publish_content_link");
+        get => GetArgument<TerraformList<AzurermAutomationRunbookPublishContentLinkBlock>>("publish_content_link");
         set => SetArgument("publish_content_link", value);
     }
 

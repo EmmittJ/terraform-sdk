@@ -108,9 +108,9 @@ public partial class AzurermStorageShareDataSource(string name) : TerraformDataS
     /// <summary>
     /// Acl block (nesting mode: list).
     /// </summary>
-    public AzurermStorageShareDataSourceAclBlock? Acl
+    public TerraformList<AzurermStorageShareDataSourceAclBlock>? Acl
     {
-        get => GetArgument<AzurermStorageShareDataSourceAclBlock>("acl");
+        get => GetArgument<TerraformList<AzurermStorageShareDataSourceAclBlock>>("acl");
         set => SetArgument("acl", value);
     }
 

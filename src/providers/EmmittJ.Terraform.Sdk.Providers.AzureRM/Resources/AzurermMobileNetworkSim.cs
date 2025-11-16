@@ -189,9 +189,9 @@ public partial class AzurermMobileNetworkSim(string name) : TerraformResource("a
     /// <summary>
     /// StaticIpConfiguration block (nesting mode: list).
     /// </summary>
-    public AzurermMobileNetworkSimStaticIpConfigurationBlock? StaticIpConfiguration
+    public TerraformList<AzurermMobileNetworkSimStaticIpConfigurationBlock>? StaticIpConfiguration
     {
-        get => GetArgument<AzurermMobileNetworkSimStaticIpConfigurationBlock>("static_ip_configuration");
+        get => GetArgument<TerraformList<AzurermMobileNetworkSimStaticIpConfigurationBlock>>("static_ip_configuration");
         set => SetArgument("static_ip_configuration", value);
     }
 

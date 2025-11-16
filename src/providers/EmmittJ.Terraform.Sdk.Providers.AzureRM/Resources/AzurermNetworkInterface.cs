@@ -261,9 +261,9 @@ public partial class AzurermNetworkInterface(string name) : TerraformResource("a
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
-    public required AzurermNetworkInterfaceIpConfigurationBlock IpConfiguration
+    public required TerraformList<AzurermNetworkInterfaceIpConfigurationBlock> IpConfiguration
     {
-        get => GetRequiredArgument<AzurermNetworkInterfaceIpConfigurationBlock>("ip_configuration");
+        get => GetRequiredArgument<TerraformList<AzurermNetworkInterfaceIpConfigurationBlock>>("ip_configuration");
         set => SetArgument("ip_configuration", value);
     }
 

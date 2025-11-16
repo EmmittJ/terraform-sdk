@@ -279,18 +279,18 @@ public partial class AzurermIothubDps(string name) : TerraformResource("azurerm_
     /// <summary>
     /// IpFilterRule block (nesting mode: list).
     /// </summary>
-    public AzurermIothubDpsIpFilterRuleBlock? IpFilterRule
+    public TerraformList<AzurermIothubDpsIpFilterRuleBlock>? IpFilterRule
     {
-        get => GetArgument<AzurermIothubDpsIpFilterRuleBlock>("ip_filter_rule");
+        get => GetArgument<TerraformList<AzurermIothubDpsIpFilterRuleBlock>>("ip_filter_rule");
         set => SetArgument("ip_filter_rule", value);
     }
 
     /// <summary>
     /// LinkedHub block (nesting mode: list).
     /// </summary>
-    public AzurermIothubDpsLinkedHubBlock? LinkedHub
+    public TerraformList<AzurermIothubDpsLinkedHubBlock>? LinkedHub
     {
-        get => GetArgument<AzurermIothubDpsLinkedHubBlock>("linked_hub");
+        get => GetArgument<TerraformList<AzurermIothubDpsLinkedHubBlock>>("linked_hub");
         set => SetArgument("linked_hub", value);
     }
 
@@ -301,9 +301,9 @@ public partial class AzurermIothubDps(string name) : TerraformResource("azurerm_
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermIothubDpsSkuBlock Sku
+    public required TerraformList<AzurermIothubDpsSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermIothubDpsSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermIothubDpsSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 

@@ -169,9 +169,9 @@ public partial class AzurermLogicAppActionHttp(string name) : TerraformResource(
     /// <summary>
     /// RunAfter block (nesting mode: set).
     /// </summary>
-    public AzurermLogicAppActionHttpRunAfterBlock? RunAfter
+    public TerraformSet<AzurermLogicAppActionHttpRunAfterBlock>? RunAfter
     {
-        get => GetArgument<AzurermLogicAppActionHttpRunAfterBlock>("run_after");
+        get => GetArgument<TerraformSet<AzurermLogicAppActionHttpRunAfterBlock>>("run_after");
         set => SetArgument("run_after", value);
     }
 

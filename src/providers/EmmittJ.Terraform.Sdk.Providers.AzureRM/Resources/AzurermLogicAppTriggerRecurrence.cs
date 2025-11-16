@@ -168,9 +168,9 @@ public partial class AzurermLogicAppTriggerRecurrence(string name) : TerraformRe
     /// Schedule block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    public AzurermLogicAppTriggerRecurrenceScheduleBlock? Schedule
+    public TerraformList<AzurermLogicAppTriggerRecurrenceScheduleBlock>? Schedule
     {
-        get => GetArgument<AzurermLogicAppTriggerRecurrenceScheduleBlock>("schedule");
+        get => GetArgument<TerraformList<AzurermLogicAppTriggerRecurrenceScheduleBlock>>("schedule");
         set => SetArgument("schedule", value);
     }
 

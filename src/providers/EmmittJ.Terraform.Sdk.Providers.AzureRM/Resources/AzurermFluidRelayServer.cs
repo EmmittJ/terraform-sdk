@@ -199,9 +199,9 @@ public partial class AzurermFluidRelayServer(string name) : TerraformResource("a
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public AzurermFluidRelayServerCustomerManagedKeyBlock? CustomerManagedKey
+    public TerraformList<AzurermFluidRelayServerCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetArgument<AzurermFluidRelayServerCustomerManagedKeyBlock>("customer_managed_key");
+        get => GetArgument<TerraformList<AzurermFluidRelayServerCustomerManagedKeyBlock>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -209,9 +209,9 @@ public partial class AzurermFluidRelayServer(string name) : TerraformResource("a
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermFluidRelayServerIdentityBlock? Identity
+    public TerraformList<AzurermFluidRelayServerIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermFluidRelayServerIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermFluidRelayServerIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

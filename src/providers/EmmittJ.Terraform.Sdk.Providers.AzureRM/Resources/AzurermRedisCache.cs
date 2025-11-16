@@ -501,18 +501,18 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermRedisCacheIdentityBlock? Identity
+    public TerraformList<AzurermRedisCacheIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermRedisCacheIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermRedisCacheIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// PatchSchedule block (nesting mode: list).
     /// </summary>
-    public AzurermRedisCachePatchScheduleBlock? PatchSchedule
+    public TerraformList<AzurermRedisCachePatchScheduleBlock>? PatchSchedule
     {
-        get => GetArgument<AzurermRedisCachePatchScheduleBlock>("patch_schedule");
+        get => GetArgument<TerraformList<AzurermRedisCachePatchScheduleBlock>>("patch_schedule");
         set => SetArgument("patch_schedule", value);
     }
 
@@ -520,9 +520,9 @@ public partial class AzurermRedisCache(string name) : TerraformResource("azurerm
     /// RedisConfiguration block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedisConfiguration block(s) allowed")]
-    public AzurermRedisCacheRedisConfigurationBlock? RedisConfiguration
+    public TerraformList<AzurermRedisCacheRedisConfigurationBlock>? RedisConfiguration
     {
-        get => GetArgument<AzurermRedisCacheRedisConfigurationBlock>("redis_configuration");
+        get => GetArgument<TerraformList<AzurermRedisCacheRedisConfigurationBlock>>("redis_configuration");
         set => SetArgument("redis_configuration", value);
     }
 

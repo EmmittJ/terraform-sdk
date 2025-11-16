@@ -250,9 +250,9 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DnsConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
-    public required AzurermTrafficManagerProfileDnsConfigBlock DnsConfig
+    public required TerraformList<AzurermTrafficManagerProfileDnsConfigBlock> DnsConfig
     {
-        get => GetRequiredArgument<AzurermTrafficManagerProfileDnsConfigBlock>("dns_config");
+        get => GetRequiredArgument<TerraformList<AzurermTrafficManagerProfileDnsConfigBlock>>("dns_config");
         set => SetArgument("dns_config", value);
     }
 
@@ -263,9 +263,9 @@ public partial class AzurermTrafficManagerProfile(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitorConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitorConfig block(s) allowed")]
-    public required AzurermTrafficManagerProfileMonitorConfigBlock MonitorConfig
+    public required TerraformList<AzurermTrafficManagerProfileMonitorConfigBlock> MonitorConfig
     {
-        get => GetRequiredArgument<AzurermTrafficManagerProfileMonitorConfigBlock>("monitor_config");
+        get => GetRequiredArgument<TerraformList<AzurermTrafficManagerProfileMonitorConfigBlock>>("monitor_config");
         set => SetArgument("monitor_config", value);
     }
 

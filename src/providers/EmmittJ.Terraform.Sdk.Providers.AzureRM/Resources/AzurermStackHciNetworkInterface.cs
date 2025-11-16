@@ -188,9 +188,9 @@ public partial class AzurermStackHciNetworkInterface(string name) : TerraformRes
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfiguration block(s) allowed")]
-    public required AzurermStackHciNetworkInterfaceIpConfigurationBlock IpConfiguration
+    public required TerraformList<AzurermStackHciNetworkInterfaceIpConfigurationBlock> IpConfiguration
     {
-        get => GetRequiredArgument<AzurermStackHciNetworkInterfaceIpConfigurationBlock>("ip_configuration");
+        get => GetRequiredArgument<TerraformList<AzurermStackHciNetworkInterfaceIpConfigurationBlock>>("ip_configuration");
         set => SetArgument("ip_configuration", value);
     }
 

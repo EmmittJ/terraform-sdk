@@ -194,9 +194,9 @@ public partial class AzurermDataFactoryDatasetSqlServerTable(string name) : Terr
     /// <summary>
     /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock? SchemaColumn
+    public TerraformList<AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock>? SchemaColumn
     {
-        get => GetArgument<AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock>("schema_column");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock>>("schema_column");
         set => SetArgument("schema_column", value);
     }
 

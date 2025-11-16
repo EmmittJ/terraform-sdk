@@ -350,9 +350,9 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    public required AzurermHealthcareFhirServiceAuthenticationBlock Authentication
+    public required TerraformList<AzurermHealthcareFhirServiceAuthenticationBlock> Authentication
     {
-        get => GetRequiredArgument<AzurermHealthcareFhirServiceAuthenticationBlock>("authentication");
+        get => GetRequiredArgument<TerraformList<AzurermHealthcareFhirServiceAuthenticationBlock>>("authentication");
         set => SetArgument("authentication", value);
     }
 
@@ -360,9 +360,9 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     /// Cors block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
-    public AzurermHealthcareFhirServiceCorsBlock? Cors
+    public TerraformList<AzurermHealthcareFhirServiceCorsBlock>? Cors
     {
-        get => GetArgument<AzurermHealthcareFhirServiceCorsBlock>("cors");
+        get => GetArgument<TerraformList<AzurermHealthcareFhirServiceCorsBlock>>("cors");
         set => SetArgument("cors", value);
     }
 
@@ -370,18 +370,18 @@ public partial class AzurermHealthcareFhirService(string name) : TerraformResour
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermHealthcareFhirServiceIdentityBlock? Identity
+    public TerraformList<AzurermHealthcareFhirServiceIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermHealthcareFhirServiceIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermHealthcareFhirServiceIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// OciArtifact block (nesting mode: list).
     /// </summary>
-    public AzurermHealthcareFhirServiceOciArtifactBlock? OciArtifact
+    public TerraformList<AzurermHealthcareFhirServiceOciArtifactBlock>? OciArtifact
     {
-        get => GetArgument<AzurermHealthcareFhirServiceOciArtifactBlock>("oci_artifact");
+        get => GetArgument<TerraformList<AzurermHealthcareFhirServiceOciArtifactBlock>>("oci_artifact");
         set => SetArgument("oci_artifact", value);
     }
 

@@ -290,9 +290,9 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Pipeline block(s) allowed")]
-    public required AzurermDataFactoryTriggerTumblingWindowPipelineBlock Pipeline
+    public required TerraformList<AzurermDataFactoryTriggerTumblingWindowPipelineBlock> Pipeline
     {
-        get => GetRequiredArgument<AzurermDataFactoryTriggerTumblingWindowPipelineBlock>("pipeline");
+        get => GetRequiredArgument<TerraformList<AzurermDataFactoryTriggerTumblingWindowPipelineBlock>>("pipeline");
         set => SetArgument("pipeline", value);
     }
 
@@ -300,9 +300,9 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     /// Retry block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Retry block(s) allowed")]
-    public AzurermDataFactoryTriggerTumblingWindowRetryBlock? Retry
+    public TerraformList<AzurermDataFactoryTriggerTumblingWindowRetryBlock>? Retry
     {
-        get => GetArgument<AzurermDataFactoryTriggerTumblingWindowRetryBlock>("retry");
+        get => GetArgument<TerraformList<AzurermDataFactoryTriggerTumblingWindowRetryBlock>>("retry");
         set => SetArgument("retry", value);
     }
 
@@ -318,9 +318,9 @@ public partial class AzurermDataFactoryTriggerTumblingWindow(string name) : Terr
     /// <summary>
     /// TriggerDependency block (nesting mode: set).
     /// </summary>
-    public AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock? TriggerDependency
+    public TerraformSet<AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock>? TriggerDependency
     {
-        get => GetArgument<AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock>("trigger_dependency");
+        get => GetArgument<TerraformSet<AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock>>("trigger_dependency");
         set => SetArgument("trigger_dependency", value);
     }
 

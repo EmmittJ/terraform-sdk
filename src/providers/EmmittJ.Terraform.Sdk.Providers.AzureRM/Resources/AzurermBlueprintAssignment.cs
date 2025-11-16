@@ -206,9 +206,9 @@ public partial class AzurermBlueprintAssignment(string name) : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermBlueprintAssignmentIdentityBlock Identity
+    public required TerraformList<AzurermBlueprintAssignmentIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermBlueprintAssignmentIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermBlueprintAssignmentIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

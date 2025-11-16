@@ -266,9 +266,9 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     /// DailyRecurrence block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailyRecurrence block(s) allowed")]
-    public AzurermDevTestScheduleDailyRecurrenceBlock? DailyRecurrence
+    public TerraformList<AzurermDevTestScheduleDailyRecurrenceBlock>? DailyRecurrence
     {
-        get => GetArgument<AzurermDevTestScheduleDailyRecurrenceBlock>("daily_recurrence");
+        get => GetArgument<TerraformList<AzurermDevTestScheduleDailyRecurrenceBlock>>("daily_recurrence");
         set => SetArgument("daily_recurrence", value);
     }
 
@@ -276,9 +276,9 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     /// HourlyRecurrence block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourlyRecurrence block(s) allowed")]
-    public AzurermDevTestScheduleHourlyRecurrenceBlock? HourlyRecurrence
+    public TerraformList<AzurermDevTestScheduleHourlyRecurrenceBlock>? HourlyRecurrence
     {
-        get => GetArgument<AzurermDevTestScheduleHourlyRecurrenceBlock>("hourly_recurrence");
+        get => GetArgument<TerraformList<AzurermDevTestScheduleHourlyRecurrenceBlock>>("hourly_recurrence");
         set => SetArgument("hourly_recurrence", value);
     }
 
@@ -289,9 +289,9 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NotificationSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationSettings block(s) allowed")]
-    public required AzurermDevTestScheduleNotificationSettingsBlock NotificationSettings
+    public required TerraformList<AzurermDevTestScheduleNotificationSettingsBlock> NotificationSettings
     {
-        get => GetRequiredArgument<AzurermDevTestScheduleNotificationSettingsBlock>("notification_settings");
+        get => GetRequiredArgument<TerraformList<AzurermDevTestScheduleNotificationSettingsBlock>>("notification_settings");
         set => SetArgument("notification_settings", value);
     }
 
@@ -308,9 +308,9 @@ public partial class AzurermDevTestSchedule(string name) : TerraformResource("az
     /// WeeklyRecurrence block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklyRecurrence block(s) allowed")]
-    public AzurermDevTestScheduleWeeklyRecurrenceBlock? WeeklyRecurrence
+    public TerraformList<AzurermDevTestScheduleWeeklyRecurrenceBlock>? WeeklyRecurrence
     {
-        get => GetArgument<AzurermDevTestScheduleWeeklyRecurrenceBlock>("weekly_recurrence");
+        get => GetArgument<TerraformList<AzurermDevTestScheduleWeeklyRecurrenceBlock>>("weekly_recurrence");
         set => SetArgument("weekly_recurrence", value);
     }
 

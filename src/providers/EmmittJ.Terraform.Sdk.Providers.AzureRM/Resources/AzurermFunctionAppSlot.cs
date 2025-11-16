@@ -592,18 +592,18 @@ public partial class AzurermFunctionAppSlot(string name) : TerraformResource("az
     /// AuthSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthSettings block(s) allowed")]
-    public AzurermFunctionAppSlotAuthSettingsBlock? AuthSettings
+    public TerraformList<AzurermFunctionAppSlotAuthSettingsBlock>? AuthSettings
     {
-        get => GetArgument<AzurermFunctionAppSlotAuthSettingsBlock>("auth_settings");
+        get => GetArgument<TerraformList<AzurermFunctionAppSlotAuthSettingsBlock>>("auth_settings");
         set => SetArgument("auth_settings", value);
     }
 
     /// <summary>
     /// ConnectionString block (nesting mode: set).
     /// </summary>
-    public AzurermFunctionAppSlotConnectionStringBlock? ConnectionString
+    public TerraformSet<AzurermFunctionAppSlotConnectionStringBlock>? ConnectionString
     {
-        get => GetArgument<AzurermFunctionAppSlotConnectionStringBlock>("connection_string");
+        get => GetArgument<TerraformSet<AzurermFunctionAppSlotConnectionStringBlock>>("connection_string");
         set => SetArgument("connection_string", value);
     }
 
@@ -611,9 +611,9 @@ public partial class AzurermFunctionAppSlot(string name) : TerraformResource("az
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermFunctionAppSlotIdentityBlock? Identity
+    public TerraformList<AzurermFunctionAppSlotIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermFunctionAppSlotIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermFunctionAppSlotIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -621,9 +621,9 @@ public partial class AzurermFunctionAppSlot(string name) : TerraformResource("az
     /// SiteConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    public AzurermFunctionAppSlotSiteConfigBlock? SiteConfig
+    public TerraformList<AzurermFunctionAppSlotSiteConfigBlock>? SiteConfig
     {
-        get => GetArgument<AzurermFunctionAppSlotSiteConfigBlock>("site_config");
+        get => GetArgument<TerraformList<AzurermFunctionAppSlotSiteConfigBlock>>("site_config");
         set => SetArgument("site_config", value);
     }
 

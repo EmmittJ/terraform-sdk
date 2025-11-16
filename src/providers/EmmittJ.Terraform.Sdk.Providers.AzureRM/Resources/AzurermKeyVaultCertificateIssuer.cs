@@ -176,9 +176,9 @@ public partial class AzurermKeyVaultCertificateIssuer(string name) : TerraformRe
     /// <summary>
     /// Admin block (nesting mode: list).
     /// </summary>
-    public AzurermKeyVaultCertificateIssuerAdminBlock? Admin
+    public TerraformList<AzurermKeyVaultCertificateIssuerAdminBlock>? Admin
     {
-        get => GetArgument<AzurermKeyVaultCertificateIssuerAdminBlock>("admin");
+        get => GetArgument<TerraformList<AzurermKeyVaultCertificateIssuerAdminBlock>>("admin");
         set => SetArgument("admin", value);
     }
 

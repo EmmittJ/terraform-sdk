@@ -212,9 +212,9 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public required AzurermDevCenterProjectEnvironmentTypeIdentityBlock Identity
+    public required TerraformList<AzurermDevCenterProjectEnvironmentTypeIdentityBlock> Identity
     {
-        get => GetRequiredArgument<AzurermDevCenterProjectEnvironmentTypeIdentityBlock>("identity");
+        get => GetRequiredArgument<TerraformList<AzurermDevCenterProjectEnvironmentTypeIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -230,9 +230,9 @@ public partial class AzurermDevCenterProjectEnvironmentType(string name) : Terra
     /// <summary>
     /// UserRoleAssignment block (nesting mode: set).
     /// </summary>
-    public AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock? UserRoleAssignment
+    public TerraformSet<AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock>? UserRoleAssignment
     {
-        get => GetArgument<AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock>("user_role_assignment");
+        get => GetArgument<TerraformSet<AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock>>("user_role_assignment");
         set => SetArgument("user_role_assignment", value);
     }
 

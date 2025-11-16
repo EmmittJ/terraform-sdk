@@ -390,9 +390,9 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     /// Hardware block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hardware block(s) allowed")]
-    public AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock? Hardware
+    public TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock>? Hardware
     {
-        get => GetArgument<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock>("hardware");
+        get => GetArgument<TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock>>("hardware");
         set => SetArgument("hardware", value);
     }
 
@@ -403,18 +403,18 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Infrastructure is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Infrastructure block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Infrastructure block(s) allowed")]
-    public required AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock Infrastructure
+    public required TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock> Infrastructure
     {
-        get => GetRequiredArgument<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock>("infrastructure");
+        get => GetRequiredArgument<TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock>>("infrastructure");
         set => SetArgument("infrastructure", value);
     }
 
     /// <summary>
     /// NetworkInterface block (nesting mode: list).
     /// </summary>
-    public AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock? NetworkInterface
+    public TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock>? NetworkInterface
     {
-        get => GetArgument<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock>("network_interface");
+        get => GetArgument<TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock>>("network_interface");
         set => SetArgument("network_interface", value);
     }
 
@@ -422,18 +422,18 @@ public partial class AzurermSystemCenterVirtualMachineManagerVirtualMachineInsta
     /// OperatingSystem block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperatingSystem block(s) allowed")]
-    public AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock? OperatingSystem
+    public TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock>? OperatingSystem
     {
-        get => GetArgument<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock>("operating_system");
+        get => GetArgument<TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock>>("operating_system");
         set => SetArgument("operating_system", value);
     }
 
     /// <summary>
     /// StorageDisk block (nesting mode: list).
     /// </summary>
-    public AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock? StorageDisk
+    public TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock>? StorageDisk
     {
-        get => GetArgument<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock>("storage_disk");
+        get => GetArgument<TerraformList<AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock>>("storage_disk");
         set => SetArgument("storage_disk", value);
     }
 

@@ -228,9 +228,9 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     /// InstallPatches block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstallPatches block(s) allowed")]
-    public AzurermMaintenanceConfigurationInstallPatchesBlock? InstallPatches
+    public TerraformList<AzurermMaintenanceConfigurationInstallPatchesBlock>? InstallPatches
     {
-        get => GetArgument<AzurermMaintenanceConfigurationInstallPatchesBlock>("install_patches");
+        get => GetArgument<TerraformList<AzurermMaintenanceConfigurationInstallPatchesBlock>>("install_patches");
         set => SetArgument("install_patches", value);
     }
 
@@ -247,9 +247,9 @@ public partial class AzurermMaintenanceConfiguration(string name) : TerraformRes
     /// Window block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Window block(s) allowed")]
-    public AzurermMaintenanceConfigurationWindowBlock? Window
+    public TerraformList<AzurermMaintenanceConfigurationWindowBlock>? Window
     {
-        get => GetArgument<AzurermMaintenanceConfigurationWindowBlock>("window");
+        get => GetArgument<TerraformList<AzurermMaintenanceConfigurationWindowBlock>>("window");
         set => SetArgument("window", value);
     }
 

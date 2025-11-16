@@ -182,9 +182,9 @@ public partial class AzurermLogAnalyticsSolution(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plan block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    public required AzurermLogAnalyticsSolutionPlanBlock Plan
+    public required TerraformList<AzurermLogAnalyticsSolutionPlanBlock> Plan
     {
-        get => GetRequiredArgument<AzurermLogAnalyticsSolutionPlanBlock>("plan");
+        get => GetRequiredArgument<TerraformList<AzurermLogAnalyticsSolutionPlanBlock>>("plan");
         set => SetArgument("plan", value);
     }
 

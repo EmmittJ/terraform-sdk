@@ -265,9 +265,9 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     /// Ipv6 block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ipv6 block(s) allowed")]
-    public AzurermExpressRouteCircuitPeeringIpv6Block? Ipv6
+    public TerraformList<AzurermExpressRouteCircuitPeeringIpv6Block>? Ipv6
     {
-        get => GetArgument<AzurermExpressRouteCircuitPeeringIpv6Block>("ipv6");
+        get => GetArgument<TerraformList<AzurermExpressRouteCircuitPeeringIpv6Block>>("ipv6");
         set => SetArgument("ipv6", value);
     }
 
@@ -275,9 +275,9 @@ public partial class AzurermExpressRouteCircuitPeering(string name) : TerraformR
     /// MicrosoftPeeringConfig block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MicrosoftPeeringConfig block(s) allowed")]
-    public AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock? MicrosoftPeeringConfig
+    public TerraformList<AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock>? MicrosoftPeeringConfig
     {
-        get => GetArgument<AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock>("microsoft_peering_config");
+        get => GetArgument<TerraformList<AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock>>("microsoft_peering_config");
         set => SetArgument("microsoft_peering_config", value);
     }
 

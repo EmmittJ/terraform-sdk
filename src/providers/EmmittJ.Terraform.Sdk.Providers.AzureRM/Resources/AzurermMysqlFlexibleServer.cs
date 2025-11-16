@@ -474,9 +474,9 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// CustomerManagedKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    public AzurermMysqlFlexibleServerCustomerManagedKeyBlock? CustomerManagedKey
+    public TerraformList<AzurermMysqlFlexibleServerCustomerManagedKeyBlock>? CustomerManagedKey
     {
-        get => GetArgument<AzurermMysqlFlexibleServerCustomerManagedKeyBlock>("customer_managed_key");
+        get => GetArgument<TerraformList<AzurermMysqlFlexibleServerCustomerManagedKeyBlock>>("customer_managed_key");
         set => SetArgument("customer_managed_key", value);
     }
 
@@ -484,9 +484,9 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// HighAvailability block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HighAvailability block(s) allowed")]
-    public AzurermMysqlFlexibleServerHighAvailabilityBlock? HighAvailability
+    public TerraformList<AzurermMysqlFlexibleServerHighAvailabilityBlock>? HighAvailability
     {
-        get => GetArgument<AzurermMysqlFlexibleServerHighAvailabilityBlock>("high_availability");
+        get => GetArgument<TerraformList<AzurermMysqlFlexibleServerHighAvailabilityBlock>>("high_availability");
         set => SetArgument("high_availability", value);
     }
 
@@ -494,9 +494,9 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMysqlFlexibleServerIdentityBlock? Identity
+    public TerraformList<AzurermMysqlFlexibleServerIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMysqlFlexibleServerIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMysqlFlexibleServerIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
@@ -504,9 +504,9 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// MaintenanceWindow block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
-    public AzurermMysqlFlexibleServerMaintenanceWindowBlock? MaintenanceWindow
+    public TerraformList<AzurermMysqlFlexibleServerMaintenanceWindowBlock>? MaintenanceWindow
     {
-        get => GetArgument<AzurermMysqlFlexibleServerMaintenanceWindowBlock>("maintenance_window");
+        get => GetArgument<TerraformList<AzurermMysqlFlexibleServerMaintenanceWindowBlock>>("maintenance_window");
         set => SetArgument("maintenance_window", value);
     }
 
@@ -514,9 +514,9 @@ public partial class AzurermMysqlFlexibleServer(string name) : TerraformResource
     /// Storage block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
-    public AzurermMysqlFlexibleServerStorageBlock? Storage
+    public TerraformList<AzurermMysqlFlexibleServerStorageBlock>? Storage
     {
-        get => GetArgument<AzurermMysqlFlexibleServerStorageBlock>("storage");
+        get => GetArgument<TerraformList<AzurermMysqlFlexibleServerStorageBlock>>("storage");
         set => SetArgument("storage", value);
     }
 

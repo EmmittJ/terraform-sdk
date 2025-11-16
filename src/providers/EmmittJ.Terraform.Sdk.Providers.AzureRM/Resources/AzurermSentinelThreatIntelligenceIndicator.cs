@@ -347,27 +347,27 @@ public partial class AzurermSentinelThreatIntelligenceIndicator(string name) : T
     /// <summary>
     /// ExternalReference block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock? ExternalReference
+    public TerraformList<AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock>? ExternalReference
     {
-        get => GetArgument<AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock>("external_reference");
+        get => GetArgument<TerraformList<AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock>>("external_reference");
         set => SetArgument("external_reference", value);
     }
 
     /// <summary>
     /// GranularMarking block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock? GranularMarking
+    public TerraformList<AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock>? GranularMarking
     {
-        get => GetArgument<AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock>("granular_marking");
+        get => GetArgument<TerraformList<AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock>>("granular_marking");
         set => SetArgument("granular_marking", value);
     }
 
     /// <summary>
     /// KillChainPhase block (nesting mode: list).
     /// </summary>
-    public AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock? KillChainPhase
+    public TerraformList<AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock>? KillChainPhase
     {
-        get => GetArgument<AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock>("kill_chain_phase");
+        get => GetArgument<TerraformList<AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock>>("kill_chain_phase");
         set => SetArgument("kill_chain_phase", value);
     }
 

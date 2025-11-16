@@ -225,9 +225,9 @@ public partial class AzurermMssqlJobStep(string name) : TerraformResource("azure
     /// OutputTarget block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputTarget block(s) allowed")]
-    public AzurermMssqlJobStepOutputTargetBlock? OutputTarget
+    public TerraformList<AzurermMssqlJobStepOutputTargetBlock>? OutputTarget
     {
-        get => GetArgument<AzurermMssqlJobStepOutputTargetBlock>("output_target");
+        get => GetArgument<TerraformList<AzurermMssqlJobStepOutputTargetBlock>>("output_target");
         set => SetArgument("output_target", value);
     }
 

@@ -282,9 +282,9 @@ public partial class AzurermApiManagementAuthorizationServer(string name) : Terr
     /// <summary>
     /// TokenBodyParameter block (nesting mode: list).
     /// </summary>
-    public AzurermApiManagementAuthorizationServerTokenBodyParameterBlock? TokenBodyParameter
+    public TerraformList<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock>? TokenBodyParameter
     {
-        get => GetArgument<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock>("token_body_parameter");
+        get => GetArgument<TerraformList<AzurermApiManagementAuthorizationServerTokenBodyParameterBlock>>("token_body_parameter");
         set => SetArgument("token_body_parameter", value);
     }
 

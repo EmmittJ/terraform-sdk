@@ -238,9 +238,9 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// CaptureDescription block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CaptureDescription block(s) allowed")]
-    public AzurermEventhubCaptureDescriptionBlock? CaptureDescription
+    public TerraformList<AzurermEventhubCaptureDescriptionBlock>? CaptureDescription
     {
-        get => GetArgument<AzurermEventhubCaptureDescriptionBlock>("capture_description");
+        get => GetArgument<TerraformList<AzurermEventhubCaptureDescriptionBlock>>("capture_description");
         set => SetArgument("capture_description", value);
     }
 
@@ -248,9 +248,9 @@ public partial class AzurermEventhub(string name) : TerraformResource("azurerm_e
     /// RetentionDescription block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDescription block(s) allowed")]
-    public AzurermEventhubRetentionDescriptionBlock? RetentionDescription
+    public TerraformList<AzurermEventhubRetentionDescriptionBlock>? RetentionDescription
     {
-        get => GetArgument<AzurermEventhubRetentionDescriptionBlock>("retention_description");
+        get => GetArgument<TerraformList<AzurermEventhubRetentionDescriptionBlock>>("retention_description");
         set => SetArgument("retention_description", value);
     }
 

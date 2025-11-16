@@ -172,9 +172,9 @@ public partial class AzurermMobileNetworkSlice(string name) : TerraformResource(
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SingleNetworkSliceSelectionAssistanceInformation block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    public AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock? SingleNetworkSliceSelectionAssistanceInformation
+    public TerraformList<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>? SingleNetworkSliceSelectionAssistanceInformation
     {
-        get => GetArgument<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>("single_network_slice_selection_assistance_information");
+        get => GetArgument<TerraformList<AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInformationBlock>>("single_network_slice_selection_assistance_information");
         set => SetArgument("single_network_slice_selection_assistance_information", value);
     }
 

@@ -326,9 +326,9 @@ public partial class AzurermDataFactoryDatasetJson(string name) : TerraformResou
     /// AzureBlobStorageLocation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorageLocation block(s) allowed")]
-    public AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock? AzureBlobStorageLocation
+    public TerraformList<AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock>? AzureBlobStorageLocation
     {
-        get => GetArgument<AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock>("azure_blob_storage_location");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock>>("azure_blob_storage_location");
         set => SetArgument("azure_blob_storage_location", value);
     }
 
@@ -336,18 +336,18 @@ public partial class AzurermDataFactoryDatasetJson(string name) : TerraformResou
     /// HttpServerLocation block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpServerLocation block(s) allowed")]
-    public AzurermDataFactoryDatasetJsonHttpServerLocationBlock? HttpServerLocation
+    public TerraformList<AzurermDataFactoryDatasetJsonHttpServerLocationBlock>? HttpServerLocation
     {
-        get => GetArgument<AzurermDataFactoryDatasetJsonHttpServerLocationBlock>("http_server_location");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetJsonHttpServerLocationBlock>>("http_server_location");
         set => SetArgument("http_server_location", value);
     }
 
     /// <summary>
     /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryDatasetJsonSchemaColumnBlock? SchemaColumn
+    public TerraformList<AzurermDataFactoryDatasetJsonSchemaColumnBlock>? SchemaColumn
     {
-        get => GetArgument<AzurermDataFactoryDatasetJsonSchemaColumnBlock>("schema_column");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetJsonSchemaColumnBlock>>("schema_column");
         set => SetArgument("schema_column", value);
     }
 

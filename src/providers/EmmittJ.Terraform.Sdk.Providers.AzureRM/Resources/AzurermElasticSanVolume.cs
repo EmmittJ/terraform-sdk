@@ -133,9 +133,9 @@ public partial class AzurermElasticSanVolume(string name) : TerraformResource("a
     /// CreateSource block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CreateSource block(s) allowed")]
-    public AzurermElasticSanVolumeCreateSourceBlock? CreateSource
+    public TerraformList<AzurermElasticSanVolumeCreateSourceBlock>? CreateSource
     {
-        get => GetArgument<AzurermElasticSanVolumeCreateSourceBlock>("create_source");
+        get => GetArgument<TerraformList<AzurermElasticSanVolumeCreateSourceBlock>>("create_source");
         set => SetArgument("create_source", value);
     }
 

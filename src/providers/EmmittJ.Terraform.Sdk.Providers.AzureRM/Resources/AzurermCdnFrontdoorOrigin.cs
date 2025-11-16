@@ -215,9 +215,9 @@ public partial class AzurermCdnFrontdoorOrigin(string name) : TerraformResource(
     /// PrivateLink block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PrivateLink block(s) allowed")]
-    public AzurermCdnFrontdoorOriginPrivateLinkBlock? PrivateLink
+    public TerraformList<AzurermCdnFrontdoorOriginPrivateLinkBlock>? PrivateLink
     {
-        get => GetArgument<AzurermCdnFrontdoorOriginPrivateLinkBlock>("private_link");
+        get => GetArgument<TerraformList<AzurermCdnFrontdoorOriginPrivateLinkBlock>>("private_link");
         set => SetArgument("private_link", value);
     }
 

@@ -160,9 +160,9 @@ public partial class AzurermLogicAppIntegrationAccountCertificate(string name) :
     /// KeyVaultKey block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultKey block(s) allowed")]
-    public AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock? KeyVaultKey
+    public TerraformList<AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock>? KeyVaultKey
     {
-        get => GetArgument<AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock>("key_vault_key");
+        get => GetArgument<TerraformList<AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock>>("key_vault_key");
         set => SetArgument("key_vault_key", value);
     }
 

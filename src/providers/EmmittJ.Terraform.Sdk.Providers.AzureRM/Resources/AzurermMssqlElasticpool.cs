@@ -261,9 +261,9 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerDatabaseSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PerDatabaseSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerDatabaseSettings block(s) allowed")]
-    public required AzurermMssqlElasticpoolPerDatabaseSettingsBlock PerDatabaseSettings
+    public required TerraformList<AzurermMssqlElasticpoolPerDatabaseSettingsBlock> PerDatabaseSettings
     {
-        get => GetRequiredArgument<AzurermMssqlElasticpoolPerDatabaseSettingsBlock>("per_database_settings");
+        get => GetRequiredArgument<TerraformList<AzurermMssqlElasticpoolPerDatabaseSettingsBlock>>("per_database_settings");
         set => SetArgument("per_database_settings", value);
     }
 
@@ -274,9 +274,9 @@ public partial class AzurermMssqlElasticpool(string name) : TerraformResource("a
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Sku block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Sku block(s) allowed")]
-    public required AzurermMssqlElasticpoolSkuBlock Sku
+    public required TerraformList<AzurermMssqlElasticpoolSkuBlock> Sku
     {
-        get => GetRequiredArgument<AzurermMssqlElasticpoolSkuBlock>("sku");
+        get => GetRequiredArgument<TerraformList<AzurermMssqlElasticpoolSkuBlock>>("sku");
         set => SetArgument("sku", value);
     }
 

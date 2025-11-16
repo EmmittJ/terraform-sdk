@@ -298,9 +298,9 @@ public partial class AzurermApiManagementApiDiagnostic(string name) : TerraformR
     /// BackendRequest block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendRequest block(s) allowed")]
-    public AzurermApiManagementApiDiagnosticBackendRequestBlock? BackendRequest
+    public TerraformList<AzurermApiManagementApiDiagnosticBackendRequestBlock>? BackendRequest
     {
-        get => GetArgument<AzurermApiManagementApiDiagnosticBackendRequestBlock>("backend_request");
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticBackendRequestBlock>>("backend_request");
         set => SetArgument("backend_request", value);
     }
 
@@ -308,9 +308,9 @@ public partial class AzurermApiManagementApiDiagnostic(string name) : TerraformR
     /// BackendResponse block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendResponse block(s) allowed")]
-    public AzurermApiManagementApiDiagnosticBackendResponseBlock? BackendResponse
+    public TerraformList<AzurermApiManagementApiDiagnosticBackendResponseBlock>? BackendResponse
     {
-        get => GetArgument<AzurermApiManagementApiDiagnosticBackendResponseBlock>("backend_response");
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticBackendResponseBlock>>("backend_response");
         set => SetArgument("backend_response", value);
     }
 
@@ -318,9 +318,9 @@ public partial class AzurermApiManagementApiDiagnostic(string name) : TerraformR
     /// FrontendRequest block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendRequest block(s) allowed")]
-    public AzurermApiManagementApiDiagnosticFrontendRequestBlock? FrontendRequest
+    public TerraformList<AzurermApiManagementApiDiagnosticFrontendRequestBlock>? FrontendRequest
     {
-        get => GetArgument<AzurermApiManagementApiDiagnosticFrontendRequestBlock>("frontend_request");
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticFrontendRequestBlock>>("frontend_request");
         set => SetArgument("frontend_request", value);
     }
 
@@ -328,9 +328,9 @@ public partial class AzurermApiManagementApiDiagnostic(string name) : TerraformR
     /// FrontendResponse block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendResponse block(s) allowed")]
-    public AzurermApiManagementApiDiagnosticFrontendResponseBlock? FrontendResponse
+    public TerraformList<AzurermApiManagementApiDiagnosticFrontendResponseBlock>? FrontendResponse
     {
-        get => GetArgument<AzurermApiManagementApiDiagnosticFrontendResponseBlock>("frontend_response");
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticFrontendResponseBlock>>("frontend_response");
         set => SetArgument("frontend_response", value);
     }
 

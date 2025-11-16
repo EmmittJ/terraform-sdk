@@ -203,9 +203,9 @@ public partial class AzurermOrbitalContactProfile(string name) : TerraformResour
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Links is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Links block(s) required")]
-    public required AzurermOrbitalContactProfileLinksBlock Links
+    public required TerraformList<AzurermOrbitalContactProfileLinksBlock> Links
     {
-        get => GetRequiredArgument<AzurermOrbitalContactProfileLinksBlock>("links");
+        get => GetRequiredArgument<TerraformList<AzurermOrbitalContactProfileLinksBlock>>("links");
         set => SetArgument("links", value);
     }
 

@@ -121,9 +121,9 @@ public partial class AzurermCosmosdbMongoRoleDefinition(string name) : Terraform
     /// <summary>
     /// Privilege block (nesting mode: list).
     /// </summary>
-    public AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock? Privilege
+    public TerraformList<AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock>? Privilege
     {
-        get => GetArgument<AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock>("privilege");
+        get => GetArgument<TerraformList<AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock>>("privilege");
         set => SetArgument("privilege", value);
     }
 

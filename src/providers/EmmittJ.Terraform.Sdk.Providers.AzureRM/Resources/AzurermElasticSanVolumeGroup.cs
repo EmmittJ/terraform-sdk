@@ -244,9 +244,9 @@ public partial class AzurermElasticSanVolumeGroup(string name) : TerraformResour
     /// Encryption block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    public AzurermElasticSanVolumeGroupEncryptionBlock? Encryption
+    public TerraformList<AzurermElasticSanVolumeGroupEncryptionBlock>? Encryption
     {
-        get => GetArgument<AzurermElasticSanVolumeGroupEncryptionBlock>("encryption");
+        get => GetArgument<TerraformList<AzurermElasticSanVolumeGroupEncryptionBlock>>("encryption");
         set => SetArgument("encryption", value);
     }
 
@@ -254,18 +254,18 @@ public partial class AzurermElasticSanVolumeGroup(string name) : TerraformResour
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermElasticSanVolumeGroupIdentityBlock? Identity
+    public TerraformList<AzurermElasticSanVolumeGroupIdentityBlock>? Identity
     {
-        get => GetArgument<AzurermElasticSanVolumeGroupIdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermElasticSanVolumeGroupIdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 
     /// <summary>
     /// NetworkRule block (nesting mode: list).
     /// </summary>
-    public AzurermElasticSanVolumeGroupNetworkRuleBlock? NetworkRule
+    public TerraformList<AzurermElasticSanVolumeGroupNetworkRuleBlock>? NetworkRule
     {
-        get => GetArgument<AzurermElasticSanVolumeGroupNetworkRuleBlock>("network_rule");
+        get => GetArgument<TerraformList<AzurermElasticSanVolumeGroupNetworkRuleBlock>>("network_rule");
         set => SetArgument("network_rule", value);
     }
 

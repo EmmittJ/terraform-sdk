@@ -194,9 +194,9 @@ public partial class AzurermDataFactoryDatasetPostgresql(string name) : Terrafor
     /// <summary>
     /// SchemaColumn block (nesting mode: list).
     /// </summary>
-    public AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock? SchemaColumn
+    public TerraformList<AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock>? SchemaColumn
     {
-        get => GetArgument<AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock>("schema_column");
+        get => GetArgument<TerraformList<AzurermDataFactoryDatasetPostgresqlSchemaColumnBlock>>("schema_column");
         set => SetArgument("schema_column", value);
     }
 

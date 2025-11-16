@@ -216,9 +216,9 @@ public partial class AzurermVirtualMachineExtension(string name) : TerraformReso
     /// ProtectedSettingsFromKeyVault block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtectedSettingsFromKeyVault block(s) allowed")]
-    public AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock? ProtectedSettingsFromKeyVault
+    public TerraformList<AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock>? ProtectedSettingsFromKeyVault
     {
-        get => GetArgument<AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock>("protected_settings_from_key_vault");
+        get => GetArgument<TerraformList<AzurermVirtualMachineExtensionProtectedSettingsFromKeyVaultBlock>>("protected_settings_from_key_vault");
         set => SetArgument("protected_settings_from_key_vault", value);
     }
 

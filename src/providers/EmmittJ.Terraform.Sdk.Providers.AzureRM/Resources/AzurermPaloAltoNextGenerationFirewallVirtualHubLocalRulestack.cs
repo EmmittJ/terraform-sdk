@@ -299,9 +299,9 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     /// <summary>
     /// DestinationNat block (nesting mode: list).
     /// </summary>
-    public AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock? DestinationNat
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock>? DestinationNat
     {
-        get => GetArgument<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock>("destination_nat");
+        get => GetArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock>>("destination_nat");
         set => SetArgument("destination_nat", value);
     }
 
@@ -309,9 +309,9 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     /// DnsSettings block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
-    public AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsBlock? DnsSettings
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsBlock>? DnsSettings
     {
-        get => GetArgument<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsBlock>("dns_settings");
+        get => GetArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsBlock>>("dns_settings");
         set => SetArgument("dns_settings", value);
     }
 
@@ -322,9 +322,9 @@ public partial class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulesta
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
-    public required AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetworkProfileBlock NetworkProfile
+    public required TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetworkProfileBlock> NetworkProfile
     {
-        get => GetRequiredArgument<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetworkProfileBlock>("network_profile");
+        get => GetRequiredArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetworkProfileBlock>>("network_profile");
         set => SetArgument("network_profile", value);
     }
 

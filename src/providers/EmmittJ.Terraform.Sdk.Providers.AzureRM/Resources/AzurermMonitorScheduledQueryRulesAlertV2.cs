@@ -380,9 +380,9 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2(string name) : Ter
     /// Action block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
-    public AzurermMonitorScheduledQueryRulesAlertV2ActionBlock? Action
+    public TerraformList<AzurermMonitorScheduledQueryRulesAlertV2ActionBlock>? Action
     {
-        get => GetArgument<AzurermMonitorScheduledQueryRulesAlertV2ActionBlock>("action");
+        get => GetArgument<TerraformList<AzurermMonitorScheduledQueryRulesAlertV2ActionBlock>>("action");
         set => SetArgument("action", value);
     }
 
@@ -392,9 +392,9 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2(string name) : Ter
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
-    public required AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock Criteria
+    public required TerraformList<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock> Criteria
     {
-        get => GetRequiredArgument<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock>("criteria");
+        get => GetRequiredArgument<TerraformList<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock>>("criteria");
         set => SetArgument("criteria", value);
     }
 
@@ -402,9 +402,9 @@ public partial class AzurermMonitorScheduledQueryRulesAlertV2(string name) : Ter
     /// Identity block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    public AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock? Identity
+    public TerraformList<AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock>? Identity
     {
-        get => GetArgument<AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock>("identity");
+        get => GetArgument<TerraformList<AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock>>("identity");
         set => SetArgument("identity", value);
     }
 

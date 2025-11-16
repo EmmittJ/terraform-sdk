@@ -184,9 +184,9 @@ public partial class AzurermRedisEnterpriseDatabase(string name) : TerraformReso
     /// Module block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 Module block(s) allowed")]
-    public AzurermRedisEnterpriseDatabaseModuleBlock? Module
+    public TerraformList<AzurermRedisEnterpriseDatabaseModuleBlock>? Module
     {
-        get => GetArgument<AzurermRedisEnterpriseDatabaseModuleBlock>("module");
+        get => GetArgument<TerraformList<AzurermRedisEnterpriseDatabaseModuleBlock>>("module");
         set => SetArgument("module", value);
     }
 

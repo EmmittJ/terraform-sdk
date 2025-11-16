@@ -178,9 +178,9 @@ public partial class AzurermDataFactoryLinkedCustomService(string name) : Terraf
     /// IntegrationRuntime block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IntegrationRuntime block(s) allowed")]
-    public AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBlock? IntegrationRuntime
+    public TerraformList<AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBlock>? IntegrationRuntime
     {
-        get => GetArgument<AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBlock>("integration_runtime");
+        get => GetArgument<TerraformList<AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBlock>>("integration_runtime");
         set => SetArgument("integration_runtime", value);
     }
 

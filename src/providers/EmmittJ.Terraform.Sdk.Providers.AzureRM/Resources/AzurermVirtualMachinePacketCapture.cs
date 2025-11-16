@@ -215,9 +215,9 @@ public partial class AzurermVirtualMachinePacketCapture(string name) : Terraform
     /// <summary>
     /// Filter block (nesting mode: list).
     /// </summary>
-    public AzurermVirtualMachinePacketCaptureFilterBlock? Filter
+    public TerraformList<AzurermVirtualMachinePacketCaptureFilterBlock>? Filter
     {
-        get => GetArgument<AzurermVirtualMachinePacketCaptureFilterBlock>("filter");
+        get => GetArgument<TerraformList<AzurermVirtualMachinePacketCaptureFilterBlock>>("filter");
         set => SetArgument("filter", value);
     }
 
@@ -228,9 +228,9 @@ public partial class AzurermVirtualMachinePacketCapture(string name) : Terraform
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 StorageLocation block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StorageLocation block(s) allowed")]
-    public required AzurermVirtualMachinePacketCaptureStorageLocationBlock StorageLocation
+    public required TerraformList<AzurermVirtualMachinePacketCaptureStorageLocationBlock> StorageLocation
     {
-        get => GetRequiredArgument<AzurermVirtualMachinePacketCaptureStorageLocationBlock>("storage_location");
+        get => GetRequiredArgument<TerraformList<AzurermVirtualMachinePacketCaptureStorageLocationBlock>>("storage_location");
         set => SetArgument("storage_location", value);
     }
 

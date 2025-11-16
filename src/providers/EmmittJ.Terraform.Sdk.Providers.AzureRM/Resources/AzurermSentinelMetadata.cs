@@ -390,9 +390,9 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// Author block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Author block(s) allowed")]
-    public AzurermSentinelMetadataAuthorBlock? Author
+    public TerraformList<AzurermSentinelMetadataAuthorBlock>? Author
     {
-        get => GetArgument<AzurermSentinelMetadataAuthorBlock>("author");
+        get => GetArgument<TerraformList<AzurermSentinelMetadataAuthorBlock>>("author");
         set => SetArgument("author", value);
     }
 
@@ -400,9 +400,9 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// Category block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Category block(s) allowed")]
-    public AzurermSentinelMetadataCategoryBlock? Category
+    public TerraformList<AzurermSentinelMetadataCategoryBlock>? Category
     {
-        get => GetArgument<AzurermSentinelMetadataCategoryBlock>("category");
+        get => GetArgument<TerraformList<AzurermSentinelMetadataCategoryBlock>>("category");
         set => SetArgument("category", value);
     }
 
@@ -410,9 +410,9 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// Source block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    public AzurermSentinelMetadataSourceBlock? Source
+    public TerraformList<AzurermSentinelMetadataSourceBlock>? Source
     {
-        get => GetArgument<AzurermSentinelMetadataSourceBlock>("source");
+        get => GetArgument<TerraformList<AzurermSentinelMetadataSourceBlock>>("source");
         set => SetArgument("source", value);
     }
 
@@ -420,9 +420,9 @@ public partial class AzurermSentinelMetadata(string name) : TerraformResource("a
     /// Support block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Support block(s) allowed")]
-    public AzurermSentinelMetadataSupportBlock? Support
+    public TerraformList<AzurermSentinelMetadataSupportBlock>? Support
     {
-        get => GetArgument<AzurermSentinelMetadataSupportBlock>("support");
+        get => GetArgument<TerraformList<AzurermSentinelMetadataSupportBlock>>("support");
         set => SetArgument("support", value);
     }
 

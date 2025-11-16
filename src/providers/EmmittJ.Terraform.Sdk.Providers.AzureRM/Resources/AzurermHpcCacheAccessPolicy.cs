@@ -181,9 +181,9 @@ public partial class AzurermHpcCacheAccessPolicy(string name) : TerraformResourc
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 AccessRule block(s) allowed")]
-    public required AzurermHpcCacheAccessPolicyAccessRuleBlock AccessRule
+    public required TerraformSet<AzurermHpcCacheAccessPolicyAccessRuleBlock> AccessRule
     {
-        get => GetRequiredArgument<AzurermHpcCacheAccessPolicyAccessRuleBlock>("access_rule");
+        get => GetRequiredArgument<TerraformSet<AzurermHpcCacheAccessPolicyAccessRuleBlock>>("access_rule");
         set => SetArgument("access_rule", value);
     }
 

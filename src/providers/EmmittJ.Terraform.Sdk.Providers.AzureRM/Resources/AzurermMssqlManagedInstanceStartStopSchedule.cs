@@ -153,9 +153,9 @@ public partial class AzurermMssqlManagedInstanceStartStopSchedule(string name) :
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
-    public required AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock Schedule
+    public required TerraformList<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock> Schedule
     {
-        get => GetRequiredArgument<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock>("schedule");
+        get => GetRequiredArgument<TerraformList<AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock>>("schedule");
         set => SetArgument("schedule", value);
     }
 

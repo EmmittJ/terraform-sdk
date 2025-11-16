@@ -186,9 +186,9 @@ public partial class AzurermExpressRouteConnection(string name) : TerraformResou
     /// Routing block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
-    public AzurermExpressRouteConnectionRoutingBlock? Routing
+    public TerraformList<AzurermExpressRouteConnectionRoutingBlock>? Routing
     {
-        get => GetArgument<AzurermExpressRouteConnectionRoutingBlock>("routing");
+        get => GetArgument<TerraformList<AzurermExpressRouteConnectionRoutingBlock>>("routing");
         set => SetArgument("routing", value);
     }
 

@@ -259,9 +259,9 @@ public partial class AzurermRoleManagementPolicy(string name) : TerraformResourc
     /// ActivationRules block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActivationRules block(s) allowed")]
-    public AzurermRoleManagementPolicyActivationRulesBlock? ActivationRules
+    public TerraformList<AzurermRoleManagementPolicyActivationRulesBlock>? ActivationRules
     {
-        get => GetArgument<AzurermRoleManagementPolicyActivationRulesBlock>("activation_rules");
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyActivationRulesBlock>>("activation_rules");
         set => SetArgument("activation_rules", value);
     }
 
@@ -269,9 +269,9 @@ public partial class AzurermRoleManagementPolicy(string name) : TerraformResourc
     /// ActiveAssignmentRules block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveAssignmentRules block(s) allowed")]
-    public AzurermRoleManagementPolicyActiveAssignmentRulesBlock? ActiveAssignmentRules
+    public TerraformList<AzurermRoleManagementPolicyActiveAssignmentRulesBlock>? ActiveAssignmentRules
     {
-        get => GetArgument<AzurermRoleManagementPolicyActiveAssignmentRulesBlock>("active_assignment_rules");
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyActiveAssignmentRulesBlock>>("active_assignment_rules");
         set => SetArgument("active_assignment_rules", value);
     }
 
@@ -279,9 +279,9 @@ public partial class AzurermRoleManagementPolicy(string name) : TerraformResourc
     /// EligibleAssignmentRules block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EligibleAssignmentRules block(s) allowed")]
-    public AzurermRoleManagementPolicyEligibleAssignmentRulesBlock? EligibleAssignmentRules
+    public TerraformList<AzurermRoleManagementPolicyEligibleAssignmentRulesBlock>? EligibleAssignmentRules
     {
-        get => GetArgument<AzurermRoleManagementPolicyEligibleAssignmentRulesBlock>("eligible_assignment_rules");
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyEligibleAssignmentRulesBlock>>("eligible_assignment_rules");
         set => SetArgument("eligible_assignment_rules", value);
     }
 
@@ -289,9 +289,9 @@ public partial class AzurermRoleManagementPolicy(string name) : TerraformResourc
     /// NotificationRules block (nesting mode: list).
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationRules block(s) allowed")]
-    public AzurermRoleManagementPolicyNotificationRulesBlock? NotificationRules
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlock>? NotificationRules
     {
-        get => GetArgument<AzurermRoleManagementPolicyNotificationRulesBlock>("notification_rules");
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlock>>("notification_rules");
         set => SetArgument("notification_rules", value);
     }
 

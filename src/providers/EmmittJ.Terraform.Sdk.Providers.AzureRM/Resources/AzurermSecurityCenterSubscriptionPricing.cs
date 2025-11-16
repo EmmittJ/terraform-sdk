@@ -129,9 +129,9 @@ public partial class AzurermSecurityCenterSubscriptionPricing(string name) : Ter
     /// <summary>
     /// Extension block (nesting mode: set).
     /// </summary>
-    public AzurermSecurityCenterSubscriptionPricingExtensionBlock? Extension
+    public TerraformSet<AzurermSecurityCenterSubscriptionPricingExtensionBlock>? Extension
     {
-        get => GetArgument<AzurermSecurityCenterSubscriptionPricingExtensionBlock>("extension");
+        get => GetArgument<TerraformSet<AzurermSecurityCenterSubscriptionPricingExtensionBlock>>("extension");
         set => SetArgument("extension", value);
     }
 
