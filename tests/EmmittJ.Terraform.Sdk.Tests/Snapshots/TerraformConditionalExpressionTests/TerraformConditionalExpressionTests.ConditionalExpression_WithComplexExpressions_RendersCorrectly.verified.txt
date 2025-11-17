@@ -1,0 +1,4 @@
+﻿var.use_custom_config ? var.custom_config : {
+  setting1 = "default1"
+  setting2 = "default2"
+}

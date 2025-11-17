@@ -59,15 +59,6 @@ public class TerraformDataSource :
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"data.{DataSourceType}.{DataSourceName}");
 
-    /// <summary>
-    /// Resolves this data source to a top-level block node.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
-    }
-
     // Meta-argument properties
 
     /// <summary>

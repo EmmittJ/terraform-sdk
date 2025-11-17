@@ -1,0 +1,1 @@
+﻿aws_subnet.private[*].id

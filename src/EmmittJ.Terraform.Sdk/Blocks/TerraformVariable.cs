@@ -136,15 +136,6 @@ public partial class TerraformVariable : TerraformBlock
     }
 
     /// <summary>
-    /// Resolves this variable to a top-level block node.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
-    }
-
-    /// <summary>
     /// Implicit conversion to TerraformExpression for natural reference usage.
     /// Allows using variables directly in expressions without calling AsReference().
     /// </summary>

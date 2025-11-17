@@ -1,0 +1,14 @@
+﻿resource "aws_instance" "example" {
+  dynamic "tag" {
+    for_each = {
+      Environment = "Production"
+      Owner = "TeamA"
+    }
+    iterator = tag
+
+    content {
+      key = tag.key
+      value = tag.value
+    }
+  }
+}

@@ -27,10 +27,12 @@ public static class TerraformDynamicBlockExtensions
         string? iterator = null)
         where TBlock : TerraformBlock
     {
-        return new TerraformDynamicBlock<TBlock>(block, forEach)
+        var dynamicBlock = new TerraformDynamicBlock<TBlock>(block, forEach);
+        if (iterator is not null)
         {
-            Iterator = iterator
-        };
+            dynamicBlock.Iterator = iterator;
+        }
+        return dynamicBlock;
     }
 
     /// <summary>
@@ -60,7 +62,7 @@ public static class TerraformDynamicBlockExtensions
 
         // Store using the block type name from the dynamic block
         // The property storage system already handles TerraformBlock instances
-        parentBlock.SetArgument(dynamicBlock.BlockTypeToGenerate, dynamicBlock);
+        parentBlock.SetArgument(dynamicBlock.Content.BlockType, dynamicBlock);
     }
 
     /// <summary>
@@ -86,6 +88,6 @@ public static class TerraformDynamicBlockExtensions
         if (dynamicBlock == null)
             throw new ArgumentNullException(nameof(dynamicBlock));
 
-        parentBlock.SetArgument(dynamicBlock.BlockTypeToGenerate, dynamicBlock);
+        parentBlock.SetArgument(dynamicBlock.Content.BlockType, dynamicBlock);
     }
 }

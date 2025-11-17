@@ -117,23 +117,6 @@ public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     }
 
     /// <summary>
-    /// Resolves this output to a top-level block node.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        if (GetArgument<TerraformValue<object>?>("value") == null)
-        {
-            throw new InvalidOperationException(
-                $"Output '{Name}' must have a value set before it can be rendered to HCL. " +
-                $"Set the value using: outputBlock.Value = yourValue; " +
-                $"The value can be a literal, resource reference, or any TerraformExpression.");
-        }
-
-        var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
-    }
-
-    /// <summary>
     /// Implicit conversion to TerraformExpression for natural reference usage.
     /// Allows using outputs directly in expressions without calling AsReference().
     /// </summary>

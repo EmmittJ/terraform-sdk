@@ -1,0 +1,1 @@
+﻿var.environment == "production" ? var.size == "large" ? "t3.xlarge" : "t3.large" : "t3.micro"

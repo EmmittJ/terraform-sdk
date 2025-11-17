@@ -1,0 +1,12 @@
+﻿resource "aws_security_group" "example" {
+  dynamic "ingress" {
+    for_each = [80, 443, 8080]
+    iterator = ingress
+
+    content {
+      from_port = ingress.value
+      protocol = "tcp"
+      to_port = ingress.value
+    }
+  }
+}

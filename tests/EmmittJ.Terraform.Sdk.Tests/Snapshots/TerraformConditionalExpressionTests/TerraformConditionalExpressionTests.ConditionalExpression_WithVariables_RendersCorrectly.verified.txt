@@ -1,0 +1,1 @@
+﻿var.enable_monitoring ? 60 : 300

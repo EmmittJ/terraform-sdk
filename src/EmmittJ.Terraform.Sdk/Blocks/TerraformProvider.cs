@@ -53,13 +53,4 @@ public partial class TerraformProvider : TerraformBlock
     /// <returns>An identifier expression for this provider.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier(Name);
-
-    /// <summary>
-    /// Resolves this provider to a top-level block node.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
-    }
 }

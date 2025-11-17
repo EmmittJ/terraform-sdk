@@ -1,1 +1,0 @@
-﻿Output 'test_output' must have a value set before it can be rendered to HCL. Set the value using: outputBlock.Value = yourValue; The value can be a literal, resource reference, or any TerraformExpression.

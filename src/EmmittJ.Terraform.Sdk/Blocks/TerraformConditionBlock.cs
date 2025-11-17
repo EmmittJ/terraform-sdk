@@ -42,14 +42,5 @@ public class TerraformConditionBlock : TerraformBlock
         get => GetRequiredArgument<TerraformValue<string>>("error_message");
         set => SetArgument("error_message", value);
     }
-
-    /// <summary>
-    /// Resolves this condition block to a nested block node.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformBlockNode(BlockType, children);
-    }
 }
 

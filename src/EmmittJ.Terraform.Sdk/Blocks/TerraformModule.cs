@@ -71,15 +71,6 @@ public class TerraformModule :
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"module.{Name}");
 
-    /// <summary>
-    /// Resolves this module to a top-level block node.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
-    }
-
     // Meta-argument properties
 
     /// <summary>

@@ -15,22 +15,6 @@ public class ErrorMessageQualityTests
     private static ITerraformContext CreateContext() => TerraformContext.Temporary();
 
     [Fact]
-    public Task OutputWithoutValue_ErrorMessage()
-    {
-        var ex = GetException(() =>
-        {
-            var stack = new TerraformStack { Name = "test" };
-            var context = new TerraformContext(stack);
-            var output = new TerraformOutput("test_output") { Value = null! };
-
-            // This will fail during HCL rendering when the required value is missing
-            _ = output.ResolveNodes(context).ToList();
-        });
-
-        return Verify(ex.Message);
-    }
-
-    [Fact]
     public Task TerraformValue_NoResolvable_ErrorMessage()
     {
         var ex = GetException(() =>

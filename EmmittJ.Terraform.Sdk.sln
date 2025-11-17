@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerraformPlayground.AppHost
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerraformPlayground.ApiService", "playground\azure-container-apps\TerraformPlayground.ApiService\TerraformPlayground.ApiService.csproj", "{A4D084EE-C8D9-8D53-7EB0-711A241DD113}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "providers", "providers", "{707CD9D0-5EA5-4439-A4C0-9C9257E16BC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmmittJ.Terraform.Sdk.Providers.Azurerm", "src\providers\EmmittJ.Terraform.Sdk.Providers.Azurerm\EmmittJ.Terraform.Sdk.Providers.Azurerm.csproj", "{CD552CD0-CB92-C563-C678-2FA83C29741C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +137,18 @@ Global
 		{A4D084EE-C8D9-8D53-7EB0-711A241DD113}.Release|x64.Build.0 = Release|Any CPU
 		{A4D084EE-C8D9-8D53-7EB0-711A241DD113}.Release|x86.ActiveCfg = Release|Any CPU
 		{A4D084EE-C8D9-8D53-7EB0-711A241DD113}.Release|x86.Build.0 = Release|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Debug|x64.Build.0 = Debug|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Debug|x86.Build.0 = Debug|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Release|x64.ActiveCfg = Release|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Release|x64.Build.0 = Release|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Release|x86.ActiveCfg = Release|Any CPU
+		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +163,8 @@ Global
 		{A32CDCEF-376E-C2C0-8FF9-13026DB684AC} = {A1935115-9B73-40A1-85AA-AC8886971478}
 		{D6C374A0-0054-E699-0370-24C94DA6CB1B} = {A1935115-9B73-40A1-85AA-AC8886971478}
 		{A4D084EE-C8D9-8D53-7EB0-711A241DD113} = {A1935115-9B73-40A1-85AA-AC8886971478}
+		{707CD9D0-5EA5-4439-A4C0-9C9257E16BC0} = {8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}
+		{CD552CD0-CB92-C563-C678-2FA83C29741C} = {707CD9D0-5EA5-4439-A4C0-9C9257E16BC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {352C09AF-BF74-4C47-ABC6-B780865591B3}

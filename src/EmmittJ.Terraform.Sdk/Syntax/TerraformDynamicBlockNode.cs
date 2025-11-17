@@ -57,7 +57,6 @@ public class TerraformDynamicBlockNode : TerraformSyntaxNode
         var sb = new StringBuilder();
 
         // Dynamic block header: dynamic "block_type" {
-        sb.Append(context.Indent);
         sb.Append("dynamic \"");
         sb.Append(_blockType);
         sb.AppendLine("\" {");

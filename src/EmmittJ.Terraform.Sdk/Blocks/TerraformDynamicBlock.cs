@@ -16,10 +16,9 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
     public override string BlockType => "dynamic";
 
     /// <summary>
-    /// Gets the block type name for blocks being generated (e.g., "ingress", "egress").
-    /// Extracted from the Content block's BlockType.
+    /// Gets the block labels - for dynamic blocks, this is the type of block being generated.
     /// </summary>
-    public string BlockTypeToGenerate => Content.BlockType;
+    public override string[] BlockLabels => [Content.BlockType];
 
     /// <summary>
     /// Gets the strongly-typed content - this IS the block being generated.
@@ -30,21 +29,22 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
     /// Gets or sets the collection to iterate over.
     /// Can be a list, set, or map.
     /// </summary>
-    public ITerraformValue ForEach { get; set; }
+    public ITerraformValue ForEach
+    {
+        get => GetRequiredArgument<ITerraformValue>("for_each");
+        set => SetArgument("for_each", value);
+    }
 
     /// <summary>
     /// Gets or sets the name of the iterator variable.
     /// Defaults to the block type name if not specified.
     /// Example: If BlockTypeToGenerate is "ingress", iterator defaults to "ingress"
     /// </summary>
-    public string? Iterator { get; set; }
-
-    /// <summary>
-    /// Gets or sets labels for the generated blocks (rarely used).
-    /// These are evaluated expressions that can use the iterator.
-    /// Example: [iterator.value.name] for named blocks
-    /// </summary>
-    public List<TerraformValue<string>> Labels { get; } = new();
+    public TerraformValue<string>? Iterator
+    {
+        get => GetArgument<TerraformValue<string>?>("iterator");
+        set => SetArgument("iterator", value);
+    }
 
     /// <summary>
     /// Creates a new dynamic block with strongly-typed content.
@@ -64,39 +64,53 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
         => throw new NotSupportedException("Dynamic blocks cannot be referenced.");
 
     /// <summary>
-    /// Resolves the dynamic block to a TerraformDynamicBlockNode for rendering.
-    /// This converts the block model into the syntax node that generates HCL.
+    /// Resolves the dynamic block to a TerraformDynamicBlockNode.
+    /// Dynamic blocks have special HCL syntax that requires custom rendering.
     /// </summary>
-    /// <param name="context">The resolution context.</param>
-    /// <returns>A TerraformDynamicBlockNode representing this dynamic block.</returns>
-    public TerraformDynamicBlockNode Resolve(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        // Resolve the forEach value to an expression
+        // Resolve for_each to an expression
         var forEachNodes = ForEach.ResolveNodes(context).ToList();
         if (forEachNodes.Count != 1 || forEachNodes[0] is not TerraformExpression forEachExpr)
         {
             throw new InvalidOperationException(
-                $"Dynamic block '{BlockType}' ForEach expression resolved to {forEachNodes.Count} nodes instead of a single expression. " +
-                $"ForEach must resolve to a single list, set, or map expression.");
+                "Dynamic block for_each must resolve to a single expression.");
         }
 
-        // Resolve content to a map expression
-        var contentNodes = Content.ResolveNodes(context).ToList();
-        var contentMap = new TerraformMapExpression();
-
-        foreach (var node in contentNodes)
+        // Resolve iterator if set
+        string? iteratorName = null;
+        if (_elements.TryGetValue("iterator", out var iteratorElement))
         {
-            if (node is TerraformArgumentNode argNode)
+            var iteratorNodes = iteratorElement.ResolveNodes(context).ToList();
+            if (iteratorNodes.Count == 1 && iteratorNodes[0] is TerraformExpression iterExpr)
             {
-                contentMap[argNode.Key] = argNode.Value;
+                var hcl = iterExpr.ToHcl(context);
+                // Remove quotes if it's a literal string
+                iteratorName = hcl.Trim().Trim('"');
             }
         }
 
-        return new TerraformDynamicBlockNode(
-            BlockTypeToGenerate,
+        // Resolve content block's children
+        var contentNodes = Content.ResolveNodes(context).ToList();
+        var contentMap = new TerraformMapExpression();
+
+        // Extract arguments from the content block
+        if (contentNodes.Count == 1 && contentNodes[0] is TerraformBlockNode blockNode)
+        {
+            foreach (var child in blockNode.Children)
+            {
+                if (child is TerraformArgumentNode argNode)
+                {
+                    contentMap[argNode.Key] = argNode.Value;
+                }
+            }
+        }
+
+        yield return new TerraformDynamicBlockNode(
+            Content.BlockType,
             forEachExpr,
             contentMap,
-            Iterator
+            iteratorName
         );
     }
 }

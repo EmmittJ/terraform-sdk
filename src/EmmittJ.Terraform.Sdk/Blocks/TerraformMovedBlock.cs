@@ -61,15 +61,6 @@ public class TerraformMovedBlock : TerraformBlock
         set => SetArgument("to", value);
     }
 
-    /// <summary>
-    /// Resolves this moved block to a top-level block node.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
-    }
-
     /// <inheritdoc/>
     public override TerraformReferenceExpression AsReference()
     {

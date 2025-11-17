@@ -81,15 +81,6 @@ public class TerraformImportBlock : TerraformBlock
         set => SetArgument("identity", value);
     }
 
-    /// <summary>
-    /// Resolves this import block to a top-level block node.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
-    }
-
     /// <inheritdoc/>
     public override TerraformReferenceExpression AsReference()
     {

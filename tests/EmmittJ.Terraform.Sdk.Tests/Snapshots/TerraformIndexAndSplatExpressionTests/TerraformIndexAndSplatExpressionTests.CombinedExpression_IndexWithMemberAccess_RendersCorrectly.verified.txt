@@ -1,0 +1,1 @@
+﻿data.aws_vpc.main.subnet_ids[0]

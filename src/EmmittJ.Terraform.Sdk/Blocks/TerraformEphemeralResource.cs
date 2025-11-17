@@ -33,13 +33,4 @@ public class TerraformEphemeralResource(string type, string name) : TerraformBlo
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"ephemeral.{ResourceType}.{ResourceName}");
-
-    /// <summary>
-    /// Resolves this ephemeral resource to a top-level block node.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
-    }
 }

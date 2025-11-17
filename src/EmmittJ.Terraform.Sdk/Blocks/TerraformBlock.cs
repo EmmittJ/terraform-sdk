@@ -65,15 +65,7 @@ public abstract class TerraformBlock : TerraformMap<object>
 
         foreach (var (key, terraformValue) in _elements)
         {
-            // Check if the resolvable inside is a dynamic block - special handling
-            if (terraformValue.Resolvable is TerraformDynamicBlock<TerraformBlock> dynamicBlock)
-            {
-                // Dynamic blocks resolve to TerraformDynamicBlockNode (a syntax node)
-                var dynamicBlockExpr = dynamicBlock.Resolve(context);
-                nodes.Add(dynamicBlockExpr);
-            }
-            // Check if the resolvable inside is a nested block
-            else if (terraformValue.Resolvable is TerraformBlock nestedBlock)
+            if (terraformValue.Resolvable is TerraformBlock nestedBlock)
             {
                 // Nested blocks resolve themselves to complete BlockNode(s)
                 // Don't wrap them again - just add the resolved nodes directly
@@ -99,9 +91,7 @@ public abstract class TerraformBlock : TerraformMap<object>
         // Format nodes using the context's formatter
         var formatted = context.Formatter.Format(nodes);
 
-        foreach (var node in formatted)
-        {
-            yield return node;
-        }
+        // Wrap the formatted children in a block node with this block's type and labels
+        yield return new TerraformBlockNode(BlockType, BlockLabels, formatted);
     }
 }

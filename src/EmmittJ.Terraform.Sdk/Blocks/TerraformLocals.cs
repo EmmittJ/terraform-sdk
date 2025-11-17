@@ -47,13 +47,4 @@ public class TerraformLocals : TerraformBlock
     /// <returns>A reference expression to the local value.</returns>
     public TerraformExpression AsReference(string name)
         => TerraformExpression.Identifier($"local.{name}");
-
-    /// <summary>
-    /// Resolves this locals block to a top-level block node.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        var children = base.ResolveNodes(context).ToList();
-        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
-    }
 }
