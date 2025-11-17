@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBotServiceAzureBot.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBotServiceAzureBotTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermBotServiceAzureBotTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_bot_service_azure_bot Terraform resource.

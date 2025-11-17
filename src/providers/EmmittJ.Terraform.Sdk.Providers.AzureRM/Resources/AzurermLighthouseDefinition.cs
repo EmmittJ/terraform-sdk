@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for authorization in .
+/// Block type for authorization in AzurermLighthouseDefinition.
 /// Nesting mode: set
 /// </summary>
 public class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermLighthouseDefinitionAuthorizationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for eligible_authorization in .
+/// Block type for eligible_authorization in AzurermLighthouseDefinition.
 /// Nesting mode: set
 /// </summary>
 public class AzurermLighthouseDefinitionEligibleAuthorizationBlock : TerraformBlock
@@ -93,10 +94,93 @@ public class AzurermLighthouseDefinitionEligibleAuthorizationBlock : TerraformBl
         set => SetArgument("role_definition_id", value);
     }
 
+    /// <summary>
+    /// JustInTimeAccessPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 JustInTimeAccessPolicy block(s) allowed")]
+    public TerraformList<AzurermLighthouseDefinitionEligibleAuthorizationBlockJustInTimeAccessPolicyBlock>? JustInTimeAccessPolicy
+    {
+        get => GetArgument<TerraformList<AzurermLighthouseDefinitionEligibleAuthorizationBlockJustInTimeAccessPolicyBlock>>("just_in_time_access_policy");
+        set => SetArgument("just_in_time_access_policy", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for plan in .
+/// Block type for just_in_time_access_policy in AzurermLighthouseDefinitionEligibleAuthorizationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermLighthouseDefinitionEligibleAuthorizationBlockJustInTimeAccessPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "just_in_time_access_policy";
+
+    /// <summary>
+    /// The maximum_activation_duration attribute.
+    /// </summary>
+    public TerraformValue<string>? MaximumActivationDuration
+    {
+        get => new TerraformReference<string>(this, "maximum_activation_duration");
+        set => SetArgument("maximum_activation_duration", value);
+    }
+
+    /// <summary>
+    /// The multi_factor_auth_provider attribute.
+    /// </summary>
+    public TerraformValue<string>? MultiFactorAuthProvider
+    {
+        get => new TerraformReference<string>(this, "multi_factor_auth_provider");
+        set => SetArgument("multi_factor_auth_provider", value);
+    }
+
+    /// <summary>
+    /// Approver block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermLighthouseDefinitionEligibleAuthorizationBlockJustInTimeAccessPolicyBlockApproverBlock>? Approver
+    {
+        get => GetArgument<TerraformSet<AzurermLighthouseDefinitionEligibleAuthorizationBlockJustInTimeAccessPolicyBlockApproverBlock>>("approver");
+        set => SetArgument("approver", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for approver in AzurermLighthouseDefinitionEligibleAuthorizationBlockJustInTimeAccessPolicyBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermLighthouseDefinitionEligibleAuthorizationBlockJustInTimeAccessPolicyBlockApproverBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "approver";
+
+    /// <summary>
+    /// The principal_display_name attribute.
+    /// </summary>
+    public TerraformValue<string>? PrincipalDisplayName
+    {
+        get => new TerraformReference<string>(this, "principal_display_name");
+        set => SetArgument("principal_display_name", value);
+    }
+
+    /// <summary>
+    /// The principal_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
+    public required TerraformValue<string> PrincipalId
+    {
+        get => new TerraformReference<string>(this, "principal_id");
+        set => SetArgument("principal_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for plan in AzurermLighthouseDefinition.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
@@ -148,8 +232,9 @@ public class AzurermLighthouseDefinitionPlanBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLighthouseDefinition.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLighthouseDefinitionTimeoutsBlock : TerraformBlock
@@ -196,6 +281,7 @@ public class AzurermLighthouseDefinitionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_lighthouse_definition Terraform resource.

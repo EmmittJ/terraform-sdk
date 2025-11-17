@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for autoscale_settings in .
+/// Block type for autoscale_settings in AzurermCosmosdbGremlinGraph.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock : TerraformBlock
@@ -24,8 +24,9 @@ public class AzurermCosmosdbGremlinGraphAutoscaleSettingsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for conflict_resolution_policy in .
+/// Block type for conflict_resolution_policy in AzurermCosmosdbGremlinGraph.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : TerraformBlock
@@ -65,8 +66,9 @@ public class AzurermCosmosdbGremlinGraphConflictResolutionPolicyBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for index_policy in .
+/// Block type for index_policy in AzurermCosmosdbGremlinGraph.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlock
@@ -113,10 +115,118 @@ public class AzurermCosmosdbGremlinGraphIndexPolicyBlock : TerraformBlock
         set => SetArgument("indexing_mode", value);
     }
 
+    /// <summary>
+    /// CompositeIndex block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermCosmosdbGremlinGraphIndexPolicyBlockCompositeIndexBlock>? CompositeIndex
+    {
+        get => GetArgument<TerraformList<AzurermCosmosdbGremlinGraphIndexPolicyBlockCompositeIndexBlock>>("composite_index");
+        set => SetArgument("composite_index", value);
+    }
+
+    /// <summary>
+    /// SpatialIndex block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermCosmosdbGremlinGraphIndexPolicyBlockSpatialIndexBlock>? SpatialIndex
+    {
+        get => GetArgument<TerraformList<AzurermCosmosdbGremlinGraphIndexPolicyBlockSpatialIndexBlock>>("spatial_index");
+        set => SetArgument("spatial_index", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for composite_index in AzurermCosmosdbGremlinGraphIndexPolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbGremlinGraphIndexPolicyBlockCompositeIndexBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "composite_index";
+
+    /// <summary>
+    /// Index block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Index block(s) required")]
+    public required TerraformList<AzurermCosmosdbGremlinGraphIndexPolicyBlockCompositeIndexBlockIndexBlock> Index
+    {
+        get => GetRequiredArgument<TerraformList<AzurermCosmosdbGremlinGraphIndexPolicyBlockCompositeIndexBlockIndexBlock>>("index");
+        set => SetArgument("index", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for index in AzurermCosmosdbGremlinGraphIndexPolicyBlockCompositeIndexBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbGremlinGraphIndexPolicyBlockCompositeIndexBlockIndexBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "index";
+
+    /// <summary>
+    /// The order attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
+    public required TerraformValue<string> Order
+    {
+        get => new TerraformReference<string>(this, "order");
+        set => SetArgument("order", value);
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
+    public required TerraformValue<string> Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for spatial_index in AzurermCosmosdbGremlinGraphIndexPolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbGremlinGraphIndexPolicyBlockSpatialIndexBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "spatial_index";
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
+    public required TerraformValue<string> Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+    /// <summary>
+    /// The types attribute.
+    /// </summary>
+    public TerraformSet<string> Types
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "types").ResolveNodes(ctx));
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermCosmosdbGremlinGraph.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlock
@@ -164,8 +274,9 @@ public class AzurermCosmosdbGremlinGraphTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for unique_key in .
+/// Block type for unique_key in AzurermCosmosdbGremlinGraph.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCosmosdbGremlinGraphUniqueKeyBlock : TerraformBlock
@@ -186,6 +297,7 @@ public class AzurermCosmosdbGremlinGraphUniqueKeyBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_gremlin_graph Terraform resource.

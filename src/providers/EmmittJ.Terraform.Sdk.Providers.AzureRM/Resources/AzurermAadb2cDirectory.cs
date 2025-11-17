@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAadb2cDirectory.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAadb2cDirectoryTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermAadb2cDirectoryTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_aadb2c_directory Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for inbound_ip_rule in .
+/// Block type for inbound_ip_rule in AzurermEventgridPartnerNamespace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermEventgridPartnerNamespaceInboundIpRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermEventgridPartnerNamespace.
 /// Nesting mode: single
 /// </summary>
 public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
@@ -82,6 +83,7 @@ public class AzurermEventgridPartnerNamespaceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_eventgrid_partner_namespace Terraform resource.

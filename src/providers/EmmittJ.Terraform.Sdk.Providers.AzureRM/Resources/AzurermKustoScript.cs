@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKustoScript.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermKustoScriptTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kusto_script Terraform resource.

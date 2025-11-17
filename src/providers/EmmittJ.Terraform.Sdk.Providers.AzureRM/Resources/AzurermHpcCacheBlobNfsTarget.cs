@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermHpcCacheBlobNfsTarget.
 /// Nesting mode: single
 /// </summary>
 public class AzurermHpcCacheBlobNfsTargetTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermHpcCacheBlobNfsTargetTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_hpc_cache_blob_nfs_target Terraform resource.

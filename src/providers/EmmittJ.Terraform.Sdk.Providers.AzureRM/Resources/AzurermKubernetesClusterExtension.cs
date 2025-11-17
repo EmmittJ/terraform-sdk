@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for plan in .
+/// Block type for plan in AzurermKubernetesClusterExtension.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
@@ -63,8 +63,9 @@ public class AzurermKubernetesClusterExtensionPlanBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKubernetesClusterExtension.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
@@ -111,6 +112,7 @@ public class AzurermKubernetesClusterExtensionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kubernetes_cluster_extension Terraform resource.

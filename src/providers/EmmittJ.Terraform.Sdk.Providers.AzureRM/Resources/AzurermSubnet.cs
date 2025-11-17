@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for delegation in .
+/// Block type for delegation in AzurermSubnet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSubnetDelegationBlock : TerraformBlock
@@ -23,10 +23,56 @@ public class AzurermSubnetDelegationBlock : TerraformBlock
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// ServiceDelegation block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceDelegation is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceDelegation block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceDelegation block(s) allowed")]
+    public required TerraformList<AzurermSubnetDelegationBlockServiceDelegationBlock> ServiceDelegation
+    {
+        get => GetRequiredArgument<TerraformList<AzurermSubnetDelegationBlockServiceDelegationBlock>>("service_delegation");
+        set => SetArgument("service_delegation", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for ip_address_pool in .
+/// Block type for service_delegation in AzurermSubnetDelegationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSubnetDelegationBlockServiceDelegationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "service_delegation";
+
+    /// <summary>
+    /// The actions attribute.
+    /// </summary>
+    public TerraformSet<string>? Actions
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "actions").ResolveNodes(ctx));
+        set => SetArgument("actions", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for ip_address_pool in AzurermSubnet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
@@ -66,8 +112,9 @@ public class AzurermSubnetIpAddressPoolBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSubnet.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSubnetTimeoutsBlock : TerraformBlock
@@ -114,6 +161,7 @@ public class AzurermSubnetTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_subnet Terraform resource.

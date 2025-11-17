@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azure_devops_repo in .
+/// Block type for azure_devops_repo in AzurermSynapseWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
@@ -83,8 +83,9 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for customer_managed_key in .
+/// Block type for customer_managed_key in AzurermSynapseWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformBlock
@@ -124,8 +125,9 @@ public class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for github_repo in .
+/// Block type for github_repo in AzurermSynapseWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
@@ -195,8 +197,9 @@ public class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermSynapseWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSynapseWorkspaceIdentityBlock : TerraformBlock
@@ -243,8 +246,9 @@ public class AzurermSynapseWorkspaceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSynapseWorkspace.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSynapseWorkspaceTimeoutsBlock : TerraformBlock
@@ -291,6 +295,7 @@ public class AzurermSynapseWorkspaceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_synapse_workspace Terraform resource.

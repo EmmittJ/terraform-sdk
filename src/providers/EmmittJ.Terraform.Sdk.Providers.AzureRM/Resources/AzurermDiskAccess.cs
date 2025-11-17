@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDiskAccess.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDiskAccessTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDiskAccessTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_disk_access Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApplicationInsightsAnalyticsItem.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermApplicationInsightsAnalyticsItemTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_application_insights_analytics_item Terraform resource.

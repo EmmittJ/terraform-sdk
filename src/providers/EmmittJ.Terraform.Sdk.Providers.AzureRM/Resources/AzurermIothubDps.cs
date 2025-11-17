@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ip_filter_rule in .
+/// Block type for ip_filter_rule in AzurermIothubDps.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubDpsIpFilterRuleBlock : TerraformBlock
@@ -54,8 +54,9 @@ public class AzurermIothubDpsIpFilterRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for linked_hub in .
+/// Block type for linked_hub in AzurermIothubDps.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubDpsLinkedHubBlock : TerraformBlock
@@ -113,8 +114,9 @@ public class AzurermIothubDpsLinkedHubBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermIothubDps.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubDpsSkuBlock : TerraformBlock
@@ -146,8 +148,9 @@ public class AzurermIothubDpsSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIothubDps.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIothubDpsTimeoutsBlock : TerraformBlock
@@ -194,6 +197,7 @@ public class AzurermIothubDpsTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iothub_dps Terraform resource.

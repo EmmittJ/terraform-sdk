@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for rule in .
+/// Block type for rule in AzurermFrontdoorRulesEngine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFrontdoorRulesEngineRuleBlock : TerraformBlock
@@ -33,10 +33,212 @@ public class AzurermFrontdoorRulesEngineRuleBlock : TerraformBlock
         set => SetArgument("priority", value);
     }
 
+    /// <summary>
+    /// Action block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
+    public TerraformList<AzurermFrontdoorRulesEngineRuleBlockActionBlock>? Action
+    {
+        get => GetArgument<TerraformList<AzurermFrontdoorRulesEngineRuleBlockActionBlock>>("action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// MatchCondition block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 MatchCondition block(s) allowed")]
+    public TerraformList<AzurermFrontdoorRulesEngineRuleBlockMatchConditionBlock>? MatchCondition
+    {
+        get => GetArgument<TerraformList<AzurermFrontdoorRulesEngineRuleBlockMatchConditionBlock>>("match_condition");
+        set => SetArgument("match_condition", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for action in AzurermFrontdoorRulesEngineRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFrontdoorRulesEngineRuleBlockActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "action";
+
+    /// <summary>
+    /// RequestHeader block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 RequestHeader block(s) allowed")]
+    public TerraformList<AzurermFrontdoorRulesEngineRuleBlockActionBlockRequestHeaderBlock>? RequestHeader
+    {
+        get => GetArgument<TerraformList<AzurermFrontdoorRulesEngineRuleBlockActionBlockRequestHeaderBlock>>("request_header");
+        set => SetArgument("request_header", value);
+    }
+
+    /// <summary>
+    /// ResponseHeader block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 ResponseHeader block(s) allowed")]
+    public TerraformList<AzurermFrontdoorRulesEngineRuleBlockActionBlockResponseHeaderBlock>? ResponseHeader
+    {
+        get => GetArgument<TerraformList<AzurermFrontdoorRulesEngineRuleBlockActionBlockResponseHeaderBlock>>("response_header");
+        set => SetArgument("response_header", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for request_header in AzurermFrontdoorRulesEngineRuleBlockActionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFrontdoorRulesEngineRuleBlockActionBlockRequestHeaderBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "request_header";
+
+    /// <summary>
+    /// The header_action_type attribute.
+    /// </summary>
+    public TerraformValue<string>? HeaderActionType
+    {
+        get => new TerraformReference<string>(this, "header_action_type");
+        set => SetArgument("header_action_type", value);
+    }
+
+    /// <summary>
+    /// The header_name attribute.
+    /// </summary>
+    public TerraformValue<string>? HeaderName
+    {
+        get => new TerraformReference<string>(this, "header_name");
+        set => SetArgument("header_name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformValue<string>? Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for response_header in AzurermFrontdoorRulesEngineRuleBlockActionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFrontdoorRulesEngineRuleBlockActionBlockResponseHeaderBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "response_header";
+
+    /// <summary>
+    /// The header_action_type attribute.
+    /// </summary>
+    public TerraformValue<string>? HeaderActionType
+    {
+        get => new TerraformReference<string>(this, "header_action_type");
+        set => SetArgument("header_action_type", value);
+    }
+
+    /// <summary>
+    /// The header_name attribute.
+    /// </summary>
+    public TerraformValue<string>? HeaderName
+    {
+        get => new TerraformReference<string>(this, "header_name");
+        set => SetArgument("header_name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformValue<string>? Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for match_condition in AzurermFrontdoorRulesEngineRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFrontdoorRulesEngineRuleBlockMatchConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "match_condition";
+
+    /// <summary>
+    /// The negate_condition attribute.
+    /// </summary>
+    public TerraformValue<bool>? NegateCondition
+    {
+        get => new TerraformReference<bool>(this, "negate_condition");
+        set => SetArgument("negate_condition", value);
+    }
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The selector attribute.
+    /// </summary>
+    public TerraformValue<string>? Selector
+    {
+        get => new TerraformReference<string>(this, "selector");
+        set => SetArgument("selector", value);
+    }
+
+    /// <summary>
+    /// The transform attribute.
+    /// </summary>
+    public TerraformList<string>? Transform
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "transform").ResolveNodes(ctx));
+        set => SetArgument("transform", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    public TerraformList<string>? Value
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "value").ResolveNodes(ctx));
+        set => SetArgument("value", value);
+    }
+
+    /// <summary>
+    /// The variable attribute.
+    /// </summary>
+    public TerraformValue<string>? Variable
+    {
+        get => new TerraformReference<string>(this, "variable");
+        set => SetArgument("variable", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermFrontdoorRulesEngine.
 /// Nesting mode: single
 /// </summary>
 public class AzurermFrontdoorRulesEngineTimeoutsBlock : TerraformBlock
@@ -83,6 +285,7 @@ public class AzurermFrontdoorRulesEngineTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_frontdoor_rules_engine Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermBatchAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchAccountIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermBatchAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for key_vault_reference in .
+/// Block type for key_vault_reference in AzurermBatchAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlock
@@ -83,8 +84,9 @@ public class AzurermBatchAccountKeyVaultReferenceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_profile in .
+/// Block type for network_profile in AzurermBatchAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchAccountNetworkProfileBlock : TerraformBlock
@@ -94,10 +96,157 @@ public class AzurermBatchAccountNetworkProfileBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "network_profile";
 
+    /// <summary>
+    /// AccountAccess block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccountAccess block(s) allowed")]
+    public TerraformList<AzurermBatchAccountNetworkProfileBlockAccountAccessBlock>? AccountAccess
+    {
+        get => GetArgument<TerraformList<AzurermBatchAccountNetworkProfileBlockAccountAccessBlock>>("account_access");
+        set => SetArgument("account_access", value);
+    }
+
+    /// <summary>
+    /// NodeManagementAccess block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeManagementAccess block(s) allowed")]
+    public TerraformList<AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlock>? NodeManagementAccess
+    {
+        get => GetArgument<TerraformList<AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlock>>("node_management_access");
+        set => SetArgument("node_management_access", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for account_access in AzurermBatchAccountNetworkProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchAccountNetworkProfileBlockAccountAccessBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "account_access";
+
+    /// <summary>
+    /// The default_action attribute.
+    /// </summary>
+    public TerraformValue<string>? DefaultAction
+    {
+        get => new TerraformReference<string>(this, "default_action");
+        set => SetArgument("default_action", value);
+    }
+
+    /// <summary>
+    /// IpRule block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchAccountNetworkProfileBlockAccountAccessBlockIpRuleBlock>? IpRule
+    {
+        get => GetArgument<TerraformList<AzurermBatchAccountNetworkProfileBlockAccountAccessBlockIpRuleBlock>>("ip_rule");
+        set => SetArgument("ip_rule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ip_rule in AzurermBatchAccountNetworkProfileBlockAccountAccessBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchAccountNetworkProfileBlockAccountAccessBlockIpRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_rule";
+
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    public TerraformValue<string>? Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The ip_range attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
+    public required TerraformValue<string> IpRange
+    {
+        get => new TerraformReference<string>(this, "ip_range");
+        set => SetArgument("ip_range", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for node_management_access in AzurermBatchAccountNetworkProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "node_management_access";
+
+    /// <summary>
+    /// The default_action attribute.
+    /// </summary>
+    public TerraformValue<string>? DefaultAction
+    {
+        get => new TerraformReference<string>(this, "default_action");
+        set => SetArgument("default_action", value);
+    }
+
+    /// <summary>
+    /// IpRule block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlockIpRuleBlock>? IpRule
+    {
+        get => GetArgument<TerraformList<AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlockIpRuleBlock>>("ip_rule");
+        set => SetArgument("ip_rule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ip_rule in AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchAccountNetworkProfileBlockNodeManagementAccessBlockIpRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_rule";
+
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    public TerraformValue<string>? Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The ip_range attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpRange is required")]
+    public required TerraformValue<string> IpRange
+    {
+        get => new TerraformReference<string>(this, "ip_range");
+        set => SetArgument("ip_range", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermBatchAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
@@ -144,6 +293,7 @@ public class AzurermBatchAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_batch_account Terraform resource.

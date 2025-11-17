@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for key_vault_password in .
+/// Block type for key_vault_password in AzurermDataFactoryLinkedServiceSynapse.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSynapseKeyVaultPasswordBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermDataFactoryLinkedServiceSynapseKeyVaultPasswordBlock : Terra
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryLinkedServiceSynapse.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSynapseTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermDataFactoryLinkedServiceSynapseTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_linked_service_synapse Terraform resource.

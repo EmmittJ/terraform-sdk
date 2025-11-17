@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for additional_capabilities in .
+/// Block type for additional_capabilities in AzurermLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLinuxVirtualMachineAdditionalCapabilitiesBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermLinuxVirtualMachineAdditionalCapabilitiesBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for admin_ssh_key in .
+/// Block type for admin_ssh_key in AzurermLinuxVirtualMachine.
 /// Nesting mode: set
 /// </summary>
 public class AzurermLinuxVirtualMachineAdminSshKeyBlock : TerraformBlock
@@ -66,8 +67,9 @@ public class AzurermLinuxVirtualMachineAdminSshKeyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for boot_diagnostics in .
+/// Block type for boot_diagnostics in AzurermLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLinuxVirtualMachineBootDiagnosticsBlock : TerraformBlock
@@ -88,8 +90,9 @@ public class AzurermLinuxVirtualMachineBootDiagnosticsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for gallery_application in .
+/// Block type for gallery_application in AzurermLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLinuxVirtualMachineGalleryApplicationBlock : TerraformBlock
@@ -156,8 +159,9 @@ public class AzurermLinuxVirtualMachineGalleryApplicationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLinuxVirtualMachineIdentityBlock : TerraformBlock
@@ -204,8 +208,9 @@ public class AzurermLinuxVirtualMachineIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for os_disk in .
+/// Block type for os_disk in AzurermLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLinuxVirtualMachineOsDiskBlock : TerraformBlock
@@ -296,10 +301,53 @@ public class AzurermLinuxVirtualMachineOsDiskBlock : TerraformBlock
         set => SetArgument("write_accelerator_enabled", value);
     }
 
+    /// <summary>
+    /// DiffDiskSettings block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiffDiskSettings block(s) allowed")]
+    public TerraformList<AzurermLinuxVirtualMachineOsDiskBlockDiffDiskSettingsBlock>? DiffDiskSettings
+    {
+        get => GetArgument<TerraformList<AzurermLinuxVirtualMachineOsDiskBlockDiffDiskSettingsBlock>>("diff_disk_settings");
+        set => SetArgument("diff_disk_settings", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for os_image_notification in .
+/// Block type for diff_disk_settings in AzurermLinuxVirtualMachineOsDiskBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermLinuxVirtualMachineOsDiskBlockDiffDiskSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "diff_disk_settings";
+
+    /// <summary>
+    /// The option attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Option is required")]
+    public required TerraformValue<string> Option
+    {
+        get => new TerraformReference<string>(this, "option");
+        set => SetArgument("option", value);
+    }
+
+    /// <summary>
+    /// The placement attribute.
+    /// </summary>
+    public TerraformValue<string>? Placement
+    {
+        get => new TerraformReference<string>(this, "placement");
+        set => SetArgument("placement", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for os_image_notification in AzurermLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLinuxVirtualMachineOsImageNotificationBlock : TerraformBlock
@@ -320,8 +368,9 @@ public class AzurermLinuxVirtualMachineOsImageNotificationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for plan in .
+/// Block type for plan in AzurermLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLinuxVirtualMachinePlanBlock : TerraformBlock
@@ -363,8 +412,9 @@ public class AzurermLinuxVirtualMachinePlanBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for secret in .
+/// Block type for secret in AzurermLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLinuxVirtualMachineSecretBlock : TerraformBlock
@@ -384,10 +434,46 @@ public class AzurermLinuxVirtualMachineSecretBlock : TerraformBlock
         set => SetArgument("key_vault_id", value);
     }
 
+    /// <summary>
+    /// Certificate block (nesting mode: set).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Certificate block(s) required")]
+    public required TerraformSet<AzurermLinuxVirtualMachineSecretBlockCertificateBlock> Certificate
+    {
+        get => GetRequiredArgument<TerraformSet<AzurermLinuxVirtualMachineSecretBlockCertificateBlock>>("certificate");
+        set => SetArgument("certificate", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for source_image_reference in .
+/// Block type for certificate in AzurermLinuxVirtualMachineSecretBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermLinuxVirtualMachineSecretBlockCertificateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "certificate";
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
+    public required TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+        set => SetArgument("url", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for source_image_reference in AzurermLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLinuxVirtualMachineSourceImageReferenceBlock : TerraformBlock
@@ -439,8 +525,9 @@ public class AzurermLinuxVirtualMachineSourceImageReferenceBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for termination_notification in .
+/// Block type for termination_notification in AzurermLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLinuxVirtualMachineTerminationNotificationBlock : TerraformBlock
@@ -471,8 +558,9 @@ public class AzurermLinuxVirtualMachineTerminationNotificationBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLinuxVirtualMachine.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLinuxVirtualMachineTimeoutsBlock : TerraformBlock
@@ -519,6 +607,7 @@ public class AzurermLinuxVirtualMachineTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_linux_virtual_machine Terraform resource.

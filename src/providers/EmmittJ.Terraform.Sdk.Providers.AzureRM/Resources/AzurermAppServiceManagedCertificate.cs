@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAppServiceManagedCertificate.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermAppServiceManagedCertificateTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_service_managed_certificate Terraform resource.

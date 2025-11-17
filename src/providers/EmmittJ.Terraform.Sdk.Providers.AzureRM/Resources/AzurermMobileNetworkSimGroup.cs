@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMobileNetworkSimGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMobileNetworkSimGroupIdentityBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermMobileNetworkSimGroupIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMobileNetworkSimGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermMobileNetworkSimGroupTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mobile_network_sim_group Terraform resource.

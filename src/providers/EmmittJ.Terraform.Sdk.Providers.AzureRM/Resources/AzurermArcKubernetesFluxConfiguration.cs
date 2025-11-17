@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for blob_storage in .
+/// Block type for blob_storage in AzurermArcKubernetesFluxConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermArcKubernetesFluxConfigurationBlobStorageBlock : TerraformBlock
@@ -68,10 +68,90 @@ public class AzurermArcKubernetesFluxConfigurationBlobStorageBlock : TerraformBl
         set => SetArgument("timeout_in_seconds", value);
     }
 
+    /// <summary>
+    /// ServicePrincipal block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipal block(s) allowed")]
+    public TerraformList<AzurermArcKubernetesFluxConfigurationBlobStorageBlockServicePrincipalBlock>? ServicePrincipal
+    {
+        get => GetArgument<TerraformList<AzurermArcKubernetesFluxConfigurationBlobStorageBlockServicePrincipalBlock>>("service_principal");
+        set => SetArgument("service_principal", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for bucket in .
+/// Block type for service_principal in AzurermArcKubernetesFluxConfigurationBlobStorageBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermArcKubernetesFluxConfigurationBlobStorageBlockServicePrincipalBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "service_principal";
+
+    /// <summary>
+    /// The client_certificate_base64 attribute.
+    /// </summary>
+    public TerraformValue<string>? ClientCertificateBase64
+    {
+        get => new TerraformReference<string>(this, "client_certificate_base64");
+        set => SetArgument("client_certificate_base64", value);
+    }
+
+    /// <summary>
+    /// The client_certificate_password attribute.
+    /// </summary>
+    public TerraformValue<string>? ClientCertificatePassword
+    {
+        get => new TerraformReference<string>(this, "client_certificate_password");
+        set => SetArgument("client_certificate_password", value);
+    }
+
+    /// <summary>
+    /// The client_certificate_send_chain attribute.
+    /// </summary>
+    public TerraformValue<bool>? ClientCertificateSendChain
+    {
+        get => new TerraformReference<bool>(this, "client_certificate_send_chain");
+        set => SetArgument("client_certificate_send_chain", value);
+    }
+
+    /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The client_secret attribute.
+    /// </summary>
+    public TerraformValue<string>? ClientSecret
+    {
+        get => new TerraformReference<string>(this, "client_secret");
+        set => SetArgument("client_secret", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
+    public required TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+        set => SetArgument("tenant_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for bucket in AzurermArcKubernetesFluxConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermArcKubernetesFluxConfigurationBucketBlock : TerraformBlock
@@ -157,8 +237,9 @@ public class AzurermArcKubernetesFluxConfigurationBucketBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for git_repository in .
+/// Block type for git_repository in AzurermArcKubernetesFluxConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermArcKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlock
@@ -272,8 +353,9 @@ public class AzurermArcKubernetesFluxConfigurationGitRepositoryBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for kustomizations in .
+/// Block type for kustomizations in AzurermArcKubernetesFluxConfiguration.
 /// Nesting mode: set
 /// </summary>
 public class AzurermArcKubernetesFluxConfigurationKustomizationsBlock : TerraformBlock
@@ -358,8 +440,9 @@ public class AzurermArcKubernetesFluxConfigurationKustomizationsBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermArcKubernetesFluxConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermArcKubernetesFluxConfigurationTimeoutsBlock : TerraformBlock
@@ -406,6 +489,7 @@ public class AzurermArcKubernetesFluxConfigurationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_arc_kubernetes_flux_configuration Terraform resource.

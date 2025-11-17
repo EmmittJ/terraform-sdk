@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementIdentityProviderMicrosoft.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementIdentityProviderMicrosoftTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermApiManagementIdentityProviderMicrosoftTimeoutsBlock : Terraf
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_identity_provider_microsoft Terraform resource.

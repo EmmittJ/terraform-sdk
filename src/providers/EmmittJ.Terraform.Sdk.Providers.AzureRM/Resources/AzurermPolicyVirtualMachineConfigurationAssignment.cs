@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for configuration in .
+/// Block type for configuration in AzurermPolicyVirtualMachineConfigurationAssignment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock : TerraformBlock
@@ -49,10 +49,53 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBloc
         set => SetArgument("version", value);
     }
 
+    /// <summary>
+    /// Parameter block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlockParameterBlock>? Parameter
+    {
+        get => GetArgument<TerraformSet<AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlockParameterBlock>>("parameter");
+        set => SetArgument("parameter", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for parameter in AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermPolicyVirtualMachineConfigurationAssignmentConfigurationBlockParameterBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "parameter";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermPolicyVirtualMachineConfigurationAssignment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock : TerraformBlock
@@ -99,6 +142,7 @@ public class AzurermPolicyVirtualMachineConfigurationAssignmentTimeoutsBlock : T
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_policy_virtual_machine_configuration_assignment Terraform resource.

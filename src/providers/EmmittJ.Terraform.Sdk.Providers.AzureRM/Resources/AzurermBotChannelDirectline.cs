@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for site in .
+/// Block type for site in AzurermBotChannelDirectline.
 /// Nesting mode: set
 /// </summary>
 public class AzurermBotChannelDirectlineSiteBlock : TerraformBlock
@@ -121,8 +121,9 @@ public class AzurermBotChannelDirectlineSiteBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBotChannelDirectline.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBotChannelDirectlineTimeoutsBlock : TerraformBlock
@@ -169,6 +170,7 @@ public class AzurermBotChannelDirectlineTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_bot_channel_directline Terraform resource.

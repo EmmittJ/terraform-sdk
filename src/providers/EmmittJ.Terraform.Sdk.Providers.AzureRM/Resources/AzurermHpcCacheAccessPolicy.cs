@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for access_rule in .
+/// Block type for access_rule in AzurermHpcCacheAccessPolicy.
 /// Nesting mode: set
 /// </summary>
 public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
@@ -89,8 +89,9 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermHpcCacheAccessPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermHpcCacheAccessPolicyTimeoutsBlock : TerraformBlock
@@ -137,6 +138,7 @@ public class AzurermHpcCacheAccessPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_hpc_cache_access_policy Terraform resource.

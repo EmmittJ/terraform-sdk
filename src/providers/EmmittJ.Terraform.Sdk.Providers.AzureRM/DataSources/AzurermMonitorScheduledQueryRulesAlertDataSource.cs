@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMonitorScheduledQueryRulesAlertDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorScheduledQueryRulesAlertDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermMonitorScheduledQueryRulesAlertDataSourceTimeoutsBlock : Ter
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_scheduled_query_rules_alert Terraform data source.

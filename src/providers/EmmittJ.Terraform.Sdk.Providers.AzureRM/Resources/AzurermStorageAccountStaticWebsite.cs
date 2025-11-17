@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageAccountStaticWebsite.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermStorageAccountStaticWebsiteTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_account_static_website Terraform resource.

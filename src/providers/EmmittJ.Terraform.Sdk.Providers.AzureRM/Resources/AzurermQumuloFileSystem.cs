@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermQumuloFileSystem.
 /// Nesting mode: single
 /// </summary>
 public class AzurermQumuloFileSystemTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermQumuloFileSystemTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_qumulo_file_system Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for dns in .
+/// Block type for dns in AzurermFirewallPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallPolicyDnsBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermFirewallPolicyDnsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for explicit_proxy in .
+/// Block type for explicit_proxy in AzurermFirewallPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallPolicyExplicitProxyBlock : TerraformBlock
@@ -100,8 +101,9 @@ public class AzurermFirewallPolicyExplicitProxyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermFirewallPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallPolicyIdentityBlock : TerraformBlock
@@ -148,8 +150,9 @@ public class AzurermFirewallPolicyIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for insights in .
+/// Block type for insights in AzurermFirewallPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallPolicyInsightsBlock : TerraformBlock
@@ -188,10 +191,53 @@ public class AzurermFirewallPolicyInsightsBlock : TerraformBlock
         set => SetArgument("retention_in_days", value);
     }
 
+    /// <summary>
+    /// LogAnalyticsWorkspace block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermFirewallPolicyInsightsBlockLogAnalyticsWorkspaceBlock>? LogAnalyticsWorkspace
+    {
+        get => GetArgument<TerraformList<AzurermFirewallPolicyInsightsBlockLogAnalyticsWorkspaceBlock>>("log_analytics_workspace");
+        set => SetArgument("log_analytics_workspace", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for intrusion_detection in .
+/// Block type for log_analytics_workspace in AzurermFirewallPolicyInsightsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFirewallPolicyInsightsBlockLogAnalyticsWorkspaceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "log_analytics_workspace";
+
+    /// <summary>
+    /// The firewall_location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallLocation is required")]
+    public required TerraformValue<string> FirewallLocation
+    {
+        get => new TerraformReference<string>(this, "firewall_location");
+        set => SetArgument("firewall_location", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for intrusion_detection in AzurermFirewallPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallPolicyIntrusionDetectionBlock : TerraformBlock
@@ -219,10 +265,147 @@ public class AzurermFirewallPolicyIntrusionDetectionBlock : TerraformBlock
         set => SetArgument("private_ranges", value);
     }
 
+    /// <summary>
+    /// SignatureOverrides block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermFirewallPolicyIntrusionDetectionBlockSignatureOverridesBlock>? SignatureOverrides
+    {
+        get => GetArgument<TerraformList<AzurermFirewallPolicyIntrusionDetectionBlockSignatureOverridesBlock>>("signature_overrides");
+        set => SetArgument("signature_overrides", value);
+    }
+
+    /// <summary>
+    /// TrafficBypass block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermFirewallPolicyIntrusionDetectionBlockTrafficBypassBlock>? TrafficBypass
+    {
+        get => GetArgument<TerraformList<AzurermFirewallPolicyIntrusionDetectionBlockTrafficBypassBlock>>("traffic_bypass");
+        set => SetArgument("traffic_bypass", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for threat_intelligence_allowlist in .
+/// Block type for signature_overrides in AzurermFirewallPolicyIntrusionDetectionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFirewallPolicyIntrusionDetectionBlockSignatureOverridesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "signature_overrides";
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string>? Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The state attribute.
+    /// </summary>
+    public TerraformValue<string>? State
+    {
+        get => new TerraformReference<string>(this, "state");
+        set => SetArgument("state", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for traffic_bypass in AzurermFirewallPolicyIntrusionDetectionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFirewallPolicyIntrusionDetectionBlockTrafficBypassBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "traffic_bypass";
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string>? Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// The destination_addresses attribute.
+    /// </summary>
+    public TerraformSet<string>? DestinationAddresses
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_addresses").ResolveNodes(ctx));
+        set => SetArgument("destination_addresses", value);
+    }
+
+    /// <summary>
+    /// The destination_ip_groups attribute.
+    /// </summary>
+    public TerraformSet<string>? DestinationIpGroups
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_ip_groups").ResolveNodes(ctx));
+        set => SetArgument("destination_ip_groups", value);
+    }
+
+    /// <summary>
+    /// The destination_ports attribute.
+    /// </summary>
+    public TerraformSet<string>? DestinationPorts
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "destination_ports").ResolveNodes(ctx));
+        set => SetArgument("destination_ports", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformValue<string> Protocol
+    {
+        get => new TerraformReference<string>(this, "protocol");
+        set => SetArgument("protocol", value);
+    }
+
+    /// <summary>
+    /// The source_addresses attribute.
+    /// </summary>
+    public TerraformSet<string>? SourceAddresses
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_addresses").ResolveNodes(ctx));
+        set => SetArgument("source_addresses", value);
+    }
+
+    /// <summary>
+    /// The source_ip_groups attribute.
+    /// </summary>
+    public TerraformSet<string>? SourceIpGroups
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "source_ip_groups").ResolveNodes(ctx));
+        set => SetArgument("source_ip_groups", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for threat_intelligence_allowlist in AzurermFirewallPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallPolicyThreatIntelligenceAllowlistBlock : TerraformBlock
@@ -252,8 +435,9 @@ public class AzurermFirewallPolicyThreatIntelligenceAllowlistBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermFirewallPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermFirewallPolicyTimeoutsBlock : TerraformBlock
@@ -301,8 +485,9 @@ public class AzurermFirewallPolicyTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for tls_certificate in .
+/// Block type for tls_certificate in AzurermFirewallPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallPolicyTlsCertificateBlock : TerraformBlock
@@ -333,6 +518,7 @@ public class AzurermFirewallPolicyTlsCertificateBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_firewall_policy Terraform resource.

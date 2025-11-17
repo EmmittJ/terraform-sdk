@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermExpressRouteCircuitAuthorization.
 /// Nesting mode: single
 /// </summary>
 public class AzurermExpressRouteCircuitAuthorizationTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermExpressRouteCircuitAuthorizationTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_express_route_circuit_authorization Terraform resource.

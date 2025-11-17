@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCdnFrontdoorCustomDomainDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_frontdoor_custom_domain Terraform data source.

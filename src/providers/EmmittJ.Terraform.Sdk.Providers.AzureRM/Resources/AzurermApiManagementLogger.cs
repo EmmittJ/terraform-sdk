@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for application_insights in .
+/// Block type for application_insights in AzurermApiManagementLogger.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermApiManagementLoggerApplicationInsightsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for eventhub in .
+/// Block type for eventhub in AzurermApiManagementLogger.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
@@ -83,8 +84,9 @@ public class AzurermApiManagementLoggerEventhubBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementLogger.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
@@ -131,6 +133,7 @@ public class AzurermApiManagementLoggerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_logger Terraform resource.

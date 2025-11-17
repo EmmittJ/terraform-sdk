@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetappVolumeQuotaRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermNetappVolumeQuotaRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_netapp_volume_quota_rule Terraform resource.

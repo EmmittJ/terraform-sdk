@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpatialAnchorsAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpatialAnchorsAccountTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSpatialAnchorsAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spatial_anchors_account Terraform resource.

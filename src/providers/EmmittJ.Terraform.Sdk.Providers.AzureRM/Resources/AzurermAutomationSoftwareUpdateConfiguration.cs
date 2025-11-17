@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for linux in .
+/// Block type for linux in AzurermAutomationSoftwareUpdateConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformBlock
@@ -52,8 +52,9 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for post_task in .
+/// Block type for post_task in AzurermAutomationSoftwareUpdateConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : TerraformBlock
@@ -83,8 +84,9 @@ public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : Terrafo
 
 }
 
+
 /// <summary>
-/// Block type for pre_task in .
+/// Block type for pre_task in AzurermAutomationSoftwareUpdateConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : TerraformBlock
@@ -114,8 +116,9 @@ public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for schedule in .
+/// Block type for schedule in AzurermAutomationSoftwareUpdateConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : TerraformBlock
@@ -259,10 +262,54 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : Terrafo
         set => SetArgument("time_zone", value);
     }
 
+    /// <summary>
+    /// MonthlyOccurrence block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonthlyOccurrence block(s) allowed")]
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationScheduleBlockMonthlyOccurrenceBlock>? MonthlyOccurrence
+    {
+        get => GetArgument<TerraformList<AzurermAutomationSoftwareUpdateConfigurationScheduleBlockMonthlyOccurrenceBlock>>("monthly_occurrence");
+        set => SetArgument("monthly_occurrence", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for target in .
+/// Block type for monthly_occurrence in AzurermAutomationSoftwareUpdateConfigurationScheduleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlockMonthlyOccurrenceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "monthly_occurrence";
+
+    /// <summary>
+    /// The day attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
+    public required TerraformValue<string> Day
+    {
+        get => new TerraformReference<string>(this, "day");
+        set => SetArgument("day", value);
+    }
+
+    /// <summary>
+    /// The occurrence attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Occurrence is required")]
+    public required TerraformValue<double> Occurrence
+    {
+        get => new TerraformReference<double>(this, "occurrence");
+        set => SetArgument("occurrence", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for target in AzurermAutomationSoftwareUpdateConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationSoftwareUpdateConfigurationTargetBlock : TerraformBlock
@@ -272,10 +319,142 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlock : Terraform
     /// </summary>
     public override string BlockType => "target";
 
+    /// <summary>
+    /// AzureQuery block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBlock>? AzureQuery
+    {
+        get => GetArgument<TerraformList<AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBlock>>("azure_query");
+        set => SetArgument("azure_query", value);
+    }
+
+    /// <summary>
+    /// NonAzureQuery block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationTargetBlockNonAzureQueryBlock>? NonAzureQuery
+    {
+        get => GetArgument<TerraformList<AzurermAutomationSoftwareUpdateConfigurationTargetBlockNonAzureQueryBlock>>("non_azure_query");
+        set => SetArgument("non_azure_query", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for azure_query in AzurermAutomationSoftwareUpdateConfigurationTargetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "azure_query";
+
+    /// <summary>
+    /// The locations attribute.
+    /// </summary>
+    public TerraformList<string>? Locations
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "locations").ResolveNodes(ctx));
+        set => SetArgument("locations", value);
+    }
+
+    /// <summary>
+    /// The scope attribute.
+    /// </summary>
+    public TerraformList<string>? Scope
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scope").ResolveNodes(ctx));
+        set => SetArgument("scope", value);
+    }
+
+    /// <summary>
+    /// The tag_filter attribute.
+    /// </summary>
+    public TerraformValue<string>? TagFilter
+    {
+        get => new TerraformReference<string>(this, "tag_filter");
+        set => SetArgument("tag_filter", value);
+    }
+
+    /// <summary>
+    /// Tags block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBlockTagsBlock>? Tags
+    {
+        get => GetArgument<TerraformList<AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBlockTagsBlock>>("tags");
+        set => SetArgument("tags", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for tags in AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockAzureQueryBlockTagsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "tags";
+
+    /// <summary>
+    /// The tag attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
+    public required TerraformValue<string> Tag
+    {
+        get => new TerraformReference<string>(this, "tag");
+        set => SetArgument("tag", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for non_azure_query in AzurermAutomationSoftwareUpdateConfigurationTargetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomationSoftwareUpdateConfigurationTargetBlockNonAzureQueryBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "non_azure_query";
+
+    /// <summary>
+    /// The function_alias attribute.
+    /// </summary>
+    public TerraformValue<string>? FunctionAlias
+    {
+        get => new TerraformReference<string>(this, "function_alias");
+        set => SetArgument("function_alias", value);
+    }
+
+    /// <summary>
+    /// The workspace_id attribute.
+    /// </summary>
+    public TerraformValue<string>? WorkspaceId
+    {
+        get => new TerraformReference<string>(this, "workspace_id");
+        set => SetArgument("workspace_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermAutomationSoftwareUpdateConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : TerraformBlock
@@ -323,8 +502,9 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : Terrafo
 
 }
 
+
 /// <summary>
-/// Block type for windows in .
+/// Block type for windows in AzurermAutomationSoftwareUpdateConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : TerraformBlock
@@ -372,6 +552,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_software_update_configuration Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetappBackupVault.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetappBackupVaultTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermNetappBackupVaultTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_netapp_backup_vault Terraform resource.

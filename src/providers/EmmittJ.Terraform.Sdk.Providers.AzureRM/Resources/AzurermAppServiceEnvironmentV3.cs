@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for cluster_setting in .
+/// Block type for cluster_setting in AzurermAppServiceEnvironmentV3.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppServiceEnvironmentV3ClusterSettingBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermAppServiceEnvironmentV3ClusterSettingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAppServiceEnvironmentV3.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermAppServiceEnvironmentV3TimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_service_environment_v3 Terraform resource.

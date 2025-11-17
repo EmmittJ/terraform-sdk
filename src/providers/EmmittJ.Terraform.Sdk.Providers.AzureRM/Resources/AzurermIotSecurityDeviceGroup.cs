@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for allow_rule in .
+/// Block type for allow_rule in AzurermIotSecurityDeviceGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermIotSecurityDeviceGroupAllowRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for range_rule in .
+/// Block type for range_rule in AzurermIotSecurityDeviceGroup.
 /// Nesting mode: set
 /// </summary>
 public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
@@ -104,8 +105,9 @@ public class AzurermIotSecurityDeviceGroupRangeRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIotSecurityDeviceGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
@@ -152,6 +154,7 @@ public class AzurermIotSecurityDeviceGroupTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iot_security_device_group Terraform resource.

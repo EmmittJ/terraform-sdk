@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for business_identity in .
+/// Block type for business_identity in AzurermLogicAppIntegrationAccountPartner.
 /// Nesting mode: set
 /// </summary>
 public class AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermLogicAppIntegrationAccountPartnerBusinessIdentityBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogicAppIntegrationAccountPartner.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogicAppIntegrationAccountPartnerTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermLogicAppIntegrationAccountPartnerTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_logic_app_integration_account_partner Terraform resource.

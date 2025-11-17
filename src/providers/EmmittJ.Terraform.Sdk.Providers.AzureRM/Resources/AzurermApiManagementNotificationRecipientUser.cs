@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementNotificationRecipientUser.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementNotificationRecipientUserTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermApiManagementNotificationRecipientUserTimeoutsBlock : Terraf
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_notification_recipient_user Terraform resource.

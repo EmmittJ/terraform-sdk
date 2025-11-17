@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermElasticSan.
 /// Nesting mode: list
 /// </summary>
 public class AzurermElasticSanSkuBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermElasticSanSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermElasticSan.
 /// Nesting mode: single
 /// </summary>
 public class AzurermElasticSanTimeoutsBlock : TerraformBlock
@@ -82,6 +83,7 @@ public class AzurermElasticSanTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_elastic_san Terraform resource.

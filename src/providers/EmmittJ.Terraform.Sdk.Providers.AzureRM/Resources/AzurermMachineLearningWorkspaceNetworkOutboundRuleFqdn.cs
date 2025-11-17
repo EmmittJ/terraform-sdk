@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdn.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdnTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRuleFqdnTimeoutsBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_machine_learning_workspace_network_outbound_rule_fqdn Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStreamAnalyticsReferenceInputMssql.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStreamAnalyticsReferenceInputMssqlTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermStreamAnalyticsReferenceInputMssqlTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stream_analytics_reference_input_mssql Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for action in .
+/// Block type for action in AzurermCustomProvider.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCustomProviderActionBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermCustomProviderActionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for resource_type in .
+/// Block type for resource_type in AzurermCustomProvider.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCustomProviderResourceTypeAttributeBlock : TerraformBlock
@@ -77,8 +78,9 @@ public class AzurermCustomProviderResourceTypeAttributeBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCustomProvider.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCustomProviderTimeoutsBlock : TerraformBlock
@@ -126,8 +128,9 @@ public class AzurermCustomProviderTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for validation in .
+/// Block type for validation in AzurermCustomProvider.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCustomProviderValidationBlock : TerraformBlock
@@ -148,6 +151,7 @@ public class AzurermCustomProviderValidationBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_custom_provider Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBotChannelAlexa.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBotChannelAlexaTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermBotChannelAlexaTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_bot_channel_alexa Terraform resource.

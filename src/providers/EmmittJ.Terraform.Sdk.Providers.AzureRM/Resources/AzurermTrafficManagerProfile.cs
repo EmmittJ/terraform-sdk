@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for dns_config in .
+/// Block type for dns_config in AzurermTrafficManagerProfile.
 /// Nesting mode: list
 /// </summary>
 public class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for monitor_config in .
+/// Block type for monitor_config in AzurermTrafficManagerProfile.
 /// Nesting mode: list
 /// </summary>
 public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
@@ -111,10 +112,53 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlock
         set => SetArgument("tolerated_number_of_failures", value);
     }
 
+    /// <summary>
+    /// CustomHeader block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermTrafficManagerProfileMonitorConfigBlockCustomHeaderBlock>? CustomHeader
+    {
+        get => GetArgument<TerraformList<AzurermTrafficManagerProfileMonitorConfigBlockCustomHeaderBlock>>("custom_header");
+        set => SetArgument("custom_header", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for custom_header in AzurermTrafficManagerProfileMonitorConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermTrafficManagerProfileMonitorConfigBlockCustomHeaderBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "custom_header";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermTrafficManagerProfile.
 /// Nesting mode: single
 /// </summary>
 public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
@@ -161,6 +205,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_traffic_manager_profile Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAdvisorSuppression.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAdvisorSuppressionTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermAdvisorSuppressionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_advisor_suppression Terraform resource.

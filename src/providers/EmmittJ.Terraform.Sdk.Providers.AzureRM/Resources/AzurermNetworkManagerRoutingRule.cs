@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for destination in .
+/// Block type for destination in AzurermNetworkManagerRoutingRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermNetworkManagerRoutingRuleDestinationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for next_hop in .
+/// Block type for next_hop in AzurermNetworkManagerRoutingRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlock
@@ -67,8 +68,9 @@ public class AzurermNetworkManagerRoutingRuleNextHopBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkManagerRoutingRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBlock
@@ -115,6 +117,7 @@ public class AzurermNetworkManagerRoutingRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_manager_routing_rule Terraform resource.

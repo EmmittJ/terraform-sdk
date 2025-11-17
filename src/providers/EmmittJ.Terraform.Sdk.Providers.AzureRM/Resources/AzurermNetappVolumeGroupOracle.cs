@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetappVolumeGroupOracle.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetappVolumeGroupOracleTimeoutsBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermNetappVolumeGroupOracleTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for volume in .
+/// Block type for volume in AzurermNetappVolumeGroupOracle.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
@@ -242,7 +243,196 @@ public class AzurermNetappVolumeGroupOracleVolumeBlock : TerraformBlock
         set => SetArgument("zone", value);
     }
 
+    /// <summary>
+    /// DataProtectionReplication block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionReplication block(s) allowed")]
+    public TerraformList<AzurermNetappVolumeGroupOracleVolumeBlockDataProtectionReplicationBlock>? DataProtectionReplication
+    {
+        get => GetArgument<TerraformList<AzurermNetappVolumeGroupOracleVolumeBlockDataProtectionReplicationBlock>>("data_protection_replication");
+        set => SetArgument("data_protection_replication", value);
+    }
+
+    /// <summary>
+    /// DataProtectionSnapshotPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataProtectionSnapshotPolicy block(s) allowed")]
+    public TerraformList<AzurermNetappVolumeGroupOracleVolumeBlockDataProtectionSnapshotPolicyBlock>? DataProtectionSnapshotPolicy
+    {
+        get => GetArgument<TerraformList<AzurermNetappVolumeGroupOracleVolumeBlockDataProtectionSnapshotPolicyBlock>>("data_protection_snapshot_policy");
+        set => SetArgument("data_protection_snapshot_policy", value);
+    }
+
+    /// <summary>
+    /// ExportPolicyRule block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExportPolicyRule is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ExportPolicyRule block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 ExportPolicyRule block(s) allowed")]
+    public required TerraformList<AzurermNetappVolumeGroupOracleVolumeBlockExportPolicyRuleBlock> ExportPolicyRule
+    {
+        get => GetRequiredArgument<TerraformList<AzurermNetappVolumeGroupOracleVolumeBlockExportPolicyRuleBlock>>("export_policy_rule");
+        set => SetArgument("export_policy_rule", value);
+    }
+
 }
+
+/// <summary>
+/// Block type for data_protection_replication in AzurermNetappVolumeGroupOracleVolumeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermNetappVolumeGroupOracleVolumeBlockDataProtectionReplicationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "data_protection_replication";
+
+    /// <summary>
+    /// The endpoint_type attribute.
+    /// </summary>
+    public TerraformValue<string>? EndpointType
+    {
+        get => new TerraformReference<string>(this, "endpoint_type");
+        set => SetArgument("endpoint_type", value);
+    }
+
+    /// <summary>
+    /// The remote_volume_location attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeLocation is required")]
+    public required TerraformValue<string> RemoteVolumeLocation
+    {
+        get => new TerraformReference<string>(this, "remote_volume_location");
+        set => SetArgument("remote_volume_location", value);
+    }
+
+    /// <summary>
+    /// The remote_volume_resource_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RemoteVolumeResourceId is required")]
+    public required TerraformValue<string> RemoteVolumeResourceId
+    {
+        get => new TerraformReference<string>(this, "remote_volume_resource_id");
+        set => SetArgument("remote_volume_resource_id", value);
+    }
+
+    /// <summary>
+    /// The replication_frequency attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationFrequency is required")]
+    public required TerraformValue<string> ReplicationFrequency
+    {
+        get => new TerraformReference<string>(this, "replication_frequency");
+        set => SetArgument("replication_frequency", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for data_protection_snapshot_policy in AzurermNetappVolumeGroupOracleVolumeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermNetappVolumeGroupOracleVolumeBlockDataProtectionSnapshotPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "data_protection_snapshot_policy";
+
+    /// <summary>
+    /// The snapshot_policy_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SnapshotPolicyId is required")]
+    public required TerraformValue<string> SnapshotPolicyId
+    {
+        get => new TerraformReference<string>(this, "snapshot_policy_id");
+        set => SetArgument("snapshot_policy_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for export_policy_rule in AzurermNetappVolumeGroupOracleVolumeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermNetappVolumeGroupOracleVolumeBlockExportPolicyRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "export_policy_rule";
+
+    /// <summary>
+    /// The allowed_clients attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedClients is required")]
+    public required TerraformValue<string> AllowedClients
+    {
+        get => new TerraformReference<string>(this, "allowed_clients");
+        set => SetArgument("allowed_clients", value);
+    }
+
+    /// <summary>
+    /// The nfsv3_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Nfsv3Enabled is required")]
+    public required TerraformValue<bool> Nfsv3Enabled
+    {
+        get => new TerraformReference<bool>(this, "nfsv3_enabled");
+        set => SetArgument("nfsv3_enabled", value);
+    }
+
+    /// <summary>
+    /// The nfsv41_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Nfsv41Enabled is required")]
+    public required TerraformValue<bool> Nfsv41Enabled
+    {
+        get => new TerraformReference<bool>(this, "nfsv41_enabled");
+        set => SetArgument("nfsv41_enabled", value);
+    }
+
+    /// <summary>
+    /// The root_access_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? RootAccessEnabled
+    {
+        get => new TerraformReference<bool>(this, "root_access_enabled");
+        set => SetArgument("root_access_enabled", value);
+    }
+
+    /// <summary>
+    /// The rule_index attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleIndex is required")]
+    public required TerraformValue<double> RuleIndex
+    {
+        get => new TerraformReference<double>(this, "rule_index");
+        set => SetArgument("rule_index", value);
+    }
+
+    /// <summary>
+    /// The unix_read_only attribute.
+    /// </summary>
+    public TerraformValue<bool>? UnixReadOnly
+    {
+        get => new TerraformReference<bool>(this, "unix_read_only");
+        set => SetArgument("unix_read_only", value);
+    }
+
+    /// <summary>
+    /// The unix_read_write attribute.
+    /// </summary>
+    public TerraformValue<bool>? UnixReadWrite
+    {
+        get => new TerraformReference<bool>(this, "unix_read_write");
+        set => SetArgument("unix_read_write", value);
+    }
+
+}
+
 
 /// <summary>
 /// Represents a azurerm_netapp_volume_group_oracle Terraform resource.

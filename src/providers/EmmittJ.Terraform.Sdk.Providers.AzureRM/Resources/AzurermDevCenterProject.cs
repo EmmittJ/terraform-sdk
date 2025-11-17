@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDevCenterProject.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevCenterProjectIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermDevCenterProjectIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDevCenterProject.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDevCenterProjectTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermDevCenterProjectTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dev_center_project Terraform resource.

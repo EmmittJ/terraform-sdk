@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for password1 in .
+/// Block type for password1 in AzurermContainerRegistryTokenPassword.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTokenPasswordPassword1Block : TerraformBlock
@@ -32,8 +32,9 @@ public class AzurermContainerRegistryTokenPasswordPassword1Block : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for password2 in .
+/// Block type for password2 in AzurermContainerRegistryTokenPassword.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTokenPasswordPassword2Block : TerraformBlock
@@ -62,8 +63,9 @@ public class AzurermContainerRegistryTokenPasswordPassword2Block : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerRegistryTokenPassword.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
@@ -110,6 +112,7 @@ public class AzurermContainerRegistryTokenPasswordTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_registry_token_password Terraform resource.

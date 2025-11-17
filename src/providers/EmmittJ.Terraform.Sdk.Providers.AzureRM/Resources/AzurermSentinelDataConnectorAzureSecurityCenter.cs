@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSentinelDataConnectorAzureSecurityCenter.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSentinelDataConnectorAzureSecurityCenterTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermSentinelDataConnectorAzureSecurityCenterTimeoutsBlock : Terr
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_sentinel_data_connector_azure_security_center Terraform resource.

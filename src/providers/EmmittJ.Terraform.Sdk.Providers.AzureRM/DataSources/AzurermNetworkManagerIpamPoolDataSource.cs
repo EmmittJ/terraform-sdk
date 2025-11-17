@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkManagerIpamPoolDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkManagerIpamPoolDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermNetworkManagerIpamPoolDataSourceTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_manager_ipam_pool Terraform data source.

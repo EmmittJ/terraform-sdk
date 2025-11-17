@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for daily_recurrence in .
+/// Block type for daily_recurrence in AzurermDevTestSchedule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevTestScheduleDailyRecurrenceBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermDevTestScheduleDailyRecurrenceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for hourly_recurrence in .
+/// Block type for hourly_recurrence in AzurermDevTestSchedule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevTestScheduleHourlyRecurrenceBlock : TerraformBlock
@@ -48,8 +49,9 @@ public class AzurermDevTestScheduleHourlyRecurrenceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for notification_settings in .
+/// Block type for notification_settings in AzurermDevTestSchedule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevTestScheduleNotificationSettingsBlock : TerraformBlock
@@ -88,8 +90,9 @@ public class AzurermDevTestScheduleNotificationSettingsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDevTestSchedule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDevTestScheduleTimeoutsBlock : TerraformBlock
@@ -137,8 +140,9 @@ public class AzurermDevTestScheduleTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for weekly_recurrence in .
+/// Block type for weekly_recurrence in AzurermDevTestSchedule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlock
@@ -168,6 +172,7 @@ public class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dev_test_schedule Terraform resource.

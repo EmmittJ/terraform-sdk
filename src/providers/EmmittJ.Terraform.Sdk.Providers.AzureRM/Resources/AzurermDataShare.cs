@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for snapshot_schedule in .
+/// Block type for snapshot_schedule in AzurermDataShare.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataShareSnapshotScheduleBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermDataShareSnapshotScheduleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataShare.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataShareTimeoutsBlock : TerraformBlock
@@ -93,6 +94,7 @@ public class AzurermDataShareTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_share Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for rules in .
+/// Block type for rules in AzurermStorageBlobInventoryPolicy.
 /// Nesting mode: set
 /// </summary>
 public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
@@ -73,10 +73,89 @@ public class AzurermStorageBlobInventoryPolicyRulesBlock : TerraformBlock
         set => SetArgument("storage_container_name", value);
     }
 
+    /// <summary>
+    /// Filter block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
+    public TerraformList<AzurermStorageBlobInventoryPolicyRulesBlockFilterBlock>? Filter
+    {
+        get => GetArgument<TerraformList<AzurermStorageBlobInventoryPolicyRulesBlockFilterBlock>>("filter");
+        set => SetArgument("filter", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for filter in AzurermStorageBlobInventoryPolicyRulesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageBlobInventoryPolicyRulesBlockFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "filter";
+
+    /// <summary>
+    /// The blob_types attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobTypes is required")]
+    public required TerraformSet<string> BlobTypes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "blob_types").ResolveNodes(ctx));
+        set => SetArgument("blob_types", value);
+    }
+
+    /// <summary>
+    /// The exclude_prefixes attribute.
+    /// </summary>
+    public TerraformSet<string>? ExcludePrefixes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exclude_prefixes").ResolveNodes(ctx));
+        set => SetArgument("exclude_prefixes", value);
+    }
+
+    /// <summary>
+    /// The include_blob_versions attribute.
+    /// </summary>
+    public TerraformValue<bool>? IncludeBlobVersions
+    {
+        get => new TerraformReference<bool>(this, "include_blob_versions");
+        set => SetArgument("include_blob_versions", value);
+    }
+
+    /// <summary>
+    /// The include_deleted attribute.
+    /// </summary>
+    public TerraformValue<bool>? IncludeDeleted
+    {
+        get => new TerraformReference<bool>(this, "include_deleted");
+        set => SetArgument("include_deleted", value);
+    }
+
+    /// <summary>
+    /// The include_snapshots attribute.
+    /// </summary>
+    public TerraformValue<bool>? IncludeSnapshots
+    {
+        get => new TerraformReference<bool>(this, "include_snapshots");
+        set => SetArgument("include_snapshots", value);
+    }
+
+    /// <summary>
+    /// The prefix_match attribute.
+    /// </summary>
+    public TerraformSet<string>? PrefixMatch
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "prefix_match").ResolveNodes(ctx));
+        set => SetArgument("prefix_match", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermStorageBlobInventoryPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
@@ -123,6 +202,7 @@ public class AzurermStorageBlobInventoryPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_blob_inventory_policy Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCosmosdbPostgresqlNodeConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbPostgresqlNodeConfigurationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermCosmosdbPostgresqlNodeConfigurationTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_postgresql_node_configuration Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryManagedPrivateEndpoint.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermDataFactoryManagedPrivateEndpointTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_managed_private_endpoint Terraform resource.

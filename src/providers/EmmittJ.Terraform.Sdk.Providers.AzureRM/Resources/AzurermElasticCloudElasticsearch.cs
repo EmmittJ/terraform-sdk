@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for logs in .
+/// Block type for logs in AzurermElasticCloudElasticsearch.
 /// Nesting mode: list
 /// </summary>
 public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
@@ -40,10 +40,63 @@ public class AzurermElasticCloudElasticsearchLogsBlock : TerraformBlock
         set => SetArgument("send_subscription_logs", value);
     }
 
+    /// <summary>
+    /// FilteringTag block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermElasticCloudElasticsearchLogsBlockFilteringTagBlock>? FilteringTag
+    {
+        get => GetArgument<TerraformList<AzurermElasticCloudElasticsearchLogsBlockFilteringTagBlock>>("filtering_tag");
+        set => SetArgument("filtering_tag", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for filtering_tag in AzurermElasticCloudElasticsearchLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermElasticCloudElasticsearchLogsBlockFilteringTagBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "filtering_tag";
+
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformValue<string> Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermElasticCloudElasticsearch.
 /// Nesting mode: single
 /// </summary>
 public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
@@ -90,6 +143,7 @@ public class AzurermElasticCloudElasticsearchTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_elastic_cloud_elasticsearch Terraform resource.

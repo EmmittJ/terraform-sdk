@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogicAppActionCustom.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogicAppActionCustomTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermLogicAppActionCustomTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_logic_app_action_custom Terraform resource.

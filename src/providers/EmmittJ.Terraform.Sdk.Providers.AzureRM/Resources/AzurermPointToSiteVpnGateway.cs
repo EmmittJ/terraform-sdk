@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for connection_configuration in .
+/// Block type for connection_configuration in AzurermPointToSiteVpnGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPointToSiteVpnGatewayConnectionConfigurationBlock : TerraformBlock
@@ -32,10 +32,140 @@ public class AzurermPointToSiteVpnGatewayConnectionConfigurationBlock : Terrafor
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// Route block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Route block(s) allowed")]
+    public TerraformList<AzurermPointToSiteVpnGatewayConnectionConfigurationBlockRouteBlock>? Route
+    {
+        get => GetArgument<TerraformList<AzurermPointToSiteVpnGatewayConnectionConfigurationBlockRouteBlock>>("route");
+        set => SetArgument("route", value);
+    }
+
+    /// <summary>
+    /// VpnClientAddressPool block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpnClientAddressPool is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpnClientAddressPool block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpnClientAddressPool block(s) allowed")]
+    public required TerraformList<AzurermPointToSiteVpnGatewayConnectionConfigurationBlockVpnClientAddressPoolBlock> VpnClientAddressPool
+    {
+        get => GetRequiredArgument<TerraformList<AzurermPointToSiteVpnGatewayConnectionConfigurationBlockVpnClientAddressPoolBlock>>("vpn_client_address_pool");
+        set => SetArgument("vpn_client_address_pool", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for route in AzurermPointToSiteVpnGatewayConnectionConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermPointToSiteVpnGatewayConnectionConfigurationBlockRouteBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "route";
+
+    /// <summary>
+    /// The associated_route_table_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssociatedRouteTableId is required")]
+    public required TerraformValue<string> AssociatedRouteTableId
+    {
+        get => new TerraformReference<string>(this, "associated_route_table_id");
+        set => SetArgument("associated_route_table_id", value);
+    }
+
+    /// <summary>
+    /// The inbound_route_map_id attribute.
+    /// </summary>
+    public TerraformValue<string>? InboundRouteMapId
+    {
+        get => new TerraformReference<string>(this, "inbound_route_map_id");
+        set => SetArgument("inbound_route_map_id", value);
+    }
+
+    /// <summary>
+    /// The outbound_route_map_id attribute.
+    /// </summary>
+    public TerraformValue<string>? OutboundRouteMapId
+    {
+        get => new TerraformReference<string>(this, "outbound_route_map_id");
+        set => SetArgument("outbound_route_map_id", value);
+    }
+
+    /// <summary>
+    /// PropagatedRouteTable block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PropagatedRouteTable block(s) allowed")]
+    public TerraformList<AzurermPointToSiteVpnGatewayConnectionConfigurationBlockRouteBlockPropagatedRouteTableBlock>? PropagatedRouteTable
+    {
+        get => GetArgument<TerraformList<AzurermPointToSiteVpnGatewayConnectionConfigurationBlockRouteBlockPropagatedRouteTableBlock>>("propagated_route_table");
+        set => SetArgument("propagated_route_table", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for propagated_route_table in AzurermPointToSiteVpnGatewayConnectionConfigurationBlockRouteBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermPointToSiteVpnGatewayConnectionConfigurationBlockRouteBlockPropagatedRouteTableBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "propagated_route_table";
+
+    /// <summary>
+    /// The ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ids is required")]
+    public TerraformList<string>? Ids
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ids").ResolveNodes(ctx));
+        set => SetArgument("ids", value);
+    }
+
+    /// <summary>
+    /// The labels attribute.
+    /// </summary>
+    public TerraformSet<string>? Labels
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "labels").ResolveNodes(ctx));
+        set => SetArgument("labels", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpn_client_address_pool in AzurermPointToSiteVpnGatewayConnectionConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermPointToSiteVpnGatewayConnectionConfigurationBlockVpnClientAddressPoolBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "vpn_client_address_pool";
+
+    /// <summary>
+    /// The address_prefixes attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixes is required")]
+    public required TerraformSet<string> AddressPrefixes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "address_prefixes").ResolveNodes(ctx));
+        set => SetArgument("address_prefixes", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermPointToSiteVpnGateway.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPointToSiteVpnGatewayTimeoutsBlock : TerraformBlock
@@ -82,6 +212,7 @@ public class AzurermPointToSiteVpnGatewayTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_point_to_site_vpn_gateway Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRedisCacheAccessPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRedisCacheAccessPolicyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermRedisCacheAccessPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_redis_cache_access_policy Terraform resource.

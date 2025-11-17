@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for encryption_key in .
+/// Block type for encryption_key in AzurermManagedLustreFileSystem.
 /// Nesting mode: list
 /// </summary>
 public class AzurermManagedLustreFileSystemEncryptionKeyBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermManagedLustreFileSystemEncryptionKeyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for hsm_setting in .
+/// Block type for hsm_setting in AzurermManagedLustreFileSystem.
 /// Nesting mode: list
 /// </summary>
 public class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlock
@@ -77,8 +78,9 @@ public class AzurermManagedLustreFileSystemHsmSettingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermManagedLustreFileSystem.
 /// Nesting mode: list
 /// </summary>
 public class AzurermManagedLustreFileSystemIdentityBlock : TerraformBlock
@@ -110,8 +112,9 @@ public class AzurermManagedLustreFileSystemIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for maintenance_window in .
+/// Block type for maintenance_window in AzurermManagedLustreFileSystem.
 /// Nesting mode: list
 /// </summary>
 public class AzurermManagedLustreFileSystemMaintenanceWindowBlock : TerraformBlock
@@ -143,8 +146,9 @@ public class AzurermManagedLustreFileSystemMaintenanceWindowBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for root_squash in .
+/// Block type for root_squash in AzurermManagedLustreFileSystem.
 /// Nesting mode: list
 /// </summary>
 public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
@@ -194,8 +198,9 @@ public class AzurermManagedLustreFileSystemRootSquashBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermManagedLustreFileSystem.
 /// Nesting mode: single
 /// </summary>
 public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
@@ -242,6 +247,7 @@ public class AzurermManagedLustreFileSystemTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_managed_lustre_file_system Terraform resource.

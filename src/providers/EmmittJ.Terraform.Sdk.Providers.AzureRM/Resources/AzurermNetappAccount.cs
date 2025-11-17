@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for active_directory in .
+/// Block type for active_directory in AzurermNetappAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
@@ -146,8 +146,9 @@ public class AzurermNetappAccountActiveDirectoryBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermNetappAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappAccountIdentityBlock : TerraformBlock
@@ -194,8 +195,9 @@ public class AzurermNetappAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetappAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
@@ -242,6 +244,7 @@ public class AzurermNetappAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_netapp_account Terraform resource.

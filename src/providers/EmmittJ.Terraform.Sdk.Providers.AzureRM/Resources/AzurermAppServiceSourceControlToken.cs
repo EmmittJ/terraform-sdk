@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAppServiceSourceControlToken.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppServiceSourceControlTokenTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermAppServiceSourceControlTokenTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_service_source_control_token Terraform resource.

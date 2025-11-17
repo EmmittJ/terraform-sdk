@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for install_patches in .
+/// Block type for install_patches in AzurermMaintenanceConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMaintenanceConfigurationInstallPatchesBlock : TerraformBlock
@@ -22,10 +22,109 @@ public class AzurermMaintenanceConfigurationInstallPatchesBlock : TerraformBlock
         set => SetArgument("reboot", value);
     }
 
+    /// <summary>
+    /// Linux block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermMaintenanceConfigurationInstallPatchesBlockLinuxBlock>? Linux
+    {
+        get => GetArgument<TerraformList<AzurermMaintenanceConfigurationInstallPatchesBlockLinuxBlock>>("linux");
+        set => SetArgument("linux", value);
+    }
+
+    /// <summary>
+    /// Windows block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermMaintenanceConfigurationInstallPatchesBlockWindowsBlock>? Windows
+    {
+        get => GetArgument<TerraformList<AzurermMaintenanceConfigurationInstallPatchesBlockWindowsBlock>>("windows");
+        set => SetArgument("windows", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for linux in AzurermMaintenanceConfigurationInstallPatchesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMaintenanceConfigurationInstallPatchesBlockLinuxBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "linux";
+
+    /// <summary>
+    /// The classifications_to_include attribute.
+    /// </summary>
+    public TerraformList<string>? ClassificationsToInclude
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "classifications_to_include").ResolveNodes(ctx));
+        set => SetArgument("classifications_to_include", value);
+    }
+
+    /// <summary>
+    /// The package_names_mask_to_exclude attribute.
+    /// </summary>
+    public TerraformList<string>? PackageNamesMaskToExclude
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "package_names_mask_to_exclude").ResolveNodes(ctx));
+        set => SetArgument("package_names_mask_to_exclude", value);
+    }
+
+    /// <summary>
+    /// The package_names_mask_to_include attribute.
+    /// </summary>
+    public TerraformList<string>? PackageNamesMaskToInclude
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "package_names_mask_to_include").ResolveNodes(ctx));
+        set => SetArgument("package_names_mask_to_include", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for windows in AzurermMaintenanceConfigurationInstallPatchesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMaintenanceConfigurationInstallPatchesBlockWindowsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "windows";
+
+    /// <summary>
+    /// The classifications_to_include attribute.
+    /// </summary>
+    public TerraformList<string>? ClassificationsToInclude
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "classifications_to_include").ResolveNodes(ctx));
+        set => SetArgument("classifications_to_include", value);
+    }
+
+    /// <summary>
+    /// The kb_numbers_to_exclude attribute.
+    /// </summary>
+    public TerraformList<string>? KbNumbersToExclude
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "kb_numbers_to_exclude").ResolveNodes(ctx));
+        set => SetArgument("kb_numbers_to_exclude", value);
+    }
+
+    /// <summary>
+    /// The kb_numbers_to_include attribute.
+    /// </summary>
+    public TerraformList<string>? KbNumbersToInclude
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "kb_numbers_to_include").ResolveNodes(ctx));
+        set => SetArgument("kb_numbers_to_include", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermMaintenanceConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
@@ -73,8 +172,9 @@ public class AzurermMaintenanceConfigurationTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for window in .
+/// Block type for window in AzurermMaintenanceConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
@@ -132,6 +232,7 @@ public class AzurermMaintenanceConfigurationWindowBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_maintenance_configuration Terraform resource.

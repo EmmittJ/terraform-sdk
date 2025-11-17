@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAvailabilitySet.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermAvailabilitySetTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_availability_set Terraform resource.

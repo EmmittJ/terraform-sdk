@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for multi_select_observation in .
+/// Block type for multi_select_observation in AzurermSentinelAlertRuleAnomalyDuplicate.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
 
 }
 
+
 /// <summary>
-/// Block type for prioritized_exclude_observation in .
+/// Block type for prioritized_exclude_observation in AzurermSentinelAlertRuleAnomalyDuplicate.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock : TerraformBlock
@@ -100,8 +101,9 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
 
 }
 
+
 /// <summary>
-/// Block type for single_select_observation in .
+/// Block type for single_select_observation in AzurermSentinelAlertRuleAnomalyDuplicate.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock : TerraformBlock
@@ -149,8 +151,9 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
 
 }
 
+
 /// <summary>
-/// Block type for threshold_observation in .
+/// Block type for threshold_observation in AzurermSentinelAlertRuleAnomalyDuplicate.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock : TerraformBlock
@@ -206,8 +209,9 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock :
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSentinelAlertRuleAnomalyDuplicate.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBlock
@@ -254,6 +258,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_sentinel_alert_rule_anomaly_duplicate Terraform resource.

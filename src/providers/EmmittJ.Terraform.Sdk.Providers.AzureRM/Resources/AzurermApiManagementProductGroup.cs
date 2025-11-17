@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementProductGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementProductGroupTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermApiManagementProductGroupTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_product_group Terraform resource.

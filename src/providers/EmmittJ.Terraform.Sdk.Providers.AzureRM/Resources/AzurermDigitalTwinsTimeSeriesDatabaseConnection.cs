@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDigitalTwinsTimeSeriesDatabaseConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDigitalTwinsTimeSeriesDatabaseConnectionTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermDigitalTwinsTimeSeriesDatabaseConnectionTimeoutsBlock : Terr
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_digital_twins_time_series_database_connection Terraform resource.

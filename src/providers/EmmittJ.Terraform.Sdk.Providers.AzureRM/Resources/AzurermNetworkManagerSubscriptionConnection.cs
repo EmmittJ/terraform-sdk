@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkManagerSubscriptionConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkManagerSubscriptionConnectionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermNetworkManagerSubscriptionConnectionTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_manager_subscription_connection Terraform resource.

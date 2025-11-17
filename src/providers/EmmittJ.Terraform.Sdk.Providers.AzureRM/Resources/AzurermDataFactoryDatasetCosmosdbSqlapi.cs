@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for schema_column in .
+/// Block type for schema_column in AzurermDataFactoryDatasetCosmosdbSqlapi.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermDataFactoryDatasetCosmosdbSqlapiSchemaColumnBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryDatasetCosmosdbSqlapi.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryDatasetCosmosdbSqlapiTimeoutsBlock : TerraformBlock
@@ -91,6 +92,7 @@ public class AzurermDataFactoryDatasetCosmosdbSqlapiTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_dataset_cosmosdb_sqlapi Terraform resource.

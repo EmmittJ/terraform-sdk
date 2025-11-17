@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for log in .
+/// Block type for log in AzurermDatadogMonitorTagRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDatadogMonitorTagRuleLogBlock : TerraformBlock
@@ -40,10 +40,63 @@ public class AzurermDatadogMonitorTagRuleLogBlock : TerraformBlock
         set => SetArgument("subscription_log_enabled", value);
     }
 
+    /// <summary>
+    /// Filter block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermDatadogMonitorTagRuleLogBlockFilterBlock>? Filter
+    {
+        get => GetArgument<TerraformList<AzurermDatadogMonitorTagRuleLogBlockFilterBlock>>("filter");
+        set => SetArgument("filter", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for metric in .
+/// Block type for filter in AzurermDatadogMonitorTagRuleLogBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDatadogMonitorTagRuleLogBlockFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "filter";
+
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformValue<string> Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for metric in AzurermDatadogMonitorTagRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDatadogMonitorTagRuleMetricBlock : TerraformBlock
@@ -53,10 +106,63 @@ public class AzurermDatadogMonitorTagRuleMetricBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "metric";
 
+    /// <summary>
+    /// Filter block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermDatadogMonitorTagRuleMetricBlockFilterBlock>? Filter
+    {
+        get => GetArgument<TerraformList<AzurermDatadogMonitorTagRuleMetricBlockFilterBlock>>("filter");
+        set => SetArgument("filter", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for filter in AzurermDatadogMonitorTagRuleMetricBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDatadogMonitorTagRuleMetricBlockFilterBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "filter";
+
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformValue<string> Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermDatadogMonitorTagRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDatadogMonitorTagRuleTimeoutsBlock : TerraformBlock
@@ -103,6 +209,7 @@ public class AzurermDatadogMonitorTagRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_datadog_monitor_tag_rule Terraform resource.

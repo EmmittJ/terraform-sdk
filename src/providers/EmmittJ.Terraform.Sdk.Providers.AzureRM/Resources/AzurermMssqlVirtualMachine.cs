@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for assessment in .
+/// Block type for assessment in AzurermMssqlVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlVirtualMachineAssessmentBlock : TerraformBlock
@@ -31,10 +31,72 @@ public class AzurermMssqlVirtualMachineAssessmentBlock : TerraformBlock
         set => SetArgument("run_immediately", value);
     }
 
+    /// <summary>
+    /// Schedule block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
+    public TerraformList<AzurermMssqlVirtualMachineAssessmentBlockScheduleBlock>? Schedule
+    {
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineAssessmentBlockScheduleBlock>>("schedule");
+        set => SetArgument("schedule", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for auto_backup in .
+/// Block type for schedule in AzurermMssqlVirtualMachineAssessmentBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMssqlVirtualMachineAssessmentBlockScheduleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "schedule";
+
+    /// <summary>
+    /// The day_of_week attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
+    public required TerraformValue<string> DayOfWeek
+    {
+        get => new TerraformReference<string>(this, "day_of_week");
+        set => SetArgument("day_of_week", value);
+    }
+
+    /// <summary>
+    /// The monthly_occurrence attribute.
+    /// </summary>
+    public TerraformValue<double>? MonthlyOccurrence
+    {
+        get => new TerraformReference<double>(this, "monthly_occurrence");
+        set => SetArgument("monthly_occurrence", value);
+    }
+
+    /// <summary>
+    /// The start_time attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
+    public required TerraformValue<string> StartTime
+    {
+        get => new TerraformReference<string>(this, "start_time");
+        set => SetArgument("start_time", value);
+    }
+
+    /// <summary>
+    /// The weekly_interval attribute.
+    /// </summary>
+    public TerraformValue<double>? WeeklyInterval
+    {
+        get => new TerraformReference<double>(this, "weekly_interval");
+        set => SetArgument("weekly_interval", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for auto_backup in AzurermMssqlVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlock
@@ -102,10 +164,83 @@ public class AzurermMssqlVirtualMachineAutoBackupBlock : TerraformBlock
         set => SetArgument("system_databases_backup_enabled", value);
     }
 
+    /// <summary>
+    /// ManualSchedule block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualSchedule block(s) allowed")]
+    public TerraformList<AzurermMssqlVirtualMachineAutoBackupBlockManualScheduleBlock>? ManualSchedule
+    {
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineAutoBackupBlockManualScheduleBlock>>("manual_schedule");
+        set => SetArgument("manual_schedule", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for auto_patching in .
+/// Block type for manual_schedule in AzurermMssqlVirtualMachineAutoBackupBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMssqlVirtualMachineAutoBackupBlockManualScheduleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "manual_schedule";
+
+    /// <summary>
+    /// The days_of_week attribute.
+    /// </summary>
+    public TerraformSet<string>? DaysOfWeek
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "days_of_week").ResolveNodes(ctx));
+        set => SetArgument("days_of_week", value);
+    }
+
+    /// <summary>
+    /// The full_backup_frequency attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullBackupFrequency is required")]
+    public required TerraformValue<string> FullBackupFrequency
+    {
+        get => new TerraformReference<string>(this, "full_backup_frequency");
+        set => SetArgument("full_backup_frequency", value);
+    }
+
+    /// <summary>
+    /// The full_backup_start_hour attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullBackupStartHour is required")]
+    public required TerraformValue<double> FullBackupStartHour
+    {
+        get => new TerraformReference<double>(this, "full_backup_start_hour");
+        set => SetArgument("full_backup_start_hour", value);
+    }
+
+    /// <summary>
+    /// The full_backup_window_in_hours attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FullBackupWindowInHours is required")]
+    public required TerraformValue<double> FullBackupWindowInHours
+    {
+        get => new TerraformReference<double>(this, "full_backup_window_in_hours");
+        set => SetArgument("full_backup_window_in_hours", value);
+    }
+
+    /// <summary>
+    /// The log_backup_frequency_in_minutes attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogBackupFrequencyInMinutes is required")]
+    public required TerraformValue<double> LogBackupFrequencyInMinutes
+    {
+        get => new TerraformReference<double>(this, "log_backup_frequency_in_minutes");
+        set => SetArgument("log_backup_frequency_in_minutes", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for auto_patching in AzurermMssqlVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBlock
@@ -147,8 +282,9 @@ public class AzurermMssqlVirtualMachineAutoPatchingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for key_vault_credential in .
+/// Block type for key_vault_credential in AzurermMssqlVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlock
@@ -200,8 +336,9 @@ public class AzurermMssqlVirtualMachineKeyVaultCredentialBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sql_instance in .
+/// Block type for sql_instance in AzurermMssqlVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlVirtualMachineSqlInstanceBlock : TerraformBlock
@@ -276,8 +413,9 @@ public class AzurermMssqlVirtualMachineSqlInstanceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage_configuration in .
+/// Block type for storage_configuration in AzurermMssqlVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlVirtualMachineStorageConfigurationBlock : TerraformBlock
@@ -316,10 +454,185 @@ public class AzurermMssqlVirtualMachineStorageConfigurationBlock : TerraformBloc
         set => SetArgument("system_db_on_data_disk_enabled", value);
     }
 
+    /// <summary>
+    /// DataSettings block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSettings block(s) allowed")]
+    public TerraformList<AzurermMssqlVirtualMachineStorageConfigurationBlockDataSettingsBlock>? DataSettings
+    {
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineStorageConfigurationBlockDataSettingsBlock>>("data_settings");
+        set => SetArgument("data_settings", value);
+    }
+
+    /// <summary>
+    /// LogSettings block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogSettings block(s) allowed")]
+    public TerraformList<AzurermMssqlVirtualMachineStorageConfigurationBlockLogSettingsBlock>? LogSettings
+    {
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineStorageConfigurationBlockLogSettingsBlock>>("log_settings");
+        set => SetArgument("log_settings", value);
+    }
+
+    /// <summary>
+    /// TempDbSettings block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TempDbSettings block(s) allowed")]
+    public TerraformList<AzurermMssqlVirtualMachineStorageConfigurationBlockTempDbSettingsBlock>? TempDbSettings
+    {
+        get => GetArgument<TerraformList<AzurermMssqlVirtualMachineStorageConfigurationBlockTempDbSettingsBlock>>("temp_db_settings");
+        set => SetArgument("temp_db_settings", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for data_settings in AzurermMssqlVirtualMachineStorageConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMssqlVirtualMachineStorageConfigurationBlockDataSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "data_settings";
+
+    /// <summary>
+    /// The default_file_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultFilePath is required")]
+    public required TerraformValue<string> DefaultFilePath
+    {
+        get => new TerraformReference<string>(this, "default_file_path");
+        set => SetArgument("default_file_path", value);
+    }
+
+    /// <summary>
+    /// The luns attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Luns is required")]
+    public TerraformList<double>? Luns
+    {
+        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "luns").ResolveNodes(ctx));
+        set => SetArgument("luns", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for log_settings in AzurermMssqlVirtualMachineStorageConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMssqlVirtualMachineStorageConfigurationBlockLogSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "log_settings";
+
+    /// <summary>
+    /// The default_file_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultFilePath is required")]
+    public required TerraformValue<string> DefaultFilePath
+    {
+        get => new TerraformReference<string>(this, "default_file_path");
+        set => SetArgument("default_file_path", value);
+    }
+
+    /// <summary>
+    /// The luns attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Luns is required")]
+    public TerraformList<double>? Luns
+    {
+        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "luns").ResolveNodes(ctx));
+        set => SetArgument("luns", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for temp_db_settings in AzurermMssqlVirtualMachineStorageConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMssqlVirtualMachineStorageConfigurationBlockTempDbSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "temp_db_settings";
+
+    /// <summary>
+    /// The data_file_count attribute.
+    /// </summary>
+    public TerraformValue<double>? DataFileCount
+    {
+        get => new TerraformReference<double>(this, "data_file_count");
+        set => SetArgument("data_file_count", value);
+    }
+
+    /// <summary>
+    /// The data_file_growth_in_mb attribute.
+    /// </summary>
+    public TerraformValue<double>? DataFileGrowthInMb
+    {
+        get => new TerraformReference<double>(this, "data_file_growth_in_mb");
+        set => SetArgument("data_file_growth_in_mb", value);
+    }
+
+    /// <summary>
+    /// The data_file_size_mb attribute.
+    /// </summary>
+    public TerraformValue<double>? DataFileSizeMb
+    {
+        get => new TerraformReference<double>(this, "data_file_size_mb");
+        set => SetArgument("data_file_size_mb", value);
+    }
+
+    /// <summary>
+    /// The default_file_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultFilePath is required")]
+    public required TerraformValue<string> DefaultFilePath
+    {
+        get => new TerraformReference<string>(this, "default_file_path");
+        set => SetArgument("default_file_path", value);
+    }
+
+    /// <summary>
+    /// The log_file_growth_mb attribute.
+    /// </summary>
+    public TerraformValue<double>? LogFileGrowthMb
+    {
+        get => new TerraformReference<double>(this, "log_file_growth_mb");
+        set => SetArgument("log_file_growth_mb", value);
+    }
+
+    /// <summary>
+    /// The log_file_size_mb attribute.
+    /// </summary>
+    public TerraformValue<double>? LogFileSizeMb
+    {
+        get => new TerraformReference<double>(this, "log_file_size_mb");
+        set => SetArgument("log_file_size_mb", value);
+    }
+
+    /// <summary>
+    /// The luns attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Luns is required")]
+    public TerraformList<double>? Luns
+    {
+        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "luns").ResolveNodes(ctx));
+        set => SetArgument("luns", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermMssqlVirtualMachine.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlVirtualMachineTimeoutsBlock : TerraformBlock
@@ -367,8 +680,9 @@ public class AzurermMssqlVirtualMachineTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for wsfc_domain_credential in .
+/// Block type for wsfc_domain_credential in AzurermMssqlVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : TerraformBlock
@@ -409,6 +723,7 @@ public class AzurermMssqlVirtualMachineWsfcDomainCredentialBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_virtual_machine Terraform resource.

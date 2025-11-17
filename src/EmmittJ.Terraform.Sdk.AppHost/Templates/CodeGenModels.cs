@@ -73,10 +73,50 @@ public class BlockTypeModel
     public required string TerraformName { get; set; }
     public required string ClassName { get; set; }
     public required string NestingMode { get; set; }
+    public string? ParentClassName { get; set; }  // For nested blocks to reference their parent
     public List<PropertyModel> Arguments { get; set; } = new();
+    public List<BlockTypeModel> NestedBlocks { get; set; } = new();
     public int? MinItems { get; set; }
     public int? MaxItems { get; set; }
     public bool IsDeprecated { get; set; }
+
+    /// <summary>
+    /// Gets whether this block is required (has min_items > 0).
+    /// </summary>
+    public bool IsRequired => MinItems > 0;
+
+    /// <summary>
+    /// Gets whether validation attributes should be generated.
+    /// </summary>
+    public bool HasValidation => MinItems > 0 || MaxItems.HasValue;
+
+    /// <summary>
+    /// Gets the validation attributes for this block.
+    /// </summary>
+    public List<string> ValidationAttributes
+    {
+        get
+        {
+            var attrs = new List<string>();
+
+            if (IsRequired)
+            {
+                attrs.Add($"[System.ComponentModel.DataAnnotations.Required(ErrorMessage = \"{Name} is required\")]");
+            }
+
+            if (MinItems > 0)
+            {
+                attrs.Add($"[System.ComponentModel.DataAnnotations.MinLength({MinItems}, ErrorMessage = \"At least {MinItems} {Name} block(s) required\")]");
+            }
+
+            if (MaxItems.HasValue)
+            {
+                attrs.Add($"[System.ComponentModel.DataAnnotations.MaxLength({MaxItems}, ErrorMessage = \"Maximum {MaxItems} {Name} block(s) allowed\")]");
+            }
+
+            return attrs;
+        }
+    }
 
     /// <summary>
     /// Gets the C# property type based on the nesting mode.

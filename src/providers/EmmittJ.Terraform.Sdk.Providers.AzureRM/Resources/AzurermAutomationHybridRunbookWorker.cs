@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAutomationHybridRunbookWorker.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_hybrid_runbook_worker Terraform resource.

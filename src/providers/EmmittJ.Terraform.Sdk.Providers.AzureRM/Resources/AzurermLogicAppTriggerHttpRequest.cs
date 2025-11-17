@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogicAppTriggerHttpRequest.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermLogicAppTriggerHttpRequestTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_logic_app_trigger_http_request Terraform resource.

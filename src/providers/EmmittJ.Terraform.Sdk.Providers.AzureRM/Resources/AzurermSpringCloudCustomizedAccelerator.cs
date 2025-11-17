@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for git_repository in .
+/// Block type for git_repository in AzurermSpringCloudCustomizedAccelerator.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : TerraformBlock
@@ -77,10 +77,105 @@ public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock : Terrafo
         set => SetArgument("url", value);
     }
 
+    /// <summary>
+    /// BasicAuth block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAuth block(s) allowed")]
+    public TerraformList<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockBasicAuthBlock>? BasicAuth
+    {
+        get => GetArgument<TerraformList<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockBasicAuthBlock>>("basic_auth");
+        set => SetArgument("basic_auth", value);
+    }
+
+    /// <summary>
+    /// SshAuth block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SshAuth block(s) allowed")]
+    public TerraformList<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockSshAuthBlock>? SshAuth
+    {
+        get => GetArgument<TerraformList<AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockSshAuthBlock>>("ssh_auth");
+        set => SetArgument("ssh_auth", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for basic_auth in AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockBasicAuthBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "basic_auth";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ssh_auth in AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSpringCloudCustomizedAcceleratorGitRepositoryBlockSshAuthBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ssh_auth";
+
+    /// <summary>
+    /// The host_key attribute.
+    /// </summary>
+    public TerraformValue<string>? HostKey
+    {
+        get => new TerraformReference<string>(this, "host_key");
+        set => SetArgument("host_key", value);
+    }
+
+    /// <summary>
+    /// The host_key_algorithm attribute.
+    /// </summary>
+    public TerraformValue<string>? HostKeyAlgorithm
+    {
+        get => new TerraformReference<string>(this, "host_key_algorithm");
+        set => SetArgument("host_key_algorithm", value);
+    }
+
+    /// <summary>
+    /// The private_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
+    public required TerraformValue<string> PrivateKey
+    {
+        get => new TerraformReference<string>(this, "private_key");
+        set => SetArgument("private_key", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermSpringCloudCustomizedAccelerator.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlock
@@ -127,6 +222,7 @@ public class AzurermSpringCloudCustomizedAcceleratorTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_customized_accelerator Terraform resource.

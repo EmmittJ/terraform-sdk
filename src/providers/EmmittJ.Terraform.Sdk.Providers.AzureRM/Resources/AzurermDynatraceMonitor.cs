@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for environment_properties in .
+/// Block type for environment_properties in AzurermDynatraceMonitor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDynatraceMonitorEnvironmentPropertiesBlock : TerraformBlock
@@ -13,10 +13,46 @@ public class AzurermDynatraceMonitorEnvironmentPropertiesBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "environment_properties";
 
+    /// <summary>
+    /// EnvironmentInfo block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentInfo is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnvironmentInfo block(s) required")]
+    public required TerraformList<AzurermDynatraceMonitorEnvironmentPropertiesBlockEnvironmentInfoBlock> EnvironmentInfo
+    {
+        get => GetRequiredArgument<TerraformList<AzurermDynatraceMonitorEnvironmentPropertiesBlockEnvironmentInfoBlock>>("environment_info");
+        set => SetArgument("environment_info", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for environment_info in AzurermDynatraceMonitorEnvironmentPropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDynatraceMonitorEnvironmentPropertiesBlockEnvironmentInfoBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "environment_info";
+
+    /// <summary>
+    /// The environment_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
+    public required TerraformValue<string> EnvironmentId
+    {
+        get => new TerraformReference<string>(this, "environment_id");
+        set => SetArgument("environment_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for identity in AzurermDynatraceMonitor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDynatraceMonitorIdentityBlock : TerraformBlock
@@ -54,8 +90,9 @@ public class AzurermDynatraceMonitorIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for plan in .
+/// Block type for plan in AzurermDynatraceMonitor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
@@ -103,8 +140,9 @@ public class AzurermDynatraceMonitorPlanBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDynatraceMonitor.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
@@ -152,8 +190,9 @@ public class AzurermDynatraceMonitorTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for user in .
+/// Block type for user in AzurermDynatraceMonitor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDynatraceMonitorUserBlock : TerraformBlock
@@ -214,6 +253,7 @@ public class AzurermDynatraceMonitorUserBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dynatrace_monitor Terraform resource.

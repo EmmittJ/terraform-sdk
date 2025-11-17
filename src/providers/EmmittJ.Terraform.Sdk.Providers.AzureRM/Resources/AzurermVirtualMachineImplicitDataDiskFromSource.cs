@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualMachineImplicitDataDiskFromSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermVirtualMachineImplicitDataDiskFromSourceTimeoutsBlock : Terr
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_machine_implicit_data_disk_from_source Terraform resource.

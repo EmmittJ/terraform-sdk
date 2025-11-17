@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for encryption in .
+/// Block type for encryption in AzurermAppConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppConfigurationEncryptionBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermAppConfigurationEncryptionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermAppConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppConfigurationIdentityBlock : TerraformBlock
@@ -81,8 +82,9 @@ public class AzurermAppConfigurationIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for replica in .
+/// Block type for replica in AzurermAppConfiguration.
 /// Nesting mode: set
 /// </summary>
 public class AzurermAppConfigurationReplicaBlock : TerraformBlock
@@ -130,8 +132,9 @@ public class AzurermAppConfigurationReplicaBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAppConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
@@ -178,6 +181,7 @@ public class AzurermAppConfigurationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_configuration Terraform resource.

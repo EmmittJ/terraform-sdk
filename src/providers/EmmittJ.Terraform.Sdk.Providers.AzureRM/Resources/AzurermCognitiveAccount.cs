@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for customer_managed_key in .
+/// Block type for customer_managed_key in AzurermCognitiveAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCognitiveAccountCustomerManagedKeyBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermCognitiveAccountCustomerManagedKeyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermCognitiveAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCognitiveAccountIdentityBlock : TerraformBlock
@@ -82,8 +83,9 @@ public class AzurermCognitiveAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_acls in .
+/// Block type for network_acls in AzurermCognitiveAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCognitiveAccountNetworkAclsBlock : TerraformBlock
@@ -121,10 +123,52 @@ public class AzurermCognitiveAccountNetworkAclsBlock : TerraformBlock
         set => SetArgument("ip_rules", value);
     }
 
+    /// <summary>
+    /// VirtualNetworkRules block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermCognitiveAccountNetworkAclsBlockVirtualNetworkRulesBlock>? VirtualNetworkRules
+    {
+        get => GetArgument<TerraformSet<AzurermCognitiveAccountNetworkAclsBlockVirtualNetworkRulesBlock>>("virtual_network_rules");
+        set => SetArgument("virtual_network_rules", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for network_injection in .
+/// Block type for virtual_network_rules in AzurermCognitiveAccountNetworkAclsBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermCognitiveAccountNetworkAclsBlockVirtualNetworkRulesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "virtual_network_rules";
+
+    /// <summary>
+    /// The ignore_missing_vnet_service_endpoint attribute.
+    /// </summary>
+    public TerraformValue<bool>? IgnoreMissingVnetServiceEndpoint
+    {
+        get => new TerraformReference<bool>(this, "ignore_missing_vnet_service_endpoint");
+        set => SetArgument("ignore_missing_vnet_service_endpoint", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformValue<string> SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for network_injection in AzurermCognitiveAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCognitiveAccountNetworkInjectionBlock : TerraformBlock
@@ -156,8 +200,9 @@ public class AzurermCognitiveAccountNetworkInjectionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage in .
+/// Block type for storage in AzurermCognitiveAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCognitiveAccountStorageBlock : TerraformBlock
@@ -188,8 +233,9 @@ public class AzurermCognitiveAccountStorageBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCognitiveAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
@@ -236,6 +282,7 @@ public class AzurermCognitiveAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cognitive_account Terraform resource.

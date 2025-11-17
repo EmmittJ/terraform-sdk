@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for action in .
+/// Block type for action in AzurermMonitorActivityLogAlert.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermMonitorActivityLogAlertActionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for criteria in .
+/// Block type for criteria in AzurermMonitorActivityLogAlert.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
@@ -226,10 +227,111 @@ public class AzurermMonitorActivityLogAlertCriteriaBlock : TerraformBlock
         set => SetArgument("sub_statuses", value);
     }
 
+    /// <summary>
+    /// ResourceHealth block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResourceHealth block(s) allowed")]
+    public TerraformList<AzurermMonitorActivityLogAlertCriteriaBlockResourceHealthBlock>? ResourceHealth
+    {
+        get => GetArgument<TerraformList<AzurermMonitorActivityLogAlertCriteriaBlockResourceHealthBlock>>("resource_health");
+        set => SetArgument("resource_health", value);
+    }
+
+    /// <summary>
+    /// ServiceHealth block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceHealth block(s) allowed")]
+    public TerraformList<AzurermMonitorActivityLogAlertCriteriaBlockServiceHealthBlock>? ServiceHealth
+    {
+        get => GetArgument<TerraformList<AzurermMonitorActivityLogAlertCriteriaBlockServiceHealthBlock>>("service_health");
+        set => SetArgument("service_health", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for resource_health in AzurermMonitorActivityLogAlertCriteriaBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorActivityLogAlertCriteriaBlockResourceHealthBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "resource_health";
+
+    /// <summary>
+    /// The current attribute.
+    /// </summary>
+    public TerraformSet<string>? Current
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "current").ResolveNodes(ctx));
+        set => SetArgument("current", value);
+    }
+
+    /// <summary>
+    /// The previous attribute.
+    /// </summary>
+    public TerraformSet<string>? Previous
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "previous").ResolveNodes(ctx));
+        set => SetArgument("previous", value);
+    }
+
+    /// <summary>
+    /// The reason attribute.
+    /// </summary>
+    public TerraformSet<string>? Reason
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "reason").ResolveNodes(ctx));
+        set => SetArgument("reason", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for service_health in AzurermMonitorActivityLogAlertCriteriaBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorActivityLogAlertCriteriaBlockServiceHealthBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "service_health";
+
+    /// <summary>
+    /// The events attribute.
+    /// </summary>
+    public TerraformSet<string>? Events
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "events").ResolveNodes(ctx));
+        set => SetArgument("events", value);
+    }
+
+    /// <summary>
+    /// The locations attribute.
+    /// </summary>
+    public TerraformSet<string>? Locations
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "locations").ResolveNodes(ctx));
+        set => SetArgument("locations", value);
+    }
+
+    /// <summary>
+    /// The services attribute.
+    /// </summary>
+    public TerraformSet<string>? Services
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "services").ResolveNodes(ctx));
+        set => SetArgument("services", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermMonitorActivityLogAlert.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
@@ -276,6 +378,7 @@ public class AzurermMonitorActivityLogAlertTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_activity_log_alert Terraform resource.

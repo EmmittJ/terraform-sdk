@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermFunctionAppActiveSlot.
 /// Nesting mode: single
 /// </summary>
 public class AzurermFunctionAppActiveSlotTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermFunctionAppActiveSlotTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_function_app_active_slot Terraform resource.

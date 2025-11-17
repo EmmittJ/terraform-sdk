@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for permissions in .
+/// Block type for permissions in AzurermCosmosdbSqlRoleDefinition.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCosmosdbSqlRoleDefinitionPermissionsBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermCosmosdbSqlRoleDefinitionPermissionsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCosmosdbSqlRoleDefinition.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock : TerraformBlock
@@ -73,6 +74,7 @@ public class AzurermCosmosdbSqlRoleDefinitionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_sql_role_definition Terraform resource.

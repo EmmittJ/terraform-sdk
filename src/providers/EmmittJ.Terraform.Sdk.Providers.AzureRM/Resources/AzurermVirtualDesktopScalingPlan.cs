@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for host_pool in .
+/// Block type for host_pool in AzurermVirtualDesktopScalingPlan.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualDesktopScalingPlanHostPoolBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermVirtualDesktopScalingPlanHostPoolBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for schedule in .
+/// Block type for schedule in AzurermVirtualDesktopScalingPlan.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
@@ -226,8 +227,9 @@ public class AzurermVirtualDesktopScalingPlanScheduleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualDesktopScalingPlan.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualDesktopScalingPlanTimeoutsBlock : TerraformBlock
@@ -274,6 +276,7 @@ public class AzurermVirtualDesktopScalingPlanTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_desktop_scaling_plan Terraform resource.

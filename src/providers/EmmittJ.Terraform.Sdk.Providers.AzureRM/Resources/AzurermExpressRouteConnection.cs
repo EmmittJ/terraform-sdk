@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for routing in .
+/// Block type for routing in AzurermExpressRouteConnection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermExpressRouteConnectionRoutingBlock : TerraformBlock
@@ -40,10 +40,52 @@ public class AzurermExpressRouteConnectionRoutingBlock : TerraformBlock
         set => SetArgument("outbound_route_map_id", value);
     }
 
+    /// <summary>
+    /// PropagatedRouteTable block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PropagatedRouteTable block(s) allowed")]
+    public TerraformList<AzurermExpressRouteConnectionRoutingBlockPropagatedRouteTableBlock>? PropagatedRouteTable
+    {
+        get => GetArgument<TerraformList<AzurermExpressRouteConnectionRoutingBlockPropagatedRouteTableBlock>>("propagated_route_table");
+        set => SetArgument("propagated_route_table", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for propagated_route_table in AzurermExpressRouteConnectionRoutingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermExpressRouteConnectionRoutingBlockPropagatedRouteTableBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "propagated_route_table";
+
+    /// <summary>
+    /// The labels attribute.
+    /// </summary>
+    public TerraformSet<string> Labels
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "labels").ResolveNodes(ctx));
+        set => SetArgument("labels", value);
+    }
+
+    /// <summary>
+    /// The route_table_ids attribute.
+    /// </summary>
+    public TerraformList<string> RouteTableIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "route_table_ids").ResolveNodes(ctx));
+        set => SetArgument("route_table_ids", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermExpressRouteConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
@@ -90,6 +132,7 @@ public class AzurermExpressRouteConnectionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_express_route_connection Terraform resource.

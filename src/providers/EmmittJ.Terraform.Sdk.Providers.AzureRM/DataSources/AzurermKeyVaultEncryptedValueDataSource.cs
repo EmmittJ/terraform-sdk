@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKeyVaultEncryptedValueDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermKeyVaultEncryptedValueDataSourceTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_encrypted_value Terraform data source.

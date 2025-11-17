@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMssqlJobAgent.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlJobAgentIdentityBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermMssqlJobAgentIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlJobAgent.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlJobAgentTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermMssqlJobAgentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_job_agent Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for build_pack_group in .
+/// Block type for build_pack_group in AzurermSpringCloudBuilder.
 /// Nesting mode: set
 /// </summary>
 public class AzurermSpringCloudBuilderBuildPackGroupBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermSpringCloudBuilderBuildPackGroupBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for stack in .
+/// Block type for stack in AzurermSpringCloudBuilder.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudBuilderStackAttributeBlock : TerraformBlock
@@ -67,8 +68,9 @@ public class AzurermSpringCloudBuilderStackAttributeBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudBuilder.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudBuilderTimeoutsBlock : TerraformBlock
@@ -115,6 +117,7 @@ public class AzurermSpringCloudBuilderTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_builder Terraform resource.

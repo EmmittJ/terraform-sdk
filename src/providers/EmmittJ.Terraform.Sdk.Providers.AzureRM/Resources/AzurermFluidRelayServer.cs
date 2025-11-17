@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for customer_managed_key in .
+/// Block type for customer_managed_key in AzurermFluidRelayServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFluidRelayServerCustomerManagedKeyBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermFluidRelayServerCustomerManagedKeyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermFluidRelayServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFluidRelayServerIdentityBlock : TerraformBlock
@@ -83,8 +84,9 @@ public class AzurermFluidRelayServerIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermFluidRelayServer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermFluidRelayServerTimeoutsBlock : TerraformBlock
@@ -131,6 +133,7 @@ public class AzurermFluidRelayServerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_fluid_relay_server Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointTi
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_machine_learning_workspace_network_outbound_rule_private_endpoint Terraform resource.

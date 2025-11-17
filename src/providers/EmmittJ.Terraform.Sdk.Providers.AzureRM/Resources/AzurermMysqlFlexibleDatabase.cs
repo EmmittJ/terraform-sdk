@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMysqlFlexibleDatabase.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMysqlFlexibleDatabaseTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermMysqlFlexibleDatabaseTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mysql_flexible_database Terraform resource.

@@ -1,5 +1,5 @@
 /// <summary>
-/// Block type for {{TerraformName}} in {{../ClassName}}.
+/// Block type for {{TerraformName}}{{#ParentClassName}} in {{ParentClassName}}{{/ParentClassName}}.
 /// Nesting mode: {{NestingMode}}
 /// </summary>
 {{#IsDeprecated}}
@@ -15,4 +15,11 @@ public class {{ClassName}} : TerraformBlock
 {{#Arguments}}
 {{>_argument}}
 {{/Arguments}}
+{{#NestedBlocks}}
+{{>_blockproperty}}
+{{/NestedBlocks}}
 }
+
+{{#NestedBlocks}}
+{{>_block}}
+{{/NestedBlocks}}

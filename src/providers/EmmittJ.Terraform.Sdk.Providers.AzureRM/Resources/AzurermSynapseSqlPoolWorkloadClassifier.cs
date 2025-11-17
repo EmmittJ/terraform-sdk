@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSynapseSqlPoolWorkloadClassifier.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSynapseSqlPoolWorkloadClassifierTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_synapse_sql_pool_workload_classifier Terraform resource.

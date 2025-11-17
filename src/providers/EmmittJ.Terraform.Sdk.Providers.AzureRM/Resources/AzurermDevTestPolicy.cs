@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDevTestPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDevTestPolicyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDevTestPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dev_test_policy Terraform resource.

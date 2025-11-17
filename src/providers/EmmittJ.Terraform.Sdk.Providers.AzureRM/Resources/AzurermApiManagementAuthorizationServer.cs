@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementAuthorizationServer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermApiManagementAuthorizationServerTimeoutsBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for token_body_parameter in .
+/// Block type for token_body_parameter in AzurermApiManagementAuthorizationServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementAuthorizationServerTokenBodyParameterBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermApiManagementAuthorizationServerTokenBodyParameterBlock : Te
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_authorization_server Terraform resource.

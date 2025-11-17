@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for rule in .
+/// Block type for rule in AzurermFirewallApplicationRuleCollection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallApplicationRuleCollectionRuleBlock : TerraformBlock
@@ -68,10 +68,53 @@ public class AzurermFirewallApplicationRuleCollectionRuleBlock : TerraformBlock
         set => SetArgument("target_fqdns", value);
     }
 
+    /// <summary>
+    /// Protocol block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermFirewallApplicationRuleCollectionRuleBlockProtocolBlock>? Protocol
+    {
+        get => GetArgument<TerraformList<AzurermFirewallApplicationRuleCollectionRuleBlockProtocolBlock>>("protocol");
+        set => SetArgument("protocol", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for protocol in AzurermFirewallApplicationRuleCollectionRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFirewallApplicationRuleCollectionRuleBlockProtocolBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "protocol";
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
+    public required TerraformValue<double> Port
+    {
+        get => new TerraformReference<double>(this, "port");
+        set => SetArgument("port", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermFirewallApplicationRuleCollection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermFirewallApplicationRuleCollectionTimeoutsBlock : TerraformBlock
@@ -118,6 +161,7 @@ public class AzurermFirewallApplicationRuleCollectionTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_firewall_application_rule_collection Terraform resource.

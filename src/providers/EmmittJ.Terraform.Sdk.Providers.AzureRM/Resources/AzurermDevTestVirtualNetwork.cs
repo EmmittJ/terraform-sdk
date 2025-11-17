@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for subnet in .
+/// Block type for subnet in AzurermDevTestVirtualNetwork.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
@@ -39,10 +39,74 @@ public class AzurermDevTestVirtualNetworkSubnetBlock : TerraformBlock
         set => SetArgument("use_public_ip_address", value);
     }
 
+    /// <summary>
+    /// SharedPublicIpAddress block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SharedPublicIpAddress block(s) allowed")]
+    public TerraformList<AzurermDevTestVirtualNetworkSubnetBlockSharedPublicIpAddressBlock>? SharedPublicIpAddress
+    {
+        get => GetArgument<TerraformList<AzurermDevTestVirtualNetworkSubnetBlockSharedPublicIpAddressBlock>>("shared_public_ip_address");
+        set => SetArgument("shared_public_ip_address", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for shared_public_ip_address in AzurermDevTestVirtualNetworkSubnetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDevTestVirtualNetworkSubnetBlockSharedPublicIpAddressBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "shared_public_ip_address";
+
+    /// <summary>
+    /// AllowedPorts block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermDevTestVirtualNetworkSubnetBlockSharedPublicIpAddressBlockAllowedPortsBlock>? AllowedPorts
+    {
+        get => GetArgument<TerraformList<AzurermDevTestVirtualNetworkSubnetBlockSharedPublicIpAddressBlockAllowedPortsBlock>>("allowed_ports");
+        set => SetArgument("allowed_ports", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for allowed_ports in AzurermDevTestVirtualNetworkSubnetBlockSharedPublicIpAddressBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDevTestVirtualNetworkSubnetBlockSharedPublicIpAddressBlockAllowedPortsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "allowed_ports";
+
+    /// <summary>
+    /// The backend_port attribute.
+    /// </summary>
+    public TerraformValue<double>? BackendPort
+    {
+        get => new TerraformReference<double>(this, "backend_port");
+        set => SetArgument("backend_port", value);
+    }
+
+    /// <summary>
+    /// The transport_protocol attribute.
+    /// </summary>
+    public TerraformValue<string>? TransportProtocol
+    {
+        get => new TerraformReference<string>(this, "transport_protocol");
+        set => SetArgument("transport_protocol", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermDevTestVirtualNetwork.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
@@ -89,6 +153,7 @@ public class AzurermDevTestVirtualNetworkTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dev_test_virtual_network Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for create_source in .
+/// Block type for create_source in AzurermElasticSanVolume.
 /// Nesting mode: list
 /// </summary>
 public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermElasticSanVolumeCreateSourceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermElasticSanVolume.
 /// Nesting mode: single
 /// </summary>
 public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermElasticSanVolumeTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_elastic_san_volume Terraform resource.

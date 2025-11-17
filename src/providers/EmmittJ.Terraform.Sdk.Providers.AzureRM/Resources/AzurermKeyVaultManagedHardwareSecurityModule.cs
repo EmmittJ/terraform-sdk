@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for network_acls in .
+/// Block type for network_acls in AzurermKeyVaultManagedHardwareSecurityModule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleNetworkAclsBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKeyVaultManagedHardwareSecurityModule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleTimeoutsBlock : Terrafo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_managed_hardware_security_module Terraform resource.

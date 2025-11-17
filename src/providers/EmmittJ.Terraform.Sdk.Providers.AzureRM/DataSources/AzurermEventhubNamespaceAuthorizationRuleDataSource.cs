@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermEventhubNamespaceAuthorizationRuleDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermEventhubNamespaceAuthorizationRuleDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermEventhubNamespaceAuthorizationRuleDataSourceTimeoutsBlock : 
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_eventhub_namespace_authorization_rule Terraform data source.

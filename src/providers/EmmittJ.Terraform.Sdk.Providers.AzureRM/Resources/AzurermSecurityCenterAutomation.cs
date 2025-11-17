@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for action in .
+/// Block type for action in AzurermSecurityCenterAutomation.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSecurityCenterAutomationActionBlock : TerraformBlock
@@ -52,8 +52,9 @@ public class AzurermSecurityCenterAutomationActionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for source in .
+/// Block type for source in AzurermSecurityCenterAutomation.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSecurityCenterAutomationSourceBlock : TerraformBlock
@@ -73,10 +74,98 @@ public class AzurermSecurityCenterAutomationSourceBlock : TerraformBlock
         set => SetArgument("event_source", value);
     }
 
+    /// <summary>
+    /// RuleSet block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermSecurityCenterAutomationSourceBlockRuleSetBlock>? RuleSet
+    {
+        get => GetArgument<TerraformList<AzurermSecurityCenterAutomationSourceBlockRuleSetBlock>>("rule_set");
+        set => SetArgument("rule_set", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for rule_set in AzurermSecurityCenterAutomationSourceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSecurityCenterAutomationSourceBlockRuleSetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "rule_set";
+
+    /// <summary>
+    /// Rule block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
+    public required TerraformList<AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock> Rule
+    {
+        get => GetRequiredArgument<TerraformList<AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock>>("rule");
+        set => SetArgument("rule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for rule in AzurermSecurityCenterAutomationSourceBlockRuleSetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSecurityCenterAutomationSourceBlockRuleSetBlockRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "rule";
+
+    /// <summary>
+    /// The expected_value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpectedValue is required")]
+    public required TerraformValue<string> ExpectedValue
+    {
+        get => new TerraformReference<string>(this, "expected_value");
+        set => SetArgument("expected_value", value);
+    }
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The property_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertyPath is required")]
+    public required TerraformValue<string> PropertyPath
+    {
+        get => new TerraformReference<string>(this, "property_path");
+        set => SetArgument("property_path", value);
+    }
+
+    /// <summary>
+    /// The property_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PropertyType is required")]
+    public required TerraformValue<string> PropertyType
+    {
+        get => new TerraformReference<string>(this, "property_type");
+        set => SetArgument("property_type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermSecurityCenterAutomation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSecurityCenterAutomationTimeoutsBlock : TerraformBlock
@@ -123,6 +212,7 @@ public class AzurermSecurityCenterAutomationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_security_center_automation Terraform resource.

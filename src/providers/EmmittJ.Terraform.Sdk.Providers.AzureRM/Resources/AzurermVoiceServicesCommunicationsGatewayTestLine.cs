@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVoiceServicesCommunicationsGatewayTestLine.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTestLineTimeoutsBlock : Te
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_voice_services_communications_gateway_test_line Terraform resource.

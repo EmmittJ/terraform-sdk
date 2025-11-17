@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for serialization in .
+/// Block type for serialization in AzurermStreamAnalyticsOutputServicebusQueue.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStreamAnalyticsOutputServicebusQueueSerializationBlock : TerraformBlock
@@ -52,8 +52,9 @@ public class AzurermStreamAnalyticsOutputServicebusQueueSerializationBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStreamAnalyticsOutputServicebusQueue.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStreamAnalyticsOutputServicebusQueueTimeoutsBlock : TerraformBlock
@@ -100,6 +101,7 @@ public class AzurermStreamAnalyticsOutputServicebusQueueTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stream_analytics_output_servicebus_queue Terraform resource.

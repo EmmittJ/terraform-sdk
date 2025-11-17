@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDashboardGrafanaManagedPrivateEndpoint.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDashboardGrafanaManagedPrivateEndpointTimeoutsBlock : Terraf
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dashboard_grafana_managed_private_endpoint Terraform resource.

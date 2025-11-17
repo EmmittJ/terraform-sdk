@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for schedule in .
+/// Block type for schedule in AzurermMssqlManagedInstanceStartStopSchedule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : TerraformBlock
@@ -55,8 +55,9 @@ public class AzurermMssqlManagedInstanceStartStopScheduleScheduleBlock : Terrafo
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlManagedInstanceStartStopSchedule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : TerraformBlock
@@ -103,6 +104,7 @@ public class AzurermMssqlManagedInstanceStartStopScheduleTimeoutsBlock : Terrafo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_managed_instance_start_stop_schedule Terraform resource.

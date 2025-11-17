@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for authentication_credentials in .
+/// Block type for authentication_credentials in AzurermContainerRegistryCredentialSet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermContainerRegistryCredentialSetAuthenticationCredentialsBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermContainerRegistryCredentialSet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryCredentialSetIdentityBlock : TerraformBlock
@@ -74,8 +75,9 @@ public class AzurermContainerRegistryCredentialSetIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerRegistryCredentialSet.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
@@ -122,6 +124,7 @@ public class AzurermContainerRegistryCredentialSetTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_registry_credential_set Terraform resource.

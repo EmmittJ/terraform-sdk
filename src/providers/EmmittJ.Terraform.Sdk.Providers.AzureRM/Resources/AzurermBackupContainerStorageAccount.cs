@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBackupContainerStorageAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBackupContainerStorageAccountTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermBackupContainerStorageAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_backup_container_storage_account Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryTriggerScheduleDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermDataFactoryTriggerScheduleDataSourceTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_trigger_schedule Terraform data source.

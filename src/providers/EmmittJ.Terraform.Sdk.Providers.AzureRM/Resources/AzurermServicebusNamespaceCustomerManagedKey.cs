@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermServicebusNamespaceCustomerManagedKey.
 /// Nesting mode: single
 /// </summary>
 public class AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermServicebusNamespaceCustomerManagedKeyTimeoutsBlock : Terrafo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_servicebus_namespace_customer_managed_key Terraform resource.

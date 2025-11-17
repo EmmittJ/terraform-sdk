@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for subnet in .
+/// Block type for subnet in AzurermStackHciLogicalNetwork.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
@@ -41,10 +41,105 @@ public class AzurermStackHciLogicalNetworkSubnetBlock : TerraformBlock
         set => SetArgument("vlan_id", value);
     }
 
+    /// <summary>
+    /// IpPool block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermStackHciLogicalNetworkSubnetBlockIpPoolBlock>? IpPool
+    {
+        get => GetArgument<TerraformList<AzurermStackHciLogicalNetworkSubnetBlockIpPoolBlock>>("ip_pool");
+        set => SetArgument("ip_pool", value);
+    }
+
+    /// <summary>
+    /// Route block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Route block(s) allowed")]
+    public TerraformList<AzurermStackHciLogicalNetworkSubnetBlockRouteBlock>? Route
+    {
+        get => GetArgument<TerraformList<AzurermStackHciLogicalNetworkSubnetBlockRouteBlock>>("route");
+        set => SetArgument("route", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for ip_pool in AzurermStackHciLogicalNetworkSubnetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStackHciLogicalNetworkSubnetBlockIpPoolBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_pool";
+
+    /// <summary>
+    /// The end attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
+    public required TerraformValue<string> End
+    {
+        get => new TerraformReference<string>(this, "end");
+        set => SetArgument("end", value);
+    }
+
+    /// <summary>
+    /// The start attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
+    public required TerraformValue<string> Start
+    {
+        get => new TerraformReference<string>(this, "start");
+        set => SetArgument("start", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for route in AzurermStackHciLogicalNetworkSubnetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStackHciLogicalNetworkSubnetBlockRouteBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "route";
+
+    /// <summary>
+    /// The address_prefix attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefix is required")]
+    public required TerraformValue<string> AddressPrefix
+    {
+        get => new TerraformReference<string>(this, "address_prefix");
+        set => SetArgument("address_prefix", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string>? Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The next_hop_ip_address attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NextHopIpAddress is required")]
+    public required TerraformValue<string> NextHopIpAddress
+    {
+        get => new TerraformReference<string>(this, "next_hop_ip_address");
+        set => SetArgument("next_hop_ip_address", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermStackHciLogicalNetwork.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
@@ -91,6 +186,7 @@ public class AzurermStackHciLogicalNetworkTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stack_hci_logical_network Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAutomationVariableString.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationVariableStringTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermAutomationVariableStringTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_variable_string Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for scope in .
+/// Block type for scope in AzurermNetworkManager.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkManagerScopeBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermNetworkManagerScopeBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkManager.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkManagerTimeoutsBlock : TerraformBlock
@@ -81,6 +82,7 @@ public class AzurermNetworkManagerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_manager Terraform resource.

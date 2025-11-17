@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualWan.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualWanTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermVirtualWanTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_wan Terraform resource.

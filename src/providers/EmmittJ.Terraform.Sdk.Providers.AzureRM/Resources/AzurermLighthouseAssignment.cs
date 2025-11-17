@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLighthouseAssignment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLighthouseAssignmentTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermLighthouseAssignmentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_lighthouse_assignment Terraform resource.

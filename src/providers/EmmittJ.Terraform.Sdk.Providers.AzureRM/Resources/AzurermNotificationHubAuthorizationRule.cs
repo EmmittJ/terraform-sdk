@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNotificationHubAuthorizationRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNotificationHubAuthorizationRuleTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermNotificationHubAuthorizationRuleTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_notification_hub_authorization_rule Terraform resource.

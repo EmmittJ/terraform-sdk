@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for links in .
+/// Block type for links in AzurermOrbitalSpacecraft.
 /// Nesting mode: list
 /// </summary>
 public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
@@ -65,8 +65,9 @@ public class AzurermOrbitalSpacecraftLinksBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermOrbitalSpacecraft.
 /// Nesting mode: single
 /// </summary>
 public class AzurermOrbitalSpacecraftTimeoutsBlock : TerraformBlock
@@ -113,6 +114,7 @@ public class AzurermOrbitalSpacecraftTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_orbital_spacecraft Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for cors_rule in .
+/// Block type for cors_rule in AzurermStorageAccountQueueProperties.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlock
@@ -65,8 +65,9 @@ public class AzurermStorageAccountQueuePropertiesCorsRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for hour_metrics in .
+/// Block type for hour_metrics in AzurermStorageAccountQueueProperties.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountQueuePropertiesHourMetricsBlock : TerraformBlock
@@ -106,8 +107,9 @@ public class AzurermStorageAccountQueuePropertiesHourMetricsBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for logging in .
+/// Block type for logging in AzurermStorageAccountQueueProperties.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
@@ -168,8 +170,9 @@ public class AzurermStorageAccountQueuePropertiesLoggingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for minute_metrics in .
+/// Block type for minute_metrics in AzurermStorageAccountQueueProperties.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : TerraformBlock
@@ -209,8 +212,9 @@ public class AzurermStorageAccountQueuePropertiesMinuteMetricsBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageAccountQueueProperties.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageAccountQueuePropertiesTimeoutsBlock : TerraformBlock
@@ -257,6 +261,7 @@ public class AzurermStorageAccountQueuePropertiesTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_account_queue_properties Terraform resource.

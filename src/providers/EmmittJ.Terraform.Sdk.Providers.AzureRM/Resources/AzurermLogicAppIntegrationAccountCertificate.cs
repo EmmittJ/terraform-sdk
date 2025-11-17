@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for key_vault_key in .
+/// Block type for key_vault_key in AzurermLogicAppIntegrationAccountCertificate.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermLogicAppIntegrationAccountCertificateKeyVaultKeyBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogicAppIntegrationAccountCertificate.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock : TerraformBlock
@@ -92,6 +93,7 @@ public class AzurermLogicAppIntegrationAccountCertificateTimeoutsBlock : Terrafo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_logic_app_integration_account_certificate Terraform resource.

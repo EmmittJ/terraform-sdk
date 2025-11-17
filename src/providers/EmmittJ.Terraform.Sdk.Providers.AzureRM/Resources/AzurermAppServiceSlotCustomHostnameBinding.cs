@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAppServiceSlotCustomHostnameBinding.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermAppServiceSlotCustomHostnameBindingTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_service_slot_custom_hostname_binding Terraform resource.

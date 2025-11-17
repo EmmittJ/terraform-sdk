@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPaloAltoLocalRulestackCertificate.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermPaloAltoLocalRulestackCertificateTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_palo_alto_local_rulestack_certificate Terraform resource.

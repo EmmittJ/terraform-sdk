@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azure_blob_fs_location in .
+/// Block type for azure_blob_fs_location in AzurermDataFactoryDatasetDelimitedText.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : TerraformBlock
@@ -69,8 +69,9 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobFsLocationBlock : Te
 
 }
 
+
 /// <summary>
-/// Block type for azure_blob_storage_location in .
+/// Block type for azure_blob_storage_location in AzurermDataFactoryDatasetDelimitedText.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock : TerraformBlock
@@ -137,8 +138,9 @@ public class AzurermDataFactoryDatasetDelimitedTextAzureBlobStorageLocationBlock
 
 }
 
+
 /// <summary>
-/// Block type for http_server_location in .
+/// Block type for http_server_location in AzurermDataFactoryDatasetDelimitedText.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : TerraformBlock
@@ -198,8 +200,9 @@ public class AzurermDataFactoryDatasetDelimitedTextHttpServerLocationBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for schema_column in .
+/// Block type for schema_column in AzurermDataFactoryDatasetDelimitedText.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock : TerraformBlock
@@ -239,8 +242,9 @@ public class AzurermDataFactoryDatasetDelimitedTextSchemaColumnBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryDatasetDelimitedText.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock : TerraformBlock
@@ -287,6 +291,7 @@ public class AzurermDataFactoryDatasetDelimitedTextTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_dataset_delimited_text Terraform resource.

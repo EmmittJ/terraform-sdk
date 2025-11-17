@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIothubEndpointCosmosdbAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIothubEndpointCosmosdbAccountTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermIothubEndpointCosmosdbAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iothub_endpoint_cosmosdb_account Terraform resource.

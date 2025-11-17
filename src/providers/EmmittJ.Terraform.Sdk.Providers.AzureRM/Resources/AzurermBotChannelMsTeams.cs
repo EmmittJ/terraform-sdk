@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBotChannelMsTeams.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBotChannelMsTeamsTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermBotChannelMsTeamsTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_bot_channel_ms_teams Terraform resource.

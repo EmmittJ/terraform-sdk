@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIothubEndpointEventhub.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIothubEndpointEventhubTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermIothubEndpointEventhubTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iothub_endpoint_eventhub Terraform resource.

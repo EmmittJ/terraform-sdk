@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlJobSchedule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlJobScheduleTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMssqlJobScheduleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_job_schedule Terraform resource.

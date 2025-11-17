@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDatabricksAccessConnectorDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDatabricksAccessConnectorDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermDatabricksAccessConnectorDataSourceTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_databricks_access_connector Terraform data source.

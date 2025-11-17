@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ipv4_firewall_rule in .
+/// Block type for ipv4_firewall_rule in AzurermAnalysisServicesServer.
 /// Nesting mode: set
 /// </summary>
 public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermAnalysisServicesServerIpv4FirewallRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAnalysisServicesServer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAnalysisServicesServerTimeoutsBlock : TerraformBlock
@@ -93,6 +94,7 @@ public class AzurermAnalysisServicesServerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_analysis_services_server Terraform resource.

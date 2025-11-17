@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for encryption_settings in .
+/// Block type for encryption_settings in AzurermManagedDisk.
 /// Nesting mode: list
 /// </summary>
 public class AzurermManagedDiskEncryptionSettingsBlock : TerraformBlock
@@ -13,10 +13,100 @@ public class AzurermManagedDiskEncryptionSettingsBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "encryption_settings";
 
+    /// <summary>
+    /// DiskEncryptionKey block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DiskEncryptionKey is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DiskEncryptionKey block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskEncryptionKey block(s) allowed")]
+    public required TerraformList<AzurermManagedDiskEncryptionSettingsBlockDiskEncryptionKeyBlock> DiskEncryptionKey
+    {
+        get => GetRequiredArgument<TerraformList<AzurermManagedDiskEncryptionSettingsBlockDiskEncryptionKeyBlock>>("disk_encryption_key");
+        set => SetArgument("disk_encryption_key", value);
+    }
+
+    /// <summary>
+    /// KeyEncryptionKey block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyEncryptionKey block(s) allowed")]
+    public TerraformList<AzurermManagedDiskEncryptionSettingsBlockKeyEncryptionKeyBlock>? KeyEncryptionKey
+    {
+        get => GetArgument<TerraformList<AzurermManagedDiskEncryptionSettingsBlockKeyEncryptionKeyBlock>>("key_encryption_key");
+        set => SetArgument("key_encryption_key", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for disk_encryption_key in AzurermManagedDiskEncryptionSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermManagedDiskEncryptionSettingsBlockDiskEncryptionKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "disk_encryption_key";
+
+    /// <summary>
+    /// The secret_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUrl is required")]
+    public required TerraformValue<string> SecretUrl
+    {
+        get => new TerraformReference<string>(this, "secret_url");
+        set => SetArgument("secret_url", value);
+    }
+
+    /// <summary>
+    /// The source_vault_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
+    public required TerraformValue<string> SourceVaultId
+    {
+        get => new TerraformReference<string>(this, "source_vault_id");
+        set => SetArgument("source_vault_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for key_encryption_key in AzurermManagedDiskEncryptionSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermManagedDiskEncryptionSettingsBlockKeyEncryptionKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "key_encryption_key";
+
+    /// <summary>
+    /// The key_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUrl is required")]
+    public required TerraformValue<string> KeyUrl
+    {
+        get => new TerraformReference<string>(this, "key_url");
+        set => SetArgument("key_url", value);
+    }
+
+    /// <summary>
+    /// The source_vault_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
+    public required TerraformValue<string> SourceVaultId
+    {
+        get => new TerraformReference<string>(this, "source_vault_id");
+        set => SetArgument("source_vault_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermManagedDisk.
 /// Nesting mode: single
 /// </summary>
 public class AzurermManagedDiskTimeoutsBlock : TerraformBlock
@@ -63,6 +153,7 @@ public class AzurermManagedDiskTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_managed_disk Terraform resource.

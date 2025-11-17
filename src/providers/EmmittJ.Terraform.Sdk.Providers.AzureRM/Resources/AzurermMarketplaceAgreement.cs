@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMarketplaceAgreement.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMarketplaceAgreementTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermMarketplaceAgreementTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_marketplace_agreement Terraform resource.

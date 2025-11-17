@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCosmosdbSqlDedicatedGateway.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermCosmosdbSqlDedicatedGatewayTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_sql_dedicated_gateway Terraform resource.

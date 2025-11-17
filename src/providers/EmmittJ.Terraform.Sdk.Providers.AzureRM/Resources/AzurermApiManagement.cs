@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for additional_location in .
+/// Block type for additional_location in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementAdditionalLocationBlock : TerraformBlock
@@ -83,10 +83,44 @@ public class AzurermApiManagementAdditionalLocationBlock : TerraformBlock
         set => SetArgument("zones", value);
     }
 
+    /// <summary>
+    /// VirtualNetworkConfiguration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualNetworkConfiguration block(s) allowed")]
+    public TerraformList<AzurermApiManagementAdditionalLocationBlockVirtualNetworkConfigurationBlock>? VirtualNetworkConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementAdditionalLocationBlockVirtualNetworkConfigurationBlock>>("virtual_network_configuration");
+        set => SetArgument("virtual_network_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for certificate in .
+/// Block type for virtual_network_configuration in AzurermApiManagementAdditionalLocationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementAdditionalLocationBlockVirtualNetworkConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "virtual_network_configuration";
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformValue<string> SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for certificate in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementCertificateBlock : TerraformBlock
@@ -151,8 +185,9 @@ public class AzurermApiManagementCertificateBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for delegation in .
+/// Block type for delegation in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementDelegationBlock : TerraformBlock
@@ -200,8 +235,9 @@ public class AzurermApiManagementDelegationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for hostname_configuration in .
+/// Block type for hostname_configuration in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementHostnameConfigurationBlock : TerraformBlock
@@ -211,10 +247,655 @@ public class AzurermApiManagementHostnameConfigurationBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "hostname_configuration";
 
+    /// <summary>
+    /// DeveloperPortal block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementHostnameConfigurationBlockDeveloperPortalBlock>? DeveloperPortal
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementHostnameConfigurationBlockDeveloperPortalBlock>>("developer_portal");
+        set => SetArgument("developer_portal", value);
+    }
+
+    /// <summary>
+    /// Management block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementHostnameConfigurationBlockManagementBlock>? Management
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementHostnameConfigurationBlockManagementBlock>>("management");
+        set => SetArgument("management", value);
+    }
+
+    /// <summary>
+    /// Portal block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementHostnameConfigurationBlockPortalBlock>? Portal
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementHostnameConfigurationBlockPortalBlock>>("portal");
+        set => SetArgument("portal", value);
+    }
+
+    /// <summary>
+    /// Proxy block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementHostnameConfigurationBlockProxyBlock>? Proxy
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementHostnameConfigurationBlockProxyBlock>>("proxy");
+        set => SetArgument("proxy", value);
+    }
+
+    /// <summary>
+    /// Scm block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementHostnameConfigurationBlockScmBlock>? Scm
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementHostnameConfigurationBlockScmBlock>>("scm");
+        set => SetArgument("scm", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for developer_portal in AzurermApiManagementHostnameConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementHostnameConfigurationBlockDeveloperPortalBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "developer_portal";
+
+    /// <summary>
+    /// The certificate attribute.
+    /// </summary>
+    public TerraformValue<string>? Certificate
+    {
+        get => new TerraformReference<string>(this, "certificate");
+        set => SetArgument("certificate", value);
+    }
+
+    /// <summary>
+    /// The certificate_password attribute.
+    /// </summary>
+    public TerraformValue<string>? CertificatePassword
+    {
+        get => new TerraformReference<string>(this, "certificate_password");
+        set => SetArgument("certificate_password", value);
+    }
+
+    /// <summary>
+    /// The certificate_source attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateSource
+    {
+        get => new TerraformReference<string>(this, "certificate_source");
+    }
+
+    /// <summary>
+    /// The certificate_status attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateStatus
+    {
+        get => new TerraformReference<string>(this, "certificate_status");
+    }
+
+    /// <summary>
+    /// The expiry attribute.
+    /// </summary>
+    public TerraformValue<string> Expiry
+    {
+        get => new TerraformReference<string>(this, "expiry");
+    }
+
+    /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
+    public required TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+        set => SetArgument("host_name", value);
+    }
+
+    /// <summary>
+    /// The key_vault_certificate_id attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultCertificateId
+    {
+        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        set => SetArgument("key_vault_certificate_id", value);
+    }
+
+    /// <summary>
+    /// The key_vault_id attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string> KeyVaultId
+    {
+        get => new TerraformReference<string>(this, "key_vault_id");
+        set => SetArgument("key_vault_id", value);
+    }
+
+    /// <summary>
+    /// The negotiate_client_certificate attribute.
+    /// </summary>
+    public TerraformValue<bool>? NegotiateClientCertificate
+    {
+        get => new TerraformReference<bool>(this, "negotiate_client_certificate");
+        set => SetArgument("negotiate_client_certificate", value);
+    }
+
+    /// <summary>
+    /// The ssl_keyvault_identity_client_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SslKeyvaultIdentityClientId
+    {
+        get => new TerraformReference<string>(this, "ssl_keyvault_identity_client_id");
+        set => SetArgument("ssl_keyvault_identity_client_id", value);
+    }
+
+    /// <summary>
+    /// The subject attribute.
+    /// </summary>
+    public TerraformValue<string> Subject
+    {
+        get => new TerraformReference<string>(this, "subject");
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+}
+
+/// <summary>
+/// Block type for management in AzurermApiManagementHostnameConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementHostnameConfigurationBlockManagementBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "management";
+
+    /// <summary>
+    /// The certificate attribute.
+    /// </summary>
+    public TerraformValue<string>? Certificate
+    {
+        get => new TerraformReference<string>(this, "certificate");
+        set => SetArgument("certificate", value);
+    }
+
+    /// <summary>
+    /// The certificate_password attribute.
+    /// </summary>
+    public TerraformValue<string>? CertificatePassword
+    {
+        get => new TerraformReference<string>(this, "certificate_password");
+        set => SetArgument("certificate_password", value);
+    }
+
+    /// <summary>
+    /// The certificate_source attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateSource
+    {
+        get => new TerraformReference<string>(this, "certificate_source");
+    }
+
+    /// <summary>
+    /// The certificate_status attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateStatus
+    {
+        get => new TerraformReference<string>(this, "certificate_status");
+    }
+
+    /// <summary>
+    /// The expiry attribute.
+    /// </summary>
+    public TerraformValue<string> Expiry
+    {
+        get => new TerraformReference<string>(this, "expiry");
+    }
+
+    /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
+    public required TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+        set => SetArgument("host_name", value);
+    }
+
+    /// <summary>
+    /// The key_vault_certificate_id attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultCertificateId
+    {
+        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        set => SetArgument("key_vault_certificate_id", value);
+    }
+
+    /// <summary>
+    /// The key_vault_id attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string> KeyVaultId
+    {
+        get => new TerraformReference<string>(this, "key_vault_id");
+        set => SetArgument("key_vault_id", value);
+    }
+
+    /// <summary>
+    /// The negotiate_client_certificate attribute.
+    /// </summary>
+    public TerraformValue<bool>? NegotiateClientCertificate
+    {
+        get => new TerraformReference<bool>(this, "negotiate_client_certificate");
+        set => SetArgument("negotiate_client_certificate", value);
+    }
+
+    /// <summary>
+    /// The ssl_keyvault_identity_client_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SslKeyvaultIdentityClientId
+    {
+        get => new TerraformReference<string>(this, "ssl_keyvault_identity_client_id");
+        set => SetArgument("ssl_keyvault_identity_client_id", value);
+    }
+
+    /// <summary>
+    /// The subject attribute.
+    /// </summary>
+    public TerraformValue<string> Subject
+    {
+        get => new TerraformReference<string>(this, "subject");
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+}
+
+/// <summary>
+/// Block type for portal in AzurermApiManagementHostnameConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementHostnameConfigurationBlockPortalBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "portal";
+
+    /// <summary>
+    /// The certificate attribute.
+    /// </summary>
+    public TerraformValue<string>? Certificate
+    {
+        get => new TerraformReference<string>(this, "certificate");
+        set => SetArgument("certificate", value);
+    }
+
+    /// <summary>
+    /// The certificate_password attribute.
+    /// </summary>
+    public TerraformValue<string>? CertificatePassword
+    {
+        get => new TerraformReference<string>(this, "certificate_password");
+        set => SetArgument("certificate_password", value);
+    }
+
+    /// <summary>
+    /// The certificate_source attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateSource
+    {
+        get => new TerraformReference<string>(this, "certificate_source");
+    }
+
+    /// <summary>
+    /// The certificate_status attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateStatus
+    {
+        get => new TerraformReference<string>(this, "certificate_status");
+    }
+
+    /// <summary>
+    /// The expiry attribute.
+    /// </summary>
+    public TerraformValue<string> Expiry
+    {
+        get => new TerraformReference<string>(this, "expiry");
+    }
+
+    /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
+    public required TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+        set => SetArgument("host_name", value);
+    }
+
+    /// <summary>
+    /// The key_vault_certificate_id attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultCertificateId
+    {
+        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        set => SetArgument("key_vault_certificate_id", value);
+    }
+
+    /// <summary>
+    /// The key_vault_id attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string> KeyVaultId
+    {
+        get => new TerraformReference<string>(this, "key_vault_id");
+        set => SetArgument("key_vault_id", value);
+    }
+
+    /// <summary>
+    /// The negotiate_client_certificate attribute.
+    /// </summary>
+    public TerraformValue<bool>? NegotiateClientCertificate
+    {
+        get => new TerraformReference<bool>(this, "negotiate_client_certificate");
+        set => SetArgument("negotiate_client_certificate", value);
+    }
+
+    /// <summary>
+    /// The ssl_keyvault_identity_client_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SslKeyvaultIdentityClientId
+    {
+        get => new TerraformReference<string>(this, "ssl_keyvault_identity_client_id");
+        set => SetArgument("ssl_keyvault_identity_client_id", value);
+    }
+
+    /// <summary>
+    /// The subject attribute.
+    /// </summary>
+    public TerraformValue<string> Subject
+    {
+        get => new TerraformReference<string>(this, "subject");
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+}
+
+/// <summary>
+/// Block type for proxy in AzurermApiManagementHostnameConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementHostnameConfigurationBlockProxyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "proxy";
+
+    /// <summary>
+    /// The certificate attribute.
+    /// </summary>
+    public TerraformValue<string>? Certificate
+    {
+        get => new TerraformReference<string>(this, "certificate");
+        set => SetArgument("certificate", value);
+    }
+
+    /// <summary>
+    /// The certificate_password attribute.
+    /// </summary>
+    public TerraformValue<string>? CertificatePassword
+    {
+        get => new TerraformReference<string>(this, "certificate_password");
+        set => SetArgument("certificate_password", value);
+    }
+
+    /// <summary>
+    /// The certificate_source attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateSource
+    {
+        get => new TerraformReference<string>(this, "certificate_source");
+    }
+
+    /// <summary>
+    /// The certificate_status attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateStatus
+    {
+        get => new TerraformReference<string>(this, "certificate_status");
+    }
+
+    /// <summary>
+    /// The default_ssl_binding attribute.
+    /// </summary>
+    public TerraformValue<bool> DefaultSslBinding
+    {
+        get => new TerraformReference<bool>(this, "default_ssl_binding");
+        set => SetArgument("default_ssl_binding", value);
+    }
+
+    /// <summary>
+    /// The expiry attribute.
+    /// </summary>
+    public TerraformValue<string> Expiry
+    {
+        get => new TerraformReference<string>(this, "expiry");
+    }
+
+    /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
+    public required TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+        set => SetArgument("host_name", value);
+    }
+
+    /// <summary>
+    /// The key_vault_certificate_id attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultCertificateId
+    {
+        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        set => SetArgument("key_vault_certificate_id", value);
+    }
+
+    /// <summary>
+    /// The key_vault_id attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string> KeyVaultId
+    {
+        get => new TerraformReference<string>(this, "key_vault_id");
+        set => SetArgument("key_vault_id", value);
+    }
+
+    /// <summary>
+    /// The negotiate_client_certificate attribute.
+    /// </summary>
+    public TerraformValue<bool>? NegotiateClientCertificate
+    {
+        get => new TerraformReference<bool>(this, "negotiate_client_certificate");
+        set => SetArgument("negotiate_client_certificate", value);
+    }
+
+    /// <summary>
+    /// The ssl_keyvault_identity_client_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SslKeyvaultIdentityClientId
+    {
+        get => new TerraformReference<string>(this, "ssl_keyvault_identity_client_id");
+        set => SetArgument("ssl_keyvault_identity_client_id", value);
+    }
+
+    /// <summary>
+    /// The subject attribute.
+    /// </summary>
+    public TerraformValue<string> Subject
+    {
+        get => new TerraformReference<string>(this, "subject");
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+}
+
+/// <summary>
+/// Block type for scm in AzurermApiManagementHostnameConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementHostnameConfigurationBlockScmBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "scm";
+
+    /// <summary>
+    /// The certificate attribute.
+    /// </summary>
+    public TerraformValue<string>? Certificate
+    {
+        get => new TerraformReference<string>(this, "certificate");
+        set => SetArgument("certificate", value);
+    }
+
+    /// <summary>
+    /// The certificate_password attribute.
+    /// </summary>
+    public TerraformValue<string>? CertificatePassword
+    {
+        get => new TerraformReference<string>(this, "certificate_password");
+        set => SetArgument("certificate_password", value);
+    }
+
+    /// <summary>
+    /// The certificate_source attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateSource
+    {
+        get => new TerraformReference<string>(this, "certificate_source");
+    }
+
+    /// <summary>
+    /// The certificate_status attribute.
+    /// </summary>
+    public TerraformValue<string> CertificateStatus
+    {
+        get => new TerraformReference<string>(this, "certificate_status");
+    }
+
+    /// <summary>
+    /// The expiry attribute.
+    /// </summary>
+    public TerraformValue<string> Expiry
+    {
+        get => new TerraformReference<string>(this, "expiry");
+    }
+
+    /// <summary>
+    /// The host_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
+    public required TerraformValue<string> HostName
+    {
+        get => new TerraformReference<string>(this, "host_name");
+        set => SetArgument("host_name", value);
+    }
+
+    /// <summary>
+    /// The key_vault_certificate_id attribute.
+    /// </summary>
+    public TerraformValue<string> KeyVaultCertificateId
+    {
+        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        set => SetArgument("key_vault_certificate_id", value);
+    }
+
+    /// <summary>
+    /// The key_vault_id attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string> KeyVaultId
+    {
+        get => new TerraformReference<string>(this, "key_vault_id");
+        set => SetArgument("key_vault_id", value);
+    }
+
+    /// <summary>
+    /// The negotiate_client_certificate attribute.
+    /// </summary>
+    public TerraformValue<bool>? NegotiateClientCertificate
+    {
+        get => new TerraformReference<bool>(this, "negotiate_client_certificate");
+        set => SetArgument("negotiate_client_certificate", value);
+    }
+
+    /// <summary>
+    /// The ssl_keyvault_identity_client_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SslKeyvaultIdentityClientId
+    {
+        get => new TerraformReference<string>(this, "ssl_keyvault_identity_client_id");
+        set => SetArgument("ssl_keyvault_identity_client_id", value);
+    }
+
+    /// <summary>
+    /// The subject attribute.
+    /// </summary>
+    public TerraformValue<string> Subject
+    {
+        get => new TerraformReference<string>(this, "subject");
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+    }
+
+}
+
+
+/// <summary>
+/// Block type for identity in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementIdentityBlock : TerraformBlock
@@ -261,8 +942,9 @@ public class AzurermApiManagementIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for protocols in .
+/// Block type for protocols in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementProtocolsBlock : TerraformBlock
@@ -293,8 +975,9 @@ public class AzurermApiManagementProtocolsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for security in .
+/// Block type for security in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementSecurityBlock : TerraformBlock
@@ -519,8 +1202,9 @@ public class AzurermApiManagementSecurityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sign_in in .
+/// Block type for sign_in in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementSignInBlock : TerraformBlock
@@ -542,8 +1226,9 @@ public class AzurermApiManagementSignInBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sign_up in .
+/// Block type for sign_up in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementSignUpBlock : TerraformBlock
@@ -563,10 +1248,66 @@ public class AzurermApiManagementSignUpBlock : TerraformBlock
         set => SetArgument("enabled", value);
     }
 
+    /// <summary>
+    /// TermsOfService block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TermsOfService is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TermsOfService block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TermsOfService block(s) allowed")]
+    public required TerraformList<AzurermApiManagementSignUpBlockTermsOfServiceBlock> TermsOfService
+    {
+        get => GetRequiredArgument<TerraformList<AzurermApiManagementSignUpBlockTermsOfServiceBlock>>("terms_of_service");
+        set => SetArgument("terms_of_service", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for tenant_access in .
+/// Block type for terms_of_service in AzurermApiManagementSignUpBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementSignUpBlockTermsOfServiceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "terms_of_service";
+
+    /// <summary>
+    /// The consent_required attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsentRequired is required")]
+    public required TerraformValue<bool> ConsentRequired
+    {
+        get => new TerraformReference<bool>(this, "consent_required");
+        set => SetArgument("consent_required", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// The text attribute.
+    /// </summary>
+    public TerraformValue<string>? Text
+    {
+        get => new TerraformReference<string>(this, "text");
+        set => SetArgument("text", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for tenant_access in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementTenantAccessBlock : TerraformBlock
@@ -612,8 +1353,9 @@ public class AzurermApiManagementTenantAccessBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagement.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementTimeoutsBlock : TerraformBlock
@@ -661,8 +1403,9 @@ public class AzurermApiManagementTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for virtual_network_configuration in .
+/// Block type for virtual_network_configuration in AzurermApiManagement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementVirtualNetworkConfigurationBlock : TerraformBlock
@@ -683,6 +1426,7 @@ public class AzurermApiManagementVirtualNetworkConfigurationBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management Terraform resource.

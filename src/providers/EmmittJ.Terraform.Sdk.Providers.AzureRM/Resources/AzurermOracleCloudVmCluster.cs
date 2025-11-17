@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for data_collection_options in .
+/// Block type for data_collection_options in AzurermOracleCloudVmCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBlock
@@ -42,8 +42,9 @@ public class AzurermOracleCloudVmClusterDataCollectionOptionsBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for file_system_configuration in .
+/// Block type for file_system_configuration in AzurermOracleCloudVmCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermOracleCloudVmClusterFileSystemConfigurationBlock : TerraformBlock
@@ -73,8 +74,9 @@ public class AzurermOracleCloudVmClusterFileSystemConfigurationBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermOracleCloudVmCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermOracleCloudVmClusterTimeoutsBlock : TerraformBlock
@@ -121,6 +123,7 @@ public class AzurermOracleCloudVmClusterTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_oracle_cloud_vm_cluster Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermCdnFrontdoorProfile.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCdnFrontdoorProfileIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermCdnFrontdoorProfileIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for log_scrubbing_rule in .
+/// Block type for log_scrubbing_rule in AzurermCdnFrontdoorProfile.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCdnFrontdoorProfileLogScrubbingRuleBlock : TerraformBlock
@@ -73,8 +74,9 @@ public class AzurermCdnFrontdoorProfileLogScrubbingRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCdnFrontdoorProfile.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnFrontdoorProfileTimeoutsBlock : TerraformBlock
@@ -121,6 +123,7 @@ public class AzurermCdnFrontdoorProfileTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_frontdoor_profile Terraform resource.

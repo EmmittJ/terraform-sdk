@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerRegistryCacheRuleDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_registry_cache_rule Terraform data source.

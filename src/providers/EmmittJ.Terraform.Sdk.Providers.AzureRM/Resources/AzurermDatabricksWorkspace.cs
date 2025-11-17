@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for custom_parameters in .
+/// Block type for custom_parameters in AzurermDatabricksWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
@@ -123,8 +123,9 @@ public class AzurermDatabricksWorkspaceCustomParametersBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for enhanced_security_compliance in .
+/// Block type for enhanced_security_compliance in AzurermDatabricksWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : TerraformBlock
@@ -172,8 +173,9 @@ public class AzurermDatabricksWorkspaceEnhancedSecurityComplianceBlock : Terrafo
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDatabricksWorkspace.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
@@ -220,6 +222,7 @@ public class AzurermDatabricksWorkspaceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_databricks_workspace Terraform resource.

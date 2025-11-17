@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for encryption in .
+/// Block type for encryption in AzurermElasticSanVolumeGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
@@ -58,8 +58,9 @@ public class AzurermElasticSanVolumeGroupEncryptionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermElasticSanVolumeGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
@@ -106,8 +107,9 @@ public class AzurermElasticSanVolumeGroupIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_rule in .
+/// Block type for network_rule in AzurermElasticSanVolumeGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
@@ -138,8 +140,9 @@ public class AzurermElasticSanVolumeGroupNetworkRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermElasticSanVolumeGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
@@ -186,6 +189,7 @@ public class AzurermElasticSanVolumeGroupTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_elastic_san_volume_group Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ddos_protection_plan in .
+/// Block type for ddos_protection_plan in AzurermVirtualNetwork.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for encryption in .
+/// Block type for encryption in AzurermVirtualNetwork.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkEncryptionBlock : TerraformBlock
@@ -58,8 +59,9 @@ public class AzurermVirtualNetworkEncryptionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for ip_address_pool in .
+/// Block type for ip_address_pool in AzurermVirtualNetwork.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
@@ -99,8 +101,9 @@ public class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualNetwork.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
@@ -147,6 +150,7 @@ public class AzurermVirtualNetworkTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_network Terraform resource.

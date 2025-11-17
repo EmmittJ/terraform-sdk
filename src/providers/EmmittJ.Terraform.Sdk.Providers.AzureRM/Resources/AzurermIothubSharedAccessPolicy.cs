@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIothubSharedAccessPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIothubSharedAccessPolicyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermIothubSharedAccessPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iothub_shared_access_policy Terraform resource.

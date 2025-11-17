@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLbProbe.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLbProbeTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermLbProbeTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_lb_probe Terraform resource.

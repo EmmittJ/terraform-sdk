@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for targeting_filter in .
+/// Block type for targeting_filter in AzurermAppConfigurationFeature.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
@@ -32,10 +32,53 @@ public class AzurermAppConfigurationFeatureTargetingFilterBlock : TerraformBlock
         set => SetArgument("users", value);
     }
 
+    /// <summary>
+    /// Groups block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermAppConfigurationFeatureTargetingFilterBlockGroupsBlock>? Groups
+    {
+        get => GetArgument<TerraformList<AzurermAppConfigurationFeatureTargetingFilterBlockGroupsBlock>>("groups");
+        set => SetArgument("groups", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for groups in AzurermAppConfigurationFeatureTargetingFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppConfigurationFeatureTargetingFilterBlockGroupsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "groups";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The rollout_percentage attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RolloutPercentage is required")]
+    public required TerraformValue<double> RolloutPercentage
+    {
+        get => new TerraformReference<double>(this, "rollout_percentage");
+        set => SetArgument("rollout_percentage", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermAppConfigurationFeature.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
@@ -83,8 +126,9 @@ public class AzurermAppConfigurationFeatureTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timewindow_filter in .
+/// Block type for timewindow_filter in AzurermAppConfigurationFeature.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBlock
@@ -113,6 +157,7 @@ public class AzurermAppConfigurationFeatureTimewindowFilterBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_configuration_feature Terraform resource.

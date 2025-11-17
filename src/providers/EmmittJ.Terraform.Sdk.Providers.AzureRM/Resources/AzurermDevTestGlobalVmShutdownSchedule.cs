@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for notification_settings in .
+/// Block type for notification_settings in AzurermDevTestGlobalVmShutdownSchedule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock : TerraformBlock
@@ -52,8 +52,9 @@ public class AzurermDevTestGlobalVmShutdownScheduleNotificationSettingsBlock : T
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDevTestGlobalVmShutdownSchedule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock : TerraformBlock
@@ -100,6 +101,7 @@ public class AzurermDevTestGlobalVmShutdownScheduleTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dev_test_global_vm_shutdown_schedule Terraform resource.

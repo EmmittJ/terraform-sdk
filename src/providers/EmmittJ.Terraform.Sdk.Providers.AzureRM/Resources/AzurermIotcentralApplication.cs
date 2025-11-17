@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermIotcentralApplication.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIotcentralApplicationIdentityBlock : TerraformBlock
@@ -41,8 +41,9 @@ public class AzurermIotcentralApplicationIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIotcentralApplication.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIotcentralApplicationTimeoutsBlock : TerraformBlock
@@ -89,6 +90,7 @@ public class AzurermIotcentralApplicationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iotcentral_application Terraform resource.

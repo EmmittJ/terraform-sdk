@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPostgresqlFirewallRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermPostgresqlFirewallRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_postgresql_firewall_rule Terraform resource.

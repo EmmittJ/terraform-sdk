@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSshPublicKey.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSshPublicKeyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSshPublicKeyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_ssh_public_key Terraform resource.

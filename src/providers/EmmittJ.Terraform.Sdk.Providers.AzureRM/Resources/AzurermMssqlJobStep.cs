@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for output_target in .
+/// Block type for output_target in AzurermMssqlJobStep.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermMssqlJobStepOutputTargetBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlJobStep.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlJobStepTimeoutsBlock : TerraformBlock
@@ -101,6 +102,7 @@ public class AzurermMssqlJobStepTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_job_step Terraform resource.

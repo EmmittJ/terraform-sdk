@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for auto_scale_profile in .
+/// Block type for auto_scale_profile in AzurermNginxDeployment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermNginxDeploymentAutoScaleProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for frontend_private in .
+/// Block type for frontend_private in AzurermNginxDeployment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
@@ -88,8 +89,9 @@ public class AzurermNginxDeploymentFrontendPrivateBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for frontend_public in .
+/// Block type for frontend_public in AzurermNginxDeployment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNginxDeploymentFrontendPublicBlock : TerraformBlock
@@ -110,8 +112,9 @@ public class AzurermNginxDeploymentFrontendPublicBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermNginxDeployment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNginxDeploymentIdentityBlock : TerraformBlock
@@ -158,8 +161,9 @@ public class AzurermNginxDeploymentIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for logging_storage_account in .
+/// Block type for logging_storage_account in AzurermNginxDeployment.
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
@@ -190,8 +194,9 @@ public class AzurermNginxDeploymentLoggingStorageAccountBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_interface in .
+/// Block type for network_interface in AzurermNginxDeployment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNginxDeploymentNetworkInterfaceBlock : TerraformBlock
@@ -213,8 +218,9 @@ public class AzurermNginxDeploymentNetworkInterfaceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNginxDeployment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNginxDeploymentTimeoutsBlock : TerraformBlock
@@ -262,8 +268,9 @@ public class AzurermNginxDeploymentTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for web_application_firewall in .
+/// Block type for web_application_firewall in AzurermNginxDeployment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNginxDeploymentWebApplicationFirewallBlock : TerraformBlock
@@ -292,6 +299,7 @@ public class AzurermNginxDeploymentWebApplicationFirewallBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_nginx_deployment Terraform resource.

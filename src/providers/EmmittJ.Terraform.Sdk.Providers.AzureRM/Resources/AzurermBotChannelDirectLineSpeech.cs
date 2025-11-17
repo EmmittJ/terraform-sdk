@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBotChannelDirectLineSpeech.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermBotChannelDirectLineSpeechTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_bot_channel_direct_line_speech Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for container in .
+/// Block type for container in AzurermContainerGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerGroupContainerBlock : TerraformBlock
@@ -98,10 +98,500 @@ public class AzurermContainerGroupContainerBlock : TerraformBlock
         set => SetArgument("secure_environment_variables", value);
     }
 
+    /// <summary>
+    /// LivenessProbe block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LivenessProbe block(s) allowed")]
+    public TerraformList<AzurermContainerGroupContainerBlockLivenessProbeBlock>? LivenessProbe
+    {
+        get => GetArgument<TerraformList<AzurermContainerGroupContainerBlockLivenessProbeBlock>>("liveness_probe");
+        set => SetArgument("liveness_probe", value);
+    }
+
+    /// <summary>
+    /// Ports block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermContainerGroupContainerBlockPortsBlock>? Ports
+    {
+        get => GetArgument<TerraformSet<AzurermContainerGroupContainerBlockPortsBlock>>("ports");
+        set => SetArgument("ports", value);
+    }
+
+    /// <summary>
+    /// ReadinessProbe block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadinessProbe block(s) allowed")]
+    public TerraformList<AzurermContainerGroupContainerBlockReadinessProbeBlock>? ReadinessProbe
+    {
+        get => GetArgument<TerraformList<AzurermContainerGroupContainerBlockReadinessProbeBlock>>("readiness_probe");
+        set => SetArgument("readiness_probe", value);
+    }
+
+    /// <summary>
+    /// Security block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermContainerGroupContainerBlockSecurityBlock>? Security
+    {
+        get => GetArgument<TerraformList<AzurermContainerGroupContainerBlockSecurityBlock>>("security");
+        set => SetArgument("security", value);
+    }
+
+    /// <summary>
+    /// Volume block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermContainerGroupContainerBlockVolumeBlock>? Volume
+    {
+        get => GetArgument<TerraformList<AzurermContainerGroupContainerBlockVolumeBlock>>("volume");
+        set => SetArgument("volume", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for diagnostics in .
+/// Block type for liveness_probe in AzurermContainerGroupContainerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupContainerBlockLivenessProbeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "liveness_probe";
+
+    /// <summary>
+    /// The exec attribute.
+    /// </summary>
+    public TerraformList<string>? Exec
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exec").ResolveNodes(ctx));
+        set => SetArgument("exec", value);
+    }
+
+    /// <summary>
+    /// The failure_threshold attribute.
+    /// </summary>
+    public TerraformValue<double>? FailureThreshold
+    {
+        get => new TerraformReference<double>(this, "failure_threshold");
+        set => SetArgument("failure_threshold", value);
+    }
+
+    /// <summary>
+    /// The initial_delay_seconds attribute.
+    /// </summary>
+    public TerraformValue<double>? InitialDelaySeconds
+    {
+        get => new TerraformReference<double>(this, "initial_delay_seconds");
+        set => SetArgument("initial_delay_seconds", value);
+    }
+
+    /// <summary>
+    /// The period_seconds attribute.
+    /// </summary>
+    public TerraformValue<double>? PeriodSeconds
+    {
+        get => new TerraformReference<double>(this, "period_seconds");
+        set => SetArgument("period_seconds", value);
+    }
+
+    /// <summary>
+    /// The success_threshold attribute.
+    /// </summary>
+    public TerraformValue<double>? SuccessThreshold
+    {
+        get => new TerraformReference<double>(this, "success_threshold");
+        set => SetArgument("success_threshold", value);
+    }
+
+    /// <summary>
+    /// The timeout_seconds attribute.
+    /// </summary>
+    public TerraformValue<double>? TimeoutSeconds
+    {
+        get => new TerraformReference<double>(this, "timeout_seconds");
+        set => SetArgument("timeout_seconds", value);
+    }
+
+    /// <summary>
+    /// HttpGet block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermContainerGroupContainerBlockLivenessProbeBlockHttpGetBlock>? HttpGet
+    {
+        get => GetArgument<TerraformList<AzurermContainerGroupContainerBlockLivenessProbeBlockHttpGetBlock>>("http_get");
+        set => SetArgument("http_get", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for http_get in AzurermContainerGroupContainerBlockLivenessProbeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupContainerBlockLivenessProbeBlockHttpGetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "http_get";
+
+    /// <summary>
+    /// The http_headers attribute.
+    /// </summary>
+    public TerraformMap<string>? HttpHeaders
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "http_headers").ResolveNodes(ctx));
+        set => SetArgument("http_headers", value);
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    public TerraformValue<string>? Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    public TerraformValue<double>? Port
+    {
+        get => new TerraformReference<double>(this, "port");
+        set => SetArgument("port", value);
+    }
+
+    /// <summary>
+    /// The scheme attribute.
+    /// </summary>
+    public TerraformValue<string>? Scheme
+    {
+        get => new TerraformReference<string>(this, "scheme");
+        set => SetArgument("scheme", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ports in AzurermContainerGroupContainerBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermContainerGroupContainerBlockPortsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ports";
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    public TerraformValue<double>? Port
+    {
+        get => new TerraformReference<double>(this, "port");
+        set => SetArgument("port", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    public TerraformValue<string>? Protocol
+    {
+        get => new TerraformReference<string>(this, "protocol");
+        set => SetArgument("protocol", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for readiness_probe in AzurermContainerGroupContainerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupContainerBlockReadinessProbeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "readiness_probe";
+
+    /// <summary>
+    /// The exec attribute.
+    /// </summary>
+    public TerraformList<string>? Exec
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exec").ResolveNodes(ctx));
+        set => SetArgument("exec", value);
+    }
+
+    /// <summary>
+    /// The failure_threshold attribute.
+    /// </summary>
+    public TerraformValue<double>? FailureThreshold
+    {
+        get => new TerraformReference<double>(this, "failure_threshold");
+        set => SetArgument("failure_threshold", value);
+    }
+
+    /// <summary>
+    /// The initial_delay_seconds attribute.
+    /// </summary>
+    public TerraformValue<double>? InitialDelaySeconds
+    {
+        get => new TerraformReference<double>(this, "initial_delay_seconds");
+        set => SetArgument("initial_delay_seconds", value);
+    }
+
+    /// <summary>
+    /// The period_seconds attribute.
+    /// </summary>
+    public TerraformValue<double>? PeriodSeconds
+    {
+        get => new TerraformReference<double>(this, "period_seconds");
+        set => SetArgument("period_seconds", value);
+    }
+
+    /// <summary>
+    /// The success_threshold attribute.
+    /// </summary>
+    public TerraformValue<double>? SuccessThreshold
+    {
+        get => new TerraformReference<double>(this, "success_threshold");
+        set => SetArgument("success_threshold", value);
+    }
+
+    /// <summary>
+    /// The timeout_seconds attribute.
+    /// </summary>
+    public TerraformValue<double>? TimeoutSeconds
+    {
+        get => new TerraformReference<double>(this, "timeout_seconds");
+        set => SetArgument("timeout_seconds", value);
+    }
+
+    /// <summary>
+    /// HttpGet block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermContainerGroupContainerBlockReadinessProbeBlockHttpGetBlock>? HttpGet
+    {
+        get => GetArgument<TerraformList<AzurermContainerGroupContainerBlockReadinessProbeBlockHttpGetBlock>>("http_get");
+        set => SetArgument("http_get", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for http_get in AzurermContainerGroupContainerBlockReadinessProbeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupContainerBlockReadinessProbeBlockHttpGetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "http_get";
+
+    /// <summary>
+    /// The http_headers attribute.
+    /// </summary>
+    public TerraformMap<string>? HttpHeaders
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "http_headers").ResolveNodes(ctx));
+        set => SetArgument("http_headers", value);
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    public TerraformValue<string>? Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    public TerraformValue<double>? Port
+    {
+        get => new TerraformReference<double>(this, "port");
+        set => SetArgument("port", value);
+    }
+
+    /// <summary>
+    /// The scheme attribute.
+    /// </summary>
+    public TerraformValue<string>? Scheme
+    {
+        get => new TerraformReference<string>(this, "scheme");
+        set => SetArgument("scheme", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for security in AzurermContainerGroupContainerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupContainerBlockSecurityBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "security";
+
+    /// <summary>
+    /// The privilege_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivilegeEnabled is required")]
+    public required TerraformValue<bool> PrivilegeEnabled
+    {
+        get => new TerraformReference<bool>(this, "privilege_enabled");
+        set => SetArgument("privilege_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for volume in AzurermContainerGroupContainerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupContainerBlockVolumeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "volume";
+
+    /// <summary>
+    /// The empty_dir attribute.
+    /// </summary>
+    public TerraformValue<bool>? EmptyDir
+    {
+        get => new TerraformReference<bool>(this, "empty_dir");
+        set => SetArgument("empty_dir", value);
+    }
+
+    /// <summary>
+    /// The mount_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
+    public required TerraformValue<string> MountPath
+    {
+        get => new TerraformReference<string>(this, "mount_path");
+        set => SetArgument("mount_path", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The read_only attribute.
+    /// </summary>
+    public TerraformValue<bool>? ReadOnlyAttribute
+    {
+        get => new TerraformReference<bool>(this, "read_only");
+        set => SetArgument("read_only", value);
+    }
+
+    /// <summary>
+    /// The secret attribute.
+    /// </summary>
+    public TerraformMap<string>? Secret
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secret").ResolveNodes(ctx));
+        set => SetArgument("secret", value);
+    }
+
+    /// <summary>
+    /// The share_name attribute.
+    /// </summary>
+    public TerraformValue<string>? ShareName
+    {
+        get => new TerraformReference<string>(this, "share_name");
+        set => SetArgument("share_name", value);
+    }
+
+    /// <summary>
+    /// The storage_account_key attribute.
+    /// </summary>
+    public TerraformValue<string>? StorageAccountKey
+    {
+        get => new TerraformReference<string>(this, "storage_account_key");
+        set => SetArgument("storage_account_key", value);
+    }
+
+    /// <summary>
+    /// The storage_account_name attribute.
+    /// </summary>
+    public TerraformValue<string>? StorageAccountName
+    {
+        get => new TerraformReference<string>(this, "storage_account_name");
+        set => SetArgument("storage_account_name", value);
+    }
+
+    /// <summary>
+    /// GitRepo block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepo block(s) allowed")]
+    public TerraformList<AzurermContainerGroupContainerBlockVolumeBlockGitRepoBlock>? GitRepo
+    {
+        get => GetArgument<TerraformList<AzurermContainerGroupContainerBlockVolumeBlockGitRepoBlock>>("git_repo");
+        set => SetArgument("git_repo", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for git_repo in AzurermContainerGroupContainerBlockVolumeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupContainerBlockVolumeBlockGitRepoBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "git_repo";
+
+    /// <summary>
+    /// The directory attribute.
+    /// </summary>
+    public TerraformValue<string>? Directory
+    {
+        get => new TerraformReference<string>(this, "directory");
+        set => SetArgument("directory", value);
+    }
+
+    /// <summary>
+    /// The revision attribute.
+    /// </summary>
+    public TerraformValue<string>? Revision
+    {
+        get => new TerraformReference<string>(this, "revision");
+        set => SetArgument("revision", value);
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
+    public required TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+        set => SetArgument("url", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for diagnostics in AzurermContainerGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerGroupDiagnosticsBlock : TerraformBlock
@@ -111,10 +601,75 @@ public class AzurermContainerGroupDiagnosticsBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "diagnostics";
 
+    /// <summary>
+    /// LogAnalytics block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalytics is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LogAnalytics block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogAnalytics block(s) allowed")]
+    public required TerraformList<AzurermContainerGroupDiagnosticsBlockLogAnalyticsBlock> LogAnalytics
+    {
+        get => GetRequiredArgument<TerraformList<AzurermContainerGroupDiagnosticsBlockLogAnalyticsBlock>>("log_analytics");
+        set => SetArgument("log_analytics", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for dns_config in .
+/// Block type for log_analytics in AzurermContainerGroupDiagnosticsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupDiagnosticsBlockLogAnalyticsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "log_analytics";
+
+    /// <summary>
+    /// The log_type attribute.
+    /// </summary>
+    public TerraformValue<string>? LogType
+    {
+        get => new TerraformReference<string>(this, "log_type");
+        set => SetArgument("log_type", value);
+    }
+
+    /// <summary>
+    /// The metadata attribute.
+    /// </summary>
+    public TerraformMap<string>? Metadata
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "metadata").ResolveNodes(ctx));
+        set => SetArgument("metadata", value);
+    }
+
+    /// <summary>
+    /// The workspace_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
+    public required TerraformValue<string> WorkspaceId
+    {
+        get => new TerraformReference<string>(this, "workspace_id");
+        set => SetArgument("workspace_id", value);
+    }
+
+    /// <summary>
+    /// The workspace_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceKey is required")]
+    public required TerraformValue<string> WorkspaceKey
+    {
+        get => new TerraformReference<string>(this, "workspace_key");
+        set => SetArgument("workspace_key", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for dns_config in AzurermContainerGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
@@ -154,8 +709,9 @@ public class AzurermContainerGroupDnsConfigBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermContainerGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerGroupIdentityBlock : TerraformBlock
@@ -202,8 +758,9 @@ public class AzurermContainerGroupIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for image_registry_credential in .
+/// Block type for image_registry_credential in AzurermContainerGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
@@ -252,8 +809,9 @@ public class AzurermContainerGroupImageRegistryCredentialBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for init_container in .
+/// Block type for init_container in AzurermContainerGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerGroupInitContainerBlock : TerraformBlock
@@ -310,10 +868,190 @@ public class AzurermContainerGroupInitContainerBlock : TerraformBlock
         set => SetArgument("secure_environment_variables", value);
     }
 
+    /// <summary>
+    /// Security block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermContainerGroupInitContainerBlockSecurityBlock>? Security
+    {
+        get => GetArgument<TerraformList<AzurermContainerGroupInitContainerBlockSecurityBlock>>("security");
+        set => SetArgument("security", value);
+    }
+
+    /// <summary>
+    /// Volume block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermContainerGroupInitContainerBlockVolumeBlock>? Volume
+    {
+        get => GetArgument<TerraformList<AzurermContainerGroupInitContainerBlockVolumeBlock>>("volume");
+        set => SetArgument("volume", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for security in AzurermContainerGroupInitContainerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupInitContainerBlockSecurityBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "security";
+
+    /// <summary>
+    /// The privilege_enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivilegeEnabled is required")]
+    public required TerraformValue<bool> PrivilegeEnabled
+    {
+        get => new TerraformReference<bool>(this, "privilege_enabled");
+        set => SetArgument("privilege_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for volume in AzurermContainerGroupInitContainerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupInitContainerBlockVolumeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "volume";
+
+    /// <summary>
+    /// The empty_dir attribute.
+    /// </summary>
+    public TerraformValue<bool>? EmptyDir
+    {
+        get => new TerraformReference<bool>(this, "empty_dir");
+        set => SetArgument("empty_dir", value);
+    }
+
+    /// <summary>
+    /// The mount_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
+    public required TerraformValue<string> MountPath
+    {
+        get => new TerraformReference<string>(this, "mount_path");
+        set => SetArgument("mount_path", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The read_only attribute.
+    /// </summary>
+    public TerraformValue<bool>? ReadOnlyAttribute
+    {
+        get => new TerraformReference<bool>(this, "read_only");
+        set => SetArgument("read_only", value);
+    }
+
+    /// <summary>
+    /// The secret attribute.
+    /// </summary>
+    public TerraformMap<string>? Secret
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "secret").ResolveNodes(ctx));
+        set => SetArgument("secret", value);
+    }
+
+    /// <summary>
+    /// The share_name attribute.
+    /// </summary>
+    public TerraformValue<string>? ShareName
+    {
+        get => new TerraformReference<string>(this, "share_name");
+        set => SetArgument("share_name", value);
+    }
+
+    /// <summary>
+    /// The storage_account_key attribute.
+    /// </summary>
+    public TerraformValue<string>? StorageAccountKey
+    {
+        get => new TerraformReference<string>(this, "storage_account_key");
+        set => SetArgument("storage_account_key", value);
+    }
+
+    /// <summary>
+    /// The storage_account_name attribute.
+    /// </summary>
+    public TerraformValue<string>? StorageAccountName
+    {
+        get => new TerraformReference<string>(this, "storage_account_name");
+        set => SetArgument("storage_account_name", value);
+    }
+
+    /// <summary>
+    /// GitRepo block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitRepo block(s) allowed")]
+    public TerraformList<AzurermContainerGroupInitContainerBlockVolumeBlockGitRepoBlock>? GitRepo
+    {
+        get => GetArgument<TerraformList<AzurermContainerGroupInitContainerBlockVolumeBlockGitRepoBlock>>("git_repo");
+        set => SetArgument("git_repo", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for git_repo in AzurermContainerGroupInitContainerBlockVolumeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerGroupInitContainerBlockVolumeBlockGitRepoBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "git_repo";
+
+    /// <summary>
+    /// The directory attribute.
+    /// </summary>
+    public TerraformValue<string>? Directory
+    {
+        get => new TerraformReference<string>(this, "directory");
+        set => SetArgument("directory", value);
+    }
+
+    /// <summary>
+    /// The revision attribute.
+    /// </summary>
+    public TerraformValue<string>? Revision
+    {
+        get => new TerraformReference<string>(this, "revision");
+        set => SetArgument("revision", value);
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
+    public required TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+        set => SetArgument("url", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermContainerGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
@@ -360,6 +1098,7 @@ public class AzurermContainerGroupTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_group Terraform resource.

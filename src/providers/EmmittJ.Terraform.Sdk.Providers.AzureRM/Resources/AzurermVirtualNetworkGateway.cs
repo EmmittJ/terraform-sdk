@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for bgp_settings in .
+/// Block type for bgp_settings in AzurermVirtualNetworkGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkGatewayBgpSettingsBlock : TerraformBlock
@@ -31,10 +31,68 @@ public class AzurermVirtualNetworkGatewayBgpSettingsBlock : TerraformBlock
         set => SetArgument("peer_weight", value);
     }
 
+    /// <summary>
+    /// PeeringAddresses block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 PeeringAddresses block(s) allowed")]
+    public TerraformList<AzurermVirtualNetworkGatewayBgpSettingsBlockPeeringAddressesBlock>? PeeringAddresses
+    {
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayBgpSettingsBlockPeeringAddressesBlock>>("peering_addresses");
+        set => SetArgument("peering_addresses", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for custom_route in .
+/// Block type for peering_addresses in AzurermVirtualNetworkGatewayBgpSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualNetworkGatewayBgpSettingsBlockPeeringAddressesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "peering_addresses";
+
+    /// <summary>
+    /// The apipa_addresses attribute.
+    /// </summary>
+    public TerraformList<string>? ApipaAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "apipa_addresses").ResolveNodes(ctx));
+        set => SetArgument("apipa_addresses", value);
+    }
+
+    /// <summary>
+    /// The default_addresses attribute.
+    /// </summary>
+    public TerraformList<string> DefaultAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "default_addresses").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The ip_configuration_name attribute.
+    /// </summary>
+    public TerraformValue<string> IpConfigurationName
+    {
+        get => new TerraformReference<string>(this, "ip_configuration_name");
+        set => SetArgument("ip_configuration_name", value);
+    }
+
+    /// <summary>
+    /// The tunnel_ip_addresses attribute.
+    /// </summary>
+    public TerraformList<string> TunnelIpAddresses
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tunnel_ip_addresses").ResolveNodes(ctx));
+    }
+
+}
+
+
+/// <summary>
+/// Block type for custom_route in AzurermVirtualNetworkGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkGatewayCustomRouteBlock : TerraformBlock
@@ -55,8 +113,9 @@ public class AzurermVirtualNetworkGatewayCustomRouteBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for ip_configuration in .
+/// Block type for ip_configuration in AzurermVirtualNetworkGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkGatewayIpConfigurationBlock : TerraformBlock
@@ -105,8 +164,9 @@ public class AzurermVirtualNetworkGatewayIpConfigurationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for policy_group in .
+/// Block type for policy_group in AzurermVirtualNetworkGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkGatewayPolicyGroupBlock : TerraformBlock
@@ -144,10 +204,66 @@ public class AzurermVirtualNetworkGatewayPolicyGroupBlock : TerraformBlock
         set => SetArgument("priority", value);
     }
 
+    /// <summary>
+    /// PolicyMember block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyMember is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PolicyMember block(s) required")]
+    public required TerraformList<AzurermVirtualNetworkGatewayPolicyGroupBlockPolicyMemberBlock> PolicyMember
+    {
+        get => GetRequiredArgument<TerraformList<AzurermVirtualNetworkGatewayPolicyGroupBlockPolicyMemberBlock>>("policy_member");
+        set => SetArgument("policy_member", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for policy_member in AzurermVirtualNetworkGatewayPolicyGroupBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualNetworkGatewayPolicyGroupBlockPolicyMemberBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "policy_member";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermVirtualNetworkGateway.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualNetworkGatewayTimeoutsBlock : TerraformBlock
@@ -195,8 +311,9 @@ public class AzurermVirtualNetworkGatewayTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for vpn_client_configuration in .
+/// Block type for vpn_client_configuration in AzurermVirtualNetworkGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : TerraformBlock
@@ -279,7 +396,299 @@ public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlock : Terraform
         set => SetArgument("vpn_client_protocols", value);
     }
 
+    /// <summary>
+    /// IpsecPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpsecPolicy block(s) allowed")]
+    public TerraformList<AzurermVirtualNetworkGatewayVpnClientConfigurationBlockIpsecPolicyBlock>? IpsecPolicy
+    {
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayVpnClientConfigurationBlockIpsecPolicyBlock>>("ipsec_policy");
+        set => SetArgument("ipsec_policy", value);
+    }
+
+    /// <summary>
+    /// RadiusServer block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermVirtualNetworkGatewayVpnClientConfigurationBlockRadiusServerBlock>? RadiusServer
+    {
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayVpnClientConfigurationBlockRadiusServerBlock>>("radius_server");
+        set => SetArgument("radius_server", value);
+    }
+
+    /// <summary>
+    /// RevokedCertificate block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermVirtualNetworkGatewayVpnClientConfigurationBlockRevokedCertificateBlock>? RevokedCertificate
+    {
+        get => GetArgument<TerraformSet<AzurermVirtualNetworkGatewayVpnClientConfigurationBlockRevokedCertificateBlock>>("revoked_certificate");
+        set => SetArgument("revoked_certificate", value);
+    }
+
+    /// <summary>
+    /// RootCertificate block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermVirtualNetworkGatewayVpnClientConfigurationBlockRootCertificateBlock>? RootCertificate
+    {
+        get => GetArgument<TerraformSet<AzurermVirtualNetworkGatewayVpnClientConfigurationBlockRootCertificateBlock>>("root_certificate");
+        set => SetArgument("root_certificate", value);
+    }
+
+    /// <summary>
+    /// VirtualNetworkGatewayClientConnection block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermVirtualNetworkGatewayVpnClientConfigurationBlockVirtualNetworkGatewayClientConnectionBlock>? VirtualNetworkGatewayClientConnection
+    {
+        get => GetArgument<TerraformList<AzurermVirtualNetworkGatewayVpnClientConfigurationBlockVirtualNetworkGatewayClientConnectionBlock>>("virtual_network_gateway_client_connection");
+        set => SetArgument("virtual_network_gateway_client_connection", value);
+    }
+
 }
+
+/// <summary>
+/// Block type for ipsec_policy in AzurermVirtualNetworkGatewayVpnClientConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlockIpsecPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ipsec_policy";
+
+    /// <summary>
+    /// The dh_group attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DhGroup is required")]
+    public required TerraformValue<string> DhGroup
+    {
+        get => new TerraformReference<string>(this, "dh_group");
+        set => SetArgument("dh_group", value);
+    }
+
+    /// <summary>
+    /// The ike_encryption attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeEncryption is required")]
+    public required TerraformValue<string> IkeEncryption
+    {
+        get => new TerraformReference<string>(this, "ike_encryption");
+        set => SetArgument("ike_encryption", value);
+    }
+
+    /// <summary>
+    /// The ike_integrity attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeIntegrity is required")]
+    public required TerraformValue<string> IkeIntegrity
+    {
+        get => new TerraformReference<string>(this, "ike_integrity");
+        set => SetArgument("ike_integrity", value);
+    }
+
+    /// <summary>
+    /// The ipsec_encryption attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpsecEncryption is required")]
+    public required TerraformValue<string> IpsecEncryption
+    {
+        get => new TerraformReference<string>(this, "ipsec_encryption");
+        set => SetArgument("ipsec_encryption", value);
+    }
+
+    /// <summary>
+    /// The ipsec_integrity attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpsecIntegrity is required")]
+    public required TerraformValue<string> IpsecIntegrity
+    {
+        get => new TerraformReference<string>(this, "ipsec_integrity");
+        set => SetArgument("ipsec_integrity", value);
+    }
+
+    /// <summary>
+    /// The pfs_group attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfsGroup is required")]
+    public required TerraformValue<string> PfsGroup
+    {
+        get => new TerraformReference<string>(this, "pfs_group");
+        set => SetArgument("pfs_group", value);
+    }
+
+    /// <summary>
+    /// The sa_data_size_in_kilobytes attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SaDataSizeInKilobytes is required")]
+    public required TerraformValue<double> SaDataSizeInKilobytes
+    {
+        get => new TerraformReference<double>(this, "sa_data_size_in_kilobytes");
+        set => SetArgument("sa_data_size_in_kilobytes", value);
+    }
+
+    /// <summary>
+    /// The sa_lifetime_in_seconds attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SaLifetimeInSeconds is required")]
+    public required TerraformValue<double> SaLifetimeInSeconds
+    {
+        get => new TerraformReference<double>(this, "sa_lifetime_in_seconds");
+        set => SetArgument("sa_lifetime_in_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for radius_server in AzurermVirtualNetworkGatewayVpnClientConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlockRadiusServerBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "radius_server";
+
+    /// <summary>
+    /// The address attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
+    public required TerraformValue<string> Address
+    {
+        get => new TerraformReference<string>(this, "address");
+        set => SetArgument("address", value);
+    }
+
+    /// <summary>
+    /// The score attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
+    public required TerraformValue<double> Score
+    {
+        get => new TerraformReference<double>(this, "score");
+        set => SetArgument("score", value);
+    }
+
+    /// <summary>
+    /// The secret attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
+    public required TerraformValue<string> Secret
+    {
+        get => new TerraformReference<string>(this, "secret");
+        set => SetArgument("secret", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for revoked_certificate in AzurermVirtualNetworkGatewayVpnClientConfigurationBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlockRevokedCertificateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "revoked_certificate";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
+    public required TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+        set => SetArgument("thumbprint", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for root_certificate in AzurermVirtualNetworkGatewayVpnClientConfigurationBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlockRootCertificateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "root_certificate";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The public_cert_data attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicCertData is required")]
+    public required TerraformValue<string> PublicCertData
+    {
+        get => new TerraformReference<string>(this, "public_cert_data");
+        set => SetArgument("public_cert_data", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for virtual_network_gateway_client_connection in AzurermVirtualNetworkGatewayVpnClientConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualNetworkGatewayVpnClientConfigurationBlockVirtualNetworkGatewayClientConnectionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "virtual_network_gateway_client_connection";
+
+    /// <summary>
+    /// The address_prefixes attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixes is required")]
+    public TerraformList<string>? AddressPrefixes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "address_prefixes").ResolveNodes(ctx));
+        set => SetArgument("address_prefixes", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The policy_group_names attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyGroupNames is required")]
+    public TerraformList<string>? PolicyGroupNames
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "policy_group_names").ResolveNodes(ctx));
+        set => SetArgument("policy_group_names", value);
+    }
+
+}
+
 
 /// <summary>
 /// Represents a azurerm_virtual_network_gateway Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionDataSourc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_managed_hardware_security_module_role_definition Terraform data source.

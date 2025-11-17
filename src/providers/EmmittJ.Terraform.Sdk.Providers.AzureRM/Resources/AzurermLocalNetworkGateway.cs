@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for bgp_settings in .
+/// Block type for bgp_settings in AzurermLocalNetworkGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermLocalNetworkGatewayBgpSettingsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLocalNetworkGateway.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
@@ -92,6 +93,7 @@ public class AzurermLocalNetworkGatewayTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_local_network_gateway Terraform resource.

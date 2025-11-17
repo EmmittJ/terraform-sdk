@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKeyVaultManagedStorageAccountSasTokenDefinition.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultManagedStorageAccountSasTokenDefinitionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermKeyVaultManagedStorageAccountSasTokenDefinitionTimeoutsBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_managed_storage_account_sas_token_definition Terraform resource.

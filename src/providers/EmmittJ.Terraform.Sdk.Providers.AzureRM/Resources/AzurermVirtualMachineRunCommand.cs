@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for error_blob_managed_identity in .
+/// Block type for error_blob_managed_identity in AzurermVirtualMachineRunCommand.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for output_blob_managed_identity in .
+/// Block type for output_blob_managed_identity in AzurermVirtualMachineRunCommand.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock : TerraformBlock
@@ -64,8 +65,9 @@ public class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for parameter in .
+/// Block type for parameter in AzurermVirtualMachineRunCommand.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineRunCommandParameterBlock : TerraformBlock
@@ -97,8 +99,9 @@ public class AzurermVirtualMachineRunCommandParameterBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for protected_parameter in .
+/// Block type for protected_parameter in AzurermVirtualMachineRunCommand.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineRunCommandProtectedParameterBlock : TerraformBlock
@@ -130,8 +133,9 @@ public class AzurermVirtualMachineRunCommandProtectedParameterBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for source in .
+/// Block type for source in AzurermVirtualMachineRunCommand.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlock
@@ -168,10 +172,52 @@ public class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlock
         set => SetArgument("script_uri", value);
     }
 
+    /// <summary>
+    /// ScriptUriManagedIdentity block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScriptUriManagedIdentity block(s) allowed")]
+    public TerraformList<AzurermVirtualMachineRunCommandSourceBlockScriptUriManagedIdentityBlock>? ScriptUriManagedIdentity
+    {
+        get => GetArgument<TerraformList<AzurermVirtualMachineRunCommandSourceBlockScriptUriManagedIdentityBlock>>("script_uri_managed_identity");
+        set => SetArgument("script_uri_managed_identity", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for script_uri_managed_identity in AzurermVirtualMachineRunCommandSourceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachineRunCommandSourceBlockScriptUriManagedIdentityBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "script_uri_managed_identity";
+
+    /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    public TerraformValue<string>? ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The object_id attribute.
+    /// </summary>
+    public TerraformValue<string>? ObjectId
+    {
+        get => new TerraformReference<string>(this, "object_id");
+        set => SetArgument("object_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermVirtualMachineRunCommand.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
@@ -218,6 +264,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_machine_run_command Terraform resource.

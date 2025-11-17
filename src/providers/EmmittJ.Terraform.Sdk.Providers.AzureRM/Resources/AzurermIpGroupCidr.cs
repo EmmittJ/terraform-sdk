@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIpGroupCidr.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIpGroupCidrTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermIpGroupCidrTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_ip_group_cidr Terraform resource.

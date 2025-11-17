@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for filter in .
+/// Block type for filter in AzurermConsumptionBudgetManagementGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermConsumptionBudgetManagementGroupFilterBlock : TerraformBlock
@@ -13,10 +13,113 @@ public class AzurermConsumptionBudgetManagementGroupFilterBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "filter";
 
+    /// <summary>
+    /// Dimension block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermConsumptionBudgetManagementGroupFilterBlockDimensionBlock>? Dimension
+    {
+        get => GetArgument<TerraformSet<AzurermConsumptionBudgetManagementGroupFilterBlockDimensionBlock>>("dimension");
+        set => SetArgument("dimension", value);
+    }
+
+    /// <summary>
+    /// Tag block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermConsumptionBudgetManagementGroupFilterBlockTagBlock>? Tag
+    {
+        get => GetArgument<TerraformSet<AzurermConsumptionBudgetManagementGroupFilterBlockTagBlock>>("tag");
+        set => SetArgument("tag", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for notification in .
+/// Block type for dimension in AzurermConsumptionBudgetManagementGroupFilterBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermConsumptionBudgetManagementGroupFilterBlockDimensionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dimension";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    public TerraformValue<string>? OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for tag in AzurermConsumptionBudgetManagementGroupFilterBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermConsumptionBudgetManagementGroupFilterBlockTagBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "tag";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    public TerraformValue<string>? OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for notification in AzurermConsumptionBudgetManagementGroup.
 /// Nesting mode: set
 /// </summary>
 public class AzurermConsumptionBudgetManagementGroupNotificationBlock : TerraformBlock
@@ -76,8 +179,9 @@ public class AzurermConsumptionBudgetManagementGroupNotificationBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for time_period in .
+/// Block type for time_period in AzurermConsumptionBudgetManagementGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermConsumptionBudgetManagementGroupTimePeriodBlock : TerraformBlock
@@ -108,8 +212,9 @@ public class AzurermConsumptionBudgetManagementGroupTimePeriodBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermConsumptionBudgetManagementGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermConsumptionBudgetManagementGroupTimeoutsBlock : TerraformBlock
@@ -156,6 +261,7 @@ public class AzurermConsumptionBudgetManagementGroupTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_consumption_budget_management_group Terraform resource.

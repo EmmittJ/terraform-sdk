@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for auth_settings in .
+/// Block type for auth_settings in AzurermWindowsWebApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsWebAppAuthSettingsBlock : TerraformBlock
@@ -95,10 +95,362 @@ public class AzurermWindowsWebAppAuthSettingsBlock : TerraformBlock
         set => SetArgument("unauthenticated_client_action", value);
     }
 
+    /// <summary>
+    /// ActiveDirectory block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectory block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsBlockActiveDirectoryBlock>? ActiveDirectory
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsBlockActiveDirectoryBlock>>("active_directory");
+        set => SetArgument("active_directory", value);
+    }
+
+    /// <summary>
+    /// Facebook block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Facebook block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsBlockFacebookBlock>? Facebook
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsBlockFacebookBlock>>("facebook");
+        set => SetArgument("facebook", value);
+    }
+
+    /// <summary>
+    /// Github block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Github block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsBlockGithubBlock>? Github
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsBlockGithubBlock>>("github");
+        set => SetArgument("github", value);
+    }
+
+    /// <summary>
+    /// Google block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Google block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsBlockGoogleBlock>? Google
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsBlockGoogleBlock>>("google");
+        set => SetArgument("google", value);
+    }
+
+    /// <summary>
+    /// Microsoft block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Microsoft block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsBlockMicrosoftBlock>? Microsoft
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsBlockMicrosoftBlock>>("microsoft");
+        set => SetArgument("microsoft", value);
+    }
+
+    /// <summary>
+    /// Twitter block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Twitter block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsBlockTwitterBlock>? Twitter
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsBlockTwitterBlock>>("twitter");
+        set => SetArgument("twitter", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for auth_settings_v2 in .
+/// Block type for active_directory in AzurermWindowsWebAppAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsBlockActiveDirectoryBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "active_directory";
+
+    /// <summary>
+    /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+    /// </summary>
+    public TerraformList<string>? AllowedAudiences
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_audiences").ResolveNodes(ctx));
+        set => SetArgument("allowed_audiences", value);
+    }
+
+    /// <summary>
+    /// The ID of the Client to use to authenticate with Azure Active Directory.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+    /// </summary>
+    public TerraformValue<string>? ClientSecret
+    {
+        get => new TerraformReference<string>(this, "client_secret");
+        set => SetArgument("client_secret", value);
+    }
+
+    /// <summary>
+    /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+    /// </summary>
+    public TerraformValue<string>? ClientSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "client_secret_setting_name");
+        set => SetArgument("client_secret_setting_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for facebook in AzurermWindowsWebAppAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsBlockFacebookBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "facebook";
+
+    /// <summary>
+    /// The App ID of the Facebook app used for login.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
+    public required TerraformValue<string> AppId
+    {
+        get => new TerraformReference<string>(this, "app_id");
+        set => SetArgument("app_id", value);
+    }
+
+    /// <summary>
+    /// The App Secret of the Facebook app used for Facebook Login. Cannot be specified with `app_secret_setting_name`.
+    /// </summary>
+    public TerraformValue<string>? AppSecret
+    {
+        get => new TerraformReference<string>(this, "app_secret");
+        set => SetArgument("app_secret", value);
+    }
+
+    /// <summary>
+    /// The app setting name that contains the `app_secret` value used for Facebook Login. Cannot be specified with `app_secret`.
+    /// </summary>
+    public TerraformValue<string>? AppSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "app_secret_setting_name");
+        set => SetArgument("app_secret_setting_name", value);
+    }
+
+    /// <summary>
+    /// Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+    /// </summary>
+    public TerraformList<string>? OauthScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "oauth_scopes").ResolveNodes(ctx));
+        set => SetArgument("oauth_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for github in AzurermWindowsWebAppAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsBlockGithubBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "github";
+
+    /// <summary>
+    /// The ID of the GitHub app used for login.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The Client Secret of the GitHub app used for GitHub Login. Cannot be specified with `client_secret_setting_name`.
+    /// </summary>
+    public TerraformValue<string>? ClientSecret
+    {
+        get => new TerraformReference<string>(this, "client_secret");
+        set => SetArgument("client_secret", value);
+    }
+
+    /// <summary>
+    /// The app setting name that contains the `client_secret` value used for GitHub Login. Cannot be specified with `client_secret`.
+    /// </summary>
+    public TerraformValue<string>? ClientSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "client_secret_setting_name");
+        set => SetArgument("client_secret_setting_name", value);
+    }
+
+    /// <summary>
+    /// Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+    /// </summary>
+    public TerraformList<string>? OauthScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "oauth_scopes").ResolveNodes(ctx));
+        set => SetArgument("oauth_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for google in AzurermWindowsWebAppAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsBlockGoogleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "google";
+
+    /// <summary>
+    /// The OpenID Connect Client ID for the Google web application.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
+    /// </summary>
+    public TerraformValue<string>? ClientSecret
+    {
+        get => new TerraformReference<string>(this, "client_secret");
+        set => SetArgument("client_secret", value);
+    }
+
+    /// <summary>
+    /// The app setting name that contains the `client_secret` value used for Google Login. Cannot be specified with `client_secret`.
+    /// </summary>
+    public TerraformValue<string>? ClientSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "client_secret_setting_name");
+        set => SetArgument("client_secret_setting_name", value);
+    }
+
+    /// <summary>
+    /// Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, &amp;quot;openid&amp;quot;, &amp;quot;profile&amp;quot;, and &amp;quot;email&amp;quot; are used as default scopes.
+    /// </summary>
+    public TerraformList<string>? OauthScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "oauth_scopes").ResolveNodes(ctx));
+        set => SetArgument("oauth_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for microsoft in AzurermWindowsWebAppAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsBlockMicrosoftBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "microsoft";
+
+    /// <summary>
+    /// The OAuth 2.0 client ID that was created for the app used for authentication.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+    /// </summary>
+    public TerraformValue<string>? ClientSecret
+    {
+        get => new TerraformReference<string>(this, "client_secret");
+        set => SetArgument("client_secret", value);
+    }
+
+    /// <summary>
+    /// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+    /// </summary>
+    public TerraformValue<string>? ClientSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "client_secret_setting_name");
+        set => SetArgument("client_secret_setting_name", value);
+    }
+
+    /// <summary>
+    /// The list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+    /// </summary>
+    public TerraformList<string>? OauthScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "oauth_scopes").ResolveNodes(ctx));
+        set => SetArgument("oauth_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for twitter in AzurermWindowsWebAppAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsBlockTwitterBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "twitter";
+
+    /// <summary>
+    /// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerKey is required")]
+    public required TerraformValue<string> ConsumerKey
+    {
+        get => new TerraformReference<string>(this, "consumer_key");
+        set => SetArgument("consumer_key", value);
+    }
+
+    /// <summary>
+    /// The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+    /// </summary>
+    public TerraformValue<string>? ConsumerSecret
+    {
+        get => new TerraformReference<string>(this, "consumer_secret");
+        set => SetArgument("consumer_secret", value);
+    }
+
+    /// <summary>
+    /// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+    /// </summary>
+    public TerraformValue<string>? ConsumerSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "consumer_secret_setting_name");
+        set => SetArgument("consumer_secret_setting_name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for auth_settings_v2 in AzurermWindowsWebApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsWebAppAuthSettingsV2Block : TerraformBlock
@@ -216,10 +568,749 @@ public class AzurermWindowsWebAppAuthSettingsV2Block : TerraformBlock
         set => SetArgument("unauthenticated_action", value);
     }
 
+    /// <summary>
+    /// ActiveDirectoryV2 block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectoryV2 block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockActiveDirectoryV2Block>? ActiveDirectoryV2
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockActiveDirectoryV2Block>>("active_directory_v2");
+        set => SetArgument("active_directory_v2", value);
+    }
+
+    /// <summary>
+    /// AppleV2 block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppleV2 block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockAppleV2Block>? AppleV2
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockAppleV2Block>>("apple_v2");
+        set => SetArgument("apple_v2", value);
+    }
+
+    /// <summary>
+    /// AzureStaticWebAppV2 block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureStaticWebAppV2 block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockAzureStaticWebAppV2Block>? AzureStaticWebAppV2
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockAzureStaticWebAppV2Block>>("azure_static_web_app_v2");
+        set => SetArgument("azure_static_web_app_v2", value);
+    }
+
+    /// <summary>
+    /// CustomOidcV2 block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockCustomOidcV2Block>? CustomOidcV2
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockCustomOidcV2Block>>("custom_oidc_v2");
+        set => SetArgument("custom_oidc_v2", value);
+    }
+
+    /// <summary>
+    /// FacebookV2 block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FacebookV2 block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockFacebookV2Block>? FacebookV2
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockFacebookV2Block>>("facebook_v2");
+        set => SetArgument("facebook_v2", value);
+    }
+
+    /// <summary>
+    /// GithubV2 block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubV2 block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockGithubV2Block>? GithubV2
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockGithubV2Block>>("github_v2");
+        set => SetArgument("github_v2", value);
+    }
+
+    /// <summary>
+    /// GoogleV2 block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GoogleV2 block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockGoogleV2Block>? GoogleV2
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockGoogleV2Block>>("google_v2");
+        set => SetArgument("google_v2", value);
+    }
+
+    /// <summary>
+    /// Login block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Login is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Login block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Login block(s) allowed")]
+    public required TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockLoginBlock> Login
+    {
+        get => GetRequiredArgument<TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockLoginBlock>>("login");
+        set => SetArgument("login", value);
+    }
+
+    /// <summary>
+    /// MicrosoftV2 block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MicrosoftV2 block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockMicrosoftV2Block>? MicrosoftV2
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockMicrosoftV2Block>>("microsoft_v2");
+        set => SetArgument("microsoft_v2", value);
+    }
+
+    /// <summary>
+    /// TwitterV2 block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TwitterV2 block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockTwitterV2Block>? TwitterV2
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppAuthSettingsV2BlockTwitterV2Block>>("twitter_v2");
+        set => SetArgument("twitter_v2", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for backup in .
+/// Block type for active_directory_v2 in AzurermWindowsWebAppAuthSettingsV2Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsV2BlockActiveDirectoryV2Block : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "active_directory_v2";
+
+    /// <summary>
+    /// The list of allowed Applications for the Default Authorisation Policy.
+    /// </summary>
+    public TerraformList<string>? AllowedApplications
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_applications").ResolveNodes(ctx));
+        set => SetArgument("allowed_applications", value);
+    }
+
+    /// <summary>
+    /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+    /// </summary>
+    public TerraformList<string>? AllowedAudiences
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_audiences").ResolveNodes(ctx));
+        set => SetArgument("allowed_audiences", value);
+    }
+
+    /// <summary>
+    /// The list of allowed Group Names for the Default Authorisation Policy.
+    /// </summary>
+    public TerraformList<string>? AllowedGroups
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_groups").ResolveNodes(ctx));
+        set => SetArgument("allowed_groups", value);
+    }
+
+    /// <summary>
+    /// The list of allowed Identities for the Default Authorisation Policy.
+    /// </summary>
+    public TerraformList<string>? AllowedIdentities
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_identities").ResolveNodes(ctx));
+        set => SetArgument("allowed_identities", value);
+    }
+
+    /// <summary>
+    /// The ID of the Client to use to authenticate with Azure Active Directory.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The thumbprint of the certificate used for signing purposes.
+    /// </summary>
+    public TerraformValue<string>? ClientSecretCertificateThumbprint
+    {
+        get => new TerraformReference<string>(this, "client_secret_certificate_thumbprint");
+        set => SetArgument("client_secret_certificate_thumbprint", value);
+    }
+
+    /// <summary>
+    /// The App Setting name that contains the client secret of the Client.
+    /// </summary>
+    public TerraformValue<string>? ClientSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "client_secret_setting_name");
+        set => SetArgument("client_secret_setting_name", value);
+    }
+
+    /// <summary>
+    /// A list of Allowed Client Applications in the JWT Claim.
+    /// </summary>
+    public TerraformList<string>? JwtAllowedClientApplications
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jwt_allowed_client_applications").ResolveNodes(ctx));
+        set => SetArgument("jwt_allowed_client_applications", value);
+    }
+
+    /// <summary>
+    /// A list of Allowed Groups in the JWT Claim.
+    /// </summary>
+    public TerraformList<string>? JwtAllowedGroups
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "jwt_allowed_groups").ResolveNodes(ctx));
+        set => SetArgument("jwt_allowed_groups", value);
+    }
+
+    /// <summary>
+    /// A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+    /// </summary>
+    public TerraformMap<string>? LoginParameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "login_parameters").ResolveNodes(ctx));
+        set => SetArgument("login_parameters", value);
+    }
+
+    /// <summary>
+    /// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantAuthEndpoint is required")]
+    public required TerraformValue<string> TenantAuthEndpoint
+    {
+        get => new TerraformReference<string>(this, "tenant_auth_endpoint");
+        set => SetArgument("tenant_auth_endpoint", value);
+    }
+
+    /// <summary>
+    /// Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+    /// </summary>
+    public TerraformValue<bool>? WwwAuthenticationDisabled
+    {
+        get => new TerraformReference<bool>(this, "www_authentication_disabled");
+        set => SetArgument("www_authentication_disabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for apple_v2 in AzurermWindowsWebAppAuthSettingsV2Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsV2BlockAppleV2Block : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "apple_v2";
+
+    /// <summary>
+    /// The OpenID Connect Client ID for the Apple web application.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The app setting name that contains the `client_secret` value used for Apple Login.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
+    public required TerraformValue<string> ClientSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "client_secret_setting_name");
+        set => SetArgument("client_secret_setting_name", value);
+    }
+
+    /// <summary>
+    /// The login_scopes attribute.
+    /// </summary>
+    public TerraformList<string> LoginScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "login_scopes").ResolveNodes(ctx));
+    }
+
+}
+
+/// <summary>
+/// Block type for azure_static_web_app_v2 in AzurermWindowsWebAppAuthSettingsV2Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsV2BlockAzureStaticWebAppV2Block : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "azure_static_web_app_v2";
+
+    /// <summary>
+    /// The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for custom_oidc_v2 in AzurermWindowsWebAppAuthSettingsV2Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsV2BlockCustomOidcV2Block : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "custom_oidc_v2";
+
+    /// <summary>
+    /// The endpoint to make the Authorisation Request.
+    /// </summary>
+    public TerraformValue<string> AuthorisationEndpoint
+    {
+        get => new TerraformReference<string>(this, "authorisation_endpoint");
+    }
+
+    /// <summary>
+    /// The endpoint that provides the keys necessary to validate the token.
+    /// </summary>
+    public TerraformValue<string> CertificationUri
+    {
+        get => new TerraformReference<string>(this, "certification_uri");
+    }
+
+    /// <summary>
+    /// The Client Credential Method used. Currently the only supported value is `ClientSecretPost`.
+    /// </summary>
+    public TerraformValue<string> ClientCredentialMethod
+    {
+        get => new TerraformReference<string>(this, "client_credential_method");
+    }
+
+    /// <summary>
+    /// The ID of the Client to use to authenticate with this Custom OIDC.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The App Setting name that contains the secret for this Custom OIDC Client.
+    /// </summary>
+    public TerraformValue<string> ClientSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "client_secret_setting_name");
+    }
+
+    /// <summary>
+    /// The endpoint that issued the Token.
+    /// </summary>
+    public TerraformValue<string> IssuerEndpoint
+    {
+        get => new TerraformReference<string>(this, "issuer_endpoint");
+    }
+
+    /// <summary>
+    /// The name of the Custom OIDC Authentication Provider.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The name of the claim that contains the users name.
+    /// </summary>
+    public TerraformValue<string>? NameClaimType
+    {
+        get => new TerraformReference<string>(this, "name_claim_type");
+        set => SetArgument("name_claim_type", value);
+    }
+
+    /// <summary>
+    /// The endpoint that contains all the configuration endpoints for this Custom OIDC provider.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OpenidConfigurationEndpoint is required")]
+    public required TerraformValue<string> OpenidConfigurationEndpoint
+    {
+        get => new TerraformReference<string>(this, "openid_configuration_endpoint");
+        set => SetArgument("openid_configuration_endpoint", value);
+    }
+
+    /// <summary>
+    /// The list of the scopes that should be requested while authenticating.
+    /// </summary>
+    public TerraformList<string>? Scopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "scopes").ResolveNodes(ctx));
+        set => SetArgument("scopes", value);
+    }
+
+    /// <summary>
+    /// The endpoint used to request a Token.
+    /// </summary>
+    public TerraformValue<string> TokenEndpoint
+    {
+        get => new TerraformReference<string>(this, "token_endpoint");
+    }
+
+}
+
+/// <summary>
+/// Block type for facebook_v2 in AzurermWindowsWebAppAuthSettingsV2Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsV2BlockFacebookV2Block : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "facebook_v2";
+
+    /// <summary>
+    /// The App ID of the Facebook app used for login.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
+    public required TerraformValue<string> AppId
+    {
+        get => new TerraformReference<string>(this, "app_id");
+        set => SetArgument("app_id", value);
+    }
+
+    /// <summary>
+    /// The app setting name that contains the `app_secret` value used for Facebook Login.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppSecretSettingName is required")]
+    public required TerraformValue<string> AppSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "app_secret_setting_name");
+        set => SetArgument("app_secret_setting_name", value);
+    }
+
+    /// <summary>
+    /// The version of the Facebook API to be used while logging in.
+    /// </summary>
+    public TerraformValue<string> GraphApiVersion
+    {
+        get => new TerraformReference<string>(this, "graph_api_version");
+        set => SetArgument("graph_api_version", value);
+    }
+
+    /// <summary>
+    /// Specifies a list of scopes to be requested as part of Facebook Login authentication.
+    /// </summary>
+    public TerraformList<string>? LoginScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "login_scopes").ResolveNodes(ctx));
+        set => SetArgument("login_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for github_v2 in AzurermWindowsWebAppAuthSettingsV2Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsV2BlockGithubV2Block : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "github_v2";
+
+    /// <summary>
+    /// The ID of the GitHub app used for login.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The app setting name that contains the `client_secret` value used for GitHub Login.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
+    public required TerraformValue<string> ClientSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "client_secret_setting_name");
+        set => SetArgument("client_secret_setting_name", value);
+    }
+
+    /// <summary>
+    /// Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
+    /// </summary>
+    public TerraformList<string>? LoginScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "login_scopes").ResolveNodes(ctx));
+        set => SetArgument("login_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for google_v2 in AzurermWindowsWebAppAuthSettingsV2Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsV2BlockGoogleV2Block : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "google_v2";
+
+    /// <summary>
+    /// Specifies a list of Allowed Audiences that will be requested as part of Google Sign-In authentication.
+    /// </summary>
+    public TerraformList<string>? AllowedAudiences
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_audiences").ResolveNodes(ctx));
+        set => SetArgument("allowed_audiences", value);
+    }
+
+    /// <summary>
+    /// The OpenID Connect Client ID for the Google web application.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The app setting name that contains the `client_secret` value used for Google Login.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
+    public required TerraformValue<string> ClientSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "client_secret_setting_name");
+        set => SetArgument("client_secret_setting_name", value);
+    }
+
+    /// <summary>
+    /// Specifies a list of Login scopes that will be requested as part of Google Sign-In authentication.
+    /// </summary>
+    public TerraformList<string>? LoginScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "login_scopes").ResolveNodes(ctx));
+        set => SetArgument("login_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for login in AzurermWindowsWebAppAuthSettingsV2Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsV2BlockLoginBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "login";
+
+    /// <summary>
+    /// External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends. **Note:** URLs within the current domain are always implicitly allowed.
+    /// </summary>
+    public TerraformList<string>? AllowedExternalRedirectUrls
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_external_redirect_urls").ResolveNodes(ctx));
+        set => SetArgument("allowed_external_redirect_urls", value);
+    }
+
+    /// <summary>
+    /// The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+    /// </summary>
+    public TerraformValue<string>? CookieExpirationConvention
+    {
+        get => new TerraformReference<string>(this, "cookie_expiration_convention");
+        set => SetArgument("cookie_expiration_convention", value);
+    }
+
+    /// <summary>
+    /// The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+    /// </summary>
+    public TerraformValue<string>? CookieExpirationTime
+    {
+        get => new TerraformReference<string>(this, "cookie_expiration_time");
+        set => SetArgument("cookie_expiration_time", value);
+    }
+
+    /// <summary>
+    /// The endpoint to which logout requests should be made.
+    /// </summary>
+    public TerraformValue<string>? LogoutEndpoint
+    {
+        get => new TerraformReference<string>(this, "logout_endpoint");
+        set => SetArgument("logout_endpoint", value);
+    }
+
+    /// <summary>
+    /// The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+    /// </summary>
+    public TerraformValue<string>? NonceExpirationTime
+    {
+        get => new TerraformReference<string>(this, "nonce_expiration_time");
+        set => SetArgument("nonce_expiration_time", value);
+    }
+
+    /// <summary>
+    /// Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+    /// </summary>
+    public TerraformValue<bool>? PreserveUrlFragmentsForLogins
+    {
+        get => new TerraformReference<bool>(this, "preserve_url_fragments_for_logins");
+        set => SetArgument("preserve_url_fragments_for_logins", value);
+    }
+
+    /// <summary>
+    /// The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+    /// </summary>
+    public TerraformValue<double>? TokenRefreshExtensionTime
+    {
+        get => new TerraformReference<double>(this, "token_refresh_extension_time");
+        set => SetArgument("token_refresh_extension_time", value);
+    }
+
+    /// <summary>
+    /// Should the Token Store configuration Enabled. Defaults to `false`
+    /// </summary>
+    public TerraformValue<bool>? TokenStoreEnabled
+    {
+        get => new TerraformReference<bool>(this, "token_store_enabled");
+        set => SetArgument("token_store_enabled", value);
+    }
+
+    /// <summary>
+    /// The directory path in the App Filesystem in which the tokens will be stored.
+    /// </summary>
+    public TerraformValue<string>? TokenStorePath
+    {
+        get => new TerraformReference<string>(this, "token_store_path");
+        set => SetArgument("token_store_path", value);
+    }
+
+    /// <summary>
+    /// The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+    /// </summary>
+    public TerraformValue<string>? TokenStoreSasSettingName
+    {
+        get => new TerraformReference<string>(this, "token_store_sas_setting_name");
+        set => SetArgument("token_store_sas_setting_name", value);
+    }
+
+    /// <summary>
+    /// Should the nonce be validated while completing the login flow. Defaults to `true`.
+    /// </summary>
+    public TerraformValue<bool>? ValidateNonce
+    {
+        get => new TerraformReference<bool>(this, "validate_nonce");
+        set => SetArgument("validate_nonce", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for microsoft_v2 in AzurermWindowsWebAppAuthSettingsV2Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsV2BlockMicrosoftV2Block : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "microsoft_v2";
+
+    /// <summary>
+    /// Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+    /// </summary>
+    public TerraformList<string>? AllowedAudiences
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_audiences").ResolveNodes(ctx));
+        set => SetArgument("allowed_audiences", value);
+    }
+
+    /// <summary>
+    /// The OAuth 2.0 client ID that was created for the app used for authentication.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecretSettingName is required")]
+    public required TerraformValue<string> ClientSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "client_secret_setting_name");
+        set => SetArgument("client_secret_setting_name", value);
+    }
+
+    /// <summary>
+    /// The list of Login scopes that will be requested as part of Microsoft Account authentication.
+    /// </summary>
+    public TerraformList<string>? LoginScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "login_scopes").ResolveNodes(ctx));
+        set => SetArgument("login_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for twitter_v2 in AzurermWindowsWebAppAuthSettingsV2Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppAuthSettingsV2BlockTwitterV2Block : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "twitter_v2";
+
+    /// <summary>
+    /// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerKey is required")]
+    public required TerraformValue<string> ConsumerKey
+    {
+        get => new TerraformReference<string>(this, "consumer_key");
+        set => SetArgument("consumer_key", value);
+    }
+
+    /// <summary>
+    /// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerSecretSettingName is required")]
+    public required TerraformValue<string> ConsumerSecretSettingName
+    {
+        get => new TerraformReference<string>(this, "consumer_secret_setting_name");
+        set => SetArgument("consumer_secret_setting_name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for backup in AzurermWindowsWebApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsWebAppBackupBlock : TerraformBlock
@@ -258,10 +1349,92 @@ public class AzurermWindowsWebAppBackupBlock : TerraformBlock
         set => SetArgument("storage_account_url", value);
     }
 
+    /// <summary>
+    /// Schedule block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
+    public required TerraformList<AzurermWindowsWebAppBackupBlockScheduleBlock> Schedule
+    {
+        get => GetRequiredArgument<TerraformList<AzurermWindowsWebAppBackupBlockScheduleBlock>>("schedule");
+        set => SetArgument("schedule", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for connection_string in .
+/// Block type for schedule in AzurermWindowsWebAppBackupBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppBackupBlockScheduleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "schedule";
+
+    /// <summary>
+    /// How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrequencyInterval is required")]
+    public required TerraformValue<double> FrequencyInterval
+    {
+        get => new TerraformReference<double>(this, "frequency_interval");
+        set => SetArgument("frequency_interval", value);
+    }
+
+    /// <summary>
+    /// The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrequencyUnit is required")]
+    public required TerraformValue<string> FrequencyUnit
+    {
+        get => new TerraformReference<string>(this, "frequency_unit");
+        set => SetArgument("frequency_unit", value);
+    }
+
+    /// <summary>
+    /// Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+    /// </summary>
+    public TerraformValue<bool>? KeepAtLeastOneBackup
+    {
+        get => new TerraformReference<bool>(this, "keep_at_least_one_backup");
+        set => SetArgument("keep_at_least_one_backup", value);
+    }
+
+    /// <summary>
+    /// The time the backup was last attempted.
+    /// </summary>
+    public TerraformValue<string> LastExecutionTime
+    {
+        get => new TerraformReference<string>(this, "last_execution_time");
+    }
+
+    /// <summary>
+    /// After how many days backups should be deleted.
+    /// </summary>
+    public TerraformValue<double>? RetentionPeriodDays
+    {
+        get => new TerraformReference<double>(this, "retention_period_days");
+        set => SetArgument("retention_period_days", value);
+    }
+
+    /// <summary>
+    /// When the schedule should start working in RFC-3339 format.
+    /// </summary>
+    public TerraformValue<string> StartTime
+    {
+        get => new TerraformReference<string>(this, "start_time");
+        set => SetArgument("start_time", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for connection_string in AzurermWindowsWebApp.
 /// Nesting mode: set
 /// </summary>
 public class AzurermWindowsWebAppConnectionStringBlock : TerraformBlock
@@ -303,8 +1476,9 @@ public class AzurermWindowsWebAppConnectionStringBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermWindowsWebApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsWebAppIdentityBlock : TerraformBlock
@@ -351,8 +1525,9 @@ public class AzurermWindowsWebAppIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for logs in .
+/// Block type for logs in AzurermWindowsWebApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsWebAppLogsBlock : TerraformBlock
@@ -380,10 +1555,205 @@ public class AzurermWindowsWebAppLogsBlock : TerraformBlock
         set => SetArgument("failed_request_tracing", value);
     }
 
+    /// <summary>
+    /// ApplicationLogs block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationLogs block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppLogsBlockApplicationLogsBlock>? ApplicationLogs
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppLogsBlockApplicationLogsBlock>>("application_logs");
+        set => SetArgument("application_logs", value);
+    }
+
+    /// <summary>
+    /// HttpLogs block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpLogs block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppLogsBlockHttpLogsBlock>? HttpLogs
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppLogsBlockHttpLogsBlock>>("http_logs");
+        set => SetArgument("http_logs", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for site_config in .
+/// Block type for application_logs in AzurermWindowsWebAppLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppLogsBlockApplicationLogsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "application_logs";
+
+    /// <summary>
+    /// The file_system_level attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemLevel is required")]
+    public required TerraformValue<string> FileSystemLevel
+    {
+        get => new TerraformReference<string>(this, "file_system_level");
+        set => SetArgument("file_system_level", value);
+    }
+
+    /// <summary>
+    /// AzureBlobStorage block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorage block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppLogsBlockApplicationLogsBlockAzureBlobStorageBlock>? AzureBlobStorage
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppLogsBlockApplicationLogsBlockAzureBlobStorageBlock>>("azure_blob_storage");
+        set => SetArgument("azure_blob_storage", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for azure_blob_storage in AzurermWindowsWebAppLogsBlockApplicationLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppLogsBlockApplicationLogsBlockAzureBlobStorageBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "azure_blob_storage";
+
+    /// <summary>
+    /// The level attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Level is required")]
+    public required TerraformValue<string> Level
+    {
+        get => new TerraformReference<string>(this, "level");
+        set => SetArgument("level", value);
+    }
+
+    /// <summary>
+    /// The retention_in_days attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInDays is required")]
+    public required TerraformValue<double> RetentionInDays
+    {
+        get => new TerraformReference<double>(this, "retention_in_days");
+        set => SetArgument("retention_in_days", value);
+    }
+
+    /// <summary>
+    /// The sas_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasUrl is required")]
+    public required TerraformValue<string> SasUrl
+    {
+        get => new TerraformReference<string>(this, "sas_url");
+        set => SetArgument("sas_url", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for http_logs in AzurermWindowsWebAppLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppLogsBlockHttpLogsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "http_logs";
+
+    /// <summary>
+    /// AzureBlobStorage block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorage block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppLogsBlockHttpLogsBlockAzureBlobStorageBlock>? AzureBlobStorage
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppLogsBlockHttpLogsBlockAzureBlobStorageBlock>>("azure_blob_storage");
+        set => SetArgument("azure_blob_storage", value);
+    }
+
+    /// <summary>
+    /// FileSystem block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileSystem block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppLogsBlockHttpLogsBlockFileSystemBlock>? FileSystem
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppLogsBlockHttpLogsBlockFileSystemBlock>>("file_system");
+        set => SetArgument("file_system", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for azure_blob_storage in AzurermWindowsWebAppLogsBlockHttpLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppLogsBlockHttpLogsBlockAzureBlobStorageBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "azure_blob_storage";
+
+    /// <summary>
+    /// The retention_in_days attribute.
+    /// </summary>
+    public TerraformValue<double>? RetentionInDays
+    {
+        get => new TerraformReference<double>(this, "retention_in_days");
+        set => SetArgument("retention_in_days", value);
+    }
+
+    /// <summary>
+    /// The sas_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasUrl is required")]
+    public required TerraformValue<string> SasUrl
+    {
+        get => new TerraformReference<string>(this, "sas_url");
+        set => SetArgument("sas_url", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for file_system in AzurermWindowsWebAppLogsBlockHttpLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppLogsBlockHttpLogsBlockFileSystemBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "file_system";
+
+    /// <summary>
+    /// The retention_in_days attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInDays is required")]
+    public required TerraformValue<double> RetentionInDays
+    {
+        get => new TerraformReference<double>(this, "retention_in_days");
+        set => SetArgument("retention_in_days", value);
+    }
+
+    /// <summary>
+    /// The retention_in_mb attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInMb is required")]
+    public required TerraformValue<double> RetentionInMb
+    {
+        get => new TerraformReference<double>(this, "retention_in_mb");
+        set => SetArgument("retention_in_mb", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for site_config in AzurermWindowsWebApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsWebAppSiteConfigBlock : TerraformBlock
@@ -650,10 +2020,924 @@ public class AzurermWindowsWebAppSiteConfigBlock : TerraformBlock
         set => SetArgument("worker_count", value);
     }
 
+    /// <summary>
+    /// ApplicationStack block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationStack block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppSiteConfigBlockApplicationStackBlock>? ApplicationStack
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockApplicationStackBlock>>("application_stack");
+        set => SetArgument("application_stack", value);
+    }
+
+    /// <summary>
+    /// AutoHealSetting block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoHealSetting block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlock>? AutoHealSetting
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlock>>("auto_heal_setting");
+        set => SetArgument("auto_heal_setting", value);
+    }
+
+    /// <summary>
+    /// Cors block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppSiteConfigBlockCorsBlock>? Cors
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockCorsBlock>>("cors");
+        set => SetArgument("cors", value);
+    }
+
+    /// <summary>
+    /// HandlerMapping block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermWindowsWebAppSiteConfigBlockHandlerMappingBlock>? HandlerMapping
+    {
+        get => GetArgument<TerraformSet<AzurermWindowsWebAppSiteConfigBlockHandlerMappingBlock>>("handler_mapping");
+        set => SetArgument("handler_mapping", value);
+    }
+
+    /// <summary>
+    /// IpRestriction block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermWindowsWebAppSiteConfigBlockIpRestrictionBlock>? IpRestriction
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockIpRestrictionBlock>>("ip_restriction");
+        set => SetArgument("ip_restriction", value);
+    }
+
+    /// <summary>
+    /// ScmIpRestriction block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermWindowsWebAppSiteConfigBlockScmIpRestrictionBlock>? ScmIpRestriction
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockScmIpRestrictionBlock>>("scm_ip_restriction");
+        set => SetArgument("scm_ip_restriction", value);
+    }
+
+    /// <summary>
+    /// VirtualApplication block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermWindowsWebAppSiteConfigBlockVirtualApplicationBlock>? VirtualApplication
+    {
+        get => GetArgument<TerraformSet<AzurermWindowsWebAppSiteConfigBlockVirtualApplicationBlock>>("virtual_application");
+        set => SetArgument("virtual_application", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for sticky_settings in .
+/// Block type for application_stack in AzurermWindowsWebAppSiteConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockApplicationStackBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "application_stack";
+
+    /// <summary>
+    /// The current_stack attribute.
+    /// </summary>
+    public TerraformValue<string> CurrentStack
+    {
+        get => new TerraformReference<string>(this, "current_stack");
+        set => SetArgument("current_stack", value);
+    }
+
+    /// <summary>
+    /// The docker_image_name attribute.
+    /// </summary>
+    public TerraformValue<string>? DockerImageName
+    {
+        get => new TerraformReference<string>(this, "docker_image_name");
+        set => SetArgument("docker_image_name", value);
+    }
+
+    /// <summary>
+    /// The docker_registry_password attribute.
+    /// </summary>
+    public TerraformValue<string>? DockerRegistryPassword
+    {
+        get => new TerraformReference<string>(this, "docker_registry_password");
+        set => SetArgument("docker_registry_password", value);
+    }
+
+    /// <summary>
+    /// The docker_registry_url attribute.
+    /// </summary>
+    public TerraformValue<string>? DockerRegistryUrl
+    {
+        get => new TerraformReference<string>(this, "docker_registry_url");
+        set => SetArgument("docker_registry_url", value);
+    }
+
+    /// <summary>
+    /// The docker_registry_username attribute.
+    /// </summary>
+    public TerraformValue<string>? DockerRegistryUsername
+    {
+        get => new TerraformReference<string>(this, "docker_registry_username");
+        set => SetArgument("docker_registry_username", value);
+    }
+
+    /// <summary>
+    /// The version of DotNetCore to use.
+    /// </summary>
+    public TerraformValue<string>? DotnetCoreVersion
+    {
+        get => new TerraformReference<string>(this, "dotnet_core_version");
+        set => SetArgument("dotnet_core_version", value);
+    }
+
+    /// <summary>
+    /// The dotnet_version attribute.
+    /// </summary>
+    public TerraformValue<string> DotnetVersion
+    {
+        get => new TerraformReference<string>(this, "dotnet_version");
+        set => SetArgument("dotnet_version", value);
+    }
+
+    /// <summary>
+    /// The java_container attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string>? JavaContainer
+    {
+        get => new TerraformReference<string>(this, "java_container");
+        set => SetArgument("java_container", value);
+    }
+
+    /// <summary>
+    /// The java_container_version attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string>? JavaContainerVersion
+    {
+        get => new TerraformReference<string>(this, "java_container_version");
+        set => SetArgument("java_container_version", value);
+    }
+
+    /// <summary>
+    /// Should the application use the embedded web server for the version of Java in use.
+    /// </summary>
+    public TerraformValue<bool> JavaEmbeddedServerEnabled
+    {
+        get => new TerraformReference<bool>(this, "java_embedded_server_enabled");
+        set => SetArgument("java_embedded_server_enabled", value);
+    }
+
+    /// <summary>
+    /// The java_version attribute.
+    /// </summary>
+    public TerraformValue<string>? JavaVersion
+    {
+        get => new TerraformReference<string>(this, "java_version");
+        set => SetArgument("java_version", value);
+    }
+
+    /// <summary>
+    /// The node_version attribute.
+    /// </summary>
+    public TerraformValue<string>? NodeVersion
+    {
+        get => new TerraformReference<string>(this, "node_version");
+        set => SetArgument("node_version", value);
+    }
+
+    /// <summary>
+    /// The php_version attribute.
+    /// </summary>
+    public TerraformValue<string> PhpVersion
+    {
+        get => new TerraformReference<string>(this, "php_version");
+        set => SetArgument("php_version", value);
+    }
+
+    /// <summary>
+    /// The python attribute.
+    /// </summary>
+    public TerraformValue<bool>? Python
+    {
+        get => new TerraformReference<bool>(this, "python");
+        set => SetArgument("python", value);
+    }
+
+    /// <summary>
+    /// The tomcat_version attribute.
+    /// </summary>
+    public TerraformValue<string>? TomcatVersion
+    {
+        get => new TerraformReference<string>(this, "tomcat_version");
+        set => SetArgument("tomcat_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for auto_heal_setting in AzurermWindowsWebAppSiteConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "auto_heal_setting";
+
+    /// <summary>
+    /// Action block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
+    public required TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockActionBlock> Action
+    {
+        get => GetRequiredArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockActionBlock>>("action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// Trigger block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Trigger is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Trigger block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Trigger block(s) allowed")]
+    public required TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlock> Trigger
+    {
+        get => GetRequiredArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlock>>("trigger");
+        set => SetArgument("trigger", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for action in AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "action";
+
+    /// <summary>
+    /// The action_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
+    public required TerraformValue<string> ActionType
+    {
+        get => new TerraformReference<string>(this, "action_type");
+        set => SetArgument("action_type", value);
+    }
+
+    /// <summary>
+    /// The minimum_process_execution_time attribute.
+    /// </summary>
+    public TerraformValue<string> MinimumProcessExecutionTime
+    {
+        get => new TerraformReference<string>(this, "minimum_process_execution_time");
+        set => SetArgument("minimum_process_execution_time", value);
+    }
+
+    /// <summary>
+    /// CustomAction block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomAction block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockActionBlockCustomActionBlock>? CustomAction
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockActionBlockCustomActionBlock>>("custom_action");
+        set => SetArgument("custom_action", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for custom_action in AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockActionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockActionBlockCustomActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "custom_action";
+
+    /// <summary>
+    /// The executable attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Executable is required")]
+    public required TerraformValue<string> Executable
+    {
+        get => new TerraformReference<string>(this, "executable");
+        set => SetArgument("executable", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for trigger in AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "trigger";
+
+    /// <summary>
+    /// The private_memory_kb attribute.
+    /// </summary>
+    public TerraformValue<double>? PrivateMemoryKb
+    {
+        get => new TerraformReference<double>(this, "private_memory_kb");
+        set => SetArgument("private_memory_kb", value);
+    }
+
+    /// <summary>
+    /// Requests block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Requests block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockRequestsBlock>? Requests
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockRequestsBlock>>("requests");
+        set => SetArgument("requests", value);
+    }
+
+    /// <summary>
+    /// SlowRequest block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SlowRequest block(s) allowed")]
+    public TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockSlowRequestBlock>? SlowRequest
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockSlowRequestBlock>>("slow_request");
+        set => SetArgument("slow_request", value);
+    }
+
+    /// <summary>
+    /// SlowRequestWithPath block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockSlowRequestWithPathBlock>? SlowRequestWithPath
+    {
+        get => GetArgument<TerraformList<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockSlowRequestWithPathBlock>>("slow_request_with_path");
+        set => SetArgument("slow_request_with_path", value);
+    }
+
+    /// <summary>
+    /// StatusCode block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockStatusCodeBlock>? StatusCode
+    {
+        get => GetArgument<TerraformSet<AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockStatusCodeBlock>>("status_code");
+        set => SetArgument("status_code", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for requests in AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockRequestsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "requests";
+
+    /// <summary>
+    /// The count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
+    public required TerraformValue<double> CountAttribute
+    {
+        get => new TerraformReference<double>(this, "count");
+        set => SetArgument("count", value);
+    }
+
+    /// <summary>
+    /// The interval attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
+    public required TerraformValue<string> Interval
+    {
+        get => new TerraformReference<string>(this, "interval");
+        set => SetArgument("interval", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for slow_request in AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockSlowRequestBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "slow_request";
+
+    /// <summary>
+    /// The count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
+    public required TerraformValue<double> CountAttribute
+    {
+        get => new TerraformReference<double>(this, "count");
+        set => SetArgument("count", value);
+    }
+
+    /// <summary>
+    /// The interval attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
+    public required TerraformValue<string> Interval
+    {
+        get => new TerraformReference<string>(this, "interval");
+        set => SetArgument("interval", value);
+    }
+
+    /// <summary>
+    /// The time_taken attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeTaken is required")]
+    public required TerraformValue<string> TimeTaken
+    {
+        get => new TerraformReference<string>(this, "time_taken");
+        set => SetArgument("time_taken", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for slow_request_with_path in AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockSlowRequestWithPathBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "slow_request_with_path";
+
+    /// <summary>
+    /// The count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
+    public required TerraformValue<double> CountAttribute
+    {
+        get => new TerraformReference<double>(this, "count");
+        set => SetArgument("count", value);
+    }
+
+    /// <summary>
+    /// The interval attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
+    public required TerraformValue<string> Interval
+    {
+        get => new TerraformReference<string>(this, "interval");
+        set => SetArgument("interval", value);
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    public TerraformValue<string>? Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+    /// <summary>
+    /// The time_taken attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeTaken is required")]
+    public required TerraformValue<string> TimeTaken
+    {
+        get => new TerraformReference<string>(this, "time_taken");
+        set => SetArgument("time_taken", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for status_code in AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockAutoHealSettingBlockTriggerBlockStatusCodeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "status_code";
+
+    /// <summary>
+    /// The count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountAttribute is required")]
+    public required TerraformValue<double> CountAttribute
+    {
+        get => new TerraformReference<double>(this, "count");
+        set => SetArgument("count", value);
+    }
+
+    /// <summary>
+    /// The interval attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
+    public required TerraformValue<string> Interval
+    {
+        get => new TerraformReference<string>(this, "interval");
+        set => SetArgument("interval", value);
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    public TerraformValue<string>? Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+    /// <summary>
+    /// The status_code_range attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCodeRange is required")]
+    public required TerraformValue<string> StatusCodeRange
+    {
+        get => new TerraformReference<string>(this, "status_code_range");
+        set => SetArgument("status_code_range", value);
+    }
+
+    /// <summary>
+    /// The sub_status attribute.
+    /// </summary>
+    public TerraformValue<double>? SubStatus
+    {
+        get => new TerraformReference<double>(this, "sub_status");
+        set => SetArgument("sub_status", value);
+    }
+
+    /// <summary>
+    /// The win32_status_code attribute.
+    /// </summary>
+    public TerraformValue<double>? Win32StatusCode
+    {
+        get => new TerraformReference<double>(this, "win32_status_code");
+        set => SetArgument("win32_status_code", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for cors in AzurermWindowsWebAppSiteConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockCorsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cors";
+
+    /// <summary>
+    /// Specifies a list of origins that should be allowed to make cross-origin calls.
+    /// </summary>
+    public TerraformSet<string>? AllowedOrigins
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        set => SetArgument("allowed_origins", value);
+    }
+
+    /// <summary>
+    /// Are credentials allowed in CORS requests? Defaults to `false`.
+    /// </summary>
+    public TerraformValue<bool>? SupportCredentials
+    {
+        get => new TerraformReference<bool>(this, "support_credentials");
+        set => SetArgument("support_credentials", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for handler_mapping in AzurermWindowsWebAppSiteConfigBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockHandlerMappingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "handler_mapping";
+
+    /// <summary>
+    /// The arguments attribute.
+    /// </summary>
+    public TerraformValue<string>? Arguments
+    {
+        get => new TerraformReference<string>(this, "arguments");
+        set => SetArgument("arguments", value);
+    }
+
+    /// <summary>
+    /// The extension attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Extension is required")]
+    public required TerraformValue<string> Extension
+    {
+        get => new TerraformReference<string>(this, "extension");
+        set => SetArgument("extension", value);
+    }
+
+    /// <summary>
+    /// The script_processor_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScriptProcessorPath is required")]
+    public required TerraformValue<string> ScriptProcessorPath
+    {
+        get => new TerraformReference<string>(this, "script_processor_path");
+        set => SetArgument("script_processor_path", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ip_restriction in AzurermWindowsWebAppSiteConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockIpRestrictionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_restriction";
+
+    /// <summary>
+    /// The action to take. Possible values are `Allow` or `Deny`.
+    /// </summary>
+    public TerraformValue<string>? Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The description of the IP restriction rule.
+    /// </summary>
+    public TerraformValue<string>? Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// The headers attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>>? Headers
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "headers").ResolveNodes(ctx));
+        set => SetArgument("headers", value);
+    }
+
+    /// <summary>
+    /// The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32` or `fe80::/64` or `13.107.6.152/31,13.107.128.0/22`
+    /// </summary>
+    public TerraformValue<string>? IpAddress
+    {
+        get => new TerraformReference<string>(this, "ip_address");
+        set => SetArgument("ip_address", value);
+    }
+
+    /// <summary>
+    /// The name which should be used for this `ip_restriction`.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The priority value of this `ip_restriction`.
+    /// </summary>
+    public TerraformValue<double>? Priority
+    {
+        get => new TerraformReference<double>(this, "priority");
+        set => SetArgument("priority", value);
+    }
+
+    /// <summary>
+    /// The Service Tag used for this IP Restriction.
+    /// </summary>
+    public TerraformValue<string>? ServiceTag
+    {
+        get => new TerraformReference<string>(this, "service_tag");
+        set => SetArgument("service_tag", value);
+    }
+
+    /// <summary>
+    /// The Virtual Network Subnet ID used for this IP Restriction.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkSubnetId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_subnet_id");
+        set => SetArgument("virtual_network_subnet_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for scm_ip_restriction in AzurermWindowsWebAppSiteConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockScmIpRestrictionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "scm_ip_restriction";
+
+    /// <summary>
+    /// The action to take. Possible values are `Allow` or `Deny`.
+    /// </summary>
+    public TerraformValue<string>? Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The description of the IP restriction rule.
+    /// </summary>
+    public TerraformValue<string>? Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// The headers attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>>? Headers
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "headers").ResolveNodes(ctx));
+        set => SetArgument("headers", value);
+    }
+
+    /// <summary>
+    /// The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32` or `fe80::/64` or `13.107.6.152/31,13.107.128.0/22`
+    /// </summary>
+    public TerraformValue<string>? IpAddress
+    {
+        get => new TerraformReference<string>(this, "ip_address");
+        set => SetArgument("ip_address", value);
+    }
+
+    /// <summary>
+    /// The name which should be used for this `ip_restriction`.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The priority value of this `ip_restriction`.
+    /// </summary>
+    public TerraformValue<double>? Priority
+    {
+        get => new TerraformReference<double>(this, "priority");
+        set => SetArgument("priority", value);
+    }
+
+    /// <summary>
+    /// The Service Tag used for this IP Restriction.
+    /// </summary>
+    public TerraformValue<string>? ServiceTag
+    {
+        get => new TerraformReference<string>(this, "service_tag");
+        set => SetArgument("service_tag", value);
+    }
+
+    /// <summary>
+    /// The Virtual Network Subnet ID used for this IP Restriction.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkSubnetId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_subnet_id");
+        set => SetArgument("virtual_network_subnet_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for virtual_application in AzurermWindowsWebAppSiteConfigBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockVirtualApplicationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "virtual_application";
+
+    /// <summary>
+    /// The physical_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PhysicalPath is required")]
+    public required TerraformValue<string> PhysicalPath
+    {
+        get => new TerraformReference<string>(this, "physical_path");
+        set => SetArgument("physical_path", value);
+    }
+
+    /// <summary>
+    /// The preload attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Preload is required")]
+    public required TerraformValue<bool> Preload
+    {
+        get => new TerraformReference<bool>(this, "preload");
+        set => SetArgument("preload", value);
+    }
+
+    /// <summary>
+    /// The virtual_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
+    public required TerraformValue<string> VirtualPath
+    {
+        get => new TerraformReference<string>(this, "virtual_path");
+        set => SetArgument("virtual_path", value);
+    }
+
+    /// <summary>
+    /// VirtualDirectory block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermWindowsWebAppSiteConfigBlockVirtualApplicationBlockVirtualDirectoryBlock>? VirtualDirectory
+    {
+        get => GetArgument<TerraformSet<AzurermWindowsWebAppSiteConfigBlockVirtualApplicationBlockVirtualDirectoryBlock>>("virtual_directory");
+        set => SetArgument("virtual_directory", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for virtual_directory in AzurermWindowsWebAppSiteConfigBlockVirtualApplicationBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermWindowsWebAppSiteConfigBlockVirtualApplicationBlockVirtualDirectoryBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "virtual_directory";
+
+    /// <summary>
+    /// The physical_path attribute.
+    /// </summary>
+    public TerraformValue<string>? PhysicalPath
+    {
+        get => new TerraformReference<string>(this, "physical_path");
+        set => SetArgument("physical_path", value);
+    }
+
+    /// <summary>
+    /// The virtual_path attribute.
+    /// </summary>
+    public TerraformValue<string>? VirtualPath
+    {
+        get => new TerraformReference<string>(this, "virtual_path");
+        set => SetArgument("virtual_path", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for sticky_settings in AzurermWindowsWebApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsWebAppStickySettingsBlock : TerraformBlock
@@ -683,8 +2967,9 @@ public class AzurermWindowsWebAppStickySettingsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage_account in .
+/// Block type for storage_account in AzurermWindowsWebApp.
 /// Nesting mode: set
 /// </summary>
 public class AzurermWindowsWebAppStorageAccountBlock : TerraformBlock
@@ -755,8 +3040,9 @@ public class AzurermWindowsWebAppStorageAccountBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermWindowsWebApp.
 /// Nesting mode: single
 /// </summary>
 public class AzurermWindowsWebAppTimeoutsBlock : TerraformBlock
@@ -803,6 +3089,7 @@ public class AzurermWindowsWebAppTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_windows_web_app Terraform resource.

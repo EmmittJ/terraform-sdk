@@ -198,13 +198,15 @@ public static class TemplateHelpers
             block.MinItems,
             block.MaxItems,
             block.IsDeprecated,
+            block.ParentClassName,
             IsRequired = isRequired,
             UseRequiredKeyword = useRequiredKeyword,
             UseNullable = useNullable,
             UseBlockLabelInInitializer = useBlockLabelInInitializer,
             ValidationAttributes = validationAttributes,
             HasValidation = validationAttributes.Count > 0,
-            Arguments = block.Arguments.Select(p => PreparePropertyForTemplate(p, isNestedBlockProperty: true)).ToList()
+            Arguments = block.Arguments.Select(p => PreparePropertyForTemplate(p, isNestedBlockProperty: true)).ToList(),
+            NestedBlocks = block.NestedBlocks.Select(PrepareBlockTypeForTemplate).ToList() // Recursively prepare nested blocks
         };
     }
 }

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for api_server_profile in .
+/// Block type for api_server_profile in AzurermRedhatOpenshiftCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedhatOpenshiftClusterApiServerProfileBlock : TerraformBlock
@@ -41,8 +41,9 @@ public class AzurermRedhatOpenshiftClusterApiServerProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for cluster_profile in .
+/// Block type for cluster_profile in AzurermRedhatOpenshiftCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
@@ -109,8 +110,9 @@ public class AzurermRedhatOpenshiftClusterClusterProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for ingress_profile in .
+/// Block type for ingress_profile in AzurermRedhatOpenshiftCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedhatOpenshiftClusterIngressProfileBlock : TerraformBlock
@@ -148,8 +150,9 @@ public class AzurermRedhatOpenshiftClusterIngressProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for main_profile in .
+/// Block type for main_profile in AzurermRedhatOpenshiftCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlock
@@ -199,8 +202,9 @@ public class AzurermRedhatOpenshiftClusterMainProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_profile in .
+/// Block type for network_profile in AzurermRedhatOpenshiftCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlock
@@ -250,8 +254,9 @@ public class AzurermRedhatOpenshiftClusterNetworkProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for service_principal in .
+/// Block type for service_principal in AzurermRedhatOpenshiftCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedhatOpenshiftClusterServicePrincipalBlock : TerraformBlock
@@ -283,8 +288,9 @@ public class AzurermRedhatOpenshiftClusterServicePrincipalBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRedhatOpenshiftCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlock
@@ -332,8 +338,9 @@ public class AzurermRedhatOpenshiftClusterTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for worker_profile in .
+/// Block type for worker_profile in AzurermRedhatOpenshiftCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
@@ -402,6 +409,7 @@ public class AzurermRedhatOpenshiftClusterWorkerProfileBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_redhat_openshift_cluster Terraform resource.

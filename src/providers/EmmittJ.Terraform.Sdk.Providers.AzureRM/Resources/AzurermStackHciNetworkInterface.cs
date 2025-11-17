@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ip_configuration in .
+/// Block type for ip_configuration in AzurermStackHciNetworkInterface.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStackHciNetworkInterfaceIpConfigurationBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermStackHciNetworkInterfaceIpConfigurationBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStackHciNetworkInterface.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStackHciNetworkInterfaceTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermStackHciNetworkInterfaceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stack_hci_network_interface Terraform resource.

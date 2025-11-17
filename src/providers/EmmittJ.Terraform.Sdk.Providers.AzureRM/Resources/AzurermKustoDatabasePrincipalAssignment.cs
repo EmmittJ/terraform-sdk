@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKustoDatabasePrincipalAssignment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKustoDatabasePrincipalAssignmentTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermKustoDatabasePrincipalAssignmentTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kusto_database_principal_assignment Terraform resource.

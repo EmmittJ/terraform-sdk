@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDatabricksAccessConnector.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDatabricksAccessConnectorIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermDatabricksAccessConnectorIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDatabricksAccessConnector.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDatabricksAccessConnectorTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermDatabricksAccessConnectorTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_databricks_access_connector Terraform resource.

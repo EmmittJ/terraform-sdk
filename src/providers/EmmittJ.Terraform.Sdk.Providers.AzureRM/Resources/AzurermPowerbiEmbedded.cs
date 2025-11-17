@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPowerbiEmbedded.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPowerbiEmbeddedTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermPowerbiEmbeddedTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_powerbi_embedded Terraform resource.

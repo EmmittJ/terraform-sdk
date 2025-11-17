@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStreamAnalyticsOutputCosmosdb.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermStreamAnalyticsOutputCosmosdbTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stream_analytics_output_cosmosdb Terraform resource.

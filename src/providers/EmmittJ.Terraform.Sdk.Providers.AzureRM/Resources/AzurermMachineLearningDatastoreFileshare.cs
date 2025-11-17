@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMachineLearningDatastoreFileshare.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMachineLearningDatastoreFileshareTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMachineLearningDatastoreFileshareTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_machine_learning_datastore_fileshare Terraform resource.

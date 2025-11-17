@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for backend_request in .
+/// Block type for backend_request in AzurermApiManagementApiDiagnostic.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementApiDiagnosticBackendRequestBlock : TerraformBlock
@@ -31,10 +31,118 @@ public class AzurermApiManagementApiDiagnosticBackendRequestBlock : TerraformBlo
         set => SetArgument("headers_to_log", value);
     }
 
+    /// <summary>
+    /// DataMasking block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataMasking block(s) allowed")]
+    public TerraformList<AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlock>? DataMasking
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlock>>("data_masking");
+        set => SetArgument("data_masking", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for backend_response in .
+/// Block type for data_masking in AzurermApiManagementApiDiagnosticBackendRequestBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "data_masking";
+
+    /// <summary>
+    /// Headers block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlockHeadersBlock>? Headers
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlockHeadersBlock>>("headers");
+        set => SetArgument("headers", value);
+    }
+
+    /// <summary>
+    /// QueryParams block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlockQueryParamsBlock>? QueryParams
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlockQueryParamsBlock>>("query_params");
+        set => SetArgument("query_params", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for headers in AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlockHeadersBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "headers";
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+        set => SetArgument("mode", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for query_params in AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticBackendRequestBlockDataMaskingBlockQueryParamsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "query_params";
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+        set => SetArgument("mode", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for backend_response in AzurermApiManagementApiDiagnostic.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementApiDiagnosticBackendResponseBlock : TerraformBlock
@@ -62,10 +170,118 @@ public class AzurermApiManagementApiDiagnosticBackendResponseBlock : TerraformBl
         set => SetArgument("headers_to_log", value);
     }
 
+    /// <summary>
+    /// DataMasking block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataMasking block(s) allowed")]
+    public TerraformList<AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlock>? DataMasking
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlock>>("data_masking");
+        set => SetArgument("data_masking", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for frontend_request in .
+/// Block type for data_masking in AzurermApiManagementApiDiagnosticBackendResponseBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "data_masking";
+
+    /// <summary>
+    /// Headers block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlockHeadersBlock>? Headers
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlockHeadersBlock>>("headers");
+        set => SetArgument("headers", value);
+    }
+
+    /// <summary>
+    /// QueryParams block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlockQueryParamsBlock>? QueryParams
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlockQueryParamsBlock>>("query_params");
+        set => SetArgument("query_params", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for headers in AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlockHeadersBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "headers";
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+        set => SetArgument("mode", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for query_params in AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticBackendResponseBlockDataMaskingBlockQueryParamsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "query_params";
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+        set => SetArgument("mode", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for frontend_request in AzurermApiManagementApiDiagnostic.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementApiDiagnosticFrontendRequestBlock : TerraformBlock
@@ -93,10 +309,118 @@ public class AzurermApiManagementApiDiagnosticFrontendRequestBlock : TerraformBl
         set => SetArgument("headers_to_log", value);
     }
 
+    /// <summary>
+    /// DataMasking block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataMasking block(s) allowed")]
+    public TerraformList<AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlock>? DataMasking
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlock>>("data_masking");
+        set => SetArgument("data_masking", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for frontend_response in .
+/// Block type for data_masking in AzurermApiManagementApiDiagnosticFrontendRequestBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "data_masking";
+
+    /// <summary>
+    /// Headers block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlockHeadersBlock>? Headers
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlockHeadersBlock>>("headers");
+        set => SetArgument("headers", value);
+    }
+
+    /// <summary>
+    /// QueryParams block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlockQueryParamsBlock>? QueryParams
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlockQueryParamsBlock>>("query_params");
+        set => SetArgument("query_params", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for headers in AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlockHeadersBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "headers";
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+        set => SetArgument("mode", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for query_params in AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticFrontendRequestBlockDataMaskingBlockQueryParamsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "query_params";
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+        set => SetArgument("mode", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for frontend_response in AzurermApiManagementApiDiagnostic.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementApiDiagnosticFrontendResponseBlock : TerraformBlock
@@ -124,10 +448,118 @@ public class AzurermApiManagementApiDiagnosticFrontendResponseBlock : TerraformB
         set => SetArgument("headers_to_log", value);
     }
 
+    /// <summary>
+    /// DataMasking block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataMasking block(s) allowed")]
+    public TerraformList<AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlock>? DataMasking
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlock>>("data_masking");
+        set => SetArgument("data_masking", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for data_masking in AzurermApiManagementApiDiagnosticFrontendResponseBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "data_masking";
+
+    /// <summary>
+    /// Headers block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlockHeadersBlock>? Headers
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlockHeadersBlock>>("headers");
+        set => SetArgument("headers", value);
+    }
+
+    /// <summary>
+    /// QueryParams block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlockQueryParamsBlock>? QueryParams
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlockQueryParamsBlock>>("query_params");
+        set => SetArgument("query_params", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for headers in AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlockHeadersBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "headers";
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+        set => SetArgument("mode", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for query_params in AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiDiagnosticFrontendResponseBlockDataMaskingBlockQueryParamsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "query_params";
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+        set => SetArgument("mode", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermApiManagementApiDiagnostic.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementApiDiagnosticTimeoutsBlock : TerraformBlock
@@ -174,6 +606,7 @@ public class AzurermApiManagementApiDiagnosticTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_api_diagnostic Terraform resource.

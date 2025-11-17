@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for maintenance_window in .
+/// Block type for maintenance_window in AzurermCosmosdbPostgresqlCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformBlock
@@ -42,8 +42,9 @@ public class AzurermCosmosdbPostgresqlClusterMaintenanceWindowBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCosmosdbPostgresqlCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
@@ -90,6 +91,7 @@ public class AzurermCosmosdbPostgresqlClusterTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_postgresql_cluster Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermActiveDirectoryDomainServiceTrust.
 /// Nesting mode: single
 /// </summary>
 public class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermActiveDirectoryDomainServiceTrustTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_active_directory_domain_service_trust Terraform resource.

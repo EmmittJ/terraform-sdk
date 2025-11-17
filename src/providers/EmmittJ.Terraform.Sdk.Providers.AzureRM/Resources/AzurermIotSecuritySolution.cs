@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for additional_workspace in .
+/// Block type for additional_workspace in AzurermIotSecuritySolution.
 /// Nesting mode: set
 /// </summary>
 public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for recommendations_enabled in .
+/// Block type for recommendations_enabled in AzurermIotSecuritySolution.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBlock
@@ -192,8 +193,9 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIotSecuritySolution.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
@@ -240,6 +242,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iot_security_solution Terraform resource.

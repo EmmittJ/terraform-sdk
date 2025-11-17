@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for security_policies in .
+/// Block type for security_policies in AzurermCdnFrontdoorSecurityPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock : TerraformBlock
@@ -13,10 +13,127 @@ public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock : TerraformB
     /// </summary>
     public override string BlockType => "security_policies";
 
+    /// <summary>
+    /// Firewall block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Firewall is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Firewall block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Firewall block(s) allowed")]
+    public required TerraformList<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock> Firewall
+    {
+        get => GetRequiredArgument<TerraformList<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock>>("firewall");
+        set => SetArgument("firewall", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for firewall in AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "firewall";
+
+    /// <summary>
+    /// The cdn_frontdoor_firewall_policy_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorFirewallPolicyId is required")]
+    public required TerraformValue<string> CdnFrontdoorFirewallPolicyId
+    {
+        get => new TerraformReference<string>(this, "cdn_frontdoor_firewall_policy_id");
+        set => SetArgument("cdn_frontdoor_firewall_policy_id", value);
+    }
+
+    /// <summary>
+    /// Association block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Association is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Association block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Association block(s) allowed")]
+    public required TerraformList<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlockAssociationBlock> Association
+    {
+        get => GetRequiredArgument<TerraformList<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlockAssociationBlock>>("association");
+        set => SetArgument("association", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for association in AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlockAssociationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "association";
+
+    /// <summary>
+    /// The patterns_to_match attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PatternsToMatch is required")]
+    public TerraformList<string>? PatternsToMatch
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "patterns_to_match").ResolveNodes(ctx));
+        set => SetArgument("patterns_to_match", value);
+    }
+
+    /// <summary>
+    /// Domain block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Domain block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 Domain block(s) allowed")]
+    public required TerraformList<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlockAssociationBlockDomainBlock> Domain
+    {
+        get => GetRequiredArgument<TerraformList<AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlockAssociationBlockDomainBlock>>("domain");
+        set => SetArgument("domain", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for domain in AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlockAssociationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCdnFrontdoorSecurityPolicySecurityPoliciesBlockFirewallBlockAssociationBlockDomainBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "domain";
+
+    /// <summary>
+    /// The active attribute.
+    /// </summary>
+    public TerraformValue<bool> Active
+    {
+        get => new TerraformReference<bool>(this, "active");
+    }
+
+    /// <summary>
+    /// The cdn_frontdoor_domain_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorDomainId is required")]
+    public required TerraformValue<string> CdnFrontdoorDomainId
+    {
+        get => new TerraformReference<string>(this, "cdn_frontdoor_domain_id");
+        set => SetArgument("cdn_frontdoor_domain_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermCdnFrontdoorSecurityPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock : TerraformBlock
@@ -63,6 +180,7 @@ public class AzurermCdnFrontdoorSecurityPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_frontdoor_security_policy Terraform resource.

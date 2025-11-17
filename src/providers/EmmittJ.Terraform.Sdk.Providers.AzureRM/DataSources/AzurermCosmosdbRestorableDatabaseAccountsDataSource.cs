@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCosmosdbRestorableDatabaseAccountsDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermCosmosdbRestorableDatabaseAccountsDataSourceTimeoutsBlock : 
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_restorable_database_accounts Terraform data source.

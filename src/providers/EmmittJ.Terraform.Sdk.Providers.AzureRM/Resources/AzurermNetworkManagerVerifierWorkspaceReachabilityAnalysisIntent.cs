@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ip_traffic in .
+/// Block type for ip_traffic in AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficBlock : TerraformBlock
@@ -65,8 +65,9 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpT
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTimeoutsBlock : TerraformBlock
@@ -104,6 +105,7 @@ public class AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentTim
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_manager_verifier_workspace_reachability_analysis_intent Terraform resource.

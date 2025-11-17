@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for logs in .
+/// Block type for logs in AzurermElasticCloudElasticsearchDataSource.
 /// Nesting mode: list
 /// </summary>
 public class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBlock
@@ -47,8 +47,9 @@ public class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermElasticCloudElasticsearchDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock : TerraformBlock
@@ -68,6 +69,7 @@ public class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_elastic_cloud_elasticsearch Terraform data source.

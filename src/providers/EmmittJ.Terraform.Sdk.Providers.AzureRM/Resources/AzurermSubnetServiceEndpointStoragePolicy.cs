@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for definition in .
+/// Block type for definition in AzurermSubnetServiceEndpointStoragePolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermSubnetServiceEndpointStoragePolicyDefinitionBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSubnetServiceEndpointStoragePolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSubnetServiceEndpointStoragePolicyTimeoutsBlock : TerraformBlock
@@ -101,6 +102,7 @@ public class AzurermSubnetServiceEndpointStoragePolicyTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_subnet_service_endpoint_storage_policy Terraform resource.

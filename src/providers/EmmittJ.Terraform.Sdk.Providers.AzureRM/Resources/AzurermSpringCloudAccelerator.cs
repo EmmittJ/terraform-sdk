@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudAccelerator.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudAcceleratorTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermSpringCloudAcceleratorTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_accelerator Terraform resource.

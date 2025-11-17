@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageMoverTargetEndpoint.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageMoverTargetEndpointTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermStorageMoverTargetEndpointTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_mover_target_endpoint Terraform resource.

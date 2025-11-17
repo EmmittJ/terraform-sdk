@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSentinelWatchlistItem.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSentinelWatchlistItemTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_sentinel_watchlist_item Terraform resource.

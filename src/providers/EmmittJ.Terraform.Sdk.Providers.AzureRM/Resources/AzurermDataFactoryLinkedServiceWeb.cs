@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryLinkedServiceWeb.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryLinkedServiceWebTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDataFactoryLinkedServiceWebTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_linked_service_web Terraform resource.

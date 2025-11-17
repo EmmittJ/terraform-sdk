@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for sharing in .
+/// Block type for sharing in AzurermKustoAttachedDatabaseConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBlock
@@ -69,8 +69,9 @@ public class AzurermKustoAttachedDatabaseConfigurationSharingBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKustoAttachedDatabaseConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformBlock
@@ -117,6 +118,7 @@ public class AzurermKustoAttachedDatabaseConfigurationTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kusto_attached_database_configuration Terraform resource.

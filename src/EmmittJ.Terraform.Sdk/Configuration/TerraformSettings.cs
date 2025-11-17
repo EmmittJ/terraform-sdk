@@ -82,15 +82,6 @@ public partial class TerraformSettings : TerraformBlock
     public TerraformList<TerraformProviderMetaBlock>? ProviderMetas { get; set; }
 
     /// <summary>
-    /// Resolves the terraform settings block to child syntax nodes.
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        // Backend and Cloud will override their ResolveNodes to render as nested blocks
-        yield return new TerraformBlockNode(BlockType, BlockLabels, base.ResolveNodes(context));
-    }
-
-    /// <summary>
     /// Cannot generate reference to terraform settings blocks.
     /// </summary>
     public override TerraformExpression AsReference()

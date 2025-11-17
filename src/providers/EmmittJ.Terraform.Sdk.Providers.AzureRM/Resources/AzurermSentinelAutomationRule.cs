@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for action_incident in .
+/// Block type for action_incident in AzurermSentinelAutomationRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
@@ -79,8 +79,9 @@ public class AzurermSentinelAutomationRuleActionIncidentBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for action_incident_task in .
+/// Block type for action_incident_task in AzurermSentinelAutomationRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlock
@@ -121,8 +122,9 @@ public class AzurermSentinelAutomationRuleActionIncidentTaskBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for action_playbook in .
+/// Block type for action_playbook in AzurermSentinelAutomationRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
@@ -163,8 +165,9 @@ public class AzurermSentinelAutomationRuleActionPlaybookBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSentinelAutomationRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
@@ -211,6 +214,7 @@ public class AzurermSentinelAutomationRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_sentinel_automation_rule Terraform resource.

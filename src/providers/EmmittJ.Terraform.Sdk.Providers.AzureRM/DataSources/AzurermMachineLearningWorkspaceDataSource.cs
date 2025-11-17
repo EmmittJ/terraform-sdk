@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMachineLearningWorkspaceDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMachineLearningWorkspaceDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermMachineLearningWorkspaceDataSourceTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_machine_learning_workspace Terraform data source.

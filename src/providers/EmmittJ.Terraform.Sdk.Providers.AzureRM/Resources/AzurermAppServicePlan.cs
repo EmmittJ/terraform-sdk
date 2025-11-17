@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermAppServicePlan.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppServicePlanSkuBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermAppServicePlanSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAppServicePlan.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppServicePlanTimeoutsBlock : TerraformBlock
@@ -92,6 +93,7 @@ public class AzurermAppServicePlanTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_service_plan Terraform resource.

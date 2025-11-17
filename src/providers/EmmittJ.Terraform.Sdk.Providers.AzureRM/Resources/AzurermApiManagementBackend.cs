@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for credentials in .
+/// Block type for credentials in AzurermApiManagementBackend.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
@@ -40,10 +40,52 @@ public class AzurermApiManagementBackendCredentialsBlock : TerraformBlock
         set => SetArgument("query", value);
     }
 
+    /// <summary>
+    /// Authorization block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authorization block(s) allowed")]
+    public TerraformList<AzurermApiManagementBackendCredentialsBlockAuthorizationBlock>? Authorization
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementBackendCredentialsBlockAuthorizationBlock>>("authorization");
+        set => SetArgument("authorization", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for proxy in .
+/// Block type for authorization in AzurermApiManagementBackendCredentialsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementBackendCredentialsBlockAuthorizationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "authorization";
+
+    /// <summary>
+    /// The parameter attribute.
+    /// </summary>
+    public TerraformValue<string>? Parameter
+    {
+        get => new TerraformReference<string>(this, "parameter");
+        set => SetArgument("parameter", value);
+    }
+
+    /// <summary>
+    /// The scheme attribute.
+    /// </summary>
+    public TerraformValue<string>? Scheme
+    {
+        get => new TerraformReference<string>(this, "scheme");
+        set => SetArgument("scheme", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for proxy in AzurermApiManagementBackend.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementBackendProxyBlock : TerraformBlock
@@ -84,8 +126,9 @@ public class AzurermApiManagementBackendProxyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for service_fabric_cluster in .
+/// Block type for service_fabric_cluster in AzurermApiManagementBackend.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlock
@@ -142,10 +185,53 @@ public class AzurermApiManagementBackendServiceFabricClusterBlock : TerraformBlo
         set => SetArgument("server_certificate_thumbprints", value);
     }
 
+    /// <summary>
+    /// ServerX509Name block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermApiManagementBackendServiceFabricClusterBlockServerX509NameBlock>? ServerX509Name
+    {
+        get => GetArgument<TerraformSet<AzurermApiManagementBackendServiceFabricClusterBlockServerX509NameBlock>>("server_x509_name");
+        set => SetArgument("server_x509_name", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for server_x509_name in AzurermApiManagementBackendServiceFabricClusterBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermApiManagementBackendServiceFabricClusterBlockServerX509NameBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "server_x509_name";
+
+    /// <summary>
+    /// The issuer_certificate_thumbprint attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerCertificateThumbprint is required")]
+    public required TerraformValue<string> IssuerCertificateThumbprint
+    {
+        get => new TerraformReference<string>(this, "issuer_certificate_thumbprint");
+        set => SetArgument("issuer_certificate_thumbprint", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermApiManagementBackend.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
@@ -193,8 +279,9 @@ public class AzurermApiManagementBackendTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for tls in .
+/// Block type for tls in AzurermApiManagementBackend.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementBackendTlsBlock : TerraformBlock
@@ -223,6 +310,7 @@ public class AzurermApiManagementBackendTlsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_backend Terraform resource.

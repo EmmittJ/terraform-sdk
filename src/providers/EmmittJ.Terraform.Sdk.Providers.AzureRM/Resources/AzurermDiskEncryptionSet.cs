@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDiskEncryptionSet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDiskEncryptionSetIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermDiskEncryptionSetIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDiskEncryptionSet.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermDiskEncryptionSetTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_disk_encryption_set Terraform resource.

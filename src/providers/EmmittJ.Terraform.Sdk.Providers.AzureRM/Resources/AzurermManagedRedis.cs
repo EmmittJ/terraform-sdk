@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for customer_managed_key in .
+/// Block type for customer_managed_key in AzurermManagedRedis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermManagedRedisCustomerManagedKeyBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermManagedRedisCustomerManagedKeyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for default_database in .
+/// Block type for default_database in AzurermManagedRedis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
@@ -115,10 +116,61 @@ public class AzurermManagedRedisDefaultDatabaseBlock : TerraformBlock
         get => new TerraformReference<string>(this, "secondary_access_key");
     }
 
+    /// <summary>
+    /// Module block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(4, ErrorMessage = "Maximum 4 Module block(s) allowed")]
+    public TerraformList<AzurermManagedRedisDefaultDatabaseBlockModuleBlock>? Module
+    {
+        get => GetArgument<TerraformList<AzurermManagedRedisDefaultDatabaseBlockModuleBlock>>("module");
+        set => SetArgument("module", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for module in AzurermManagedRedisDefaultDatabaseBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermManagedRedisDefaultDatabaseBlockModuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "module";
+
+    /// <summary>
+    /// The args attribute.
+    /// </summary>
+    public TerraformValue<string>? Args
+    {
+        get => new TerraformReference<string>(this, "args");
+        set => SetArgument("args", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+}
+
+
+/// <summary>
+/// Block type for identity in AzurermManagedRedis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermManagedRedisIdentityBlock : TerraformBlock
@@ -165,8 +217,9 @@ public class AzurermManagedRedisIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermManagedRedis.
 /// Nesting mode: single
 /// </summary>
 public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
@@ -213,6 +266,7 @@ public class AzurermManagedRedisTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_managed_redis Terraform resource.

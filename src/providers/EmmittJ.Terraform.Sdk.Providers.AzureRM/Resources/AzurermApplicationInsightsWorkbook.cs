@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermApplicationInsightsWorkbook.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationInsightsWorkbookIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermApplicationInsightsWorkbookIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApplicationInsightsWorkbook.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApplicationInsightsWorkbookTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermApplicationInsightsWorkbookTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_application_insights_workbook Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementWorkspacePolicyFragment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermApiManagementWorkspacePolicyFragmentTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_workspace_policy_fragment Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for enabled_log in .
+/// Block type for enabled_log in AzurermMonitorAadDiagnosticSetting.
 /// Nesting mode: set
 /// </summary>
 public class AzurermMonitorAadDiagnosticSettingEnabledLogBlock : TerraformBlock
@@ -23,10 +23,54 @@ public class AzurermMonitorAadDiagnosticSettingEnabledLogBlock : TerraformBlock
         set => SetArgument("category", value);
     }
 
+    /// <summary>
+    /// RetentionPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
+    [Obsolete("This block is deprecated.")]
+    public TerraformList<AzurermMonitorAadDiagnosticSettingEnabledLogBlockRetentionPolicyBlock>? RetentionPolicy
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAadDiagnosticSettingEnabledLogBlockRetentionPolicyBlock>>("retention_policy");
+        set => SetArgument("retention_policy", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for retention_policy in AzurermMonitorAadDiagnosticSettingEnabledLogBlock.
+/// Nesting mode: list
+/// </summary>
+[Obsolete("This block is deprecated.")]
+public class AzurermMonitorAadDiagnosticSettingEnabledLogBlockRetentionPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "retention_policy";
+
+    /// <summary>
+    /// The days attribute.
+    /// </summary>
+    public TerraformValue<double>? Days
+    {
+        get => new TerraformReference<double>(this, "days");
+        set => SetArgument("days", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermMonitorAadDiagnosticSetting.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
@@ -73,6 +117,7 @@ public class AzurermMonitorAadDiagnosticSettingTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_aad_diagnostic_setting Terraform resource.

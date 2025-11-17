@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for authorization in .
+/// Block type for authorization in AzurermManagedApplicationDefinition.
 /// Nesting mode: set
 /// </summary>
 public class AzurermManagedApplicationDefinitionAuthorizationBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermManagedApplicationDefinitionAuthorizationBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermManagedApplicationDefinition.
 /// Nesting mode: single
 /// </summary>
 public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermManagedApplicationDefinitionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_managed_application_definition Terraform resource.

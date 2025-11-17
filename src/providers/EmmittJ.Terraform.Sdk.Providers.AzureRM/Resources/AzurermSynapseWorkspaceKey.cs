@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSynapseWorkspaceKey.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSynapseWorkspaceKeyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSynapseWorkspaceKeyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_synapse_workspace_key Terraform resource.

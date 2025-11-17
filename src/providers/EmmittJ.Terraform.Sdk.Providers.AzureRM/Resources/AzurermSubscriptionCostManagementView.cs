@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for dataset in .
+/// Block type for dataset in AzurermSubscriptionCostManagementView.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSubscriptionCostManagementViewDatasetBlock : TerraformBlock
@@ -23,10 +23,140 @@ public class AzurermSubscriptionCostManagementViewDatasetBlock : TerraformBlock
         set => SetArgument("granularity", value);
     }
 
+    /// <summary>
+    /// Aggregation block (nesting mode: set).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Aggregation is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Aggregation block(s) required")]
+    public required TerraformSet<AzurermSubscriptionCostManagementViewDatasetBlockAggregationBlock> Aggregation
+    {
+        get => GetRequiredArgument<TerraformSet<AzurermSubscriptionCostManagementViewDatasetBlockAggregationBlock>>("aggregation");
+        set => SetArgument("aggregation", value);
+    }
+
+    /// <summary>
+    /// Grouping block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermSubscriptionCostManagementViewDatasetBlockGroupingBlock>? Grouping
+    {
+        get => GetArgument<TerraformList<AzurermSubscriptionCostManagementViewDatasetBlockGroupingBlock>>("grouping");
+        set => SetArgument("grouping", value);
+    }
+
+    /// <summary>
+    /// Sorting block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermSubscriptionCostManagementViewDatasetBlockSortingBlock>? Sorting
+    {
+        get => GetArgument<TerraformList<AzurermSubscriptionCostManagementViewDatasetBlockSortingBlock>>("sorting");
+        set => SetArgument("sorting", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for kpi in .
+/// Block type for aggregation in AzurermSubscriptionCostManagementViewDatasetBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermSubscriptionCostManagementViewDatasetBlockAggregationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "aggregation";
+
+    /// <summary>
+    /// The column_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
+    public required TerraformValue<string> ColumnName
+    {
+        get => new TerraformReference<string>(this, "column_name");
+        set => SetArgument("column_name", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for grouping in AzurermSubscriptionCostManagementViewDatasetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSubscriptionCostManagementViewDatasetBlockGroupingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "grouping";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for sorting in AzurermSubscriptionCostManagementViewDatasetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSubscriptionCostManagementViewDatasetBlockSortingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "sorting";
+
+    /// <summary>
+    /// The direction attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
+    public required TerraformValue<string> Direction
+    {
+        get => new TerraformReference<string>(this, "direction");
+        set => SetArgument("direction", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for kpi in AzurermSubscriptionCostManagementView.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSubscriptionCostManagementViewKpiBlock : TerraformBlock
@@ -48,8 +178,9 @@ public class AzurermSubscriptionCostManagementViewKpiBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for pivot in .
+/// Block type for pivot in AzurermSubscriptionCostManagementView.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSubscriptionCostManagementViewPivotBlock : TerraformBlock
@@ -81,8 +212,9 @@ public class AzurermSubscriptionCostManagementViewPivotBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSubscriptionCostManagementView.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
@@ -129,6 +261,7 @@ public class AzurermSubscriptionCostManagementViewTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_subscription_cost_management_view Terraform resource.

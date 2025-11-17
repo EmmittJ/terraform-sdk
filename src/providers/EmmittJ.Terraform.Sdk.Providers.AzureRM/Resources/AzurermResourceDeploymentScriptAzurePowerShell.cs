@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for container in .
+/// Block type for container in AzurermResourceDeploymentScriptAzurePowerShell.
 /// Nesting mode: list
 /// </summary>
 public class AzurermResourceDeploymentScriptAzurePowerShellContainerBlock : TerraformBlock
@@ -24,8 +24,9 @@ public class AzurermResourceDeploymentScriptAzurePowerShellContainerBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for environment_variable in .
+/// Block type for environment_variable in AzurermResourceDeploymentScriptAzurePowerShell.
 /// Nesting mode: set
 /// </summary>
 public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBlock : TerraformBlock
@@ -65,8 +66,9 @@ public class AzurermResourceDeploymentScriptAzurePowerShellEnvironmentVariableBl
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermResourceDeploymentScriptAzurePowerShell.
 /// Nesting mode: list
 /// </summary>
 public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : TerraformBlock
@@ -98,8 +100,9 @@ public class AzurermResourceDeploymentScriptAzurePowerShellIdentityBlock : Terra
 
 }
 
+
 /// <summary>
-/// Block type for storage_account in .
+/// Block type for storage_account in AzurermResourceDeploymentScriptAzurePowerShell.
 /// Nesting mode: list
 /// </summary>
 public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock : TerraformBlock
@@ -131,8 +134,9 @@ public class AzurermResourceDeploymentScriptAzurePowerShellStorageAccountBlock :
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermResourceDeploymentScriptAzurePowerShell.
 /// Nesting mode: single
 /// </summary>
 public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : TerraformBlock
@@ -179,6 +183,7 @@ public class AzurermResourceDeploymentScriptAzurePowerShellTimeoutsBlock : Terra
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_resource_deployment_script_azure_power_shell Terraform resource.

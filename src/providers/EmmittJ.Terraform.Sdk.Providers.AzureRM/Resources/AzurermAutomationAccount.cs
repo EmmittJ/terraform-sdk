@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for encryption in .
+/// Block type for encryption in AzurermAutomationAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationAccountEncryptionBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermAutomationAccountEncryptionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermAutomationAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationAccountIdentityBlock : TerraformBlock
@@ -92,8 +93,9 @@ public class AzurermAutomationAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAutomationAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationAccountTimeoutsBlock : TerraformBlock
@@ -140,6 +142,7 @@ public class AzurermAutomationAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_account Terraform resource.

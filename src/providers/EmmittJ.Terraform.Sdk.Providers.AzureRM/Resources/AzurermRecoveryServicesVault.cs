@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for encryption in .
+/// Block type for encryption in AzurermRecoveryServicesVault.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRecoveryServicesVaultEncryptionBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermRecoveryServicesVaultEncryptionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermRecoveryServicesVault.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRecoveryServicesVaultIdentityBlock : TerraformBlock
@@ -101,8 +102,9 @@ public class AzurermRecoveryServicesVaultIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for monitoring in .
+/// Block type for monitoring in AzurermRecoveryServicesVault.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRecoveryServicesVaultMonitoringBlock : TerraformBlock
@@ -132,8 +134,9 @@ public class AzurermRecoveryServicesVaultMonitoringBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRecoveryServicesVault.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRecoveryServicesVaultTimeoutsBlock : TerraformBlock
@@ -180,6 +183,7 @@ public class AzurermRecoveryServicesVaultTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_recovery_services_vault Terraform resource.

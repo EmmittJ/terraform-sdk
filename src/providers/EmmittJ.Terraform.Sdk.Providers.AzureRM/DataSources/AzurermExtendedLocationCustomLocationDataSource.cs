@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermExtendedLocationCustomLocationDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermExtendedLocationCustomLocationDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermExtendedLocationCustomLocationDataSourceTimeoutsBlock : Terr
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_extended_location_custom_location Terraform data source.

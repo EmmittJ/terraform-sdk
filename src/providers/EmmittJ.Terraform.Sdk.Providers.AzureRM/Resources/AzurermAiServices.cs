@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for customer_managed_key in .
+/// Block type for customer_managed_key in AzurermAiServices.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAiServicesCustomerManagedKeyBlock : TerraformBlock
@@ -42,8 +42,9 @@ public class AzurermAiServicesCustomerManagedKeyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermAiServices.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAiServicesIdentityBlock : TerraformBlock
@@ -90,8 +91,9 @@ public class AzurermAiServicesIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_acls in .
+/// Block type for network_acls in AzurermAiServices.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAiServicesNetworkAclsBlock : TerraformBlock
@@ -129,10 +131,52 @@ public class AzurermAiServicesNetworkAclsBlock : TerraformBlock
         set => SetArgument("ip_rules", value);
     }
 
+    /// <summary>
+    /// VirtualNetworkRules block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermAiServicesNetworkAclsBlockVirtualNetworkRulesBlock>? VirtualNetworkRules
+    {
+        get => GetArgument<TerraformSet<AzurermAiServicesNetworkAclsBlockVirtualNetworkRulesBlock>>("virtual_network_rules");
+        set => SetArgument("virtual_network_rules", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for storage in .
+/// Block type for virtual_network_rules in AzurermAiServicesNetworkAclsBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermAiServicesNetworkAclsBlockVirtualNetworkRulesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "virtual_network_rules";
+
+    /// <summary>
+    /// The ignore_missing_vnet_service_endpoint attribute.
+    /// </summary>
+    public TerraformValue<bool>? IgnoreMissingVnetServiceEndpoint
+    {
+        get => new TerraformReference<bool>(this, "ignore_missing_vnet_service_endpoint");
+        set => SetArgument("ignore_missing_vnet_service_endpoint", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformValue<string> SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for storage in AzurermAiServices.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAiServicesStorageBlock : TerraformBlock
@@ -163,8 +207,9 @@ public class AzurermAiServicesStorageBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAiServices.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAiServicesTimeoutsBlock : TerraformBlock
@@ -211,6 +256,7 @@ public class AzurermAiServicesTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_ai_services Terraform resource.

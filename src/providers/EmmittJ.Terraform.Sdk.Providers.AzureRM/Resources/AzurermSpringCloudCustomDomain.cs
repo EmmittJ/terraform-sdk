@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudCustomDomain.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudCustomDomainTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSpringCloudCustomDomainTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_custom_domain Terraform resource.

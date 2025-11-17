@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for schema_column in .
+/// Block type for schema_column in AzurermDataFactoryDatasetSnowflake.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock : TerraformBlock
@@ -52,8 +52,9 @@ public class AzurermDataFactoryDatasetSnowflakeSchemaColumnBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryDatasetSnowflake.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryDatasetSnowflakeTimeoutsBlock : TerraformBlock
@@ -100,6 +101,7 @@ public class AzurermDataFactoryDatasetSnowflakeTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_dataset_snowflake Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for cors in .
+/// Block type for cors in AzurermHealthcareDicomService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
@@ -60,8 +60,9 @@ public class AzurermHealthcareDicomServiceCorsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermHealthcareDicomService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
@@ -108,8 +109,9 @@ public class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage in .
+/// Block type for storage in AzurermHealthcareDicomService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHealthcareDicomServiceStorageBlock : TerraformBlock
@@ -141,8 +143,9 @@ public class AzurermHealthcareDicomServiceStorageBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermHealthcareDicomService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
@@ -189,6 +192,7 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_healthcare_dicom_service Terraform resource.

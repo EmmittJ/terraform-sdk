@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for github_configuration in .
+/// Block type for github_configuration in AzurermDataFactory.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
@@ -73,8 +73,9 @@ public class AzurermDataFactoryGithubConfigurationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for global_parameter in .
+/// Block type for global_parameter in AzurermDataFactory.
 /// Nesting mode: set
 /// </summary>
 public class AzurermDataFactoryGlobalParameterBlock : TerraformBlock
@@ -116,8 +117,9 @@ public class AzurermDataFactoryGlobalParameterBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDataFactory.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryIdentityBlock : TerraformBlock
@@ -164,8 +166,9 @@ public class AzurermDataFactoryIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactory.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryTimeoutsBlock : TerraformBlock
@@ -213,8 +216,9 @@ public class AzurermDataFactoryTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for vsts_configuration in .
+/// Block type for vsts_configuration in AzurermDataFactory.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
@@ -294,6 +298,7 @@ public class AzurermDataFactoryVstsConfigurationBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory Terraform resource.

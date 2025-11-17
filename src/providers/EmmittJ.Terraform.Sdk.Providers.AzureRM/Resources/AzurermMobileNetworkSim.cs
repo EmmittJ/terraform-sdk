@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for static_ip_configuration in .
+/// Block type for static_ip_configuration in AzurermMobileNetworkSim.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMobileNetworkSim.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMobileNetworkSimTimeoutsBlock : TerraformBlock
@@ -92,6 +93,7 @@ public class AzurermMobileNetworkSimTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mobile_network_sim Terraform resource.

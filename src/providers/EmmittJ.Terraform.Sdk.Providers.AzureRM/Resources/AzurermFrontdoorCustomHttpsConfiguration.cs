@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for custom_https_configuration in .
+/// Block type for custom_https_configuration in AzurermFrontdoorCustomHttpsConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlock : TerraformBlock
@@ -75,8 +75,9 @@ public class AzurermFrontdoorCustomHttpsConfigurationCustomHttpsConfigurationBlo
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermFrontdoorCustomHttpsConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBlock
@@ -123,6 +124,7 @@ public class AzurermFrontdoorCustomHttpsConfigurationTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_frontdoor_custom_https_configuration Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for key_vault_connection_string in .
+/// Block type for key_vault_connection_string in AzurermDataFactoryLinkedServiceSqlServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultConnectionStringBlo
 
 }
 
+
 /// <summary>
-/// Block type for key_vault_password in .
+/// Block type for key_vault_password in AzurermDataFactoryLinkedServiceSqlServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : TerraformBlock
@@ -68,8 +69,9 @@ public class AzurermDataFactoryLinkedServiceSqlServerKeyVaultPasswordBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryLinkedServiceSqlServer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock : TerraformBlock
@@ -116,6 +118,7 @@ public class AzurermDataFactoryLinkedServiceSqlServerTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_linked_service_sql_server Terraform resource.

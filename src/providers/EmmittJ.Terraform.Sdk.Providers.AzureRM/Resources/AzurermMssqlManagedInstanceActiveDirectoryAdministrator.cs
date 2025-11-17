@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlManagedInstanceActiveDirectoryAdministrator.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMssqlManagedInstanceActiveDirectoryAdministratorTimeoutsBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_managed_instance_active_directory_administrator Terraform resource.

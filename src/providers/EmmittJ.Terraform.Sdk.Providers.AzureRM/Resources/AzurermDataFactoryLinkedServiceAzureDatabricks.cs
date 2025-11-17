@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for instance_pool in .
+/// Block type for instance_pool in AzurermDataFactoryLinkedServiceAzureDatabricks.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksInstancePoolBlock : T
 
 }
 
+
 /// <summary>
-/// Block type for key_vault_password in .
+/// Block type for key_vault_password in AzurermDataFactoryLinkedServiceAzureDatabricks.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock : TerraformBlock
@@ -86,8 +87,9 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksKeyVaultPasswordBlock
 
 }
 
+
 /// <summary>
-/// Block type for new_cluster_config in .
+/// Block type for new_cluster_config in AzurermDataFactoryLinkedServiceAzureDatabricks.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock : TerraformBlock
@@ -191,8 +193,9 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksNewClusterConfigBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryLinkedServiceAzureDatabricks.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : TerraformBlock
@@ -239,6 +242,7 @@ public class AzurermDataFactoryLinkedServiceAzureDatabricksTimeoutsBlock : Terra
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_linked_service_azure_databricks Terraform resource.

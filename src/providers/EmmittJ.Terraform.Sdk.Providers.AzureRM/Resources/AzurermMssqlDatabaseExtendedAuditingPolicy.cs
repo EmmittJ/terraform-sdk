@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlDatabaseExtendedAuditingPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlDatabaseExtendedAuditingPolicyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMssqlDatabaseExtendedAuditingPolicyTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_database_extended_auditing_policy Terraform resource.

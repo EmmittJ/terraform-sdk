@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for schedule in .
+/// Block type for schedule in AzurermLogicAppTriggerRecurrence.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
@@ -42,8 +42,9 @@ public class AzurermLogicAppTriggerRecurrenceScheduleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogicAppTriggerRecurrence.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
@@ -90,6 +91,7 @@ public class AzurermLogicAppTriggerRecurrenceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_logic_app_trigger_recurrence Terraform resource.

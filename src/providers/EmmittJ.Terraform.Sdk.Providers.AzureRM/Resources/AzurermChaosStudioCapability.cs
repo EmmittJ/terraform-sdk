@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermChaosStudioCapability.
 /// Nesting mode: single
 /// </summary>
 public class AzurermChaosStudioCapabilityTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermChaosStudioCapabilityTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_chaos_studio_capability Terraform resource.

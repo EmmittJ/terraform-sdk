@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkManagerVerifierWorkspace.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkManagerVerifierWorkspaceTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermNetworkManagerVerifierWorkspaceTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_manager_verifier_workspace Terraform resource.

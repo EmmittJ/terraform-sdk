@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for export_data_options in .
+/// Block type for export_data_options in AzurermBillingAccountCostManagementExport.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBillingAccountCostManagementExportExportDataOptionsBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermBillingAccountCostManagementExportExportDataOptionsBlock : T
 
 }
 
+
 /// <summary>
-/// Block type for export_data_storage_location in .
+/// Block type for export_data_storage_location in AzurermBillingAccountCostManagementExport.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBillingAccountCostManagementExportExportDataStorageLocationBlock : TerraformBlock
@@ -68,8 +69,9 @@ public class AzurermBillingAccountCostManagementExportExportDataStorageLocationB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBillingAccountCostManagementExport.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBillingAccountCostManagementExportTimeoutsBlock : TerraformBlock
@@ -116,6 +118,7 @@ public class AzurermBillingAccountCostManagementExportTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_billing_account_cost_management_export Terraform resource.

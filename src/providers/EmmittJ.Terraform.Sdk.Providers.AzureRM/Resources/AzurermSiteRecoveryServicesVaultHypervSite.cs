@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSiteRecoveryServicesVaultHypervSite.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSiteRecoveryServicesVaultHypervSiteTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermSiteRecoveryServicesVaultHypervSiteTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_site_recovery_services_vault_hyperv_site Terraform resource.

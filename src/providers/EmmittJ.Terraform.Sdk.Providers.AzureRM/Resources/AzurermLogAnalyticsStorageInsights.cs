@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogAnalyticsStorageInsights.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogAnalyticsStorageInsightsTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermLogAnalyticsStorageInsightsTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_log_analytics_storage_insights Terraform resource.

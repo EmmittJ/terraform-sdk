@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ip_rule in .
+/// Block type for ip_rule in AzurermIotcentralApplicationNetworkRuleSet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermIotcentralApplicationNetworkRuleSetIpRuleBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIotcentralApplicationNetworkRuleSet.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermIotcentralApplicationNetworkRuleSetTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iotcentral_application_network_rule_set Terraform resource.

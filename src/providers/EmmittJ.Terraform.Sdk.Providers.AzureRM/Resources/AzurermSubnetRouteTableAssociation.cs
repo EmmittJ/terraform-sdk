@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSubnetRouteTableAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSubnetRouteTableAssociationTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermSubnetRouteTableAssociationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_subnet_route_table_association Terraform resource.

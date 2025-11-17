@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for model in .
+/// Block type for model in AzurermCognitiveDeployment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermCognitiveDeploymentModelBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermCognitiveDeployment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
@@ -103,8 +104,9 @@ public class AzurermCognitiveDeploymentSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCognitiveDeployment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
@@ -151,6 +153,7 @@ public class AzurermCognitiveDeploymentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cognitive_deployment Terraform resource.

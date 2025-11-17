@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for authentication in .
+/// Block type for authentication in AzurermExtendedLocationCustomLocation.
 /// Nesting mode: list
 /// </summary>
 public class AzurermExtendedLocationCustomLocationAuthenticationBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermExtendedLocationCustomLocationAuthenticationBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermExtendedLocationCustomLocation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
@@ -82,6 +83,7 @@ public class AzurermExtendedLocationCustomLocationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_extended_location_custom_location Terraform resource.

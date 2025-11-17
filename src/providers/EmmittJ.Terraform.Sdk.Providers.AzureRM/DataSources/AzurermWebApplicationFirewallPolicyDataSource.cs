@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermWebApplicationFirewallPolicyDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermWebApplicationFirewallPolicyDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermWebApplicationFirewallPolicyDataSourceTimeoutsBlock : Terraf
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_web_application_firewall_policy Terraform data source.

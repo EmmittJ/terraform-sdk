@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for policy in .
+/// Block type for policy in AzurermVpnServerConfigurationPolicyGroup.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVpnServerConfigurationPolicyGroupPolicyBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermVpnServerConfigurationPolicyGroupPolicyBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVpnServerConfigurationPolicyGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock : TerraformBlock
@@ -93,6 +94,7 @@ public class AzurermVpnServerConfigurationPolicyGroupTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_vpn_server_configuration_policy_group Terraform resource.

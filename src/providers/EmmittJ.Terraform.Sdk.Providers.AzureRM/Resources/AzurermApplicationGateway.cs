@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for authentication_certificate in .
+/// Block type for authentication_certificate in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayAuthenticationCertificateBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermApplicationGatewayAuthenticationCertificateBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for autoscale_configuration in .
+/// Block type for autoscale_configuration in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayAutoscaleConfigurationBlock : TerraformBlock
@@ -75,8 +76,9 @@ public class AzurermApplicationGatewayAutoscaleConfigurationBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for backend_address_pool in .
+/// Block type for backend_address_pool in AzurermApplicationGateway.
 /// Nesting mode: set
 /// </summary>
 public class AzurermApplicationGatewayBackendAddressPoolBlock : TerraformBlock
@@ -124,8 +126,9 @@ public class AzurermApplicationGatewayBackendAddressPoolBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for backend_http_settings in .
+/// Block type for backend_http_settings in AzurermApplicationGateway.
 /// Nesting mode: set
 /// </summary>
 public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
@@ -254,10 +257,94 @@ public class AzurermApplicationGatewayBackendHttpSettingsBlock : TerraformBlock
         set => SetArgument("trusted_root_certificate_names", value);
     }
 
+    /// <summary>
+    /// AuthenticationCertificate block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApplicationGatewayBackendHttpSettingsBlockAuthenticationCertificateBlock>? AuthenticationCertificate
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayBackendHttpSettingsBlockAuthenticationCertificateBlock>>("authentication_certificate");
+        set => SetArgument("authentication_certificate", value);
+    }
+
+    /// <summary>
+    /// ConnectionDraining block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionDraining block(s) allowed")]
+    public TerraformList<AzurermApplicationGatewayBackendHttpSettingsBlockConnectionDrainingBlock>? ConnectionDraining
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayBackendHttpSettingsBlockConnectionDrainingBlock>>("connection_draining");
+        set => SetArgument("connection_draining", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for custom_error_configuration in .
+/// Block type for authentication_certificate in AzurermApplicationGatewayBackendHttpSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayBackendHttpSettingsBlockAuthenticationCertificateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "authentication_certificate";
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for connection_draining in AzurermApplicationGatewayBackendHttpSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayBackendHttpSettingsBlockConnectionDrainingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "connection_draining";
+
+    /// <summary>
+    /// The drain_timeout_sec attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DrainTimeoutSec is required")]
+    public required TerraformValue<double> DrainTimeoutSec
+    {
+        get => new TerraformReference<double>(this, "drain_timeout_sec");
+        set => SetArgument("drain_timeout_sec", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for custom_error_configuration in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayCustomErrorConfigurationBlock : TerraformBlock
@@ -297,8 +384,9 @@ public class AzurermApplicationGatewayCustomErrorConfigurationBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for frontend_ip_configuration in .
+/// Block type for frontend_ip_configuration in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBlock
@@ -381,8 +469,9 @@ public class AzurermApplicationGatewayFrontendIpConfigurationBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for frontend_port in .
+/// Block type for frontend_port in AzurermApplicationGateway.
 /// Nesting mode: set
 /// </summary>
 public class AzurermApplicationGatewayFrontendPortBlock : TerraformBlock
@@ -422,8 +511,9 @@ public class AzurermApplicationGatewayFrontendPortBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for gateway_ip_configuration in .
+/// Block type for gateway_ip_configuration in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlock
@@ -463,8 +553,9 @@ public class AzurermApplicationGatewayGatewayIpConfigurationBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for global in .
+/// Block type for global in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayGlobalAttributeBlock : TerraformBlock
@@ -496,8 +587,9 @@ public class AzurermApplicationGatewayGlobalAttributeBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for http_listener in .
+/// Block type for http_listener in AzurermApplicationGateway.
 /// Nesting mode: set
 /// </summary>
 public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
@@ -641,10 +733,61 @@ public class AzurermApplicationGatewayHttpListenerBlock : TerraformBlock
         set => SetArgument("ssl_profile_name", value);
     }
 
+    /// <summary>
+    /// CustomErrorConfiguration block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApplicationGatewayHttpListenerBlockCustomErrorConfigurationBlock>? CustomErrorConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayHttpListenerBlockCustomErrorConfigurationBlock>>("custom_error_configuration");
+        set => SetArgument("custom_error_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for custom_error_configuration in AzurermApplicationGatewayHttpListenerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayHttpListenerBlockCustomErrorConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "custom_error_configuration";
+
+    /// <summary>
+    /// The custom_error_page_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomErrorPageUrl is required")]
+    public required TerraformValue<string> CustomErrorPageUrl
+    {
+        get => new TerraformReference<string>(this, "custom_error_page_url");
+        set => SetArgument("custom_error_page_url", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
+
+    /// <summary>
+    /// The status_code attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
+    public required TerraformValue<string> StatusCode
+    {
+        get => new TerraformReference<string>(this, "status_code");
+        set => SetArgument("status_code", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for identity in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayIdentityBlock : TerraformBlock
@@ -691,8 +834,9 @@ public class AzurermApplicationGatewayIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for private_link_configuration in .
+/// Block type for private_link_configuration in AzurermApplicationGateway.
 /// Nesting mode: set
 /// </summary>
 public class AzurermApplicationGatewayPrivateLinkConfigurationBlock : TerraformBlock
@@ -720,10 +864,85 @@ public class AzurermApplicationGatewayPrivateLinkConfigurationBlock : TerraformB
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// IpConfiguration block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
+    public required TerraformList<AzurermApplicationGatewayPrivateLinkConfigurationBlockIpConfigurationBlock> IpConfiguration
+    {
+        get => GetRequiredArgument<TerraformList<AzurermApplicationGatewayPrivateLinkConfigurationBlockIpConfigurationBlock>>("ip_configuration");
+        set => SetArgument("ip_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for probe in .
+/// Block type for ip_configuration in AzurermApplicationGatewayPrivateLinkConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayPrivateLinkConfigurationBlockIpConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_configuration";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The primary attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Primary is required")]
+    public required TerraformValue<bool> Primary
+    {
+        get => new TerraformReference<bool>(this, "primary");
+        set => SetArgument("primary", value);
+    }
+
+    /// <summary>
+    /// The private_ip_address attribute.
+    /// </summary>
+    public TerraformValue<string> PrivateIpAddress
+    {
+        get => new TerraformReference<string>(this, "private_ip_address");
+        set => SetArgument("private_ip_address", value);
+    }
+
+    /// <summary>
+    /// The private_ip_address_allocation attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateIpAddressAllocation is required")]
+    public required TerraformValue<string> PrivateIpAddressAllocation
+    {
+        get => new TerraformReference<string>(this, "private_ip_address_allocation");
+        set => SetArgument("private_ip_address_allocation", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformValue<string> SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for probe in AzurermApplicationGateway.
 /// Nesting mode: set
 /// </summary>
 public class AzurermApplicationGatewayProbeBlock : TerraformBlock
@@ -837,10 +1056,53 @@ public class AzurermApplicationGatewayProbeBlock : TerraformBlock
         set => SetArgument("unhealthy_threshold", value);
     }
 
+    /// <summary>
+    /// Match block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
+    public TerraformList<AzurermApplicationGatewayProbeBlockMatchBlock>? Match
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayProbeBlockMatchBlock>>("match");
+        set => SetArgument("match", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for redirect_configuration in .
+/// Block type for match in AzurermApplicationGatewayProbeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayProbeBlockMatchBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "match";
+
+    /// <summary>
+    /// The body attribute.
+    /// </summary>
+    public TerraformValue<string>? Body
+    {
+        get => new TerraformReference<string>(this, "body");
+        set => SetArgument("body", value);
+    }
+
+    /// <summary>
+    /// The status_code attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
+    public TerraformList<string>? StatusCode
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "status_code").ResolveNodes(ctx));
+        set => SetArgument("status_code", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for redirect_configuration in AzurermApplicationGateway.
 /// Nesting mode: set
 /// </summary>
 public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBlock
@@ -924,8 +1186,9 @@ public class AzurermApplicationGatewayRedirectConfigurationBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for request_routing_rule in .
+/// Block type for request_routing_rule in AzurermApplicationGateway.
 /// Nesting mode: set
 /// </summary>
 public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
@@ -1077,8 +1340,9 @@ public class AzurermApplicationGatewayRequestRoutingRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for rewrite_rule_set in .
+/// Block type for rewrite_rule_set in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayRewriteRuleSetBlock : TerraformBlock
@@ -1106,10 +1370,256 @@ public class AzurermApplicationGatewayRewriteRuleSetBlock : TerraformBlock
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// RewriteRule block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlock>? RewriteRule
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlock>>("rewrite_rule");
+        set => SetArgument("rewrite_rule", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for sku in .
+/// Block type for rewrite_rule in AzurermApplicationGatewayRewriteRuleSetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "rewrite_rule";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The rule_sequence attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleSequence is required")]
+    public required TerraformValue<double> RuleSequence
+    {
+        get => new TerraformReference<double>(this, "rule_sequence");
+        set => SetArgument("rule_sequence", value);
+    }
+
+    /// <summary>
+    /// Condition block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockConditionBlock>? Condition
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockConditionBlock>>("condition");
+        set => SetArgument("condition", value);
+    }
+
+    /// <summary>
+    /// RequestHeaderConfiguration block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockRequestHeaderConfigurationBlock>? RequestHeaderConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockRequestHeaderConfigurationBlock>>("request_header_configuration");
+        set => SetArgument("request_header_configuration", value);
+    }
+
+    /// <summary>
+    /// ResponseHeaderConfiguration block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockResponseHeaderConfigurationBlock>? ResponseHeaderConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockResponseHeaderConfigurationBlock>>("response_header_configuration");
+        set => SetArgument("response_header_configuration", value);
+    }
+
+    /// <summary>
+    /// Url block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Url block(s) allowed")]
+    public TerraformList<AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockUrlBlock>? Url
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockUrlBlock>>("url");
+        set => SetArgument("url", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for condition in AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "condition";
+
+    /// <summary>
+    /// The ignore_case attribute.
+    /// </summary>
+    public TerraformValue<bool>? IgnoreCase
+    {
+        get => new TerraformReference<bool>(this, "ignore_case");
+        set => SetArgument("ignore_case", value);
+    }
+
+    /// <summary>
+    /// The negate attribute.
+    /// </summary>
+    public TerraformValue<bool>? Negate
+    {
+        get => new TerraformReference<bool>(this, "negate");
+        set => SetArgument("negate", value);
+    }
+
+    /// <summary>
+    /// The pattern attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pattern is required")]
+    public required TerraformValue<string> Pattern
+    {
+        get => new TerraformReference<string>(this, "pattern");
+        set => SetArgument("pattern", value);
+    }
+
+    /// <summary>
+    /// The variable attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Variable is required")]
+    public required TerraformValue<string> Variable
+    {
+        get => new TerraformReference<string>(this, "variable");
+        set => SetArgument("variable", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for request_header_configuration in AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockRequestHeaderConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "request_header_configuration";
+
+    /// <summary>
+    /// The header_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
+    public required TerraformValue<string> HeaderName
+    {
+        get => new TerraformReference<string>(this, "header_name");
+        set => SetArgument("header_name", value);
+    }
+
+    /// <summary>
+    /// The header_value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
+    public required TerraformValue<string> HeaderValue
+    {
+        get => new TerraformReference<string>(this, "header_value");
+        set => SetArgument("header_value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for response_header_configuration in AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockResponseHeaderConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "response_header_configuration";
+
+    /// <summary>
+    /// The header_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderName is required")]
+    public required TerraformValue<string> HeaderName
+    {
+        get => new TerraformReference<string>(this, "header_name");
+        set => SetArgument("header_name", value);
+    }
+
+    /// <summary>
+    /// The header_value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeaderValue is required")]
+    public required TerraformValue<string> HeaderValue
+    {
+        get => new TerraformReference<string>(this, "header_value");
+        set => SetArgument("header_value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for url in AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayRewriteRuleSetBlockRewriteRuleBlockUrlBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "url";
+
+    /// <summary>
+    /// The components attribute.
+    /// </summary>
+    public TerraformValue<string>? Components
+    {
+        get => new TerraformReference<string>(this, "components");
+        set => SetArgument("components", value);
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    public TerraformValue<string>? Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+    /// <summary>
+    /// The query_string attribute.
+    /// </summary>
+    public TerraformValue<string>? QueryString
+    {
+        get => new TerraformReference<string>(this, "query_string");
+        set => SetArgument("query_string", value);
+    }
+
+    /// <summary>
+    /// The reroute attribute.
+    /// </summary>
+    public TerraformValue<bool>? Reroute
+    {
+        get => new TerraformReference<bool>(this, "reroute");
+        set => SetArgument("reroute", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for sku in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewaySkuBlock : TerraformBlock
@@ -1150,8 +1660,9 @@ public class AzurermApplicationGatewaySkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for ssl_certificate in .
+/// Block type for ssl_certificate in AzurermApplicationGateway.
 /// Nesting mode: set
 /// </summary>
 public class AzurermApplicationGatewaySslCertificateBlock : TerraformBlock
@@ -1216,8 +1727,9 @@ public class AzurermApplicationGatewaySslCertificateBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for ssl_policy in .
+/// Block type for ssl_policy in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewaySslPolicyBlock : TerraformBlock
@@ -1274,8 +1786,9 @@ public class AzurermApplicationGatewaySslPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for ssl_profile in .
+/// Block type for ssl_profile in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewaySslProfileBlock : TerraformBlock
@@ -1330,10 +1843,79 @@ public class AzurermApplicationGatewaySslProfileBlock : TerraformBlock
         set => SetArgument("verify_client_certificate_revocation", value);
     }
 
+    /// <summary>
+    /// SslPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslPolicy block(s) allowed")]
+    public TerraformList<AzurermApplicationGatewaySslProfileBlockSslPolicyBlock>? SslPolicy
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewaySslProfileBlockSslPolicyBlock>>("ssl_policy");
+        set => SetArgument("ssl_policy", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for ssl_policy in AzurermApplicationGatewaySslProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewaySslProfileBlockSslPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ssl_policy";
+
+    /// <summary>
+    /// The cipher_suites attribute.
+    /// </summary>
+    public TerraformList<string>? CipherSuites
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cipher_suites").ResolveNodes(ctx));
+        set => SetArgument("cipher_suites", value);
+    }
+
+    /// <summary>
+    /// The disabled_protocols attribute.
+    /// </summary>
+    public TerraformList<string>? DisabledProtocols
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "disabled_protocols").ResolveNodes(ctx));
+        set => SetArgument("disabled_protocols", value);
+    }
+
+    /// <summary>
+    /// The min_protocol_version attribute.
+    /// </summary>
+    public TerraformValue<string>? MinProtocolVersion
+    {
+        get => new TerraformReference<string>(this, "min_protocol_version");
+        set => SetArgument("min_protocol_version", value);
+    }
+
+    /// <summary>
+    /// The policy_name attribute.
+    /// </summary>
+    public TerraformValue<string>? PolicyName
+    {
+        get => new TerraformReference<string>(this, "policy_name");
+        set => SetArgument("policy_name", value);
+    }
+
+    /// <summary>
+    /// The policy_type attribute.
+    /// </summary>
+    public TerraformValue<string>? PolicyType
+    {
+        get => new TerraformReference<string>(this, "policy_type");
+        set => SetArgument("policy_type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermApplicationGateway.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApplicationGatewayTimeoutsBlock : TerraformBlock
@@ -1381,8 +1963,9 @@ public class AzurermApplicationGatewayTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for trusted_client_certificate in .
+/// Block type for trusted_client_certificate in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayTrustedClientCertificateBlock : TerraformBlock
@@ -1422,8 +2005,9 @@ public class AzurermApplicationGatewayTrustedClientCertificateBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for trusted_root_certificate in .
+/// Block type for trusted_root_certificate in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayTrustedRootCertificateBlock : TerraformBlock
@@ -1471,8 +2055,9 @@ public class AzurermApplicationGatewayTrustedRootCertificateBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for url_path_map in .
+/// Block type for url_path_map in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlock
@@ -1568,10 +2153,141 @@ public class AzurermApplicationGatewayUrlPathMapBlock : TerraformBlock
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// PathRule block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathRule is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PathRule block(s) required")]
+    public required TerraformList<AzurermApplicationGatewayUrlPathMapBlockPathRuleBlock> PathRule
+    {
+        get => GetRequiredArgument<TerraformList<AzurermApplicationGatewayUrlPathMapBlockPathRuleBlock>>("path_rule");
+        set => SetArgument("path_rule", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for waf_configuration in .
+/// Block type for path_rule in AzurermApplicationGatewayUrlPathMapBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayUrlPathMapBlockPathRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "path_rule";
+
+    /// <summary>
+    /// The backend_address_pool_id attribute.
+    /// </summary>
+    public TerraformValue<string> BackendAddressPoolId
+    {
+        get => new TerraformReference<string>(this, "backend_address_pool_id");
+    }
+
+    /// <summary>
+    /// The backend_address_pool_name attribute.
+    /// </summary>
+    public TerraformValue<string>? BackendAddressPoolName
+    {
+        get => new TerraformReference<string>(this, "backend_address_pool_name");
+        set => SetArgument("backend_address_pool_name", value);
+    }
+
+    /// <summary>
+    /// The backend_http_settings_id attribute.
+    /// </summary>
+    public TerraformValue<string> BackendHttpSettingsId
+    {
+        get => new TerraformReference<string>(this, "backend_http_settings_id");
+    }
+
+    /// <summary>
+    /// The backend_http_settings_name attribute.
+    /// </summary>
+    public TerraformValue<string>? BackendHttpSettingsName
+    {
+        get => new TerraformReference<string>(this, "backend_http_settings_name");
+        set => SetArgument("backend_http_settings_name", value);
+    }
+
+    /// <summary>
+    /// The firewall_policy_id attribute.
+    /// </summary>
+    public TerraformValue<string>? FirewallPolicyId
+    {
+        get => new TerraformReference<string>(this, "firewall_policy_id");
+        set => SetArgument("firewall_policy_id", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The paths attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Paths is required")]
+    public TerraformList<string>? Paths
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "paths").ResolveNodes(ctx));
+        set => SetArgument("paths", value);
+    }
+
+    /// <summary>
+    /// The redirect_configuration_id attribute.
+    /// </summary>
+    public TerraformValue<string> RedirectConfigurationId
+    {
+        get => new TerraformReference<string>(this, "redirect_configuration_id");
+    }
+
+    /// <summary>
+    /// The redirect_configuration_name attribute.
+    /// </summary>
+    public TerraformValue<string>? RedirectConfigurationName
+    {
+        get => new TerraformReference<string>(this, "redirect_configuration_name");
+        set => SetArgument("redirect_configuration_name", value);
+    }
+
+    /// <summary>
+    /// The rewrite_rule_set_id attribute.
+    /// </summary>
+    public TerraformValue<string> RewriteRuleSetId
+    {
+        get => new TerraformReference<string>(this, "rewrite_rule_set_id");
+    }
+
+    /// <summary>
+    /// The rewrite_rule_set_name attribute.
+    /// </summary>
+    public TerraformValue<string>? RewriteRuleSetName
+    {
+        get => new TerraformReference<string>(this, "rewrite_rule_set_name");
+        set => SetArgument("rewrite_rule_set_name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for waf_configuration in AzurermApplicationGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
@@ -1647,7 +2363,99 @@ public class AzurermApplicationGatewayWafConfigurationBlock : TerraformBlock
         set => SetArgument("rule_set_version", value);
     }
 
+    /// <summary>
+    /// DisabledRuleGroup block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApplicationGatewayWafConfigurationBlockDisabledRuleGroupBlock>? DisabledRuleGroup
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayWafConfigurationBlockDisabledRuleGroupBlock>>("disabled_rule_group");
+        set => SetArgument("disabled_rule_group", value);
+    }
+
+    /// <summary>
+    /// Exclusion block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApplicationGatewayWafConfigurationBlockExclusionBlock>? Exclusion
+    {
+        get => GetArgument<TerraformList<AzurermApplicationGatewayWafConfigurationBlockExclusionBlock>>("exclusion");
+        set => SetArgument("exclusion", value);
+    }
+
 }
+
+/// <summary>
+/// Block type for disabled_rule_group in AzurermApplicationGatewayWafConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayWafConfigurationBlockDisabledRuleGroupBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "disabled_rule_group";
+
+    /// <summary>
+    /// The rule_group_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleGroupName is required")]
+    public required TerraformValue<string> RuleGroupName
+    {
+        get => new TerraformReference<string>(this, "rule_group_name");
+        set => SetArgument("rule_group_name", value);
+    }
+
+    /// <summary>
+    /// The rules attribute.
+    /// </summary>
+    public TerraformList<double>? Rules
+    {
+        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "rules").ResolveNodes(ctx));
+        set => SetArgument("rules", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for exclusion in AzurermApplicationGatewayWafConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationGatewayWafConfigurationBlockExclusionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "exclusion";
+
+    /// <summary>
+    /// The match_variable attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
+    public required TerraformValue<string> MatchVariable
+    {
+        get => new TerraformReference<string>(this, "match_variable");
+        set => SetArgument("match_variable", value);
+    }
+
+    /// <summary>
+    /// The selector attribute.
+    /// </summary>
+    public TerraformValue<string>? Selector
+    {
+        get => new TerraformReference<string>(this, "selector");
+        set => SetArgument("selector", value);
+    }
+
+    /// <summary>
+    /// The selector_match_operator attribute.
+    /// </summary>
+    public TerraformValue<string>? SelectorMatchOperator
+    {
+        get => new TerraformReference<string>(this, "selector_match_operator");
+        set => SetArgument("selector_match_operator", value);
+    }
+
+}
+
 
 /// <summary>
 /// Represents a azurerm_application_gateway Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermNewRelicMonitor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNewRelicMonitorIdentityBlock : TerraformBlock
@@ -41,8 +41,9 @@ public class AzurermNewRelicMonitorIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for plan in .
+/// Block type for plan in AzurermNewRelicMonitor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNewRelicMonitorPlanBlock : TerraformBlock
@@ -91,8 +92,9 @@ public class AzurermNewRelicMonitorPlanBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNewRelicMonitor.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNewRelicMonitorTimeoutsBlock : TerraformBlock
@@ -131,8 +133,9 @@ public class AzurermNewRelicMonitorTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for user in .
+/// Block type for user in AzurermNewRelicMonitor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNewRelicMonitorUserBlock : TerraformBlock
@@ -183,6 +186,7 @@ public class AzurermNewRelicMonitorUserBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_new_relic_monitor Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for retention_policy in .
+/// Block type for retention_policy in AzurermNetworkWatcherFlowLog.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkWatcherFlowLogRetentionPolicyBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermNetworkWatcherFlowLogRetentionPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkWatcherFlowLog.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkWatcherFlowLogTimeoutsBlock : TerraformBlock
@@ -84,8 +85,9 @@ public class AzurermNetworkWatcherFlowLogTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for traffic_analytics in .
+/// Block type for traffic_analytics in AzurermNetworkWatcherFlowLog.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
@@ -145,6 +147,7 @@ public class AzurermNetworkWatcherFlowLogTrafficAnalyticsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_watcher_flow_log Terraform resource.

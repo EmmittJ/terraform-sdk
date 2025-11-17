@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermEmailCommunicationService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermEmailCommunicationServiceTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermEmailCommunicationServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_email_communication_service Terraform resource.

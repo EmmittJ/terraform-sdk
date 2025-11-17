@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRelayHybridConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRelayHybridConnectionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermRelayHybridConnectionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_relay_hybrid_connection Terraform resource.

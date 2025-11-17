@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRecoveryServicesVaultResourceGuardAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRecoveryServicesVaultResourceGuardAssociationTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermRecoveryServicesVaultResourceGuardAssociationTimeoutsBlock :
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_recovery_services_vault_resource_guard_association Terraform resource.

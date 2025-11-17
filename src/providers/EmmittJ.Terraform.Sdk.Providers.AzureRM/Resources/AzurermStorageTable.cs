@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for acl in .
+/// Block type for acl in AzurermStorageTable.
 /// Nesting mode: set
 /// </summary>
 public class AzurermStorageTableAclBlock : TerraformBlock
@@ -23,10 +23,63 @@ public class AzurermStorageTableAclBlock : TerraformBlock
         set => SetArgument("id", value);
     }
 
+    /// <summary>
+    /// AccessPolicy block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermStorageTableAclBlockAccessPolicyBlock>? AccessPolicy
+    {
+        get => GetArgument<TerraformList<AzurermStorageTableAclBlockAccessPolicyBlock>>("access_policy");
+        set => SetArgument("access_policy", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for access_policy in AzurermStorageTableAclBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageTableAclBlockAccessPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "access_policy";
+
+    /// <summary>
+    /// The expiry attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expiry is required")]
+    public required TerraformValue<string> Expiry
+    {
+        get => new TerraformReference<string>(this, "expiry");
+        set => SetArgument("expiry", value);
+    }
+
+    /// <summary>
+    /// The permissions attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
+    public required TerraformValue<string> Permissions
+    {
+        get => new TerraformReference<string>(this, "permissions");
+        set => SetArgument("permissions", value);
+    }
+
+    /// <summary>
+    /// The start attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
+    public required TerraformValue<string> Start
+    {
+        get => new TerraformReference<string>(this, "start");
+        set => SetArgument("start", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermStorageTable.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageTableTimeoutsBlock : TerraformBlock
@@ -73,6 +126,7 @@ public class AzurermStorageTableTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_table Terraform resource.

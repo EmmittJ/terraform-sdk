@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for basic_authentication in .
+/// Block type for basic_authentication in AzurermDataFactoryLinkedServiceOdata.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceOdataBasicAuthenticationBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermDataFactoryLinkedServiceOdataBasicAuthenticationBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryLinkedServiceOdata.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryLinkedServiceOdataTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermDataFactoryLinkedServiceOdataTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_linked_service_odata Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCdnFrontdoorEndpoint.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnFrontdoorEndpointTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermCdnFrontdoorEndpointTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_frontdoor_endpoint Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualDesktopApplication.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_desktop_application Terraform resource.

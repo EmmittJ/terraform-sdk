@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for acl in .
+/// Block type for acl in AzurermStorageShareDataSource.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageShareDataSourceAclBlock : TerraformBlock
@@ -31,8 +31,9 @@ public class AzurermStorageShareDataSourceAclBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageShareDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageShareDataSourceTimeoutsBlock : TerraformBlock
@@ -52,6 +53,7 @@ public class AzurermStorageShareDataSourceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_share Terraform data source.

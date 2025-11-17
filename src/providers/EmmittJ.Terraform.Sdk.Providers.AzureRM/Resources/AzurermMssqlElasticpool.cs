@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for per_database_settings in .
+/// Block type for per_database_settings in AzurermMssqlElasticpool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermMssqlElasticpoolPerDatabaseSettingsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermMssqlElasticpool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
@@ -87,8 +88,9 @@ public class AzurermMssqlElasticpoolSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlElasticpool.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
@@ -135,6 +137,7 @@ public class AzurermMssqlElasticpoolTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_elasticpool Terraform resource.

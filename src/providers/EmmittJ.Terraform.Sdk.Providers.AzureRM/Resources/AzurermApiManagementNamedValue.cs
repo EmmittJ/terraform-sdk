@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementNamedValue.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementNamedValueTimeoutsBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermApiManagementNamedValueTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for value_from_key_vault in .
+/// Block type for value_from_key_vault in AzurermApiManagementNamedValue.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementNamedValueValueFromKeyVaultBlock : TerraformBlock
@@ -82,6 +83,7 @@ public class AzurermApiManagementNamedValueValueFromKeyVaultBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_named_value Terraform resource.

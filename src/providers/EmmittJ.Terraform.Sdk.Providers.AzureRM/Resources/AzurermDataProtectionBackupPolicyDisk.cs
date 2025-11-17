@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for retention_rule in .
+/// Block type for retention_rule in AzurermDataProtectionBackupPolicyDisk.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : TerraformBlock
@@ -43,10 +43,46 @@ public class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock : Terraform
         set => SetArgument("priority", value);
     }
 
+    /// <summary>
+    /// Criteria block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
+    public required TerraformList<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlockCriteriaBlock> Criteria
+    {
+        get => GetRequiredArgument<TerraformList<AzurermDataProtectionBackupPolicyDiskRetentionRuleBlockCriteriaBlock>>("criteria");
+        set => SetArgument("criteria", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for criteria in AzurermDataProtectionBackupPolicyDiskRetentionRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataProtectionBackupPolicyDiskRetentionRuleBlockCriteriaBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "criteria";
+
+    /// <summary>
+    /// The absolute_criteria attribute.
+    /// </summary>
+    public TerraformValue<string>? AbsoluteCriteria
+    {
+        get => new TerraformReference<string>(this, "absolute_criteria");
+        set => SetArgument("absolute_criteria", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermDataProtectionBackupPolicyDisk.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataProtectionBackupPolicyDiskTimeoutsBlock : TerraformBlock
@@ -84,6 +120,7 @@ public class AzurermDataProtectionBackupPolicyDiskTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_protection_backup_policy_disk Terraform resource.

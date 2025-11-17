@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azuread_administrator in .
+/// Block type for azuread_administrator in AzurermMssqlServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermMssqlServerAzureadAdministratorBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMssqlServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlServerIdentityBlock : TerraformBlock
@@ -101,8 +102,9 @@ public class AzurermMssqlServerIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlServer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
@@ -149,6 +151,7 @@ public class AzurermMssqlServerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_server Terraform resource.

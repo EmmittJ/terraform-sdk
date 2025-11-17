@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDatabricksWorkspaceRootDbfsCustomerManagedKey.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeyTimeoutsBlock :
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_databricks_workspace_root_dbfs_customer_managed_key Terraform resource.

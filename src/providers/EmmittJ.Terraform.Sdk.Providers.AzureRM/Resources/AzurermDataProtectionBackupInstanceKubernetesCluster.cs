@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for backup_datasource_parameters in .
+/// Block type for backup_datasource_parameters in AzurermDataProtectionBackupInstanceKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourceParametersBlock : TerraformBlock
@@ -78,8 +78,9 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterBackupDatasourc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataProtectionBackupInstanceKubernetesCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock : TerraformBlock
@@ -117,6 +118,7 @@ public class AzurermDataProtectionBackupInstanceKubernetesClusterTimeoutsBlock :
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_protection_backup_instance_kubernetes_cluster Terraform resource.

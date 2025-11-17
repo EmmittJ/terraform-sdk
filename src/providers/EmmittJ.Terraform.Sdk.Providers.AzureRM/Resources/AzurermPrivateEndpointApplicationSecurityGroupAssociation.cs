@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPrivateEndpointApplicationSecurityGroupAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermPrivateEndpointApplicationSecurityGroupAssociationTimeoutsBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_private_endpoint_application_security_group_association Terraform resource.

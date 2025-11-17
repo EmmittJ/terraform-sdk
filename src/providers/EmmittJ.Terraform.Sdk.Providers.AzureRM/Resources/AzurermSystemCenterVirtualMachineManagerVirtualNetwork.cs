@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSystemCenterVirtualMachineManagerVirtualNetwork.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSystemCenterVirtualMachineManagerVirtualNetworkTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualNetworkTimeoutsBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_system_center_virtual_machine_manager_virtual_network Terraform resource.

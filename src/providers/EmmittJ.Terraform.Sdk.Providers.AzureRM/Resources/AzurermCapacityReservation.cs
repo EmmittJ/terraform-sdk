@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermCapacityReservation.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCapacityReservationSkuBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermCapacityReservationSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCapacityReservation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCapacityReservationTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermCapacityReservationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_capacity_reservation Terraform resource.

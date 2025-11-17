@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for sink in .
+/// Block type for sink in AzurermDataFactoryFlowletDataFlow.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryFlowletDataFlowSinkBlock : TerraformBlock
@@ -32,10 +32,230 @@ public class AzurermDataFactoryFlowletDataFlowSinkBlock : TerraformBlock
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// Dataset block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlockDatasetBlock>? Dataset
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlockDatasetBlock>>("dataset");
+        set => SetArgument("dataset", value);
+    }
+
+    /// <summary>
+    /// Flowlet block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Flowlet block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlockFlowletBlock>? Flowlet
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlockFlowletBlock>>("flowlet");
+        set => SetArgument("flowlet", value);
+    }
+
+    /// <summary>
+    /// LinkedService block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedService block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlockLinkedServiceBlock>? LinkedService
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlockLinkedServiceBlock>>("linked_service");
+        set => SetArgument("linked_service", value);
+    }
+
+    /// <summary>
+    /// RejectedLinkedService block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RejectedLinkedService block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlockRejectedLinkedServiceBlock>? RejectedLinkedService
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlockRejectedLinkedServiceBlock>>("rejected_linked_service");
+        set => SetArgument("rejected_linked_service", value);
+    }
+
+    /// <summary>
+    /// SchemaLinkedService block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaLinkedService block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlockSchemaLinkedServiceBlock>? SchemaLinkedService
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSinkBlockSchemaLinkedServiceBlock>>("schema_linked_service");
+        set => SetArgument("schema_linked_service", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for source in .
+/// Block type for dataset in AzurermDataFactoryFlowletDataFlowSinkBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowSinkBlockDatasetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dataset";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for flowlet in AzurermDataFactoryFlowletDataFlowSinkBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowSinkBlockFlowletBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "flowlet";
+
+    /// <summary>
+    /// The dataset_parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? DatasetParameters
+    {
+        get => new TerraformReference<string>(this, "dataset_parameters");
+        set => SetArgument("dataset_parameters", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for linked_service in AzurermDataFactoryFlowletDataFlowSinkBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowSinkBlockLinkedServiceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "linked_service";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for rejected_linked_service in AzurermDataFactoryFlowletDataFlowSinkBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowSinkBlockRejectedLinkedServiceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "rejected_linked_service";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for schema_linked_service in AzurermDataFactoryFlowletDataFlowSinkBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowSinkBlockSchemaLinkedServiceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "schema_linked_service";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for source in AzurermDataFactoryFlowletDataFlow.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryFlowletDataFlowSourceBlock : TerraformBlock
@@ -64,10 +284,230 @@ public class AzurermDataFactoryFlowletDataFlowSourceBlock : TerraformBlock
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// Dataset block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlockDatasetBlock>? Dataset
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlockDatasetBlock>>("dataset");
+        set => SetArgument("dataset", value);
+    }
+
+    /// <summary>
+    /// Flowlet block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Flowlet block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlockFlowletBlock>? Flowlet
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlockFlowletBlock>>("flowlet");
+        set => SetArgument("flowlet", value);
+    }
+
+    /// <summary>
+    /// LinkedService block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedService block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlockLinkedServiceBlock>? LinkedService
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlockLinkedServiceBlock>>("linked_service");
+        set => SetArgument("linked_service", value);
+    }
+
+    /// <summary>
+    /// RejectedLinkedService block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RejectedLinkedService block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlockRejectedLinkedServiceBlock>? RejectedLinkedService
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlockRejectedLinkedServiceBlock>>("rejected_linked_service");
+        set => SetArgument("rejected_linked_service", value);
+    }
+
+    /// <summary>
+    /// SchemaLinkedService block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchemaLinkedService block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlockSchemaLinkedServiceBlock>? SchemaLinkedService
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowSourceBlockSchemaLinkedServiceBlock>>("schema_linked_service");
+        set => SetArgument("schema_linked_service", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for dataset in AzurermDataFactoryFlowletDataFlowSourceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowSourceBlockDatasetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dataset";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for flowlet in AzurermDataFactoryFlowletDataFlowSourceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowSourceBlockFlowletBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "flowlet";
+
+    /// <summary>
+    /// The dataset_parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? DatasetParameters
+    {
+        get => new TerraformReference<string>(this, "dataset_parameters");
+        set => SetArgument("dataset_parameters", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for linked_service in AzurermDataFactoryFlowletDataFlowSourceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowSourceBlockLinkedServiceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "linked_service";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for rejected_linked_service in AzurermDataFactoryFlowletDataFlowSourceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowSourceBlockRejectedLinkedServiceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "rejected_linked_service";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for schema_linked_service in AzurermDataFactoryFlowletDataFlowSourceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowSourceBlockSchemaLinkedServiceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "schema_linked_service";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermDataFactoryFlowletDataFlow.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlock
@@ -115,8 +555,9 @@ public class AzurermDataFactoryFlowletDataFlowTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for transformation in .
+/// Block type for transformation in AzurermDataFactoryFlowletDataFlow.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryFlowletDataFlowTransformationBlock : TerraformBlock
@@ -145,7 +586,143 @@ public class AzurermDataFactoryFlowletDataFlowTransformationBlock : TerraformBlo
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// Dataset block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dataset block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowTransformationBlockDatasetBlock>? Dataset
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowTransformationBlockDatasetBlock>>("dataset");
+        set => SetArgument("dataset", value);
+    }
+
+    /// <summary>
+    /// Flowlet block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Flowlet block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowTransformationBlockFlowletBlock>? Flowlet
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowTransformationBlockFlowletBlock>>("flowlet");
+        set => SetArgument("flowlet", value);
+    }
+
+    /// <summary>
+    /// LinkedService block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinkedService block(s) allowed")]
+    public TerraformList<AzurermDataFactoryFlowletDataFlowTransformationBlockLinkedServiceBlock>? LinkedService
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryFlowletDataFlowTransformationBlockLinkedServiceBlock>>("linked_service");
+        set => SetArgument("linked_service", value);
+    }
+
 }
+
+/// <summary>
+/// Block type for dataset in AzurermDataFactoryFlowletDataFlowTransformationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowTransformationBlockDatasetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dataset";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for flowlet in AzurermDataFactoryFlowletDataFlowTransformationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowTransformationBlockFlowletBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "flowlet";
+
+    /// <summary>
+    /// The dataset_parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? DatasetParameters
+    {
+        get => new TerraformReference<string>(this, "dataset_parameters");
+        set => SetArgument("dataset_parameters", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for linked_service in AzurermDataFactoryFlowletDataFlowTransformationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryFlowletDataFlowTransformationBlockLinkedServiceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "linked_service";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+}
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_flowlet_data_flow Terraform resource.

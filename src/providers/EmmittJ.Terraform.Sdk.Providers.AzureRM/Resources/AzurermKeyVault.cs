@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for contact in .
+/// Block type for contact in AzurermKeyVault.
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
@@ -44,8 +44,9 @@ public class AzurermKeyVaultContactBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_acls in .
+/// Block type for network_acls in AzurermKeyVault.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKeyVaultNetworkAclsBlock : TerraformBlock
@@ -95,8 +96,9 @@ public class AzurermKeyVaultNetworkAclsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKeyVault.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultTimeoutsBlock : TerraformBlock
@@ -143,6 +145,7 @@ public class AzurermKeyVaultTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault Terraform resource.

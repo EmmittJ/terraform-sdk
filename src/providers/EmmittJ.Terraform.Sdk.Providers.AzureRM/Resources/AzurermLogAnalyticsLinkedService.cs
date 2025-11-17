@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogAnalyticsLinkedService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogAnalyticsLinkedServiceTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermLogAnalyticsLinkedServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_log_analytics_linked_service Terraform resource.

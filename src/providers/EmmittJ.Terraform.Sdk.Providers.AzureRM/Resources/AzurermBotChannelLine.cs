@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for line_channel in .
+/// Block type for line_channel in AzurermBotChannelLine.
 /// Nesting mode: set
 /// </summary>
 public class AzurermBotChannelLineLineChannelBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermBotChannelLineLineChannelBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBotChannelLine.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBotChannelLineTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermBotChannelLineTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_bot_channel_line Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for routing in .
+/// Block type for routing in AzurermVirtualHubConnection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
@@ -58,10 +58,101 @@ public class AzurermVirtualHubConnectionRoutingBlock : TerraformBlock
         set => SetArgument("static_vnet_propagate_static_routes_enabled", value);
     }
 
+    /// <summary>
+    /// PropagatedRouteTable block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PropagatedRouteTable block(s) allowed")]
+    public TerraformList<AzurermVirtualHubConnectionRoutingBlockPropagatedRouteTableBlock>? PropagatedRouteTable
+    {
+        get => GetArgument<TerraformList<AzurermVirtualHubConnectionRoutingBlockPropagatedRouteTableBlock>>("propagated_route_table");
+        set => SetArgument("propagated_route_table", value);
+    }
+
+    /// <summary>
+    /// StaticVnetRoute block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermVirtualHubConnectionRoutingBlockStaticVnetRouteBlock>? StaticVnetRoute
+    {
+        get => GetArgument<TerraformList<AzurermVirtualHubConnectionRoutingBlockStaticVnetRouteBlock>>("static_vnet_route");
+        set => SetArgument("static_vnet_route", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for propagated_route_table in AzurermVirtualHubConnectionRoutingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualHubConnectionRoutingBlockPropagatedRouteTableBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "propagated_route_table";
+
+    /// <summary>
+    /// The labels attribute.
+    /// </summary>
+    public TerraformSet<string> Labels
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "labels").ResolveNodes(ctx));
+        set => SetArgument("labels", value);
+    }
+
+    /// <summary>
+    /// The route_table_ids attribute.
+    /// </summary>
+    public TerraformList<string> RouteTableIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "route_table_ids").ResolveNodes(ctx));
+        set => SetArgument("route_table_ids", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for static_vnet_route in AzurermVirtualHubConnectionRoutingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualHubConnectionRoutingBlockStaticVnetRouteBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "static_vnet_route";
+
+    /// <summary>
+    /// The address_prefixes attribute.
+    /// </summary>
+    public TerraformSet<string>? AddressPrefixes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "address_prefixes").ResolveNodes(ctx));
+        set => SetArgument("address_prefixes", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string>? Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The next_hop_ip_address attribute.
+    /// </summary>
+    public TerraformValue<string>? NextHopIpAddress
+    {
+        get => new TerraformReference<string>(this, "next_hop_ip_address");
+        set => SetArgument("next_hop_ip_address", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermVirtualHubConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
@@ -108,6 +199,7 @@ public class AzurermVirtualHubConnectionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_hub_connection Terraform resource.

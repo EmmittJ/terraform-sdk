@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for protected_settings_from_key_vault in .
+/// Block type for protected_settings_from_key_vault in AzurermVirtualMachineScaleSetExtension.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualMachineScaleSetExtension.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualMachineScaleSetExtensionTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermVirtualMachineScaleSetExtensionTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_machine_scale_set_extension Terraform resource.

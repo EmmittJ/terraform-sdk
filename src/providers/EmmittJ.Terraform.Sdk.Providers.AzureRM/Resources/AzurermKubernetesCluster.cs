@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for aci_connector_linux in .
+/// Block type for aci_connector_linux in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterAciConnectorLinuxBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermKubernetesClusterAciConnectorLinuxBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for api_server_access_profile in .
+/// Block type for api_server_access_profile in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterApiServerAccessProfileBlock : TerraformBlock
@@ -73,8 +74,9 @@ public class AzurermKubernetesClusterApiServerAccessProfileBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for auto_scaler_profile in .
+/// Block type for auto_scaler_profile in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
@@ -266,8 +268,9 @@ public class AzurermKubernetesClusterAutoScalerProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for azure_active_directory_role_based_access_control in .
+/// Block type for azure_active_directory_role_based_access_control in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlBlock : TerraformBlock
@@ -306,8 +309,9 @@ public class AzurermKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlB
 
 }
 
+
 /// <summary>
-/// Block type for bootstrap_profile in .
+/// Block type for bootstrap_profile in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterBootstrapProfileBlock : TerraformBlock
@@ -337,8 +341,9 @@ public class AzurermKubernetesClusterBootstrapProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for confidential_computing in .
+/// Block type for confidential_computing in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterConfidentialComputingBlock : TerraformBlock
@@ -360,8 +365,9 @@ public class AzurermKubernetesClusterConfidentialComputingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for default_node_pool in .
+/// Block type for default_node_pool in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
@@ -669,10 +675,609 @@ public class AzurermKubernetesClusterDefaultNodePoolBlock : TerraformBlock
         set => SetArgument("zones", value);
     }
 
+    /// <summary>
+    /// KubeletConfig block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KubeletConfig block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockKubeletConfigBlock>? KubeletConfig
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockKubeletConfigBlock>>("kubelet_config");
+        set => SetArgument("kubelet_config", value);
+    }
+
+    /// <summary>
+    /// LinuxOsConfig block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LinuxOsConfig block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlock>? LinuxOsConfig
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlock>>("linux_os_config");
+        set => SetArgument("linux_os_config", value);
+    }
+
+    /// <summary>
+    /// NodeNetworkProfile block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeNetworkProfile block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockNodeNetworkProfileBlock>? NodeNetworkProfile
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockNodeNetworkProfileBlock>>("node_network_profile");
+        set => SetArgument("node_network_profile", value);
+    }
+
+    /// <summary>
+    /// UpgradeSettings block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradeSettings block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockUpgradeSettingsBlock>? UpgradeSettings
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockUpgradeSettingsBlock>>("upgrade_settings");
+        set => SetArgument("upgrade_settings", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for http_proxy_config in .
+/// Block type for kubelet_config in AzurermKubernetesClusterDefaultNodePoolBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterDefaultNodePoolBlockKubeletConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "kubelet_config";
+
+    /// <summary>
+    /// The allowed_unsafe_sysctls attribute.
+    /// </summary>
+    public TerraformSet<string>? AllowedUnsafeSysctls
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_unsafe_sysctls").ResolveNodes(ctx));
+        set => SetArgument("allowed_unsafe_sysctls", value);
+    }
+
+    /// <summary>
+    /// The container_log_max_line attribute.
+    /// </summary>
+    public TerraformValue<double>? ContainerLogMaxLine
+    {
+        get => new TerraformReference<double>(this, "container_log_max_line");
+        set => SetArgument("container_log_max_line", value);
+    }
+
+    /// <summary>
+    /// The container_log_max_size_mb attribute.
+    /// </summary>
+    public TerraformValue<double>? ContainerLogMaxSizeMb
+    {
+        get => new TerraformReference<double>(this, "container_log_max_size_mb");
+        set => SetArgument("container_log_max_size_mb", value);
+    }
+
+    /// <summary>
+    /// The cpu_cfs_quota_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? CpuCfsQuotaEnabled
+    {
+        get => new TerraformReference<bool>(this, "cpu_cfs_quota_enabled");
+        set => SetArgument("cpu_cfs_quota_enabled", value);
+    }
+
+    /// <summary>
+    /// The cpu_cfs_quota_period attribute.
+    /// </summary>
+    public TerraformValue<string>? CpuCfsQuotaPeriod
+    {
+        get => new TerraformReference<string>(this, "cpu_cfs_quota_period");
+        set => SetArgument("cpu_cfs_quota_period", value);
+    }
+
+    /// <summary>
+    /// The cpu_manager_policy attribute.
+    /// </summary>
+    public TerraformValue<string>? CpuManagerPolicy
+    {
+        get => new TerraformReference<string>(this, "cpu_manager_policy");
+        set => SetArgument("cpu_manager_policy", value);
+    }
+
+    /// <summary>
+    /// The image_gc_high_threshold attribute.
+    /// </summary>
+    public TerraformValue<double>? ImageGcHighThreshold
+    {
+        get => new TerraformReference<double>(this, "image_gc_high_threshold");
+        set => SetArgument("image_gc_high_threshold", value);
+    }
+
+    /// <summary>
+    /// The image_gc_low_threshold attribute.
+    /// </summary>
+    public TerraformValue<double>? ImageGcLowThreshold
+    {
+        get => new TerraformReference<double>(this, "image_gc_low_threshold");
+        set => SetArgument("image_gc_low_threshold", value);
+    }
+
+    /// <summary>
+    /// The pod_max_pid attribute.
+    /// </summary>
+    public TerraformValue<double>? PodMaxPid
+    {
+        get => new TerraformReference<double>(this, "pod_max_pid");
+        set => SetArgument("pod_max_pid", value);
+    }
+
+    /// <summary>
+    /// The topology_manager_policy attribute.
+    /// </summary>
+    public TerraformValue<string>? TopologyManagerPolicy
+    {
+        get => new TerraformReference<string>(this, "topology_manager_policy");
+        set => SetArgument("topology_manager_policy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for linux_os_config in AzurermKubernetesClusterDefaultNodePoolBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "linux_os_config";
+
+    /// <summary>
+    /// The swap_file_size_mb attribute.
+    /// </summary>
+    public TerraformValue<double>? SwapFileSizeMb
+    {
+        get => new TerraformReference<double>(this, "swap_file_size_mb");
+        set => SetArgument("swap_file_size_mb", value);
+    }
+
+    /// <summary>
+    /// The transparent_huge_page attribute.
+    /// </summary>
+    public TerraformValue<string> TransparentHugePage
+    {
+        get => new TerraformReference<string>(this, "transparent_huge_page");
+        set => SetArgument("transparent_huge_page", value);
+    }
+
+    /// <summary>
+    /// The transparent_huge_page_defrag attribute.
+    /// </summary>
+    public TerraformValue<string>? TransparentHugePageDefrag
+    {
+        get => new TerraformReference<string>(this, "transparent_huge_page_defrag");
+        set => SetArgument("transparent_huge_page_defrag", value);
+    }
+
+    /// <summary>
+    /// The transparent_huge_page_enabled attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<string> TransparentHugePageEnabled
+    {
+        get => new TerraformReference<string>(this, "transparent_huge_page_enabled");
+        set => SetArgument("transparent_huge_page_enabled", value);
+    }
+
+    /// <summary>
+    /// SysctlConfig block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SysctlConfig block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlockSysctlConfigBlock>? SysctlConfig
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlockSysctlConfigBlock>>("sysctl_config");
+        set => SetArgument("sysctl_config", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for sysctl_config in AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterDefaultNodePoolBlockLinuxOsConfigBlockSysctlConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "sysctl_config";
+
+    /// <summary>
+    /// The fs_aio_max_nr attribute.
+    /// </summary>
+    public TerraformValue<double>? FsAioMaxNr
+    {
+        get => new TerraformReference<double>(this, "fs_aio_max_nr");
+        set => SetArgument("fs_aio_max_nr", value);
+    }
+
+    /// <summary>
+    /// The fs_file_max attribute.
+    /// </summary>
+    public TerraformValue<double>? FsFileMax
+    {
+        get => new TerraformReference<double>(this, "fs_file_max");
+        set => SetArgument("fs_file_max", value);
+    }
+
+    /// <summary>
+    /// The fs_inotify_max_user_watches attribute.
+    /// </summary>
+    public TerraformValue<double>? FsInotifyMaxUserWatches
+    {
+        get => new TerraformReference<double>(this, "fs_inotify_max_user_watches");
+        set => SetArgument("fs_inotify_max_user_watches", value);
+    }
+
+    /// <summary>
+    /// The fs_nr_open attribute.
+    /// </summary>
+    public TerraformValue<double>? FsNrOpen
+    {
+        get => new TerraformReference<double>(this, "fs_nr_open");
+        set => SetArgument("fs_nr_open", value);
+    }
+
+    /// <summary>
+    /// The kernel_threads_max attribute.
+    /// </summary>
+    public TerraformValue<double>? KernelThreadsMax
+    {
+        get => new TerraformReference<double>(this, "kernel_threads_max");
+        set => SetArgument("kernel_threads_max", value);
+    }
+
+    /// <summary>
+    /// The net_core_netdev_max_backlog attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreNetdevMaxBacklog
+    {
+        get => new TerraformReference<double>(this, "net_core_netdev_max_backlog");
+        set => SetArgument("net_core_netdev_max_backlog", value);
+    }
+
+    /// <summary>
+    /// The net_core_optmem_max attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreOptmemMax
+    {
+        get => new TerraformReference<double>(this, "net_core_optmem_max");
+        set => SetArgument("net_core_optmem_max", value);
+    }
+
+    /// <summary>
+    /// The net_core_rmem_default attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreRmemDefault
+    {
+        get => new TerraformReference<double>(this, "net_core_rmem_default");
+        set => SetArgument("net_core_rmem_default", value);
+    }
+
+    /// <summary>
+    /// The net_core_rmem_max attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreRmemMax
+    {
+        get => new TerraformReference<double>(this, "net_core_rmem_max");
+        set => SetArgument("net_core_rmem_max", value);
+    }
+
+    /// <summary>
+    /// The net_core_somaxconn attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreSomaxconn
+    {
+        get => new TerraformReference<double>(this, "net_core_somaxconn");
+        set => SetArgument("net_core_somaxconn", value);
+    }
+
+    /// <summary>
+    /// The net_core_wmem_default attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreWmemDefault
+    {
+        get => new TerraformReference<double>(this, "net_core_wmem_default");
+        set => SetArgument("net_core_wmem_default", value);
+    }
+
+    /// <summary>
+    /// The net_core_wmem_max attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreWmemMax
+    {
+        get => new TerraformReference<double>(this, "net_core_wmem_max");
+        set => SetArgument("net_core_wmem_max", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_ip_local_port_range_max attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4IpLocalPortRangeMax
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_ip_local_port_range_max");
+        set => SetArgument("net_ipv4_ip_local_port_range_max", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_ip_local_port_range_min attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4IpLocalPortRangeMin
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_ip_local_port_range_min");
+        set => SetArgument("net_ipv4_ip_local_port_range_min", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_neigh_default_gc_thresh1 attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4NeighDefaultGcThresh1
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_neigh_default_gc_thresh1");
+        set => SetArgument("net_ipv4_neigh_default_gc_thresh1", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_neigh_default_gc_thresh2 attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4NeighDefaultGcThresh2
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_neigh_default_gc_thresh2");
+        set => SetArgument("net_ipv4_neigh_default_gc_thresh2", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_neigh_default_gc_thresh3 attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4NeighDefaultGcThresh3
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_neigh_default_gc_thresh3");
+        set => SetArgument("net_ipv4_neigh_default_gc_thresh3", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_fin_timeout attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpFinTimeout
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_fin_timeout");
+        set => SetArgument("net_ipv4_tcp_fin_timeout", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_keepalive_intvl attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpKeepaliveIntvl
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_keepalive_intvl");
+        set => SetArgument("net_ipv4_tcp_keepalive_intvl", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_keepalive_probes attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpKeepaliveProbes
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_keepalive_probes");
+        set => SetArgument("net_ipv4_tcp_keepalive_probes", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_keepalive_time attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpKeepaliveTime
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_keepalive_time");
+        set => SetArgument("net_ipv4_tcp_keepalive_time", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_max_syn_backlog attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpMaxSynBacklog
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_max_syn_backlog");
+        set => SetArgument("net_ipv4_tcp_max_syn_backlog", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_max_tw_buckets attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpMaxTwBuckets
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_max_tw_buckets");
+        set => SetArgument("net_ipv4_tcp_max_tw_buckets", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_tw_reuse attribute.
+    /// </summary>
+    public TerraformValue<bool>? NetIpv4TcpTwReuse
+    {
+        get => new TerraformReference<bool>(this, "net_ipv4_tcp_tw_reuse");
+        set => SetArgument("net_ipv4_tcp_tw_reuse", value);
+    }
+
+    /// <summary>
+    /// The net_netfilter_nf_conntrack_buckets attribute.
+    /// </summary>
+    public TerraformValue<double>? NetNetfilterNfConntrackBuckets
+    {
+        get => new TerraformReference<double>(this, "net_netfilter_nf_conntrack_buckets");
+        set => SetArgument("net_netfilter_nf_conntrack_buckets", value);
+    }
+
+    /// <summary>
+    /// The net_netfilter_nf_conntrack_max attribute.
+    /// </summary>
+    public TerraformValue<double>? NetNetfilterNfConntrackMax
+    {
+        get => new TerraformReference<double>(this, "net_netfilter_nf_conntrack_max");
+        set => SetArgument("net_netfilter_nf_conntrack_max", value);
+    }
+
+    /// <summary>
+    /// The vm_max_map_count attribute.
+    /// </summary>
+    public TerraformValue<double>? VmMaxMapCount
+    {
+        get => new TerraformReference<double>(this, "vm_max_map_count");
+        set => SetArgument("vm_max_map_count", value);
+    }
+
+    /// <summary>
+    /// The vm_swappiness attribute.
+    /// </summary>
+    public TerraformValue<double>? VmSwappiness
+    {
+        get => new TerraformReference<double>(this, "vm_swappiness");
+        set => SetArgument("vm_swappiness", value);
+    }
+
+    /// <summary>
+    /// The vm_vfs_cache_pressure attribute.
+    /// </summary>
+    public TerraformValue<double>? VmVfsCachePressure
+    {
+        get => new TerraformReference<double>(this, "vm_vfs_cache_pressure");
+        set => SetArgument("vm_vfs_cache_pressure", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for node_network_profile in AzurermKubernetesClusterDefaultNodePoolBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterDefaultNodePoolBlockNodeNetworkProfileBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "node_network_profile";
+
+    /// <summary>
+    /// The application_security_group_ids attribute.
+    /// </summary>
+    public TerraformList<string>? ApplicationSecurityGroupIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "application_security_group_ids").ResolveNodes(ctx));
+        set => SetArgument("application_security_group_ids", value);
+    }
+
+    /// <summary>
+    /// The node_public_ip_tags attribute.
+    /// </summary>
+    public TerraformMap<string>? NodePublicIpTags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "node_public_ip_tags").ResolveNodes(ctx));
+        set => SetArgument("node_public_ip_tags", value);
+    }
+
+    /// <summary>
+    /// AllowedHostPorts block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockNodeNetworkProfileBlockAllowedHostPortsBlock>? AllowedHostPorts
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterDefaultNodePoolBlockNodeNetworkProfileBlockAllowedHostPortsBlock>>("allowed_host_ports");
+        set => SetArgument("allowed_host_ports", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for allowed_host_ports in AzurermKubernetesClusterDefaultNodePoolBlockNodeNetworkProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterDefaultNodePoolBlockNodeNetworkProfileBlockAllowedHostPortsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "allowed_host_ports";
+
+    /// <summary>
+    /// The port_end attribute.
+    /// </summary>
+    public TerraformValue<double>? PortEnd
+    {
+        get => new TerraformReference<double>(this, "port_end");
+        set => SetArgument("port_end", value);
+    }
+
+    /// <summary>
+    /// The port_start attribute.
+    /// </summary>
+    public TerraformValue<double>? PortStart
+    {
+        get => new TerraformReference<double>(this, "port_start");
+        set => SetArgument("port_start", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    public TerraformValue<string>? Protocol
+    {
+        get => new TerraformReference<string>(this, "protocol");
+        set => SetArgument("protocol", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for upgrade_settings in AzurermKubernetesClusterDefaultNodePoolBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterDefaultNodePoolBlockUpgradeSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "upgrade_settings";
+
+    /// <summary>
+    /// The drain_timeout_in_minutes attribute.
+    /// </summary>
+    public TerraformValue<double>? DrainTimeoutInMinutes
+    {
+        get => new TerraformReference<double>(this, "drain_timeout_in_minutes");
+        set => SetArgument("drain_timeout_in_minutes", value);
+    }
+
+    /// <summary>
+    /// The max_surge attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSurge is required")]
+    public required TerraformValue<string> MaxSurge
+    {
+        get => new TerraformReference<string>(this, "max_surge");
+        set => SetArgument("max_surge", value);
+    }
+
+    /// <summary>
+    /// The node_soak_duration_in_minutes attribute.
+    /// </summary>
+    public TerraformValue<double>? NodeSoakDurationInMinutes
+    {
+        get => new TerraformReference<double>(this, "node_soak_duration_in_minutes");
+        set => SetArgument("node_soak_duration_in_minutes", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for http_proxy_config in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterHttpProxyConfigBlock : TerraformBlock
@@ -720,8 +1325,9 @@ public class AzurermKubernetesClusterHttpProxyConfigBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterIdentityBlock : TerraformBlock
@@ -768,8 +1374,9 @@ public class AzurermKubernetesClusterIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for ingress_application_gateway in .
+/// Block type for ingress_application_gateway in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformBlock
@@ -833,8 +1440,9 @@ public class AzurermKubernetesClusterIngressApplicationGatewayBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for key_management_service in .
+/// Block type for key_management_service in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterKeyManagementServiceBlock : TerraformBlock
@@ -865,8 +1473,9 @@ public class AzurermKubernetesClusterKeyManagementServiceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for key_vault_secrets_provider in .
+/// Block type for key_vault_secrets_provider in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterKeyVaultSecretsProviderBlock : TerraformBlock
@@ -904,8 +1513,9 @@ public class AzurermKubernetesClusterKeyVaultSecretsProviderBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for kubelet_identity in .
+/// Block type for kubelet_identity in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlock
@@ -944,8 +1554,9 @@ public class AzurermKubernetesClusterKubeletIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for linux_profile in .
+/// Block type for linux_profile in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterLinuxProfileBlock : TerraformBlock
@@ -965,10 +1576,47 @@ public class AzurermKubernetesClusterLinuxProfileBlock : TerraformBlock
         set => SetArgument("admin_username", value);
     }
 
+    /// <summary>
+    /// SshKey block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshKey is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SshKey block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SshKey block(s) allowed")]
+    public required TerraformList<AzurermKubernetesClusterLinuxProfileBlockSshKeyBlock> SshKey
+    {
+        get => GetRequiredArgument<TerraformList<AzurermKubernetesClusterLinuxProfileBlockSshKeyBlock>>("ssh_key");
+        set => SetArgument("ssh_key", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for maintenance_window in .
+/// Block type for ssh_key in AzurermKubernetesClusterLinuxProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterLinuxProfileBlockSshKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ssh_key";
+
+    /// <summary>
+    /// The key_data attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyData is required")]
+    public required TerraformValue<string> KeyData
+    {
+        get => new TerraformReference<string>(this, "key_data");
+        set => SetArgument("key_data", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for maintenance_window in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterMaintenanceWindowBlock : TerraformBlock
@@ -978,10 +1626,95 @@ public class AzurermKubernetesClusterMaintenanceWindowBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "maintenance_window";
 
+    /// <summary>
+    /// Allowed block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermKubernetesClusterMaintenanceWindowBlockAllowedBlock>? Allowed
+    {
+        get => GetArgument<TerraformSet<AzurermKubernetesClusterMaintenanceWindowBlockAllowedBlock>>("allowed");
+        set => SetArgument("allowed", value);
+    }
+
+    /// <summary>
+    /// NotAllowed block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermKubernetesClusterMaintenanceWindowBlockNotAllowedBlock>? NotAllowed
+    {
+        get => GetArgument<TerraformSet<AzurermKubernetesClusterMaintenanceWindowBlockNotAllowedBlock>>("not_allowed");
+        set => SetArgument("not_allowed", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for maintenance_window_auto_upgrade in .
+/// Block type for allowed in AzurermKubernetesClusterMaintenanceWindowBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermKubernetesClusterMaintenanceWindowBlockAllowedBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "allowed";
+
+    /// <summary>
+    /// The day attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Day is required")]
+    public required TerraformValue<string> Day
+    {
+        get => new TerraformReference<string>(this, "day");
+        set => SetArgument("day", value);
+    }
+
+    /// <summary>
+    /// The hours attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hours is required")]
+    public required TerraformSet<double> Hours
+    {
+        get => TerraformSet<double>.Lazy(ctx => new TerraformReference<TerraformSet<double>>(this, "hours").ResolveNodes(ctx));
+        set => SetArgument("hours", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for not_allowed in AzurermKubernetesClusterMaintenanceWindowBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermKubernetesClusterMaintenanceWindowBlockNotAllowedBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "not_allowed";
+
+    /// <summary>
+    /// The end attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
+    public required TerraformValue<string> End
+    {
+        get => new TerraformReference<string>(this, "end");
+        set => SetArgument("end", value);
+    }
+
+    /// <summary>
+    /// The start attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
+    public required TerraformValue<string> Start
+    {
+        get => new TerraformReference<string>(this, "start");
+        set => SetArgument("start", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for maintenance_window_auto_upgrade in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : TerraformBlock
@@ -1075,10 +1808,53 @@ public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock : Terrafo
         set => SetArgument("week_index", value);
     }
 
+    /// <summary>
+    /// NotAllowed block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlockNotAllowedBlock>? NotAllowed
+    {
+        get => GetArgument<TerraformSet<AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlockNotAllowedBlock>>("not_allowed");
+        set => SetArgument("not_allowed", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for maintenance_window_node_os in .
+/// Block type for not_allowed in AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermKubernetesClusterMaintenanceWindowAutoUpgradeBlockNotAllowedBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "not_allowed";
+
+    /// <summary>
+    /// The end attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
+    public required TerraformValue<string> End
+    {
+        get => new TerraformReference<string>(this, "end");
+        set => SetArgument("end", value);
+    }
+
+    /// <summary>
+    /// The start attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
+    public required TerraformValue<string> Start
+    {
+        get => new TerraformReference<string>(this, "start");
+        set => SetArgument("start", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for maintenance_window_node_os in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlock
@@ -1172,10 +1948,53 @@ public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlock : TerraformBlo
         set => SetArgument("week_index", value);
     }
 
+    /// <summary>
+    /// NotAllowed block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermKubernetesClusterMaintenanceWindowNodeOsBlockNotAllowedBlock>? NotAllowed
+    {
+        get => GetArgument<TerraformSet<AzurermKubernetesClusterMaintenanceWindowNodeOsBlockNotAllowedBlock>>("not_allowed");
+        set => SetArgument("not_allowed", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for microsoft_defender in .
+/// Block type for not_allowed in AzurermKubernetesClusterMaintenanceWindowNodeOsBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermKubernetesClusterMaintenanceWindowNodeOsBlockNotAllowedBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "not_allowed";
+
+    /// <summary>
+    /// The end attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "End is required")]
+    public required TerraformValue<string> End
+    {
+        get => new TerraformReference<string>(this, "end");
+        set => SetArgument("end", value);
+    }
+
+    /// <summary>
+    /// The start attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
+    public required TerraformValue<string> Start
+    {
+        get => new TerraformReference<string>(this, "start");
+        set => SetArgument("start", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for microsoft_defender in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterMicrosoftDefenderBlock : TerraformBlock
@@ -1197,8 +2016,9 @@ public class AzurermKubernetesClusterMicrosoftDefenderBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for monitor_metrics in .
+/// Block type for monitor_metrics in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterMonitorMetricsBlock : TerraformBlock
@@ -1228,8 +2048,9 @@ public class AzurermKubernetesClusterMonitorMetricsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_profile in .
+/// Block type for network_profile in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
@@ -1357,10 +2178,195 @@ public class AzurermKubernetesClusterNetworkProfileBlock : TerraformBlock
         set => SetArgument("service_cidrs", value);
     }
 
+    /// <summary>
+    /// AdvancedNetworking block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedNetworking block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterNetworkProfileBlockAdvancedNetworkingBlock>? AdvancedNetworking
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterNetworkProfileBlockAdvancedNetworkingBlock>>("advanced_networking");
+        set => SetArgument("advanced_networking", value);
+    }
+
+    /// <summary>
+    /// LoadBalancerProfile block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerProfile block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterNetworkProfileBlockLoadBalancerProfileBlock>? LoadBalancerProfile
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterNetworkProfileBlockLoadBalancerProfileBlock>>("load_balancer_profile");
+        set => SetArgument("load_balancer_profile", value);
+    }
+
+    /// <summary>
+    /// NatGatewayProfile block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NatGatewayProfile block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterNetworkProfileBlockNatGatewayProfileBlock>? NatGatewayProfile
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterNetworkProfileBlockNatGatewayProfileBlock>>("nat_gateway_profile");
+        set => SetArgument("nat_gateway_profile", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for oms_agent in .
+/// Block type for advanced_networking in AzurermKubernetesClusterNetworkProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterNetworkProfileBlockAdvancedNetworkingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "advanced_networking";
+
+    /// <summary>
+    /// The observability_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? ObservabilityEnabled
+    {
+        get => new TerraformReference<bool>(this, "observability_enabled");
+        set => SetArgument("observability_enabled", value);
+    }
+
+    /// <summary>
+    /// The security_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? SecurityEnabled
+    {
+        get => new TerraformReference<bool>(this, "security_enabled");
+        set => SetArgument("security_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for load_balancer_profile in AzurermKubernetesClusterNetworkProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterNetworkProfileBlockLoadBalancerProfileBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "load_balancer_profile";
+
+    /// <summary>
+    /// The backend_pool_type attribute.
+    /// </summary>
+    public TerraformValue<string>? BackendPoolType
+    {
+        get => new TerraformReference<string>(this, "backend_pool_type");
+        set => SetArgument("backend_pool_type", value);
+    }
+
+    /// <summary>
+    /// The effective_outbound_ips attribute.
+    /// </summary>
+    public TerraformSet<string> EffectiveOutboundIps
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "effective_outbound_ips").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The idle_timeout_in_minutes attribute.
+    /// </summary>
+    public TerraformValue<double>? IdleTimeoutInMinutes
+    {
+        get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
+        set => SetArgument("idle_timeout_in_minutes", value);
+    }
+
+    /// <summary>
+    /// The managed_outbound_ip_count attribute.
+    /// </summary>
+    public TerraformValue<double> ManagedOutboundIpCount
+    {
+        get => new TerraformReference<double>(this, "managed_outbound_ip_count");
+        set => SetArgument("managed_outbound_ip_count", value);
+    }
+
+    /// <summary>
+    /// The managed_outbound_ipv6_count attribute.
+    /// </summary>
+    public TerraformValue<double> ManagedOutboundIpv6Count
+    {
+        get => new TerraformReference<double>(this, "managed_outbound_ipv6_count");
+        set => SetArgument("managed_outbound_ipv6_count", value);
+    }
+
+    /// <summary>
+    /// The outbound_ip_address_ids attribute.
+    /// </summary>
+    public TerraformSet<string>? OutboundIpAddressIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "outbound_ip_address_ids").ResolveNodes(ctx));
+        set => SetArgument("outbound_ip_address_ids", value);
+    }
+
+    /// <summary>
+    /// The outbound_ip_prefix_ids attribute.
+    /// </summary>
+    public TerraformSet<string>? OutboundIpPrefixIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "outbound_ip_prefix_ids").ResolveNodes(ctx));
+        set => SetArgument("outbound_ip_prefix_ids", value);
+    }
+
+    /// <summary>
+    /// The outbound_ports_allocated attribute.
+    /// </summary>
+    public TerraformValue<double>? OutboundPortsAllocated
+    {
+        get => new TerraformReference<double>(this, "outbound_ports_allocated");
+        set => SetArgument("outbound_ports_allocated", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for nat_gateway_profile in AzurermKubernetesClusterNetworkProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterNetworkProfileBlockNatGatewayProfileBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "nat_gateway_profile";
+
+    /// <summary>
+    /// The effective_outbound_ips attribute.
+    /// </summary>
+    public TerraformSet<string> EffectiveOutboundIps
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "effective_outbound_ips").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The idle_timeout_in_minutes attribute.
+    /// </summary>
+    public TerraformValue<double>? IdleTimeoutInMinutes
+    {
+        get => new TerraformReference<double>(this, "idle_timeout_in_minutes");
+        set => SetArgument("idle_timeout_in_minutes", value);
+    }
+
+    /// <summary>
+    /// The managed_outbound_ip_count attribute.
+    /// </summary>
+    public TerraformValue<double> ManagedOutboundIpCount
+    {
+        get => new TerraformReference<double>(this, "managed_outbound_ip_count");
+        set => SetArgument("managed_outbound_ip_count", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for oms_agent in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterOmsAgentBlock : TerraformBlock
@@ -1399,8 +2405,9 @@ public class AzurermKubernetesClusterOmsAgentBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for service_mesh_profile in .
+/// Block type for service_mesh_profile in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterServiceMeshProfileBlock : TerraformBlock
@@ -1448,10 +2455,84 @@ public class AzurermKubernetesClusterServiceMeshProfileBlock : TerraformBlock
         set => SetArgument("revisions", value);
     }
 
+    /// <summary>
+    /// CertificateAuthority block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateAuthority block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterServiceMeshProfileBlockCertificateAuthorityBlock>? CertificateAuthority
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterServiceMeshProfileBlockCertificateAuthorityBlock>>("certificate_authority");
+        set => SetArgument("certificate_authority", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for service_principal in .
+/// Block type for certificate_authority in AzurermKubernetesClusterServiceMeshProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterServiceMeshProfileBlockCertificateAuthorityBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "certificate_authority";
+
+    /// <summary>
+    /// The cert_chain_object_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertChainObjectName is required")]
+    public required TerraformValue<string> CertChainObjectName
+    {
+        get => new TerraformReference<string>(this, "cert_chain_object_name");
+        set => SetArgument("cert_chain_object_name", value);
+    }
+
+    /// <summary>
+    /// The cert_object_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertObjectName is required")]
+    public required TerraformValue<string> CertObjectName
+    {
+        get => new TerraformReference<string>(this, "cert_object_name");
+        set => SetArgument("cert_object_name", value);
+    }
+
+    /// <summary>
+    /// The key_object_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyObjectName is required")]
+    public required TerraformValue<string> KeyObjectName
+    {
+        get => new TerraformReference<string>(this, "key_object_name");
+        set => SetArgument("key_object_name", value);
+    }
+
+    /// <summary>
+    /// The key_vault_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
+    public required TerraformValue<string> KeyVaultId
+    {
+        get => new TerraformReference<string>(this, "key_vault_id");
+        set => SetArgument("key_vault_id", value);
+    }
+
+    /// <summary>
+    /// The root_cert_object_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootCertObjectName is required")]
+    public required TerraformValue<string> RootCertObjectName
+    {
+        get => new TerraformReference<string>(this, "root_cert_object_name");
+        set => SetArgument("root_cert_object_name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for service_principal in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterServicePrincipalBlock : TerraformBlock
@@ -1483,8 +2564,9 @@ public class AzurermKubernetesClusterServicePrincipalBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage_profile in .
+/// Block type for storage_profile in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterStorageProfileBlock : TerraformBlock
@@ -1532,8 +2614,9 @@ public class AzurermKubernetesClusterStorageProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKubernetesCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKubernetesClusterTimeoutsBlock : TerraformBlock
@@ -1581,8 +2664,9 @@ public class AzurermKubernetesClusterTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for upgrade_override in .
+/// Block type for upgrade_override in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterUpgradeOverrideBlock : TerraformBlock
@@ -1613,8 +2697,9 @@ public class AzurermKubernetesClusterUpgradeOverrideBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for web_app_routing in .
+/// Block type for web_app_routing in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterWebAppRoutingBlock : TerraformBlock
@@ -1653,8 +2738,9 @@ public class AzurermKubernetesClusterWebAppRoutingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for windows_profile in .
+/// Block type for windows_profile in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterWindowsProfileBlock : TerraformBlock
@@ -1693,10 +2779,54 @@ public class AzurermKubernetesClusterWindowsProfileBlock : TerraformBlock
         set => SetArgument("license", value);
     }
 
+    /// <summary>
+    /// Gmsa block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gmsa block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterWindowsProfileBlockGmsaBlock>? Gmsa
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterWindowsProfileBlockGmsaBlock>>("gmsa");
+        set => SetArgument("gmsa", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for workload_autoscaler_profile in .
+/// Block type for gmsa in AzurermKubernetesClusterWindowsProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterWindowsProfileBlockGmsaBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "gmsa";
+
+    /// <summary>
+    /// The dns_server attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsServer is required")]
+    public required TerraformValue<string> DnsServer
+    {
+        get => new TerraformReference<string>(this, "dns_server");
+        set => SetArgument("dns_server", value);
+    }
+
+    /// <summary>
+    /// The root_domain attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootDomain is required")]
+    public required TerraformValue<string> RootDomain
+    {
+        get => new TerraformReference<string>(this, "root_domain");
+        set => SetArgument("root_domain", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for workload_autoscaler_profile in AzurermKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterWorkloadAutoscalerProfileBlock : TerraformBlock
@@ -1725,6 +2855,7 @@ public class AzurermKubernetesClusterWorkloadAutoscalerProfileBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kubernetes_cluster Terraform resource.

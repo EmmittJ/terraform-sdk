@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for criteria in .
+/// Block type for criteria in AzurermMonitorScheduledQueryRulesLog.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorScheduledQueryRulesLogCriteriaBlock : TerraformBlock
@@ -23,10 +23,65 @@ public class AzurermMonitorScheduledQueryRulesLogCriteriaBlock : TerraformBlock
         set => SetArgument("metric_name", value);
     }
 
+    /// <summary>
+    /// Dimension block (nesting mode: set).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dimension is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Dimension block(s) required")]
+    public required TerraformSet<AzurermMonitorScheduledQueryRulesLogCriteriaBlockDimensionBlock> Dimension
+    {
+        get => GetRequiredArgument<TerraformSet<AzurermMonitorScheduledQueryRulesLogCriteriaBlockDimensionBlock>>("dimension");
+        set => SetArgument("dimension", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for dimension in AzurermMonitorScheduledQueryRulesLogCriteriaBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermMonitorScheduledQueryRulesLogCriteriaBlockDimensionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dimension";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    public TerraformValue<string>? OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermMonitorScheduledQueryRulesLog.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorScheduledQueryRulesLogTimeoutsBlock : TerraformBlock
@@ -73,6 +128,7 @@ public class AzurermMonitorScheduledQueryRulesLogTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_scheduled_query_rules_log Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataShareDatasetDataLakeGen2DataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermDataShareDatasetDataLakeGen2DataSourceTimeoutsBlock : Terraf
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_share_dataset_data_lake_gen2 Terraform data source.

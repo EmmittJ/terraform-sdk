@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for galleries in .
+/// Block type for galleries in AzurermApplicationInsightsWorkbookTemplate.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : TerraformBlock
@@ -62,8 +62,9 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApplicationInsightsWorkbookTemplate.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : TerraformBlock
@@ -110,6 +111,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_application_insights_workbook_template Terraform resource.

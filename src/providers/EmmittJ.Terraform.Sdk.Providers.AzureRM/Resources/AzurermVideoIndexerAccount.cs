@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermVideoIndexerAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVideoIndexerAccountIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermVideoIndexerAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage in .
+/// Block type for storage in AzurermVideoIndexerAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVideoIndexerAccountStorageBlock : TerraformBlock
@@ -82,8 +83,9 @@ public class AzurermVideoIndexerAccountStorageBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVideoIndexerAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVideoIndexerAccountTimeoutsBlock : TerraformBlock
@@ -130,6 +132,7 @@ public class AzurermVideoIndexerAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_video_indexer_account Terraform resource.

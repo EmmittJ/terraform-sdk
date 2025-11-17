@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMonitorPrivateLinkScope.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorPrivateLinkScopeTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMonitorPrivateLinkScopeTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_private_link_scope Terraform resource.

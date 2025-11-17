@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for daily_schedule in .
+/// Block type for daily_schedule in AzurermNetappSnapshotPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermNetappSnapshotPolicyDailyScheduleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for hourly_schedule in .
+/// Block type for hourly_schedule in AzurermNetappSnapshotPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappSnapshotPolicyHourlyScheduleBlock : TerraformBlock
@@ -78,8 +79,9 @@ public class AzurermNetappSnapshotPolicyHourlyScheduleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for monthly_schedule in .
+/// Block type for monthly_schedule in AzurermNetappSnapshotPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
@@ -131,8 +133,9 @@ public class AzurermNetappSnapshotPolicyMonthlyScheduleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetappSnapshotPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetappSnapshotPolicyTimeoutsBlock : TerraformBlock
@@ -180,8 +183,9 @@ public class AzurermNetappSnapshotPolicyTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for weekly_schedule in .
+/// Block type for weekly_schedule in AzurermNetappSnapshotPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
@@ -232,6 +236,7 @@ public class AzurermNetappSnapshotPolicyWeeklyScheduleBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_netapp_snapshot_policy Terraform resource.

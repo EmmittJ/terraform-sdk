@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for private_endpoint in .
+/// Block type for private_endpoint in AzurermSignalrServiceNetworkAcl.
 /// Nesting mode: set
 /// </summary>
 public class AzurermSignalrServiceNetworkAclPrivateEndpointBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermSignalrServiceNetworkAclPrivateEndpointBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for public_network in .
+/// Block type for public_network in AzurermSignalrServiceNetworkAcl.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSignalrServiceNetworkAclPublicNetworkBlock : TerraformBlock
@@ -74,8 +75,9 @@ public class AzurermSignalrServiceNetworkAclPublicNetworkBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSignalrServiceNetworkAcl.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSignalrServiceNetworkAclTimeoutsBlock : TerraformBlock
@@ -122,6 +124,7 @@ public class AzurermSignalrServiceNetworkAclTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_signalr_service_network_acl Terraform resource.

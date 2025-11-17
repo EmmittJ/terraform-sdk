@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for action in .
+/// Block type for action in AzurermMonitorMetricAlert.
 /// Nesting mode: set
 /// </summary>
 public class AzurermMonitorMetricAlertActionBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermMonitorMetricAlertActionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for application_insights_web_test_location_availability_criteria in .
+/// Block type for application_insights_web_test_location_availability_criteria in AzurermMonitorMetricAlert.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaBlock : TerraformBlock
@@ -77,8 +78,9 @@ public class AzurermMonitorMetricAlertApplicationInsightsWebTestLocationAvailabi
 
 }
 
+
 /// <summary>
-/// Block type for criteria in .
+/// Block type for criteria in AzurermMonitorMetricAlert.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
@@ -147,10 +149,63 @@ public class AzurermMonitorMetricAlertCriteriaBlock : TerraformBlock
         set => SetArgument("threshold", value);
     }
 
+    /// <summary>
+    /// Dimension block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermMonitorMetricAlertCriteriaBlockDimensionBlock>? Dimension
+    {
+        get => GetArgument<TerraformList<AzurermMonitorMetricAlertCriteriaBlockDimensionBlock>>("dimension");
+        set => SetArgument("dimension", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for dynamic_criteria in .
+/// Block type for dimension in AzurermMonitorMetricAlertCriteriaBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorMetricAlertCriteriaBlockDimensionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dimension";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for dynamic_criteria in AzurermMonitorMetricAlert.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
@@ -246,10 +301,63 @@ public class AzurermMonitorMetricAlertDynamicCriteriaBlock : TerraformBlock
         set => SetArgument("skip_metric_validation", value);
     }
 
+    /// <summary>
+    /// Dimension block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermMonitorMetricAlertDynamicCriteriaBlockDimensionBlock>? Dimension
+    {
+        get => GetArgument<TerraformList<AzurermMonitorMetricAlertDynamicCriteriaBlockDimensionBlock>>("dimension");
+        set => SetArgument("dimension", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for dimension in AzurermMonitorMetricAlertDynamicCriteriaBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorMetricAlertDynamicCriteriaBlockDimensionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dimension";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermMonitorMetricAlert.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorMetricAlertTimeoutsBlock : TerraformBlock
@@ -296,6 +404,7 @@ public class AzurermMonitorMetricAlertTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_metric_alert Terraform resource.

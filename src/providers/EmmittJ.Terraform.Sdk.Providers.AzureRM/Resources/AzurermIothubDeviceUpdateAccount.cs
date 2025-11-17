@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermIothubDeviceUpdateAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubDeviceUpdateAccountIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermIothubDeviceUpdateAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIothubDeviceUpdateAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIothubDeviceUpdateAccountTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermIothubDeviceUpdateAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iothub_device_update_account Terraform resource.

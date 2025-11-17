@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualDesktopHostPoolRegistrationInfo.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermVirtualDesktopHostPoolRegistrationInfoTimeoutsBlock : Terraf
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_desktop_host_pool_registration_info Terraform resource.

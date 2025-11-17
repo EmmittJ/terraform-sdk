@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for action in .
+/// Block type for action in AzurermMonitorScheduledQueryRulesAlertV2.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorScheduledQueryRulesAlertV2ActionBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermMonitorScheduledQueryRulesAlertV2ActionBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for criteria in .
+/// Block type for criteria in AzurermMonitorScheduledQueryRulesAlertV2.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBlock
@@ -102,10 +103,106 @@ public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock : TerraformBl
         set => SetArgument("time_aggregation_method", value);
     }
 
+    /// <summary>
+    /// Dimension block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlockDimensionBlock>? Dimension
+    {
+        get => GetArgument<TerraformList<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlockDimensionBlock>>("dimension");
+        set => SetArgument("dimension", value);
+    }
+
+    /// <summary>
+    /// FailingPeriods block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FailingPeriods block(s) allowed")]
+    public TerraformList<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlockFailingPeriodsBlock>? FailingPeriods
+    {
+        get => GetArgument<TerraformList<AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlockFailingPeriodsBlock>>("failing_periods");
+        set => SetArgument("failing_periods", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for dimension in AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlockDimensionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dimension";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for failing_periods in AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorScheduledQueryRulesAlertV2CriteriaBlockFailingPeriodsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "failing_periods";
+
+    /// <summary>
+    /// The minimum_failing_periods_to_trigger_alert attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinimumFailingPeriodsToTriggerAlert is required")]
+    public required TerraformValue<double> MinimumFailingPeriodsToTriggerAlert
+    {
+        get => new TerraformReference<double>(this, "minimum_failing_periods_to_trigger_alert");
+        set => SetArgument("minimum_failing_periods_to_trigger_alert", value);
+    }
+
+    /// <summary>
+    /// The number_of_evaluation_periods attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfEvaluationPeriods is required")]
+    public required TerraformValue<double> NumberOfEvaluationPeriods
+    {
+        get => new TerraformReference<double>(this, "number_of_evaluation_periods");
+        set => SetArgument("number_of_evaluation_periods", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for identity in AzurermMonitorScheduledQueryRulesAlertV2.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock : TerraformBlock
@@ -152,8 +249,9 @@ public class AzurermMonitorScheduledQueryRulesAlertV2IdentityBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMonitorScheduledQueryRulesAlertV2.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : TerraformBlock
@@ -200,6 +298,7 @@ public class AzurermMonitorScheduledQueryRulesAlertV2TimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_scheduled_query_rules_alert_v2 Terraform resource.

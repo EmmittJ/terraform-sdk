@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for key_vault_sas_token in .
+/// Block type for key_vault_sas_token in AzurermDataFactoryLinkedServiceAzureBlobStorage.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageKeyVaultSasTokenBloc
 
 }
 
+
 /// <summary>
-/// Block type for service_principal_linked_key_vault_key in .
+/// Block type for service_principal_linked_key_vault_key in AzurermDataFactoryLinkedServiceAzureBlobStorage.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyBlock : TerraformBlock
@@ -68,8 +69,9 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageServicePrincipalLink
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryLinkedServiceAzureBlobStorage.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock : TerraformBlock
@@ -116,6 +118,7 @@ public class AzurermDataFactoryLinkedServiceAzureBlobStorageTimeoutsBlock : Terr
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_linked_service_azure_blob_storage Terraform resource.

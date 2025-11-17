@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for georeplications in .
+/// Block type for georeplications in AzurermContainerRegistry.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
@@ -52,8 +52,9 @@ public class AzurermContainerRegistryGeoreplicationsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermContainerRegistry.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryIdentityBlock : TerraformBlock
@@ -100,8 +101,9 @@ public class AzurermContainerRegistryIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerRegistry.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
@@ -148,6 +150,7 @@ public class AzurermContainerRegistryTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_registry Terraform resource.

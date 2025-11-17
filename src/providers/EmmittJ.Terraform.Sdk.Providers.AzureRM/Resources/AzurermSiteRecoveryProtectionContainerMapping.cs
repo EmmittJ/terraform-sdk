@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for automatic_update in .
+/// Block type for automatic_update in AzurermSiteRecoveryProtectionContainerMapping.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock : TerraformBlock
@@ -42,8 +42,9 @@ public class AzurermSiteRecoveryProtectionContainerMappingAutomaticUpdateBlock :
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSiteRecoveryProtectionContainerMapping.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : TerraformBlock
@@ -90,6 +91,7 @@ public class AzurermSiteRecoveryProtectionContainerMappingTimeoutsBlock : Terraf
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_site_recovery_protection_container_mapping Terraform resource.

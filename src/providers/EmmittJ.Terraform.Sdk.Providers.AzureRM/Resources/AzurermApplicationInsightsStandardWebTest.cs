@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for request in .
+/// Block type for request in AzurermApplicationInsightsStandardWebTest.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBlock
@@ -59,10 +59,53 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBl
         set => SetArgument("url", value);
     }
 
+    /// <summary>
+    /// Header block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermApplicationInsightsStandardWebTestRequestBlockHeaderBlock>? Header
+    {
+        get => GetArgument<TerraformList<AzurermApplicationInsightsStandardWebTestRequestBlockHeaderBlock>>("header");
+        set => SetArgument("header", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for header in AzurermApplicationInsightsStandardWebTestRequestBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationInsightsStandardWebTestRequestBlockHeaderBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "header";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermApplicationInsightsStandardWebTest.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformBlock
@@ -110,8 +153,9 @@ public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for validation_rules in .
+/// Block type for validation_rules in AzurermApplicationInsightsStandardWebTest.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApplicationInsightsStandardWebTestValidationRulesBlock : TerraformBlock
@@ -148,7 +192,59 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlock : Ter
         set => SetArgument("ssl_check_enabled", value);
     }
 
+    /// <summary>
+    /// Content block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Content block(s) allowed")]
+    public TerraformList<AzurermApplicationInsightsStandardWebTestValidationRulesBlockContentBlock>? Content
+    {
+        get => GetArgument<TerraformList<AzurermApplicationInsightsStandardWebTestValidationRulesBlockContentBlock>>("content");
+        set => SetArgument("content", value);
+    }
+
 }
+
+/// <summary>
+/// Block type for content in AzurermApplicationInsightsStandardWebTestValidationRulesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApplicationInsightsStandardWebTestValidationRulesBlockContentBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "content";
+
+    /// <summary>
+    /// The content_match attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentMatch is required")]
+    public required TerraformValue<string> ContentMatch
+    {
+        get => new TerraformReference<string>(this, "content_match");
+        set => SetArgument("content_match", value);
+    }
+
+    /// <summary>
+    /// The ignore_case attribute.
+    /// </summary>
+    public TerraformValue<bool>? IgnoreCase
+    {
+        get => new TerraformReference<bool>(this, "ignore_case");
+        set => SetArgument("ignore_case", value);
+    }
+
+    /// <summary>
+    /// The pass_if_text_found attribute.
+    /// </summary>
+    public TerraformValue<bool>? PassIfTextFound
+    {
+        get => new TerraformReference<bool>(this, "pass_if_text_found");
+        set => SetArgument("pass_if_text_found", value);
+    }
+
+}
+
 
 /// <summary>
 /// Represents a azurerm_application_insights_standard_web_test Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPostgresqlVirtualNetworkRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPostgresqlVirtualNetworkRuleTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermPostgresqlVirtualNetworkRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_postgresql_virtual_network_rule Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for managed_disk in .
+/// Block type for managed_disk in AzurermSiteRecoveryVmwareReplicatedVm.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermSiteRecoveryVmwareReplicatedVmManagedDiskBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for network_interface in .
+/// Block type for network_interface in AzurermSiteRecoveryVmwareReplicatedVm.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : TerraformBlock
@@ -113,8 +114,9 @@ public class AzurermSiteRecoveryVmwareReplicatedVmNetworkInterfaceBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSiteRecoveryVmwareReplicatedVm.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock : TerraformBlock
@@ -161,6 +163,7 @@ public class AzurermSiteRecoveryVmwareReplicatedVmTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_site_recovery_vmware_replicated_vm Terraform resource.

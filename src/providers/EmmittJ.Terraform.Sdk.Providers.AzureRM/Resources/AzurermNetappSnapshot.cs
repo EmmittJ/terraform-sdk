@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetappSnapshot.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetappSnapshotTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermNetappSnapshotTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_netapp_snapshot Terraform resource.

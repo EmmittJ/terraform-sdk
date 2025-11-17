@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRedisFirewallRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRedisFirewallRuleTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermRedisFirewallRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_redis_firewall_rule Terraform resource.

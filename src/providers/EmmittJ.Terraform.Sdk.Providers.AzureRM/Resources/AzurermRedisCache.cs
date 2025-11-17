@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermRedisCache.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedisCacheIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermRedisCacheIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for patch_schedule in .
+/// Block type for patch_schedule in AzurermRedisCache.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedisCachePatchScheduleBlock : TerraformBlock
@@ -91,8 +92,9 @@ public class AzurermRedisCachePatchScheduleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for redis_configuration in .
+/// Block type for redis_configuration in AzurermRedisCache.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
@@ -256,8 +258,9 @@ public class AzurermRedisCacheRedisConfigurationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRedisCache.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRedisCacheTimeoutsBlock : TerraformBlock
@@ -304,6 +307,7 @@ public class AzurermRedisCacheTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_redis_cache Terraform resource.

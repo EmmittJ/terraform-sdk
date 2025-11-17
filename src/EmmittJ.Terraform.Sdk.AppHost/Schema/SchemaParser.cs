@@ -406,13 +406,16 @@ public class SchemaParser : ISchemaParser
         return model;
     }
 
-    private BlockTypeModel ParseBlockType(string name, SchemaBlockType blockType, string parentClassName)
+    public BlockTypeModel ParseBlockType(string name, SchemaBlockType blockType, string parentClassName)
     {
+        var className = $"{parentClassName}{ToPascalCase(name)}Block";
+
         var model = new BlockTypeModel
         {
             Name = ToPascalCase(name),
             TerraformName = name,
-            ClassName = $"{parentClassName}{ToPascalCase(name)}Block",
+            ClassName = className,
+            ParentClassName = parentClassName,
             NestingMode = blockType.NestingMode,
             MinItems = blockType.MinItems,
             MaxItems = blockType.MaxItems,
@@ -423,6 +426,12 @@ public class SchemaParser : ISchemaParser
         foreach (var (attrName, attr) in blockType.Block.Attributes)
         {
             model.Arguments.Add(ParseAttribute(attrName, attr));
+        }
+
+        // Recursively parse nested block types
+        foreach (var (nestedBlockName, nestedBlockType) in blockType.Block.BlockTypes)
+        {
+            model.NestedBlocks.Add(ParseBlockType(nestedBlockName, nestedBlockType, className));
         }
 
         return model;

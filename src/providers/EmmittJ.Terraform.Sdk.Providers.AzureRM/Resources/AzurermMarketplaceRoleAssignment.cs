@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMarketplaceRoleAssignment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMarketplaceRoleAssignmentTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermMarketplaceRoleAssignmentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_marketplace_role_assignment Terraform resource.

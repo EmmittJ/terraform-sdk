@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for open_api in .
+/// Block type for open_api in AzurermSpringCloudGatewayRouteConfig.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudGatewayRouteConfigOpenApiBlock : TerraformBlock
@@ -24,8 +24,9 @@ public class AzurermSpringCloudGatewayRouteConfigOpenApiBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for route in .
+/// Block type for route in AzurermSpringCloudGatewayRouteConfig.
 /// Nesting mode: set
 /// </summary>
 public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
@@ -119,8 +120,9 @@ public class AzurermSpringCloudGatewayRouteConfigRouteBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudGatewayRouteConfig.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
@@ -167,6 +169,7 @@ public class AzurermSpringCloudGatewayRouteConfigTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_gateway_route_config Terraform resource.

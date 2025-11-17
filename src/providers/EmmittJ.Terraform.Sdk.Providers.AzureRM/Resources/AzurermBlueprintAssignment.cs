@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermBlueprintAssignment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermBlueprintAssignmentIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBlueprintAssignment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermBlueprintAssignmentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_blueprint_assignment Terraform resource.

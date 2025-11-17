@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for namespace_junction in .
+/// Block type for namespace_junction in AzurermHpcCacheNfsTarget.
 /// Nesting mode: set
 /// </summary>
 public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermHpcCacheNfsTarget.
 /// Nesting mode: single
 /// </summary>
 public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
@@ -101,6 +102,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_hpc_cache_nfs_target Terraform resource.

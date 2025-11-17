@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for policy_definition_group in .
+/// Block type for policy_definition_group in AzurermPolicySetDefinition.
 /// Nesting mode: set
 /// </summary>
 public class AzurermPolicySetDefinitionPolicyDefinitionGroupBlock : TerraformBlock
@@ -61,8 +61,9 @@ public class AzurermPolicySetDefinitionPolicyDefinitionGroupBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for policy_definition_reference in .
+/// Block type for policy_definition_reference in AzurermPolicySetDefinition.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPolicySetDefinitionPolicyDefinitionReferenceBlock : TerraformBlock
@@ -120,8 +121,9 @@ public class AzurermPolicySetDefinitionPolicyDefinitionReferenceBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPolicySetDefinition.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPolicySetDefinitionTimeoutsBlock : TerraformBlock
@@ -168,6 +170,7 @@ public class AzurermPolicySetDefinitionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_policy_set_definition Terraform resource.

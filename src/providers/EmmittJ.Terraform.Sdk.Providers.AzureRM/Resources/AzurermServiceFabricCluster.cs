@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azure_active_directory in .
+/// Block type for azure_active_directory in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermServiceFabricClusterAzureActiveDirectoryBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for certificate in .
+/// Block type for certificate in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterCertificateBlock : TerraformBlock
@@ -87,8 +88,9 @@ public class AzurermServiceFabricClusterCertificateBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for certificate_common_names in .
+/// Block type for certificate_common_names in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterCertificateCommonNamesBlock : TerraformBlock
@@ -108,10 +110,55 @@ public class AzurermServiceFabricClusterCertificateCommonNamesBlock : TerraformB
         set => SetArgument("x509_store_name", value);
     }
 
+    /// <summary>
+    /// CommonNames block (nesting mode: set).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonNames is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CommonNames block(s) required")]
+    public required TerraformSet<AzurermServiceFabricClusterCertificateCommonNamesBlockCommonNamesBlock> CommonNames
+    {
+        get => GetRequiredArgument<TerraformSet<AzurermServiceFabricClusterCertificateCommonNamesBlockCommonNamesBlock>>("common_names");
+        set => SetArgument("common_names", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for client_certificate_common_name in .
+/// Block type for common_names in AzurermServiceFabricClusterCertificateCommonNamesBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermServiceFabricClusterCertificateCommonNamesBlockCommonNamesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "common_names";
+
+    /// <summary>
+    /// The certificate_common_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateCommonName is required")]
+    public required TerraformValue<string> CertificateCommonName
+    {
+        get => new TerraformReference<string>(this, "certificate_common_name");
+        set => SetArgument("certificate_common_name", value);
+    }
+
+    /// <summary>
+    /// The certificate_issuer_thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string>? CertificateIssuerThumbprint
+    {
+        get => new TerraformReference<string>(this, "certificate_issuer_thumbprint");
+        set => SetArgument("certificate_issuer_thumbprint", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for client_certificate_common_name in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterClientCertificateCommonNameBlock : TerraformBlock
@@ -152,8 +199,9 @@ public class AzurermServiceFabricClusterClientCertificateCommonNameBlock : Terra
 
 }
 
+
 /// <summary>
-/// Block type for client_certificate_thumbprint in .
+/// Block type for client_certificate_thumbprint in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterClientCertificateThumbprintBlock : TerraformBlock
@@ -185,8 +233,9 @@ public class AzurermServiceFabricClusterClientCertificateThumbprintBlock : Terra
 
 }
 
+
 /// <summary>
-/// Block type for diagnostics_config in .
+/// Block type for diagnostics_config in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
@@ -248,8 +297,9 @@ public class AzurermServiceFabricClusterDiagnosticsConfigBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for fabric_settings in .
+/// Block type for fabric_settings in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterFabricSettingsBlock : TerraformBlock
@@ -280,8 +330,9 @@ public class AzurermServiceFabricClusterFabricSettingsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for node_type in .
+/// Block type for node_type in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
@@ -395,10 +446,97 @@ public class AzurermServiceFabricClusterNodeTypeBlock : TerraformBlock
         set => SetArgument("reverse_proxy_endpoint_port", value);
     }
 
+    /// <summary>
+    /// ApplicationPorts block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationPorts block(s) allowed")]
+    public TerraformList<AzurermServiceFabricClusterNodeTypeBlockApplicationPortsBlock>? ApplicationPorts
+    {
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterNodeTypeBlockApplicationPortsBlock>>("application_ports");
+        set => SetArgument("application_ports", value);
+    }
+
+    /// <summary>
+    /// EphemeralPorts block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EphemeralPorts block(s) allowed")]
+    public TerraformList<AzurermServiceFabricClusterNodeTypeBlockEphemeralPortsBlock>? EphemeralPorts
+    {
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterNodeTypeBlockEphemeralPortsBlock>>("ephemeral_ports");
+        set => SetArgument("ephemeral_ports", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for reverse_proxy_certificate in .
+/// Block type for application_ports in AzurermServiceFabricClusterNodeTypeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermServiceFabricClusterNodeTypeBlockApplicationPortsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "application_ports";
+
+    /// <summary>
+    /// The end_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndPort is required")]
+    public required TerraformValue<double> EndPort
+    {
+        get => new TerraformReference<double>(this, "end_port");
+        set => SetArgument("end_port", value);
+    }
+
+    /// <summary>
+    /// The start_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartPort is required")]
+    public required TerraformValue<double> StartPort
+    {
+        get => new TerraformReference<double>(this, "start_port");
+        set => SetArgument("start_port", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ephemeral_ports in AzurermServiceFabricClusterNodeTypeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermServiceFabricClusterNodeTypeBlockEphemeralPortsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ephemeral_ports";
+
+    /// <summary>
+    /// The end_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndPort is required")]
+    public required TerraformValue<double> EndPort
+    {
+        get => new TerraformReference<double>(this, "end_port");
+        set => SetArgument("end_port", value);
+    }
+
+    /// <summary>
+    /// The start_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartPort is required")]
+    public required TerraformValue<double> StartPort
+    {
+        get => new TerraformReference<double>(this, "start_port");
+        set => SetArgument("start_port", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for reverse_proxy_certificate in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterReverseProxyCertificateBlock : TerraformBlock
@@ -439,8 +577,9 @@ public class AzurermServiceFabricClusterReverseProxyCertificateBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for reverse_proxy_certificate_common_names in .
+/// Block type for reverse_proxy_certificate_common_names in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock : TerraformBlock
@@ -460,10 +599,55 @@ public class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock 
         set => SetArgument("x509_store_name", value);
     }
 
+    /// <summary>
+    /// CommonNames block (nesting mode: set).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommonNames is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CommonNames block(s) required")]
+    public required TerraformSet<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlockCommonNamesBlock> CommonNames
+    {
+        get => GetRequiredArgument<TerraformSet<AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlockCommonNamesBlock>>("common_names");
+        set => SetArgument("common_names", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for common_names in AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermServiceFabricClusterReverseProxyCertificateCommonNamesBlockCommonNamesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "common_names";
+
+    /// <summary>
+    /// The certificate_common_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateCommonName is required")]
+    public required TerraformValue<string> CertificateCommonName
+    {
+        get => new TerraformReference<string>(this, "certificate_common_name");
+        set => SetArgument("certificate_common_name", value);
+    }
+
+    /// <summary>
+    /// The certificate_issuer_thumbprint attribute.
+    /// </summary>
+    public TerraformValue<string>? CertificateIssuerThumbprint
+    {
+        get => new TerraformReference<string>(this, "certificate_issuer_thumbprint");
+        set => SetArgument("certificate_issuer_thumbprint", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermServiceFabricCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlock
@@ -511,8 +695,9 @@ public class AzurermServiceFabricClusterTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for upgrade_policy in .
+/// Block type for upgrade_policy in AzurermServiceFabricCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
@@ -585,7 +770,99 @@ public class AzurermServiceFabricClusterUpgradePolicyBlock : TerraformBlock
         set => SetArgument("upgrade_timeout", value);
     }
 
+    /// <summary>
+    /// DeltaHealthPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeltaHealthPolicy block(s) allowed")]
+    public TerraformList<AzurermServiceFabricClusterUpgradePolicyBlockDeltaHealthPolicyBlock>? DeltaHealthPolicy
+    {
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterUpgradePolicyBlockDeltaHealthPolicyBlock>>("delta_health_policy");
+        set => SetArgument("delta_health_policy", value);
+    }
+
+    /// <summary>
+    /// HealthPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthPolicy block(s) allowed")]
+    public TerraformList<AzurermServiceFabricClusterUpgradePolicyBlockHealthPolicyBlock>? HealthPolicy
+    {
+        get => GetArgument<TerraformList<AzurermServiceFabricClusterUpgradePolicyBlockHealthPolicyBlock>>("health_policy");
+        set => SetArgument("health_policy", value);
+    }
+
 }
+
+/// <summary>
+/// Block type for delta_health_policy in AzurermServiceFabricClusterUpgradePolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermServiceFabricClusterUpgradePolicyBlockDeltaHealthPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "delta_health_policy";
+
+    /// <summary>
+    /// The max_delta_unhealthy_applications_percent attribute.
+    /// </summary>
+    public TerraformValue<double>? MaxDeltaUnhealthyApplicationsPercent
+    {
+        get => new TerraformReference<double>(this, "max_delta_unhealthy_applications_percent");
+        set => SetArgument("max_delta_unhealthy_applications_percent", value);
+    }
+
+    /// <summary>
+    /// The max_delta_unhealthy_nodes_percent attribute.
+    /// </summary>
+    public TerraformValue<double>? MaxDeltaUnhealthyNodesPercent
+    {
+        get => new TerraformReference<double>(this, "max_delta_unhealthy_nodes_percent");
+        set => SetArgument("max_delta_unhealthy_nodes_percent", value);
+    }
+
+    /// <summary>
+    /// The max_upgrade_domain_delta_unhealthy_nodes_percent attribute.
+    /// </summary>
+    public TerraformValue<double>? MaxUpgradeDomainDeltaUnhealthyNodesPercent
+    {
+        get => new TerraformReference<double>(this, "max_upgrade_domain_delta_unhealthy_nodes_percent");
+        set => SetArgument("max_upgrade_domain_delta_unhealthy_nodes_percent", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for health_policy in AzurermServiceFabricClusterUpgradePolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermServiceFabricClusterUpgradePolicyBlockHealthPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "health_policy";
+
+    /// <summary>
+    /// The max_unhealthy_applications_percent attribute.
+    /// </summary>
+    public TerraformValue<double>? MaxUnhealthyApplicationsPercent
+    {
+        get => new TerraformReference<double>(this, "max_unhealthy_applications_percent");
+        set => SetArgument("max_unhealthy_applications_percent", value);
+    }
+
+    /// <summary>
+    /// The max_unhealthy_nodes_percent attribute.
+    /// </summary>
+    public TerraformValue<double>? MaxUnhealthyNodesPercent
+    {
+        get => new TerraformReference<double>(this, "max_unhealthy_nodes_percent");
+        set => SetArgument("max_unhealthy_nodes_percent", value);
+    }
+
+}
+
 
 /// <summary>
 /// Represents a azurerm_service_fabric_cluster Terraform resource.

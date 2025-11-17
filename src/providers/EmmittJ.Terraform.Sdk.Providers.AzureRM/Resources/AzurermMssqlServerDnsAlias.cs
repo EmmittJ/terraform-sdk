@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlServerDnsAlias.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlServerDnsAliasTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermMssqlServerDnsAliasTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_server_dns_alias Terraform resource.

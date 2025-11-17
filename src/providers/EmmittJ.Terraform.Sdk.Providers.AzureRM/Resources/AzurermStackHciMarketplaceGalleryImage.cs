@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identifier in .
+/// Block type for identifier in AzurermStackHciMarketplaceGalleryImage.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermStackHciMarketplaceGalleryImageIdentifierBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStackHciMarketplaceGalleryImage.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : TerraformBlock
@@ -93,6 +94,7 @@ public class AzurermStackHciMarketplaceGalleryImageTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stack_hci_marketplace_gallery_image Terraform resource.

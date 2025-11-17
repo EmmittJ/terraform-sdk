@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for file in .
+/// Block type for file in AzurermFunctionAppFunction.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermFunctionAppFunctionFileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermFunctionAppFunction.
 /// Nesting mode: single
 /// </summary>
 public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermFunctionAppFunctionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_function_app_function Terraform resource.

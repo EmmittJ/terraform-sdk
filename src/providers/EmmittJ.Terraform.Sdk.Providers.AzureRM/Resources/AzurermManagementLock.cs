@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermManagementLock.
 /// Nesting mode: single
 /// </summary>
 public class AzurermManagementLockTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermManagementLockTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_management_lock Terraform resource.

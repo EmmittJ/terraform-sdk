@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBillingEnrollmentAccountScopeDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock : Terra
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_billing_enrollment_account_scope Terraform data source.

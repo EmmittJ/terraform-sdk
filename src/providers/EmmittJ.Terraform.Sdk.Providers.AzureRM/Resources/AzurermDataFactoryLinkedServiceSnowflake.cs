@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for key_vault_password in .
+/// Block type for key_vault_password in AzurermDataFactoryLinkedServiceSnowflake.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermDataFactoryLinkedServiceSnowflakeKeyVaultPasswordBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryLinkedServiceSnowflake.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSnowflakeTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermDataFactoryLinkedServiceSnowflakeTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_linked_service_snowflake Terraform resource.

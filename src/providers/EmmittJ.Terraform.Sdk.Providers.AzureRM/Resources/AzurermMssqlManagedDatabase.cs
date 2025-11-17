@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for long_term_retention_policy in .
+/// Block type for long_term_retention_policy in AzurermMssqlManagedDatabase.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : TerraformBlock
@@ -60,8 +60,9 @@ public class AzurermMssqlManagedDatabaseLongTermRetentionPolicyBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for point_in_time_restore in .
+/// Block type for point_in_time_restore in AzurermMssqlManagedDatabase.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
@@ -93,8 +94,9 @@ public class AzurermMssqlManagedDatabasePointInTimeRestoreBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlManagedDatabase.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
@@ -141,6 +143,7 @@ public class AzurermMssqlManagedDatabaseTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_managed_database Terraform resource.

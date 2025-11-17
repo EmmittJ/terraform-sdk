@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for high_capacity_database_storage in .
+/// Block type for high_capacity_database_storage in AzurermOracleExascaleDatabaseStorageVault.
 /// Nesting mode: list
 /// </summary>
 public class AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorageBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermOracleExascaleDatabaseStorageVaultHighCapacityDatabaseStorag
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermOracleExascaleDatabaseStorageVault.
 /// Nesting mode: single
 /// </summary>
 public class AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock : TerraformBlock
@@ -81,6 +82,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_oracle_exascale_database_storage_vault Terraform resource.

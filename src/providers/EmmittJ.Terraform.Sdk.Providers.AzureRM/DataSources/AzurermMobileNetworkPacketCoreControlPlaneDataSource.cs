@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMobileNetworkPacketCoreControlPlaneDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMobileNetworkPacketCoreControlPlaneDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneDataSourceTimeoutsBlock :
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mobile_network_packet_core_control_plane Terraform data source.

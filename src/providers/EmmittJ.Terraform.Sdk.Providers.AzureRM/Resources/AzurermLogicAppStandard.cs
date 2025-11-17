@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for connection_string in .
+/// Block type for connection_string in AzurermLogicAppStandard.
 /// Nesting mode: set
 /// </summary>
 public class AzurermLogicAppStandardConnectionStringBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermLogicAppStandardConnectionStringBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermLogicAppStandard.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLogicAppStandardIdentityBlock : TerraformBlock
@@ -93,8 +94,9 @@ public class AzurermLogicAppStandardIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for site_config in .
+/// Block type for site_config in AzurermLogicAppStandard.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
@@ -275,10 +277,240 @@ public class AzurermLogicAppStandardSiteConfigBlock : TerraformBlock
         set => SetArgument("websockets_enabled", value);
     }
 
+    /// <summary>
+    /// Cors block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
+    public TerraformList<AzurermLogicAppStandardSiteConfigBlockCorsBlock>? Cors
+    {
+        get => GetArgument<TerraformList<AzurermLogicAppStandardSiteConfigBlockCorsBlock>>("cors");
+        set => SetArgument("cors", value);
+    }
+
+    /// <summary>
+    /// IpRestriction block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermLogicAppStandardSiteConfigBlockIpRestrictionBlock>? IpRestriction
+    {
+        get => GetArgument<TerraformList<AzurermLogicAppStandardSiteConfigBlockIpRestrictionBlock>>("ip_restriction");
+        set => SetArgument("ip_restriction", value);
+    }
+
+    /// <summary>
+    /// ScmIpRestriction block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermLogicAppStandardSiteConfigBlockScmIpRestrictionBlock>? ScmIpRestriction
+    {
+        get => GetArgument<TerraformList<AzurermLogicAppStandardSiteConfigBlockScmIpRestrictionBlock>>("scm_ip_restriction");
+        set => SetArgument("scm_ip_restriction", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for cors in AzurermLogicAppStandardSiteConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermLogicAppStandardSiteConfigBlockCorsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cors";
+
+    /// <summary>
+    /// Specifies a list of origins that should be allowed to make cross-origin calls.
+    /// </summary>
+    public TerraformSet<string>? AllowedOrigins
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        set => SetArgument("allowed_origins", value);
+    }
+
+    /// <summary>
+    /// Are credentials allowed in CORS requests? Defaults to `false`.
+    /// </summary>
+    public TerraformValue<bool>? SupportCredentials
+    {
+        get => new TerraformReference<bool>(this, "support_credentials");
+        set => SetArgument("support_credentials", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ip_restriction in AzurermLogicAppStandardSiteConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermLogicAppStandardSiteConfigBlockIpRestrictionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_restriction";
+
+    /// <summary>
+    /// The action to take. Possible values are `Allow` or `Deny`.
+    /// </summary>
+    public TerraformValue<string>? Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The description of the IP restriction rule.
+    /// </summary>
+    public TerraformValue<string>? Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// The headers attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>>? Headers
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "headers").ResolveNodes(ctx));
+        set => SetArgument("headers", value);
+    }
+
+    /// <summary>
+    /// The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32` or `fe80::/64` or `13.107.6.152/31,13.107.128.0/22`
+    /// </summary>
+    public TerraformValue<string>? IpAddress
+    {
+        get => new TerraformReference<string>(this, "ip_address");
+        set => SetArgument("ip_address", value);
+    }
+
+    /// <summary>
+    /// The name which should be used for this `ip_restriction`.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The priority value of this `ip_restriction`.
+    /// </summary>
+    public TerraformValue<double>? Priority
+    {
+        get => new TerraformReference<double>(this, "priority");
+        set => SetArgument("priority", value);
+    }
+
+    /// <summary>
+    /// The Service Tag used for this IP Restriction.
+    /// </summary>
+    public TerraformValue<string>? ServiceTag
+    {
+        get => new TerraformReference<string>(this, "service_tag");
+        set => SetArgument("service_tag", value);
+    }
+
+    /// <summary>
+    /// The Virtual Network Subnet ID used for this IP Restriction.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkSubnetId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_subnet_id");
+        set => SetArgument("virtual_network_subnet_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for scm_ip_restriction in AzurermLogicAppStandardSiteConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermLogicAppStandardSiteConfigBlockScmIpRestrictionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "scm_ip_restriction";
+
+    /// <summary>
+    /// The action to take. Possible values are `Allow` or `Deny`.
+    /// </summary>
+    public TerraformValue<string>? Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The description of the IP restriction rule.
+    /// </summary>
+    public TerraformValue<string>? Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// The headers attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>>? Headers
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "headers").ResolveNodes(ctx));
+        set => SetArgument("headers", value);
+    }
+
+    /// <summary>
+    /// The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32` or `fe80::/64` or `13.107.6.152/31,13.107.128.0/22`
+    /// </summary>
+    public TerraformValue<string>? IpAddress
+    {
+        get => new TerraformReference<string>(this, "ip_address");
+        set => SetArgument("ip_address", value);
+    }
+
+    /// <summary>
+    /// The name which should be used for this `ip_restriction`.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The priority value of this `ip_restriction`.
+    /// </summary>
+    public TerraformValue<double>? Priority
+    {
+        get => new TerraformReference<double>(this, "priority");
+        set => SetArgument("priority", value);
+    }
+
+    /// <summary>
+    /// The Service Tag used for this IP Restriction.
+    /// </summary>
+    public TerraformValue<string>? ServiceTag
+    {
+        get => new TerraformReference<string>(this, "service_tag");
+        set => SetArgument("service_tag", value);
+    }
+
+    /// <summary>
+    /// The Virtual Network Subnet ID used for this IP Restriction.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkSubnetId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_subnet_id");
+        set => SetArgument("virtual_network_subnet_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermLogicAppStandard.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogicAppStandardTimeoutsBlock : TerraformBlock
@@ -325,6 +557,7 @@ public class AzurermLogicAppStandardTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_logic_app_standard Terraform resource.

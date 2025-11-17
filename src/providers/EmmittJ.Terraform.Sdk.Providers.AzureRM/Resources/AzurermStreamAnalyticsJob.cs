@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermStreamAnalyticsJob.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStreamAnalyticsJobIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermStreamAnalyticsJobIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for job_storage_account in .
+/// Block type for job_storage_account in AzurermStreamAnalyticsJob.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStreamAnalyticsJobJobStorageAccountBlock : TerraformBlock
@@ -91,8 +92,9 @@ public class AzurermStreamAnalyticsJobJobStorageAccountBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStreamAnalyticsJob.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
@@ -139,6 +141,7 @@ public class AzurermStreamAnalyticsJobTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stream_analytics_job Terraform resource.

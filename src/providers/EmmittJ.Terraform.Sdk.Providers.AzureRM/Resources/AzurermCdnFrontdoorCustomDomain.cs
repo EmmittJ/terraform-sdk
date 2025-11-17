@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCdnFrontdoorCustomDomain.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermCdnFrontdoorCustomDomainTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for tls in .
+/// Block type for tls in AzurermCdnFrontdoorCustomDomain.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
@@ -91,6 +92,7 @@ public class AzurermCdnFrontdoorCustomDomainTlsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_frontdoor_custom_domain Terraform resource.

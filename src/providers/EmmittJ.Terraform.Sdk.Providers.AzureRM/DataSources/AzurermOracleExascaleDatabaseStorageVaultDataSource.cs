@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermOracleExascaleDatabaseStorageVaultDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermOracleExascaleDatabaseStorageVaultDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermOracleExascaleDatabaseStorageVaultDataSourceTimeoutsBlock : 
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_oracle_exascale_database_storage_vault Terraform data source.

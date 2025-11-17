@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for auto_scale in .
+/// Block type for auto_scale in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolAutoScaleBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermBatchPoolAutoScaleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for certificate in .
+/// Block type for certificate in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolCertificateBlock : TerraformBlock
@@ -85,8 +86,9 @@ public class AzurermBatchPoolCertificateBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for container_configuration in .
+/// Block type for container_configuration in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolContainerConfigurationBlock : TerraformBlock
@@ -125,8 +127,9 @@ public class AzurermBatchPoolContainerConfigurationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for data_disks in .
+/// Block type for data_disks in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolDataDisksBlock : TerraformBlock
@@ -176,8 +179,9 @@ public class AzurermBatchPoolDataDisksBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for disk_encryption in .
+/// Block type for disk_encryption in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolDiskEncryptionBlock : TerraformBlock
@@ -199,8 +203,9 @@ public class AzurermBatchPoolDiskEncryptionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for extensions in .
+/// Block type for extensions in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolExtensionsBlock : TerraformBlock
@@ -296,8 +301,9 @@ public class AzurermBatchPoolExtensionsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for fixed_scale in .
+/// Block type for fixed_scale in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolFixedScaleBlock : TerraformBlock
@@ -345,8 +351,9 @@ public class AzurermBatchPoolFixedScaleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolIdentityBlock : TerraformBlock
@@ -378,8 +385,9 @@ public class AzurermBatchPoolIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for mount in .
+/// Block type for mount in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolMountBlock : TerraformBlock
@@ -389,10 +397,293 @@ public class AzurermBatchPoolMountBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "mount";
 
+    /// <summary>
+    /// AzureBlobFileSystem block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobFileSystem block(s) allowed")]
+    public TerraformList<AzurermBatchPoolMountBlockAzureBlobFileSystemBlock>? AzureBlobFileSystem
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolMountBlockAzureBlobFileSystemBlock>>("azure_blob_file_system");
+        set => SetArgument("azure_blob_file_system", value);
+    }
+
+    /// <summary>
+    /// AzureFileShare block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchPoolMountBlockAzureFileShareBlock>? AzureFileShare
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolMountBlockAzureFileShareBlock>>("azure_file_share");
+        set => SetArgument("azure_file_share", value);
+    }
+
+    /// <summary>
+    /// CifsMount block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchPoolMountBlockCifsMountBlock>? CifsMount
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolMountBlockCifsMountBlock>>("cifs_mount");
+        set => SetArgument("cifs_mount", value);
+    }
+
+    /// <summary>
+    /// NfsMount block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchPoolMountBlockNfsMountBlock>? NfsMount
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolMountBlockNfsMountBlock>>("nfs_mount");
+        set => SetArgument("nfs_mount", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for network_configuration in .
+/// Block type for azure_blob_file_system in AzurermBatchPoolMountBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolMountBlockAzureBlobFileSystemBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "azure_blob_file_system";
+
+    /// <summary>
+    /// The account_key attribute.
+    /// </summary>
+    public TerraformValue<string>? AccountKey
+    {
+        get => new TerraformReference<string>(this, "account_key");
+        set => SetArgument("account_key", value);
+    }
+
+    /// <summary>
+    /// The account_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
+    public required TerraformValue<string> AccountName
+    {
+        get => new TerraformReference<string>(this, "account_name");
+        set => SetArgument("account_name", value);
+    }
+
+    /// <summary>
+    /// The blobfuse_options attribute.
+    /// </summary>
+    public TerraformValue<string>? BlobfuseOptions
+    {
+        get => new TerraformReference<string>(this, "blobfuse_options");
+        set => SetArgument("blobfuse_options", value);
+    }
+
+    /// <summary>
+    /// The container_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
+    public required TerraformValue<string> ContainerName
+    {
+        get => new TerraformReference<string>(this, "container_name");
+        set => SetArgument("container_name", value);
+    }
+
+    /// <summary>
+    /// The identity_id attribute.
+    /// </summary>
+    public TerraformValue<string>? IdentityId
+    {
+        get => new TerraformReference<string>(this, "identity_id");
+        set => SetArgument("identity_id", value);
+    }
+
+    /// <summary>
+    /// The relative_mount_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeMountPath is required")]
+    public required TerraformValue<string> RelativeMountPath
+    {
+        get => new TerraformReference<string>(this, "relative_mount_path");
+        set => SetArgument("relative_mount_path", value);
+    }
+
+    /// <summary>
+    /// The sas_key attribute.
+    /// </summary>
+    public TerraformValue<string>? SasKey
+    {
+        get => new TerraformReference<string>(this, "sas_key");
+        set => SetArgument("sas_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for azure_file_share in AzurermBatchPoolMountBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolMountBlockAzureFileShareBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "azure_file_share";
+
+    /// <summary>
+    /// The account_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountKey is required")]
+    public required TerraformValue<string> AccountKey
+    {
+        get => new TerraformReference<string>(this, "account_key");
+        set => SetArgument("account_key", value);
+    }
+
+    /// <summary>
+    /// The account_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
+    public required TerraformValue<string> AccountName
+    {
+        get => new TerraformReference<string>(this, "account_name");
+        set => SetArgument("account_name", value);
+    }
+
+    /// <summary>
+    /// The azure_file_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AzureFileUrl is required")]
+    public required TerraformValue<string> AzureFileUrl
+    {
+        get => new TerraformReference<string>(this, "azure_file_url");
+        set => SetArgument("azure_file_url", value);
+    }
+
+    /// <summary>
+    /// The mount_options attribute.
+    /// </summary>
+    public TerraformValue<string>? MountOptions
+    {
+        get => new TerraformReference<string>(this, "mount_options");
+        set => SetArgument("mount_options", value);
+    }
+
+    /// <summary>
+    /// The relative_mount_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeMountPath is required")]
+    public required TerraformValue<string> RelativeMountPath
+    {
+        get => new TerraformReference<string>(this, "relative_mount_path");
+        set => SetArgument("relative_mount_path", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for cifs_mount in AzurermBatchPoolMountBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolMountBlockCifsMountBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cifs_mount";
+
+    /// <summary>
+    /// The mount_options attribute.
+    /// </summary>
+    public TerraformValue<string>? MountOptions
+    {
+        get => new TerraformReference<string>(this, "mount_options");
+        set => SetArgument("mount_options", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The relative_mount_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeMountPath is required")]
+    public required TerraformValue<string> RelativeMountPath
+    {
+        get => new TerraformReference<string>(this, "relative_mount_path");
+        set => SetArgument("relative_mount_path", value);
+    }
+
+    /// <summary>
+    /// The source attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
+    public required TerraformValue<string> Source
+    {
+        get => new TerraformReference<string>(this, "source");
+        set => SetArgument("source", value);
+    }
+
+    /// <summary>
+    /// The user_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
+    public required TerraformValue<string> UserName
+    {
+        get => new TerraformReference<string>(this, "user_name");
+        set => SetArgument("user_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for nfs_mount in AzurermBatchPoolMountBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolMountBlockNfsMountBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "nfs_mount";
+
+    /// <summary>
+    /// The mount_options attribute.
+    /// </summary>
+    public TerraformValue<string>? MountOptions
+    {
+        get => new TerraformReference<string>(this, "mount_options");
+        set => SetArgument("mount_options", value);
+    }
+
+    /// <summary>
+    /// The relative_mount_path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeMountPath is required")]
+    public required TerraformValue<string> RelativeMountPath
+    {
+        get => new TerraformReference<string>(this, "relative_mount_path");
+        set => SetArgument("relative_mount_path", value);
+    }
+
+    /// <summary>
+    /// The source attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
+    public required TerraformValue<string> Source
+    {
+        get => new TerraformReference<string>(this, "source");
+        set => SetArgument("source", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for network_configuration in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlock
@@ -447,10 +738,134 @@ public class AzurermBatchPoolNetworkConfigurationBlock : TerraformBlock
         set => SetArgument("subnet_id", value);
     }
 
+    /// <summary>
+    /// EndpointConfiguration block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock>? EndpointConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock>>("endpoint_configuration");
+        set => SetArgument("endpoint_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for node_placement in .
+/// Block type for endpoint_configuration in AzurermBatchPoolNetworkConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "endpoint_configuration";
+
+    /// <summary>
+    /// The backend_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPort is required")]
+    public required TerraformValue<double> BackendPort
+    {
+        get => new TerraformReference<double>(this, "backend_port");
+        set => SetArgument("backend_port", value);
+    }
+
+    /// <summary>
+    /// The frontend_port_range attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrontendPortRange is required")]
+    public required TerraformValue<string> FrontendPortRange
+    {
+        get => new TerraformReference<string>(this, "frontend_port_range");
+        set => SetArgument("frontend_port_range", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformValue<string> Protocol
+    {
+        get => new TerraformReference<string>(this, "protocol");
+        set => SetArgument("protocol", value);
+    }
+
+    /// <summary>
+    /// NetworkSecurityGroupRules block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlockNetworkSecurityGroupRulesBlock>? NetworkSecurityGroupRules
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlockNetworkSecurityGroupRulesBlock>>("network_security_group_rules");
+        set => SetArgument("network_security_group_rules", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for network_security_group_rules in AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolNetworkConfigurationBlockEndpointConfigurationBlockNetworkSecurityGroupRulesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "network_security_group_rules";
+
+    /// <summary>
+    /// The access attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
+    public required TerraformValue<string> Access
+    {
+        get => new TerraformReference<string>(this, "access");
+        set => SetArgument("access", value);
+    }
+
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
+    public required TerraformValue<double> Priority
+    {
+        get => new TerraformReference<double>(this, "priority");
+        set => SetArgument("priority", value);
+    }
+
+    /// <summary>
+    /// The source_address_prefix attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceAddressPrefix is required")]
+    public required TerraformValue<string> SourceAddressPrefix
+    {
+        get => new TerraformReference<string>(this, "source_address_prefix");
+        set => SetArgument("source_address_prefix", value);
+    }
+
+    /// <summary>
+    /// The source_port_ranges attribute.
+    /// </summary>
+    public TerraformList<string> SourcePortRanges
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "source_port_ranges").ResolveNodes(ctx));
+        set => SetArgument("source_port_ranges", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for node_placement in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolNodePlacementBlock : TerraformBlock
@@ -471,8 +886,9 @@ public class AzurermBatchPoolNodePlacementBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for security_profile in .
+/// Block type for security_profile in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolSecurityProfileBlock : TerraformBlock
@@ -520,8 +936,9 @@ public class AzurermBatchPoolSecurityProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for start_task in .
+/// Block type for start_task in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolStartTaskBlock : TerraformBlock
@@ -568,10 +985,281 @@ public class AzurermBatchPoolStartTaskBlock : TerraformBlock
         set => SetArgument("wait_for_success", value);
     }
 
+    /// <summary>
+    /// Container block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchPoolStartTaskBlockContainerBlock>? Container
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolStartTaskBlockContainerBlock>>("container");
+        set => SetArgument("container", value);
+    }
+
+    /// <summary>
+    /// ResourceFile block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchPoolStartTaskBlockResourceFileBlock>? ResourceFile
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolStartTaskBlockResourceFileBlock>>("resource_file");
+        set => SetArgument("resource_file", value);
+    }
+
+    /// <summary>
+    /// UserIdentity block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserIdentity is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 UserIdentity block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UserIdentity block(s) allowed")]
+    public required TerraformList<AzurermBatchPoolStartTaskBlockUserIdentityBlock> UserIdentity
+    {
+        get => GetRequiredArgument<TerraformList<AzurermBatchPoolStartTaskBlockUserIdentityBlock>>("user_identity");
+        set => SetArgument("user_identity", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for storage_image_reference in .
+/// Block type for container in AzurermBatchPoolStartTaskBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolStartTaskBlockContainerBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "container";
+
+    /// <summary>
+    /// The image_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
+    public required TerraformValue<string> ImageName
+    {
+        get => new TerraformReference<string>(this, "image_name");
+        set => SetArgument("image_name", value);
+    }
+
+    /// <summary>
+    /// The run_options attribute.
+    /// </summary>
+    public TerraformValue<string>? RunOptions
+    {
+        get => new TerraformReference<string>(this, "run_options");
+        set => SetArgument("run_options", value);
+    }
+
+    /// <summary>
+    /// The working_directory attribute.
+    /// </summary>
+    public TerraformValue<string>? WorkingDirectory
+    {
+        get => new TerraformReference<string>(this, "working_directory");
+        set => SetArgument("working_directory", value);
+    }
+
+    /// <summary>
+    /// Registry block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchPoolStartTaskBlockContainerBlockRegistryBlock>? Registry
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolStartTaskBlockContainerBlockRegistryBlock>>("registry");
+        set => SetArgument("registry", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for registry in AzurermBatchPoolStartTaskBlockContainerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolStartTaskBlockContainerBlockRegistryBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "registry";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string>? Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The registry_server attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryServer is required")]
+    public required TerraformValue<string> RegistryServer
+    {
+        get => new TerraformReference<string>(this, "registry_server");
+        set => SetArgument("registry_server", value);
+    }
+
+    /// <summary>
+    /// The User Assigned Identity to use for Container Registry access.
+    /// </summary>
+    public TerraformValue<string>? UserAssignedIdentityId
+    {
+        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        set => SetArgument("user_assigned_identity_id", value);
+    }
+
+    /// <summary>
+    /// The user_name attribute.
+    /// </summary>
+    public TerraformValue<string>? UserName
+    {
+        get => new TerraformReference<string>(this, "user_name");
+        set => SetArgument("user_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for resource_file in AzurermBatchPoolStartTaskBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolStartTaskBlockResourceFileBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "resource_file";
+
+    /// <summary>
+    /// The auto_storage_container_name attribute.
+    /// </summary>
+    public TerraformValue<string>? AutoStorageContainerName
+    {
+        get => new TerraformReference<string>(this, "auto_storage_container_name");
+        set => SetArgument("auto_storage_container_name", value);
+    }
+
+    /// <summary>
+    /// The blob_prefix attribute.
+    /// </summary>
+    public TerraformValue<string>? BlobPrefix
+    {
+        get => new TerraformReference<string>(this, "blob_prefix");
+        set => SetArgument("blob_prefix", value);
+    }
+
+    /// <summary>
+    /// The file_mode attribute.
+    /// </summary>
+    public TerraformValue<string>? FileMode
+    {
+        get => new TerraformReference<string>(this, "file_mode");
+        set => SetArgument("file_mode", value);
+    }
+
+    /// <summary>
+    /// The file_path attribute.
+    /// </summary>
+    public TerraformValue<string>? FilePath
+    {
+        get => new TerraformReference<string>(this, "file_path");
+        set => SetArgument("file_path", value);
+    }
+
+    /// <summary>
+    /// The http_url attribute.
+    /// </summary>
+    public TerraformValue<string>? HttpUrl
+    {
+        get => new TerraformReference<string>(this, "http_url");
+        set => SetArgument("http_url", value);
+    }
+
+    /// <summary>
+    /// The storage_container_url attribute.
+    /// </summary>
+    public TerraformValue<string>? StorageContainerUrl
+    {
+        get => new TerraformReference<string>(this, "storage_container_url");
+        set => SetArgument("storage_container_url", value);
+    }
+
+    /// <summary>
+    /// The user_assigned_identity_id attribute.
+    /// </summary>
+    public TerraformValue<string>? UserAssignedIdentityId
+    {
+        get => new TerraformReference<string>(this, "user_assigned_identity_id");
+        set => SetArgument("user_assigned_identity_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for user_identity in AzurermBatchPoolStartTaskBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolStartTaskBlockUserIdentityBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "user_identity";
+
+    /// <summary>
+    /// The user_name attribute.
+    /// </summary>
+    public TerraformValue<string>? UserName
+    {
+        get => new TerraformReference<string>(this, "user_name");
+        set => SetArgument("user_name", value);
+    }
+
+    /// <summary>
+    /// AutoUser block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoUser block(s) allowed")]
+    public TerraformList<AzurermBatchPoolStartTaskBlockUserIdentityBlockAutoUserBlock>? AutoUser
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolStartTaskBlockUserIdentityBlockAutoUserBlock>>("auto_user");
+        set => SetArgument("auto_user", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for auto_user in AzurermBatchPoolStartTaskBlockUserIdentityBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolStartTaskBlockUserIdentityBlockAutoUserBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "auto_user";
+
+    /// <summary>
+    /// The elevation_level attribute.
+    /// </summary>
+    public TerraformValue<string>? ElevationLevel
+    {
+        get => new TerraformReference<string>(this, "elevation_level");
+        set => SetArgument("elevation_level", value);
+    }
+
+    /// <summary>
+    /// The scope attribute.
+    /// </summary>
+    public TerraformValue<string>? Scope
+    {
+        get => new TerraformReference<string>(this, "scope");
+        set => SetArgument("scope", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for storage_image_reference in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlock
@@ -628,8 +1316,9 @@ public class AzurermBatchPoolStorageImageReferenceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for task_scheduling_policy in .
+/// Block type for task_scheduling_policy in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolTaskSchedulingPolicyBlock : TerraformBlock
@@ -650,8 +1339,9 @@ public class AzurermBatchPoolTaskSchedulingPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBatchPool.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBatchPoolTimeoutsBlock : TerraformBlock
@@ -699,8 +1389,9 @@ public class AzurermBatchPoolTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for user_accounts in .
+/// Block type for user_accounts in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
@@ -740,10 +1431,92 @@ public class AzurermBatchPoolUserAccountsBlock : TerraformBlock
         set => SetArgument("password", value);
     }
 
+    /// <summary>
+    /// LinuxUserConfiguration block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchPoolUserAccountsBlockLinuxUserConfigurationBlock>? LinuxUserConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolUserAccountsBlockLinuxUserConfigurationBlock>>("linux_user_configuration");
+        set => SetArgument("linux_user_configuration", value);
+    }
+
+    /// <summary>
+    /// WindowsUserConfiguration block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermBatchPoolUserAccountsBlockWindowsUserConfigurationBlock>? WindowsUserConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermBatchPoolUserAccountsBlockWindowsUserConfigurationBlock>>("windows_user_configuration");
+        set => SetArgument("windows_user_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for windows in .
+/// Block type for linux_user_configuration in AzurermBatchPoolUserAccountsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolUserAccountsBlockLinuxUserConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "linux_user_configuration";
+
+    /// <summary>
+    /// The gid attribute.
+    /// </summary>
+    public TerraformValue<double>? Gid
+    {
+        get => new TerraformReference<double>(this, "gid");
+        set => SetArgument("gid", value);
+    }
+
+    /// <summary>
+    /// The ssh_private_key attribute.
+    /// </summary>
+    public TerraformValue<string>? SshPrivateKey
+    {
+        get => new TerraformReference<string>(this, "ssh_private_key");
+        set => SetArgument("ssh_private_key", value);
+    }
+
+    /// <summary>
+    /// The uid attribute.
+    /// </summary>
+    public TerraformValue<double>? Uid
+    {
+        get => new TerraformReference<double>(this, "uid");
+        set => SetArgument("uid", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for windows_user_configuration in AzurermBatchPoolUserAccountsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBatchPoolUserAccountsBlockWindowsUserConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "windows_user_configuration";
+
+    /// <summary>
+    /// The login_mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginMode is required")]
+    public required TerraformValue<string> LoginMode
+    {
+        get => new TerraformReference<string>(this, "login_mode");
+        set => SetArgument("login_mode", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for windows in AzurermBatchPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBatchPoolWindowsBlock : TerraformBlock
@@ -763,6 +1536,7 @@ public class AzurermBatchPoolWindowsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_batch_pool Terraform resource.

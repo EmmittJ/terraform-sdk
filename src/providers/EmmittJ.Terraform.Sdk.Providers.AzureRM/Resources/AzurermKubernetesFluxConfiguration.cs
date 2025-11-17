@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for blob_storage in .
+/// Block type for blob_storage in AzurermKubernetesFluxConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesFluxConfigurationBlobStorageBlock : TerraformBlock
@@ -68,10 +68,123 @@ public class AzurermKubernetesFluxConfigurationBlobStorageBlock : TerraformBlock
         set => SetArgument("timeout_in_seconds", value);
     }
 
+    /// <summary>
+    /// ManagedIdentity block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedIdentity block(s) allowed")]
+    public TerraformList<AzurermKubernetesFluxConfigurationBlobStorageBlockManagedIdentityBlock>? ManagedIdentity
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesFluxConfigurationBlobStorageBlockManagedIdentityBlock>>("managed_identity");
+        set => SetArgument("managed_identity", value);
+    }
+
+    /// <summary>
+    /// ServicePrincipal block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServicePrincipal block(s) allowed")]
+    public TerraformList<AzurermKubernetesFluxConfigurationBlobStorageBlockServicePrincipalBlock>? ServicePrincipal
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesFluxConfigurationBlobStorageBlockServicePrincipalBlock>>("service_principal");
+        set => SetArgument("service_principal", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for bucket in .
+/// Block type for managed_identity in AzurermKubernetesFluxConfigurationBlobStorageBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesFluxConfigurationBlobStorageBlockManagedIdentityBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "managed_identity";
+
+    /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for service_principal in AzurermKubernetesFluxConfigurationBlobStorageBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesFluxConfigurationBlobStorageBlockServicePrincipalBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "service_principal";
+
+    /// <summary>
+    /// The client_certificate_base64 attribute.
+    /// </summary>
+    public TerraformValue<string>? ClientCertificateBase64
+    {
+        get => new TerraformReference<string>(this, "client_certificate_base64");
+        set => SetArgument("client_certificate_base64", value);
+    }
+
+    /// <summary>
+    /// The client_certificate_password attribute.
+    /// </summary>
+    public TerraformValue<string>? ClientCertificatePassword
+    {
+        get => new TerraformReference<string>(this, "client_certificate_password");
+        set => SetArgument("client_certificate_password", value);
+    }
+
+    /// <summary>
+    /// The client_certificate_send_chain attribute.
+    /// </summary>
+    public TerraformValue<bool>? ClientCertificateSendChain
+    {
+        get => new TerraformReference<bool>(this, "client_certificate_send_chain");
+        set => SetArgument("client_certificate_send_chain", value);
+    }
+
+    /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The client_secret attribute.
+    /// </summary>
+    public TerraformValue<string>? ClientSecret
+    {
+        get => new TerraformReference<string>(this, "client_secret");
+        set => SetArgument("client_secret", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
+    public required TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+        set => SetArgument("tenant_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for bucket in AzurermKubernetesFluxConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
@@ -157,8 +270,9 @@ public class AzurermKubernetesFluxConfigurationBucketBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for git_repository in .
+/// Block type for git_repository in AzurermKubernetesFluxConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlock
@@ -281,8 +395,9 @@ public class AzurermKubernetesFluxConfigurationGitRepositoryBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for kustomizations in .
+/// Block type for kustomizations in AzurermKubernetesFluxConfiguration.
 /// Nesting mode: set
 /// </summary>
 public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBlock
@@ -374,10 +489,94 @@ public class AzurermKubernetesFluxConfigurationKustomizationsBlock : TerraformBl
         set => SetArgument("wait", value);
     }
 
+    /// <summary>
+    /// PostBuild block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostBuild block(s) allowed")]
+    public TerraformList<AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlock>? PostBuild
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlock>>("post_build");
+        set => SetArgument("post_build", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for post_build in AzurermKubernetesFluxConfigurationKustomizationsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "post_build";
+
+    /// <summary>
+    /// The substitute attribute.
+    /// </summary>
+    public TerraformMap<string>? Substitute
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "substitute").ResolveNodes(ctx));
+        set => SetArgument("substitute", value);
+    }
+
+    /// <summary>
+    /// SubstituteFrom block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlockSubstituteFromBlock>? SubstituteFrom
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlockSubstituteFromBlock>>("substitute_from");
+        set => SetArgument("substitute_from", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for substitute_from in AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesFluxConfigurationKustomizationsBlockPostBuildBlockSubstituteFromBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "substitute_from";
+
+    /// <summary>
+    /// The kind attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
+    public required TerraformValue<string> Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+        set => SetArgument("kind", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The optional attribute.
+    /// </summary>
+    public TerraformValue<bool>? Optional
+    {
+        get => new TerraformReference<bool>(this, "optional");
+        set => SetArgument("optional", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermKubernetesFluxConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKubernetesFluxConfigurationTimeoutsBlock : TerraformBlock
@@ -424,6 +623,7 @@ public class AzurermKubernetesFluxConfigurationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kubernetes_flux_configuration Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for contact in .
+/// Block type for contact in AzurermApiManagementApi.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementApiContactBlock : TerraformBlock
@@ -42,8 +42,9 @@ public class AzurermApiManagementApiContactBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for import in .
+/// Block type for import in AzurermApiManagementApi.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementApiImportBlock : TerraformBlock
@@ -73,10 +74,54 @@ public class AzurermApiManagementApiImportBlock : TerraformBlock
         set => SetArgument("content_value", value);
     }
 
+    /// <summary>
+    /// WsdlSelector block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WsdlSelector block(s) allowed")]
+    public TerraformList<AzurermApiManagementApiImportBlockWsdlSelectorBlock>? WsdlSelector
+    {
+        get => GetArgument<TerraformList<AzurermApiManagementApiImportBlockWsdlSelectorBlock>>("wsdl_selector");
+        set => SetArgument("wsdl_selector", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for license in .
+/// Block type for wsdl_selector in AzurermApiManagementApiImportBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermApiManagementApiImportBlockWsdlSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "wsdl_selector";
+
+    /// <summary>
+    /// The endpoint_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointName is required")]
+    public required TerraformValue<string> EndpointName
+    {
+        get => new TerraformReference<string>(this, "endpoint_name");
+        set => SetArgument("endpoint_name", value);
+    }
+
+    /// <summary>
+    /// The service_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
+    public required TerraformValue<string> ServiceName
+    {
+        get => new TerraformReference<string>(this, "service_name");
+        set => SetArgument("service_name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for license in AzurermApiManagementApi.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementApiLicenseBlock : TerraformBlock
@@ -106,8 +151,9 @@ public class AzurermApiManagementApiLicenseBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for oauth2_authorization in .
+/// Block type for oauth2_authorization in AzurermApiManagementApi.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementApiOauth2AuthorizationBlock : TerraformBlock
@@ -138,8 +184,9 @@ public class AzurermApiManagementApiOauth2AuthorizationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for openid_authentication in .
+/// Block type for openid_authentication in AzurermApiManagementApi.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementApiOpenidAuthenticationBlock : TerraformBlock
@@ -170,8 +217,9 @@ public class AzurermApiManagementApiOpenidAuthenticationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for subscription_key_parameter_names in .
+/// Block type for subscription_key_parameter_names in AzurermApiManagementApi.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : TerraformBlock
@@ -203,8 +251,9 @@ public class AzurermApiManagementApiSubscriptionKeyParameterNamesBlock : Terrafo
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementApi.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
@@ -251,6 +300,7 @@ public class AzurermApiManagementApiTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_api Terraform resource.

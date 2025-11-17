@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVmwareNetappVolumeAttachment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVmwareNetappVolumeAttachmentTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermVmwareNetappVolumeAttachmentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_vmware_netapp_volume_attachment Terraform resource.

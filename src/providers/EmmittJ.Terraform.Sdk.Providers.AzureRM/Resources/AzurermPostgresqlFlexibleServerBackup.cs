@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPostgresqlFlexibleServerBackup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPostgresqlFlexibleServerBackupTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermPostgresqlFlexibleServerBackupTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_postgresql_flexible_server_backup Terraform resource.

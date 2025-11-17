@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for container_network_interface in .
+/// Block type for container_network_interface in AzurermNetworkProfile.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkProfileContainerNetworkInterfaceBlock : TerraformBlock
@@ -23,10 +23,56 @@ public class AzurermNetworkProfileContainerNetworkInterfaceBlock : TerraformBloc
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// IpConfiguration block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
+    public required TerraformList<AzurermNetworkProfileContainerNetworkInterfaceBlockIpConfigurationBlock> IpConfiguration
+    {
+        get => GetRequiredArgument<TerraformList<AzurermNetworkProfileContainerNetworkInterfaceBlockIpConfigurationBlock>>("ip_configuration");
+        set => SetArgument("ip_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for ip_configuration in AzurermNetworkProfileContainerNetworkInterfaceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermNetworkProfileContainerNetworkInterfaceBlockIpConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_configuration";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformValue<string> SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermNetworkProfile.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkProfileTimeoutsBlock : TerraformBlock
@@ -73,6 +119,7 @@ public class AzurermNetworkProfileTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_profile Terraform resource.

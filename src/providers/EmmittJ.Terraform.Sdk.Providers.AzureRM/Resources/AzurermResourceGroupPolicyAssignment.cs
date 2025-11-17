@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermResourceGroupPolicyAssignment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermResourceGroupPolicyAssignmentIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermResourceGroupPolicyAssignmentIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for non_compliance_message in .
+/// Block type for non_compliance_message in AzurermResourceGroupPolicyAssignment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermResourceGroupPolicyAssignmentNonComplianceMessageBlock : TerraformBlock
@@ -82,8 +83,9 @@ public class AzurermResourceGroupPolicyAssignmentNonComplianceMessageBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for overrides in .
+/// Block type for overrides in AzurermResourceGroupPolicyAssignment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermResourceGroupPolicyAssignmentOverridesBlock : TerraformBlock
@@ -103,10 +105,60 @@ public class AzurermResourceGroupPolicyAssignmentOverridesBlock : TerraformBlock
         set => SetArgument("value", value);
     }
 
+    /// <summary>
+    /// Selectors block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermResourceGroupPolicyAssignmentOverridesBlockSelectorsBlock>? Selectors
+    {
+        get => GetArgument<TerraformList<AzurermResourceGroupPolicyAssignmentOverridesBlockSelectorsBlock>>("selectors");
+        set => SetArgument("selectors", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for resource_selectors in .
+/// Block type for selectors in AzurermResourceGroupPolicyAssignmentOverridesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermResourceGroupPolicyAssignmentOverridesBlockSelectorsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "selectors";
+
+    /// <summary>
+    /// The in attribute.
+    /// </summary>
+    public TerraformList<string>? InAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "in").ResolveNodes(ctx));
+        set => SetArgument("in", value);
+    }
+
+    /// <summary>
+    /// The kind attribute.
+    /// </summary>
+    public TerraformValue<string>? Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+        set => SetArgument("kind", value);
+    }
+
+    /// <summary>
+    /// The not_in attribute.
+    /// </summary>
+    public TerraformList<string>? NotIn
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_in").ResolveNodes(ctx));
+        set => SetArgument("not_in", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for resource_selectors in AzurermResourceGroupPolicyAssignment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermResourceGroupPolicyAssignmentResourceSelectorsBlock : TerraformBlock
@@ -125,10 +177,64 @@ public class AzurermResourceGroupPolicyAssignmentResourceSelectorsBlock : Terraf
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// Selectors block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selectors is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Selectors block(s) required")]
+    public required TerraformList<AzurermResourceGroupPolicyAssignmentResourceSelectorsBlockSelectorsBlock> Selectors
+    {
+        get => GetRequiredArgument<TerraformList<AzurermResourceGroupPolicyAssignmentResourceSelectorsBlockSelectorsBlock>>("selectors");
+        set => SetArgument("selectors", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for selectors in AzurermResourceGroupPolicyAssignmentResourceSelectorsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermResourceGroupPolicyAssignmentResourceSelectorsBlockSelectorsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "selectors";
+
+    /// <summary>
+    /// The in attribute.
+    /// </summary>
+    public TerraformList<string>? InAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "in").ResolveNodes(ctx));
+        set => SetArgument("in", value);
+    }
+
+    /// <summary>
+    /// The kind attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Kind is required")]
+    public required TerraformValue<string> Kind
+    {
+        get => new TerraformReference<string>(this, "kind");
+        set => SetArgument("kind", value);
+    }
+
+    /// <summary>
+    /// The not_in attribute.
+    /// </summary>
+    public TerraformList<string>? NotIn
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_in").ResolveNodes(ctx));
+        set => SetArgument("not_in", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermResourceGroupPolicyAssignment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermResourceGroupPolicyAssignmentTimeoutsBlock : TerraformBlock
@@ -175,6 +281,7 @@ public class AzurermResourceGroupPolicyAssignmentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_resource_group_policy_assignment Terraform resource.

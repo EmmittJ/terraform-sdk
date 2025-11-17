@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSecurityCenterAutoProvisioning.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSecurityCenterAutoProvisioningTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSecurityCenterAutoProvisioningTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_security_center_auto_provisioning Terraform resource.

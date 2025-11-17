@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for auto_pause in .
+/// Block type for auto_pause in AzurermSynapseSparkPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSynapseSparkPoolAutoPauseBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermSynapseSparkPoolAutoPauseBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for auto_scale in .
+/// Block type for auto_scale in AzurermSynapseSparkPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlock
@@ -58,8 +59,9 @@ public class AzurermSynapseSparkPoolAutoScaleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for library_requirement in .
+/// Block type for library_requirement in AzurermSynapseSparkPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformBlock
@@ -91,8 +93,9 @@ public class AzurermSynapseSparkPoolLibraryRequirementBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for spark_config in .
+/// Block type for spark_config in AzurermSynapseSparkPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlock
@@ -124,8 +127,9 @@ public class AzurermSynapseSparkPoolSparkConfigBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSynapseSparkPool.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSynapseSparkPoolTimeoutsBlock : TerraformBlock
@@ -172,6 +176,7 @@ public class AzurermSynapseSparkPoolTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_synapse_spark_pool Terraform resource.

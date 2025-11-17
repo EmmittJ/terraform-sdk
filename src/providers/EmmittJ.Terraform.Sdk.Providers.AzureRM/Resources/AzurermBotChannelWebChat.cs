@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for site in .
+/// Block type for site in AzurermBotChannelWebChat.
 /// Nesting mode: set
 /// </summary>
 public class AzurermBotChannelWebChatSiteBlock : TerraformBlock
@@ -52,8 +52,9 @@ public class AzurermBotChannelWebChatSiteBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBotChannelWebChat.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBotChannelWebChatTimeoutsBlock : TerraformBlock
@@ -100,6 +101,7 @@ public class AzurermBotChannelWebChatTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_bot_channel_web_chat Terraform resource.

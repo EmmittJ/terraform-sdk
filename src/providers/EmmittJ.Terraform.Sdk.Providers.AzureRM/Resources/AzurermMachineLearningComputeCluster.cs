@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMachineLearningComputeCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningComputeClusterIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermMachineLearningComputeClusterIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for scale_settings in .
+/// Block type for scale_settings in AzurermMachineLearningComputeCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformBlock
@@ -93,8 +94,9 @@ public class AzurermMachineLearningComputeClusterScaleSettingsBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for ssh in .
+/// Block type for ssh in AzurermMachineLearningComputeCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningComputeClusterSshBlock : TerraformBlock
@@ -134,8 +136,9 @@ public class AzurermMachineLearningComputeClusterSshBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMachineLearningComputeCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMachineLearningComputeClusterTimeoutsBlock : TerraformBlock
@@ -182,6 +185,7 @@ public class AzurermMachineLearningComputeClusterTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_machine_learning_compute_cluster Terraform resource.

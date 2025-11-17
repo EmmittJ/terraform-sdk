@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermContainerAppEnvironment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermContainerAppEnvironmentIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerAppEnvironment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
@@ -99,8 +100,9 @@ public class AzurermContainerAppEnvironmentTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for workload_profile in .
+/// Block type for workload_profile in AzurermContainerAppEnvironment.
 /// Nesting mode: set
 /// </summary>
 public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
@@ -149,6 +151,7 @@ public class AzurermContainerAppEnvironmentWorkloadProfileBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_app_environment Terraform resource.

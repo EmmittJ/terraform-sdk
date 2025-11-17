@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCosmosdbMongoUserDefinition.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbMongoUserDefinitionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermCosmosdbMongoUserDefinitionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_mongo_user_definition Terraform resource.

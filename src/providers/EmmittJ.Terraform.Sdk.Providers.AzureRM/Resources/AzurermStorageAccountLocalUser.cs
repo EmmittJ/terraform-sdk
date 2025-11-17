@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for permission_scope in .
+/// Block type for permission_scope in AzurermStorageAccountLocalUser.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
@@ -33,10 +33,82 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlock
         set => SetArgument("service", value);
     }
 
+    /// <summary>
+    /// Permissions block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Permissions block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Permissions block(s) allowed")]
+    public required TerraformList<AzurermStorageAccountLocalUserPermissionScopeBlockPermissionsBlock> Permissions
+    {
+        get => GetRequiredArgument<TerraformList<AzurermStorageAccountLocalUserPermissionScopeBlockPermissionsBlock>>("permissions");
+        set => SetArgument("permissions", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for ssh_authorized_key in .
+/// Block type for permissions in AzurermStorageAccountLocalUserPermissionScopeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountLocalUserPermissionScopeBlockPermissionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "permissions";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformValue<bool>? Create
+    {
+        get => new TerraformReference<bool>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformValue<bool>? Delete
+    {
+        get => new TerraformReference<bool>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The list attribute.
+    /// </summary>
+    public TerraformValue<bool>? List
+    {
+        get => new TerraformReference<bool>(this, "list");
+        set => SetArgument("list", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformValue<bool>? Read
+    {
+        get => new TerraformReference<bool>(this, "read");
+        set => SetArgument("read", value);
+    }
+
+    /// <summary>
+    /// The write attribute.
+    /// </summary>
+    public TerraformValue<bool>? Write
+    {
+        get => new TerraformReference<bool>(this, "write");
+        set => SetArgument("write", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for ssh_authorized_key in AzurermStorageAccountLocalUser.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBlock
@@ -67,8 +139,9 @@ public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageAccountLocalUser.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
@@ -115,6 +188,7 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_account_local_user Terraform resource.

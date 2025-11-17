@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBotChannelSlack.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBotChannelSlackTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermBotChannelSlackTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_bot_channel_slack Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermServicebusNamespaceAuthorizationRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermServicebusNamespaceAuthorizationRuleTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermServicebusNamespaceAuthorizationRuleTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_servicebus_namespace_authorization_rule Terraform resource.

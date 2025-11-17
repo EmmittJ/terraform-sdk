@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for manage_action in .
+/// Block type for manage_action in AzurermGalleryApplicationVersion.
 /// Nesting mode: list
 /// </summary>
 public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermGalleryApplicationVersionManageActionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for source in .
+/// Block type for source in AzurermGalleryApplicationVersion.
 /// Nesting mode: list
 /// </summary>
 public class AzurermGalleryApplicationVersionSourceBlock : TerraformBlock
@@ -76,8 +77,9 @@ public class AzurermGalleryApplicationVersionSourceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for target_region in .
+/// Block type for target_region in AzurermGalleryApplicationVersion.
 /// Nesting mode: list
 /// </summary>
 public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
@@ -127,8 +129,9 @@ public class AzurermGalleryApplicationVersionTargetRegionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermGalleryApplicationVersion.
 /// Nesting mode: single
 /// </summary>
 public class AzurermGalleryApplicationVersionTimeoutsBlock : TerraformBlock
@@ -175,6 +178,7 @@ public class AzurermGalleryApplicationVersionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_gallery_application_version Terraform resource.

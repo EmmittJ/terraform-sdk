@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for encryption in .
+/// Block type for encryption in AzurermMachineLearningWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermMachineLearningWorkspaceEncryptionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for feature_store in .
+/// Block type for feature_store in AzurermMachineLearningWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningWorkspaceFeatureStoreBlock : TerraformBlock
@@ -84,8 +85,9 @@ public class AzurermMachineLearningWorkspaceFeatureStoreBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMachineLearningWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningWorkspaceIdentityBlock : TerraformBlock
@@ -132,8 +134,9 @@ public class AzurermMachineLearningWorkspaceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for managed_network in .
+/// Block type for managed_network in AzurermMachineLearningWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningWorkspaceManagedNetworkBlock : TerraformBlock
@@ -163,8 +166,9 @@ public class AzurermMachineLearningWorkspaceManagedNetworkBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for serverless_compute in .
+/// Block type for serverless_compute in AzurermMachineLearningWorkspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningWorkspaceServerlessComputeBlock : TerraformBlock
@@ -194,8 +198,9 @@ public class AzurermMachineLearningWorkspaceServerlessComputeBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMachineLearningWorkspace.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMachineLearningWorkspaceTimeoutsBlock : TerraformBlock
@@ -242,6 +247,7 @@ public class AzurermMachineLearningWorkspaceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_machine_learning_workspace Terraform resource.

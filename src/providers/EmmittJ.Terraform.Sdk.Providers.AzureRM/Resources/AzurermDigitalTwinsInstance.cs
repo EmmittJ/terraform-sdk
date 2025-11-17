@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDigitalTwinsInstance.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDigitalTwinsInstanceIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermDigitalTwinsInstanceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDigitalTwinsInstance.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDigitalTwinsInstanceTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermDigitalTwinsInstanceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_digital_twins_instance Terraform resource.

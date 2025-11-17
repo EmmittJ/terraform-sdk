@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for cache in .
+/// Block type for cache in AzurermCdnFrontdoorRoute.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCdnFrontdoorRouteCacheBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermCdnFrontdoorRouteCacheBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCdnFrontdoorRoute.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnFrontdoorRouteTimeoutsBlock : TerraformBlock
@@ -99,6 +100,7 @@ public class AzurermCdnFrontdoorRouteTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_frontdoor_route Terraform resource.

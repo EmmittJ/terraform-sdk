@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKustoCosmosdbDataConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kusto_cosmosdb_data_connection Terraform resource.

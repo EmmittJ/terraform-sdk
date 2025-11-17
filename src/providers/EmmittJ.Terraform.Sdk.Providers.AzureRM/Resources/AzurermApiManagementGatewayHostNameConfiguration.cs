@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementGatewayHostNameConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermApiManagementGatewayHostNameConfigurationTimeoutsBlock : Ter
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_gateway_host_name_configuration Terraform resource.

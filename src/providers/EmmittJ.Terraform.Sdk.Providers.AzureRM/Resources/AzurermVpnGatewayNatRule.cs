@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for external_mapping in .
+/// Block type for external_mapping in AzurermVpnGatewayNatRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermVpnGatewayNatRuleExternalMappingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for internal_mapping in .
+/// Block type for internal_mapping in AzurermVpnGatewayNatRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlock
@@ -66,8 +67,9 @@ public class AzurermVpnGatewayNatRuleInternalMappingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVpnGatewayNatRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
@@ -114,6 +116,7 @@ public class AzurermVpnGatewayNatRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_vpn_gateway_nat_rule Terraform resource.

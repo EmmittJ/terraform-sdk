@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAutomationCredential.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationCredentialTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermAutomationCredentialTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_credential Terraform resource.

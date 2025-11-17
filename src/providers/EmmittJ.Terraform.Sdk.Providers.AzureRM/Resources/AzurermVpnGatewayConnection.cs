@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for routing in .
+/// Block type for routing in AzurermVpnGatewayConnection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVpnGatewayConnectionRoutingBlock : TerraformBlock
@@ -41,10 +41,53 @@ public class AzurermVpnGatewayConnectionRoutingBlock : TerraformBlock
         set => SetArgument("outbound_route_map_id", value);
     }
 
+    /// <summary>
+    /// PropagatedRouteTable block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PropagatedRouteTable block(s) allowed")]
+    public TerraformList<AzurermVpnGatewayConnectionRoutingBlockPropagatedRouteTableBlock>? PropagatedRouteTable
+    {
+        get => GetArgument<TerraformList<AzurermVpnGatewayConnectionRoutingBlockPropagatedRouteTableBlock>>("propagated_route_table");
+        set => SetArgument("propagated_route_table", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for propagated_route_table in AzurermVpnGatewayConnectionRoutingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVpnGatewayConnectionRoutingBlockPropagatedRouteTableBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "propagated_route_table";
+
+    /// <summary>
+    /// The labels attribute.
+    /// </summary>
+    public TerraformSet<string>? Labels
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "labels").ResolveNodes(ctx));
+        set => SetArgument("labels", value);
+    }
+
+    /// <summary>
+    /// The route_table_ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableIds is required")]
+    public TerraformList<string>? RouteTableIds
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "route_table_ids").ResolveNodes(ctx));
+        set => SetArgument("route_table_ids", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermVpnGatewayConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVpnGatewayConnectionTimeoutsBlock : TerraformBlock
@@ -92,8 +135,9 @@ public class AzurermVpnGatewayConnectionTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for traffic_selector_policy in .
+/// Block type for traffic_selector_policy in AzurermVpnGatewayConnection.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock : TerraformBlock
@@ -125,8 +169,9 @@ public class AzurermVpnGatewayConnectionTrafficSelectorPolicyBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for vpn_link in .
+/// Block type for vpn_link in AzurermVpnGatewayConnection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlock
@@ -264,7 +309,152 @@ public class AzurermVpnGatewayConnectionVpnLinkBlock : TerraformBlock
         set => SetArgument("vpn_site_link_id", value);
     }
 
+    /// <summary>
+    /// CustomBgpAddress block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermVpnGatewayConnectionVpnLinkBlockCustomBgpAddressBlock>? CustomBgpAddress
+    {
+        get => GetArgument<TerraformSet<AzurermVpnGatewayConnectionVpnLinkBlockCustomBgpAddressBlock>>("custom_bgp_address");
+        set => SetArgument("custom_bgp_address", value);
+    }
+
+    /// <summary>
+    /// IpsecPolicy block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock>? IpsecPolicy
+    {
+        get => GetArgument<TerraformList<AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock>>("ipsec_policy");
+        set => SetArgument("ipsec_policy", value);
+    }
+
 }
+
+/// <summary>
+/// Block type for custom_bgp_address in AzurermVpnGatewayConnectionVpnLinkBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermVpnGatewayConnectionVpnLinkBlockCustomBgpAddressBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "custom_bgp_address";
+
+    /// <summary>
+    /// The ip_address attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
+    public required TerraformValue<string> IpAddress
+    {
+        get => new TerraformReference<string>(this, "ip_address");
+        set => SetArgument("ip_address", value);
+    }
+
+    /// <summary>
+    /// The ip_configuration_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationId is required")]
+    public required TerraformValue<string> IpConfigurationId
+    {
+        get => new TerraformReference<string>(this, "ip_configuration_id");
+        set => SetArgument("ip_configuration_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ipsec_policy in AzurermVpnGatewayConnectionVpnLinkBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVpnGatewayConnectionVpnLinkBlockIpsecPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ipsec_policy";
+
+    /// <summary>
+    /// The dh_group attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DhGroup is required")]
+    public required TerraformValue<string> DhGroup
+    {
+        get => new TerraformReference<string>(this, "dh_group");
+        set => SetArgument("dh_group", value);
+    }
+
+    /// <summary>
+    /// The encryption_algorithm attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionAlgorithm is required")]
+    public required TerraformValue<string> EncryptionAlgorithm
+    {
+        get => new TerraformReference<string>(this, "encryption_algorithm");
+        set => SetArgument("encryption_algorithm", value);
+    }
+
+    /// <summary>
+    /// The ike_encryption_algorithm attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeEncryptionAlgorithm is required")]
+    public required TerraformValue<string> IkeEncryptionAlgorithm
+    {
+        get => new TerraformReference<string>(this, "ike_encryption_algorithm");
+        set => SetArgument("ike_encryption_algorithm", value);
+    }
+
+    /// <summary>
+    /// The ike_integrity_algorithm attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IkeIntegrityAlgorithm is required")]
+    public required TerraformValue<string> IkeIntegrityAlgorithm
+    {
+        get => new TerraformReference<string>(this, "ike_integrity_algorithm");
+        set => SetArgument("ike_integrity_algorithm", value);
+    }
+
+    /// <summary>
+    /// The integrity_algorithm attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrityAlgorithm is required")]
+    public required TerraformValue<string> IntegrityAlgorithm
+    {
+        get => new TerraformReference<string>(this, "integrity_algorithm");
+        set => SetArgument("integrity_algorithm", value);
+    }
+
+    /// <summary>
+    /// The pfs_group attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfsGroup is required")]
+    public required TerraformValue<string> PfsGroup
+    {
+        get => new TerraformReference<string>(this, "pfs_group");
+        set => SetArgument("pfs_group", value);
+    }
+
+    /// <summary>
+    /// The sa_data_size_kb attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SaDataSizeKb is required")]
+    public required TerraformValue<double> SaDataSizeKb
+    {
+        get => new TerraformReference<double>(this, "sa_data_size_kb");
+        set => SetArgument("sa_data_size_kb", value);
+    }
+
+    /// <summary>
+    /// The sa_lifetime_sec attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SaLifetimeSec is required")]
+    public required TerraformValue<double> SaLifetimeSec
+    {
+        get => new TerraformReference<double>(this, "sa_lifetime_sec");
+        set => SetArgument("sa_lifetime_sec", value);
+    }
+
+}
+
 
 /// <summary>
 /// Represents a azurerm_vpn_gateway_connection Terraform resource.

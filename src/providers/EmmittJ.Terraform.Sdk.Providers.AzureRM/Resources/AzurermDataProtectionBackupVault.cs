@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDataProtectionBackupVault.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermDataProtectionBackupVaultIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataProtectionBackupVault.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermDataProtectionBackupVaultTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_protection_backup_vault Terraform resource.

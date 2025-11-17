@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStreamAnalyticsOutputSynapse.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStreamAnalyticsOutputSynapseTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermStreamAnalyticsOutputSynapseTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stream_analytics_output_synapse Terraform resource.

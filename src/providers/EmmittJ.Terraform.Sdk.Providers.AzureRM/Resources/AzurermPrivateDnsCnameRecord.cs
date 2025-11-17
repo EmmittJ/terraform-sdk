@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPrivateDnsCnameRecord.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPrivateDnsCnameRecordTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermPrivateDnsCnameRecordTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_private_dns_cname_record Terraform resource.

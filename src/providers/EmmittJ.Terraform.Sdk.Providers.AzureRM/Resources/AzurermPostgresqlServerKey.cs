@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPostgresqlServerKey.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPostgresqlServerKeyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermPostgresqlServerKeyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_postgresql_server_key Terraform resource.

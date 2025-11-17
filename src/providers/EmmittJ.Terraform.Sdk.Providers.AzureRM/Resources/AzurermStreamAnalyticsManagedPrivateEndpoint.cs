@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStreamAnalyticsManagedPrivateEndpoint.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStreamAnalyticsManagedPrivateEndpointTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermStreamAnalyticsManagedPrivateEndpointTimeoutsBlock : Terrafo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stream_analytics_managed_private_endpoint Terraform resource.

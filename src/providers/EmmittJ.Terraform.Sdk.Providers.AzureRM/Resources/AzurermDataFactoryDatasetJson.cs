@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azure_blob_storage_location in .
+/// Block type for azure_blob_storage_location in AzurermDataFactoryDatasetJson.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock : TerraformBlock
@@ -72,8 +72,9 @@ public class AzurermDataFactoryDatasetJsonAzureBlobStorageLocationBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for http_server_location in .
+/// Block type for http_server_location in AzurermDataFactoryDatasetJson.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetJsonHttpServerLocationBlock : TerraformBlock
@@ -133,8 +134,9 @@ public class AzurermDataFactoryDatasetJsonHttpServerLocationBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for schema_column in .
+/// Block type for schema_column in AzurermDataFactoryDatasetJson.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetJsonSchemaColumnBlock : TerraformBlock
@@ -174,8 +176,9 @@ public class AzurermDataFactoryDatasetJsonSchemaColumnBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryDatasetJson.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryDatasetJsonTimeoutsBlock : TerraformBlock
@@ -222,6 +225,7 @@ public class AzurermDataFactoryDatasetJsonTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_dataset_json Terraform resource.

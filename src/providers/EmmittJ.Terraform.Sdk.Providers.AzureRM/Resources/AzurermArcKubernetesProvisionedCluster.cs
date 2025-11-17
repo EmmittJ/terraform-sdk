@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azure_active_directory in .
+/// Block type for azure_active_directory in AzurermArcKubernetesProvisionedCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock : TerraformBlock
@@ -42,8 +42,9 @@ public class AzurermArcKubernetesProvisionedClusterAzureActiveDirectoryBlock : T
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermArcKubernetesProvisionedCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermArcKubernetesProvisionedClusterIdentityBlock : TerraformBlock
@@ -81,8 +82,9 @@ public class AzurermArcKubernetesProvisionedClusterIdentityBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermArcKubernetesProvisionedCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermArcKubernetesProvisionedClusterTimeoutsBlock : TerraformBlock
@@ -129,6 +131,7 @@ public class AzurermArcKubernetesProvisionedClusterTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_arc_kubernetes_provisioned_cluster Terraform resource.

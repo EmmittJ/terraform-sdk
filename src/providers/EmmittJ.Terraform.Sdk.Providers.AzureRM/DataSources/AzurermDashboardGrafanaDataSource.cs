@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDashboardGrafanaDataSource.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDashboardGrafanaDataSourceIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermDashboardGrafanaDataSourceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDashboardGrafanaDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDashboardGrafanaDataSourceTimeoutsBlock : TerraformBlock
@@ -71,6 +72,7 @@ public class AzurermDashboardGrafanaDataSourceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dashboard_grafana Terraform data source.

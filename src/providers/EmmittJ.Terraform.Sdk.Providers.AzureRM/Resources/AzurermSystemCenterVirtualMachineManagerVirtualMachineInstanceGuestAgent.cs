@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuestAgent.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuestAgentTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuest
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_system_center_virtual_machine_manager_virtual_machine_instance_guest_agent Terraform resource.

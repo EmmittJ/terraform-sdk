@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azure_files_authentication in .
+/// Block type for azure_files_authentication in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountAzureFilesAuthenticationBlock : TerraformBlock
@@ -32,10 +32,90 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlock : TerraformBlock
         set => SetArgument("directory_type", value);
     }
 
+    /// <summary>
+    /// ActiveDirectory block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectory block(s) allowed")]
+    public TerraformList<AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBlock>? ActiveDirectory
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBlock>>("active_directory");
+        set => SetArgument("active_directory", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for blob_properties in .
+/// Block type for active_directory in AzurermStorageAccountAzureFilesAuthenticationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountAzureFilesAuthenticationBlockActiveDirectoryBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "active_directory";
+
+    /// <summary>
+    /// The domain_guid attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainGuid is required")]
+    public required TerraformValue<string> DomainGuid
+    {
+        get => new TerraformReference<string>(this, "domain_guid");
+        set => SetArgument("domain_guid", value);
+    }
+
+    /// <summary>
+    /// The domain_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
+    public required TerraformValue<string> DomainName
+    {
+        get => new TerraformReference<string>(this, "domain_name");
+        set => SetArgument("domain_name", value);
+    }
+
+    /// <summary>
+    /// The domain_sid attribute.
+    /// </summary>
+    public TerraformValue<string>? DomainSid
+    {
+        get => new TerraformReference<string>(this, "domain_sid");
+        set => SetArgument("domain_sid", value);
+    }
+
+    /// <summary>
+    /// The forest_name attribute.
+    /// </summary>
+    public TerraformValue<string>? ForestName
+    {
+        get => new TerraformReference<string>(this, "forest_name");
+        set => SetArgument("forest_name", value);
+    }
+
+    /// <summary>
+    /// The netbios_domain_name attribute.
+    /// </summary>
+    public TerraformValue<string>? NetbiosDomainName
+    {
+        get => new TerraformReference<string>(this, "netbios_domain_name");
+        set => SetArgument("netbios_domain_name", value);
+    }
+
+    /// <summary>
+    /// The storage_sid attribute.
+    /// </summary>
+    public TerraformValue<string>? StorageSid
+    {
+        get => new TerraformReference<string>(this, "storage_sid");
+        set => SetArgument("storage_sid", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for blob_properties in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountBlobPropertiesBlock : TerraformBlock
@@ -90,10 +170,190 @@ public class AzurermStorageAccountBlobPropertiesBlock : TerraformBlock
         set => SetArgument("versioning_enabled", value);
     }
 
+    /// <summary>
+    /// ContainerDeleteRetentionPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerDeleteRetentionPolicy block(s) allowed")]
+    public TerraformList<AzurermStorageAccountBlobPropertiesBlockContainerDeleteRetentionPolicyBlock>? ContainerDeleteRetentionPolicy
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountBlobPropertiesBlockContainerDeleteRetentionPolicyBlock>>("container_delete_retention_policy");
+        set => SetArgument("container_delete_retention_policy", value);
+    }
+
+    /// <summary>
+    /// CorsRule block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 CorsRule block(s) allowed")]
+    public TerraformList<AzurermStorageAccountBlobPropertiesBlockCorsRuleBlock>? CorsRule
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountBlobPropertiesBlockCorsRuleBlock>>("cors_rule");
+        set => SetArgument("cors_rule", value);
+    }
+
+    /// <summary>
+    /// DeleteRetentionPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeleteRetentionPolicy block(s) allowed")]
+    public TerraformList<AzurermStorageAccountBlobPropertiesBlockDeleteRetentionPolicyBlock>? DeleteRetentionPolicy
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountBlobPropertiesBlockDeleteRetentionPolicyBlock>>("delete_retention_policy");
+        set => SetArgument("delete_retention_policy", value);
+    }
+
+    /// <summary>
+    /// RestorePolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestorePolicy block(s) allowed")]
+    public TerraformList<AzurermStorageAccountBlobPropertiesBlockRestorePolicyBlock>? RestorePolicy
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountBlobPropertiesBlockRestorePolicyBlock>>("restore_policy");
+        set => SetArgument("restore_policy", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for custom_domain in .
+/// Block type for container_delete_retention_policy in AzurermStorageAccountBlobPropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountBlobPropertiesBlockContainerDeleteRetentionPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "container_delete_retention_policy";
+
+    /// <summary>
+    /// The days attribute.
+    /// </summary>
+    public TerraformValue<double>? Days
+    {
+        get => new TerraformReference<double>(this, "days");
+        set => SetArgument("days", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for cors_rule in AzurermStorageAccountBlobPropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountBlobPropertiesBlockCorsRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cors_rule";
+
+    /// <summary>
+    /// The allowed_headers attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
+    public TerraformList<string>? AllowedHeaders
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        set => SetArgument("allowed_headers", value);
+    }
+
+    /// <summary>
+    /// The allowed_methods attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
+    public TerraformList<string>? AllowedMethods
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        set => SetArgument("allowed_methods", value);
+    }
+
+    /// <summary>
+    /// The allowed_origins attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
+    public TerraformList<string>? AllowedOrigins
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        set => SetArgument("allowed_origins", value);
+    }
+
+    /// <summary>
+    /// The exposed_headers attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
+    public TerraformList<string>? ExposedHeaders
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exposed_headers").ResolveNodes(ctx));
+        set => SetArgument("exposed_headers", value);
+    }
+
+    /// <summary>
+    /// The max_age_in_seconds attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
+    public required TerraformValue<double> MaxAgeInSeconds
+    {
+        get => new TerraformReference<double>(this, "max_age_in_seconds");
+        set => SetArgument("max_age_in_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for delete_retention_policy in AzurermStorageAccountBlobPropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountBlobPropertiesBlockDeleteRetentionPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "delete_retention_policy";
+
+    /// <summary>
+    /// The days attribute.
+    /// </summary>
+    public TerraformValue<double>? Days
+    {
+        get => new TerraformReference<double>(this, "days");
+        set => SetArgument("days", value);
+    }
+
+    /// <summary>
+    /// The permanent_delete_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? PermanentDeleteEnabled
+    {
+        get => new TerraformReference<bool>(this, "permanent_delete_enabled");
+        set => SetArgument("permanent_delete_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for restore_policy in AzurermStorageAccountBlobPropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountBlobPropertiesBlockRestorePolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "restore_policy";
+
+    /// <summary>
+    /// The days attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
+    public required TerraformValue<double> Days
+    {
+        get => new TerraformReference<double>(this, "days");
+        set => SetArgument("days", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for custom_domain in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountCustomDomainBlock : TerraformBlock
@@ -124,8 +384,9 @@ public class AzurermStorageAccountCustomDomainBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for customer_managed_key in .
+/// Block type for customer_managed_key in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlock
@@ -165,8 +426,9 @@ public class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountIdentityBlock : TerraformBlock
@@ -213,8 +475,9 @@ public class AzurermStorageAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for immutability_policy in .
+/// Block type for immutability_policy in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
@@ -256,8 +519,9 @@ public class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_rules in .
+/// Block type for network_rules in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountNetworkRulesBlock : TerraformBlock
@@ -304,10 +568,52 @@ public class AzurermStorageAccountNetworkRulesBlock : TerraformBlock
         set => SetArgument("virtual_network_subnet_ids", value);
     }
 
+    /// <summary>
+    /// PrivateLinkAccess block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermStorageAccountNetworkRulesBlockPrivateLinkAccessBlock>? PrivateLinkAccess
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountNetworkRulesBlockPrivateLinkAccessBlock>>("private_link_access");
+        set => SetArgument("private_link_access", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for queue_properties in .
+/// Block type for private_link_access in AzurermStorageAccountNetworkRulesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountNetworkRulesBlockPrivateLinkAccessBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "private_link_access";
+
+    /// <summary>
+    /// The endpoint_resource_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointResourceId is required")]
+    public required TerraformValue<string> EndpointResourceId
+    {
+        get => new TerraformReference<string>(this, "endpoint_resource_id");
+        set => SetArgument("endpoint_resource_id", value);
+    }
+
+    /// <summary>
+    /// The endpoint_tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> EndpointTenantId
+    {
+        get => new TerraformReference<string>(this, "endpoint_tenant_id");
+        set => SetArgument("endpoint_tenant_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for queue_properties in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
@@ -318,10 +624,278 @@ public class AzurermStorageAccountQueuePropertiesBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "queue_properties";
 
+    /// <summary>
+    /// CorsRule block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 CorsRule block(s) allowed")]
+    public TerraformList<AzurermStorageAccountQueuePropertiesBlockCorsRuleBlock>? CorsRule
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountQueuePropertiesBlockCorsRuleBlock>>("cors_rule");
+        set => SetArgument("cors_rule", value);
+    }
+
+    /// <summary>
+    /// HourMetrics block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourMetrics block(s) allowed")]
+    public TerraformList<AzurermStorageAccountQueuePropertiesBlockHourMetricsBlock>? HourMetrics
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountQueuePropertiesBlockHourMetricsBlock>>("hour_metrics");
+        set => SetArgument("hour_metrics", value);
+    }
+
+    /// <summary>
+    /// Logging block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
+    public TerraformList<AzurermStorageAccountQueuePropertiesBlockLoggingBlock>? Logging
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountQueuePropertiesBlockLoggingBlock>>("logging");
+        set => SetArgument("logging", value);
+    }
+
+    /// <summary>
+    /// MinuteMetrics block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinuteMetrics block(s) allowed")]
+    public TerraformList<AzurermStorageAccountQueuePropertiesBlockMinuteMetricsBlock>? MinuteMetrics
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountQueuePropertiesBlockMinuteMetricsBlock>>("minute_metrics");
+        set => SetArgument("minute_metrics", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for routing in .
+/// Block type for cors_rule in AzurermStorageAccountQueuePropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountQueuePropertiesBlockCorsRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cors_rule";
+
+    /// <summary>
+    /// The allowed_headers attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
+    public TerraformList<string>? AllowedHeaders
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        set => SetArgument("allowed_headers", value);
+    }
+
+    /// <summary>
+    /// The allowed_methods attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
+    public TerraformList<string>? AllowedMethods
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        set => SetArgument("allowed_methods", value);
+    }
+
+    /// <summary>
+    /// The allowed_origins attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
+    public TerraformList<string>? AllowedOrigins
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        set => SetArgument("allowed_origins", value);
+    }
+
+    /// <summary>
+    /// The exposed_headers attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
+    public TerraformList<string>? ExposedHeaders
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exposed_headers").ResolveNodes(ctx));
+        set => SetArgument("exposed_headers", value);
+    }
+
+    /// <summary>
+    /// The max_age_in_seconds attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
+    public required TerraformValue<double> MaxAgeInSeconds
+    {
+        get => new TerraformReference<double>(this, "max_age_in_seconds");
+        set => SetArgument("max_age_in_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for hour_metrics in AzurermStorageAccountQueuePropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountQueuePropertiesBlockHourMetricsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "hour_metrics";
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// The include_apis attribute.
+    /// </summary>
+    public TerraformValue<bool>? IncludeApis
+    {
+        get => new TerraformReference<bool>(this, "include_apis");
+        set => SetArgument("include_apis", value);
+    }
+
+    /// <summary>
+    /// The retention_policy_days attribute.
+    /// </summary>
+    public TerraformValue<double>? RetentionPolicyDays
+    {
+        get => new TerraformReference<double>(this, "retention_policy_days");
+        set => SetArgument("retention_policy_days", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+        set => SetArgument("version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for logging in AzurermStorageAccountQueuePropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountQueuePropertiesBlockLoggingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "logging";
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Delete is required")]
+    public required TerraformValue<bool> Delete
+    {
+        get => new TerraformReference<bool>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Read is required")]
+    public required TerraformValue<bool> Read
+    {
+        get => new TerraformReference<bool>(this, "read");
+        set => SetArgument("read", value);
+    }
+
+    /// <summary>
+    /// The retention_policy_days attribute.
+    /// </summary>
+    public TerraformValue<double>? RetentionPolicyDays
+    {
+        get => new TerraformReference<double>(this, "retention_policy_days");
+        set => SetArgument("retention_policy_days", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+        set => SetArgument("version", value);
+    }
+
+    /// <summary>
+    /// The write attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Write is required")]
+    public required TerraformValue<bool> Write
+    {
+        get => new TerraformReference<bool>(this, "write");
+        set => SetArgument("write", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for minute_metrics in AzurermStorageAccountQueuePropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountQueuePropertiesBlockMinuteMetricsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "minute_metrics";
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
+    public required TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// The include_apis attribute.
+    /// </summary>
+    public TerraformValue<bool>? IncludeApis
+    {
+        get => new TerraformReference<bool>(this, "include_apis");
+        set => SetArgument("include_apis", value);
+    }
+
+    /// <summary>
+    /// The retention_policy_days attribute.
+    /// </summary>
+    public TerraformValue<double>? RetentionPolicyDays
+    {
+        get => new TerraformReference<double>(this, "retention_policy_days");
+        set => SetArgument("retention_policy_days", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+        set => SetArgument("version", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for routing in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountRoutingBlock : TerraformBlock
@@ -360,8 +934,9 @@ public class AzurermStorageAccountRoutingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sas_policy in .
+/// Block type for sas_policy in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountSasPolicyBlock : TerraformBlock
@@ -392,8 +967,9 @@ public class AzurermStorageAccountSasPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for share_properties in .
+/// Block type for share_properties in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountSharePropertiesBlock : TerraformBlock
@@ -403,10 +979,184 @@ public class AzurermStorageAccountSharePropertiesBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "share_properties";
 
+    /// <summary>
+    /// CorsRule block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 CorsRule block(s) allowed")]
+    public TerraformList<AzurermStorageAccountSharePropertiesBlockCorsRuleBlock>? CorsRule
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountSharePropertiesBlockCorsRuleBlock>>("cors_rule");
+        set => SetArgument("cors_rule", value);
+    }
+
+    /// <summary>
+    /// RetentionPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
+    public TerraformList<AzurermStorageAccountSharePropertiesBlockRetentionPolicyBlock>? RetentionPolicy
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountSharePropertiesBlockRetentionPolicyBlock>>("retention_policy");
+        set => SetArgument("retention_policy", value);
+    }
+
+    /// <summary>
+    /// Smb block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Smb block(s) allowed")]
+    public TerraformList<AzurermStorageAccountSharePropertiesBlockSmbBlock>? Smb
+    {
+        get => GetArgument<TerraformList<AzurermStorageAccountSharePropertiesBlockSmbBlock>>("smb");
+        set => SetArgument("smb", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for static_website in .
+/// Block type for cors_rule in AzurermStorageAccountSharePropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountSharePropertiesBlockCorsRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cors_rule";
+
+    /// <summary>
+    /// The allowed_headers attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedHeaders is required")]
+    public TerraformList<string>? AllowedHeaders
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_headers").ResolveNodes(ctx));
+        set => SetArgument("allowed_headers", value);
+    }
+
+    /// <summary>
+    /// The allowed_methods attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedMethods is required")]
+    public TerraformList<string>? AllowedMethods
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_methods").ResolveNodes(ctx));
+        set => SetArgument("allowed_methods", value);
+    }
+
+    /// <summary>
+    /// The allowed_origins attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
+    public TerraformList<string>? AllowedOrigins
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        set => SetArgument("allowed_origins", value);
+    }
+
+    /// <summary>
+    /// The exposed_headers attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExposedHeaders is required")]
+    public TerraformList<string>? ExposedHeaders
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "exposed_headers").ResolveNodes(ctx));
+        set => SetArgument("exposed_headers", value);
+    }
+
+    /// <summary>
+    /// The max_age_in_seconds attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxAgeInSeconds is required")]
+    public required TerraformValue<double> MaxAgeInSeconds
+    {
+        get => new TerraformReference<double>(this, "max_age_in_seconds");
+        set => SetArgument("max_age_in_seconds", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for retention_policy in AzurermStorageAccountSharePropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountSharePropertiesBlockRetentionPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "retention_policy";
+
+    /// <summary>
+    /// The days attribute.
+    /// </summary>
+    public TerraformValue<double>? Days
+    {
+        get => new TerraformReference<double>(this, "days");
+        set => SetArgument("days", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for smb in AzurermStorageAccountSharePropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageAccountSharePropertiesBlockSmbBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "smb";
+
+    /// <summary>
+    /// The authentication_types attribute.
+    /// </summary>
+    public TerraformSet<string>? AuthenticationTypes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "authentication_types").ResolveNodes(ctx));
+        set => SetArgument("authentication_types", value);
+    }
+
+    /// <summary>
+    /// The channel_encryption_type attribute.
+    /// </summary>
+    public TerraformSet<string>? ChannelEncryptionType
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "channel_encryption_type").ResolveNodes(ctx));
+        set => SetArgument("channel_encryption_type", value);
+    }
+
+    /// <summary>
+    /// The kerberos_ticket_encryption_type attribute.
+    /// </summary>
+    public TerraformSet<string>? KerberosTicketEncryptionType
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "kerberos_ticket_encryption_type").ResolveNodes(ctx));
+        set => SetArgument("kerberos_ticket_encryption_type", value);
+    }
+
+    /// <summary>
+    /// The multichannel_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? MultichannelEnabled
+    {
+        get => new TerraformReference<bool>(this, "multichannel_enabled");
+        set => SetArgument("multichannel_enabled", value);
+    }
+
+    /// <summary>
+    /// The versions attribute.
+    /// </summary>
+    public TerraformSet<string>? Versions
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "versions").ResolveNodes(ctx));
+        set => SetArgument("versions", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for static_website in AzurermStorageAccount.
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
@@ -437,8 +1187,9 @@ public class AzurermStorageAccountStaticWebsiteBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageAccountTimeoutsBlock : TerraformBlock
@@ -485,6 +1236,7 @@ public class AzurermStorageAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_account Terraform resource.

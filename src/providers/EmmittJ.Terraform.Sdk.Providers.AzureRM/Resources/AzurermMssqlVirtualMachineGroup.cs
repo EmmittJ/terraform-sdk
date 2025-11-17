@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlVirtualMachineGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlVirtualMachineGroupTimeoutsBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermMssqlVirtualMachineGroupTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for wsfc_domain_profile in .
+/// Block type for wsfc_domain_profile in AzurermMssqlVirtualMachineGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBlock
@@ -137,6 +138,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_virtual_machine_group Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for plan in .
+/// Block type for plan in AzurermLogAnalyticsSolution.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlock
@@ -52,8 +52,9 @@ public class AzurermLogAnalyticsSolutionPlanBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogAnalyticsSolution.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogAnalyticsSolutionTimeoutsBlock : TerraformBlock
@@ -100,6 +101,7 @@ public class AzurermLogAnalyticsSolutionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_log_analytics_solution Terraform resource.

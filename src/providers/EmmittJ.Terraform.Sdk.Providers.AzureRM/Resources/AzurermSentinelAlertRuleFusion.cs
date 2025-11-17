@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for source in .
+/// Block type for source in AzurermSentinelAlertRuleFusion.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAlertRuleFusionSourceBlock : TerraformBlock
@@ -32,10 +32,62 @@ public class AzurermSentinelAlertRuleFusionSourceBlock : TerraformBlock
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// SubType block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermSentinelAlertRuleFusionSourceBlockSubTypeBlock>? SubType
+    {
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleFusionSourceBlockSubTypeBlock>>("sub_type");
+        set => SetArgument("sub_type", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for sub_type in AzurermSentinelAlertRuleFusionSourceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSentinelAlertRuleFusionSourceBlockSubTypeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "sub_type";
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The severities_allowed attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeveritiesAllowed is required")]
+    public required TerraformSet<string> SeveritiesAllowed
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "severities_allowed").ResolveNodes(ctx));
+        set => SetArgument("severities_allowed", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermSentinelAlertRuleFusion.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSentinelAlertRuleFusionTimeoutsBlock : TerraformBlock
@@ -82,6 +134,7 @@ public class AzurermSentinelAlertRuleFusionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_sentinel_alert_rule_fusion Terraform resource.

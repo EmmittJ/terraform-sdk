@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for scheduled_agent_updates in .
+/// Block type for scheduled_agent_updates in AzurermVirtualDesktopHostPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : TerraformBlock
@@ -40,10 +40,54 @@ public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock : Terraform
         set => SetArgument("use_session_host_timezone", value);
     }
 
+    /// <summary>
+    /// Schedule block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Schedule block(s) allowed")]
+    public TerraformList<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlockScheduleBlock>? Schedule
+    {
+        get => GetArgument<TerraformList<AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlockScheduleBlock>>("schedule");
+        set => SetArgument("schedule", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for schedule in AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualDesktopHostPoolScheduledAgentUpdatesBlockScheduleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "schedule";
+
+    /// <summary>
+    /// The day_of_week attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DayOfWeek is required")]
+    public required TerraformValue<string> DayOfWeek
+    {
+        get => new TerraformReference<string>(this, "day_of_week");
+        set => SetArgument("day_of_week", value);
+    }
+
+    /// <summary>
+    /// The hour_of_day attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HourOfDay is required")]
+    public required TerraformValue<double> HourOfDay
+    {
+        get => new TerraformReference<double>(this, "hour_of_day");
+        set => SetArgument("hour_of_day", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermVirtualDesktopHostPool.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
@@ -90,6 +134,7 @@ public class AzurermVirtualDesktopHostPoolTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_desktop_host_pool Terraform resource.

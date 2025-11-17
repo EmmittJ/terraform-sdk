@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for read_write_endpoint_failover_policy in .
+/// Block type for read_write_endpoint_failover_policy in AzurermMssqlManagedInstanceFailoverGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermMssqlManagedInstanceFailoverGroupReadWriteEndpointFailoverPo
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlManagedInstanceFailoverGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock : TerraformBlock
@@ -82,6 +83,7 @@ public class AzurermMssqlManagedInstanceFailoverGroupTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_managed_instance_failover_group Terraform resource.

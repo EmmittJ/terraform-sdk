@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAppServiceVirtualNetworkSwiftConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppServiceVirtualNetworkSwiftConnectionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermAppServiceVirtualNetworkSwiftConnectionTimeoutsBlock : Terra
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_service_virtual_network_swift_connection Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for component_version in .
+/// Block type for component_version in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterComponentVersionBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermHdinsightKafkaClusterComponentVersionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for compute_isolation in .
+/// Block type for compute_isolation in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterComputeIsolationBlock : TerraformBlock
@@ -56,8 +57,9 @@ public class AzurermHdinsightKafkaClusterComputeIsolationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for disk_encryption in .
+/// Block type for disk_encryption in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterDiskEncryptionBlock : TerraformBlock
@@ -105,8 +107,9 @@ public class AzurermHdinsightKafkaClusterDiskEncryptionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for extension in .
+/// Block type for extension in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterExtensionBlock : TerraformBlock
@@ -138,8 +141,9 @@ public class AzurermHdinsightKafkaClusterExtensionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for gateway in .
+/// Block type for gateway in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterGatewayBlock : TerraformBlock
@@ -171,8 +175,9 @@ public class AzurermHdinsightKafkaClusterGatewayBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for metastores in .
+/// Block type for metastores in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterMetastoresBlock : TerraformBlock
@@ -182,10 +187,200 @@ public class AzurermHdinsightKafkaClusterMetastoresBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "metastores";
 
+    /// <summary>
+    /// Ambari block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ambari block(s) allowed")]
+    public TerraformList<AzurermHdinsightKafkaClusterMetastoresBlockAmbariBlock>? Ambari
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterMetastoresBlockAmbariBlock>>("ambari");
+        set => SetArgument("ambari", value);
+    }
+
+    /// <summary>
+    /// Hive block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hive block(s) allowed")]
+    public TerraformList<AzurermHdinsightKafkaClusterMetastoresBlockHiveBlock>? Hive
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterMetastoresBlockHiveBlock>>("hive");
+        set => SetArgument("hive", value);
+    }
+
+    /// <summary>
+    /// Oozie block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oozie block(s) allowed")]
+    public TerraformList<AzurermHdinsightKafkaClusterMetastoresBlockOozieBlock>? Oozie
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterMetastoresBlockOozieBlock>>("oozie");
+        set => SetArgument("oozie", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for monitor in .
+/// Block type for ambari in AzurermHdinsightKafkaClusterMetastoresBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterMetastoresBlockAmbariBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ambari";
+
+    /// <summary>
+    /// The database_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformValue<string> DatabaseName
+    {
+        get => new TerraformReference<string>(this, "database_name");
+        set => SetArgument("database_name", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The server attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
+    public required TerraformValue<string> Server
+    {
+        get => new TerraformReference<string>(this, "server");
+        set => SetArgument("server", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for hive in AzurermHdinsightKafkaClusterMetastoresBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterMetastoresBlockHiveBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "hive";
+
+    /// <summary>
+    /// The database_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformValue<string> DatabaseName
+    {
+        get => new TerraformReference<string>(this, "database_name");
+        set => SetArgument("database_name", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The server attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
+    public required TerraformValue<string> Server
+    {
+        get => new TerraformReference<string>(this, "server");
+        set => SetArgument("server", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for oozie in AzurermHdinsightKafkaClusterMetastoresBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterMetastoresBlockOozieBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "oozie";
+
+    /// <summary>
+    /// The database_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformValue<string> DatabaseName
+    {
+        get => new TerraformReference<string>(this, "database_name");
+        set => SetArgument("database_name", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The server attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
+    public required TerraformValue<string> Server
+    {
+        get => new TerraformReference<string>(this, "server");
+        set => SetArgument("server", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for monitor in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterMonitorBlock : TerraformBlock
@@ -217,8 +412,9 @@ public class AzurermHdinsightKafkaClusterMonitorBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network in .
+/// Block type for network in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterNetworkBlock : TerraformBlock
@@ -248,8 +444,9 @@ public class AzurermHdinsightKafkaClusterNetworkBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for private_link_configuration in .
+/// Block type for private_link_configuration in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock : TerraformBlock
@@ -279,10 +476,83 @@ public class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock : Terrafo
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// IpConfiguration block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfiguration block(s) allowed")]
+    public required TerraformList<AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlockIpConfigurationBlock> IpConfiguration
+    {
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlockIpConfigurationBlock>>("ip_configuration");
+        set => SetArgument("ip_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for rest_proxy in .
+/// Block type for ip_configuration in AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterPrivateLinkConfigurationBlockIpConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_configuration";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The primary attribute.
+    /// </summary>
+    public TerraformValue<bool>? Primary
+    {
+        get => new TerraformReference<bool>(this, "primary");
+        set => SetArgument("primary", value);
+    }
+
+    /// <summary>
+    /// The private_ip_address attribute.
+    /// </summary>
+    public TerraformValue<string>? PrivateIpAddress
+    {
+        get => new TerraformReference<string>(this, "private_ip_address");
+        set => SetArgument("private_ip_address", value);
+    }
+
+    /// <summary>
+    /// The private_ip_allocation_method attribute.
+    /// </summary>
+    public TerraformValue<string>? PrivateIpAllocationMethod
+    {
+        get => new TerraformReference<string>(this, "private_ip_allocation_method");
+        set => SetArgument("private_ip_allocation_method", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for rest_proxy in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterRestProxyBlock : TerraformBlock
@@ -314,8 +584,9 @@ public class AzurermHdinsightKafkaClusterRestProxyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for roles in .
+/// Block type for roles in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterRolesBlock : TerraformBlock
@@ -325,10 +596,558 @@ public class AzurermHdinsightKafkaClusterRolesBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "roles";
 
+    /// <summary>
+    /// HeadNode block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeadNode is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HeadNode block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeadNode block(s) allowed")]
+    public required TerraformList<AzurermHdinsightKafkaClusterRolesBlockHeadNodeBlock> HeadNode
+    {
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightKafkaClusterRolesBlockHeadNodeBlock>>("head_node");
+        set => SetArgument("head_node", value);
+    }
+
+    /// <summary>
+    /// KafkaManagementNode block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaManagementNode block(s) allowed")]
+    public TerraformList<AzurermHdinsightKafkaClusterRolesBlockKafkaManagementNodeBlock>? KafkaManagementNode
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterRolesBlockKafkaManagementNodeBlock>>("kafka_management_node");
+        set => SetArgument("kafka_management_node", value);
+    }
+
+    /// <summary>
+    /// WorkerNode block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerNode is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WorkerNode block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerNode block(s) allowed")]
+    public required TerraformList<AzurermHdinsightKafkaClusterRolesBlockWorkerNodeBlock> WorkerNode
+    {
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightKafkaClusterRolesBlockWorkerNodeBlock>>("worker_node");
+        set => SetArgument("worker_node", value);
+    }
+
+    /// <summary>
+    /// ZookeeperNode block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZookeeperNode is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ZookeeperNode block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZookeeperNode block(s) allowed")]
+    public required TerraformList<AzurermHdinsightKafkaClusterRolesBlockZookeeperNodeBlock> ZookeeperNode
+    {
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightKafkaClusterRolesBlockZookeeperNodeBlock>>("zookeeper_node");
+        set => SetArgument("zookeeper_node", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for security_profile in .
+/// Block type for head_node in AzurermHdinsightKafkaClusterRolesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterRolesBlockHeadNodeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "head_node";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string>? Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The ssh_keys attribute.
+    /// </summary>
+    public TerraformSet<string>? SshKeys
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_keys").ResolveNodes(ctx));
+        set => SetArgument("ssh_keys", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+        set => SetArgument("virtual_network_id", value);
+    }
+
+    /// <summary>
+    /// The vm_size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
+    public required TerraformValue<string> VmSize
+    {
+        get => new TerraformReference<string>(this, "vm_size");
+        set => SetArgument("vm_size", value);
+    }
+
+    /// <summary>
+    /// ScriptActions block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermHdinsightKafkaClusterRolesBlockHeadNodeBlockScriptActionsBlock>? ScriptActions
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterRolesBlockHeadNodeBlockScriptActionsBlock>>("script_actions");
+        set => SetArgument("script_actions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for script_actions in AzurermHdinsightKafkaClusterRolesBlockHeadNodeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterRolesBlockHeadNodeBlockScriptActionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "script_actions";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+        set => SetArgument("parameters", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+        set => SetArgument("uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for kafka_management_node in AzurermHdinsightKafkaClusterRolesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterRolesBlockKafkaManagementNodeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "kafka_management_node";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string>? Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The ssh_keys attribute.
+    /// </summary>
+    public TerraformSet<string>? SshKeys
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_keys").ResolveNodes(ctx));
+        set => SetArgument("ssh_keys", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    public TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+        set => SetArgument("virtual_network_id", value);
+    }
+
+    /// <summary>
+    /// The vm_size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
+    public required TerraformValue<string> VmSize
+    {
+        get => new TerraformReference<string>(this, "vm_size");
+        set => SetArgument("vm_size", value);
+    }
+
+    /// <summary>
+    /// ScriptActions block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermHdinsightKafkaClusterRolesBlockKafkaManagementNodeBlockScriptActionsBlock>? ScriptActions
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterRolesBlockKafkaManagementNodeBlockScriptActionsBlock>>("script_actions");
+        set => SetArgument("script_actions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for script_actions in AzurermHdinsightKafkaClusterRolesBlockKafkaManagementNodeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterRolesBlockKafkaManagementNodeBlockScriptActionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "script_actions";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+        set => SetArgument("parameters", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+        set => SetArgument("uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for worker_node in AzurermHdinsightKafkaClusterRolesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterRolesBlockWorkerNodeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "worker_node";
+
+    /// <summary>
+    /// The number_of_disks_per_node attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfDisksPerNode is required")]
+    public required TerraformValue<double> NumberOfDisksPerNode
+    {
+        get => new TerraformReference<double>(this, "number_of_disks_per_node");
+        set => SetArgument("number_of_disks_per_node", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string>? Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The ssh_keys attribute.
+    /// </summary>
+    public TerraformSet<string>? SshKeys
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_keys").ResolveNodes(ctx));
+        set => SetArgument("ssh_keys", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+    /// <summary>
+    /// The target_instance_count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetInstanceCount is required")]
+    public required TerraformValue<double> TargetInstanceCount
+    {
+        get => new TerraformReference<double>(this, "target_instance_count");
+        set => SetArgument("target_instance_count", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+        set => SetArgument("virtual_network_id", value);
+    }
+
+    /// <summary>
+    /// The vm_size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
+    public required TerraformValue<string> VmSize
+    {
+        get => new TerraformReference<string>(this, "vm_size");
+        set => SetArgument("vm_size", value);
+    }
+
+    /// <summary>
+    /// ScriptActions block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermHdinsightKafkaClusterRolesBlockWorkerNodeBlockScriptActionsBlock>? ScriptActions
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterRolesBlockWorkerNodeBlockScriptActionsBlock>>("script_actions");
+        set => SetArgument("script_actions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for script_actions in AzurermHdinsightKafkaClusterRolesBlockWorkerNodeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterRolesBlockWorkerNodeBlockScriptActionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "script_actions";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+        set => SetArgument("parameters", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+        set => SetArgument("uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for zookeeper_node in AzurermHdinsightKafkaClusterRolesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterRolesBlockZookeeperNodeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "zookeeper_node";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string>? Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The ssh_keys attribute.
+    /// </summary>
+    public TerraformSet<string>? SshKeys
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_keys").ResolveNodes(ctx));
+        set => SetArgument("ssh_keys", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+        set => SetArgument("virtual_network_id", value);
+    }
+
+    /// <summary>
+    /// The vm_size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
+    public required TerraformValue<string> VmSize
+    {
+        get => new TerraformReference<string>(this, "vm_size");
+        set => SetArgument("vm_size", value);
+    }
+
+    /// <summary>
+    /// ScriptActions block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermHdinsightKafkaClusterRolesBlockZookeeperNodeBlockScriptActionsBlock>? ScriptActions
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightKafkaClusterRolesBlockZookeeperNodeBlockScriptActionsBlock>>("script_actions");
+        set => SetArgument("script_actions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for script_actions in AzurermHdinsightKafkaClusterRolesBlockZookeeperNodeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightKafkaClusterRolesBlockZookeeperNodeBlockScriptActionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "script_actions";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+        set => SetArgument("parameters", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+        set => SetArgument("uri", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for security_profile in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterSecurityProfileBlock : TerraformBlock
@@ -409,8 +1228,9 @@ public class AzurermHdinsightKafkaClusterSecurityProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage_account in .
+/// Block type for storage_account in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterStorageAccountBlock : TerraformBlock
@@ -461,8 +1281,9 @@ public class AzurermHdinsightKafkaClusterStorageAccountBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage_account_gen2 in .
+/// Block type for storage_account_gen2 in AzurermHdinsightKafkaCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : TerraformBlock
@@ -514,8 +1335,9 @@ public class AzurermHdinsightKafkaClusterStorageAccountGen2Block : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermHdinsightKafkaCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermHdinsightKafkaClusterTimeoutsBlock : TerraformBlock
@@ -562,6 +1384,7 @@ public class AzurermHdinsightKafkaClusterTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_hdinsight_kafka_cluster Terraform resource.

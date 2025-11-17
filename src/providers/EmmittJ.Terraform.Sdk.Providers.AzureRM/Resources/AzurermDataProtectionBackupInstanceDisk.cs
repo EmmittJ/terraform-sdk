@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataProtectionBackupInstanceDisk.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataProtectionBackupInstanceDiskTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDataProtectionBackupInstanceDiskTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_protection_backup_instance_disk Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for certificate in .
+/// Block type for certificate in AzurermKeyVaultCertificate.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKeyVaultCertificateCertificateBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermKeyVaultCertificateCertificateBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for certificate_policy in .
+/// Block type for certificate_policy in AzurermKeyVaultCertificate.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKeyVaultCertificateCertificatePolicyBlock : TerraformBlock
@@ -45,10 +46,371 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "certificate_policy";
 
+    /// <summary>
+    /// IssuerParameters block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IssuerParameters is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IssuerParameters block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IssuerParameters block(s) allowed")]
+    public required TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockIssuerParametersBlock> IssuerParameters
+    {
+        get => GetRequiredArgument<TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockIssuerParametersBlock>>("issuer_parameters");
+        set => SetArgument("issuer_parameters", value);
+    }
+
+    /// <summary>
+    /// KeyProperties block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyProperties is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KeyProperties block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyProperties block(s) allowed")]
+    public required TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockKeyPropertiesBlock> KeyProperties
+    {
+        get => GetRequiredArgument<TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockKeyPropertiesBlock>>("key_properties");
+        set => SetArgument("key_properties", value);
+    }
+
+    /// <summary>
+    /// LifetimeAction block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlock>? LifetimeAction
+    {
+        get => GetArgument<TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlock>>("lifetime_action");
+        set => SetArgument("lifetime_action", value);
+    }
+
+    /// <summary>
+    /// SecretProperties block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretProperties is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecretProperties block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretProperties block(s) allowed")]
+    public required TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockSecretPropertiesBlock> SecretProperties
+    {
+        get => GetRequiredArgument<TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockSecretPropertiesBlock>>("secret_properties");
+        set => SetArgument("secret_properties", value);
+    }
+
+    /// <summary>
+    /// X509CertificateProperties block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 X509CertificateProperties block(s) allowed")]
+    public TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificatePropertiesBlock>? X509CertificateProperties
+    {
+        get => GetArgument<TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificatePropertiesBlock>>("x509_certificate_properties");
+        set => SetArgument("x509_certificate_properties", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for issuer_parameters in AzurermKeyVaultCertificateCertificatePolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultCertificateCertificatePolicyBlockIssuerParametersBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "issuer_parameters";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for key_properties in AzurermKeyVaultCertificateCertificatePolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultCertificateCertificatePolicyBlockKeyPropertiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "key_properties";
+
+    /// <summary>
+    /// The curve attribute.
+    /// </summary>
+    public TerraformValue<string> Curve
+    {
+        get => new TerraformReference<string>(this, "curve");
+        set => SetArgument("curve", value);
+    }
+
+    /// <summary>
+    /// The exportable attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exportable is required")]
+    public required TerraformValue<bool> Exportable
+    {
+        get => new TerraformReference<bool>(this, "exportable");
+        set => SetArgument("exportable", value);
+    }
+
+    /// <summary>
+    /// The key_size attribute.
+    /// </summary>
+    public TerraformValue<double> KeySize
+    {
+        get => new TerraformReference<double>(this, "key_size");
+        set => SetArgument("key_size", value);
+    }
+
+    /// <summary>
+    /// The key_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyType is required")]
+    public required TerraformValue<string> KeyType
+    {
+        get => new TerraformReference<string>(this, "key_type");
+        set => SetArgument("key_type", value);
+    }
+
+    /// <summary>
+    /// The reuse_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReuseKey is required")]
+    public required TerraformValue<bool> ReuseKey
+    {
+        get => new TerraformReference<bool>(this, "reuse_key");
+        set => SetArgument("reuse_key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for lifetime_action in AzurermKeyVaultCertificateCertificatePolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "lifetime_action";
+
+    /// <summary>
+    /// Action block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
+    public required TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlockActionBlock> Action
+    {
+        get => GetRequiredArgument<TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlockActionBlock>>("action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// Trigger block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Trigger is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Trigger block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Trigger block(s) allowed")]
+    public required TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlockTriggerBlock> Trigger
+    {
+        get => GetRequiredArgument<TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlockTriggerBlock>>("trigger");
+        set => SetArgument("trigger", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for action in AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlockActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "action";
+
+    /// <summary>
+    /// The action_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
+    public required TerraformValue<string> ActionType
+    {
+        get => new TerraformReference<string>(this, "action_type");
+        set => SetArgument("action_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for trigger in AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultCertificateCertificatePolicyBlockLifetimeActionBlockTriggerBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "trigger";
+
+    /// <summary>
+    /// The days_before_expiry attribute.
+    /// </summary>
+    public TerraformValue<double>? DaysBeforeExpiry
+    {
+        get => new TerraformReference<double>(this, "days_before_expiry");
+        set => SetArgument("days_before_expiry", value);
+    }
+
+    /// <summary>
+    /// The lifetime_percentage attribute.
+    /// </summary>
+    public TerraformValue<double>? LifetimePercentage
+    {
+        get => new TerraformReference<double>(this, "lifetime_percentage");
+        set => SetArgument("lifetime_percentage", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for secret_properties in AzurermKeyVaultCertificateCertificatePolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultCertificateCertificatePolicyBlockSecretPropertiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "secret_properties";
+
+    /// <summary>
+    /// The content_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentType is required")]
+    public required TerraformValue<string> ContentType
+    {
+        get => new TerraformReference<string>(this, "content_type");
+        set => SetArgument("content_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for x509_certificate_properties in AzurermKeyVaultCertificateCertificatePolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificatePropertiesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "x509_certificate_properties";
+
+    /// <summary>
+    /// The extended_key_usage attribute.
+    /// </summary>
+    public TerraformList<string> ExtendedKeyUsage
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "extended_key_usage").ResolveNodes(ctx));
+        set => SetArgument("extended_key_usage", value);
+    }
+
+    /// <summary>
+    /// The key_usage attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUsage is required")]
+    public required TerraformSet<string> KeyUsage
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "key_usage").ResolveNodes(ctx));
+        set => SetArgument("key_usage", value);
+    }
+
+    /// <summary>
+    /// The subject attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
+    public required TerraformValue<string> Subject
+    {
+        get => new TerraformReference<string>(this, "subject");
+        set => SetArgument("subject", value);
+    }
+
+    /// <summary>
+    /// The validity_in_months attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValidityInMonths is required")]
+    public required TerraformValue<double> ValidityInMonths
+    {
+        get => new TerraformReference<double>(this, "validity_in_months");
+        set => SetArgument("validity_in_months", value);
+    }
+
+    /// <summary>
+    /// SubjectAlternativeNames block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubjectAlternativeNames block(s) allowed")]
+    public TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificatePropertiesBlockSubjectAlternativeNamesBlock>? SubjectAlternativeNames
+    {
+        get => GetArgument<TerraformList<AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificatePropertiesBlockSubjectAlternativeNamesBlock>>("subject_alternative_names");
+        set => SetArgument("subject_alternative_names", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for subject_alternative_names in AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificatePropertiesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultCertificateCertificatePolicyBlockX509CertificatePropertiesBlockSubjectAlternativeNamesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "subject_alternative_names";
+
+    /// <summary>
+    /// The dns_names attribute.
+    /// </summary>
+    public TerraformSet<string>? DnsNames
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "dns_names").ResolveNodes(ctx));
+        set => SetArgument("dns_names", value);
+    }
+
+    /// <summary>
+    /// The emails attribute.
+    /// </summary>
+    public TerraformSet<string>? Emails
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "emails").ResolveNodes(ctx));
+        set => SetArgument("emails", value);
+    }
+
+    /// <summary>
+    /// The upns attribute.
+    /// </summary>
+    public TerraformSet<string>? Upns
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "upns").ResolveNodes(ctx));
+        set => SetArgument("upns", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermKeyVaultCertificate.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultCertificateTimeoutsBlock : TerraformBlock
@@ -95,6 +457,7 @@ public class AzurermKeyVaultCertificateTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_certificate Terraform resource.

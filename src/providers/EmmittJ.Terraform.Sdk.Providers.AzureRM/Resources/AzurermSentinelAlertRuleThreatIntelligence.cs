@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSentinelAlertRuleThreatIntelligence.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSentinelAlertRuleThreatIntelligenceTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSentinelAlertRuleThreatIntelligenceTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_sentinel_alert_rule_threat_intelligence Terraform resource.

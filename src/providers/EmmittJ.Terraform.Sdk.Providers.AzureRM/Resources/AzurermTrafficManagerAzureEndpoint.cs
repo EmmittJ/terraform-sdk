@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for custom_header in .
+/// Block type for custom_header in AzurermTrafficManagerAzureEndpoint.
 /// Nesting mode: list
 /// </summary>
 public class AzurermTrafficManagerAzureEndpointCustomHeaderBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermTrafficManagerAzureEndpointCustomHeaderBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for subnet in .
+/// Block type for subnet in AzurermTrafficManagerAzureEndpoint.
 /// Nesting mode: list
 /// </summary>
 public class AzurermTrafficManagerAzureEndpointSubnetBlock : TerraformBlock
@@ -76,8 +77,9 @@ public class AzurermTrafficManagerAzureEndpointSubnetBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermTrafficManagerAzureEndpoint.
 /// Nesting mode: single
 /// </summary>
 public class AzurermTrafficManagerAzureEndpointTimeoutsBlock : TerraformBlock
@@ -124,6 +126,7 @@ public class AzurermTrafficManagerAzureEndpointTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_traffic_manager_azure_endpoint Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDedicatedHostGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDedicatedHostGroupTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dedicated_host_group Terraform resource.

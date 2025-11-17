@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for service_principal_key in .
+/// Block type for service_principal_key in AzurermDataFactoryCredentialServicePrincipal.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermDataFactoryCredentialServicePrincipalServicePrincipalKeyBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryCredentialServicePrincipal.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock : TerraformBlock
@@ -92,6 +93,7 @@ public class AzurermDataFactoryCredentialServicePrincipalTimeoutsBlock : Terrafo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_credential_service_principal Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryLinkedServiceAzureTableStorage.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryLinkedServiceAzureTableStorageTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDataFactoryLinkedServiceAzureTableStorageTimeoutsBlock : Ter
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_linked_service_azure_table_storage Terraform resource.

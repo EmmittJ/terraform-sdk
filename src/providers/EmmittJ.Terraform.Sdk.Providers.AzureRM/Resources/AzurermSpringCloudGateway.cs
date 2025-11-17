@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for api_metadata in .
+/// Block type for api_metadata in AzurermSpringCloudGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
@@ -60,8 +60,9 @@ public class AzurermSpringCloudGatewayApiMetadataBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for client_authorization in .
+/// Block type for client_authorization in AzurermSpringCloudGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudGatewayClientAuthorizationBlock : TerraformBlock
@@ -91,8 +92,9 @@ public class AzurermSpringCloudGatewayClientAuthorizationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for cors in .
+/// Block type for cors in AzurermSpringCloudGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
@@ -167,8 +169,9 @@ public class AzurermSpringCloudGatewayCorsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for local_response_cache_per_instance in .
+/// Block type for local_response_cache_per_instance in AzurermSpringCloudGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock : TerraformBlock
@@ -198,8 +201,9 @@ public class AzurermSpringCloudGatewayLocalResponseCachePerInstanceBlock : Terra
 
 }
 
+
 /// <summary>
-/// Block type for local_response_cache_per_route in .
+/// Block type for local_response_cache_per_route in AzurermSpringCloudGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock : TerraformBlock
@@ -229,8 +233,9 @@ public class AzurermSpringCloudGatewayLocalResponseCachePerRouteBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for quota in .
+/// Block type for quota in AzurermSpringCloudGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudGatewayQuotaBlock : TerraformBlock
@@ -260,8 +265,9 @@ public class AzurermSpringCloudGatewayQuotaBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sso in .
+/// Block type for sso in AzurermSpringCloudGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudGatewaySsoBlock : TerraformBlock
@@ -309,8 +315,9 @@ public class AzurermSpringCloudGatewaySsoBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudGateway.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
@@ -357,6 +364,7 @@ public class AzurermSpringCloudGatewayTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_gateway Terraform resource.

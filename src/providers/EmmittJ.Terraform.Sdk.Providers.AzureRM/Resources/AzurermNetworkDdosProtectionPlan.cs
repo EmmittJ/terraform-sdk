@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkDdosProtectionPlan.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkDdosProtectionPlanTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermNetworkDdosProtectionPlanTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_ddos_protection_plan Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for config_file in .
+/// Block type for config_file in AzurermNginxConfiguration.
 /// Nesting mode: set
 /// </summary>
 public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermNginxConfigurationConfigFileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for protected_file in .
+/// Block type for protected_file in AzurermNginxConfiguration.
 /// Nesting mode: set
 /// </summary>
 public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
@@ -76,8 +77,9 @@ public class AzurermNginxConfigurationProtectedFileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNginxConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
@@ -124,6 +126,7 @@ public class AzurermNginxConfigurationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_nginx_configuration Terraform resource.

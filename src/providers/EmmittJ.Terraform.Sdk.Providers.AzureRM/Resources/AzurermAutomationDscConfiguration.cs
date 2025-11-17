@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAutomationDscConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationDscConfigurationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermAutomationDscConfigurationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_dsc_configuration Terraform resource.

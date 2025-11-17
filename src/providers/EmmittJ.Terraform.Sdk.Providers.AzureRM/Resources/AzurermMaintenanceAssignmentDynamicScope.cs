@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for filter in .
+/// Block type for filter in AzurermMaintenanceAssignmentDynamicScope.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBlock
@@ -58,10 +58,53 @@ public class AzurermMaintenanceAssignmentDynamicScopeFilterBlock : TerraformBloc
         set => SetArgument("tag_filter", value);
     }
 
+    /// <summary>
+    /// Tags block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermMaintenanceAssignmentDynamicScopeFilterBlockTagsBlock>? Tags
+    {
+        get => GetArgument<TerraformList<AzurermMaintenanceAssignmentDynamicScopeFilterBlockTagsBlock>>("tags");
+        set => SetArgument("tags", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for tags in AzurermMaintenanceAssignmentDynamicScopeFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMaintenanceAssignmentDynamicScopeFilterBlockTagsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "tags";
+
+    /// <summary>
+    /// The tag attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tag is required")]
+    public required TerraformValue<string> Tag
+    {
+        get => new TerraformReference<string>(this, "tag");
+        set => SetArgument("tag", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermMaintenanceAssignmentDynamicScope.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBlock
@@ -108,6 +151,7 @@ public class AzurermMaintenanceAssignmentDynamicScopeTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_maintenance_assignment_dynamic_scope Terraform resource.

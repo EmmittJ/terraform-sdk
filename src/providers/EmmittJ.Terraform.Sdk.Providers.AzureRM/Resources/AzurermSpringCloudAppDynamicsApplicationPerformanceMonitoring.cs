@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_app_dynamics_application_performance_monitoring Terraform resource.

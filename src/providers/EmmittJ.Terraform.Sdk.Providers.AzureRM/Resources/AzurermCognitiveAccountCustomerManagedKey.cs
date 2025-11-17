@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCognitiveAccountCustomerManagedKey.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermCognitiveAccountCustomerManagedKeyTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cognitive_account_customer_managed_key Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkInterfaceNatRuleAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkInterfaceNatRuleAssociationTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermNetworkInterfaceNatRuleAssociationTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_interface_nat_rule_association Terraform resource.

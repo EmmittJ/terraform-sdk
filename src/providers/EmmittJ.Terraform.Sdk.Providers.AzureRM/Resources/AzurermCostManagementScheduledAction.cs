@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCostManagementScheduledAction.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCostManagementScheduledActionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermCostManagementScheduledActionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cost_management_scheduled_action Terraform resource.

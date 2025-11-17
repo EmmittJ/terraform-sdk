@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSentinelDataConnectorAwsS3.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSentinelDataConnectorAwsS3TimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSentinelDataConnectorAwsS3TimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_sentinel_data_connector_aws_s3 Terraform resource.

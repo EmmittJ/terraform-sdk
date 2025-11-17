@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryCredentialUserManagedIdentity.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryCredentialUserManagedIdentityTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDataFactoryCredentialUserManagedIdentityTimeoutsBlock : Terr
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_credential_user_managed_identity Terraform resource.

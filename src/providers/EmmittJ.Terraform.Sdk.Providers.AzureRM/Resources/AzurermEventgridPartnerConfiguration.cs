@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for partner_authorization in .
+/// Block type for partner_authorization in AzurermEventgridPartnerConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermEventgridPartnerConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlock
@@ -92,6 +93,7 @@ public class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_eventgrid_partner_configuration Terraform resource.

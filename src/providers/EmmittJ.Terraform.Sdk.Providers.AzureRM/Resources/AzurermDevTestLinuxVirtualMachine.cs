@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for gallery_image_reference in .
+/// Block type for gallery_image_reference in AzurermDevTestLinuxVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : TerraformBlock
@@ -55,8 +55,9 @@ public class AzurermDevTestLinuxVirtualMachineGalleryImageReferenceBlock : Terra
 
 }
 
+
 /// <summary>
-/// Block type for inbound_nat_rule in .
+/// Block type for inbound_nat_rule in AzurermDevTestLinuxVirtualMachine.
 /// Nesting mode: set
 /// </summary>
 public class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : TerraformBlock
@@ -96,8 +97,9 @@ public class AzurermDevTestLinuxVirtualMachineInboundNatRuleBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDevTestLinuxVirtualMachine.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
@@ -144,6 +146,7 @@ public class AzurermDevTestLinuxVirtualMachineTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dev_test_linux_virtual_machine Terraform resource.

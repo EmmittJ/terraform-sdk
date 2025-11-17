@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSynapseWorkspaceAadAdmin.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSynapseWorkspaceAadAdminTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSynapseWorkspaceAadAdminTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_synapse_workspace_aad_admin Terraform resource.

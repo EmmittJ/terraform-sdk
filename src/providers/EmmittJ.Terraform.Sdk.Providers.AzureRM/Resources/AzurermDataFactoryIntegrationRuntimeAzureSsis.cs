@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for catalog_info in .
+/// Block type for catalog_info in AzurermDataFactoryIntegrationRuntimeAzureSsis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : TerraformBlock
@@ -70,8 +70,9 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCatalogInfoBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for copy_compute_scale in .
+/// Block type for copy_compute_scale in AzurermDataFactoryIntegrationRuntimeAzureSsis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock : TerraformBlock
@@ -101,8 +102,9 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCopyComputeScaleBlock 
 
 }
 
+
 /// <summary>
-/// Block type for custom_setup_script in .
+/// Block type for custom_setup_script in AzurermDataFactoryIntegrationRuntimeAzureSsis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock : TerraformBlock
@@ -134,8 +136,9 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisCustomSetupScriptBlock
 
 }
 
+
 /// <summary>
-/// Block type for express_custom_setup in .
+/// Block type for express_custom_setup in AzurermDataFactoryIntegrationRuntimeAzureSsis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock : TerraformBlock
@@ -163,10 +166,225 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBloc
         set => SetArgument("powershell_version", value);
     }
 
+    /// <summary>
+    /// CommandKey block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockCommandKeyBlock>? CommandKey
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockCommandKeyBlock>>("command_key");
+        set => SetArgument("command_key", value);
+    }
+
+    /// <summary>
+    /// Component block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockComponentBlock>? Component
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockComponentBlock>>("component");
+        set => SetArgument("component", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for express_vnet_integration in .
+/// Block type for command_key in AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockCommandKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "command_key";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string>? Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The target_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetName is required")]
+    public required TerraformValue<string> TargetName
+    {
+        get => new TerraformReference<string>(this, "target_name");
+        set => SetArgument("target_name", value);
+    }
+
+    /// <summary>
+    /// The user_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
+    public required TerraformValue<string> UserName
+    {
+        get => new TerraformReference<string>(this, "user_name");
+        set => SetArgument("user_name", value);
+    }
+
+    /// <summary>
+    /// KeyVaultPassword block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPassword block(s) allowed")]
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockCommandKeyBlockKeyVaultPasswordBlock>? KeyVaultPassword
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockCommandKeyBlockKeyVaultPasswordBlock>>("key_vault_password");
+        set => SetArgument("key_vault_password", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for key_vault_password in AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockCommandKeyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockCommandKeyBlockKeyVaultPasswordBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "key_vault_password";
+
+    /// <summary>
+    /// The linked_service_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
+    public required TerraformValue<string> LinkedServiceName
+    {
+        get => new TerraformReference<string>(this, "linked_service_name");
+        set => SetArgument("linked_service_name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+    /// <summary>
+    /// The secret_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
+    public required TerraformValue<string> SecretName
+    {
+        get => new TerraformReference<string>(this, "secret_name");
+        set => SetArgument("secret_name", value);
+    }
+
+    /// <summary>
+    /// The secret_version attribute.
+    /// </summary>
+    public TerraformValue<string>? SecretVersion
+    {
+        get => new TerraformReference<string>(this, "secret_version");
+        set => SetArgument("secret_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for component in AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockComponentBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "component";
+
+    /// <summary>
+    /// The license attribute.
+    /// </summary>
+    public TerraformValue<string>? License
+    {
+        get => new TerraformReference<string>(this, "license");
+        set => SetArgument("license", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// KeyVaultLicense block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultLicense block(s) allowed")]
+    public TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockComponentBlockKeyVaultLicenseBlock>? KeyVaultLicense
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockComponentBlockKeyVaultLicenseBlock>>("key_vault_license");
+        set => SetArgument("key_vault_license", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for key_vault_license in AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockComponentBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressCustomSetupBlockComponentBlockKeyVaultLicenseBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "key_vault_license";
+
+    /// <summary>
+    /// The linked_service_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
+    public required TerraformValue<string> LinkedServiceName
+    {
+        get => new TerraformReference<string>(this, "linked_service_name");
+        set => SetArgument("linked_service_name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+    /// <summary>
+    /// The secret_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
+    public required TerraformValue<string> SecretName
+    {
+        get => new TerraformReference<string>(this, "secret_name");
+        set => SetArgument("secret_name", value);
+    }
+
+    /// <summary>
+    /// The secret_version attribute.
+    /// </summary>
+    public TerraformValue<string>? SecretVersion
+    {
+        get => new TerraformReference<string>(this, "secret_version");
+        set => SetArgument("secret_version", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for express_vnet_integration in AzurermDataFactoryIntegrationRuntimeAzureSsis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegrationBlock : TerraformBlock
@@ -188,8 +406,9 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisExpressVnetIntegration
 
 }
 
+
 /// <summary>
-/// Block type for package_store in .
+/// Block type for package_store in AzurermDataFactoryIntegrationRuntimeAzureSsis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : TerraformBlock
@@ -221,8 +440,9 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPackageStoreBlock : Te
 
 }
 
+
 /// <summary>
-/// Block type for pipeline_external_compute_scale in .
+/// Block type for pipeline_external_compute_scale in AzurermDataFactoryIntegrationRuntimeAzureSsis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComputeScaleBlock : TerraformBlock
@@ -261,8 +481,9 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisPipelineExternalComput
 
 }
 
+
 /// <summary>
-/// Block type for proxy in .
+/// Block type for proxy in AzurermDataFactoryIntegrationRuntimeAzureSsis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : TerraformBlock
@@ -303,8 +524,9 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisProxyBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryIntegrationRuntimeAzureSsis.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : TerraformBlock
@@ -352,8 +574,9 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisTimeoutsBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for vnet_integration in .
+/// Block type for vnet_integration in AzurermDataFactoryIntegrationRuntimeAzureSsis.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock : TerraformBlock
@@ -400,6 +623,7 @@ public class AzurermDataFactoryIntegrationRuntimeAzureSsisVnetIntegrationBlock :
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_integration_runtime_azure_ssis Terraform resource.

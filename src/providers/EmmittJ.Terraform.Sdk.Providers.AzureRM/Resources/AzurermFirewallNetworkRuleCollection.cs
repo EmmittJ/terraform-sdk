@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for rule in .
+/// Block type for rule in AzurermFirewallNetworkRuleCollection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
@@ -99,8 +99,9 @@ public class AzurermFirewallNetworkRuleCollectionRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermFirewallNetworkRuleCollection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermFirewallNetworkRuleCollectionTimeoutsBlock : TerraformBlock
@@ -147,6 +148,7 @@ public class AzurermFirewallNetworkRuleCollectionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_firewall_network_rule_collection Terraform resource.

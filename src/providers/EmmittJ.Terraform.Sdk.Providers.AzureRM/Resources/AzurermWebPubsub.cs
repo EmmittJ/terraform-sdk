@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermWebPubsub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWebPubsubIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermWebPubsubIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for live_trace in .
+/// Block type for live_trace in AzurermWebPubsub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWebPubsubLiveTraceBlock : TerraformBlock
@@ -99,8 +100,9 @@ public class AzurermWebPubsubLiveTraceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermWebPubsub.
 /// Nesting mode: single
 /// </summary>
 public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
@@ -147,6 +149,7 @@ public class AzurermWebPubsubTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_web_pubsub Terraform resource.

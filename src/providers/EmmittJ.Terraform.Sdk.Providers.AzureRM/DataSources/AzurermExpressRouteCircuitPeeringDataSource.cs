@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermExpressRouteCircuitPeeringDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermExpressRouteCircuitPeeringDataSourceTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_express_route_circuit_peering Terraform data source.

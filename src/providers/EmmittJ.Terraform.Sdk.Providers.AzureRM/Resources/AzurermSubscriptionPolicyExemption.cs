@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSubscriptionPolicyExemption.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSubscriptionPolicyExemptionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_subscription_policy_exemption Terraform resource.

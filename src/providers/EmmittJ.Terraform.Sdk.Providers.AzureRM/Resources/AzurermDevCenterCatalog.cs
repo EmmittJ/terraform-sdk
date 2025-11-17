@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for catalog_adogit in .
+/// Block type for catalog_adogit in AzurermDevCenterCatalog.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
@@ -55,8 +55,9 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for catalog_github in .
+/// Block type for catalog_github in AzurermDevCenterCatalog.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
@@ -108,8 +109,9 @@ public class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDevCenterCatalog.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
@@ -156,6 +158,7 @@ public class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dev_center_catalog Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageShareFile.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageShareFileTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermStorageShareFileTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_share_file Terraform resource.

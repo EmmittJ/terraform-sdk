@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for customer_managed_key in .
+/// Block type for customer_managed_key in AzurermServicebusNamespace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermServicebusNamespaceCustomerManagedKeyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermServicebusNamespace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
@@ -92,8 +93,9 @@ public class AzurermServicebusNamespaceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_rule_set in .
+/// Block type for network_rule_set in AzurermServicebusNamespace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
@@ -139,10 +141,52 @@ public class AzurermServicebusNamespaceNetworkRuleSetBlock : TerraformBlock
         set => SetArgument("trusted_services_allowed", value);
     }
 
+    /// <summary>
+    /// NetworkRules block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermServicebusNamespaceNetworkRuleSetBlockNetworkRulesBlock>? NetworkRules
+    {
+        get => GetArgument<TerraformSet<AzurermServicebusNamespaceNetworkRuleSetBlockNetworkRulesBlock>>("network_rules");
+        set => SetArgument("network_rules", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for network_rules in AzurermServicebusNamespaceNetworkRuleSetBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermServicebusNamespaceNetworkRuleSetBlockNetworkRulesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "network_rules";
+
+    /// <summary>
+    /// The ignore_missing_vnet_service_endpoint attribute.
+    /// </summary>
+    public TerraformValue<bool>? IgnoreMissingVnetServiceEndpoint
+    {
+        get => new TerraformReference<bool>(this, "ignore_missing_vnet_service_endpoint");
+        set => SetArgument("ignore_missing_vnet_service_endpoint", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformValue<string> SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermServicebusNamespace.
 /// Nesting mode: single
 /// </summary>
 public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
@@ -189,6 +233,7 @@ public class AzurermServicebusNamespaceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_servicebus_namespace Terraform resource.

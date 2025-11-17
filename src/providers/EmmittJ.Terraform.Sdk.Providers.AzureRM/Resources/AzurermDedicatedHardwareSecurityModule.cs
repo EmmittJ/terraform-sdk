@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for management_network_profile in .
+/// Block type for management_network_profile in AzurermDedicatedHardwareSecurityModule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermDedicatedHardwareSecurityModuleManagementNetworkProfileBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_profile in .
+/// Block type for network_profile in AzurermDedicatedHardwareSecurityModule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock : TerraformBlock
@@ -68,8 +69,9 @@ public class AzurermDedicatedHardwareSecurityModuleNetworkProfileBlock : Terrafo
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDedicatedHardwareSecurityModule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : TerraformBlock
@@ -116,6 +118,7 @@ public class AzurermDedicatedHardwareSecurityModuleTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dedicated_hardware_security_module Terraform resource.

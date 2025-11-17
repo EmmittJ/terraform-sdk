@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for authentication in .
+/// Block type for authentication in AzurermHealthcareFhirService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermHealthcareFhirServiceAuthenticationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for cors in .
+/// Block type for cors in AzurermHealthcareFhirService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
@@ -105,8 +106,9 @@ public class AzurermHealthcareFhirServiceCorsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermHealthcareFhirService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
@@ -153,8 +155,9 @@ public class AzurermHealthcareFhirServiceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for oci_artifact in .
+/// Block type for oci_artifact in AzurermHealthcareFhirService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlock
@@ -194,8 +197,9 @@ public class AzurermHealthcareFhirServiceOciArtifactBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermHealthcareFhirService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermHealthcareFhirServiceTimeoutsBlock : TerraformBlock
@@ -242,6 +246,7 @@ public class AzurermHealthcareFhirServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_healthcare_fhir_service Terraform resource.

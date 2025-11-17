@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for integration_runtime in .
+/// Block type for integration_runtime in AzurermDataFactoryLinkedCustomService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermDataFactoryLinkedCustomServiceIntegrationRuntimeBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryLinkedCustomService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryLinkedCustomServiceTimeoutsBlock : TerraformBlock
@@ -82,6 +83,7 @@ public class AzurermDataFactoryLinkedCustomServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_linked_custom_service Terraform resource.

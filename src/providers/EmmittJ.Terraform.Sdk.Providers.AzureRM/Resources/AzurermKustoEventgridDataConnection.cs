@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKustoEventgridDataConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKustoEventgridDataConnectionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermKustoEventgridDataConnectionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kusto_eventgrid_data_connection Terraform resource.

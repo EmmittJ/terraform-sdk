@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for access_control in .
+/// Block type for access_control in AzurermLogicAppWorkflow.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLogicAppWorkflowAccessControlBlock : TerraformBlock
@@ -13,10 +13,219 @@ public class AzurermLogicAppWorkflowAccessControlBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "access_control";
 
+    /// <summary>
+    /// Action block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Action block(s) allowed")]
+    public TerraformList<AzurermLogicAppWorkflowAccessControlBlockActionBlock>? Action
+    {
+        get => GetArgument<TerraformList<AzurermLogicAppWorkflowAccessControlBlockActionBlock>>("action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// Content block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Content block(s) allowed")]
+    public TerraformList<AzurermLogicAppWorkflowAccessControlBlockContentBlock>? Content
+    {
+        get => GetArgument<TerraformList<AzurermLogicAppWorkflowAccessControlBlockContentBlock>>("content");
+        set => SetArgument("content", value);
+    }
+
+    /// <summary>
+    /// Trigger block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Trigger block(s) allowed")]
+    public TerraformList<AzurermLogicAppWorkflowAccessControlBlockTriggerBlock>? Trigger
+    {
+        get => GetArgument<TerraformList<AzurermLogicAppWorkflowAccessControlBlockTriggerBlock>>("trigger");
+        set => SetArgument("trigger", value);
+    }
+
+    /// <summary>
+    /// WorkflowManagement block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkflowManagement block(s) allowed")]
+    public TerraformList<AzurermLogicAppWorkflowAccessControlBlockWorkflowManagementBlock>? WorkflowManagement
+    {
+        get => GetArgument<TerraformList<AzurermLogicAppWorkflowAccessControlBlockWorkflowManagementBlock>>("workflow_management");
+        set => SetArgument("workflow_management", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for action in AzurermLogicAppWorkflowAccessControlBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermLogicAppWorkflowAccessControlBlockActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "action";
+
+    /// <summary>
+    /// The allowed_caller_ip_address_range attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedCallerIpAddressRange is required")]
+    public required TerraformSet<string> AllowedCallerIpAddressRange
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_caller_ip_address_range").ResolveNodes(ctx));
+        set => SetArgument("allowed_caller_ip_address_range", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for content in AzurermLogicAppWorkflowAccessControlBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermLogicAppWorkflowAccessControlBlockContentBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "content";
+
+    /// <summary>
+    /// The allowed_caller_ip_address_range attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedCallerIpAddressRange is required")]
+    public required TerraformSet<string> AllowedCallerIpAddressRange
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_caller_ip_address_range").ResolveNodes(ctx));
+        set => SetArgument("allowed_caller_ip_address_range", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for trigger in AzurermLogicAppWorkflowAccessControlBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermLogicAppWorkflowAccessControlBlockTriggerBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "trigger";
+
+    /// <summary>
+    /// The allowed_caller_ip_address_range attribute.
+    /// </summary>
+    public TerraformSet<string>? AllowedCallerIpAddressRange
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_caller_ip_address_range").ResolveNodes(ctx));
+        set => SetArgument("allowed_caller_ip_address_range", value);
+    }
+
+    /// <summary>
+    /// OpenAuthenticationPolicy block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthenticationPolicyBlock>? OpenAuthenticationPolicy
+    {
+        get => GetArgument<TerraformSet<AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthenticationPolicyBlock>>("open_authentication_policy");
+        set => SetArgument("open_authentication_policy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for open_authentication_policy in AzurermLogicAppWorkflowAccessControlBlockTriggerBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthenticationPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "open_authentication_policy";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// Claim block (nesting mode: set).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Claim is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Claim block(s) required")]
+    public required TerraformSet<AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthenticationPolicyBlockClaimBlock> Claim
+    {
+        get => GetRequiredArgument<TerraformSet<AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthenticationPolicyBlockClaimBlock>>("claim");
+        set => SetArgument("claim", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for claim in AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthenticationPolicyBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermLogicAppWorkflowAccessControlBlockTriggerBlockOpenAuthenticationPolicyBlockClaimBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "claim";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for workflow_management in AzurermLogicAppWorkflowAccessControlBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermLogicAppWorkflowAccessControlBlockWorkflowManagementBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "workflow_management";
+
+    /// <summary>
+    /// The allowed_caller_ip_address_range attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedCallerIpAddressRange is required")]
+    public required TerraformSet<string> AllowedCallerIpAddressRange
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_caller_ip_address_range").ResolveNodes(ctx));
+        set => SetArgument("allowed_caller_ip_address_range", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for identity in AzurermLogicAppWorkflow.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
@@ -63,8 +272,9 @@ public class AzurermLogicAppWorkflowIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogicAppWorkflow.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
@@ -111,6 +321,7 @@ public class AzurermLogicAppWorkflowTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_logic_app_workflow Terraform resource.

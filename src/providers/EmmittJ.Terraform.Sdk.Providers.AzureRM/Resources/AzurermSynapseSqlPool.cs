@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for restore in .
+/// Block type for restore in AzurermSynapseSqlPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermSynapseSqlPoolRestoreBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSynapseSqlPool.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_synapse_sql_pool Terraform resource.

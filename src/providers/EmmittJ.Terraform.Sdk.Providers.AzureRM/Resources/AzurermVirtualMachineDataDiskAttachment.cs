@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualMachineDataDiskAttachment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_machine_data_disk_attachment Terraform resource.

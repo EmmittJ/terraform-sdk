@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlManagedInstanceTransparentDataEncryption.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMssqlManagedInstanceTransparentDataEncryptionTimeoutsBlock :
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_managed_instance_transparent_data_encryption Terraform resource.

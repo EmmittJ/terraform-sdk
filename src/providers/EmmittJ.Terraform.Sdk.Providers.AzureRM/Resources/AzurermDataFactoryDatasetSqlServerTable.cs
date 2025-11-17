@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for schema_column in .
+/// Block type for schema_column in AzurermDataFactoryDatasetSqlServerTable.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermDataFactoryDatasetSqlServerTableSchemaColumnBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryDatasetSqlServerTable.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryDatasetSqlServerTableTimeoutsBlock : TerraformBlock
@@ -91,6 +92,7 @@ public class AzurermDataFactoryDatasetSqlServerTableTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_dataset_sql_server_table Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for stage in .
+/// Block type for stage in AzurermKubernetesFleetUpdateStrategy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesFleetUpdateStrategyStageBlock : TerraformBlock
@@ -32,10 +32,46 @@ public class AzurermKubernetesFleetUpdateStrategyStageBlock : TerraformBlock
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// Group block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Group block(s) required")]
+    public required TerraformList<AzurermKubernetesFleetUpdateStrategyStageBlockGroupBlock> Group
+    {
+        get => GetRequiredArgument<TerraformList<AzurermKubernetesFleetUpdateStrategyStageBlockGroupBlock>>("group");
+        set => SetArgument("group", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for group in AzurermKubernetesFleetUpdateStrategyStageBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesFleetUpdateStrategyStageBlockGroupBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "group";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermKubernetesFleetUpdateStrategy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
@@ -82,6 +118,7 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kubernetes_fleet_update_strategy Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApplicationInsightsApiKey.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApplicationInsightsApiKeyTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermApplicationInsightsApiKeyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_application_insights_api_key Terraform resource.

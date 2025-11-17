@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for cloud_to_device in .
+/// Block type for cloud_to_device in AzurermIothub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubCloudToDeviceBlock : TerraformBlock
@@ -31,10 +31,60 @@ public class AzurermIothubCloudToDeviceBlock : TerraformBlock
         set => SetArgument("max_delivery_count", value);
     }
 
+    /// <summary>
+    /// Feedback block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermIothubCloudToDeviceBlockFeedbackBlock>? Feedback
+    {
+        get => GetArgument<TerraformList<AzurermIothubCloudToDeviceBlockFeedbackBlock>>("feedback");
+        set => SetArgument("feedback", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for fallback_route in .
+/// Block type for feedback in AzurermIothubCloudToDeviceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermIothubCloudToDeviceBlockFeedbackBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "feedback";
+
+    /// <summary>
+    /// The lock_duration attribute.
+    /// </summary>
+    public TerraformValue<string>? LockDuration
+    {
+        get => new TerraformReference<string>(this, "lock_duration");
+        set => SetArgument("lock_duration", value);
+    }
+
+    /// <summary>
+    /// The max_delivery_count attribute.
+    /// </summary>
+    public TerraformValue<double>? MaxDeliveryCount
+    {
+        get => new TerraformReference<double>(this, "max_delivery_count");
+        set => SetArgument("max_delivery_count", value);
+    }
+
+    /// <summary>
+    /// The time_to_live attribute.
+    /// </summary>
+    public TerraformValue<string>? TimeToLive
+    {
+        get => new TerraformReference<string>(this, "time_to_live");
+        set => SetArgument("time_to_live", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for fallback_route in AzurermIothub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubFallbackRouteBlock : TerraformBlock
@@ -82,8 +132,9 @@ public class AzurermIothubFallbackRouteBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for file_upload in .
+/// Block type for file_upload in AzurermIothub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubFileUploadBlock : TerraformBlock
@@ -178,8 +229,9 @@ public class AzurermIothubFileUploadBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermIothub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubIdentityBlock : TerraformBlock
@@ -226,8 +278,9 @@ public class AzurermIothubIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_rule_set in .
+/// Block type for network_rule_set in AzurermIothub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubNetworkRuleSetBlock : TerraformBlock
@@ -255,10 +308,62 @@ public class AzurermIothubNetworkRuleSetBlock : TerraformBlock
         set => SetArgument("default_action", value);
     }
 
+    /// <summary>
+    /// IpRule block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermIothubNetworkRuleSetBlockIpRuleBlock>? IpRule
+    {
+        get => GetArgument<TerraformList<AzurermIothubNetworkRuleSetBlockIpRuleBlock>>("ip_rule");
+        set => SetArgument("ip_rule", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for sku in .
+/// Block type for ip_rule in AzurermIothubNetworkRuleSetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermIothubNetworkRuleSetBlockIpRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_rule";
+
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    public TerraformValue<string>? Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The ip_mask attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpMask is required")]
+    public required TerraformValue<string> IpMask
+    {
+        get => new TerraformReference<string>(this, "ip_mask");
+        set => SetArgument("ip_mask", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for sku in AzurermIothub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubSkuBlock : TerraformBlock
@@ -290,8 +395,9 @@ public class AzurermIothubSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIothub.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIothubTimeoutsBlock : TerraformBlock
@@ -338,6 +444,7 @@ public class AzurermIothubTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iothub Terraform resource.

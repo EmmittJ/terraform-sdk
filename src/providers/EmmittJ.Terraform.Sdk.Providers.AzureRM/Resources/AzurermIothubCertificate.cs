@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIothubCertificate.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermIothubCertificateTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iothub_certificate Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for basic_auth in .
+/// Block type for basic_auth in AzurermStaticWebApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStaticWebAppBasicAuthBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermStaticWebAppBasicAuthBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermStaticWebApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStaticWebAppIdentityBlock : TerraformBlock
@@ -83,8 +84,9 @@ public class AzurermStaticWebAppIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStaticWebApp.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
@@ -131,6 +133,7 @@ public class AzurermStaticWebAppTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_static_web_app Terraform resource.

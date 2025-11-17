@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetappVolumeGroupSapHanaDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetappVolumeGroupSapHanaDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermNetappVolumeGroupSapHanaDataSourceTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_netapp_volume_group_sap_hana Terraform data source.

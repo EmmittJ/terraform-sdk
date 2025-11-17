@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKustoClusterManagedPrivateEndpoint.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermKustoClusterManagedPrivateEndpointTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kusto_cluster_managed_private_endpoint Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSynapseManagedPrivateEndpoint.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSynapseManagedPrivateEndpointTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermSynapseManagedPrivateEndpointTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_synapse_managed_private_endpoint Terraform resource.

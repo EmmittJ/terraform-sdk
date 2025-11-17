@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for service_location in .
+/// Block type for service_location in AzurermVoiceServicesCommunicationsGateway.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : TerraformBlock
@@ -62,8 +62,9 @@ public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVoiceServicesCommunicationsGateway.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformBlock
@@ -110,6 +111,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_voice_services_communications_gateway Terraform resource.

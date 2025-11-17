@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azure_blob_storage_location in .
+/// Block type for azure_blob_storage_location in AzurermDataFactoryDatasetBinary.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock : TerraformBlock
@@ -70,8 +70,9 @@ public class AzurermDataFactoryDatasetBinaryAzureBlobStorageLocationBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for compression in .
+/// Block type for compression in AzurermDataFactoryDatasetBinary.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetBinaryCompressionBlock : TerraformBlock
@@ -102,8 +103,9 @@ public class AzurermDataFactoryDatasetBinaryCompressionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for http_server_location in .
+/// Block type for http_server_location in AzurermDataFactoryDatasetBinary.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetBinaryHttpServerLocationBlock : TerraformBlock
@@ -163,8 +165,9 @@ public class AzurermDataFactoryDatasetBinaryHttpServerLocationBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for sftp_server_location in .
+/// Block type for sftp_server_location in AzurermDataFactoryDatasetBinary.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryDatasetBinarySftpServerLocationBlock : TerraformBlock
@@ -214,8 +217,9 @@ public class AzurermDataFactoryDatasetBinarySftpServerLocationBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryDatasetBinary.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryDatasetBinaryTimeoutsBlock : TerraformBlock
@@ -262,6 +266,7 @@ public class AzurermDataFactoryDatasetBinaryTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_dataset_binary Terraform resource.

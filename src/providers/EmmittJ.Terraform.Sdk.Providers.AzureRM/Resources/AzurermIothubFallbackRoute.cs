@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIothubFallbackRoute.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermIothubFallbackRouteTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iothub_fallback_route Terraform resource.

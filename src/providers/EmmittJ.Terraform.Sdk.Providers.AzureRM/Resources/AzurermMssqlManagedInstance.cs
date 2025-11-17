@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azure_active_directory_administrator in .
+/// Block type for azure_active_directory_administrator in AzurermMssqlManagedInstance.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock : TerraformBlock
@@ -63,8 +63,9 @@ public class AzurermMssqlManagedInstanceAzureActiveDirectoryAdministratorBlock :
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMssqlManagedInstance.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlManagedInstanceIdentityBlock : TerraformBlock
@@ -111,8 +112,9 @@ public class AzurermMssqlManagedInstanceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlManagedInstance.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlManagedInstanceTimeoutsBlock : TerraformBlock
@@ -159,6 +161,7 @@ public class AzurermMssqlManagedInstanceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_managed_instance Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for default_retention_rule in .
+/// Block type for default_retention_rule in AzurermDataProtectionBackupPolicyPostgresqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlock : TerraformBlock
@@ -13,10 +13,56 @@ public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRet
     /// </summary>
     public override string BlockType => "default_retention_rule";
 
+    /// <summary>
+    /// LifeCycleAttribute block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LifeCycleAttribute is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LifeCycleAttribute block(s) required")]
+    public required TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlockLifeCycleAttributeBlock> LifeCycleAttribute
+    {
+        get => GetRequiredArgument<TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlockLifeCycleAttributeBlock>>("life_cycle");
+        set => SetArgument("life_cycle", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for retention_rule in .
+/// Block type for life_cycle in AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleBlockLifeCycleAttributeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "life_cycle";
+
+    /// <summary>
+    /// The data_store_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreType is required")]
+    public required TerraformValue<string> DataStoreType
+    {
+        get => new TerraformReference<string>(this, "data_store_type");
+        set => SetArgument("data_store_type", value);
+    }
+
+    /// <summary>
+    /// The duration attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
+    public required TerraformValue<string> Duration
+    {
+        get => new TerraformReference<string>(this, "duration");
+        set => SetArgument("duration", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for retention_rule in AzurermDataProtectionBackupPolicyPostgresqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock : TerraformBlock
@@ -46,10 +92,127 @@ public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionR
         set => SetArgument("priority", value);
     }
 
+    /// <summary>
+    /// Criteria block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
+    public required TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlockCriteriaBlock> Criteria
+    {
+        get => GetRequiredArgument<TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlockCriteriaBlock>>("criteria");
+        set => SetArgument("criteria", value);
+    }
+
+    /// <summary>
+    /// LifeCycleAttribute block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LifeCycleAttribute is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LifeCycleAttribute block(s) required")]
+    public required TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlockLifeCycleAttributeBlock> LifeCycleAttribute
+    {
+        get => GetRequiredArgument<TerraformList<AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlockLifeCycleAttributeBlock>>("life_cycle");
+        set => SetArgument("life_cycle", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for criteria in AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlockCriteriaBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "criteria";
+
+    /// <summary>
+    /// The absolute_criteria attribute.
+    /// </summary>
+    public TerraformValue<string>? AbsoluteCriteria
+    {
+        get => new TerraformReference<string>(this, "absolute_criteria");
+        set => SetArgument("absolute_criteria", value);
+    }
+
+    /// <summary>
+    /// The days_of_week attribute.
+    /// </summary>
+    public TerraformSet<string>? DaysOfWeek
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "days_of_week").ResolveNodes(ctx));
+        set => SetArgument("days_of_week", value);
+    }
+
+    /// <summary>
+    /// The months_of_year attribute.
+    /// </summary>
+    public TerraformSet<string>? MonthsOfYear
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "months_of_year").ResolveNodes(ctx));
+        set => SetArgument("months_of_year", value);
+    }
+
+    /// <summary>
+    /// The scheduled_backup_times attribute.
+    /// </summary>
+    public TerraformSet<string>? ScheduledBackupTimes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scheduled_backup_times").ResolveNodes(ctx));
+        set => SetArgument("scheduled_backup_times", value);
+    }
+
+    /// <summary>
+    /// The weeks_of_month attribute.
+    /// </summary>
+    public TerraformSet<string>? WeeksOfMonth
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weeks_of_month").ResolveNodes(ctx));
+        set => SetArgument("weeks_of_month", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for life_cycle in AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerRetentionRuleBlockLifeCycleAttributeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "life_cycle";
+
+    /// <summary>
+    /// The data_store_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreType is required")]
+    public required TerraformValue<string> DataStoreType
+    {
+        get => new TerraformReference<string>(this, "data_store_type");
+        set => SetArgument("data_store_type", value);
+    }
+
+    /// <summary>
+    /// The duration attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
+    public required TerraformValue<string> Duration
+    {
+        get => new TerraformReference<string>(this, "duration");
+        set => SetArgument("duration", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermDataProtectionBackupPolicyPostgresqlFlexibleServer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerTimeoutsBlock : TerraformBlock
@@ -87,6 +250,7 @@ public class AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerTimeoutsBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_protection_backup_policy_postgresql_flexible_server Terraform resource.

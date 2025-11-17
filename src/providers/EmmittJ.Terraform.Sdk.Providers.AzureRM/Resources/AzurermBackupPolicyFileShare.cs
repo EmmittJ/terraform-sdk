@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for backup in .
+/// Block type for backup in AzurermBackupPolicyFileShare.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyFileShareBackupBlock : TerraformBlock
@@ -32,10 +32,64 @@ public class AzurermBackupPolicyFileShareBackupBlock : TerraformBlock
         set => SetArgument("time", value);
     }
 
+    /// <summary>
+    /// Hourly block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hourly block(s) allowed")]
+    public TerraformList<AzurermBackupPolicyFileShareBackupBlockHourlyBlock>? Hourly
+    {
+        get => GetArgument<TerraformList<AzurermBackupPolicyFileShareBackupBlockHourlyBlock>>("hourly");
+        set => SetArgument("hourly", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for retention_daily in .
+/// Block type for hourly in AzurermBackupPolicyFileShareBackupBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBackupPolicyFileShareBackupBlockHourlyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "hourly";
+
+    /// <summary>
+    /// The interval attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
+    public required TerraformValue<double> Interval
+    {
+        get => new TerraformReference<double>(this, "interval");
+        set => SetArgument("interval", value);
+    }
+
+    /// <summary>
+    /// The start_time attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
+    public required TerraformValue<string> StartTime
+    {
+        get => new TerraformReference<string>(this, "start_time");
+        set => SetArgument("start_time", value);
+    }
+
+    /// <summary>
+    /// The window_duration attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WindowDuration is required")]
+    public required TerraformValue<double> WindowDuration
+    {
+        get => new TerraformReference<double>(this, "window_duration");
+        set => SetArgument("window_duration", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for retention_daily in AzurermBackupPolicyFileShare.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyFileShareRetentionDailyBlock : TerraformBlock
@@ -57,8 +111,9 @@ public class AzurermBackupPolicyFileShareRetentionDailyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for retention_monthly in .
+/// Block type for retention_monthly in AzurermBackupPolicyFileShare.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyFileShareRetentionMonthlyBlock : TerraformBlock
@@ -116,8 +171,9 @@ public class AzurermBackupPolicyFileShareRetentionMonthlyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for retention_weekly in .
+/// Block type for retention_weekly in AzurermBackupPolicyFileShare.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyFileShareRetentionWeeklyBlock : TerraformBlock
@@ -149,8 +205,9 @@ public class AzurermBackupPolicyFileShareRetentionWeeklyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for retention_yearly in .
+/// Block type for retention_yearly in AzurermBackupPolicyFileShare.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyFileShareRetentionYearlyBlock : TerraformBlock
@@ -218,8 +275,9 @@ public class AzurermBackupPolicyFileShareRetentionYearlyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBackupPolicyFileShare.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBackupPolicyFileShareTimeoutsBlock : TerraformBlock
@@ -266,6 +324,7 @@ public class AzurermBackupPolicyFileShareTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_backup_policy_file_share Terraform resource.

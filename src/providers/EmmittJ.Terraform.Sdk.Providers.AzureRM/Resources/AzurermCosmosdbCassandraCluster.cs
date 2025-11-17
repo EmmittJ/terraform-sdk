@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermCosmosdbCassandraCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbCassandraClusterIdentityBlock : TerraformBlock
@@ -41,8 +41,9 @@ public class AzurermCosmosdbCassandraClusterIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCosmosdbCassandraCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbCassandraClusterTimeoutsBlock : TerraformBlock
@@ -89,6 +90,7 @@ public class AzurermCosmosdbCassandraClusterTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_cassandra_cluster Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermManagedRedisGeoReplication.
 /// Nesting mode: single
 /// </summary>
 public class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermManagedRedisGeoReplicationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_managed_redis_geo_replication Terraform resource.

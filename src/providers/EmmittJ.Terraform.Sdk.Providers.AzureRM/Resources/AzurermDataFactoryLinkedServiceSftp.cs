@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for key_vault_password in .
+/// Block type for key_vault_password in AzurermDataFactoryLinkedServiceSftp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for key_vault_private_key_content_base64 in .
+/// Block type for key_vault_private_key_content_base64 in AzurermDataFactoryLinkedServiceSftp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block : TerraformBlock
@@ -68,8 +69,9 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64B
 
 }
 
+
 /// <summary>
-/// Block type for key_vault_private_key_passphrase in .
+/// Block type for key_vault_private_key_passphrase in AzurermDataFactoryLinkedServiceSftp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock : TerraformBlock
@@ -101,8 +103,9 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryLinkedServiceSftp.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryLinkedServiceSftpTimeoutsBlock : TerraformBlock
@@ -149,6 +152,7 @@ public class AzurermDataFactoryLinkedServiceSftpTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_linked_service_sftp Terraform resource.

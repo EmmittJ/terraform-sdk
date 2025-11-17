@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for auth_settings in .
+/// Block type for auth_settings in AzurermAppServiceSlot.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
@@ -95,10 +95,261 @@ public class AzurermAppServiceSlotAuthSettingsBlock : TerraformBlock
         set => SetArgument("unauthenticated_client_action", value);
     }
 
+    /// <summary>
+    /// ActiveDirectory block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectory block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotAuthSettingsBlockActiveDirectoryBlock>? ActiveDirectory
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotAuthSettingsBlockActiveDirectoryBlock>>("active_directory");
+        set => SetArgument("active_directory", value);
+    }
+
+    /// <summary>
+    /// Facebook block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Facebook block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotAuthSettingsBlockFacebookBlock>? Facebook
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotAuthSettingsBlockFacebookBlock>>("facebook");
+        set => SetArgument("facebook", value);
+    }
+
+    /// <summary>
+    /// Google block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Google block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotAuthSettingsBlockGoogleBlock>? Google
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotAuthSettingsBlockGoogleBlock>>("google");
+        set => SetArgument("google", value);
+    }
+
+    /// <summary>
+    /// Microsoft block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Microsoft block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotAuthSettingsBlockMicrosoftBlock>? Microsoft
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotAuthSettingsBlockMicrosoftBlock>>("microsoft");
+        set => SetArgument("microsoft", value);
+    }
+
+    /// <summary>
+    /// Twitter block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Twitter block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotAuthSettingsBlockTwitterBlock>? Twitter
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotAuthSettingsBlockTwitterBlock>>("twitter");
+        set => SetArgument("twitter", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for connection_string in .
+/// Block type for active_directory in AzurermAppServiceSlotAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotAuthSettingsBlockActiveDirectoryBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "active_directory";
+
+    /// <summary>
+    /// The allowed_audiences attribute.
+    /// </summary>
+    public TerraformList<string>? AllowedAudiences
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "allowed_audiences").ResolveNodes(ctx));
+        set => SetArgument("allowed_audiences", value);
+    }
+
+    /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The client_secret attribute.
+    /// </summary>
+    public TerraformValue<string>? ClientSecret
+    {
+        get => new TerraformReference<string>(this, "client_secret");
+        set => SetArgument("client_secret", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for facebook in AzurermAppServiceSlotAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotAuthSettingsBlockFacebookBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "facebook";
+
+    /// <summary>
+    /// The app_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
+    public required TerraformValue<string> AppId
+    {
+        get => new TerraformReference<string>(this, "app_id");
+        set => SetArgument("app_id", value);
+    }
+
+    /// <summary>
+    /// The app_secret attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppSecret is required")]
+    public required TerraformValue<string> AppSecret
+    {
+        get => new TerraformReference<string>(this, "app_secret");
+        set => SetArgument("app_secret", value);
+    }
+
+    /// <summary>
+    /// The oauth_scopes attribute.
+    /// </summary>
+    public TerraformList<string>? OauthScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "oauth_scopes").ResolveNodes(ctx));
+        set => SetArgument("oauth_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for google in AzurermAppServiceSlotAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotAuthSettingsBlockGoogleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "google";
+
+    /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The client_secret attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
+    public required TerraformValue<string> ClientSecret
+    {
+        get => new TerraformReference<string>(this, "client_secret");
+        set => SetArgument("client_secret", value);
+    }
+
+    /// <summary>
+    /// The oauth_scopes attribute.
+    /// </summary>
+    public TerraformList<string>? OauthScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "oauth_scopes").ResolveNodes(ctx));
+        set => SetArgument("oauth_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for microsoft in AzurermAppServiceSlotAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotAuthSettingsBlockMicrosoftBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "microsoft";
+
+    /// <summary>
+    /// The client_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
+    public required TerraformValue<string> ClientId
+    {
+        get => new TerraformReference<string>(this, "client_id");
+        set => SetArgument("client_id", value);
+    }
+
+    /// <summary>
+    /// The client_secret attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
+    public required TerraformValue<string> ClientSecret
+    {
+        get => new TerraformReference<string>(this, "client_secret");
+        set => SetArgument("client_secret", value);
+    }
+
+    /// <summary>
+    /// The oauth_scopes attribute.
+    /// </summary>
+    public TerraformList<string>? OauthScopes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "oauth_scopes").ResolveNodes(ctx));
+        set => SetArgument("oauth_scopes", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for twitter in AzurermAppServiceSlotAuthSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotAuthSettingsBlockTwitterBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "twitter";
+
+    /// <summary>
+    /// The consumer_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerKey is required")]
+    public required TerraformValue<string> ConsumerKey
+    {
+        get => new TerraformReference<string>(this, "consumer_key");
+        set => SetArgument("consumer_key", value);
+    }
+
+    /// <summary>
+    /// The consumer_secret attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerSecret is required")]
+    public required TerraformValue<string> ConsumerSecret
+    {
+        get => new TerraformReference<string>(this, "consumer_secret");
+        set => SetArgument("consumer_secret", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for connection_string in AzurermAppServiceSlot.
 /// Nesting mode: set
 /// </summary>
 public class AzurermAppServiceSlotConnectionStringBlock : TerraformBlock
@@ -140,8 +391,9 @@ public class AzurermAppServiceSlotConnectionStringBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermAppServiceSlot.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppServiceSlotIdentityBlock : TerraformBlock
@@ -188,8 +440,9 @@ public class AzurermAppServiceSlotIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for logs in .
+/// Block type for logs in AzurermAppServiceSlot.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppServiceSlotLogsBlock : TerraformBlock
@@ -217,10 +470,205 @@ public class AzurermAppServiceSlotLogsBlock : TerraformBlock
         set => SetArgument("failed_request_tracing_enabled", value);
     }
 
+    /// <summary>
+    /// ApplicationLogs block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApplicationLogs block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotLogsBlockApplicationLogsBlock>? ApplicationLogs
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotLogsBlockApplicationLogsBlock>>("application_logs");
+        set => SetArgument("application_logs", value);
+    }
+
+    /// <summary>
+    /// HttpLogs block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpLogs block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotLogsBlockHttpLogsBlock>? HttpLogs
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotLogsBlockHttpLogsBlock>>("http_logs");
+        set => SetArgument("http_logs", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for site_config in .
+/// Block type for application_logs in AzurermAppServiceSlotLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotLogsBlockApplicationLogsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "application_logs";
+
+    /// <summary>
+    /// The file_system_level attribute.
+    /// </summary>
+    public TerraformValue<string>? FileSystemLevel
+    {
+        get => new TerraformReference<string>(this, "file_system_level");
+        set => SetArgument("file_system_level", value);
+    }
+
+    /// <summary>
+    /// AzureBlobStorage block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorage block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotLogsBlockApplicationLogsBlockAzureBlobStorageBlock>? AzureBlobStorage
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotLogsBlockApplicationLogsBlockAzureBlobStorageBlock>>("azure_blob_storage");
+        set => SetArgument("azure_blob_storage", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for azure_blob_storage in AzurermAppServiceSlotLogsBlockApplicationLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotLogsBlockApplicationLogsBlockAzureBlobStorageBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "azure_blob_storage";
+
+    /// <summary>
+    /// The level attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Level is required")]
+    public required TerraformValue<string> Level
+    {
+        get => new TerraformReference<string>(this, "level");
+        set => SetArgument("level", value);
+    }
+
+    /// <summary>
+    /// The retention_in_days attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInDays is required")]
+    public required TerraformValue<double> RetentionInDays
+    {
+        get => new TerraformReference<double>(this, "retention_in_days");
+        set => SetArgument("retention_in_days", value);
+    }
+
+    /// <summary>
+    /// The sas_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasUrl is required")]
+    public required TerraformValue<string> SasUrl
+    {
+        get => new TerraformReference<string>(this, "sas_url");
+        set => SetArgument("sas_url", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for http_logs in AzurermAppServiceSlotLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotLogsBlockHttpLogsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "http_logs";
+
+    /// <summary>
+    /// AzureBlobStorage block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureBlobStorage block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotLogsBlockHttpLogsBlockAzureBlobStorageBlock>? AzureBlobStorage
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotLogsBlockHttpLogsBlockAzureBlobStorageBlock>>("azure_blob_storage");
+        set => SetArgument("azure_blob_storage", value);
+    }
+
+    /// <summary>
+    /// FileSystem block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileSystem block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotLogsBlockHttpLogsBlockFileSystemBlock>? FileSystem
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotLogsBlockHttpLogsBlockFileSystemBlock>>("file_system");
+        set => SetArgument("file_system", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for azure_blob_storage in AzurermAppServiceSlotLogsBlockHttpLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotLogsBlockHttpLogsBlockAzureBlobStorageBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "azure_blob_storage";
+
+    /// <summary>
+    /// The retention_in_days attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInDays is required")]
+    public required TerraformValue<double> RetentionInDays
+    {
+        get => new TerraformReference<double>(this, "retention_in_days");
+        set => SetArgument("retention_in_days", value);
+    }
+
+    /// <summary>
+    /// The sas_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SasUrl is required")]
+    public required TerraformValue<string> SasUrl
+    {
+        get => new TerraformReference<string>(this, "sas_url");
+        set => SetArgument("sas_url", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for file_system in AzurermAppServiceSlotLogsBlockHttpLogsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotLogsBlockHttpLogsBlockFileSystemBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "file_system";
+
+    /// <summary>
+    /// The retention_in_days attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInDays is required")]
+    public required TerraformValue<double> RetentionInDays
+    {
+        get => new TerraformReference<double>(this, "retention_in_days");
+        set => SetArgument("retention_in_days", value);
+    }
+
+    /// <summary>
+    /// The retention_in_mb attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RetentionInMb is required")]
+    public required TerraformValue<double> RetentionInMb
+    {
+        get => new TerraformReference<double>(this, "retention_in_mb");
+        set => SetArgument("retention_in_mb", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for site_config in AzurermAppServiceSlot.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
@@ -500,10 +948,53 @@ public class AzurermAppServiceSlotSiteConfigBlock : TerraformBlock
         set => SetArgument("windows_fx_version", value);
     }
 
+    /// <summary>
+    /// Cors block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
+    public TerraformList<AzurermAppServiceSlotSiteConfigBlockCorsBlock>? Cors
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSlotSiteConfigBlockCorsBlock>>("cors");
+        set => SetArgument("cors", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for storage_account in .
+/// Block type for cors in AzurermAppServiceSlotSiteConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSlotSiteConfigBlockCorsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cors";
+
+    /// <summary>
+    /// The allowed_origins attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOrigins is required")]
+    public required TerraformSet<string> AllowedOrigins
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "allowed_origins").ResolveNodes(ctx));
+        set => SetArgument("allowed_origins", value);
+    }
+
+    /// <summary>
+    /// The support_credentials attribute.
+    /// </summary>
+    public TerraformValue<bool>? SupportCredentials
+    {
+        get => new TerraformReference<bool>(this, "support_credentials");
+        set => SetArgument("support_credentials", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for storage_account in AzurermAppServiceSlot.
 /// Nesting mode: set
 /// </summary>
 public class AzurermAppServiceSlotStorageAccountBlock : TerraformBlock
@@ -574,8 +1065,9 @@ public class AzurermAppServiceSlotStorageAccountBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAppServiceSlot.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppServiceSlotTimeoutsBlock : TerraformBlock
@@ -622,6 +1114,7 @@ public class AzurermAppServiceSlotTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_service_slot Terraform resource.

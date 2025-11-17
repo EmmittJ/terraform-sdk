@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for backup in .
+/// Block type for backup in AzurermBackupPolicyVm.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyVmBackupBlock : TerraformBlock
@@ -62,8 +62,9 @@ public class AzurermBackupPolicyVmBackupBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for instant_restore_resource_group in .
+/// Block type for instant_restore_resource_group in AzurermBackupPolicyVm.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyVmInstantRestoreResourceGroupBlock : TerraformBlock
@@ -94,8 +95,9 @@ public class AzurermBackupPolicyVmInstantRestoreResourceGroupBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for retention_daily in .
+/// Block type for retention_daily in AzurermBackupPolicyVm.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyVmRetentionDailyBlock : TerraformBlock
@@ -117,8 +119,9 @@ public class AzurermBackupPolicyVmRetentionDailyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for retention_monthly in .
+/// Block type for retention_monthly in AzurermBackupPolicyVm.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyVmRetentionMonthlyBlock : TerraformBlock
@@ -176,8 +179,9 @@ public class AzurermBackupPolicyVmRetentionMonthlyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for retention_weekly in .
+/// Block type for retention_weekly in AzurermBackupPolicyVm.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyVmRetentionWeeklyBlock : TerraformBlock
@@ -209,8 +213,9 @@ public class AzurermBackupPolicyVmRetentionWeeklyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for retention_yearly in .
+/// Block type for retention_yearly in AzurermBackupPolicyVm.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyVmRetentionYearlyBlock : TerraformBlock
@@ -278,8 +283,9 @@ public class AzurermBackupPolicyVmRetentionYearlyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for tiering_policy in .
+/// Block type for tiering_policy in AzurermBackupPolicyVm.
 /// Nesting mode: list
 /// </summary>
 public class AzurermBackupPolicyVmTieringPolicyBlock : TerraformBlock
@@ -289,10 +295,65 @@ public class AzurermBackupPolicyVmTieringPolicyBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "tiering_policy";
 
+    /// <summary>
+    /// ArchivedRestorePoint block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArchivedRestorePoint is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ArchivedRestorePoint block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ArchivedRestorePoint block(s) allowed")]
+    public required TerraformList<AzurermBackupPolicyVmTieringPolicyBlockArchivedRestorePointBlock> ArchivedRestorePoint
+    {
+        get => GetRequiredArgument<TerraformList<AzurermBackupPolicyVmTieringPolicyBlockArchivedRestorePointBlock>>("archived_restore_point");
+        set => SetArgument("archived_restore_point", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for archived_restore_point in AzurermBackupPolicyVmTieringPolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermBackupPolicyVmTieringPolicyBlockArchivedRestorePointBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "archived_restore_point";
+
+    /// <summary>
+    /// The duration attribute.
+    /// </summary>
+    public TerraformValue<double>? Duration
+    {
+        get => new TerraformReference<double>(this, "duration");
+        set => SetArgument("duration", value);
+    }
+
+    /// <summary>
+    /// The duration_type attribute.
+    /// </summary>
+    public TerraformValue<string>? DurationType
+    {
+        get => new TerraformReference<string>(this, "duration_type");
+        set => SetArgument("duration_type", value);
+    }
+
+    /// <summary>
+    /// The mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
+    public required TerraformValue<string> Mode
+    {
+        get => new TerraformReference<string>(this, "mode");
+        set => SetArgument("mode", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermBackupPolicyVm.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBackupPolicyVmTimeoutsBlock : TerraformBlock
@@ -339,6 +400,7 @@ public class AzurermBackupPolicyVmTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_backup_policy_vm Terraform resource.

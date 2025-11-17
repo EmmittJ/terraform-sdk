@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for maintenance_window in .
+/// Block type for maintenance_window in AzurermOracleExadataInfrastructure.
 /// Nesting mode: list
 /// </summary>
 public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : TerraformBlock
@@ -78,8 +78,9 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermOracleExadataInfrastructure.
 /// Nesting mode: single
 /// </summary>
 public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
@@ -126,6 +127,7 @@ public class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_oracle_exadata_infrastructure Terraform resource.

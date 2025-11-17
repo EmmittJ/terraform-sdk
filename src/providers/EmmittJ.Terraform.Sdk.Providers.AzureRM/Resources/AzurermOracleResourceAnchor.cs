@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermOracleResourceAnchor.
 /// Nesting mode: single
 /// </summary>
 public class AzurermOracleResourceAnchorTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermOracleResourceAnchorTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_oracle_resource_anchor Terraform resource.

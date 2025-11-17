@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for customer_managed_key in .
+/// Block type for customer_managed_key in AzurermMysqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMysqlFlexibleServerCustomerManagedKeyBlock : TerraformBlock
@@ -60,8 +60,9 @@ public class AzurermMysqlFlexibleServerCustomerManagedKeyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for high_availability in .
+/// Block type for high_availability in AzurermMysqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMysqlFlexibleServerHighAvailabilityBlock : TerraformBlock
@@ -92,8 +93,9 @@ public class AzurermMysqlFlexibleServerHighAvailabilityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMysqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMysqlFlexibleServerIdentityBlock : TerraformBlock
@@ -125,8 +127,9 @@ public class AzurermMysqlFlexibleServerIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for maintenance_window in .
+/// Block type for maintenance_window in AzurermMysqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMysqlFlexibleServerMaintenanceWindowBlock : TerraformBlock
@@ -165,8 +168,9 @@ public class AzurermMysqlFlexibleServerMaintenanceWindowBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage in .
+/// Block type for storage in AzurermMysqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMysqlFlexibleServerStorageBlock : TerraformBlock
@@ -223,8 +227,9 @@ public class AzurermMysqlFlexibleServerStorageBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMysqlFlexibleServer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMysqlFlexibleServerTimeoutsBlock : TerraformBlock
@@ -271,6 +276,7 @@ public class AzurermMysqlFlexibleServerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mysql_flexible_server Terraform resource.

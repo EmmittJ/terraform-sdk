@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for permissions in .
+/// Block type for permissions in AzurermStorageAccountSasDataSource.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
@@ -115,8 +115,9 @@ public class AzurermStorageAccountSasDataSourcePermissionsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for resource_types in .
+/// Block type for resource_types in AzurermStorageAccountSasDataSource.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountSasDataSourceResourceTypesBlock : TerraformBlock
@@ -158,8 +159,9 @@ public class AzurermStorageAccountSasDataSourceResourceTypesBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for services in .
+/// Block type for services in AzurermStorageAccountSasDataSource.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountSasDataSourceServicesBlock : TerraformBlock
@@ -211,8 +213,9 @@ public class AzurermStorageAccountSasDataSourceServicesBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageAccountSasDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageAccountSasDataSourceTimeoutsBlock : TerraformBlock
@@ -232,6 +235,7 @@ public class AzurermStorageAccountSasDataSourceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_account_sas Terraform data source.

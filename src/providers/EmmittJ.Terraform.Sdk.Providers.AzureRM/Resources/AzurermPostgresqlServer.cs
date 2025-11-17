@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermPostgresqlServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPostgresqlServerIdentityBlock : TerraformBlock
@@ -41,8 +41,9 @@ public class AzurermPostgresqlServerIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for threat_detection_policy in .
+/// Block type for threat_detection_policy in AzurermPostgresqlServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPostgresqlServerThreatDetectionPolicyBlock : TerraformBlock
@@ -117,8 +118,9 @@ public class AzurermPostgresqlServerThreatDetectionPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPostgresqlServer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPostgresqlServerTimeoutsBlock : TerraformBlock
@@ -165,6 +167,7 @@ public class AzurermPostgresqlServerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_postgresql_server Terraform resource.

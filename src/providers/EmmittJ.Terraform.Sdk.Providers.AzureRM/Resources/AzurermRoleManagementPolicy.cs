@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for activation_rules in .
+/// Block type for activation_rules in AzurermRoleManagementPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRoleManagementPolicyActivationRulesBlock : TerraformBlock
@@ -67,10 +67,79 @@ public class AzurermRoleManagementPolicyActivationRulesBlock : TerraformBlock
         set => SetArgument("required_conditional_access_authentication_context", value);
     }
 
+    /// <summary>
+    /// ApprovalStage block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalStage block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyActivationRulesBlockApprovalStageBlock>? ApprovalStage
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyActivationRulesBlockApprovalStageBlock>>("approval_stage");
+        set => SetArgument("approval_stage", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for active_assignment_rules in .
+/// Block type for approval_stage in AzurermRoleManagementPolicyActivationRulesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyActivationRulesBlockApprovalStageBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "approval_stage";
+
+    /// <summary>
+    /// PrimaryApprover block (nesting mode: set).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryApprover is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PrimaryApprover block(s) required")]
+    public required TerraformSet<AzurermRoleManagementPolicyActivationRulesBlockApprovalStageBlockPrimaryApproverBlock> PrimaryApprover
+    {
+        get => GetRequiredArgument<TerraformSet<AzurermRoleManagementPolicyActivationRulesBlockApprovalStageBlockPrimaryApproverBlock>>("primary_approver");
+        set => SetArgument("primary_approver", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for primary_approver in AzurermRoleManagementPolicyActivationRulesBlockApprovalStageBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermRoleManagementPolicyActivationRulesBlockApprovalStageBlockPrimaryApproverBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "primary_approver";
+
+    /// <summary>
+    /// The ID of the object to act as an approver
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
+    public required TerraformValue<string> ObjectId
+    {
+        get => new TerraformReference<string>(this, "object_id");
+        set => SetArgument("object_id", value);
+    }
+
+    /// <summary>
+    /// The type of object acting as an approver
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for active_assignment_rules in AzurermRoleManagementPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : TerraformBlock
@@ -127,8 +196,9 @@ public class AzurermRoleManagementPolicyActiveAssignmentRulesBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for eligible_assignment_rules in .
+/// Block type for eligible_assignment_rules in AzurermRoleManagementPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRoleManagementPolicyEligibleAssignmentRulesBlock : TerraformBlock
@@ -158,8 +228,9 @@ public class AzurermRoleManagementPolicyEligibleAssignmentRulesBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for notification_rules in .
+/// Block type for notification_rules in AzurermRoleManagementPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRoleManagementPolicyNotificationRulesBlock : TerraformBlock
@@ -169,10 +240,548 @@ public class AzurermRoleManagementPolicyNotificationRulesBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "notification_rules";
 
+    /// <summary>
+    /// ActiveAssignments block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveAssignments block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlock>? ActiveAssignments
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlock>>("active_assignments");
+        set => SetArgument("active_assignments", value);
+    }
+
+    /// <summary>
+    /// EligibleActivations block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EligibleActivations block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlock>? EligibleActivations
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlock>>("eligible_activations");
+        set => SetArgument("eligible_activations", value);
+    }
+
+    /// <summary>
+    /// EligibleAssignments block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EligibleAssignments block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlock>? EligibleAssignments
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlock>>("eligible_assignments");
+        set => SetArgument("eligible_assignments", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for active_assignments in AzurermRoleManagementPolicyNotificationRulesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "active_assignments";
+
+    /// <summary>
+    /// AdminNotifications block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdminNotifications block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlockAdminNotificationsBlock>? AdminNotifications
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlockAdminNotificationsBlock>>("admin_notifications");
+        set => SetArgument("admin_notifications", value);
+    }
+
+    /// <summary>
+    /// ApproverNotifications block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApproverNotifications block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlockApproverNotificationsBlock>? ApproverNotifications
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlockApproverNotificationsBlock>>("approver_notifications");
+        set => SetArgument("approver_notifications", value);
+    }
+
+    /// <summary>
+    /// AssigneeNotifications block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssigneeNotifications block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlockAssigneeNotificationsBlock>? AssigneeNotifications
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlockAssigneeNotificationsBlock>>("assignee_notifications");
+        set => SetArgument("assignee_notifications", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for admin_notifications in AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlockAdminNotificationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "admin_notifications";
+
+    /// <summary>
+    /// The additional recipients to notify
+    /// </summary>
+    public TerraformSet<string> AdditionalRecipients
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        set => SetArgument("additional_recipients", value);
+    }
+
+    /// <summary>
+    /// Whether the default recipients are notified
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
+    public required TerraformValue<bool> DefaultRecipients
+    {
+        get => new TerraformReference<bool>(this, "default_recipients");
+        set => SetArgument("default_recipients", value);
+    }
+
+    /// <summary>
+    /// What level of notifications are sent
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
+    public required TerraformValue<string> NotificationLevel
+    {
+        get => new TerraformReference<string>(this, "notification_level");
+        set => SetArgument("notification_level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for approver_notifications in AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlockApproverNotificationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "approver_notifications";
+
+    /// <summary>
+    /// The additional recipients to notify
+    /// </summary>
+    public TerraformSet<string> AdditionalRecipients
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        set => SetArgument("additional_recipients", value);
+    }
+
+    /// <summary>
+    /// Whether the default recipients are notified
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
+    public required TerraformValue<bool> DefaultRecipients
+    {
+        get => new TerraformReference<bool>(this, "default_recipients");
+        set => SetArgument("default_recipients", value);
+    }
+
+    /// <summary>
+    /// What level of notifications are sent
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
+    public required TerraformValue<string> NotificationLevel
+    {
+        get => new TerraformReference<string>(this, "notification_level");
+        set => SetArgument("notification_level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for assignee_notifications in AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockActiveAssignmentsBlockAssigneeNotificationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "assignee_notifications";
+
+    /// <summary>
+    /// The additional recipients to notify
+    /// </summary>
+    public TerraformSet<string> AdditionalRecipients
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        set => SetArgument("additional_recipients", value);
+    }
+
+    /// <summary>
+    /// Whether the default recipients are notified
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
+    public required TerraformValue<bool> DefaultRecipients
+    {
+        get => new TerraformReference<bool>(this, "default_recipients");
+        set => SetArgument("default_recipients", value);
+    }
+
+    /// <summary>
+    /// What level of notifications are sent
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
+    public required TerraformValue<string> NotificationLevel
+    {
+        get => new TerraformReference<string>(this, "notification_level");
+        set => SetArgument("notification_level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for eligible_activations in AzurermRoleManagementPolicyNotificationRulesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "eligible_activations";
+
+    /// <summary>
+    /// AdminNotifications block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdminNotifications block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlockAdminNotificationsBlock>? AdminNotifications
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlockAdminNotificationsBlock>>("admin_notifications");
+        set => SetArgument("admin_notifications", value);
+    }
+
+    /// <summary>
+    /// ApproverNotifications block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApproverNotifications block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlockApproverNotificationsBlock>? ApproverNotifications
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlockApproverNotificationsBlock>>("approver_notifications");
+        set => SetArgument("approver_notifications", value);
+    }
+
+    /// <summary>
+    /// AssigneeNotifications block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssigneeNotifications block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlockAssigneeNotificationsBlock>? AssigneeNotifications
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlockAssigneeNotificationsBlock>>("assignee_notifications");
+        set => SetArgument("assignee_notifications", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for admin_notifications in AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlockAdminNotificationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "admin_notifications";
+
+    /// <summary>
+    /// The additional recipients to notify
+    /// </summary>
+    public TerraformSet<string> AdditionalRecipients
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        set => SetArgument("additional_recipients", value);
+    }
+
+    /// <summary>
+    /// Whether the default recipients are notified
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
+    public required TerraformValue<bool> DefaultRecipients
+    {
+        get => new TerraformReference<bool>(this, "default_recipients");
+        set => SetArgument("default_recipients", value);
+    }
+
+    /// <summary>
+    /// What level of notifications are sent
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
+    public required TerraformValue<string> NotificationLevel
+    {
+        get => new TerraformReference<string>(this, "notification_level");
+        set => SetArgument("notification_level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for approver_notifications in AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlockApproverNotificationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "approver_notifications";
+
+    /// <summary>
+    /// The additional recipients to notify
+    /// </summary>
+    public TerraformSet<string> AdditionalRecipients
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        set => SetArgument("additional_recipients", value);
+    }
+
+    /// <summary>
+    /// Whether the default recipients are notified
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
+    public required TerraformValue<bool> DefaultRecipients
+    {
+        get => new TerraformReference<bool>(this, "default_recipients");
+        set => SetArgument("default_recipients", value);
+    }
+
+    /// <summary>
+    /// What level of notifications are sent
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
+    public required TerraformValue<string> NotificationLevel
+    {
+        get => new TerraformReference<string>(this, "notification_level");
+        set => SetArgument("notification_level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for assignee_notifications in AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockEligibleActivationsBlockAssigneeNotificationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "assignee_notifications";
+
+    /// <summary>
+    /// The additional recipients to notify
+    /// </summary>
+    public TerraformSet<string> AdditionalRecipients
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        set => SetArgument("additional_recipients", value);
+    }
+
+    /// <summary>
+    /// Whether the default recipients are notified
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
+    public required TerraformValue<bool> DefaultRecipients
+    {
+        get => new TerraformReference<bool>(this, "default_recipients");
+        set => SetArgument("default_recipients", value);
+    }
+
+    /// <summary>
+    /// What level of notifications are sent
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
+    public required TerraformValue<string> NotificationLevel
+    {
+        get => new TerraformReference<string>(this, "notification_level");
+        set => SetArgument("notification_level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for eligible_assignments in AzurermRoleManagementPolicyNotificationRulesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "eligible_assignments";
+
+    /// <summary>
+    /// AdminNotifications block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdminNotifications block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlockAdminNotificationsBlock>? AdminNotifications
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlockAdminNotificationsBlock>>("admin_notifications");
+        set => SetArgument("admin_notifications", value);
+    }
+
+    /// <summary>
+    /// ApproverNotifications block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApproverNotifications block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlockApproverNotificationsBlock>? ApproverNotifications
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlockApproverNotificationsBlock>>("approver_notifications");
+        set => SetArgument("approver_notifications", value);
+    }
+
+    /// <summary>
+    /// AssigneeNotifications block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssigneeNotifications block(s) allowed")]
+    public TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlockAssigneeNotificationsBlock>? AssigneeNotifications
+    {
+        get => GetArgument<TerraformList<AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlockAssigneeNotificationsBlock>>("assignee_notifications");
+        set => SetArgument("assignee_notifications", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for admin_notifications in AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlockAdminNotificationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "admin_notifications";
+
+    /// <summary>
+    /// The additional recipients to notify
+    /// </summary>
+    public TerraformSet<string> AdditionalRecipients
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        set => SetArgument("additional_recipients", value);
+    }
+
+    /// <summary>
+    /// Whether the default recipients are notified
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
+    public required TerraformValue<bool> DefaultRecipients
+    {
+        get => new TerraformReference<bool>(this, "default_recipients");
+        set => SetArgument("default_recipients", value);
+    }
+
+    /// <summary>
+    /// What level of notifications are sent
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
+    public required TerraformValue<string> NotificationLevel
+    {
+        get => new TerraformReference<string>(this, "notification_level");
+        set => SetArgument("notification_level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for approver_notifications in AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlockApproverNotificationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "approver_notifications";
+
+    /// <summary>
+    /// The additional recipients to notify
+    /// </summary>
+    public TerraformSet<string> AdditionalRecipients
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        set => SetArgument("additional_recipients", value);
+    }
+
+    /// <summary>
+    /// Whether the default recipients are notified
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
+    public required TerraformValue<bool> DefaultRecipients
+    {
+        get => new TerraformReference<bool>(this, "default_recipients");
+        set => SetArgument("default_recipients", value);
+    }
+
+    /// <summary>
+    /// What level of notifications are sent
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
+    public required TerraformValue<string> NotificationLevel
+    {
+        get => new TerraformReference<string>(this, "notification_level");
+        set => SetArgument("notification_level", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for assignee_notifications in AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermRoleManagementPolicyNotificationRulesBlockEligibleAssignmentsBlockAssigneeNotificationsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "assignee_notifications";
+
+    /// <summary>
+    /// The additional recipients to notify
+    /// </summary>
+    public TerraformSet<string> AdditionalRecipients
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        set => SetArgument("additional_recipients", value);
+    }
+
+    /// <summary>
+    /// Whether the default recipients are notified
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultRecipients is required")]
+    public required TerraformValue<bool> DefaultRecipients
+    {
+        get => new TerraformReference<bool>(this, "default_recipients");
+        set => SetArgument("default_recipients", value);
+    }
+
+    /// <summary>
+    /// What level of notifications are sent
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationLevel is required")]
+    public required TerraformValue<string> NotificationLevel
+    {
+        get => new TerraformReference<string>(this, "notification_level");
+        set => SetArgument("notification_level", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermRoleManagementPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRoleManagementPolicyTimeoutsBlock : TerraformBlock
@@ -219,6 +828,7 @@ public class AzurermRoleManagementPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_role_management_policy Terraform resource.

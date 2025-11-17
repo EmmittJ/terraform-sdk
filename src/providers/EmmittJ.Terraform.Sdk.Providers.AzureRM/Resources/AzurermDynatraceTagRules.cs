@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for log_rule in .
+/// Block type for log_rule in AzurermDynatraceTagRules.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
@@ -40,10 +40,66 @@ public class AzurermDynatraceTagRulesLogRuleBlock : TerraformBlock
         set => SetArgument("send_subscription_logs_enabled", value);
     }
 
+    /// <summary>
+    /// FilteringTag block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilteringTag is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FilteringTag block(s) required")]
+    public required TerraformList<AzurermDynatraceTagRulesLogRuleBlockFilteringTagBlock> FilteringTag
+    {
+        get => GetRequiredArgument<TerraformList<AzurermDynatraceTagRulesLogRuleBlockFilteringTagBlock>>("filtering_tag");
+        set => SetArgument("filtering_tag", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for metric_rule in .
+/// Block type for filtering_tag in AzurermDynatraceTagRulesLogRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDynatraceTagRulesLogRuleBlockFilteringTagBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "filtering_tag";
+
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformValue<string> Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for metric_rule in AzurermDynatraceTagRules.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDynatraceTagRulesMetricRuleBlock : TerraformBlock
@@ -62,10 +118,66 @@ public class AzurermDynatraceTagRulesMetricRuleBlock : TerraformBlock
         set => SetArgument("sending_metrics_enabled", value);
     }
 
+    /// <summary>
+    /// FilteringTag block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilteringTag is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FilteringTag block(s) required")]
+    public required TerraformList<AzurermDynatraceTagRulesMetricRuleBlockFilteringTagBlock> FilteringTag
+    {
+        get => GetRequiredArgument<TerraformList<AzurermDynatraceTagRulesMetricRuleBlockFilteringTagBlock>>("filtering_tag");
+        set => SetArgument("filtering_tag", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for filtering_tag in AzurermDynatraceTagRulesMetricRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDynatraceTagRulesMetricRuleBlockFilteringTagBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "filtering_tag";
+
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
+    public required TerraformValue<string> Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermDynatraceTagRules.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
@@ -112,6 +224,7 @@ public class AzurermDynatraceTagRulesTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dynatrace_tag_rules Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for guest_identity in .
+/// Block type for guest_identity in AzurermLogicAppIntegrationAccountAgreement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for host_identity in .
+/// Block type for host_identity in AzurermLogicAppIntegrationAccountAgreement.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock : TerraformBlock
@@ -68,8 +69,9 @@ public class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock : Terra
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogicAppIntegrationAccountAgreement.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock : TerraformBlock
@@ -116,6 +118,7 @@ public class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_logic_app_integration_account_agreement Terraform resource.

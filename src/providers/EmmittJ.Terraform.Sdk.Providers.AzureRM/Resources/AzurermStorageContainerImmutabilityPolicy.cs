@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageContainerImmutabilityPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermStorageContainerImmutabilityPolicyTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_container_immutability_policy Terraform resource.

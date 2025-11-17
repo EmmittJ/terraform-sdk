@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for hardware in .
+/// Block type for hardware in AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardwareBlock : TerraformBlock
@@ -60,8 +60,9 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceHardw
 
 }
 
+
 /// <summary>
-/// Block type for infrastructure in .
+/// Block type for infrastructure in AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfrastructureBlock : TerraformBlock
@@ -118,8 +119,9 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceInfra
 
 }
 
+
 /// <summary>
-/// Block type for network_interface in .
+/// Block type for network_interface in AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceBlock : TerraformBlock
@@ -177,8 +179,9 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceNetwo
 
 }
 
+
 /// <summary>
-/// Block type for operating_system in .
+/// Block type for operating_system in AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOperatingSystemBlock : TerraformBlock
@@ -208,8 +211,9 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceOpera
 
 }
 
+
 /// <summary>
-/// Block type for storage_disk in .
+/// Block type for storage_disk in AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStorageDiskBlock : TerraformBlock
@@ -293,8 +297,9 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceStora
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSystemCenterVirtualMachineManagerVirtualMachineInstance.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeoutsBlock : TerraformBlock
@@ -341,6 +346,7 @@ public class AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceTimeo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_system_center_virtual_machine_manager_virtual_machine_instance Terraform resource.

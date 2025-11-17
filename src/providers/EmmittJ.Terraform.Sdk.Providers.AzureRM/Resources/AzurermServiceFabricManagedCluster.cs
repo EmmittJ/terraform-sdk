@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for authentication in .
+/// Block type for authentication in AzurermServiceFabricManagedCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricManagedClusterAuthenticationBlock : TerraformBlock
@@ -13,10 +13,115 @@ public class AzurermServiceFabricManagedClusterAuthenticationBlock : TerraformBl
     /// </summary>
     public override string BlockType => "authentication";
 
+    /// <summary>
+    /// ActiveDirectory block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectory block(s) allowed")]
+    public TerraformList<AzurermServiceFabricManagedClusterAuthenticationBlockActiveDirectoryBlock>? ActiveDirectory
+    {
+        get => GetArgument<TerraformList<AzurermServiceFabricManagedClusterAuthenticationBlockActiveDirectoryBlock>>("active_directory");
+        set => SetArgument("active_directory", value);
+    }
+
+    /// <summary>
+    /// Certificate block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermServiceFabricManagedClusterAuthenticationBlockCertificateBlock>? Certificate
+    {
+        get => GetArgument<TerraformList<AzurermServiceFabricManagedClusterAuthenticationBlockCertificateBlock>>("certificate");
+        set => SetArgument("certificate", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for custom_fabric_setting in .
+/// Block type for active_directory in AzurermServiceFabricManagedClusterAuthenticationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermServiceFabricManagedClusterAuthenticationBlockActiveDirectoryBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "active_directory";
+
+    /// <summary>
+    /// The client_application_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientApplicationId is required")]
+    public required TerraformValue<string> ClientApplicationId
+    {
+        get => new TerraformReference<string>(this, "client_application_id");
+        set => SetArgument("client_application_id", value);
+    }
+
+    /// <summary>
+    /// The cluster_application_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterApplicationId is required")]
+    public required TerraformValue<string> ClusterApplicationId
+    {
+        get => new TerraformReference<string>(this, "cluster_application_id");
+        set => SetArgument("cluster_application_id", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
+    public required TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+        set => SetArgument("tenant_id", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for certificate in AzurermServiceFabricManagedClusterAuthenticationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermServiceFabricManagedClusterAuthenticationBlockCertificateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "certificate";
+
+    /// <summary>
+    /// The common_name attribute.
+    /// </summary>
+    public TerraformValue<string>? CommonName
+    {
+        get => new TerraformReference<string>(this, "common_name");
+        set => SetArgument("common_name", value);
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
+    public required TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+        set => SetArgument("thumbprint", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for custom_fabric_setting in AzurermServiceFabricManagedCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricManagedClusterCustomFabricSettingBlock : TerraformBlock
@@ -58,8 +163,9 @@ public class AzurermServiceFabricManagedClusterCustomFabricSettingBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for lb_rule in .
+/// Block type for lb_rule in AzurermServiceFabricManagedCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricManagedClusterLbRuleBlock : TerraformBlock
@@ -120,8 +226,9 @@ public class AzurermServiceFabricManagedClusterLbRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for node_type in .
+/// Block type for node_type in AzurermServiceFabricManagedCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServiceFabricManagedClusterNodeTypeBlock : TerraformBlock
@@ -293,10 +400,88 @@ public class AzurermServiceFabricManagedClusterNodeTypeBlock : TerraformBlock
         set => SetArgument("vm_size", value);
     }
 
+    /// <summary>
+    /// VmSecrets block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermServiceFabricManagedClusterNodeTypeBlockVmSecretsBlock>? VmSecrets
+    {
+        get => GetArgument<TerraformList<AzurermServiceFabricManagedClusterNodeTypeBlockVmSecretsBlock>>("vm_secrets");
+        set => SetArgument("vm_secrets", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for vm_secrets in AzurermServiceFabricManagedClusterNodeTypeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermServiceFabricManagedClusterNodeTypeBlockVmSecretsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "vm_secrets";
+
+    /// <summary>
+    /// The vault_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VaultId is required")]
+    public required TerraformValue<string> VaultId
+    {
+        get => new TerraformReference<string>(this, "vault_id");
+        set => SetArgument("vault_id", value);
+    }
+
+    /// <summary>
+    /// Certificates block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificates is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Certificates block(s) required")]
+    public required TerraformList<AzurermServiceFabricManagedClusterNodeTypeBlockVmSecretsBlockCertificatesBlock> Certificates
+    {
+        get => GetRequiredArgument<TerraformList<AzurermServiceFabricManagedClusterNodeTypeBlockVmSecretsBlockCertificatesBlock>>("certificates");
+        set => SetArgument("certificates", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for certificates in AzurermServiceFabricManagedClusterNodeTypeBlockVmSecretsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermServiceFabricManagedClusterNodeTypeBlockVmSecretsBlockCertificatesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "certificates";
+
+    /// <summary>
+    /// The store attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Store is required")]
+    public required TerraformValue<string> Store
+    {
+        get => new TerraformReference<string>(this, "store");
+        set => SetArgument("store", value);
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
+    public required TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+        set => SetArgument("url", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermServiceFabricManagedCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermServiceFabricManagedClusterTimeoutsBlock : TerraformBlock
@@ -343,6 +528,7 @@ public class AzurermServiceFabricManagedClusterTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_service_fabric_managed_cluster Terraform resource.

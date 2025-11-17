@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApplicationInsightsSmartDetectionRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermApplicationInsightsSmartDetectionRuleTimeoutsBlock : Terrafo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_application_insights_smart_detection_rule Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermChaosStudioExperiment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermChaosStudioExperimentIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermChaosStudioExperimentIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for selectors in .
+/// Block type for selectors in AzurermChaosStudioExperiment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermChaosStudioExperimentSelectorsBlock : TerraformBlock
@@ -83,8 +84,9 @@ public class AzurermChaosStudioExperimentSelectorsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for steps in .
+/// Block type for steps in AzurermChaosStudioExperiment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermChaosStudioExperimentStepsBlock : TerraformBlock
@@ -104,10 +106,117 @@ public class AzurermChaosStudioExperimentStepsBlock : TerraformBlock
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// Branch block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Branch block(s) required")]
+    public required TerraformList<AzurermChaosStudioExperimentStepsBlockBranchBlock> Branch
+    {
+        get => GetRequiredArgument<TerraformList<AzurermChaosStudioExperimentStepsBlockBranchBlock>>("branch");
+        set => SetArgument("branch", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for branch in AzurermChaosStudioExperimentStepsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermChaosStudioExperimentStepsBlockBranchBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "branch";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// Actions block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
+    public required TerraformList<AzurermChaosStudioExperimentStepsBlockBranchBlockActionsBlock> Actions
+    {
+        get => GetRequiredArgument<TerraformList<AzurermChaosStudioExperimentStepsBlockBranchBlockActionsBlock>>("actions");
+        set => SetArgument("actions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for actions in AzurermChaosStudioExperimentStepsBlockBranchBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermChaosStudioExperimentStepsBlockBranchBlockActionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "actions";
+
+    /// <summary>
+    /// The action_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionType is required")]
+    public required TerraformValue<string> ActionType
+    {
+        get => new TerraformReference<string>(this, "action_type");
+        set => SetArgument("action_type", value);
+    }
+
+    /// <summary>
+    /// The duration attribute.
+    /// </summary>
+    public TerraformValue<string>? Duration
+    {
+        get => new TerraformReference<string>(this, "duration");
+        set => SetArgument("duration", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformMap<string>? Parameters
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "parameters").ResolveNodes(ctx));
+        set => SetArgument("parameters", value);
+    }
+
+    /// <summary>
+    /// The selector_name attribute.
+    /// </summary>
+    public TerraformValue<string>? SelectorName
+    {
+        get => new TerraformReference<string>(this, "selector_name");
+        set => SetArgument("selector_name", value);
+    }
+
+    /// <summary>
+    /// The urn attribute.
+    /// </summary>
+    public TerraformValue<string>? Urn
+    {
+        get => new TerraformReference<string>(this, "urn");
+        set => SetArgument("urn", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermChaosStudioExperiment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermChaosStudioExperimentTimeoutsBlock : TerraformBlock
@@ -154,6 +263,7 @@ public class AzurermChaosStudioExperimentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_chaos_studio_experiment Terraform resource.

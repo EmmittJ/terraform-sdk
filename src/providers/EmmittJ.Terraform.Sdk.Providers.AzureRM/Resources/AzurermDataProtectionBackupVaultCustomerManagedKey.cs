@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataProtectionBackupVaultCustomerManagedKey.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataProtectionBackupVaultCustomerManagedKeyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDataProtectionBackupVaultCustomerManagedKeyTimeoutsBlock : T
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_protection_backup_vault_customer_managed_key Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermElasticSanVolumeSnapshotDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_elastic_san_volume_snapshot Terraform data source.

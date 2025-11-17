@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogAnalyticsDataExportRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogAnalyticsDataExportRuleTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermLogAnalyticsDataExportRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_log_analytics_data_export_rule Terraform resource.

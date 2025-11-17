@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualDesktopWorkspaceApplicationGroupAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualDesktopWorkspaceApplicationGroupAssociationTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermVirtualDesktopWorkspaceApplicationGroupAssociationTimeoutsBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_desktop_workspace_application_group_association Terraform resource.

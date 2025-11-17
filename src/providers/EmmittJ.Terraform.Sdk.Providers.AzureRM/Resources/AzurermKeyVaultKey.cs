@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for rotation_policy in .
+/// Block type for rotation_policy in AzurermKeyVaultKey.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKeyVaultKeyRotationPolicyBlock : TerraformBlock
@@ -31,10 +31,52 @@ public class AzurermKeyVaultKeyRotationPolicyBlock : TerraformBlock
         set => SetArgument("notify_before_expiry", value);
     }
 
+    /// <summary>
+    /// Automatic block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Automatic block(s) allowed")]
+    public TerraformList<AzurermKeyVaultKeyRotationPolicyBlockAutomaticBlock>? Automatic
+    {
+        get => GetArgument<TerraformList<AzurermKeyVaultKeyRotationPolicyBlockAutomaticBlock>>("automatic");
+        set => SetArgument("automatic", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for automatic in AzurermKeyVaultKeyRotationPolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKeyVaultKeyRotationPolicyBlockAutomaticBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "automatic";
+
+    /// <summary>
+    /// The time_after_creation attribute.
+    /// </summary>
+    public TerraformValue<string>? TimeAfterCreation
+    {
+        get => new TerraformReference<string>(this, "time_after_creation");
+        set => SetArgument("time_after_creation", value);
+    }
+
+    /// <summary>
+    /// The time_before_expiry attribute.
+    /// </summary>
+    public TerraformValue<string>? TimeBeforeExpiry
+    {
+        get => new TerraformReference<string>(this, "time_before_expiry");
+        set => SetArgument("time_before_expiry", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermKeyVaultKey.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
@@ -81,6 +123,7 @@ public class AzurermKeyVaultKeyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_key Terraform resource.

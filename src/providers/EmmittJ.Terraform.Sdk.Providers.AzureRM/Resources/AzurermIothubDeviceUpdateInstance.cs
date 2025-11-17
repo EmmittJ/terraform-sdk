@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for diagnostic_storage_account in .
+/// Block type for diagnostic_storage_account in AzurermIothubDeviceUpdateInstance.
 /// Nesting mode: list
 /// </summary>
 public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermIothubDeviceUpdateInstanceDiagnosticStorageAccountBlock : Te
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIothubDeviceUpdateInstance.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermIothubDeviceUpdateInstanceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iothub_device_update_instance Terraform resource.

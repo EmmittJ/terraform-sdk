@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualDesktopScalingPlanHostPoolAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermVirtualDesktopScalingPlanHostPoolAssociationTimeoutsBlock : 
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_desktop_scaling_plan_host_pool_association Terraform resource.

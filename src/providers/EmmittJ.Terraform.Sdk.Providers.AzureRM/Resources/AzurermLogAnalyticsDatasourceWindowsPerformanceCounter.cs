@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogAnalyticsDatasourceWindowsPerformanceCounter.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermLogAnalyticsDatasourceWindowsPerformanceCounterTimeoutsBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_log_analytics_datasource_windows_performance_counter Terraform resource.

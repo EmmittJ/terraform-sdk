@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermServicebusNamespaceDisasterRecoveryConfig.
 /// Nesting mode: single
 /// </summary>
 public class AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock : Ter
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_servicebus_namespace_disaster_recovery_config Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDatabaseMigrationService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDatabaseMigrationServiceTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDatabaseMigrationServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_database_migration_service Terraform resource.

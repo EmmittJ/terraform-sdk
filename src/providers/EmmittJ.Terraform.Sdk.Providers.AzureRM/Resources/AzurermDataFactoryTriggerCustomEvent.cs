@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for pipeline in .
+/// Block type for pipeline in AzurermDataFactoryTriggerCustomEvent.
 /// Nesting mode: set
 /// </summary>
 public class AzurermDataFactoryTriggerCustomEventPipelineBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermDataFactoryTriggerCustomEventPipelineBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryTriggerCustomEvent.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock : TerraformBlock
@@ -82,6 +83,7 @@ public class AzurermDataFactoryTriggerCustomEventTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_trigger_custom_event Terraform resource.

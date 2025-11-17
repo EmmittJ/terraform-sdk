@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ip_configuration in .
+/// Block type for ip_configuration in AzurermPrivateEndpoint.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermPrivateEndpointIpConfigurationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for private_dns_zone_group in .
+/// Block type for private_dns_zone_group in AzurermPrivateEndpoint.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
@@ -94,8 +95,9 @@ public class AzurermPrivateEndpointPrivateDnsZoneGroupBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for private_service_connection in .
+/// Block type for private_service_connection in AzurermPrivateEndpoint.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBlock
@@ -171,8 +173,9 @@ public class AzurermPrivateEndpointPrivateServiceConnectionBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPrivateEndpoint.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
@@ -219,6 +222,7 @@ public class AzurermPrivateEndpointTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_private_endpoint Terraform resource.

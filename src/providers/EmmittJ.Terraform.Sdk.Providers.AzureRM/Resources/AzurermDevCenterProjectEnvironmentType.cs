@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDevCenterProjectEnvironmentType.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermDevCenterProjectEnvironmentTypeIdentityBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDevCenterProjectEnvironmentType.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBlock
@@ -99,8 +100,9 @@ public class AzurermDevCenterProjectEnvironmentTypeTimeoutsBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for user_role_assignment in .
+/// Block type for user_role_assignment in AzurermDevCenterProjectEnvironmentType.
 /// Nesting mode: set
 /// </summary>
 public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : TerraformBlock
@@ -131,6 +133,7 @@ public class AzurermDevCenterProjectEnvironmentTypeUserRoleAssignmentBlock : Ter
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dev_center_project_environment_type Terraform resource.

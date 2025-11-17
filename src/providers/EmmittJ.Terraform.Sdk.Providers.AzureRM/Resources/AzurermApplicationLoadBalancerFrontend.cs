@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApplicationLoadBalancerFrontend.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApplicationLoadBalancerFrontendTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermApplicationLoadBalancerFrontendTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_application_load_balancer_frontend Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPrivateDnsResolverForwardingRuleDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermPrivateDnsResolverForwardingRuleDataSourceTimeoutsBlock : Te
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_private_dns_resolver_forwarding_rule Terraform data source.

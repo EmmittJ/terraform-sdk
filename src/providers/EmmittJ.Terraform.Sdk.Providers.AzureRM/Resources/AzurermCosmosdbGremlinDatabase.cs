@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for autoscale_settings in .
+/// Block type for autoscale_settings in AzurermCosmosdbGremlinDatabase.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock : TerraformBlock
@@ -24,8 +24,9 @@ public class AzurermCosmosdbGremlinDatabaseAutoscaleSettingsBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCosmosdbGremlinDatabase.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbGremlinDatabaseTimeoutsBlock : TerraformBlock
@@ -72,6 +73,7 @@ public class AzurermCosmosdbGremlinDatabaseTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_gremlin_database Terraform resource.

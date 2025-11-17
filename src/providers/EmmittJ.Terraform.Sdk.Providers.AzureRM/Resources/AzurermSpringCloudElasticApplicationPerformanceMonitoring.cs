@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudElasticApplicationPerformanceMonitoring.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSpringCloudElasticApplicationPerformanceMonitoringTimeoutsBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_elastic_application_performance_monitoring Terraform resource.

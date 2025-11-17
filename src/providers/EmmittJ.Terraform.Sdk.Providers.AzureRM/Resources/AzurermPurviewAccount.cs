@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermPurviewAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPurviewAccountIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermPurviewAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPurviewAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermPurviewAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_purview_account Terraform resource.

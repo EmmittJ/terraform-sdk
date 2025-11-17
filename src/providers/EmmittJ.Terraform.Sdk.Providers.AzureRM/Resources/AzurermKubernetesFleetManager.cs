@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for hub_profile in .
+/// Block type for hub_profile in AzurermKubernetesFleetManager.
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
@@ -42,8 +42,9 @@ public class AzurermKubernetesFleetManagerHubProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKubernetesFleetManager.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKubernetesFleetManagerTimeoutsBlock : TerraformBlock
@@ -90,6 +91,7 @@ public class AzurermKubernetesFleetManagerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kubernetes_fleet_manager Terraform resource.

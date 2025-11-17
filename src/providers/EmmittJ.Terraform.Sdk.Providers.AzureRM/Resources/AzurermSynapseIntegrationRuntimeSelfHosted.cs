@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSynapseIntegrationRuntimeSelfHosted.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_synapse_integration_runtime_self_hosted Terraform resource.

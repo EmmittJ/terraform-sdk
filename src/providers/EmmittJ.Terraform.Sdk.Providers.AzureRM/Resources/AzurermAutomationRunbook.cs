@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for draft in .
+/// Block type for draft in AzurermAutomationRunbook.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationRunbookDraftBlock : TerraformBlock
@@ -47,10 +47,165 @@ public class AzurermAutomationRunbookDraftBlock : TerraformBlock
         set => SetArgument("output_types", value);
     }
 
+    /// <summary>
+    /// ContentLink block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContentLink block(s) allowed")]
+    public TerraformList<AzurermAutomationRunbookDraftBlockContentLinkBlock>? ContentLink
+    {
+        get => GetArgument<TerraformList<AzurermAutomationRunbookDraftBlockContentLinkBlock>>("content_link");
+        set => SetArgument("content_link", value);
+    }
+
+    /// <summary>
+    /// Parameters block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermAutomationRunbookDraftBlockParametersBlock>? Parameters
+    {
+        get => GetArgument<TerraformList<AzurermAutomationRunbookDraftBlockParametersBlock>>("parameters");
+        set => SetArgument("parameters", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for publish_content_link in .
+/// Block type for content_link in AzurermAutomationRunbookDraftBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomationRunbookDraftBlockContentLinkBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "content_link";
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+        set => SetArgument("uri", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string>? Version
+    {
+        get => new TerraformReference<string>(this, "version");
+        set => SetArgument("version", value);
+    }
+
+    /// <summary>
+    /// Hash block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hash block(s) allowed")]
+    public TerraformList<AzurermAutomationRunbookDraftBlockContentLinkBlockHashBlock>? Hash
+    {
+        get => GetArgument<TerraformList<AzurermAutomationRunbookDraftBlockContentLinkBlockHashBlock>>("hash");
+        set => SetArgument("hash", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for hash in AzurermAutomationRunbookDraftBlockContentLinkBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomationRunbookDraftBlockContentLinkBlockHashBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "hash";
+
+    /// <summary>
+    /// The algorithm attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
+    public required TerraformValue<string> Algorithm
+    {
+        get => new TerraformReference<string>(this, "algorithm");
+        set => SetArgument("algorithm", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for parameters in AzurermAutomationRunbookDraftBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomationRunbookDraftBlockParametersBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "parameters";
+
+    /// <summary>
+    /// The default_value attribute.
+    /// </summary>
+    public TerraformValue<string>? DefaultValue
+    {
+        get => new TerraformReference<string>(this, "default_value");
+        set => SetArgument("default_value", value);
+    }
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The mandatory attribute.
+    /// </summary>
+    public TerraformValue<bool>? Mandatory
+    {
+        get => new TerraformReference<bool>(this, "mandatory");
+        set => SetArgument("mandatory", value);
+    }
+
+    /// <summary>
+    /// The position attribute.
+    /// </summary>
+    public TerraformValue<double>? Position
+    {
+        get => new TerraformReference<double>(this, "position");
+        set => SetArgument("position", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for publish_content_link in AzurermAutomationRunbook.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationRunbookPublishContentLinkBlock : TerraformBlock
@@ -79,10 +234,54 @@ public class AzurermAutomationRunbookPublishContentLinkBlock : TerraformBlock
         set => SetArgument("version", value);
     }
 
+    /// <summary>
+    /// Hash block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hash block(s) allowed")]
+    public TerraformList<AzurermAutomationRunbookPublishContentLinkBlockHashBlock>? Hash
+    {
+        get => GetArgument<TerraformList<AzurermAutomationRunbookPublishContentLinkBlockHashBlock>>("hash");
+        set => SetArgument("hash", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for hash in AzurermAutomationRunbookPublishContentLinkBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomationRunbookPublishContentLinkBlockHashBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "hash";
+
+    /// <summary>
+    /// The algorithm attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
+    public required TerraformValue<string> Algorithm
+    {
+        get => new TerraformReference<string>(this, "algorithm");
+        set => SetArgument("algorithm", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermAutomationRunbook.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
@@ -129,6 +328,7 @@ public class AzurermAutomationRunbookTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_runbook Terraform resource.

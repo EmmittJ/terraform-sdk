@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for permissions in .
+/// Block type for permissions in AzurermRoleDefinition.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRoleDefinitionPermissionsBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermRoleDefinitionPermissionsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRoleDefinition.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRoleDefinitionTimeoutsBlock : TerraformBlock
@@ -99,6 +100,7 @@ public class AzurermRoleDefinitionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_role_definition Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for load_balancer_configuration in .
+/// Block type for load_balancer_configuration in AzurermMssqlVirtualMachineAvailabilityGroupListener.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationBlock : TerraformBlock
@@ -65,8 +65,9 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerLoadBalancerConf
 
 }
 
+
 /// <summary>
-/// Block type for multi_subnet_ip_configuration in .
+/// Block type for multi_subnet_ip_configuration in AzurermMssqlVirtualMachineAvailabilityGroupListener.
 /// Nesting mode: set
 /// </summary>
 public class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationBlock : TerraformBlock
@@ -108,8 +109,9 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerMultiSubnetIpCon
 
 }
 
+
 /// <summary>
-/// Block type for replica in .
+/// Block type for replica in AzurermMssqlVirtualMachineAvailabilityGroupListener.
 /// Nesting mode: set
 /// </summary>
 public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : TerraformBlock
@@ -171,8 +173,9 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerReplicaBlock : T
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlVirtualMachineAvailabilityGroupListener.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock : TerraformBlock
@@ -210,6 +213,7 @@ public class AzurermMssqlVirtualMachineAvailabilityGroupListenerTimeoutsBlock : 
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_virtual_machine_availability_group_listener Terraform resource.

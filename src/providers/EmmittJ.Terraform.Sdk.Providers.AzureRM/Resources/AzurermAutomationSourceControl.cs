@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for security in .
+/// Block type for security in AzurermAutomationSourceControl.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationSourceControlSecurityBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermAutomationSourceControlSecurityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAutomationSourceControl.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationSourceControlTimeoutsBlock : TerraformBlock
@@ -92,6 +93,7 @@ public class AzurermAutomationSourceControlTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_source_control Terraform resource.

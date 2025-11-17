@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetappVolumeGroupOracleDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetappVolumeGroupOracleDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermNetappVolumeGroupOracleDataSourceTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_netapp_volume_group_oracle Terraform data source.

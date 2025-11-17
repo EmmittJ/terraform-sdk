@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for action_group in .
+/// Block type for action_group in AzurermMonitorSmartDetectorAlertRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermMonitorSmartDetectorAlertRuleActionGroupBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMonitorSmartDetectorAlertRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
@@ -91,6 +92,7 @@ public class AzurermMonitorSmartDetectorAlertRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_smart_detector_alert_rule Terraform resource.

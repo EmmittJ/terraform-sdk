@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDatabricksVirtualNetworkPeering.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDatabricksVirtualNetworkPeeringTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_databricks_virtual_network_peering Terraform resource.

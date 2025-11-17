@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRouteFilter.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRouteFilterTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermRouteFilterTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_route_filter Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for module_link in .
+/// Block type for module_link in AzurermAutomationModule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomationModuleModuleLinkBlock : TerraformBlock
@@ -23,10 +23,54 @@ public class AzurermAutomationModuleModuleLinkBlock : TerraformBlock
         set => SetArgument("uri", value);
     }
 
+    /// <summary>
+    /// Hash block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hash block(s) allowed")]
+    public TerraformList<AzurermAutomationModuleModuleLinkBlockHashBlock>? Hash
+    {
+        get => GetArgument<TerraformList<AzurermAutomationModuleModuleLinkBlockHashBlock>>("hash");
+        set => SetArgument("hash", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for hash in AzurermAutomationModuleModuleLinkBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomationModuleModuleLinkBlockHashBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "hash";
+
+    /// <summary>
+    /// The algorithm attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Algorithm is required")]
+    public required TerraformValue<string> Algorithm
+    {
+        get => new TerraformReference<string>(this, "algorithm");
+        set => SetArgument("algorithm", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermAutomationModule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationModuleTimeoutsBlock : TerraformBlock
@@ -73,6 +117,7 @@ public class AzurermAutomationModuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_module Terraform resource.

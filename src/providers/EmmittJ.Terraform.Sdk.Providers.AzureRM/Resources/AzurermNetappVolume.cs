@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for cool_access in .
+/// Block type for cool_access in AzurermNetappVolume.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermNetappVolumeCoolAccessBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for data_protection_backup_policy in .
+/// Block type for data_protection_backup_policy in AzurermNetappVolume.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
@@ -87,8 +88,9 @@ public class AzurermNetappVolumeDataProtectionBackupPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for data_protection_replication in .
+/// Block type for data_protection_replication in AzurermNetappVolume.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
@@ -139,8 +141,9 @@ public class AzurermNetappVolumeDataProtectionReplicationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for data_protection_snapshot_policy in .
+/// Block type for data_protection_snapshot_policy in AzurermNetappVolume.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock : TerraformBlock
@@ -162,8 +165,9 @@ public class AzurermNetappVolumeDataProtectionSnapshotPolicyBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for export_policy_rule in .
+/// Block type for export_policy_rule in AzurermNetappVolume.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
@@ -295,8 +299,9 @@ public class AzurermNetappVolumeExportPolicyRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetappVolume.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
@@ -343,6 +348,7 @@ public class AzurermNetappVolumeTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_netapp_volume Terraform resource.

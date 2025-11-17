@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for agent_setting in .
+/// Block type for agent_setting in AzurermContainerRegistryTask.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTaskAgentSettingBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermContainerRegistryTaskAgentSettingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for base_image_trigger in .
+/// Block type for base_image_trigger in AzurermContainerRegistryTask.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
@@ -85,8 +86,9 @@ public class AzurermContainerRegistryTaskBaseImageTriggerBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for docker_step in .
+/// Block type for docker_step in AzurermContainerRegistryTask.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
@@ -182,8 +184,9 @@ public class AzurermContainerRegistryTaskDockerStepBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for encoded_step in .
+/// Block type for encoded_step in AzurermContainerRegistryTask.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
@@ -250,8 +253,9 @@ public class AzurermContainerRegistryTaskEncodedStepBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for file_step in .
+/// Block type for file_step in AzurermContainerRegistryTask.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
@@ -318,8 +322,9 @@ public class AzurermContainerRegistryTaskFileStepBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermContainerRegistryTask.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTaskIdentityBlock : TerraformBlock
@@ -366,8 +371,9 @@ public class AzurermContainerRegistryTaskIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for platform in .
+/// Block type for platform in AzurermContainerRegistryTask.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTaskPlatformBlock : TerraformBlock
@@ -407,8 +413,9 @@ public class AzurermContainerRegistryTaskPlatformBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for registry_credential in .
+/// Block type for registry_credential in AzurermContainerRegistryTask.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTaskRegistryCredentialBlock : TerraformBlock
@@ -418,10 +425,103 @@ public class AzurermContainerRegistryTaskRegistryCredentialBlock : TerraformBloc
     /// </summary>
     public override string BlockType => "registry_credential";
 
+    /// <summary>
+    /// Custom block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermContainerRegistryTaskRegistryCredentialBlockCustomBlock>? Custom
+    {
+        get => GetArgument<TerraformSet<AzurermContainerRegistryTaskRegistryCredentialBlockCustomBlock>>("custom");
+        set => SetArgument("custom", value);
+    }
+
+    /// <summary>
+    /// Source block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
+    public TerraformList<AzurermContainerRegistryTaskRegistryCredentialBlockSourceBlock>? Source
+    {
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskRegistryCredentialBlockSourceBlock>>("source");
+        set => SetArgument("source", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for source_trigger in .
+/// Block type for custom in AzurermContainerRegistryTaskRegistryCredentialBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermContainerRegistryTaskRegistryCredentialBlockCustomBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "custom";
+
+    /// <summary>
+    /// The identity attribute.
+    /// </summary>
+    public TerraformValue<string>? Identity
+    {
+        get => new TerraformReference<string>(this, "identity");
+        set => SetArgument("identity", value);
+    }
+
+    /// <summary>
+    /// The login_server attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginServer is required")]
+    public required TerraformValue<string> LoginServer
+    {
+        get => new TerraformReference<string>(this, "login_server");
+        set => SetArgument("login_server", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string>? Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    public TerraformValue<string>? Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for source in AzurermContainerRegistryTaskRegistryCredentialBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerRegistryTaskRegistryCredentialBlockSourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "source";
+
+    /// <summary>
+    /// The login_mode attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoginMode is required")]
+    public required TerraformValue<string> LoginMode
+    {
+        get => new TerraformReference<string>(this, "login_mode");
+        set => SetArgument("login_mode", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for source_trigger in AzurermContainerRegistryTask.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
@@ -489,10 +589,81 @@ public class AzurermContainerRegistryTaskSourceTriggerBlock : TerraformBlock
         set => SetArgument("source_type", value);
     }
 
+    /// <summary>
+    /// Authentication block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
+    public TerraformList<AzurermContainerRegistryTaskSourceTriggerBlockAuthenticationBlock>? Authentication
+    {
+        get => GetArgument<TerraformList<AzurermContainerRegistryTaskSourceTriggerBlockAuthenticationBlock>>("authentication");
+        set => SetArgument("authentication", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for authentication in AzurermContainerRegistryTaskSourceTriggerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermContainerRegistryTaskSourceTriggerBlockAuthenticationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "authentication";
+
+    /// <summary>
+    /// The expire_in_seconds attribute.
+    /// </summary>
+    public TerraformValue<double>? ExpireInSeconds
+    {
+        get => new TerraformReference<double>(this, "expire_in_seconds");
+        set => SetArgument("expire_in_seconds", value);
+    }
+
+    /// <summary>
+    /// The refresh_token attribute.
+    /// </summary>
+    public TerraformValue<string>? RefreshToken
+    {
+        get => new TerraformReference<string>(this, "refresh_token");
+        set => SetArgument("refresh_token", value);
+    }
+
+    /// <summary>
+    /// The scope attribute.
+    /// </summary>
+    public TerraformValue<string>? Scope
+    {
+        get => new TerraformReference<string>(this, "scope");
+        set => SetArgument("scope", value);
+    }
+
+    /// <summary>
+    /// The token attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
+    public required TerraformValue<string> Token
+    {
+        get => new TerraformReference<string>(this, "token");
+        set => SetArgument("token", value);
+    }
+
+    /// <summary>
+    /// The token_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TokenType is required")]
+    public required TerraformValue<string> TokenType
+    {
+        get => new TerraformReference<string>(this, "token_type");
+        set => SetArgument("token_type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermContainerRegistryTask.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlock
@@ -540,8 +711,9 @@ public class AzurermContainerRegistryTaskTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timer_trigger in .
+/// Block type for timer_trigger in AzurermContainerRegistryTask.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
@@ -581,6 +753,7 @@ public class AzurermContainerRegistryTaskTimerTriggerBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_registry_task Terraform resource.

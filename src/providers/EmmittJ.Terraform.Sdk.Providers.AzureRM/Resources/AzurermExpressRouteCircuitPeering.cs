@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ipv6 in .
+/// Block type for ipv6 in AzurermExpressRouteCircuitPeering.
 /// Nesting mode: list
 /// </summary>
 public class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
@@ -51,10 +51,70 @@ public class AzurermExpressRouteCircuitPeeringIpv6Block : TerraformBlock
         set => SetArgument("secondary_peer_address_prefix", value);
     }
 
+    /// <summary>
+    /// MicrosoftPeering block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MicrosoftPeering block(s) allowed")]
+    public TerraformList<AzurermExpressRouteCircuitPeeringIpv6BlockMicrosoftPeeringBlock>? MicrosoftPeering
+    {
+        get => GetArgument<TerraformList<AzurermExpressRouteCircuitPeeringIpv6BlockMicrosoftPeeringBlock>>("microsoft_peering");
+        set => SetArgument("microsoft_peering", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for microsoft_peering_config in .
+/// Block type for microsoft_peering in AzurermExpressRouteCircuitPeeringIpv6Block.
+/// Nesting mode: list
+/// </summary>
+public class AzurermExpressRouteCircuitPeeringIpv6BlockMicrosoftPeeringBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "microsoft_peering";
+
+    /// <summary>
+    /// The advertised_communities attribute.
+    /// </summary>
+    public TerraformList<string>? AdvertisedCommunities
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "advertised_communities").ResolveNodes(ctx));
+        set => SetArgument("advertised_communities", value);
+    }
+
+    /// <summary>
+    /// The advertised_public_prefixes attribute.
+    /// </summary>
+    public TerraformList<string>? AdvertisedPublicPrefixes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "advertised_public_prefixes").ResolveNodes(ctx));
+        set => SetArgument("advertised_public_prefixes", value);
+    }
+
+    /// <summary>
+    /// The customer_asn attribute.
+    /// </summary>
+    public TerraformValue<double>? CustomerAsn
+    {
+        get => new TerraformReference<double>(this, "customer_asn");
+        set => SetArgument("customer_asn", value);
+    }
+
+    /// <summary>
+    /// The routing_registry_name attribute.
+    /// </summary>
+    public TerraformValue<string>? RoutingRegistryName
+    {
+        get => new TerraformReference<string>(this, "routing_registry_name");
+        set => SetArgument("routing_registry_name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for microsoft_peering_config in AzurermExpressRouteCircuitPeering.
 /// Nesting mode: list
 /// </summary>
 public class AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock : TerraformBlock
@@ -103,8 +163,9 @@ public class AzurermExpressRouteCircuitPeeringMicrosoftPeeringConfigBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermExpressRouteCircuitPeering.
 /// Nesting mode: single
 /// </summary>
 public class AzurermExpressRouteCircuitPeeringTimeoutsBlock : TerraformBlock
@@ -151,6 +212,7 @@ public class AzurermExpressRouteCircuitPeeringTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_express_route_circuit_peering Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageEncryptionScope.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageEncryptionScopeTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermStorageEncryptionScopeTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_encryption_scope Terraform resource.

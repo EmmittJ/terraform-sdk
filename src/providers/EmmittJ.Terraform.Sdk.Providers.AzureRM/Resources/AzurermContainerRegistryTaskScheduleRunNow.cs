@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerRegistryTaskScheduleRunNow.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerRegistryTaskScheduleRunNowTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermContainerRegistryTaskScheduleRunNowTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_registry_task_schedule_run_now Terraform resource.

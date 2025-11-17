@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermManagedDiskSasToken.
 /// Nesting mode: single
 /// </summary>
 public class AzurermManagedDiskSasTokenTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermManagedDiskSasTokenTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_managed_disk_sas_token Terraform resource.

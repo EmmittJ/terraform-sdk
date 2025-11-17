@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for category in .
+/// Block type for category in AzurermPaloAltoLocalRulestackRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPaloAltoLocalRulestackRuleCategoryBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermPaloAltoLocalRulestackRuleCategoryBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for destination in .
+/// Block type for destination in AzurermPaloAltoLocalRulestackRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPaloAltoLocalRulestackRuleDestinationBlock : TerraformBlock
@@ -92,8 +93,9 @@ public class AzurermPaloAltoLocalRulestackRuleDestinationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for source in .
+/// Block type for source in AzurermPaloAltoLocalRulestackRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPaloAltoLocalRulestackRuleSourceBlock : TerraformBlock
@@ -141,8 +143,9 @@ public class AzurermPaloAltoLocalRulestackRuleSourceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPaloAltoLocalRulestackRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock : TerraformBlock
@@ -189,6 +192,7 @@ public class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_palo_alto_local_rulestack_rule Terraform resource.

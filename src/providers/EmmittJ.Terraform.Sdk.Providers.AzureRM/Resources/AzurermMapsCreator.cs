@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMapsCreator.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMapsCreatorTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMapsCreatorTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_maps_creator Terraform resource.

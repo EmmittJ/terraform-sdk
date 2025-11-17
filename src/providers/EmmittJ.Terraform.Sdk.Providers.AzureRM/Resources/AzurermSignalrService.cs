@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for cors in .
+/// Block type for cors in AzurermSignalrService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSignalrServiceCorsBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermSignalrServiceCorsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermSignalrService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSignalrServiceIdentityBlock : TerraformBlock
@@ -73,8 +74,9 @@ public class AzurermSignalrServiceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for live_trace in .
+/// Block type for live_trace in AzurermSignalrService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSignalrServiceLiveTraceBlock : TerraformBlock
@@ -122,8 +124,9 @@ public class AzurermSignalrServiceLiveTraceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermSignalrService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSignalrServiceSkuBlock : TerraformBlock
@@ -155,8 +158,9 @@ public class AzurermSignalrServiceSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSignalrService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSignalrServiceTimeoutsBlock : TerraformBlock
@@ -204,8 +208,9 @@ public class AzurermSignalrServiceTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for upstream_endpoint in .
+/// Block type for upstream_endpoint in AzurermSignalrService.
 /// Nesting mode: set
 /// </summary>
 public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
@@ -265,6 +270,7 @@ public class AzurermSignalrServiceUpstreamEndpointBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_signalr_service Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for default_access_policy in .
+/// Block type for default_access_policy in AzurermHpcCache.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHpcCacheDefaultAccessPolicyBlock : TerraformBlock
@@ -13,10 +13,111 @@ public class AzurermHpcCacheDefaultAccessPolicyBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "default_access_policy";
 
+    /// <summary>
+    /// AccessRule block (nesting mode: set).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRule is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessRule block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 AccessRule block(s) allowed")]
+    public required TerraformSet<AzurermHpcCacheDefaultAccessPolicyBlockAccessRuleBlock> AccessRule
+    {
+        get => GetRequiredArgument<TerraformSet<AzurermHpcCacheDefaultAccessPolicyBlockAccessRuleBlock>>("access_rule");
+        set => SetArgument("access_rule", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for directory_active_directory in .
+/// Block type for access_rule in AzurermHpcCacheDefaultAccessPolicyBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermHpcCacheDefaultAccessPolicyBlockAccessRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "access_rule";
+
+    /// <summary>
+    /// The access attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
+    public required TerraformValue<string> Access
+    {
+        get => new TerraformReference<string>(this, "access");
+        set => SetArgument("access", value);
+    }
+
+    /// <summary>
+    /// The anonymous_gid attribute.
+    /// </summary>
+    public TerraformValue<double>? AnonymousGid
+    {
+        get => new TerraformReference<double>(this, "anonymous_gid");
+        set => SetArgument("anonymous_gid", value);
+    }
+
+    /// <summary>
+    /// The anonymous_uid attribute.
+    /// </summary>
+    public TerraformValue<double>? AnonymousUid
+    {
+        get => new TerraformReference<double>(this, "anonymous_uid");
+        set => SetArgument("anonymous_uid", value);
+    }
+
+    /// <summary>
+    /// The filter attribute.
+    /// </summary>
+    public TerraformValue<string>? Filter
+    {
+        get => new TerraformReference<string>(this, "filter");
+        set => SetArgument("filter", value);
+    }
+
+    /// <summary>
+    /// The root_squash_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? RootSquashEnabled
+    {
+        get => new TerraformReference<bool>(this, "root_squash_enabled");
+        set => SetArgument("root_squash_enabled", value);
+    }
+
+    /// <summary>
+    /// The scope attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformValue<string> Scope
+    {
+        get => new TerraformReference<string>(this, "scope");
+        set => SetArgument("scope", value);
+    }
+
+    /// <summary>
+    /// The submount_access_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? SubmountAccessEnabled
+    {
+        get => new TerraformReference<bool>(this, "submount_access_enabled");
+        set => SetArgument("submount_access_enabled", value);
+    }
+
+    /// <summary>
+    /// The suid_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? SuidEnabled
+    {
+        get => new TerraformReference<bool>(this, "suid_enabled");
+        set => SetArgument("suid_enabled", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for directory_active_directory in AzurermHpcCache.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
@@ -97,8 +198,9 @@ public class AzurermHpcCacheDirectoryActiveDirectoryBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for directory_flat_file in .
+/// Block type for directory_flat_file in AzurermHpcCache.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlock
@@ -130,8 +232,9 @@ public class AzurermHpcCacheDirectoryFlatFileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for directory_ldap in .
+/// Block type for directory_ldap in AzurermHpcCache.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
@@ -188,10 +291,54 @@ public class AzurermHpcCacheDirectoryLdapBlock : TerraformBlock
         set => SetArgument("server", value);
     }
 
+    /// <summary>
+    /// Bind block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bind block(s) allowed")]
+    public TerraformList<AzurermHpcCacheDirectoryLdapBlockBindBlock>? Bind
+    {
+        get => GetArgument<TerraformList<AzurermHpcCacheDirectoryLdapBlockBindBlock>>("bind");
+        set => SetArgument("bind", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for dns in .
+/// Block type for bind in AzurermHpcCacheDirectoryLdapBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHpcCacheDirectoryLdapBlockBindBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "bind";
+
+    /// <summary>
+    /// The dn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dn is required")]
+    public required TerraformValue<string> Dn
+    {
+        get => new TerraformReference<string>(this, "dn");
+        set => SetArgument("dn", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for dns in AzurermHpcCache.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHpcCacheDnsBlock : TerraformBlock
@@ -222,8 +369,9 @@ public class AzurermHpcCacheDnsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermHpcCache.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHpcCacheIdentityBlock : TerraformBlock
@@ -270,8 +418,9 @@ public class AzurermHpcCacheIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermHpcCache.
 /// Nesting mode: single
 /// </summary>
 public class AzurermHpcCacheTimeoutsBlock : TerraformBlock
@@ -318,6 +467,7 @@ public class AzurermHpcCacheTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_hpc_cache Terraform resource.

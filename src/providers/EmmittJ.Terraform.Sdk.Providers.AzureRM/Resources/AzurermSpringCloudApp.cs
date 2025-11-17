@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for custom_persistent_disk in .
+/// Block type for custom_persistent_disk in AzurermSpringCloudApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
@@ -63,8 +63,9 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermSpringCloudApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
@@ -111,8 +112,9 @@ public class AzurermSpringCloudAppIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for ingress_settings in .
+/// Block type for ingress_settings in AzurermSpringCloudApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
@@ -169,8 +171,9 @@ public class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for persistent_disk in .
+/// Block type for persistent_disk in AzurermSpringCloudApp.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlock
@@ -201,8 +204,9 @@ public class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudApp.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
@@ -249,6 +253,7 @@ public class AzurermSpringCloudAppTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_app Terraform resource.

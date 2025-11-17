@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for autoscale_settings in .
+/// Block type for autoscale_settings in AzurermCosmosdbCassandraTable.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbCassandraTableAutoscaleSettingsBlock : TerraformBlock
@@ -24,8 +24,9 @@ public class AzurermCosmosdbCassandraTableAutoscaleSettingsBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for schema in .
+/// Block type for schema in AzurermCosmosdbCassandraTable.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbCassandraTableSchemaBlock : TerraformBlock
@@ -35,10 +36,133 @@ public class AzurermCosmosdbCassandraTableSchemaBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "schema";
 
+    /// <summary>
+    /// ClusterKey block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermCosmosdbCassandraTableSchemaBlockClusterKeyBlock>? ClusterKey
+    {
+        get => GetArgument<TerraformList<AzurermCosmosdbCassandraTableSchemaBlockClusterKeyBlock>>("cluster_key");
+        set => SetArgument("cluster_key", value);
+    }
+
+    /// <summary>
+    /// Column block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Column is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Column block(s) required")]
+    public required TerraformList<AzurermCosmosdbCassandraTableSchemaBlockColumnBlock> Column
+    {
+        get => GetRequiredArgument<TerraformList<AzurermCosmosdbCassandraTableSchemaBlockColumnBlock>>("column");
+        set => SetArgument("column", value);
+    }
+
+    /// <summary>
+    /// PartitionKey block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartitionKey block(s) required")]
+    public required TerraformList<AzurermCosmosdbCassandraTableSchemaBlockPartitionKeyBlock> PartitionKey
+    {
+        get => GetRequiredArgument<TerraformList<AzurermCosmosdbCassandraTableSchemaBlockPartitionKeyBlock>>("partition_key");
+        set => SetArgument("partition_key", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for cluster_key in AzurermCosmosdbCassandraTableSchemaBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbCassandraTableSchemaBlockClusterKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cluster_key";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The order_by attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrderBy is required")]
+    public required TerraformValue<string> OrderBy
+    {
+        get => new TerraformReference<string>(this, "order_by");
+        set => SetArgument("order_by", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for column in AzurermCosmosdbCassandraTableSchemaBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbCassandraTableSchemaBlockColumnBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "column";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for partition_key in AzurermCosmosdbCassandraTableSchemaBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbCassandraTableSchemaBlockPartitionKeyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "partition_key";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermCosmosdbCassandraTable.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
@@ -85,6 +209,7 @@ public class AzurermCosmosdbCassandraTableTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_cassandra_table Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermKustoCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKustoClusterIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermKustoClusterIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for language_extension in .
+/// Block type for language_extension in AzurermKustoCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
@@ -83,8 +84,9 @@ public class AzurermKustoClusterLanguageExtensionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for language_extensions in .
+/// Block type for language_extensions in AzurermKustoCluster.
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
@@ -117,8 +119,9 @@ public class AzurermKustoClusterLanguageExtensionsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for optimized_auto_scale in .
+/// Block type for optimized_auto_scale in AzurermKustoCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
@@ -150,8 +153,9 @@ public class AzurermKustoClusterOptimizedAutoScaleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermKustoCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKustoClusterSkuBlock : TerraformBlock
@@ -182,8 +186,9 @@ public class AzurermKustoClusterSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKustoCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
@@ -231,8 +236,9 @@ public class AzurermKustoClusterTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for virtual_network_configuration in .
+/// Block type for virtual_network_configuration in AzurermKustoCluster.
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
@@ -274,6 +280,7 @@ public class AzurermKustoClusterVirtualNetworkConfigurationBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kusto_cluster Terraform resource.

@@ -34,16 +34,6 @@ public partial class TerraformBackend : TerraformBlock
     public string Type { get; }
 
     /// <summary>
-    /// Resolves to a block node with the backend type as a label.
-    /// Renders as: backend "s3" { ... }
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        var children = base.ResolveNodes(context);
-        yield return new TerraformBlockNode(BlockType, BlockLabels, children);
-    }
-
-    /// <summary>
     /// Cannot generate reference to backend blocks.
     /// </summary>
     public override TerraformExpression AsReference()

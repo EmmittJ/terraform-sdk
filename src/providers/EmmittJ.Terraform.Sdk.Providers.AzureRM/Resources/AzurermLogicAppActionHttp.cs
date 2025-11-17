@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for run_after in .
+/// Block type for run_after in AzurermLogicAppActionHttp.
 /// Nesting mode: set
 /// </summary>
 public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogicAppActionHttp.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_logic_app_action_http Terraform resource.

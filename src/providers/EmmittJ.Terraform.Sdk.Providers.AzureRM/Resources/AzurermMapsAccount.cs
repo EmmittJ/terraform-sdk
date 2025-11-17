@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for cors in .
+/// Block type for cors in AzurermMapsAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMapsAccountCorsBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermMapsAccountCorsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for data_store in .
+/// Block type for data_store in AzurermMapsAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMapsAccountDataStoreBlock : TerraformBlock
@@ -57,8 +58,9 @@ public class AzurermMapsAccountDataStoreBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMapsAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMapsAccountIdentityBlock : TerraformBlock
@@ -105,8 +107,9 @@ public class AzurermMapsAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMapsAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMapsAccountTimeoutsBlock : TerraformBlock
@@ -153,6 +156,7 @@ public class AzurermMapsAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_maps_account Terraform resource.

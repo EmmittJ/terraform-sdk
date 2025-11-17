@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for correlation_filter in .
+/// Block type for correlation_filter in AzurermServicebusSubscriptionRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : TerraformBlock
@@ -96,8 +96,9 @@ public class AzurermServicebusSubscriptionRuleCorrelationFilterBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermServicebusSubscriptionRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
@@ -144,6 +145,7 @@ public class AzurermServicebusSubscriptionRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_servicebus_subscription_rule Terraform resource.

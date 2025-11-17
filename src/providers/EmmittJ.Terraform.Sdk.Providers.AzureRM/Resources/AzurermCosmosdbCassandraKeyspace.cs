@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for autoscale_settings in .
+/// Block type for autoscale_settings in AzurermCosmosdbCassandraKeyspace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock : TerraformBlock
@@ -24,8 +24,9 @@ public class AzurermCosmosdbCassandraKeyspaceAutoscaleSettingsBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCosmosdbCassandraKeyspace.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbCassandraKeyspaceTimeoutsBlock : TerraformBlock
@@ -72,6 +73,7 @@ public class AzurermCosmosdbCassandraKeyspaceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_cassandra_keyspace Terraform resource.

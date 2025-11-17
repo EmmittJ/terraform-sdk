@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for custom_bgp_addresses in .
+/// Block type for custom_bgp_addresses in AzurermVirtualNetworkGatewayConnection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermVirtualNetworkGatewayConnectionCustomBgpAddressesBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for ipsec_policy in .
+/// Block type for ipsec_policy in AzurermVirtualNetworkGatewayConnection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformBlock
@@ -125,8 +126,9 @@ public class AzurermVirtualNetworkGatewayConnectionIpsecPolicyBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualNetworkGatewayConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualNetworkGatewayConnectionTimeoutsBlock : TerraformBlock
@@ -174,8 +176,9 @@ public class AzurermVirtualNetworkGatewayConnectionTimeoutsBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for traffic_selector_policy in .
+/// Block type for traffic_selector_policy in AzurermVirtualNetworkGatewayConnection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock : TerraformBlock
@@ -206,6 +209,7 @@ public class AzurermVirtualNetworkGatewayConnectionTrafficSelectorPolicyBlock : 
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_network_gateway_connection Terraform resource.

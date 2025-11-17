@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermProximityPlacementGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermProximityPlacementGroupTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermProximityPlacementGroupTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_proximity_placement_group Terraform resource.

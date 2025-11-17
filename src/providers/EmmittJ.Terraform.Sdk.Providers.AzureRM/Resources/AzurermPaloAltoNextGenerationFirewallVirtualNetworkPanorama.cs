@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for destination_nat in .
+/// Block type for destination_nat in AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock : TerraformBlock
@@ -33,10 +33,97 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinat
         set => SetArgument("protocol", value);
     }
 
+    /// <summary>
+    /// BackendConfig block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendConfig block(s) allowed")]
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlockBackendConfigBlock>? BackendConfig
+    {
+        get => GetArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlockBackendConfigBlock>>("backend_config");
+        set => SetArgument("backend_config", value);
+    }
+
+    /// <summary>
+    /// FrontendConfig block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendConfig block(s) allowed")]
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlockFrontendConfigBlock>? FrontendConfig
+    {
+        get => GetArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlockFrontendConfigBlock>>("frontend_config");
+        set => SetArgument("frontend_config", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for dns_settings in .
+/// Block type for backend_config in AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlockBackendConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "backend_config";
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
+    public required TerraformValue<double> Port
+    {
+        get => new TerraformReference<double>(this, "port");
+        set => SetArgument("port", value);
+    }
+
+    /// <summary>
+    /// The public_ip_address attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddress is required")]
+    public required TerraformValue<string> PublicIpAddress
+    {
+        get => new TerraformReference<string>(this, "public_ip_address");
+        set => SetArgument("public_ip_address", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for frontend_config in AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDestinationNatBlockFrontendConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "frontend_config";
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
+    public required TerraformValue<double> Port
+    {
+        get => new TerraformReference<double>(this, "port");
+        set => SetArgument("port", value);
+    }
+
+    /// <summary>
+    /// The public_ip_address_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
+    public required TerraformValue<string> PublicIpAddressId
+    {
+        get => new TerraformReference<string>(this, "public_ip_address_id");
+        set => SetArgument("public_ip_address_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for dns_settings in AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSettingsBlock : TerraformBlock
@@ -74,8 +161,9 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaDnsSetti
 
 }
 
+
 /// <summary>
-/// Block type for network_profile in .
+/// Block type for network_profile in AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock : TerraformBlock
@@ -129,10 +217,73 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkP
         set => SetArgument("trusted_address_ranges", value);
     }
 
+    /// <summary>
+    /// VnetConfiguration block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VnetConfiguration is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VnetConfiguration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VnetConfiguration block(s) allowed")]
+    public required TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlockVnetConfigurationBlock> VnetConfiguration
+    {
+        get => GetRequiredArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlockVnetConfigurationBlock>>("vnet_configuration");
+        set => SetArgument("vnet_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for vnet_configuration in AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaNetworkProfileBlockVnetConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "vnet_configuration";
+
+    /// <summary>
+    /// The ip_of_trust_for_user_defined_routes attribute.
+    /// </summary>
+    public TerraformValue<string> IpOfTrustForUserDefinedRoutes
+    {
+        get => new TerraformReference<string>(this, "ip_of_trust_for_user_defined_routes");
+    }
+
+    /// <summary>
+    /// The trusted_subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? TrustedSubnetId
+    {
+        get => new TerraformReference<string>(this, "trusted_subnet_id");
+        set => SetArgument("trusted_subnet_id", value);
+    }
+
+    /// <summary>
+    /// The untrusted_subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? UntrustedSubnetId
+    {
+        get => new TerraformReference<string>(this, "untrusted_subnet_id");
+        set => SetArgument("untrusted_subnet_id", value);
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
+    public required TerraformValue<string> VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+        set => SetArgument("virtual_network_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeoutsBlock : TerraformBlock
@@ -179,6 +330,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkPanoramaTimeouts
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_palo_alto_next_generation_firewall_virtual_network_panorama Terraform resource.

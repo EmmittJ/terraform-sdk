@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for acl in .
+/// Block type for acl in AzurermStorageShare.
 /// Nesting mode: set
 /// </summary>
 public class AzurermStorageShareAclBlock : TerraformBlock
@@ -23,10 +23,61 @@ public class AzurermStorageShareAclBlock : TerraformBlock
         set => SetArgument("id", value);
     }
 
+    /// <summary>
+    /// AccessPolicy block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermStorageShareAclBlockAccessPolicyBlock>? AccessPolicy
+    {
+        get => GetArgument<TerraformList<AzurermStorageShareAclBlockAccessPolicyBlock>>("access_policy");
+        set => SetArgument("access_policy", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for access_policy in AzurermStorageShareAclBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermStorageShareAclBlockAccessPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "access_policy";
+
+    /// <summary>
+    /// The expiry attribute.
+    /// </summary>
+    public TerraformValue<string>? Expiry
+    {
+        get => new TerraformReference<string>(this, "expiry");
+        set => SetArgument("expiry", value);
+    }
+
+    /// <summary>
+    /// The permissions attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
+    public required TerraformValue<string> Permissions
+    {
+        get => new TerraformReference<string>(this, "permissions");
+        set => SetArgument("permissions", value);
+    }
+
+    /// <summary>
+    /// The start attribute.
+    /// </summary>
+    public TerraformValue<string>? Start
+    {
+        get => new TerraformReference<string>(this, "start");
+        set => SetArgument("start", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermStorageShare.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageShareTimeoutsBlock : TerraformBlock
@@ -73,6 +124,7 @@ public class AzurermStorageShareTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_share Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for rbac_authorization in .
+/// Block type for rbac_authorization in AzurermDataFactoryIntegrationRuntimeSelfHosted.
 /// Nesting mode: set
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedRbacAuthorizationBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryIntegrationRuntimeSelfHosted.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : TerraformBlock
@@ -73,6 +74,7 @@ public class AzurermDataFactoryIntegrationRuntimeSelfHostedTimeoutsBlock : Terra
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_integration_runtime_self_hosted Terraform resource.

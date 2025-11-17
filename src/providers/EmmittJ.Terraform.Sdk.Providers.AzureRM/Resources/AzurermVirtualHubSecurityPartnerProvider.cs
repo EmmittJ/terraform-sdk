@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualHubSecurityPartnerProvider.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualHubSecurityPartnerProviderTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermVirtualHubSecurityPartnerProviderTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_hub_security_partner_provider Terraform resource.

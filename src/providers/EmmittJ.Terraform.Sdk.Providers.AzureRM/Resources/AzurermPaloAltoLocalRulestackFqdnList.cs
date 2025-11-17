@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPaloAltoLocalRulestackFqdnList.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermPaloAltoLocalRulestackFqdnListTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_palo_alto_local_rulestack_fqdn_list Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for external_reference in .
+/// Block type for external_reference in AzurermSentinelThreatIntelligenceIndicator.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : TerraformBlock
@@ -59,8 +59,9 @@ public class AzurermSentinelThreatIntelligenceIndicatorExternalReferenceBlock : 
 
 }
 
+
 /// <summary>
-/// Block type for granular_marking in .
+/// Block type for granular_marking in AzurermSentinelThreatIntelligenceIndicator.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock : TerraformBlock
@@ -99,8 +100,9 @@ public class AzurermSentinelThreatIntelligenceIndicatorGranularMarkingBlock : Te
 
 }
 
+
 /// <summary>
-/// Block type for kill_chain_phase in .
+/// Block type for kill_chain_phase in AzurermSentinelThreatIntelligenceIndicator.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock : TerraformBlock
@@ -121,8 +123,9 @@ public class AzurermSentinelThreatIntelligenceIndicatorKillChainPhaseBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSentinelThreatIntelligenceIndicator.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock : TerraformBlock
@@ -169,6 +172,7 @@ public class AzurermSentinelThreatIntelligenceIndicatorTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_sentinel_threat_intelligence_indicator Terraform resource.

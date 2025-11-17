@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkInterfaceApplicationSecurityGroupAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermNetworkInterfaceApplicationSecurityGroupAssociationTimeoutsB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_interface_application_security_group_association Terraform resource.

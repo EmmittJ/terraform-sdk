@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermActiveDirectoryDomainServiceReplicaSet.
 /// Nesting mode: single
 /// </summary>
 public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : Terraf
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_active_directory_domain_service_replica_set Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for author in .
+/// Block type for author in AzurermSentinelMetadata.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
@@ -42,8 +42,9 @@ public class AzurermSentinelMetadataAuthorBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for category in .
+/// Block type for category in AzurermSentinelMetadata.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelMetadataCategoryBlock : TerraformBlock
@@ -73,8 +74,9 @@ public class AzurermSentinelMetadataCategoryBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for source in .
+/// Block type for source in AzurermSentinelMetadata.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelMetadataSourceBlock : TerraformBlock
@@ -114,8 +116,9 @@ public class AzurermSentinelMetadataSourceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for support in .
+/// Block type for support in AzurermSentinelMetadata.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelMetadataSupportBlock : TerraformBlock
@@ -164,8 +167,9 @@ public class AzurermSentinelMetadataSupportBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSentinelMetadata.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
@@ -212,6 +216,7 @@ public class AzurermSentinelMetadataTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_sentinel_metadata Terraform resource.

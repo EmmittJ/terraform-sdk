@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for initial_replica_set in .
+/// Block type for initial_replica_set in AzurermActiveDirectoryDomainService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : TerraformBlock
@@ -65,8 +65,9 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : Terrafo
 
 }
 
+
 /// <summary>
-/// Block type for notifications in .
+/// Block type for notifications in AzurermActiveDirectoryDomainService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermActiveDirectoryDomainServiceNotificationsBlock : TerraformBlock
@@ -105,8 +106,9 @@ public class AzurermActiveDirectoryDomainServiceNotificationsBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for secure_ldap in .
+/// Block type for secure_ldap in AzurermActiveDirectoryDomainService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
@@ -181,8 +183,9 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for security in .
+/// Block type for security in AzurermActiveDirectoryDomainService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
@@ -257,8 +260,9 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermActiveDirectoryDomainService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
@@ -305,6 +309,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_active_directory_domain_service Terraform resource.

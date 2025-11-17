@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for component_version in .
+/// Block type for component_version in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterComponentVersionBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermHdinsightInteractiveQueryClusterComponentVersionBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for compute_isolation in .
+/// Block type for compute_isolation in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock : TerraformBlock
@@ -56,8 +57,9 @@ public class AzurermHdinsightInteractiveQueryClusterComputeIsolationBlock : Terr
 
 }
 
+
 /// <summary>
-/// Block type for disk_encryption in .
+/// Block type for disk_encryption in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock : TerraformBlock
@@ -105,8 +107,9 @@ public class AzurermHdinsightInteractiveQueryClusterDiskEncryptionBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for extension in .
+/// Block type for extension in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterExtensionBlock : TerraformBlock
@@ -138,8 +141,9 @@ public class AzurermHdinsightInteractiveQueryClusterExtensionBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for gateway in .
+/// Block type for gateway in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterGatewayBlock : TerraformBlock
@@ -171,8 +175,9 @@ public class AzurermHdinsightInteractiveQueryClusterGatewayBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for metastores in .
+/// Block type for metastores in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterMetastoresBlock : TerraformBlock
@@ -182,10 +187,200 @@ public class AzurermHdinsightInteractiveQueryClusterMetastoresBlock : TerraformB
     /// </summary>
     public override string BlockType => "metastores";
 
+    /// <summary>
+    /// Ambari block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ambari block(s) allowed")]
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterMetastoresBlockAmbariBlock>? Ambari
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterMetastoresBlockAmbariBlock>>("ambari");
+        set => SetArgument("ambari", value);
+    }
+
+    /// <summary>
+    /// Hive block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hive block(s) allowed")]
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterMetastoresBlockHiveBlock>? Hive
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterMetastoresBlockHiveBlock>>("hive");
+        set => SetArgument("hive", value);
+    }
+
+    /// <summary>
+    /// Oozie block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oozie block(s) allowed")]
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterMetastoresBlockOozieBlock>? Oozie
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterMetastoresBlockOozieBlock>>("oozie");
+        set => SetArgument("oozie", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for monitor in .
+/// Block type for ambari in AzurermHdinsightInteractiveQueryClusterMetastoresBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterMetastoresBlockAmbariBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ambari";
+
+    /// <summary>
+    /// The database_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformValue<string> DatabaseName
+    {
+        get => new TerraformReference<string>(this, "database_name");
+        set => SetArgument("database_name", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The server attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
+    public required TerraformValue<string> Server
+    {
+        get => new TerraformReference<string>(this, "server");
+        set => SetArgument("server", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for hive in AzurermHdinsightInteractiveQueryClusterMetastoresBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterMetastoresBlockHiveBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "hive";
+
+    /// <summary>
+    /// The database_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformValue<string> DatabaseName
+    {
+        get => new TerraformReference<string>(this, "database_name");
+        set => SetArgument("database_name", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The server attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
+    public required TerraformValue<string> Server
+    {
+        get => new TerraformReference<string>(this, "server");
+        set => SetArgument("server", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for oozie in AzurermHdinsightInteractiveQueryClusterMetastoresBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterMetastoresBlockOozieBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "oozie";
+
+    /// <summary>
+    /// The database_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
+    public required TerraformValue<string> DatabaseName
+    {
+        get => new TerraformReference<string>(this, "database_name");
+        set => SetArgument("database_name", value);
+    }
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The server attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
+    public required TerraformValue<string> Server
+    {
+        get => new TerraformReference<string>(this, "server");
+        set => SetArgument("server", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for monitor in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterMonitorBlock : TerraformBlock
@@ -217,8 +412,9 @@ public class AzurermHdinsightInteractiveQueryClusterMonitorBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for network in .
+/// Block type for network in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterNetworkBlock : TerraformBlock
@@ -248,8 +444,9 @@ public class AzurermHdinsightInteractiveQueryClusterNetworkBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for private_link_configuration in .
+/// Block type for private_link_configuration in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock : TerraformBlock
@@ -279,10 +476,83 @@ public class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBloc
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// IpConfiguration block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfiguration block(s) allowed")]
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlockIpConfigurationBlock> IpConfiguration
+    {
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlockIpConfigurationBlock>>("ip_configuration");
+        set => SetArgument("ip_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for roles in .
+/// Block type for ip_configuration in AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterPrivateLinkConfigurationBlockIpConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_configuration";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The primary attribute.
+    /// </summary>
+    public TerraformValue<bool>? Primary
+    {
+        get => new TerraformReference<bool>(this, "primary");
+        set => SetArgument("primary", value);
+    }
+
+    /// <summary>
+    /// The private_ip_address attribute.
+    /// </summary>
+    public TerraformValue<string>? PrivateIpAddress
+    {
+        get => new TerraformReference<string>(this, "private_ip_address");
+        set => SetArgument("private_ip_address", value);
+    }
+
+    /// <summary>
+    /// The private_ip_allocation_method attribute.
+    /// </summary>
+    public TerraformValue<string>? PrivateIpAllocationMethod
+    {
+        get => new TerraformReference<string>(this, "private_ip_allocation_method");
+        set => SetArgument("private_ip_allocation_method", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for roles in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterRolesBlock : TerraformBlock
@@ -292,10 +562,531 @@ public class AzurermHdinsightInteractiveQueryClusterRolesBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "roles";
 
+    /// <summary>
+    /// HeadNode block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeadNode is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HeadNode block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeadNode block(s) allowed")]
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockHeadNodeBlock> HeadNode
+    {
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockHeadNodeBlock>>("head_node");
+        set => SetArgument("head_node", value);
+    }
+
+    /// <summary>
+    /// WorkerNode block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerNode is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WorkerNode block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerNode block(s) allowed")]
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlock> WorkerNode
+    {
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlock>>("worker_node");
+        set => SetArgument("worker_node", value);
+    }
+
+    /// <summary>
+    /// ZookeeperNode block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZookeeperNode is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ZookeeperNode block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZookeeperNode block(s) allowed")]
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockZookeeperNodeBlock> ZookeeperNode
+    {
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockZookeeperNodeBlock>>("zookeeper_node");
+        set => SetArgument("zookeeper_node", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for security_profile in .
+/// Block type for head_node in AzurermHdinsightInteractiveQueryClusterRolesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterRolesBlockHeadNodeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "head_node";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string>? Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The ssh_keys attribute.
+    /// </summary>
+    public TerraformSet<string>? SshKeys
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_keys").ResolveNodes(ctx));
+        set => SetArgument("ssh_keys", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+        set => SetArgument("virtual_network_id", value);
+    }
+
+    /// <summary>
+    /// The vm_size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
+    public required TerraformValue<string> VmSize
+    {
+        get => new TerraformReference<string>(this, "vm_size");
+        set => SetArgument("vm_size", value);
+    }
+
+    /// <summary>
+    /// ScriptActions block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockHeadNodeBlockScriptActionsBlock>? ScriptActions
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockHeadNodeBlockScriptActionsBlock>>("script_actions");
+        set => SetArgument("script_actions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for script_actions in AzurermHdinsightInteractiveQueryClusterRolesBlockHeadNodeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterRolesBlockHeadNodeBlockScriptActionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "script_actions";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+        set => SetArgument("parameters", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+        set => SetArgument("uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for worker_node in AzurermHdinsightInteractiveQueryClusterRolesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "worker_node";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string>? Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The ssh_keys attribute.
+    /// </summary>
+    public TerraformSet<string>? SshKeys
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_keys").ResolveNodes(ctx));
+        set => SetArgument("ssh_keys", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+    /// <summary>
+    /// The target_instance_count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetInstanceCount is required")]
+    public required TerraformValue<double> TargetInstanceCount
+    {
+        get => new TerraformReference<double>(this, "target_instance_count");
+        set => SetArgument("target_instance_count", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+        set => SetArgument("virtual_network_id", value);
+    }
+
+    /// <summary>
+    /// The vm_size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
+    public required TerraformValue<string> VmSize
+    {
+        get => new TerraformReference<string>(this, "vm_size");
+        set => SetArgument("vm_size", value);
+    }
+
+    /// <summary>
+    /// Autoscale block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscale block(s) allowed")]
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlock>? Autoscale
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlock>>("autoscale");
+        set => SetArgument("autoscale", value);
+    }
+
+    /// <summary>
+    /// ScriptActions block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockScriptActionsBlock>? ScriptActions
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockScriptActionsBlock>>("script_actions");
+        set => SetArgument("script_actions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for autoscale in AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "autoscale";
+
+    /// <summary>
+    /// Recurrence block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Recurrence block(s) allowed")]
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlockRecurrenceBlock>? Recurrence
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlockRecurrenceBlock>>("recurrence");
+        set => SetArgument("recurrence", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for recurrence in AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlockRecurrenceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "recurrence";
+
+    /// <summary>
+    /// The timezone attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timezone is required")]
+    public required TerraformValue<string> Timezone
+    {
+        get => new TerraformReference<string>(this, "timezone");
+        set => SetArgument("timezone", value);
+    }
+
+    /// <summary>
+    /// Schedule block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
+    public required TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlockRecurrenceBlockScheduleBlock> Schedule
+    {
+        get => GetRequiredArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlockRecurrenceBlockScheduleBlock>>("schedule");
+        set => SetArgument("schedule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for schedule in AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlockRecurrenceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockAutoscaleBlockRecurrenceBlockScheduleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "schedule";
+
+    /// <summary>
+    /// The days attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
+    public TerraformList<string>? Days
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "days").ResolveNodes(ctx));
+        set => SetArgument("days", value);
+    }
+
+    /// <summary>
+    /// The target_instance_count attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetInstanceCount is required")]
+    public required TerraformValue<double> TargetInstanceCount
+    {
+        get => new TerraformReference<double>(this, "target_instance_count");
+        set => SetArgument("target_instance_count", value);
+    }
+
+    /// <summary>
+    /// The time attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
+    public required TerraformValue<string> Time
+    {
+        get => new TerraformReference<string>(this, "time");
+        set => SetArgument("time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for script_actions in AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterRolesBlockWorkerNodeBlockScriptActionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "script_actions";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+        set => SetArgument("parameters", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+        set => SetArgument("uri", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for zookeeper_node in AzurermHdinsightInteractiveQueryClusterRolesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterRolesBlockZookeeperNodeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "zookeeper_node";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    public TerraformValue<string>? Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The ssh_keys attribute.
+    /// </summary>
+    public TerraformSet<string>? SshKeys
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "ssh_keys").ResolveNodes(ctx));
+        set => SetArgument("ssh_keys", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    public TerraformValue<string>? SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+    /// <summary>
+    /// The virtual_network_id attribute.
+    /// </summary>
+    public TerraformValue<string>? VirtualNetworkId
+    {
+        get => new TerraformReference<string>(this, "virtual_network_id");
+        set => SetArgument("virtual_network_id", value);
+    }
+
+    /// <summary>
+    /// The vm_size attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSize is required")]
+    public required TerraformValue<string> VmSize
+    {
+        get => new TerraformReference<string>(this, "vm_size");
+        set => SetArgument("vm_size", value);
+    }
+
+    /// <summary>
+    /// ScriptActions block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockZookeeperNodeBlockScriptActionsBlock>? ScriptActions
+    {
+        get => GetArgument<TerraformList<AzurermHdinsightInteractiveQueryClusterRolesBlockZookeeperNodeBlockScriptActionsBlock>>("script_actions");
+        set => SetArgument("script_actions", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for script_actions in AzurermHdinsightInteractiveQueryClusterRolesBlockZookeeperNodeBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermHdinsightInteractiveQueryClusterRolesBlockZookeeperNodeBlockScriptActionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "script_actions";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The parameters attribute.
+    /// </summary>
+    public TerraformValue<string>? Parameters
+    {
+        get => new TerraformReference<string>(this, "parameters");
+        set => SetArgument("parameters", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+        set => SetArgument("uri", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for security_profile in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : TerraformBlock
@@ -376,8 +1167,9 @@ public class AzurermHdinsightInteractiveQueryClusterSecurityProfileBlock : Terra
 
 }
 
+
 /// <summary>
-/// Block type for storage_account in .
+/// Block type for storage_account in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock : TerraformBlock
@@ -428,8 +1220,9 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for storage_account_gen2 in .
+/// Block type for storage_account_gen2 in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block : TerraformBlock
@@ -481,8 +1274,9 @@ public class AzurermHdinsightInteractiveQueryClusterStorageAccountGen2Block : Te
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermHdinsightInteractiveQueryCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : TerraformBlock
@@ -529,6 +1323,7 @@ public class AzurermHdinsightInteractiveQueryClusterTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_hdinsight_interactive_query_cluster Terraform resource.

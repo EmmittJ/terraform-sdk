@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMachineLearningSynapseSpark.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningSynapseSparkIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermMachineLearningSynapseSparkIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMachineLearningSynapseSpark.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMachineLearningSynapseSparkTimeoutsBlock : TerraformBlock
@@ -89,6 +90,7 @@ public class AzurermMachineLearningSynapseSparkTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_machine_learning_synapse_spark Terraform resource.

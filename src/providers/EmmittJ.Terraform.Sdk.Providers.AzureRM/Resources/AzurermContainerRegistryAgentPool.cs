@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerRegistryAgentPool.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerRegistryAgentPoolTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermContainerRegistryAgentPoolTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_registry_agent_pool Terraform resource.

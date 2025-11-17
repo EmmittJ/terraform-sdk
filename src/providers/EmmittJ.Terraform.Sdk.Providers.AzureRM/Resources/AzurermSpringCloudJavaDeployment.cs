@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for quota in .
+/// Block type for quota in AzurermSpringCloudJavaDeployment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudJavaDeploymentQuotaBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermSpringCloudJavaDeploymentQuotaBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudJavaDeployment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudJavaDeploymentTimeoutsBlock : TerraformBlock
@@ -81,6 +82,7 @@ public class AzurermSpringCloudJavaDeploymentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_java_deployment Terraform resource.

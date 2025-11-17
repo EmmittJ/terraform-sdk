@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for module in .
+/// Block type for module in AzurermRedisEnterpriseDatabase.
 /// Nesting mode: list
 /// </summary>
 public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
@@ -42,8 +42,9 @@ public class AzurermRedisEnterpriseDatabaseModuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRedisEnterpriseDatabase.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
@@ -90,6 +91,7 @@ public class AzurermRedisEnterpriseDatabaseTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_redis_enterprise_database Terraform resource.

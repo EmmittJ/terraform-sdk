@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for client_scoped_subscription in .
+/// Block type for client_scoped_subscription in AzurermServicebusSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermServicebusSubscriptionClientScopedSubscriptionBlock : TerraformBlock
@@ -41,8 +41,9 @@ public class AzurermServicebusSubscriptionClientScopedSubscriptionBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermServicebusSubscription.
 /// Nesting mode: single
 /// </summary>
 public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
@@ -89,6 +90,7 @@ public class AzurermServicebusSubscriptionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_servicebus_subscription Terraform resource.

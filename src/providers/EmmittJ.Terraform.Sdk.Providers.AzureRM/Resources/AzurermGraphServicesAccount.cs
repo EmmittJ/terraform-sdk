@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermGraphServicesAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermGraphServicesAccountTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermGraphServicesAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_graph_services_account Terraform resource.

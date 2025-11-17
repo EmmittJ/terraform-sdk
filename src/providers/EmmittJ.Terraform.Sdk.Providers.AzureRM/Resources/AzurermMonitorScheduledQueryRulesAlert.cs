@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for action in .
+/// Block type for action in AzurermMonitorScheduledQueryRulesAlert.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorScheduledQueryRulesAlertActionBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermMonitorScheduledQueryRulesAlertActionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMonitorScheduledQueryRulesAlert.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock : TerraformBlock
@@ -92,8 +93,9 @@ public class AzurermMonitorScheduledQueryRulesAlertTimeoutsBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for trigger in .
+/// Block type for trigger in AzurermMonitorScheduledQueryRulesAlert.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorScheduledQueryRulesAlertTriggerBlock : TerraformBlock
@@ -123,7 +125,70 @@ public class AzurermMonitorScheduledQueryRulesAlertTriggerBlock : TerraformBlock
         set => SetArgument("threshold", value);
     }
 
+    /// <summary>
+    /// MetricTrigger block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricTrigger block(s) allowed")]
+    public TerraformList<AzurermMonitorScheduledQueryRulesAlertTriggerBlockMetricTriggerBlock>? MetricTrigger
+    {
+        get => GetArgument<TerraformList<AzurermMonitorScheduledQueryRulesAlertTriggerBlockMetricTriggerBlock>>("metric_trigger");
+        set => SetArgument("metric_trigger", value);
+    }
+
 }
+
+/// <summary>
+/// Block type for metric_trigger in AzurermMonitorScheduledQueryRulesAlertTriggerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorScheduledQueryRulesAlertTriggerBlockMetricTriggerBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "metric_trigger";
+
+    /// <summary>
+    /// The metric_column attribute.
+    /// </summary>
+    public TerraformValue<string>? MetricColumn
+    {
+        get => new TerraformReference<string>(this, "metric_column");
+        set => SetArgument("metric_column", value);
+    }
+
+    /// <summary>
+    /// The metric_trigger_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricTriggerType is required")]
+    public required TerraformValue<string> MetricTriggerType
+    {
+        get => new TerraformReference<string>(this, "metric_trigger_type");
+        set => SetArgument("metric_trigger_type", value);
+    }
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The threshold attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Threshold is required")]
+    public required TerraformValue<double> Threshold
+    {
+        get => new TerraformReference<double>(this, "threshold");
+        set => SetArgument("threshold", value);
+    }
+
+}
+
 
 /// <summary>
 /// Represents a azurerm_monitor_scheduled_query_rules_alert Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for secret in .
+/// Block type for secret in AzurermCdnFrontdoorSecret.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCdnFrontdoorSecretSecretBlock : TerraformBlock
@@ -13,10 +13,54 @@ public class AzurermCdnFrontdoorSecretSecretBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "secret";
 
+    /// <summary>
+    /// CustomerCertificate block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerCertificate is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CustomerCertificate block(s) required")]
+    public required TerraformList<AzurermCdnFrontdoorSecretSecretBlockCustomerCertificateBlock> CustomerCertificate
+    {
+        get => GetRequiredArgument<TerraformList<AzurermCdnFrontdoorSecretSecretBlockCustomerCertificateBlock>>("customer_certificate");
+        set => SetArgument("customer_certificate", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for customer_certificate in AzurermCdnFrontdoorSecretSecretBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCdnFrontdoorSecretSecretBlockCustomerCertificateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "customer_certificate";
+
+    /// <summary>
+    /// The key_vault_certificate_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultCertificateId is required")]
+    public required TerraformValue<string> KeyVaultCertificateId
+    {
+        get => new TerraformReference<string>(this, "key_vault_certificate_id");
+        set => SetArgument("key_vault_certificate_id", value);
+    }
+
+    /// <summary>
+    /// The subject_alternative_names attribute.
+    /// </summary>
+    public TerraformList<string> SubjectAlternativeNames
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "subject_alternative_names").ResolveNodes(ctx));
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermCdnFrontdoorSecret.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnFrontdoorSecretTimeoutsBlock : TerraformBlock
@@ -54,6 +98,7 @@ public class AzurermCdnFrontdoorSecretTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_frontdoor_secret Terraform resource.

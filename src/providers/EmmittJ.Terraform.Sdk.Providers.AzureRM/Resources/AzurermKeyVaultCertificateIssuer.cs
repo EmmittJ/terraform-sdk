@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for admin in .
+/// Block type for admin in AzurermKeyVaultCertificateIssuer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
@@ -52,8 +52,9 @@ public class AzurermKeyVaultCertificateIssuerAdminBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKeyVaultCertificateIssuer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
@@ -100,6 +101,7 @@ public class AzurermKeyVaultCertificateIssuerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_certificate_issuer Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for filter in .
+/// Block type for filter in AzurermNetworkPacketCapture.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
@@ -61,8 +61,9 @@ public class AzurermNetworkPacketCaptureFilterBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage_location in .
+/// Block type for storage_location in AzurermNetworkPacketCapture.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlock
@@ -100,8 +101,9 @@ public class AzurermNetworkPacketCaptureStorageLocationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkPacketCapture.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
@@ -139,6 +141,7 @@ public class AzurermNetworkPacketCaptureTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_packet_capture Terraform resource.

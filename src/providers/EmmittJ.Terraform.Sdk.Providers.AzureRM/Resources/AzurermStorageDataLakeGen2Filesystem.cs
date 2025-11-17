@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ace in .
+/// Block type for ace in AzurermStorageDataLakeGen2Filesystem.
 /// Nesting mode: set
 /// </summary>
 public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermStorageDataLakeGen2FilesystemAceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageDataLakeGen2Filesystem.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : TerraformBlock
@@ -101,6 +102,7 @@ public class AzurermStorageDataLakeGen2FilesystemTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_data_lake_gen2_filesystem Terraform resource.

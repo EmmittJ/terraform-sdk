@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for authentication in .
+/// Block type for authentication in AzurermPostgresqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPostgresqlFlexibleServerAuthenticationBlock : TerraformBlock
@@ -42,8 +42,9 @@ public class AzurermPostgresqlFlexibleServerAuthenticationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for customer_managed_key in .
+/// Block type for customer_managed_key in AzurermPostgresqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock : TerraformBlock
@@ -92,8 +93,9 @@ public class AzurermPostgresqlFlexibleServerCustomerManagedKeyBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for high_availability in .
+/// Block type for high_availability in AzurermPostgresqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPostgresqlFlexibleServerHighAvailabilityBlock : TerraformBlock
@@ -124,8 +126,9 @@ public class AzurermPostgresqlFlexibleServerHighAvailabilityBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermPostgresqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPostgresqlFlexibleServerIdentityBlock : TerraformBlock
@@ -172,8 +175,9 @@ public class AzurermPostgresqlFlexibleServerIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for maintenance_window in .
+/// Block type for maintenance_window in AzurermPostgresqlFlexibleServer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPostgresqlFlexibleServerMaintenanceWindowBlock : TerraformBlock
@@ -212,8 +216,9 @@ public class AzurermPostgresqlFlexibleServerMaintenanceWindowBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPostgresqlFlexibleServer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPostgresqlFlexibleServerTimeoutsBlock : TerraformBlock
@@ -260,6 +265,7 @@ public class AzurermPostgresqlFlexibleServerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_postgresql_flexible_server Terraform resource.

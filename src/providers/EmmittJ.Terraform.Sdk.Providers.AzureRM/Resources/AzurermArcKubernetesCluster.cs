@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermArcKubernetesCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermArcKubernetesClusterIdentityBlock : TerraformBlock
@@ -41,8 +41,9 @@ public class AzurermArcKubernetesClusterIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermArcKubernetesCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermArcKubernetesClusterTimeoutsBlock : TerraformBlock
@@ -89,6 +90,7 @@ public class AzurermArcKubernetesClusterTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_arc_kubernetes_cluster Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ip_configuration in .
+/// Block type for ip_configuration in AzurermFirewall.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallIpConfigurationBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermFirewallIpConfigurationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for management_ip_configuration in .
+/// Block type for management_ip_configuration in AzurermFirewall.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallManagementIpConfigurationBlock : TerraformBlock
@@ -102,8 +103,9 @@ public class AzurermFirewallManagementIpConfigurationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermFirewall.
 /// Nesting mode: single
 /// </summary>
 public class AzurermFirewallTimeoutsBlock : TerraformBlock
@@ -151,8 +153,9 @@ public class AzurermFirewallTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for virtual_hub in .
+/// Block type for virtual_hub in AzurermFirewall.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFirewallVirtualHubBlock : TerraformBlock
@@ -198,6 +201,7 @@ public class AzurermFirewallVirtualHubBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_firewall Terraform resource.

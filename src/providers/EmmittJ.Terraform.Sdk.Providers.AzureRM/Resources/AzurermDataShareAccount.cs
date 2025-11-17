@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDataShareAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataShareAccountIdentityBlock : TerraformBlock
@@ -41,8 +41,9 @@ public class AzurermDataShareAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataShareAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataShareAccountTimeoutsBlock : TerraformBlock
@@ -89,6 +90,7 @@ public class AzurermDataShareAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_share_account Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for management_cluster in .
+/// Block type for management_cluster in AzurermVmwarePrivateCloud.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVmwarePrivateCloudManagementClusterBlock : TerraformBlock
@@ -41,8 +41,9 @@ public class AzurermVmwarePrivateCloudManagementClusterBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVmwarePrivateCloud.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVmwarePrivateCloudTimeoutsBlock : TerraformBlock
@@ -89,6 +90,7 @@ public class AzurermVmwarePrivateCloudTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_vmware_private_cloud Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for content_filter in .
+/// Block type for content_filter in AzurermCognitiveAccountRaiPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
@@ -65,8 +65,9 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCognitiveAccountRaiPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCognitiveAccountRaiPolicyTimeoutsBlock : TerraformBlock
@@ -113,6 +114,7 @@ public class AzurermCognitiveAccountRaiPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cognitive_account_rai_policy Terraform resource.

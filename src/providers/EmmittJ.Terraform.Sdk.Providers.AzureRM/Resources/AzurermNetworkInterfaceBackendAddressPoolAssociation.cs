@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkInterfaceBackendAddressPoolAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkInterfaceBackendAddressPoolAssociationTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermNetworkInterfaceBackendAddressPoolAssociationTimeoutsBlock :
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_interface_backend_address_pool_association Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCognitiveAccountRaiBlocklist.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCognitiveAccountRaiBlocklistTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermCognitiveAccountRaiBlocklistTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cognitive_account_rai_blocklist Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for integration_runtime in .
+/// Block type for integration_runtime in AzurermSynapseLinkedService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSynapseLinkedServiceIntegrationRuntimeBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermSynapseLinkedServiceIntegrationRuntimeBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSynapseLinkedService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSynapseLinkedServiceTimeoutsBlock : TerraformBlock
@@ -82,6 +83,7 @@ public class AzurermSynapseLinkedServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_synapse_linked_service Terraform resource.

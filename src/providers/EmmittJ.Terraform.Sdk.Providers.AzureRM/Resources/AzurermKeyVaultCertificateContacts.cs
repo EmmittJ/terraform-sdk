@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for contact in .
+/// Block type for contact in AzurermKeyVaultCertificateContacts.
 /// Nesting mode: set
 /// </summary>
 public class AzurermKeyVaultCertificateContactsContactBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermKeyVaultCertificateContactsContactBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKeyVaultCertificateContacts.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultCertificateContactsTimeoutsBlock : TerraformBlock
@@ -91,6 +92,7 @@ public class AzurermKeyVaultCertificateContactsTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_certificate_contacts Terraform resource.

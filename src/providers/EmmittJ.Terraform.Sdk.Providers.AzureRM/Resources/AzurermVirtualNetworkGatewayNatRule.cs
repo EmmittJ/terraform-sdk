@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for external_mapping in .
+/// Block type for external_mapping in AzurermVirtualNetworkGatewayNatRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermVirtualNetworkGatewayNatRuleExternalMappingBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for internal_mapping in .
+/// Block type for internal_mapping in AzurermVirtualNetworkGatewayNatRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock : TerraformBlock
@@ -66,8 +67,9 @@ public class AzurermVirtualNetworkGatewayNatRuleInternalMappingBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualNetworkGatewayNatRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock : TerraformBlock
@@ -114,6 +116,7 @@ public class AzurermVirtualNetworkGatewayNatRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_network_gateway_nat_rule Terraform resource.

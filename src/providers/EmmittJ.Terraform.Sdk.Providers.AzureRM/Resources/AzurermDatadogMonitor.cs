@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for datadog_organization in .
+/// Block type for datadog_organization in AzurermDatadogMonitor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
@@ -87,8 +87,9 @@ public class AzurermDatadogMonitorDatadogOrganizationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDatadogMonitor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDatadogMonitorIdentityBlock : TerraformBlock
@@ -126,8 +127,9 @@ public class AzurermDatadogMonitorIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDatadogMonitor.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDatadogMonitorTimeoutsBlock : TerraformBlock
@@ -175,8 +177,9 @@ public class AzurermDatadogMonitorTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for user in .
+/// Block type for user in AzurermDatadogMonitor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDatadogMonitorUserBlock : TerraformBlock
@@ -216,6 +219,7 @@ public class AzurermDatadogMonitorUserBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_datadog_monitor Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMaintenanceAssignmentVirtualMachine.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMaintenanceAssignmentVirtualMachineTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermMaintenanceAssignmentVirtualMachineTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_maintenance_assignment_virtual_machine Terraform resource.

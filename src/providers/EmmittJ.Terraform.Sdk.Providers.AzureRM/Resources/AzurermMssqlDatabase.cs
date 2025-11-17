@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMssqlDatabase.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlDatabaseIdentityBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermMssqlDatabaseIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for import in .
+/// Block type for import in AzurermMssqlDatabase.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlDatabaseImportBlock : TerraformBlock
@@ -117,8 +118,9 @@ public class AzurermMssqlDatabaseImportBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for long_term_retention_policy in .
+/// Block type for long_term_retention_policy in AzurermMssqlDatabase.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
@@ -175,8 +177,9 @@ public class AzurermMssqlDatabaseLongTermRetentionPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for short_term_retention_policy in .
+/// Block type for short_term_retention_policy in AzurermMssqlDatabase.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : TerraformBlock
@@ -207,8 +210,9 @@ public class AzurermMssqlDatabaseShortTermRetentionPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for threat_detection_policy in .
+/// Block type for threat_detection_policy in AzurermMssqlDatabase.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
@@ -283,8 +287,9 @@ public class AzurermMssqlDatabaseThreatDetectionPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlDatabase.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
@@ -331,6 +336,7 @@ public class AzurermMssqlDatabaseTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_database Terraform resource.

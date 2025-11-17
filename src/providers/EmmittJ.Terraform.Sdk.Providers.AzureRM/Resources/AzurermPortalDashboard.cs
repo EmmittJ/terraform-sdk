@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPortalDashboard.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPortalDashboardTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermPortalDashboardTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_portal_dashboard Terraform resource.

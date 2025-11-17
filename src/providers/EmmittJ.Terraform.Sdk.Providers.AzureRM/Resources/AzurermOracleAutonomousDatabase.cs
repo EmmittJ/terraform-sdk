@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for long_term_backup_schedule in .
+/// Block type for long_term_backup_schedule in AzurermOracleAutonomousDatabase.
 /// Nesting mode: list
 /// </summary>
 public class AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock : TerraformBlock
@@ -55,8 +55,9 @@ public class AzurermOracleAutonomousDatabaseLongTermBackupScheduleBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermOracleAutonomousDatabase.
 /// Nesting mode: single
 /// </summary>
 public class AzurermOracleAutonomousDatabaseTimeoutsBlock : TerraformBlock
@@ -103,6 +104,7 @@ public class AzurermOracleAutonomousDatabaseTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_oracle_autonomous_database Terraform resource.

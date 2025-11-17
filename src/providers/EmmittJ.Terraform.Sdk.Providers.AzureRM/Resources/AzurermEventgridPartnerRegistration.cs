@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermEventgridPartnerRegistration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermEventgridPartnerRegistrationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermEventgridPartnerRegistrationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_eventgrid_partner_registration Terraform resource.

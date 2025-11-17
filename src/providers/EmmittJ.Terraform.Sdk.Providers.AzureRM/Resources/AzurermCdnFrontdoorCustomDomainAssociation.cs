@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCdnFrontdoorCustomDomainAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnFrontdoorCustomDomainAssociationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermCdnFrontdoorCustomDomainAssociationTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_frontdoor_custom_domain_association Terraform resource.

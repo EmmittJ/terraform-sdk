@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStaticWebAppFunctionAppRegistration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_static_web_app_function_app_registration Terraform resource.

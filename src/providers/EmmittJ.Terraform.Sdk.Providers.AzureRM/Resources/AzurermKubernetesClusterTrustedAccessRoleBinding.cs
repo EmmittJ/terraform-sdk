@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKubernetesClusterTrustedAccessRoleBinding.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermKubernetesClusterTrustedAccessRoleBindingTimeoutsBlock : Ter
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kubernetes_cluster_trusted_access_role_binding Terraform resource.

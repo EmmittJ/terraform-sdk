@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRestorePointCollection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRestorePointCollectionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermRestorePointCollectionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_restore_point_collection Terraform resource.

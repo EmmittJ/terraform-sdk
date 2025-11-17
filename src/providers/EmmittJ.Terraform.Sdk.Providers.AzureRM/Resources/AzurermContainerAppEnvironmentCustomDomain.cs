@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerAppEnvironmentCustomDomain.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermContainerAppEnvironmentCustomDomainTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_app_environment_custom_domain Terraform resource.

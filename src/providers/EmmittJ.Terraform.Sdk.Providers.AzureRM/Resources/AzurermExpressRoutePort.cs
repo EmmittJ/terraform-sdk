@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermExpressRoutePort.
 /// Nesting mode: list
 /// </summary>
 public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermExpressRoutePortIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for link1 in .
+/// Block type for link1 in AzurermExpressRoutePort.
 /// Nesting mode: list
 /// </summary>
 public class AzurermExpressRoutePortLink1Block : TerraformBlock
@@ -156,8 +157,9 @@ public class AzurermExpressRoutePortLink1Block : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for link2 in .
+/// Block type for link2 in AzurermExpressRoutePort.
 /// Nesting mode: list
 /// </summary>
 public class AzurermExpressRoutePortLink2Block : TerraformBlock
@@ -262,8 +264,9 @@ public class AzurermExpressRoutePortLink2Block : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermExpressRoutePort.
 /// Nesting mode: single
 /// </summary>
 public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
@@ -310,6 +313,7 @@ public class AzurermExpressRoutePortTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_express_route_port Terraform resource.

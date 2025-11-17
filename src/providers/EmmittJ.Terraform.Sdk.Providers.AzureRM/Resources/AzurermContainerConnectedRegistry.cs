@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for notification in .
+/// Block type for notification in AzurermContainerConnectedRegistry.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermContainerConnectedRegistryNotificationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerConnectedRegistry.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerConnectedRegistryTimeoutsBlock : TerraformBlock
@@ -101,6 +102,7 @@ public class AzurermContainerConnectedRegistryTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_connected_registry Terraform resource.

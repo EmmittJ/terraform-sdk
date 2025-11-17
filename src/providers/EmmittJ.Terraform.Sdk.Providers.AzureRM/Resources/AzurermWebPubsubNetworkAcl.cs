@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for private_endpoint in .
+/// Block type for private_endpoint in AzurermWebPubsubNetworkAcl.
 /// Nesting mode: set
 /// </summary>
 public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermWebPubsubNetworkAclPrivateEndpointBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for public_network in .
+/// Block type for public_network in AzurermWebPubsubNetworkAcl.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlock
@@ -74,8 +75,9 @@ public class AzurermWebPubsubNetworkAclPublicNetworkBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermWebPubsubNetworkAcl.
 /// Nesting mode: single
 /// </summary>
 public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
@@ -122,6 +124,7 @@ public class AzurermWebPubsubNetworkAclTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_web_pubsub_network_acl Terraform resource.

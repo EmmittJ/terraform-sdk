@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermOracleAdbsNationalCharacterSetsDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermOracleAdbsNationalCharacterSetsDataSourceTimeoutsBlock : Ter
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_oracle_adbs_national_character_sets Terraform data source.

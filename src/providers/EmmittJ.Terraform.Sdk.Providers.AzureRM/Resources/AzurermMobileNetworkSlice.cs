@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for single_network_slice_selection_assistance_information in .
+/// Block type for single_network_slice_selection_assistance_information in AzurermMobileNetworkSlice.
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
@@ -37,8 +37,9 @@ public class AzurermMobileNetworkSliceSingleNetworkSliceSelectionAssistanceInfor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMobileNetworkSlice.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlock
@@ -85,6 +86,7 @@ public class AzurermMobileNetworkSliceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mobile_network_slice Terraform resource.

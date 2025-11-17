@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogicAppIntegrationAccountAssembly.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogicAppIntegrationAccountAssemblyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermLogicAppIntegrationAccountAssemblyTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_logic_app_integration_account_assembly Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermIothubFileUpload.
 /// Nesting mode: single
 /// </summary>
 public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermIothubFileUploadTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_iothub_file_upload Terraform resource.

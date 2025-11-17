@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for repository in .
+/// Block type for repository in AzurermSpringCloudConfigurationService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBlock
@@ -127,8 +127,9 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudConfigurationService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBlock
@@ -175,6 +176,7 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_configuration_service Terraform resource.

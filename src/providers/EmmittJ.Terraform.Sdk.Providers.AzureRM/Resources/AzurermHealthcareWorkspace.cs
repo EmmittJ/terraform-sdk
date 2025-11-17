@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermHealthcareWorkspace.
 /// Nesting mode: single
 /// </summary>
 public class AzurermHealthcareWorkspaceTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermHealthcareWorkspaceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_healthcare_workspace Terraform resource.

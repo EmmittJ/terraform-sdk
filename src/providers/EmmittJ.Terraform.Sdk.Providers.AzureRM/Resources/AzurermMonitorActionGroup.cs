@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for arm_role_receiver in .
+/// Block type for arm_role_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermMonitorActionGroupArmRoleReceiverBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for automation_runbook_receiver in .
+/// Block type for automation_runbook_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : TerraformBlock
@@ -126,8 +127,9 @@ public class AzurermMonitorActionGroupAutomationRunbookReceiverBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for azure_app_push_receiver in .
+/// Block type for azure_app_push_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupAzureAppPushReceiverBlock : TerraformBlock
@@ -159,8 +161,9 @@ public class AzurermMonitorActionGroupAzureAppPushReceiverBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for azure_function_receiver in .
+/// Block type for azure_function_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBlock
@@ -221,8 +224,9 @@ public class AzurermMonitorActionGroupAzureFunctionReceiverBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for email_receiver in .
+/// Block type for email_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBlock
@@ -263,8 +267,9 @@ public class AzurermMonitorActionGroupEmailReceiverBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for event_hub_receiver in .
+/// Block type for event_hub_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
@@ -333,8 +338,9 @@ public class AzurermMonitorActionGroupEventHubReceiverBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for itsm_receiver in .
+/// Block type for itsm_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
@@ -396,8 +402,9 @@ public class AzurermMonitorActionGroupItsmReceiverBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for logic_app_receiver in .
+/// Block type for logic_app_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
@@ -448,8 +455,9 @@ public class AzurermMonitorActionGroupLogicAppReceiverBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for sms_receiver in .
+/// Block type for sms_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlock
@@ -491,8 +499,9 @@ public class AzurermMonitorActionGroupSmsReceiverBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMonitorActionGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlock
@@ -540,8 +549,9 @@ public class AzurermMonitorActionGroupTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for voice_receiver in .
+/// Block type for voice_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlock
@@ -583,8 +593,9 @@ public class AzurermMonitorActionGroupVoiceReceiverBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for webhook_receiver in .
+/// Block type for webhook_receiver in AzurermMonitorActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBlock
@@ -623,7 +634,59 @@ public class AzurermMonitorActionGroupWebhookReceiverBlock : TerraformBlock
         set => SetArgument("use_common_alert_schema", value);
     }
 
+    /// <summary>
+    /// AadAuth block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AadAuth block(s) allowed")]
+    public TerraformList<AzurermMonitorActionGroupWebhookReceiverBlockAadAuthBlock>? AadAuth
+    {
+        get => GetArgument<TerraformList<AzurermMonitorActionGroupWebhookReceiverBlockAadAuthBlock>>("aad_auth");
+        set => SetArgument("aad_auth", value);
+    }
+
 }
+
+/// <summary>
+/// Block type for aad_auth in AzurermMonitorActionGroupWebhookReceiverBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorActionGroupWebhookReceiverBlockAadAuthBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "aad_auth";
+
+    /// <summary>
+    /// The identifier_uri attribute.
+    /// </summary>
+    public TerraformValue<string> IdentifierUri
+    {
+        get => new TerraformReference<string>(this, "identifier_uri");
+        set => SetArgument("identifier_uri", value);
+    }
+
+    /// <summary>
+    /// The object_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObjectId is required")]
+    public required TerraformValue<string> ObjectId
+    {
+        get => new TerraformReference<string>(this, "object_id");
+        set => SetArgument("object_id", value);
+    }
+
+    /// <summary>
+    /// The tenant_id attribute.
+    /// </summary>
+    public TerraformValue<string> TenantId
+    {
+        get => new TerraformReference<string>(this, "tenant_id");
+        set => SetArgument("tenant_id", value);
+    }
+
+}
+
 
 /// <summary>
 /// Represents a azurerm_monitor_action_group Terraform resource.

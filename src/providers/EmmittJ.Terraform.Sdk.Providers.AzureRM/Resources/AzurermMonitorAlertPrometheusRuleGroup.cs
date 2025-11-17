@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for rule in .
+/// Block type for rule in AzurermMonitorAlertPrometheusRuleGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
@@ -86,10 +86,94 @@ public class AzurermMonitorAlertPrometheusRuleGroupRuleBlock : TerraformBlock
         set => SetArgument("severity", value);
     }
 
+    /// <summary>
+    /// Action block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Action block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertPrometheusRuleGroupRuleBlockActionBlock>? Action
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertPrometheusRuleGroupRuleBlockActionBlock>>("action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// AlertResolution block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlertResolution block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertPrometheusRuleGroupRuleBlockAlertResolutionBlock>? AlertResolution
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertPrometheusRuleGroupRuleBlockAlertResolutionBlock>>("alert_resolution");
+        set => SetArgument("alert_resolution", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for action in AzurermMonitorAlertPrometheusRuleGroupRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertPrometheusRuleGroupRuleBlockActionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "action";
+
+    /// <summary>
+    /// The action_group_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionGroupId is required")]
+    public required TerraformValue<string> ActionGroupId
+    {
+        get => new TerraformReference<string>(this, "action_group_id");
+        set => SetArgument("action_group_id", value);
+    }
+
+    /// <summary>
+    /// The action_properties attribute.
+    /// </summary>
+    public TerraformMap<string>? ActionProperties
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "action_properties").ResolveNodes(ctx));
+        set => SetArgument("action_properties", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for alert_resolution in AzurermMonitorAlertPrometheusRuleGroupRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertPrometheusRuleGroupRuleBlockAlertResolutionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "alert_resolution";
+
+    /// <summary>
+    /// The auto_resolved attribute.
+    /// </summary>
+    public TerraformValue<bool>? AutoResolved
+    {
+        get => new TerraformReference<bool>(this, "auto_resolved");
+        set => SetArgument("auto_resolved", value);
+    }
+
+    /// <summary>
+    /// The time_to_resolve attribute.
+    /// </summary>
+    public TerraformValue<string>? TimeToResolve
+    {
+        get => new TerraformReference<string>(this, "time_to_resolve");
+        set => SetArgument("time_to_resolve", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermMonitorAlertPrometheusRuleGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBlock
@@ -136,6 +220,7 @@ public class AzurermMonitorAlertPrometheusRuleGroupTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_alert_prometheus_rule_group Terraform resource.

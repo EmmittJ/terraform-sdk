@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for schedule in .
+/// Block type for schedule in AzurermPimEligibleRoleAssignment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPimEligibleRoleAssignmentScheduleBlock : TerraformBlock
@@ -22,10 +22,61 @@ public class AzurermPimEligibleRoleAssignmentScheduleBlock : TerraformBlock
         set => SetArgument("start_date_time", value);
     }
 
+    /// <summary>
+    /// Expiration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Expiration block(s) allowed")]
+    public TerraformList<AzurermPimEligibleRoleAssignmentScheduleBlockExpirationBlock>? Expiration
+    {
+        get => GetArgument<TerraformList<AzurermPimEligibleRoleAssignmentScheduleBlockExpirationBlock>>("expiration");
+        set => SetArgument("expiration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for ticket in .
+/// Block type for expiration in AzurermPimEligibleRoleAssignmentScheduleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermPimEligibleRoleAssignmentScheduleBlockExpirationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "expiration";
+
+    /// <summary>
+    /// The duration of the eligible role assignment in days
+    /// </summary>
+    public TerraformValue<double> DurationDays
+    {
+        get => new TerraformReference<double>(this, "duration_days");
+        set => SetArgument("duration_days", value);
+    }
+
+    /// <summary>
+    /// The duration of the eligible role assignment in hours
+    /// </summary>
+    public TerraformValue<double> DurationHours
+    {
+        get => new TerraformReference<double>(this, "duration_hours");
+        set => SetArgument("duration_hours", value);
+    }
+
+    /// <summary>
+    /// The end date/time of the eligible role assignment
+    /// </summary>
+    public TerraformValue<string> EndDateTime
+    {
+        get => new TerraformReference<string>(this, "end_date_time");
+        set => SetArgument("end_date_time", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for ticket in AzurermPimEligibleRoleAssignment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPimEligibleRoleAssignmentTicketBlock : TerraformBlock
@@ -55,8 +106,9 @@ public class AzurermPimEligibleRoleAssignmentTicketBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPimEligibleRoleAssignment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPimEligibleRoleAssignmentTimeoutsBlock : TerraformBlock
@@ -94,6 +146,7 @@ public class AzurermPimEligibleRoleAssignmentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_pim_eligible_role_assignment Terraform resource.

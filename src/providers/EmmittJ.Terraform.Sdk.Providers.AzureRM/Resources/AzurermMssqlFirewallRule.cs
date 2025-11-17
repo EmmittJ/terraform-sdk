@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMssqlFirewallRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMssqlFirewallRuleTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMssqlFirewallRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mssql_firewall_rule Terraform resource.

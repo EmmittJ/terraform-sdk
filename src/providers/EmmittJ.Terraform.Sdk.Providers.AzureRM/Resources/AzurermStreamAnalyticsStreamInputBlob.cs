@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for serialization in .
+/// Block type for serialization in AzurermStreamAnalyticsStreamInputBlob.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStreamAnalyticsStreamInputBlobSerializationBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermStreamAnalyticsStreamInputBlobSerializationBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStreamAnalyticsStreamInputBlob.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStreamAnalyticsStreamInputBlobTimeoutsBlock : TerraformBlock
@@ -91,6 +92,7 @@ public class AzurermStreamAnalyticsStreamInputBlobTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stream_analytics_stream_input_blob Terraform resource.

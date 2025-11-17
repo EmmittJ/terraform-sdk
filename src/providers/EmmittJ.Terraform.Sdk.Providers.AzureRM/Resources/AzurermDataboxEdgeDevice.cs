@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataboxEdgeDevice.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataboxEdgeDeviceTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermDataboxEdgeDeviceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_databox_edge_device Terraform resource.

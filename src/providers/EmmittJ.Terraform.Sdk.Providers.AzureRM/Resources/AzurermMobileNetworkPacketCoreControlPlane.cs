@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMobileNetworkPacketCoreControlPlane.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermMobileNetworkPacketCoreControlPlaneIdentityBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for local_diagnostics_access in .
+/// Block type for local_diagnostics_access in AzurermMobileNetworkPacketCoreControlPlane.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlock : TerraformBlock
@@ -67,8 +68,9 @@ public class AzurermMobileNetworkPacketCoreControlPlaneLocalDiagnosticsAccessBlo
 
 }
 
+
 /// <summary>
-/// Block type for platform in .
+/// Block type for platform in AzurermMobileNetworkPacketCoreControlPlane.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : TerraformBlock
@@ -126,8 +128,9 @@ public class AzurermMobileNetworkPacketCoreControlPlanePlatformBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMobileNetworkPacketCoreControlPlane.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : TerraformBlock
@@ -174,6 +177,7 @@ public class AzurermMobileNetworkPacketCoreControlPlaneTimeoutsBlock : Terraform
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mobile_network_packet_core_control_plane Terraform resource.

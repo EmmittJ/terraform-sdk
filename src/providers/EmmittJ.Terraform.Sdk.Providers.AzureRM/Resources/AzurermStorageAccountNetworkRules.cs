@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for private_link_access in .
+/// Block type for private_link_access in AzurermStorageAccountNetworkRules.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermStorageAccountNetworkRulesPrivateLinkAccessBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageAccountNetworkRules.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageAccountNetworkRulesTimeoutsBlock : TerraformBlock
@@ -82,6 +83,7 @@ public class AzurermStorageAccountNetworkRulesTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_account_network_rules Terraform resource.

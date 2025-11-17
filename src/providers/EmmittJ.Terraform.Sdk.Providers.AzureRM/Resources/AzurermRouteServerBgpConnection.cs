@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermRouteServerBgpConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermRouteServerBgpConnectionTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermRouteServerBgpConnectionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_route_server_bgp_connection Terraform resource.

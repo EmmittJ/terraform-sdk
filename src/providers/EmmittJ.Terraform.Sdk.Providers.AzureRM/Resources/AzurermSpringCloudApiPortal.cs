@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for sso in .
+/// Block type for sso in AzurermSpringCloudApiPortal.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
@@ -51,8 +51,9 @@ public class AzurermSpringCloudApiPortalSsoBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudApiPortal.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
@@ -99,6 +100,7 @@ public class AzurermSpringCloudApiPortalTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_api_portal Terraform resource.

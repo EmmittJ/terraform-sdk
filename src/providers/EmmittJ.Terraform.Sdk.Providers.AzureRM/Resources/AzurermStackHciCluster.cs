@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermStackHciCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStackHciClusterIdentityBlock : TerraformBlock
@@ -41,8 +41,9 @@ public class AzurermStackHciClusterIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStackHciCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStackHciClusterTimeoutsBlock : TerraformBlock
@@ -89,6 +90,7 @@ public class AzurermStackHciClusterTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stack_hci_cluster Terraform resource.

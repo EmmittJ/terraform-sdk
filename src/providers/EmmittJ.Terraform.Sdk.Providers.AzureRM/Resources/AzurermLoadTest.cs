@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for encryption in .
+/// Block type for encryption in AzurermLoadTest.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLoadTestEncryptionBlock : TerraformBlock
@@ -23,10 +23,57 @@ public class AzurermLoadTestEncryptionBlock : TerraformBlock
         set => SetArgument("key_url", value);
     }
 
+    /// <summary>
+    /// Identity block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
+    public required TerraformList<AzurermLoadTestEncryptionBlockIdentityBlock> Identity
+    {
+        get => GetRequiredArgument<TerraformList<AzurermLoadTestEncryptionBlockIdentityBlock>>("identity");
+        set => SetArgument("identity", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermLoadTestEncryptionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermLoadTestEncryptionBlockIdentityBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "identity";
+
+    /// <summary>
+    /// The identity_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityId is required")]
+    public required TerraformValue<string> IdentityId
+    {
+        get => new TerraformReference<string>(this, "identity_id");
+        set => SetArgument("identity_id", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for identity in AzurermLoadTest.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLoadTestIdentityBlock : TerraformBlock
@@ -73,8 +120,9 @@ public class AzurermLoadTestIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLoadTest.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLoadTestTimeoutsBlock : TerraformBlock
@@ -121,6 +169,7 @@ public class AzurermLoadTestTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_load_test Terraform resource.

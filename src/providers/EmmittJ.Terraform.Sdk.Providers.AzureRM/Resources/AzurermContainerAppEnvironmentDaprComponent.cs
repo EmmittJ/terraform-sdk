@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for metadata in .
+/// Block type for metadata in AzurermContainerAppEnvironmentDaprComponent.
 /// Nesting mode: list
 /// </summary>
 public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermContainerAppEnvironmentDaprComponentMetadataBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for secret in .
+/// Block type for secret in AzurermContainerAppEnvironmentDaprComponent.
 /// Nesting mode: set
 /// </summary>
 public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformBlock
@@ -93,8 +94,9 @@ public class AzurermContainerAppEnvironmentDaprComponentSecretBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerAppEnvironmentDaprComponent.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : TerraformBlock
@@ -141,6 +143,7 @@ public class AzurermContainerAppEnvironmentDaprComponentTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_app_environment_dapr_component Terraform resource.

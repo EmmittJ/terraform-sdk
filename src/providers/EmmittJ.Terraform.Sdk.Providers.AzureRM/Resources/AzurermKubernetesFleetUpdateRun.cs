@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for managed_cluster_update in .
+/// Block type for managed_cluster_update in AzurermKubernetesFleetUpdateRun.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock : TerraformBlock
@@ -13,10 +13,89 @@ public class AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock : Terrafor
     /// </summary>
     public override string BlockType => "managed_cluster_update";
 
+    /// <summary>
+    /// NodeImageSelection block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeImageSelection block(s) allowed")]
+    public TerraformList<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlockNodeImageSelectionBlock>? NodeImageSelection
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlockNodeImageSelectionBlock>>("node_image_selection");
+        set => SetArgument("node_image_selection", value);
+    }
+
+    /// <summary>
+    /// Upgrade block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Upgrade is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Upgrade block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Upgrade block(s) allowed")]
+    public required TerraformList<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlockUpgradeBlock> Upgrade
+    {
+        get => GetRequiredArgument<TerraformList<AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlockUpgradeBlock>>("upgrade");
+        set => SetArgument("upgrade", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for stage in .
+/// Block type for node_image_selection in AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlockNodeImageSelectionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "node_image_selection";
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for upgrade in AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesFleetUpdateRunManagedClusterUpdateBlockUpgradeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "upgrade";
+
+    /// <summary>
+    /// The kubernetes_version attribute.
+    /// </summary>
+    public TerraformValue<string>? KubernetesVersion
+    {
+        get => new TerraformReference<string>(this, "kubernetes_version");
+        set => SetArgument("kubernetes_version", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for stage in AzurermKubernetesFleetUpdateRun.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesFleetUpdateRunStageBlock : TerraformBlock
@@ -45,10 +124,46 @@ public class AzurermKubernetesFleetUpdateRunStageBlock : TerraformBlock
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// Group block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Group block(s) required")]
+    public required TerraformList<AzurermKubernetesFleetUpdateRunStageBlockGroupBlock> Group
+    {
+        get => GetRequiredArgument<TerraformList<AzurermKubernetesFleetUpdateRunStageBlockGroupBlock>>("group");
+        set => SetArgument("group", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for group in AzurermKubernetesFleetUpdateRunStageBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesFleetUpdateRunStageBlockGroupBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "group";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermKubernetesFleetUpdateRun.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKubernetesFleetUpdateRunTimeoutsBlock : TerraformBlock
@@ -95,6 +210,7 @@ public class AzurermKubernetesFleetUpdateRunTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kubernetes_fleet_update_run Terraform resource.

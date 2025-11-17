@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for data_disk in .
+/// Block type for data_disk in AzurermImage.
 /// Nesting mode: list
 /// </summary>
 public class AzurermImageDataDiskBlock : TerraformBlock
@@ -79,8 +79,9 @@ public class AzurermImageDataDiskBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for os_disk in .
+/// Block type for os_disk in AzurermImage.
 /// Nesting mode: list
 /// </summary>
 public class AzurermImageOsDiskBlock : TerraformBlock
@@ -165,8 +166,9 @@ public class AzurermImageOsDiskBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermImage.
 /// Nesting mode: single
 /// </summary>
 public class AzurermImageTimeoutsBlock : TerraformBlock
@@ -213,6 +215,7 @@ public class AzurermImageTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_image Terraform resource.

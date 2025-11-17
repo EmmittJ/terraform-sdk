@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for kubelet_config in .
+/// Block type for kubelet_config in AzurermKubernetesClusterNodePool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
@@ -105,8 +105,9 @@ public class AzurermKubernetesClusterNodePoolKubeletConfigBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for linux_os_config in .
+/// Block type for linux_os_config in AzurermKubernetesClusterNodePool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlock
@@ -153,10 +154,295 @@ public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlock : TerraformBlock
         set => SetArgument("transparent_huge_page_enabled", value);
     }
 
+    /// <summary>
+    /// SysctlConfig block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SysctlConfig block(s) allowed")]
+    public TerraformList<AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock>? SysctlConfig
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock>>("sysctl_config");
+        set => SetArgument("sysctl_config", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for node_network_profile in .
+/// Block type for sysctl_config in AzurermKubernetesClusterNodePoolLinuxOsConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterNodePoolLinuxOsConfigBlockSysctlConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "sysctl_config";
+
+    /// <summary>
+    /// The fs_aio_max_nr attribute.
+    /// </summary>
+    public TerraformValue<double>? FsAioMaxNr
+    {
+        get => new TerraformReference<double>(this, "fs_aio_max_nr");
+        set => SetArgument("fs_aio_max_nr", value);
+    }
+
+    /// <summary>
+    /// The fs_file_max attribute.
+    /// </summary>
+    public TerraformValue<double>? FsFileMax
+    {
+        get => new TerraformReference<double>(this, "fs_file_max");
+        set => SetArgument("fs_file_max", value);
+    }
+
+    /// <summary>
+    /// The fs_inotify_max_user_watches attribute.
+    /// </summary>
+    public TerraformValue<double>? FsInotifyMaxUserWatches
+    {
+        get => new TerraformReference<double>(this, "fs_inotify_max_user_watches");
+        set => SetArgument("fs_inotify_max_user_watches", value);
+    }
+
+    /// <summary>
+    /// The fs_nr_open attribute.
+    /// </summary>
+    public TerraformValue<double>? FsNrOpen
+    {
+        get => new TerraformReference<double>(this, "fs_nr_open");
+        set => SetArgument("fs_nr_open", value);
+    }
+
+    /// <summary>
+    /// The kernel_threads_max attribute.
+    /// </summary>
+    public TerraformValue<double>? KernelThreadsMax
+    {
+        get => new TerraformReference<double>(this, "kernel_threads_max");
+        set => SetArgument("kernel_threads_max", value);
+    }
+
+    /// <summary>
+    /// The net_core_netdev_max_backlog attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreNetdevMaxBacklog
+    {
+        get => new TerraformReference<double>(this, "net_core_netdev_max_backlog");
+        set => SetArgument("net_core_netdev_max_backlog", value);
+    }
+
+    /// <summary>
+    /// The net_core_optmem_max attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreOptmemMax
+    {
+        get => new TerraformReference<double>(this, "net_core_optmem_max");
+        set => SetArgument("net_core_optmem_max", value);
+    }
+
+    /// <summary>
+    /// The net_core_rmem_default attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreRmemDefault
+    {
+        get => new TerraformReference<double>(this, "net_core_rmem_default");
+        set => SetArgument("net_core_rmem_default", value);
+    }
+
+    /// <summary>
+    /// The net_core_rmem_max attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreRmemMax
+    {
+        get => new TerraformReference<double>(this, "net_core_rmem_max");
+        set => SetArgument("net_core_rmem_max", value);
+    }
+
+    /// <summary>
+    /// The net_core_somaxconn attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreSomaxconn
+    {
+        get => new TerraformReference<double>(this, "net_core_somaxconn");
+        set => SetArgument("net_core_somaxconn", value);
+    }
+
+    /// <summary>
+    /// The net_core_wmem_default attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreWmemDefault
+    {
+        get => new TerraformReference<double>(this, "net_core_wmem_default");
+        set => SetArgument("net_core_wmem_default", value);
+    }
+
+    /// <summary>
+    /// The net_core_wmem_max attribute.
+    /// </summary>
+    public TerraformValue<double>? NetCoreWmemMax
+    {
+        get => new TerraformReference<double>(this, "net_core_wmem_max");
+        set => SetArgument("net_core_wmem_max", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_ip_local_port_range_max attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4IpLocalPortRangeMax
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_ip_local_port_range_max");
+        set => SetArgument("net_ipv4_ip_local_port_range_max", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_ip_local_port_range_min attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4IpLocalPortRangeMin
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_ip_local_port_range_min");
+        set => SetArgument("net_ipv4_ip_local_port_range_min", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_neigh_default_gc_thresh1 attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4NeighDefaultGcThresh1
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_neigh_default_gc_thresh1");
+        set => SetArgument("net_ipv4_neigh_default_gc_thresh1", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_neigh_default_gc_thresh2 attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4NeighDefaultGcThresh2
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_neigh_default_gc_thresh2");
+        set => SetArgument("net_ipv4_neigh_default_gc_thresh2", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_neigh_default_gc_thresh3 attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4NeighDefaultGcThresh3
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_neigh_default_gc_thresh3");
+        set => SetArgument("net_ipv4_neigh_default_gc_thresh3", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_fin_timeout attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpFinTimeout
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_fin_timeout");
+        set => SetArgument("net_ipv4_tcp_fin_timeout", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_keepalive_intvl attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpKeepaliveIntvl
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_keepalive_intvl");
+        set => SetArgument("net_ipv4_tcp_keepalive_intvl", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_keepalive_probes attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpKeepaliveProbes
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_keepalive_probes");
+        set => SetArgument("net_ipv4_tcp_keepalive_probes", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_keepalive_time attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpKeepaliveTime
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_keepalive_time");
+        set => SetArgument("net_ipv4_tcp_keepalive_time", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_max_syn_backlog attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpMaxSynBacklog
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_max_syn_backlog");
+        set => SetArgument("net_ipv4_tcp_max_syn_backlog", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_max_tw_buckets attribute.
+    /// </summary>
+    public TerraformValue<double>? NetIpv4TcpMaxTwBuckets
+    {
+        get => new TerraformReference<double>(this, "net_ipv4_tcp_max_tw_buckets");
+        set => SetArgument("net_ipv4_tcp_max_tw_buckets", value);
+    }
+
+    /// <summary>
+    /// The net_ipv4_tcp_tw_reuse attribute.
+    /// </summary>
+    public TerraformValue<bool>? NetIpv4TcpTwReuse
+    {
+        get => new TerraformReference<bool>(this, "net_ipv4_tcp_tw_reuse");
+        set => SetArgument("net_ipv4_tcp_tw_reuse", value);
+    }
+
+    /// <summary>
+    /// The net_netfilter_nf_conntrack_buckets attribute.
+    /// </summary>
+    public TerraformValue<double>? NetNetfilterNfConntrackBuckets
+    {
+        get => new TerraformReference<double>(this, "net_netfilter_nf_conntrack_buckets");
+        set => SetArgument("net_netfilter_nf_conntrack_buckets", value);
+    }
+
+    /// <summary>
+    /// The net_netfilter_nf_conntrack_max attribute.
+    /// </summary>
+    public TerraformValue<double>? NetNetfilterNfConntrackMax
+    {
+        get => new TerraformReference<double>(this, "net_netfilter_nf_conntrack_max");
+        set => SetArgument("net_netfilter_nf_conntrack_max", value);
+    }
+
+    /// <summary>
+    /// The vm_max_map_count attribute.
+    /// </summary>
+    public TerraformValue<double>? VmMaxMapCount
+    {
+        get => new TerraformReference<double>(this, "vm_max_map_count");
+        set => SetArgument("vm_max_map_count", value);
+    }
+
+    /// <summary>
+    /// The vm_swappiness attribute.
+    /// </summary>
+    public TerraformValue<double>? VmSwappiness
+    {
+        get => new TerraformReference<double>(this, "vm_swappiness");
+        set => SetArgument("vm_swappiness", value);
+    }
+
+    /// <summary>
+    /// The vm_vfs_cache_pressure attribute.
+    /// </summary>
+    public TerraformValue<double>? VmVfsCachePressure
+    {
+        get => new TerraformReference<double>(this, "vm_vfs_cache_pressure");
+        set => SetArgument("vm_vfs_cache_pressure", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for node_network_profile in AzurermKubernetesClusterNodePool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock : TerraformBlock
@@ -184,10 +470,60 @@ public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock : Terraform
         set => SetArgument("node_public_ip_tags", value);
     }
 
+    /// <summary>
+    /// AllowedHostPorts block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlockAllowedHostPortsBlock>? AllowedHostPorts
+    {
+        get => GetArgument<TerraformList<AzurermKubernetesClusterNodePoolNodeNetworkProfileBlockAllowedHostPortsBlock>>("allowed_host_ports");
+        set => SetArgument("allowed_host_ports", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for allowed_host_ports in AzurermKubernetesClusterNodePoolNodeNetworkProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermKubernetesClusterNodePoolNodeNetworkProfileBlockAllowedHostPortsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "allowed_host_ports";
+
+    /// <summary>
+    /// The port_end attribute.
+    /// </summary>
+    public TerraformValue<double>? PortEnd
+    {
+        get => new TerraformReference<double>(this, "port_end");
+        set => SetArgument("port_end", value);
+    }
+
+    /// <summary>
+    /// The port_start attribute.
+    /// </summary>
+    public TerraformValue<double>? PortStart
+    {
+        get => new TerraformReference<double>(this, "port_start");
+        set => SetArgument("port_start", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    public TerraformValue<string>? Protocol
+    {
+        get => new TerraformReference<string>(this, "protocol");
+        set => SetArgument("protocol", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermKubernetesClusterNodePool.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBlock
@@ -235,8 +571,9 @@ public class AzurermKubernetesClusterNodePoolTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for upgrade_settings in .
+/// Block type for upgrade_settings in AzurermKubernetesClusterNodePool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : TerraformBlock
@@ -276,8 +613,9 @@ public class AzurermKubernetesClusterNodePoolUpgradeSettingsBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for windows_profile in .
+/// Block type for windows_profile in AzurermKubernetesClusterNodePool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermKubernetesClusterNodePoolWindowsProfileBlock : TerraformBlock
@@ -297,6 +635,7 @@ public class AzurermKubernetesClusterNodePoolWindowsProfileBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_kubernetes_cluster_node_pool Terraform resource.

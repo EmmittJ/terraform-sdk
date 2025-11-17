@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermEventgridSystemTopic.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridSystemTopicIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermEventgridSystemTopicIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermEventgridSystemTopic.
 /// Nesting mode: single
 /// </summary>
 public class AzurermEventgridSystemTopicTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermEventgridSystemTopicTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_eventgrid_system_topic Terraform resource.

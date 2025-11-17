@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for bgp_settings in .
+/// Block type for bgp_settings in AzurermVpnGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
@@ -41,10 +41,125 @@ public class AzurermVpnGatewayBgpSettingsBlock : TerraformBlock
         set => SetArgument("peer_weight", value);
     }
 
+    /// <summary>
+    /// Instance0BgpPeeringAddress block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Instance0BgpPeeringAddress block(s) allowed")]
+    public TerraformList<AzurermVpnGatewayBgpSettingsBlockInstance0BgpPeeringAddressBlock>? Instance0BgpPeeringAddress
+    {
+        get => GetArgument<TerraformList<AzurermVpnGatewayBgpSettingsBlockInstance0BgpPeeringAddressBlock>>("instance_0_bgp_peering_address");
+        set => SetArgument("instance_0_bgp_peering_address", value);
+    }
+
+    /// <summary>
+    /// Instance1BgpPeeringAddress block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Instance1BgpPeeringAddress block(s) allowed")]
+    public TerraformList<AzurermVpnGatewayBgpSettingsBlockInstance1BgpPeeringAddressBlock>? Instance1BgpPeeringAddress
+    {
+        get => GetArgument<TerraformList<AzurermVpnGatewayBgpSettingsBlockInstance1BgpPeeringAddressBlock>>("instance_1_bgp_peering_address");
+        set => SetArgument("instance_1_bgp_peering_address", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for instance_0_bgp_peering_address in AzurermVpnGatewayBgpSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVpnGatewayBgpSettingsBlockInstance0BgpPeeringAddressBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "instance_0_bgp_peering_address";
+
+    /// <summary>
+    /// The custom_ips attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomIps is required")]
+    public required TerraformSet<string> CustomIps
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "custom_ips").ResolveNodes(ctx));
+        set => SetArgument("custom_ips", value);
+    }
+
+    /// <summary>
+    /// The default_ips attribute.
+    /// </summary>
+    public TerraformSet<string> DefaultIps
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "default_ips").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The ip_configuration_id attribute.
+    /// </summary>
+    public TerraformValue<string> IpConfigurationId
+    {
+        get => new TerraformReference<string>(this, "ip_configuration_id");
+    }
+
+    /// <summary>
+    /// The tunnel_ips attribute.
+    /// </summary>
+    public TerraformSet<string> TunnelIps
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tunnel_ips").ResolveNodes(ctx));
+    }
+
+}
+
+/// <summary>
+/// Block type for instance_1_bgp_peering_address in AzurermVpnGatewayBgpSettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVpnGatewayBgpSettingsBlockInstance1BgpPeeringAddressBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "instance_1_bgp_peering_address";
+
+    /// <summary>
+    /// The custom_ips attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomIps is required")]
+    public required TerraformSet<string> CustomIps
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "custom_ips").ResolveNodes(ctx));
+        set => SetArgument("custom_ips", value);
+    }
+
+    /// <summary>
+    /// The default_ips attribute.
+    /// </summary>
+    public TerraformSet<string> DefaultIps
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "default_ips").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The ip_configuration_id attribute.
+    /// </summary>
+    public TerraformValue<string> IpConfigurationId
+    {
+        get => new TerraformReference<string>(this, "ip_configuration_id");
+    }
+
+    /// <summary>
+    /// The tunnel_ips attribute.
+    /// </summary>
+    public TerraformSet<string> TunnelIps
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "tunnel_ips").ResolveNodes(ctx));
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermVpnGateway.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
@@ -91,6 +206,7 @@ public class AzurermVpnGatewayTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_vpn_gateway Terraform resource.

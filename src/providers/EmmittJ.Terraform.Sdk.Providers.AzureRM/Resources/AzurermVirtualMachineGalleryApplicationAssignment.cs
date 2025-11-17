@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualMachineGalleryApplicationAssignment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermVirtualMachineGalleryApplicationAssignmentTimeoutsBlock : Te
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_machine_gallery_application_assignment Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azure_monitor_workspace_integrations in .
+/// Block type for azure_monitor_workspace_integrations in AzurermDashboardGrafana.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermDashboardGrafanaAzureMonitorWorkspaceIntegrationsBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermDashboardGrafana.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDashboardGrafanaIdentityBlock : TerraformBlock
@@ -73,8 +74,9 @@ public class AzurermDashboardGrafanaIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for smtp in .
+/// Block type for smtp in AzurermDashboardGrafana.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
@@ -163,8 +165,9 @@ public class AzurermDashboardGrafanaSmtpBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDashboardGrafana.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDashboardGrafanaTimeoutsBlock : TerraformBlock
@@ -211,6 +214,7 @@ public class AzurermDashboardGrafanaTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_dashboard_grafana Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for additional_capabilities in .
+/// Block type for additional_capabilities in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermWindowsVirtualMachineAdditionalCapabilitiesBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for additional_unattend_content in .
+/// Block type for additional_unattend_content in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock : TerraformBlock
@@ -66,8 +67,9 @@ public class AzurermWindowsVirtualMachineAdditionalUnattendContentBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for boot_diagnostics in .
+/// Block type for boot_diagnostics in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachineBootDiagnosticsBlock : TerraformBlock
@@ -88,8 +90,9 @@ public class AzurermWindowsVirtualMachineBootDiagnosticsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for gallery_application in .
+/// Block type for gallery_application in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachineGalleryApplicationBlock : TerraformBlock
@@ -156,8 +159,9 @@ public class AzurermWindowsVirtualMachineGalleryApplicationBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachineIdentityBlock : TerraformBlock
@@ -204,8 +208,9 @@ public class AzurermWindowsVirtualMachineIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for os_disk in .
+/// Block type for os_disk in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachineOsDiskBlock : TerraformBlock
@@ -296,10 +301,53 @@ public class AzurermWindowsVirtualMachineOsDiskBlock : TerraformBlock
         set => SetArgument("write_accelerator_enabled", value);
     }
 
+    /// <summary>
+    /// DiffDiskSettings block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiffDiskSettings block(s) allowed")]
+    public TerraformList<AzurermWindowsVirtualMachineOsDiskBlockDiffDiskSettingsBlock>? DiffDiskSettings
+    {
+        get => GetArgument<TerraformList<AzurermWindowsVirtualMachineOsDiskBlockDiffDiskSettingsBlock>>("diff_disk_settings");
+        set => SetArgument("diff_disk_settings", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for os_image_notification in .
+/// Block type for diff_disk_settings in AzurermWindowsVirtualMachineOsDiskBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWindowsVirtualMachineOsDiskBlockDiffDiskSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "diff_disk_settings";
+
+    /// <summary>
+    /// The option attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Option is required")]
+    public required TerraformValue<string> Option
+    {
+        get => new TerraformReference<string>(this, "option");
+        set => SetArgument("option", value);
+    }
+
+    /// <summary>
+    /// The placement attribute.
+    /// </summary>
+    public TerraformValue<string>? Placement
+    {
+        get => new TerraformReference<string>(this, "placement");
+        set => SetArgument("placement", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for os_image_notification in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachineOsImageNotificationBlock : TerraformBlock
@@ -320,8 +368,9 @@ public class AzurermWindowsVirtualMachineOsImageNotificationBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for plan in .
+/// Block type for plan in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachinePlanBlock : TerraformBlock
@@ -363,8 +412,9 @@ public class AzurermWindowsVirtualMachinePlanBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for secret in .
+/// Block type for secret in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachineSecretBlock : TerraformBlock
@@ -384,10 +434,56 @@ public class AzurermWindowsVirtualMachineSecretBlock : TerraformBlock
         set => SetArgument("key_vault_id", value);
     }
 
+    /// <summary>
+    /// Certificate block (nesting mode: set).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Certificate block(s) required")]
+    public required TerraformSet<AzurermWindowsVirtualMachineSecretBlockCertificateBlock> Certificate
+    {
+        get => GetRequiredArgument<TerraformSet<AzurermWindowsVirtualMachineSecretBlockCertificateBlock>>("certificate");
+        set => SetArgument("certificate", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for source_image_reference in .
+/// Block type for certificate in AzurermWindowsVirtualMachineSecretBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermWindowsVirtualMachineSecretBlockCertificateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "certificate";
+
+    /// <summary>
+    /// The store attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Store is required")]
+    public required TerraformValue<string> Store
+    {
+        get => new TerraformReference<string>(this, "store");
+        set => SetArgument("store", value);
+    }
+
+    /// <summary>
+    /// The url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
+    public required TerraformValue<string> Url
+    {
+        get => new TerraformReference<string>(this, "url");
+        set => SetArgument("url", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for source_image_reference in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachineSourceImageReferenceBlock : TerraformBlock
@@ -439,8 +535,9 @@ public class AzurermWindowsVirtualMachineSourceImageReferenceBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for termination_notification in .
+/// Block type for termination_notification in AzurermWindowsVirtualMachine.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWindowsVirtualMachineTerminationNotificationBlock : TerraformBlock
@@ -471,8 +568,9 @@ public class AzurermWindowsVirtualMachineTerminationNotificationBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermWindowsVirtualMachine.
 /// Nesting mode: single
 /// </summary>
 public class AzurermWindowsVirtualMachineTimeoutsBlock : TerraformBlock
@@ -520,8 +618,9 @@ public class AzurermWindowsVirtualMachineTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for winrm_listener in .
+/// Block type for winrm_listener in AzurermWindowsVirtualMachine.
 /// Nesting mode: set
 /// </summary>
 public class AzurermWindowsVirtualMachineWinrmListenerBlock : TerraformBlock
@@ -551,6 +650,7 @@ public class AzurermWindowsVirtualMachineWinrmListenerBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_windows_virtual_machine Terraform resource.

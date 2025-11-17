@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for routing_policy in .
+/// Block type for routing_policy in AzurermVirtualHubRoutingIntent.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualHubRoutingIntentRoutingPolicyBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermVirtualHubRoutingIntentRoutingPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualHubRoutingIntent.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlock
@@ -93,6 +94,7 @@ public class AzurermVirtualHubRoutingIntentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_hub_routing_intent Terraform resource.

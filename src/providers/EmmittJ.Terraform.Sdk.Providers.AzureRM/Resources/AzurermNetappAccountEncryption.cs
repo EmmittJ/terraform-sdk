@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetappAccountEncryption.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermNetappAccountEncryptionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_netapp_account_encryption Terraform resource.

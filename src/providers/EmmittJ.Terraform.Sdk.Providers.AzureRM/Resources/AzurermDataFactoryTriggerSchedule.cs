@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for pipeline in .
+/// Block type for pipeline in AzurermDataFactoryTriggerSchedule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermDataFactoryTriggerSchedulePipelineBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for schedule in .
+/// Block type for schedule in AzurermDataFactoryTriggerSchedule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
@@ -81,10 +82,52 @@ public class AzurermDataFactoryTriggerScheduleScheduleBlock : TerraformBlock
         set => SetArgument("minutes", value);
     }
 
+    /// <summary>
+    /// Monthly block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermDataFactoryTriggerScheduleScheduleBlockMonthlyBlock>? Monthly
+    {
+        get => GetArgument<TerraformList<AzurermDataFactoryTriggerScheduleScheduleBlockMonthlyBlock>>("monthly");
+        set => SetArgument("monthly", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for monthly in AzurermDataFactoryTriggerScheduleScheduleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataFactoryTriggerScheduleScheduleBlockMonthlyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "monthly";
+
+    /// <summary>
+    /// The week attribute.
+    /// </summary>
+    public TerraformValue<double>? Week
+    {
+        get => new TerraformReference<double>(this, "week");
+        set => SetArgument("week", value);
+    }
+
+    /// <summary>
+    /// The weekday attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weekday is required")]
+    public required TerraformValue<string> Weekday
+    {
+        get => new TerraformReference<string>(this, "weekday");
+        set => SetArgument("weekday", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermDataFactoryTriggerSchedule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
@@ -131,6 +174,7 @@ public class AzurermDataFactoryTriggerScheduleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_trigger_schedule Terraform resource.

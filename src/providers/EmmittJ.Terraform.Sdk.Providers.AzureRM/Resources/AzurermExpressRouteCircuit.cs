@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermExpressRouteCircuit.
 /// Nesting mode: list
 /// </summary>
 public class AzurermExpressRouteCircuitSkuBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermExpressRouteCircuitSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermExpressRouteCircuit.
 /// Nesting mode: single
 /// </summary>
 public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermExpressRouteCircuitTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_express_route_circuit Terraform resource.

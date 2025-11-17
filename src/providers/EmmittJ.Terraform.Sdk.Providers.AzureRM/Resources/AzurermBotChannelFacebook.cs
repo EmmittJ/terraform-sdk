@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for page in .
+/// Block type for page in AzurermBotChannelFacebook.
 /// Nesting mode: set
 /// </summary>
 public class AzurermBotChannelFacebookPageBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermBotChannelFacebookPageBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermBotChannelFacebook.
 /// Nesting mode: single
 /// </summary>
 public class AzurermBotChannelFacebookTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermBotChannelFacebookTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_bot_channel_facebook Terraform resource.

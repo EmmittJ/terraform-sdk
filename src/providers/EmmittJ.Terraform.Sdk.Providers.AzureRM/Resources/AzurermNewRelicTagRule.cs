@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for log_tag_filter in .
+/// Block type for log_tag_filter in AzurermNewRelicTagRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for metric_tag_filter in .
+/// Block type for metric_tag_filter in AzurermNewRelicTagRule.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlock
@@ -88,8 +89,9 @@ public class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNewRelicTagRule.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlock
@@ -136,6 +138,7 @@ public class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_new_relic_tag_rule Terraform resource.

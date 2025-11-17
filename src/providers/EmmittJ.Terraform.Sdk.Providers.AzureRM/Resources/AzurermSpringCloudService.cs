@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for config_server_git_setting in .
+/// Block type for config_server_git_setting in AzurermSpringCloudService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudServiceConfigServerGitSettingBlock : TerraformBlock
@@ -41,10 +41,286 @@ public class AzurermSpringCloudServiceConfigServerGitSettingBlock : TerraformBlo
         set => SetArgument("uri", value);
     }
 
+    /// <summary>
+    /// HttpBasicAuth block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpBasicAuth block(s) allowed")]
+    public TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlockHttpBasicAuthBlock>? HttpBasicAuth
+    {
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlockHttpBasicAuthBlock>>("http_basic_auth");
+        set => SetArgument("http_basic_auth", value);
+    }
+
+    /// <summary>
+    /// Repository block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlock>? Repository
+    {
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlock>>("repository");
+        set => SetArgument("repository", value);
+    }
+
+    /// <summary>
+    /// SshAuth block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SshAuth block(s) allowed")]
+    public TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlockSshAuthBlock>? SshAuth
+    {
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlockSshAuthBlock>>("ssh_auth");
+        set => SetArgument("ssh_auth", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for container_registry in .
+/// Block type for http_basic_auth in AzurermSpringCloudServiceConfigServerGitSettingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSpringCloudServiceConfigServerGitSettingBlockHttpBasicAuthBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "http_basic_auth";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for repository in AzurermSpringCloudServiceConfigServerGitSettingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "repository";
+
+    /// <summary>
+    /// The label attribute.
+    /// </summary>
+    public TerraformValue<string>? Label
+    {
+        get => new TerraformReference<string>(this, "label");
+        set => SetArgument("label", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The pattern attribute.
+    /// </summary>
+    public TerraformList<string>? Pattern
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "pattern").ResolveNodes(ctx));
+        set => SetArgument("pattern", value);
+    }
+
+    /// <summary>
+    /// The search_paths attribute.
+    /// </summary>
+    public TerraformList<string>? SearchPaths
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "search_paths").ResolveNodes(ctx));
+        set => SetArgument("search_paths", value);
+    }
+
+    /// <summary>
+    /// The uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
+    public required TerraformValue<string> Uri
+    {
+        get => new TerraformReference<string>(this, "uri");
+        set => SetArgument("uri", value);
+    }
+
+    /// <summary>
+    /// HttpBasicAuth block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpBasicAuth block(s) allowed")]
+    public TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlockHttpBasicAuthBlock>? HttpBasicAuth
+    {
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlockHttpBasicAuthBlock>>("http_basic_auth");
+        set => SetArgument("http_basic_auth", value);
+    }
+
+    /// <summary>
+    /// SshAuth block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SshAuth block(s) allowed")]
+    public TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlockSshAuthBlock>? SshAuth
+    {
+        get => GetArgument<TerraformList<AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlockSshAuthBlock>>("ssh_auth");
+        set => SetArgument("ssh_auth", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for http_basic_auth in AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlockHttpBasicAuthBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "http_basic_auth";
+
+    /// <summary>
+    /// The password attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
+    public required TerraformValue<string> Password
+    {
+        get => new TerraformReference<string>(this, "password");
+        set => SetArgument("password", value);
+    }
+
+    /// <summary>
+    /// The username attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
+    public required TerraformValue<string> Username
+    {
+        get => new TerraformReference<string>(this, "username");
+        set => SetArgument("username", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ssh_auth in AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSpringCloudServiceConfigServerGitSettingBlockRepositoryBlockSshAuthBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ssh_auth";
+
+    /// <summary>
+    /// The host_key attribute.
+    /// </summary>
+    public TerraformValue<string>? HostKey
+    {
+        get => new TerraformReference<string>(this, "host_key");
+        set => SetArgument("host_key", value);
+    }
+
+    /// <summary>
+    /// The host_key_algorithm attribute.
+    /// </summary>
+    public TerraformValue<string>? HostKeyAlgorithm
+    {
+        get => new TerraformReference<string>(this, "host_key_algorithm");
+        set => SetArgument("host_key_algorithm", value);
+    }
+
+    /// <summary>
+    /// The private_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
+    public required TerraformValue<string> PrivateKey
+    {
+        get => new TerraformReference<string>(this, "private_key");
+        set => SetArgument("private_key", value);
+    }
+
+    /// <summary>
+    /// The strict_host_key_checking_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? StrictHostKeyCheckingEnabled
+    {
+        get => new TerraformReference<bool>(this, "strict_host_key_checking_enabled");
+        set => SetArgument("strict_host_key_checking_enabled", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ssh_auth in AzurermSpringCloudServiceConfigServerGitSettingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSpringCloudServiceConfigServerGitSettingBlockSshAuthBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ssh_auth";
+
+    /// <summary>
+    /// The host_key attribute.
+    /// </summary>
+    public TerraformValue<string>? HostKey
+    {
+        get => new TerraformReference<string>(this, "host_key");
+        set => SetArgument("host_key", value);
+    }
+
+    /// <summary>
+    /// The host_key_algorithm attribute.
+    /// </summary>
+    public TerraformValue<string>? HostKeyAlgorithm
+    {
+        get => new TerraformReference<string>(this, "host_key_algorithm");
+        set => SetArgument("host_key_algorithm", value);
+    }
+
+    /// <summary>
+    /// The private_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
+    public required TerraformValue<string> PrivateKey
+    {
+        get => new TerraformReference<string>(this, "private_key");
+        set => SetArgument("private_key", value);
+    }
+
+    /// <summary>
+    /// The strict_host_key_checking_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? StrictHostKeyCheckingEnabled
+    {
+        get => new TerraformReference<bool>(this, "strict_host_key_checking_enabled");
+        set => SetArgument("strict_host_key_checking_enabled", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for container_registry in AzurermSpringCloudService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
@@ -96,8 +372,9 @@ public class AzurermSpringCloudServiceContainerRegistryBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for default_build_service in .
+/// Block type for default_build_service in AzurermSpringCloudService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudServiceDefaultBuildServiceBlock : TerraformBlock
@@ -118,8 +395,9 @@ public class AzurermSpringCloudServiceDefaultBuildServiceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for marketplace in .
+/// Block type for marketplace in AzurermSpringCloudService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlock
@@ -161,8 +439,9 @@ public class AzurermSpringCloudServiceMarketplaceBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network in .
+/// Block type for network in AzurermSpringCloudService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
@@ -240,8 +519,9 @@ public class AzurermSpringCloudServiceNetworkBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudServiceTimeoutsBlock : TerraformBlock
@@ -289,8 +569,9 @@ public class AzurermSpringCloudServiceTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for trace in .
+/// Block type for trace in AzurermSpringCloudService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudServiceTraceBlock : TerraformBlock
@@ -319,6 +600,7 @@ public class AzurermSpringCloudServiceTraceBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_service Terraform resource.

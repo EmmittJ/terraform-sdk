@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKeyVaultManagedStorageAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermKeyVaultManagedStorageAccountTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_managed_storage_account Terraform resource.

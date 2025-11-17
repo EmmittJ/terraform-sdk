@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for target_region in .
+/// Block type for target_region in AzurermSharedImageVersion.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
@@ -62,8 +62,9 @@ public class AzurermSharedImageVersionTargetRegionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSharedImageVersion.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSharedImageVersionTimeoutsBlock : TerraformBlock
@@ -110,6 +111,7 @@ public class AzurermSharedImageVersionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_shared_image_version Terraform resource.

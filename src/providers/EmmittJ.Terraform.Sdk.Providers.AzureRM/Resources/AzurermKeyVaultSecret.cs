@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKeyVaultSecret.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermKeyVaultSecretTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_secret Terraform resource.

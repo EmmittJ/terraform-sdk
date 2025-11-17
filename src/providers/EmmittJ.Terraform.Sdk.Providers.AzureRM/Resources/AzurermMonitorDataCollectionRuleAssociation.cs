@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMonitorDataCollectionRuleAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorDataCollectionRuleAssociationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMonitorDataCollectionRuleAssociationTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_data_collection_rule_association Terraform resource.

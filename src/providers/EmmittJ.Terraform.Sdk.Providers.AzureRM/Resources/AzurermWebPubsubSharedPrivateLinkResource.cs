@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermWebPubsubSharedPrivateLinkResource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermWebPubsubSharedPrivateLinkResourceTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermWebPubsubSharedPrivateLinkResourceTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_web_pubsub_shared_private_link_resource Terraform resource.

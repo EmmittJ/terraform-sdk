@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPostgresqlActiveDirectoryAdministrator.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermPostgresqlActiveDirectoryAdministratorTimeoutsBlock : Terraf
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_postgresql_active_directory_administrator Terraform resource.

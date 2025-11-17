@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLbNatPool.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermLbNatPoolTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_lb_nat_pool Terraform resource.

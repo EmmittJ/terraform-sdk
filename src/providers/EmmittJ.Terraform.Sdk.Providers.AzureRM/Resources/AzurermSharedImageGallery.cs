@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for sharing in .
+/// Block type for sharing in AzurermSharedImageGallery.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSharedImageGallerySharingBlock : TerraformBlock
@@ -23,10 +23,82 @@ public class AzurermSharedImageGallerySharingBlock : TerraformBlock
         set => SetArgument("permission", value);
     }
 
+    /// <summary>
+    /// CommunityGallery block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CommunityGallery block(s) allowed")]
+    public TerraformList<AzurermSharedImageGallerySharingBlockCommunityGalleryBlock>? CommunityGallery
+    {
+        get => GetArgument<TerraformList<AzurermSharedImageGallerySharingBlockCommunityGalleryBlock>>("community_gallery");
+        set => SetArgument("community_gallery", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for community_gallery in AzurermSharedImageGallerySharingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSharedImageGallerySharingBlockCommunityGalleryBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "community_gallery";
+
+    /// <summary>
+    /// The eula attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Eula is required")]
+    public required TerraformValue<string> Eula
+    {
+        get => new TerraformReference<string>(this, "eula");
+        set => SetArgument("eula", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
+    /// The prefix attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
+    public required TerraformValue<string> Prefix
+    {
+        get => new TerraformReference<string>(this, "prefix");
+        set => SetArgument("prefix", value);
+    }
+
+    /// <summary>
+    /// The publisher_email attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublisherEmail is required")]
+    public required TerraformValue<string> PublisherEmail
+    {
+        get => new TerraformReference<string>(this, "publisher_email");
+        set => SetArgument("publisher_email", value);
+    }
+
+    /// <summary>
+    /// The publisher_uri attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublisherUri is required")]
+    public required TerraformValue<string> PublisherUri
+    {
+        get => new TerraformReference<string>(this, "publisher_uri");
+        set => SetArgument("publisher_uri", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermSharedImageGallery.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
@@ -73,6 +145,7 @@ public class AzurermSharedImageGalleryTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_shared_image_gallery Terraform resource.

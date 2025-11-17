@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for autoscale_settings in .
+/// Block type for autoscale_settings in AzurermCosmosdbSqlContainer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock : TerraformBlock
@@ -24,8 +24,9 @@ public class AzurermCosmosdbSqlContainerAutoscaleSettingsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for conflict_resolution_policy in .
+/// Block type for conflict_resolution_policy in AzurermCosmosdbSqlContainer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : TerraformBlock
@@ -65,8 +66,9 @@ public class AzurermCosmosdbSqlContainerConflictResolutionPolicyBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for indexing_policy in .
+/// Block type for indexing_policy in AzurermCosmosdbSqlContainer.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbSqlContainerIndexingPolicyBlock : TerraformBlock
@@ -85,10 +87,182 @@ public class AzurermCosmosdbSqlContainerIndexingPolicyBlock : TerraformBlock
         set => SetArgument("indexing_mode", value);
     }
 
+    /// <summary>
+    /// CompositeIndex block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlock>? CompositeIndex
+    {
+        get => GetArgument<TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlock>>("composite_index");
+        set => SetArgument("composite_index", value);
+    }
+
+    /// <summary>
+    /// ExcludedPath block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlockExcludedPathBlock>? ExcludedPath
+    {
+        get => GetArgument<TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlockExcludedPathBlock>>("excluded_path");
+        set => SetArgument("excluded_path", value);
+    }
+
+    /// <summary>
+    /// IncludedPath block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlockIncludedPathBlock>? IncludedPath
+    {
+        get => GetArgument<TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlockIncludedPathBlock>>("included_path");
+        set => SetArgument("included_path", value);
+    }
+
+    /// <summary>
+    /// SpatialIndex block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlockSpatialIndexBlock>? SpatialIndex
+    {
+        get => GetArgument<TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlockSpatialIndexBlock>>("spatial_index");
+        set => SetArgument("spatial_index", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for composite_index in AzurermCosmosdbSqlContainerIndexingPolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "composite_index";
+
+    /// <summary>
+    /// Index block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Index block(s) required")]
+    public required TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlockIndexBlock> Index
+    {
+        get => GetRequiredArgument<TerraformList<AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlockIndexBlock>>("index");
+        set => SetArgument("index", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for index in AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbSqlContainerIndexingPolicyBlockCompositeIndexBlockIndexBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "index";
+
+    /// <summary>
+    /// The order attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
+    public required TerraformValue<string> Order
+    {
+        get => new TerraformReference<string>(this, "order");
+        set => SetArgument("order", value);
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
+    public required TerraformValue<string> Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for excluded_path in AzurermCosmosdbSqlContainerIndexingPolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbSqlContainerIndexingPolicyBlockExcludedPathBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "excluded_path";
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
+    public required TerraformValue<string> Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for included_path in AzurermCosmosdbSqlContainerIndexingPolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbSqlContainerIndexingPolicyBlockIncludedPathBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "included_path";
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
+    public required TerraformValue<string> Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for spatial_index in AzurermCosmosdbSqlContainerIndexingPolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbSqlContainerIndexingPolicyBlockSpatialIndexBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "spatial_index";
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
+    public required TerraformValue<string> Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+    /// <summary>
+    /// The types attribute.
+    /// </summary>
+    public TerraformSet<string> Types
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "types").ResolveNodes(ctx));
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermCosmosdbSqlContainer.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbSqlContainerTimeoutsBlock : TerraformBlock
@@ -136,8 +310,9 @@ public class AzurermCosmosdbSqlContainerTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for unique_key in .
+/// Block type for unique_key in AzurermCosmosdbSqlContainer.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCosmosdbSqlContainerUniqueKeyBlock : TerraformBlock
@@ -158,6 +333,7 @@ public class AzurermCosmosdbSqlContainerUniqueKeyBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_sql_container Terraform resource.

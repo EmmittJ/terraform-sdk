@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudAppCosmosdbAssociation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_app_cosmosdb_association Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for feature in .
+/// Block type for feature in AzurermResourceProviderRegistration.
 /// Nesting mode: set
 /// </summary>
 public class AzurermResourceProviderRegistrationFeatureBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermResourceProviderRegistrationFeatureBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermResourceProviderRegistration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermResourceProviderRegistrationTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermResourceProviderRegistrationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_resource_provider_registration Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for elasticity_profile in .
+/// Block type for elasticity_profile in AzurermVirtualMachineScaleSetStandbyPool.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermVirtualMachineScaleSetStandbyPoolElasticityProfileBlock : Te
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualMachineScaleSetStandbyPool.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualMachineScaleSetStandbyPoolTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermVirtualMachineScaleSetStandbyPoolTimeoutsBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_machine_scale_set_standby_pool Terraform resource.

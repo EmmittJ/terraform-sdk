@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPublicIpPrefix.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPublicIpPrefixTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermPublicIpPrefixTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_public_ip_prefix Terraform resource.

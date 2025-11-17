@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for event_handler in .
+/// Block type for event_handler in AzurermWebPubsubHub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
@@ -41,10 +41,44 @@ public class AzurermWebPubsubHubEventHandlerBlock : TerraformBlock
         set => SetArgument("user_event_pattern", value);
     }
 
+    /// <summary>
+    /// Auth block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Auth block(s) allowed")]
+    public TerraformList<AzurermWebPubsubHubEventHandlerBlockAuthBlock>? Auth
+    {
+        get => GetArgument<TerraformList<AzurermWebPubsubHubEventHandlerBlockAuthBlock>>("auth");
+        set => SetArgument("auth", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for event_listener in .
+/// Block type for auth in AzurermWebPubsubHubEventHandlerBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebPubsubHubEventHandlerBlockAuthBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "auth";
+
+    /// <summary>
+    /// The managed_identity_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityId is required")]
+    public required TerraformValue<string> ManagedIdentityId
+    {
+        get => new TerraformReference<string>(this, "managed_identity_id");
+        set => SetArgument("managed_identity_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for event_listener in AzurermWebPubsubHub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
@@ -94,8 +128,9 @@ public class AzurermWebPubsubHubEventListenerBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermWebPubsubHub.
 /// Nesting mode: single
 /// </summary>
 public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
@@ -142,6 +177,7 @@ public class AzurermWebPubsubHubTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_web_pubsub_hub Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStackHciStoragePath.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStackHciStoragePathTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermStackHciStoragePathTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stack_hci_storage_path Terraform resource.

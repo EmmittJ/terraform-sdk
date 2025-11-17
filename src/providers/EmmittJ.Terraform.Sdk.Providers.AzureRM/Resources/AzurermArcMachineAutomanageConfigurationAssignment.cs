@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermArcMachineAutomanageConfigurationAssignment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermArcMachineAutomanageConfigurationAssignmentTimeoutsBlock : T
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_arc_machine_automanage_configuration_assignment Terraform resource.

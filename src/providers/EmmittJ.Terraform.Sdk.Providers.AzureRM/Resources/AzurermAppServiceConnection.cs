@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for authentication in .
+/// Block type for authentication in AzurermAppServiceConnection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppServiceConnectionAuthenticationBlock : TerraformBlock
@@ -79,8 +79,9 @@ public class AzurermAppServiceConnectionAuthenticationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for secret_store in .
+/// Block type for secret_store in AzurermAppServiceConnection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppServiceConnectionSecretStoreBlock : TerraformBlock
@@ -102,8 +103,9 @@ public class AzurermAppServiceConnectionSecretStoreBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAppServiceConnection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppServiceConnectionTimeoutsBlock : TerraformBlock
@@ -150,6 +152,7 @@ public class AzurermAppServiceConnectionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_service_connection Terraform resource.

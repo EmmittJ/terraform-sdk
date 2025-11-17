@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for pipeline in .
+/// Block type for pipeline in AzurermDataFactoryTriggerTumblingWindow.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermDataFactoryTriggerTumblingWindowPipelineBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for retry in .
+/// Block type for retry in AzurermDataFactoryTriggerTumblingWindow.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataFactoryTriggerTumblingWindowRetryBlock : TerraformBlock
@@ -66,8 +67,9 @@ public class AzurermDataFactoryTriggerTumblingWindowRetryBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermDataFactoryTriggerTumblingWindow.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlock
@@ -115,8 +117,9 @@ public class AzurermDataFactoryTriggerTumblingWindowTimeoutsBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for trigger_dependency in .
+/// Block type for trigger_dependency in AzurermDataFactoryTriggerTumblingWindow.
 /// Nesting mode: set
 /// </summary>
 public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : TerraformBlock
@@ -154,6 +157,7 @@ public class AzurermDataFactoryTriggerTumblingWindowTriggerDependencyBlock : Ter
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_factory_trigger_tumbling_window Terraform resource.

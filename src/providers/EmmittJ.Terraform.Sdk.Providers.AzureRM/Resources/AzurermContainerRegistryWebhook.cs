@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermContainerRegistryWebhook.
 /// Nesting mode: single
 /// </summary>
 public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermContainerRegistryWebhookTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_container_registry_webhook Terraform resource.

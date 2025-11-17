@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for autoscale_settings in .
+/// Block type for autoscale_settings in AzurermCosmosdbMongoCollection.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock : TerraformBlock
@@ -24,8 +24,9 @@ public class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for index in .
+/// Block type for index in AzurermCosmosdbMongoCollection.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlock
@@ -56,8 +57,9 @@ public class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCosmosdbMongoCollection.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
@@ -104,6 +106,7 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_mongo_collection Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for custom_rules in .
+/// Block type for custom_rules in AzurermWebApplicationFirewallPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBlock
@@ -88,10 +88,117 @@ public class AzurermWebApplicationFirewallPolicyCustomRulesBlock : TerraformBloc
         set => SetArgument("rule_type", value);
     }
 
+    /// <summary>
+    /// MatchConditions block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchConditions is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MatchConditions block(s) required")]
+    public required TerraformList<AzurermWebApplicationFirewallPolicyCustomRulesBlockMatchConditionsBlock> MatchConditions
+    {
+        get => GetRequiredArgument<TerraformList<AzurermWebApplicationFirewallPolicyCustomRulesBlockMatchConditionsBlock>>("match_conditions");
+        set => SetArgument("match_conditions", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for managed_rules in .
+/// Block type for match_conditions in AzurermWebApplicationFirewallPolicyCustomRulesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebApplicationFirewallPolicyCustomRulesBlockMatchConditionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "match_conditions";
+
+    /// <summary>
+    /// The match_values attribute.
+    /// </summary>
+    public TerraformList<string>? MatchValues
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "match_values").ResolveNodes(ctx));
+        set => SetArgument("match_values", value);
+    }
+
+    /// <summary>
+    /// The negation_condition attribute.
+    /// </summary>
+    public TerraformValue<bool>? NegationCondition
+    {
+        get => new TerraformReference<bool>(this, "negation_condition");
+        set => SetArgument("negation_condition", value);
+    }
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The transforms attribute.
+    /// </summary>
+    public TerraformSet<string>? Transforms
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "transforms").ResolveNodes(ctx));
+        set => SetArgument("transforms", value);
+    }
+
+    /// <summary>
+    /// MatchVariables block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariables is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MatchVariables block(s) required")]
+    public required TerraformList<AzurermWebApplicationFirewallPolicyCustomRulesBlockMatchConditionsBlockMatchVariablesBlock> MatchVariables
+    {
+        get => GetRequiredArgument<TerraformList<AzurermWebApplicationFirewallPolicyCustomRulesBlockMatchConditionsBlockMatchVariablesBlock>>("match_variables");
+        set => SetArgument("match_variables", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for match_variables in AzurermWebApplicationFirewallPolicyCustomRulesBlockMatchConditionsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebApplicationFirewallPolicyCustomRulesBlockMatchConditionsBlockMatchVariablesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "match_variables";
+
+    /// <summary>
+    /// The selector attribute.
+    /// </summary>
+    public TerraformValue<string>? Selector
+    {
+        get => new TerraformReference<string>(this, "selector");
+        set => SetArgument("selector", value);
+    }
+
+    /// <summary>
+    /// The variable_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VariableName is required")]
+    public required TerraformValue<string> VariableName
+    {
+        get => new TerraformReference<string>(this, "variable_name");
+        set => SetArgument("variable_name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for managed_rules in AzurermWebApplicationFirewallPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWebApplicationFirewallPolicyManagedRulesBlock : TerraformBlock
@@ -101,10 +208,271 @@ public class AzurermWebApplicationFirewallPolicyManagedRulesBlock : TerraformBlo
     /// </summary>
     public override string BlockType => "managed_rules";
 
+    /// <summary>
+    /// Exclusion block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlock>? Exclusion
+    {
+        get => GetArgument<TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlock>>("exclusion");
+        set => SetArgument("exclusion", value);
+    }
+
+    /// <summary>
+    /// ManagedRuleSet block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedRuleSet is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ManagedRuleSet block(s) required")]
+    public required TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlock> ManagedRuleSet
+    {
+        get => GetRequiredArgument<TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlock>>("managed_rule_set");
+        set => SetArgument("managed_rule_set", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for policy_settings in .
+/// Block type for exclusion in AzurermWebApplicationFirewallPolicyManagedRulesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "exclusion";
+
+    /// <summary>
+    /// The match_variable attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
+    public required TerraformValue<string> MatchVariable
+    {
+        get => new TerraformReference<string>(this, "match_variable");
+        set => SetArgument("match_variable", value);
+    }
+
+    /// <summary>
+    /// The selector attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selector is required")]
+    public required TerraformValue<string> Selector
+    {
+        get => new TerraformReference<string>(this, "selector");
+        set => SetArgument("selector", value);
+    }
+
+    /// <summary>
+    /// The selector_match_operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SelectorMatchOperator is required")]
+    public required TerraformValue<string> SelectorMatchOperator
+    {
+        get => new TerraformReference<string>(this, "selector_match_operator");
+        set => SetArgument("selector_match_operator", value);
+    }
+
+    /// <summary>
+    /// ExcludedRuleSet block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludedRuleSet block(s) allowed")]
+    public TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlockExcludedRuleSetBlock>? ExcludedRuleSet
+    {
+        get => GetArgument<TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlockExcludedRuleSetBlock>>("excluded_rule_set");
+        set => SetArgument("excluded_rule_set", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for excluded_rule_set in AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlockExcludedRuleSetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "excluded_rule_set";
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string>? Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string>? Version
+    {
+        get => new TerraformReference<string>(this, "version");
+        set => SetArgument("version", value);
+    }
+
+    /// <summary>
+    /// RuleGroup block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlockExcludedRuleSetBlockRuleGroupBlock>? RuleGroup
+    {
+        get => GetArgument<TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlockExcludedRuleSetBlockRuleGroupBlock>>("rule_group");
+        set => SetArgument("rule_group", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for rule_group in AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlockExcludedRuleSetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebApplicationFirewallPolicyManagedRulesBlockExclusionBlockExcludedRuleSetBlockRuleGroupBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "rule_group";
+
+    /// <summary>
+    /// The excluded_rules attribute.
+    /// </summary>
+    public TerraformList<string>? ExcludedRules
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "excluded_rules").ResolveNodes(ctx));
+        set => SetArgument("excluded_rules", value);
+    }
+
+    /// <summary>
+    /// The rule_group_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleGroupName is required")]
+    public required TerraformValue<string> RuleGroupName
+    {
+        get => new TerraformReference<string>(this, "rule_group_name");
+        set => SetArgument("rule_group_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for managed_rule_set in AzurermWebApplicationFirewallPolicyManagedRulesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "managed_rule_set";
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string>? Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
+    public required TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+        set => SetArgument("version", value);
+    }
+
+    /// <summary>
+    /// RuleGroupOverride block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlockRuleGroupOverrideBlock>? RuleGroupOverride
+    {
+        get => GetArgument<TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlockRuleGroupOverrideBlock>>("rule_group_override");
+        set => SetArgument("rule_group_override", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for rule_group_override in AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlockRuleGroupOverrideBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "rule_group_override";
+
+    /// <summary>
+    /// The rule_group_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleGroupName is required")]
+    public required TerraformValue<string> RuleGroupName
+    {
+        get => new TerraformReference<string>(this, "rule_group_name");
+        set => SetArgument("rule_group_name", value);
+    }
+
+    /// <summary>
+    /// Rule block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlockRuleGroupOverrideBlockRuleBlock>? Rule
+    {
+        get => GetArgument<TerraformList<AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlockRuleGroupOverrideBlockRuleBlock>>("rule");
+        set => SetArgument("rule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for rule in AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlockRuleGroupOverrideBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebApplicationFirewallPolicyManagedRulesBlockManagedRuleSetBlockRuleGroupOverrideBlockRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "rule";
+
+    /// <summary>
+    /// The action attribute.
+    /// </summary>
+    public TerraformValue<string>? Action
+    {
+        get => new TerraformReference<string>(this, "action");
+        set => SetArgument("action", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
+    public required TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for policy_settings in AzurermWebApplicationFirewallPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWebApplicationFirewallPolicyPolicySettingsBlock : TerraformBlock
@@ -195,10 +563,102 @@ public class AzurermWebApplicationFirewallPolicyPolicySettingsBlock : TerraformB
         set => SetArgument("request_body_inspect_limit_in_kb", value);
     }
 
+    /// <summary>
+    /// LogScrubbing block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogScrubbing block(s) allowed")]
+    public TerraformList<AzurermWebApplicationFirewallPolicyPolicySettingsBlockLogScrubbingBlock>? LogScrubbing
+    {
+        get => GetArgument<TerraformList<AzurermWebApplicationFirewallPolicyPolicySettingsBlockLogScrubbingBlock>>("log_scrubbing");
+        set => SetArgument("log_scrubbing", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for log_scrubbing in AzurermWebApplicationFirewallPolicyPolicySettingsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebApplicationFirewallPolicyPolicySettingsBlockLogScrubbingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "log_scrubbing";
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// Rule block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermWebApplicationFirewallPolicyPolicySettingsBlockLogScrubbingBlockRuleBlock>? Rule
+    {
+        get => GetArgument<TerraformList<AzurermWebApplicationFirewallPolicyPolicySettingsBlockLogScrubbingBlockRuleBlock>>("rule");
+        set => SetArgument("rule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for rule in AzurermWebApplicationFirewallPolicyPolicySettingsBlockLogScrubbingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermWebApplicationFirewallPolicyPolicySettingsBlockLogScrubbingBlockRuleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "rule";
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// The match_variable attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchVariable is required")]
+    public required TerraformValue<string> MatchVariable
+    {
+        get => new TerraformReference<string>(this, "match_variable");
+        set => SetArgument("match_variable", value);
+    }
+
+    /// <summary>
+    /// When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
+    /// </summary>
+    public TerraformValue<string>? Selector
+    {
+        get => new TerraformReference<string>(this, "selector");
+        set => SetArgument("selector", value);
+    }
+
+    /// <summary>
+    /// The selector_match_operator attribute.
+    /// </summary>
+    public TerraformValue<string>? SelectorMatchOperator
+    {
+        get => new TerraformReference<string>(this, "selector_match_operator");
+        set => SetArgument("selector_match_operator", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermWebApplicationFirewallPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermWebApplicationFirewallPolicyTimeoutsBlock : TerraformBlock
@@ -245,6 +705,7 @@ public class AzurermWebApplicationFirewallPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_web_application_firewall_policy Terraform resource.

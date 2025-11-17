@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for nat_ip_configuration in .
+/// Block type for nat_ip_configuration in AzurermPrivateLinkService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
@@ -63,8 +63,9 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPrivateLinkService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
@@ -111,6 +112,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_private_link_service Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for soa_record in .
+/// Block type for soa_record in AzurermPrivateDnsZone.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPrivateDnsZoneSoaRecordBlock : TerraformBlock
@@ -103,8 +103,9 @@ public class AzurermPrivateDnsZoneSoaRecordBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPrivateDnsZone.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPrivateDnsZoneTimeoutsBlock : TerraformBlock
@@ -151,6 +152,7 @@ public class AzurermPrivateDnsZoneTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_private_dns_zone Terraform resource.

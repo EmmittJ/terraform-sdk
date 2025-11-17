@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermUserAssignedIdentity.
 /// Nesting mode: single
 /// </summary>
 public class AzurermUserAssignedIdentityTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermUserAssignedIdentityTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_user_assigned_identity Terraform resource.

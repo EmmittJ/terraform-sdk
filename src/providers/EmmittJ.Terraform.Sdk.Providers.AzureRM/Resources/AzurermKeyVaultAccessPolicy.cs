@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermKeyVaultAccessPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermKeyVaultAccessPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_key_vault_access_policy Terraform resource.

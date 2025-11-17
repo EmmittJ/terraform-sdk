@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMysqlFlexibleServerActiveDirectoryAdministrator.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMysqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMysqlFlexibleServerActiveDirectoryAdministratorTimeoutsBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mysql_flexible_server_active_directory_administrator Terraform resource.

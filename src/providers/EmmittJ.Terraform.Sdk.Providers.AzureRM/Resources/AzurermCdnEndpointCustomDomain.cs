@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for cdn_managed_https in .
+/// Block type for cdn_managed_https in AzurermCdnEndpointCustomDomain.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
@@ -44,8 +44,9 @@ public class AzurermCdnEndpointCustomDomainCdnManagedHttpsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCdnEndpointCustomDomain.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
@@ -93,8 +94,9 @@ public class AzurermCdnEndpointCustomDomainTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for user_managed_https in .
+/// Block type for user_managed_https in AzurermCdnEndpointCustomDomain.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBlock
@@ -124,6 +126,7 @@ public class AzurermCdnEndpointCustomDomainUserManagedHttpsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_endpoint_custom_domain Terraform resource.

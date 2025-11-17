@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for export_data_options in .
+/// Block type for export_data_options in AzurermSubscriptionCostManagementExport.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSubscriptionCostManagementExportExportDataOptionsBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermSubscriptionCostManagementExportExportDataOptionsBlock : Ter
 
 }
 
+
 /// <summary>
-/// Block type for export_data_storage_location in .
+/// Block type for export_data_storage_location in AzurermSubscriptionCostManagementExport.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSubscriptionCostManagementExportExportDataStorageLocationBlock : TerraformBlock
@@ -68,8 +69,9 @@ public class AzurermSubscriptionCostManagementExportExportDataStorageLocationBlo
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSubscriptionCostManagementExport.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlock
@@ -116,6 +118,7 @@ public class AzurermSubscriptionCostManagementExportTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_subscription_cost_management_export Terraform resource.

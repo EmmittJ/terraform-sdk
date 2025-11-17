@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for network_address_port_translation in .
+/// Block type for network_address_port_translation in AzurermMobileNetworkAttachedDataNetwork.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock : TerraformBlock
@@ -67,10 +67,52 @@ public class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslatio
         set => SetArgument("udp_port_reuse_minimum_hold_time_in_seconds", value);
     }
 
+    /// <summary>
+    /// PortRange block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PortRange block(s) allowed")]
+    public TerraformList<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlockPortRangeBlock>? PortRange
+    {
+        get => GetArgument<TerraformList<AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlockPortRangeBlock>>("port_range");
+        set => SetArgument("port_range", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for port_range in AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMobileNetworkAttachedDataNetworkNetworkAddressPortTranslationBlockPortRangeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "port_range";
+
+    /// <summary>
+    /// The maximum attribute.
+    /// </summary>
+    public TerraformValue<double>? Maximum
+    {
+        get => new TerraformReference<double>(this, "maximum");
+        set => SetArgument("maximum", value);
+    }
+
+    /// <summary>
+    /// The minimum attribute.
+    /// </summary>
+    public TerraformValue<double>? Minimum
+    {
+        get => new TerraformReference<double>(this, "minimum");
+        set => SetArgument("minimum", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermMobileNetworkAttachedDataNetwork.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock : TerraformBlock
@@ -117,6 +159,7 @@ public class AzurermMobileNetworkAttachedDataNetworkTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_mobile_network_attached_data_network Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermEventgridNamespace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridNamespaceIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermEventgridNamespaceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for inbound_ip_rule in .
+/// Block type for inbound_ip_rule in AzurermEventgridNamespace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridNamespaceInboundIpRuleBlock : TerraformBlock
@@ -82,8 +83,9 @@ public class AzurermEventgridNamespaceInboundIpRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermEventgridNamespace.
 /// Nesting mode: single
 /// </summary>
 public class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlock
@@ -131,8 +133,9 @@ public class AzurermEventgridNamespaceTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for topic_spaces_configuration in .
+/// Block type for topic_spaces_configuration in AzurermEventgridNamespace.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformBlock
@@ -178,7 +181,92 @@ public class AzurermEventgridNamespaceTopicSpacesConfigurationBlock : TerraformB
         set => SetArgument("route_topic_id", value);
     }
 
+    /// <summary>
+    /// DynamicRoutingEnrichment block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridNamespaceTopicSpacesConfigurationBlockDynamicRoutingEnrichmentBlock>? DynamicRoutingEnrichment
+    {
+        get => GetArgument<TerraformList<AzurermEventgridNamespaceTopicSpacesConfigurationBlockDynamicRoutingEnrichmentBlock>>("dynamic_routing_enrichment");
+        set => SetArgument("dynamic_routing_enrichment", value);
+    }
+
+    /// <summary>
+    /// StaticRoutingEnrichment block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridNamespaceTopicSpacesConfigurationBlockStaticRoutingEnrichmentBlock>? StaticRoutingEnrichment
+    {
+        get => GetArgument<TerraformList<AzurermEventgridNamespaceTopicSpacesConfigurationBlockStaticRoutingEnrichmentBlock>>("static_routing_enrichment");
+        set => SetArgument("static_routing_enrichment", value);
+    }
+
 }
+
+/// <summary>
+/// Block type for dynamic_routing_enrichment in AzurermEventgridNamespaceTopicSpacesConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridNamespaceTopicSpacesConfigurationBlockDynamicRoutingEnrichmentBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dynamic_routing_enrichment";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for static_routing_enrichment in AzurermEventgridNamespaceTopicSpacesConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridNamespaceTopicSpacesConfigurationBlockStaticRoutingEnrichmentBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "static_routing_enrichment";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
 
 /// <summary>
 /// Represents a azurerm_eventgrid_namespace Terraform resource.

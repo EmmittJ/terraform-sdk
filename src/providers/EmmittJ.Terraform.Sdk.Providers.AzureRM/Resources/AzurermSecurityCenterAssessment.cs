@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for status in .
+/// Block type for status in AzurermSecurityCenterAssessment.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
@@ -43,8 +43,9 @@ public class AzurermSecurityCenterAssessmentStatusBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSecurityCenterAssessment.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
@@ -91,6 +92,7 @@ public class AzurermSecurityCenterAssessmentTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_security_center_assessment Terraform resource.

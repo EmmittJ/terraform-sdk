@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for condition in .
+/// Block type for condition in AzurermMonitorAlertProcessingRuleActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlock : TerraformBlock
@@ -13,10 +13,484 @@ public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlock : Terraf
     /// </summary>
     public override string BlockType => "condition";
 
+    /// <summary>
+    /// AlertContext block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlertContext block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockAlertContextBlock>? AlertContext
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockAlertContextBlock>>("alert_context");
+        set => SetArgument("alert_context", value);
+    }
+
+    /// <summary>
+    /// AlertRuleId block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlertRuleId block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockAlertRuleIdBlock>? AlertRuleId
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockAlertRuleIdBlock>>("alert_rule_id");
+        set => SetArgument("alert_rule_id", value);
+    }
+
+    /// <summary>
+    /// AlertRuleName block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlertRuleName block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockAlertRuleNameBlock>? AlertRuleName
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockAlertRuleNameBlock>>("alert_rule_name");
+        set => SetArgument("alert_rule_name", value);
+    }
+
+    /// <summary>
+    /// Description block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Description block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockDescriptionBlock>? Description
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockDescriptionBlock>>("description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// MonitorCondition block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitorCondition block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockMonitorConditionBlock>? MonitorCondition
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockMonitorConditionBlock>>("monitor_condition");
+        set => SetArgument("monitor_condition", value);
+    }
+
+    /// <summary>
+    /// MonitorService block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitorService block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockMonitorServiceBlock>? MonitorService
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockMonitorServiceBlock>>("monitor_service");
+        set => SetArgument("monitor_service", value);
+    }
+
+    /// <summary>
+    /// Severity block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Severity block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockSeverityBlock>? Severity
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockSeverityBlock>>("severity");
+        set => SetArgument("severity", value);
+    }
+
+    /// <summary>
+    /// SignalType block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignalType block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockSignalTypeBlock>? SignalType
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockSignalTypeBlock>>("signal_type");
+        set => SetArgument("signal_type", value);
+    }
+
+    /// <summary>
+    /// TargetResource block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetResource block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockTargetResourceBlock>? TargetResource
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockTargetResourceBlock>>("target_resource");
+        set => SetArgument("target_resource", value);
+    }
+
+    /// <summary>
+    /// TargetResourceGroup block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetResourceGroup block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockTargetResourceGroupBlock>? TargetResourceGroup
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockTargetResourceGroupBlock>>("target_resource_group");
+        set => SetArgument("target_resource_group", value);
+    }
+
+    /// <summary>
+    /// TargetResourceType block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetResourceType block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockTargetResourceTypeBlock>? TargetResourceType
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupConditionBlockTargetResourceTypeBlock>>("target_resource_type");
+        set => SetArgument("target_resource_type", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for schedule in .
+/// Block type for alert_context in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockAlertContextBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "alert_context";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for alert_rule_id in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockAlertRuleIdBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "alert_rule_id";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for alert_rule_name in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockAlertRuleNameBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "alert_rule_name";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for description in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockDescriptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "description";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for monitor_condition in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockMonitorConditionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "monitor_condition";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for monitor_service in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockMonitorServiceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "monitor_service";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for severity in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockSeverityBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "severity";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for signal_type in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockSignalTypeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "signal_type";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target_resource in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockTargetResourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "target_resource";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target_resource_group in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockTargetResourceGroupBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "target_resource_group";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for target_resource_type in AzurermMonitorAlertProcessingRuleActionGroupConditionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupConditionBlockTargetResourceTypeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "target_resource_type";
+
+    /// <summary>
+    /// The operator attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAttribute is required")]
+    public required TerraformValue<string> OperatorAttribute
+    {
+        get => new TerraformReference<string>(this, "operator");
+        set => SetArgument("operator", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for schedule in AzurermMonitorAlertProcessingRuleActionGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock : TerraformBlock
@@ -53,10 +527,176 @@ public class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock : Terrafo
         set => SetArgument("time_zone", value);
     }
 
+    /// <summary>
+    /// Recurrence block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Recurrence block(s) allowed")]
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlock>? Recurrence
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlock>>("recurrence");
+        set => SetArgument("recurrence", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for recurrence in AzurermMonitorAlertProcessingRuleActionGroupScheduleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "recurrence";
+
+    /// <summary>
+    /// Daily block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlockDailyBlock>? Daily
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlockDailyBlock>>("daily");
+        set => SetArgument("daily", value);
+    }
+
+    /// <summary>
+    /// Monthly block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlockMonthlyBlock>? Monthly
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlockMonthlyBlock>>("monthly");
+        set => SetArgument("monthly", value);
+    }
+
+    /// <summary>
+    /// Weekly block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlockWeeklyBlock>? Weekly
+    {
+        get => GetArgument<TerraformList<AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlockWeeklyBlock>>("weekly");
+        set => SetArgument("weekly", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for daily in AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlockDailyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "daily";
+
+    /// <summary>
+    /// The end_time attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndTime is required")]
+    public required TerraformValue<string> EndTime
+    {
+        get => new TerraformReference<string>(this, "end_time");
+        set => SetArgument("end_time", value);
+    }
+
+    /// <summary>
+    /// The start_time attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StartTime is required")]
+    public required TerraformValue<string> StartTime
+    {
+        get => new TerraformReference<string>(this, "start_time");
+        set => SetArgument("start_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for monthly in AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlockMonthlyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "monthly";
+
+    /// <summary>
+    /// The days_of_month attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysOfMonth is required")]
+    public TerraformList<double>? DaysOfMonth
+    {
+        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "days_of_month").ResolveNodes(ctx));
+        set => SetArgument("days_of_month", value);
+    }
+
+    /// <summary>
+    /// The end_time attribute.
+    /// </summary>
+    public TerraformValue<string>? EndTime
+    {
+        get => new TerraformReference<string>(this, "end_time");
+        set => SetArgument("end_time", value);
+    }
+
+    /// <summary>
+    /// The start_time attribute.
+    /// </summary>
+    public TerraformValue<string>? StartTime
+    {
+        get => new TerraformReference<string>(this, "start_time");
+        set => SetArgument("start_time", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for weekly in AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermMonitorAlertProcessingRuleActionGroupScheduleBlockRecurrenceBlockWeeklyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "weekly";
+
+    /// <summary>
+    /// The days_of_week attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DaysOfWeek is required")]
+    public TerraformList<string>? DaysOfWeek
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "days_of_week").ResolveNodes(ctx));
+        set => SetArgument("days_of_week", value);
+    }
+
+    /// <summary>
+    /// The end_time attribute.
+    /// </summary>
+    public TerraformValue<string>? EndTime
+    {
+        get => new TerraformReference<string>(this, "end_time");
+        set => SetArgument("end_time", value);
+    }
+
+    /// <summary>
+    /// The start_time attribute.
+    /// </summary>
+    public TerraformValue<string>? StartTime
+    {
+        get => new TerraformReference<string>(this, "start_time");
+        set => SetArgument("start_time", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermMonitorAlertProcessingRuleActionGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock : TerraformBlock
@@ -103,6 +743,7 @@ public class AzurermMonitorAlertProcessingRuleActionGroupTimeoutsBlock : Terrafo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_monitor_alert_processing_rule_action_group Terraform resource.

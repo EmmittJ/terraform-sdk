@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermLogAnalyticsCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermLogAnalyticsClusterIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermLogAnalyticsClusterIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogAnalyticsCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogAnalyticsClusterTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermLogAnalyticsClusterTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_log_analytics_cluster Terraform resource.

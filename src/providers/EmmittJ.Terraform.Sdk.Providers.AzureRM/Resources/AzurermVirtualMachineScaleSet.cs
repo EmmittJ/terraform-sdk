@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for boot_diagnostics in .
+/// Block type for boot_diagnostics in AzurermVirtualMachineScaleSet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineScaleSetBootDiagnosticsBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermVirtualMachineScaleSetBootDiagnosticsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for extension in .
+/// Block type for extension in AzurermVirtualMachineScaleSet.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVirtualMachineScaleSetExtensionBlock : TerraformBlock
@@ -123,8 +124,9 @@ public class AzurermVirtualMachineScaleSetExtensionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermVirtualMachineScaleSet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineScaleSetIdentityBlock : TerraformBlock
@@ -171,8 +173,9 @@ public class AzurermVirtualMachineScaleSetIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for network_profile in .
+/// Block type for network_profile in AzurermVirtualMachineScaleSet.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVirtualMachineScaleSetNetworkProfileBlock : TerraformBlock
@@ -229,10 +232,188 @@ public class AzurermVirtualMachineScaleSetNetworkProfileBlock : TerraformBlock
         set => SetArgument("primary", value);
     }
 
+    /// <summary>
+    /// DnsSettings block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
+    public TerraformList<AzurermVirtualMachineScaleSetNetworkProfileBlockDnsSettingsBlock>? DnsSettings
+    {
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetNetworkProfileBlockDnsSettingsBlock>>("dns_settings");
+        set => SetArgument("dns_settings", value);
+    }
+
+    /// <summary>
+    /// IpConfiguration block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfiguration is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IpConfiguration block(s) required")]
+    public required TerraformList<AzurermVirtualMachineScaleSetNetworkProfileBlockIpConfigurationBlock> IpConfiguration
+    {
+        get => GetRequiredArgument<TerraformList<AzurermVirtualMachineScaleSetNetworkProfileBlockIpConfigurationBlock>>("ip_configuration");
+        set => SetArgument("ip_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for os_profile in .
+/// Block type for dns_settings in AzurermVirtualMachineScaleSetNetworkProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachineScaleSetNetworkProfileBlockDnsSettingsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dns_settings";
+
+    /// <summary>
+    /// The dns_servers attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsServers is required")]
+    public TerraformList<string>? DnsServers
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "dns_servers").ResolveNodes(ctx));
+        set => SetArgument("dns_servers", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ip_configuration in AzurermVirtualMachineScaleSetNetworkProfileBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachineScaleSetNetworkProfileBlockIpConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ip_configuration";
+
+    /// <summary>
+    /// The application_gateway_backend_address_pool_ids attribute.
+    /// </summary>
+    public TerraformSet<string>? ApplicationGatewayBackendAddressPoolIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "application_gateway_backend_address_pool_ids").ResolveNodes(ctx));
+        set => SetArgument("application_gateway_backend_address_pool_ids", value);
+    }
+
+    /// <summary>
+    /// The application_security_group_ids attribute.
+    /// </summary>
+    public TerraformSet<string>? ApplicationSecurityGroupIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "application_security_group_ids").ResolveNodes(ctx));
+        set => SetArgument("application_security_group_ids", value);
+    }
+
+    /// <summary>
+    /// The load_balancer_backend_address_pool_ids attribute.
+    /// </summary>
+    public TerraformSet<string>? LoadBalancerBackendAddressPoolIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "load_balancer_backend_address_pool_ids").ResolveNodes(ctx));
+        set => SetArgument("load_balancer_backend_address_pool_ids", value);
+    }
+
+    /// <summary>
+    /// The load_balancer_inbound_nat_rules_ids attribute.
+    /// </summary>
+    public TerraformSet<string> LoadBalancerInboundNatRulesIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "load_balancer_inbound_nat_rules_ids").ResolveNodes(ctx));
+        set => SetArgument("load_balancer_inbound_nat_rules_ids", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The primary attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Primary is required")]
+    public required TerraformValue<bool> Primary
+    {
+        get => new TerraformReference<bool>(this, "primary");
+        set => SetArgument("primary", value);
+    }
+
+    /// <summary>
+    /// The subnet_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
+    public required TerraformValue<string> SubnetId
+    {
+        get => new TerraformReference<string>(this, "subnet_id");
+        set => SetArgument("subnet_id", value);
+    }
+
+    /// <summary>
+    /// PublicIpAddressConfiguration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PublicIpAddressConfiguration block(s) allowed")]
+    public TerraformList<AzurermVirtualMachineScaleSetNetworkProfileBlockIpConfigurationBlockPublicIpAddressConfigurationBlock>? PublicIpAddressConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetNetworkProfileBlockIpConfigurationBlockPublicIpAddressConfigurationBlock>>("public_ip_address_configuration");
+        set => SetArgument("public_ip_address_configuration", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for public_ip_address_configuration in AzurermVirtualMachineScaleSetNetworkProfileBlockIpConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachineScaleSetNetworkProfileBlockIpConfigurationBlockPublicIpAddressConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "public_ip_address_configuration";
+
+    /// <summary>
+    /// The domain_name_label attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNameLabel is required")]
+    public required TerraformValue<string> DomainNameLabel
+    {
+        get => new TerraformReference<string>(this, "domain_name_label");
+        set => SetArgument("domain_name_label", value);
+    }
+
+    /// <summary>
+    /// The idle_timeout attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdleTimeout is required")]
+    public required TerraformValue<double> IdleTimeout
+    {
+        get => new TerraformReference<double>(this, "idle_timeout");
+        set => SetArgument("idle_timeout", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for os_profile in AzurermVirtualMachineScaleSet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineScaleSetOsProfileBlock : TerraformBlock
@@ -282,8 +463,9 @@ public class AzurermVirtualMachineScaleSetOsProfileBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for os_profile_linux_config in .
+/// Block type for os_profile_linux_config in AzurermVirtualMachineScaleSet.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock : TerraformBlock
@@ -302,10 +484,52 @@ public class AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock : TerraformB
         set => SetArgument("disable_password_authentication", value);
     }
 
+    /// <summary>
+    /// SshKeys block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlockSshKeysBlock>? SshKeys
+    {
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlockSshKeysBlock>>("ssh_keys");
+        set => SetArgument("ssh_keys", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for os_profile_secrets in .
+/// Block type for ssh_keys in AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachineScaleSetOsProfileLinuxConfigBlockSshKeysBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ssh_keys";
+
+    /// <summary>
+    /// The key_data attribute.
+    /// </summary>
+    public TerraformValue<string>? KeyData
+    {
+        get => new TerraformReference<string>(this, "key_data");
+        set => SetArgument("key_data", value);
+    }
+
+    /// <summary>
+    /// The path attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
+    public required TerraformValue<string> Path
+    {
+        get => new TerraformReference<string>(this, "path");
+        set => SetArgument("path", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for os_profile_secrets in AzurermVirtualMachineScaleSet.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVirtualMachineScaleSetOsProfileSecretsBlock : TerraformBlock
@@ -325,10 +549,52 @@ public class AzurermVirtualMachineScaleSetOsProfileSecretsBlock : TerraformBlock
         set => SetArgument("source_vault_id", value);
     }
 
+    /// <summary>
+    /// VaultCertificates block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermVirtualMachineScaleSetOsProfileSecretsBlockVaultCertificatesBlock>? VaultCertificates
+    {
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetOsProfileSecretsBlockVaultCertificatesBlock>>("vault_certificates");
+        set => SetArgument("vault_certificates", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for os_profile_windows_config in .
+/// Block type for vault_certificates in AzurermVirtualMachineScaleSetOsProfileSecretsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachineScaleSetOsProfileSecretsBlockVaultCertificatesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "vault_certificates";
+
+    /// <summary>
+    /// The certificate_store attribute.
+    /// </summary>
+    public TerraformValue<string>? CertificateStore
+    {
+        get => new TerraformReference<string>(this, "certificate_store");
+        set => SetArgument("certificate_store", value);
+    }
+
+    /// <summary>
+    /// The certificate_url attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateUrl is required")]
+    public required TerraformValue<string> CertificateUrl
+    {
+        get => new TerraformReference<string>(this, "certificate_url");
+        set => SetArgument("certificate_url", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for os_profile_windows_config in AzurermVirtualMachineScaleSet.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock : TerraformBlock
@@ -356,10 +622,114 @@ public class AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock : Terrafor
         set => SetArgument("provision_vm_agent", value);
     }
 
+    /// <summary>
+    /// AdditionalUnattendConfig block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlockAdditionalUnattendConfigBlock>? AdditionalUnattendConfig
+    {
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlockAdditionalUnattendConfigBlock>>("additional_unattend_config");
+        set => SetArgument("additional_unattend_config", value);
+    }
+
+    /// <summary>
+    /// Winrm block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlockWinrmBlock>? Winrm
+    {
+        get => GetArgument<TerraformList<AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlockWinrmBlock>>("winrm");
+        set => SetArgument("winrm", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for plan in .
+/// Block type for additional_unattend_config in AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlockAdditionalUnattendConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "additional_unattend_config";
+
+    /// <summary>
+    /// The component attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Component is required")]
+    public required TerraformValue<string> Component
+    {
+        get => new TerraformReference<string>(this, "component");
+        set => SetArgument("component", value);
+    }
+
+    /// <summary>
+    /// The content attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
+    public required TerraformValue<string> Content
+    {
+        get => new TerraformReference<string>(this, "content");
+        set => SetArgument("content", value);
+    }
+
+    /// <summary>
+    /// The pass attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pass is required")]
+    public required TerraformValue<string> Pass
+    {
+        get => new TerraformReference<string>(this, "pass");
+        set => SetArgument("pass", value);
+    }
+
+    /// <summary>
+    /// The setting_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SettingName is required")]
+    public required TerraformValue<string> SettingName
+    {
+        get => new TerraformReference<string>(this, "setting_name");
+        set => SetArgument("setting_name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for winrm in AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVirtualMachineScaleSetOsProfileWindowsConfigBlockWinrmBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "winrm";
+
+    /// <summary>
+    /// The certificate_url attribute.
+    /// </summary>
+    public TerraformValue<string>? CertificateUrl
+    {
+        get => new TerraformReference<string>(this, "certificate_url");
+        set => SetArgument("certificate_url", value);
+    }
+
+    /// <summary>
+    /// The protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
+    public required TerraformValue<string> Protocol
+    {
+        get => new TerraformReference<string>(this, "protocol");
+        set => SetArgument("protocol", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for plan in AzurermVirtualMachineScaleSet.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVirtualMachineScaleSetPlanBlock : TerraformBlock
@@ -401,8 +771,9 @@ public class AzurermVirtualMachineScaleSetPlanBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for rolling_upgrade_policy in .
+/// Block type for rolling_upgrade_policy in AzurermVirtualMachineScaleSet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock : TerraformBlock
@@ -450,8 +821,9 @@ public class AzurermVirtualMachineScaleSetRollingUpgradePolicyBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermVirtualMachineScaleSet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineScaleSetSkuBlock : TerraformBlock
@@ -492,8 +864,9 @@ public class AzurermVirtualMachineScaleSetSkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage_profile_data_disk in .
+/// Block type for storage_profile_data_disk in AzurermVirtualMachineScaleSet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock : TerraformBlock
@@ -552,8 +925,9 @@ public class AzurermVirtualMachineScaleSetStorageProfileDataDiskBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for storage_profile_image_reference in .
+/// Block type for storage_profile_image_reference in AzurermVirtualMachineScaleSet.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVirtualMachineScaleSetStorageProfileImageReferenceBlock : TerraformBlock
@@ -610,8 +984,9 @@ public class AzurermVirtualMachineScaleSetStorageProfileImageReferenceBlock : Te
 
 }
 
+
 /// <summary>
-/// Block type for storage_profile_os_disk in .
+/// Block type for storage_profile_os_disk in AzurermVirtualMachineScaleSet.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock : TerraformBlock
@@ -687,8 +1062,9 @@ public class AzurermVirtualMachineScaleSetStorageProfileOsDiskBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermVirtualMachineScaleSet.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
@@ -735,6 +1111,7 @@ public class AzurermVirtualMachineScaleSetTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_machine_scale_set Terraform resource.

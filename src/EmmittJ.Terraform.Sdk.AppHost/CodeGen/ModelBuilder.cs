@@ -85,11 +85,14 @@ public class ModelBuilder : IModelBuilder
     /// </summary>
     public BlockTypeModel BuildBlockTypeModel(SchemaBlockType blockType, string blockName, string parentClassName)
     {
+        var className = $"{parentClassName}{NamingConventions.ToPascalCase(blockName)}Block";
+
         var model = new BlockTypeModel
         {
             Name = NamingConventions.ToPascalCase(blockName),
             TerraformName = blockName,
-            ClassName = $"{parentClassName}{NamingConventions.ToPascalCase(blockName)}Block",
+            ClassName = className,
+            ParentClassName = parentClassName,
             NestingMode = blockType.NestingMode,
             MinItems = blockType.MinItems,
             MaxItems = blockType.MaxItems,
@@ -100,6 +103,12 @@ public class ModelBuilder : IModelBuilder
         foreach (var (attrName, attr) in blockType.Block.Attributes)
         {
             model.Arguments.Add(BuildPropertyModel(attr, attrName));
+        }
+
+        // Recursively parse nested block types
+        foreach (var (nestedBlockName, nestedBlockType) in blockType.Block.BlockTypes)
+        {
+            model.NestedBlocks.Add(BuildBlockTypeModel(nestedBlockType, nestedBlockName, className));
         }
 
         return model;

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMachineLearningDatastoreDatalakeGen2.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermMachineLearningDatastoreDatalakeGen2TimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_machine_learning_datastore_datalake_gen2 Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermLogAnalyticsDatasourceWindowsEvent.
 /// Nesting mode: single
 /// </summary>
 public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermLogAnalyticsDatasourceWindowsEventTimeoutsBlock : TerraformB
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_log_analytics_datasource_windows_event Terraform resource.

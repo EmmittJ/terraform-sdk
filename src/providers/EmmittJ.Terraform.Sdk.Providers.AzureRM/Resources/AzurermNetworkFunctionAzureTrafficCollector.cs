@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkFunctionAzureTrafficCollector.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkFunctionAzureTrafficCollectorTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermNetworkFunctionAzureTrafficCollectorTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_function_azure_traffic_collector Terraform resource.

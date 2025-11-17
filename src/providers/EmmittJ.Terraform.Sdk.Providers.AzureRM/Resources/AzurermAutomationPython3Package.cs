@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAutomationPython3Package.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationPython3PackageTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermAutomationPython3PackageTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_python3_package Terraform resource.

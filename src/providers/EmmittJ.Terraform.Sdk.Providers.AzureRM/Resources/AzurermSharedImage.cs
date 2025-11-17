@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identifier in .
+/// Block type for identifier in AzurermSharedImage.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSharedImageIdentifierBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermSharedImageIdentifierBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for purchase_plan in .
+/// Block type for purchase_plan in AzurermSharedImage.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSharedImagePurchasePlanBlock : TerraformBlock
@@ -86,8 +87,9 @@ public class AzurermSharedImagePurchasePlanBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSharedImage.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSharedImageTimeoutsBlock : TerraformBlock
@@ -134,6 +136,7 @@ public class AzurermSharedImageTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_shared_image Terraform resource.

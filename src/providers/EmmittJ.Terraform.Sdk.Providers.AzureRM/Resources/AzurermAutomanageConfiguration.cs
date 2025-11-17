@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for antimalware in .
+/// Block type for antimalware in AzurermAutomanageConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomanageConfigurationAntimalwareBlock : TerraformBlock
@@ -58,10 +58,61 @@ public class AzurermAutomanageConfigurationAntimalwareBlock : TerraformBlock
         set => SetArgument("scheduled_scan_type", value);
     }
 
+    /// <summary>
+    /// Exclusions block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Exclusions block(s) allowed")]
+    public TerraformList<AzurermAutomanageConfigurationAntimalwareBlockExclusionsBlock>? Exclusions
+    {
+        get => GetArgument<TerraformList<AzurermAutomanageConfigurationAntimalwareBlockExclusionsBlock>>("exclusions");
+        set => SetArgument("exclusions", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for azure_security_baseline in .
+/// Block type for exclusions in AzurermAutomanageConfigurationAntimalwareBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomanageConfigurationAntimalwareBlockExclusionsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "exclusions";
+
+    /// <summary>
+    /// The extensions attribute.
+    /// </summary>
+    public TerraformValue<string>? Extensions
+    {
+        get => new TerraformReference<string>(this, "extensions");
+        set => SetArgument("extensions", value);
+    }
+
+    /// <summary>
+    /// The paths attribute.
+    /// </summary>
+    public TerraformValue<string>? Paths
+    {
+        get => new TerraformReference<string>(this, "paths");
+        set => SetArgument("paths", value);
+    }
+
+    /// <summary>
+    /// The processes attribute.
+    /// </summary>
+    public TerraformValue<string>? Processes
+    {
+        get => new TerraformReference<string>(this, "processes");
+        set => SetArgument("processes", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for azure_security_baseline in AzurermAutomanageConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomanageConfigurationAzureSecurityBaselineBlock : TerraformBlock
@@ -82,8 +133,9 @@ public class AzurermAutomanageConfigurationAzureSecurityBaselineBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for backup in .
+/// Block type for backup in AzurermAutomanageConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAutomanageConfigurationBackupBlock : TerraformBlock
@@ -120,10 +172,248 @@ public class AzurermAutomanageConfigurationBackupBlock : TerraformBlock
         set => SetArgument("time_zone", value);
     }
 
+    /// <summary>
+    /// RetentionPolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
+    public TerraformList<AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlock>? RetentionPolicy
+    {
+        get => GetArgument<TerraformList<AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlock>>("retention_policy");
+        set => SetArgument("retention_policy", value);
+    }
+
+    /// <summary>
+    /// SchedulePolicy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchedulePolicy block(s) allowed")]
+    public TerraformList<AzurermAutomanageConfigurationBackupBlockSchedulePolicyBlock>? SchedulePolicy
+    {
+        get => GetArgument<TerraformList<AzurermAutomanageConfigurationBackupBlockSchedulePolicyBlock>>("schedule_policy");
+        set => SetArgument("schedule_policy", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for retention_policy in AzurermAutomanageConfigurationBackupBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "retention_policy";
+
+    /// <summary>
+    /// The retention_policy_type attribute.
+    /// </summary>
+    public TerraformValue<string>? RetentionPolicyType
+    {
+        get => new TerraformReference<string>(this, "retention_policy_type");
+        set => SetArgument("retention_policy_type", value);
+    }
+
+    /// <summary>
+    /// DailySchedule block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailySchedule block(s) allowed")]
+    public TerraformList<AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockDailyScheduleBlock>? DailySchedule
+    {
+        get => GetArgument<TerraformList<AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockDailyScheduleBlock>>("daily_schedule");
+        set => SetArgument("daily_schedule", value);
+    }
+
+    /// <summary>
+    /// WeeklySchedule block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklySchedule block(s) allowed")]
+    public TerraformList<AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockWeeklyScheduleBlock>? WeeklySchedule
+    {
+        get => GetArgument<TerraformList<AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockWeeklyScheduleBlock>>("weekly_schedule");
+        set => SetArgument("weekly_schedule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for daily_schedule in AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockDailyScheduleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "daily_schedule";
+
+    /// <summary>
+    /// The retention_times attribute.
+    /// </summary>
+    public TerraformList<string>? RetentionTimes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "retention_times").ResolveNodes(ctx));
+        set => SetArgument("retention_times", value);
+    }
+
+    /// <summary>
+    /// RetentionDuration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDuration block(s) allowed")]
+    public TerraformList<AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockDailyScheduleBlockRetentionDurationBlock>? RetentionDuration
+    {
+        get => GetArgument<TerraformList<AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockDailyScheduleBlockRetentionDurationBlock>>("retention_duration");
+        set => SetArgument("retention_duration", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for retention_duration in AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockDailyScheduleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockDailyScheduleBlockRetentionDurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "retention_duration";
+
+    /// <summary>
+    /// The count attribute.
+    /// </summary>
+    public TerraformValue<double>? CountAttribute
+    {
+        get => new TerraformReference<double>(this, "count");
+        set => SetArgument("count", value);
+    }
+
+    /// <summary>
+    /// The duration_type attribute.
+    /// </summary>
+    public TerraformValue<string>? DurationType
+    {
+        get => new TerraformReference<string>(this, "duration_type");
+        set => SetArgument("duration_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for weekly_schedule in AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockWeeklyScheduleBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "weekly_schedule";
+
+    /// <summary>
+    /// The retention_times attribute.
+    /// </summary>
+    public TerraformList<string>? RetentionTimes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "retention_times").ResolveNodes(ctx));
+        set => SetArgument("retention_times", value);
+    }
+
+    /// <summary>
+    /// RetentionDuration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionDuration block(s) allowed")]
+    public TerraformList<AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockWeeklyScheduleBlockRetentionDurationBlock>? RetentionDuration
+    {
+        get => GetArgument<TerraformList<AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockWeeklyScheduleBlockRetentionDurationBlock>>("retention_duration");
+        set => SetArgument("retention_duration", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for retention_duration in AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockWeeklyScheduleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomanageConfigurationBackupBlockRetentionPolicyBlockWeeklyScheduleBlockRetentionDurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "retention_duration";
+
+    /// <summary>
+    /// The count attribute.
+    /// </summary>
+    public TerraformValue<double>? CountAttribute
+    {
+        get => new TerraformReference<double>(this, "count");
+        set => SetArgument("count", value);
+    }
+
+    /// <summary>
+    /// The duration_type attribute.
+    /// </summary>
+    public TerraformValue<string>? DurationType
+    {
+        get => new TerraformReference<string>(this, "duration_type");
+        set => SetArgument("duration_type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for schedule_policy in AzurermAutomanageConfigurationBackupBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAutomanageConfigurationBackupBlockSchedulePolicyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "schedule_policy";
+
+    /// <summary>
+    /// The schedule_policy_type attribute.
+    /// </summary>
+    public TerraformValue<string>? SchedulePolicyType
+    {
+        get => new TerraformReference<string>(this, "schedule_policy_type");
+        set => SetArgument("schedule_policy_type", value);
+    }
+
+    /// <summary>
+    /// The schedule_run_days attribute.
+    /// </summary>
+    public TerraformList<string>? ScheduleRunDays
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "schedule_run_days").ResolveNodes(ctx));
+        set => SetArgument("schedule_run_days", value);
+    }
+
+    /// <summary>
+    /// The schedule_run_frequency attribute.
+    /// </summary>
+    public TerraformValue<string>? ScheduleRunFrequency
+    {
+        get => new TerraformReference<string>(this, "schedule_run_frequency");
+        set => SetArgument("schedule_run_frequency", value);
+    }
+
+    /// <summary>
+    /// The schedule_run_times attribute.
+    /// </summary>
+    public TerraformList<string>? ScheduleRunTimes
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "schedule_run_times").ResolveNodes(ctx));
+        set => SetArgument("schedule_run_times", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermAutomanageConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomanageConfigurationTimeoutsBlock : TerraformBlock
@@ -170,6 +460,7 @@ public class AzurermAutomanageConfigurationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automanage_configuration Terraform resource.

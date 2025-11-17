@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermMachineLearningInferenceCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for ssl in .
+/// Block type for ssl in AzurermMachineLearningInferenceCluster.
 /// Nesting mode: list
 /// </summary>
 public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
@@ -108,8 +109,9 @@ public class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermMachineLearningInferenceCluster.
 /// Nesting mode: single
 /// </summary>
 public class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBlock
@@ -147,6 +149,7 @@ public class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBloc
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_machine_learning_inference_cluster Terraform resource.

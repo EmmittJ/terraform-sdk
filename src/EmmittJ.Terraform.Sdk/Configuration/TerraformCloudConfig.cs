@@ -62,14 +62,6 @@ public partial class TerraformCloudBlock : TerraformBlock
         get => GetArgument<CloudWorkspacesBlock?>("workspaces");
         set => SetArgument("workspaces", value);
     }
-
-    /// <summary>
-    /// Cloud block resolves as an object: cloud = { ... }
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        yield return new TerraformBlockNode(BlockType, BlockLabels, base.ResolveNodes(context));
-    }
 }
 
 /// <summary>

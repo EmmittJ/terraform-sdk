@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermOrchestratedVirtualMachineScaleSetDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermOrchestratedVirtualMachineScaleSetDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataSourceTimeoutsBlock : 
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_orchestrated_virtual_machine_scale_set Terraform data source.

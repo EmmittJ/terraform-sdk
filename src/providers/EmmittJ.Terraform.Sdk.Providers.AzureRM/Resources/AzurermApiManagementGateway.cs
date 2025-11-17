@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for location_data in .
+/// Block type for location_data in AzurermApiManagementGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementGatewayLocationDataBlock : TerraformBlock
@@ -52,8 +52,9 @@ public class AzurermApiManagementGatewayLocationDataBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementGateway.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
@@ -100,6 +101,7 @@ public class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_gateway Terraform resource.

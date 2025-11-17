@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermSearchService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSearchServiceIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermSearchServiceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSearchService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSearchServiceTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermSearchServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_search_service Terraform resource.

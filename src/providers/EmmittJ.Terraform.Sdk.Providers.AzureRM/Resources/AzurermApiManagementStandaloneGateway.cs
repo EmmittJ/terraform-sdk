@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for sku in .
+/// Block type for sku in AzurermApiManagementStandaloneGateway.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementStandaloneGatewaySkuBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermApiManagementStandaloneGatewaySkuBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementStandaloneGateway.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementStandaloneGatewayTimeoutsBlock : TerraformBlock
@@ -82,6 +83,7 @@ public class AzurermApiManagementStandaloneGatewayTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_standalone_gateway Terraform resource.

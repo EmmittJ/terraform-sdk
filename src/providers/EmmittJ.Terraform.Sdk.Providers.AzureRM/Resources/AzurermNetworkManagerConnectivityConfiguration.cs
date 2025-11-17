@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for applies_to_group in .
+/// Block type for applies_to_group in AzurermNetworkManagerConnectivityConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock :
 
 }
 
+
 /// <summary>
-/// Block type for hub in .
+/// Block type for hub in AzurermNetworkManagerConnectivityConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformBlock
@@ -86,8 +87,9 @@ public class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkManagerConnectivityConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : TerraformBlock
@@ -134,6 +136,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : Terra
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_manager_connectivity_configuration Terraform resource.

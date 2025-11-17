@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for analytical_storage in .
+/// Block type for analytical_storage in AzurermCosmosdbAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbAccountAnalyticalStorageBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermCosmosdbAccountAnalyticalStorageBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for backup in .
+/// Block type for backup in AzurermCosmosdbAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
@@ -84,8 +85,9 @@ public class AzurermCosmosdbAccountBackupBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for capabilities in .
+/// Block type for capabilities in AzurermCosmosdbAccount.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCosmosdbAccountCapabilitiesBlock : TerraformBlock
@@ -107,8 +109,9 @@ public class AzurermCosmosdbAccountCapabilitiesBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for capacity in .
+/// Block type for capacity in AzurermCosmosdbAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbAccountCapacityBlock : TerraformBlock
@@ -130,8 +133,9 @@ public class AzurermCosmosdbAccountCapacityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for consistency_policy in .
+/// Block type for consistency_policy in AzurermCosmosdbAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlock
@@ -171,8 +175,9 @@ public class AzurermCosmosdbAccountConsistencyPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for cors_rule in .
+/// Block type for cors_rule in AzurermCosmosdbAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
@@ -233,8 +238,9 @@ public class AzurermCosmosdbAccountCorsRuleBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for geo_location in .
+/// Block type for geo_location in AzurermCosmosdbAccount.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
@@ -283,8 +289,9 @@ public class AzurermCosmosdbAccountGeoLocationBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermCosmosdbAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
@@ -331,8 +338,9 @@ public class AzurermCosmosdbAccountIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for restore in .
+/// Block type for restore in AzurermCosmosdbAccount.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
@@ -371,10 +379,93 @@ public class AzurermCosmosdbAccountRestoreBlock : TerraformBlock
         set => SetArgument("tables_to_restore", value);
     }
 
+    /// <summary>
+    /// Database block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermCosmosdbAccountRestoreBlockDatabaseBlock>? Database
+    {
+        get => GetArgument<TerraformSet<AzurermCosmosdbAccountRestoreBlockDatabaseBlock>>("database");
+        set => SetArgument("database", value);
+    }
+
+    /// <summary>
+    /// GremlinDatabase block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermCosmosdbAccountRestoreBlockGremlinDatabaseBlock>? GremlinDatabase
+    {
+        get => GetArgument<TerraformList<AzurermCosmosdbAccountRestoreBlockGremlinDatabaseBlock>>("gremlin_database");
+        set => SetArgument("gremlin_database", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for database in AzurermCosmosdbAccountRestoreBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermCosmosdbAccountRestoreBlockDatabaseBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "database";
+
+    /// <summary>
+    /// The collection_names attribute.
+    /// </summary>
+    public TerraformSet<string>? CollectionNames
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "collection_names").ResolveNodes(ctx));
+        set => SetArgument("collection_names", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for gremlin_database in AzurermCosmosdbAccountRestoreBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermCosmosdbAccountRestoreBlockGremlinDatabaseBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "gremlin_database";
+
+    /// <summary>
+    /// The graph_names attribute.
+    /// </summary>
+    public TerraformList<string>? GraphNames
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "graph_names").ResolveNodes(ctx));
+        set => SetArgument("graph_names", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermCosmosdbAccount.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlock
@@ -422,8 +513,9 @@ public class AzurermCosmosdbAccountTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for virtual_network_rule in .
+/// Block type for virtual_network_rule in AzurermCosmosdbAccount.
 /// Nesting mode: set
 /// </summary>
 public class AzurermCosmosdbAccountVirtualNetworkRuleBlock : TerraformBlock
@@ -453,6 +545,7 @@ public class AzurermCosmosdbAccountVirtualNetworkRuleBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cosmosdb_account Terraform resource.

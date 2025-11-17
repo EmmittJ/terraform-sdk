@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for input in .
+/// Block type for input in AzurermStreamAnalyticsFunctionJavascriptUdf.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStreamAnalyticsFunctionJavascriptUdfInputBlock : TerraformBlock
@@ -34,8 +34,9 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfInputBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for output in .
+/// Block type for output in AzurermStreamAnalyticsFunctionJavascriptUdf.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStreamAnalyticsFunctionJavascriptUdfOutputBlock : TerraformBlock
@@ -57,8 +58,9 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfOutputBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStreamAnalyticsFunctionJavascriptUdf.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStreamAnalyticsFunctionJavascriptUdfTimeoutsBlock : TerraformBlock
@@ -105,6 +107,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdfTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_stream_analytics_function_javascript_udf Terraform resource.

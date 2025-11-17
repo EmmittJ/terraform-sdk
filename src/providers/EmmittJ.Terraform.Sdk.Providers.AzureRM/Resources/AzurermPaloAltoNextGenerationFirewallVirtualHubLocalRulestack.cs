@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for destination_nat in .
+/// Block type for destination_nat in AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestack.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock : TerraformBlock
@@ -33,10 +33,97 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestin
         set => SetArgument("protocol", value);
     }
 
+    /// <summary>
+    /// BackendConfig block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendConfig block(s) allowed")]
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlockBackendConfigBlock>? BackendConfig
+    {
+        get => GetArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlockBackendConfigBlock>>("backend_config");
+        set => SetArgument("backend_config", value);
+    }
+
+    /// <summary>
+    /// FrontendConfig block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendConfig block(s) allowed")]
+    public TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlockFrontendConfigBlock>? FrontendConfig
+    {
+        get => GetArgument<TerraformList<AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlockFrontendConfigBlock>>("frontend_config");
+        set => SetArgument("frontend_config", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for dns_settings in .
+/// Block type for backend_config in AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlockBackendConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "backend_config";
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
+    public required TerraformValue<double> Port
+    {
+        get => new TerraformReference<double>(this, "port");
+        set => SetArgument("port", value);
+    }
+
+    /// <summary>
+    /// The public_ip_address attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddress is required")]
+    public required TerraformValue<string> PublicIpAddress
+    {
+        get => new TerraformReference<string>(this, "public_ip_address");
+        set => SetArgument("public_ip_address", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for frontend_config in AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDestinationNatBlockFrontendConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "frontend_config";
+
+    /// <summary>
+    /// The port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
+    public required TerraformValue<double> Port
+    {
+        get => new TerraformReference<double>(this, "port");
+        set => SetArgument("port", value);
+    }
+
+    /// <summary>
+    /// The public_ip_address_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
+    public required TerraformValue<string> PublicIpAddressId
+    {
+        get => new TerraformReference<string>(this, "public_ip_address_id");
+        set => SetArgument("public_ip_address_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for dns_settings in AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestack.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSettingsBlock : TerraformBlock
@@ -74,8 +161,9 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackDnsSet
 
 }
 
+
 /// <summary>
-/// Block type for network_profile in .
+/// Block type for network_profile in AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestack.
 /// Nesting mode: list
 /// </summary>
 public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetworkProfileBlock : TerraformBlock
@@ -175,8 +263,9 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackNetwor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestack.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackTimeoutsBlock : TerraformBlock
@@ -223,6 +312,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualHubLocalRulestackTimeou
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_palo_alto_next_generation_firewall_virtual_hub_local_rulestack Terraform resource.

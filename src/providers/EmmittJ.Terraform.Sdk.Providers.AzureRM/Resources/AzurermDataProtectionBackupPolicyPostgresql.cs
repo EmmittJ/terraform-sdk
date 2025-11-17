@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for retention_rule in .
+/// Block type for retention_rule in AzurermDataProtectionBackupPolicyPostgresql.
 /// Nesting mode: list
 /// </summary>
 public class AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock : TerraformBlock
@@ -43,10 +43,82 @@ public class AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock : Ter
         set => SetArgument("priority", value);
     }
 
+    /// <summary>
+    /// Criteria block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Criteria block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Criteria block(s) allowed")]
+    public required TerraformList<AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlockCriteriaBlock> Criteria
+    {
+        get => GetRequiredArgument<TerraformList<AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlockCriteriaBlock>>("criteria");
+        set => SetArgument("criteria", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for criteria in AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermDataProtectionBackupPolicyPostgresqlRetentionRuleBlockCriteriaBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "criteria";
+
+    /// <summary>
+    /// The absolute_criteria attribute.
+    /// </summary>
+    public TerraformValue<string>? AbsoluteCriteria
+    {
+        get => new TerraformReference<string>(this, "absolute_criteria");
+        set => SetArgument("absolute_criteria", value);
+    }
+
+    /// <summary>
+    /// The days_of_week attribute.
+    /// </summary>
+    public TerraformSet<string>? DaysOfWeek
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "days_of_week").ResolveNodes(ctx));
+        set => SetArgument("days_of_week", value);
+    }
+
+    /// <summary>
+    /// The months_of_year attribute.
+    /// </summary>
+    public TerraformSet<string>? MonthsOfYear
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "months_of_year").ResolveNodes(ctx));
+        set => SetArgument("months_of_year", value);
+    }
+
+    /// <summary>
+    /// The scheduled_backup_times attribute.
+    /// </summary>
+    public TerraformSet<string>? ScheduledBackupTimes
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "scheduled_backup_times").ResolveNodes(ctx));
+        set => SetArgument("scheduled_backup_times", value);
+    }
+
+    /// <summary>
+    /// The weeks_of_month attribute.
+    /// </summary>
+    public TerraformSet<string>? WeeksOfMonth
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "weeks_of_month").ResolveNodes(ctx));
+        set => SetArgument("weeks_of_month", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermDataProtectionBackupPolicyPostgresql.
 /// Nesting mode: single
 /// </summary>
 public class AzurermDataProtectionBackupPolicyPostgresqlTimeoutsBlock : TerraformBlock
@@ -84,6 +156,7 @@ public class AzurermDataProtectionBackupPolicyPostgresqlTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_data_protection_backup_policy_postgresql Terraform resource.

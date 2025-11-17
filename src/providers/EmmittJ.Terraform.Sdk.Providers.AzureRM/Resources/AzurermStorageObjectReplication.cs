@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for rules in .
+/// Block type for rules in AzurermStorageObjectReplication.
 /// Nesting mode: set
 /// </summary>
 public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
@@ -61,8 +61,9 @@ public class AzurermStorageObjectReplicationRulesBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStorageObjectReplication.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStorageObjectReplicationTimeoutsBlock : TerraformBlock
@@ -109,6 +110,7 @@ public class AzurermStorageObjectReplicationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_storage_object_replication Terraform resource.

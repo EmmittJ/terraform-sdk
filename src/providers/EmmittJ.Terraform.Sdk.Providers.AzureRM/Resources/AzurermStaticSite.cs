@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermStaticSite.
 /// Nesting mode: list
 /// </summary>
 public class AzurermStaticSiteIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermStaticSiteIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermStaticSite.
 /// Nesting mode: single
 /// </summary>
 public class AzurermStaticSiteTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermStaticSiteTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_static_site Terraform resource.

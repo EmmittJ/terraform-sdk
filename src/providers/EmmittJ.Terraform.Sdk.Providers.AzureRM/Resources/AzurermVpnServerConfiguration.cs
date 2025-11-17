@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azure_active_directory_authentication in .
+/// Block type for azure_active_directory_authentication in AzurermVpnServerConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermVpnServerConfigurationAzureActiveDirectoryAuthenticationBloc
 
 }
 
+
 /// <summary>
-/// Block type for client_revoked_certificate in .
+/// Block type for client_revoked_certificate in AzurermVpnServerConfiguration.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVpnServerConfigurationClientRevokedCertificateBlock : TerraformBlock
@@ -78,8 +79,9 @@ public class AzurermVpnServerConfigurationClientRevokedCertificateBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for client_root_certificate in .
+/// Block type for client_root_certificate in AzurermVpnServerConfiguration.
 /// Nesting mode: set
 /// </summary>
 public class AzurermVpnServerConfigurationClientRootCertificateBlock : TerraformBlock
@@ -111,8 +113,9 @@ public class AzurermVpnServerConfigurationClientRootCertificateBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for ipsec_policy in .
+/// Block type for ipsec_policy in AzurermVpnServerConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlock
@@ -204,8 +207,9 @@ public class AzurermVpnServerConfigurationIpsecPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for radius in .
+/// Block type for radius in AzurermVpnServerConfiguration.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVpnServerConfigurationRadiusBlock : TerraformBlock
@@ -215,10 +219,147 @@ public class AzurermVpnServerConfigurationRadiusBlock : TerraformBlock
     /// </summary>
     public override string BlockType => "radius";
 
+    /// <summary>
+    /// ClientRootCertificate block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermVpnServerConfigurationRadiusBlockClientRootCertificateBlock>? ClientRootCertificate
+    {
+        get => GetArgument<TerraformSet<AzurermVpnServerConfigurationRadiusBlockClientRootCertificateBlock>>("client_root_certificate");
+        set => SetArgument("client_root_certificate", value);
+    }
+
+    /// <summary>
+    /// Server block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermVpnServerConfigurationRadiusBlockServerBlock>? Server
+    {
+        get => GetArgument<TerraformList<AzurermVpnServerConfigurationRadiusBlockServerBlock>>("server");
+        set => SetArgument("server", value);
+    }
+
+    /// <summary>
+    /// ServerRootCertificate block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AzurermVpnServerConfigurationRadiusBlockServerRootCertificateBlock>? ServerRootCertificate
+    {
+        get => GetArgument<TerraformSet<AzurermVpnServerConfigurationRadiusBlockServerRootCertificateBlock>>("server_root_certificate");
+        set => SetArgument("server_root_certificate", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for client_root_certificate in AzurermVpnServerConfigurationRadiusBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermVpnServerConfigurationRadiusBlockClientRootCertificateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "client_root_certificate";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The thumbprint attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Thumbprint is required")]
+    public required TerraformValue<string> Thumbprint
+    {
+        get => new TerraformReference<string>(this, "thumbprint");
+        set => SetArgument("thumbprint", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for server in AzurermVpnServerConfigurationRadiusBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermVpnServerConfigurationRadiusBlockServerBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "server";
+
+    /// <summary>
+    /// The address attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
+    public required TerraformValue<string> Address
+    {
+        get => new TerraformReference<string>(this, "address");
+        set => SetArgument("address", value);
+    }
+
+    /// <summary>
+    /// The score attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Score is required")]
+    public required TerraformValue<double> Score
+    {
+        get => new TerraformReference<double>(this, "score");
+        set => SetArgument("score", value);
+    }
+
+    /// <summary>
+    /// The secret attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
+    public required TerraformValue<string> Secret
+    {
+        get => new TerraformReference<string>(this, "secret");
+        set => SetArgument("secret", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for server_root_certificate in AzurermVpnServerConfigurationRadiusBlock.
+/// Nesting mode: set
+/// </summary>
+public class AzurermVpnServerConfigurationRadiusBlockServerRootCertificateBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "server_root_certificate";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The public_cert_data attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicCertData is required")]
+    public required TerraformValue<string> PublicCertData
+    {
+        get => new TerraformReference<string>(this, "public_cert_data");
+        set => SetArgument("public_cert_data", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermVpnServerConfiguration.
 /// Nesting mode: single
 /// </summary>
 public class AzurermVpnServerConfigurationTimeoutsBlock : TerraformBlock
@@ -265,6 +406,7 @@ public class AzurermVpnServerConfigurationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_vpn_server_configuration Terraform resource.

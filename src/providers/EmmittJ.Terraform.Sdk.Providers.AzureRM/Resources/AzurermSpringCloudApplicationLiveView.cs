@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudApplicationLiveView.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudApplicationLiveViewTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermSpringCloudApplicationLiveViewTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_application_live_view Terraform resource.

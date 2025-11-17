@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for backend_pool in .
+/// Block type for backend_pool in AzurermFrontdoor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
@@ -51,10 +51,104 @@ public class AzurermFrontdoorBackendPoolBlock : TerraformBlock
         set => SetArgument("name", value);
     }
 
+    /// <summary>
+    /// Backend block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Backend block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(500, ErrorMessage = "Maximum 500 Backend block(s) allowed")]
+    public required TerraformList<AzurermFrontdoorBackendPoolBlockBackendBlock> Backend
+    {
+        get => GetRequiredArgument<TerraformList<AzurermFrontdoorBackendPoolBlockBackendBlock>>("backend");
+        set => SetArgument("backend", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for backend_pool_health_probe in .
+/// Block type for backend in AzurermFrontdoorBackendPoolBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFrontdoorBackendPoolBlockBackendBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "backend";
+
+    /// <summary>
+    /// The address attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Address is required")]
+    public required TerraformValue<string> Address
+    {
+        get => new TerraformReference<string>(this, "address");
+        set => SetArgument("address", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// The host_header attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostHeader is required")]
+    public required TerraformValue<string> HostHeader
+    {
+        get => new TerraformReference<string>(this, "host_header");
+        set => SetArgument("host_header", value);
+    }
+
+    /// <summary>
+    /// The http_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpPort is required")]
+    public required TerraformValue<double> HttpPort
+    {
+        get => new TerraformReference<double>(this, "http_port");
+        set => SetArgument("http_port", value);
+    }
+
+    /// <summary>
+    /// The https_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HttpsPort is required")]
+    public required TerraformValue<double> HttpsPort
+    {
+        get => new TerraformReference<double>(this, "https_port");
+        set => SetArgument("https_port", value);
+    }
+
+    /// <summary>
+    /// The priority attribute.
+    /// </summary>
+    public TerraformValue<double>? Priority
+    {
+        get => new TerraformReference<double>(this, "priority");
+        set => SetArgument("priority", value);
+    }
+
+    /// <summary>
+    /// The weight attribute.
+    /// </summary>
+    public TerraformValue<double>? Weight
+    {
+        get => new TerraformReference<double>(this, "weight");
+        set => SetArgument("weight", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for backend_pool_health_probe in AzurermFrontdoor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
@@ -129,8 +223,9 @@ public class AzurermFrontdoorBackendPoolHealthProbeBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for backend_pool_load_balancing in .
+/// Block type for backend_pool_load_balancing in AzurermFrontdoor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
@@ -187,8 +282,9 @@ public class AzurermFrontdoorBackendPoolLoadBalancingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for backend_pool_settings in .
+/// Block type for backend_pool_settings in AzurermFrontdoor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
@@ -219,8 +315,9 @@ public class AzurermFrontdoorBackendPoolSettingsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for frontend_endpoint in .
+/// Block type for frontend_endpoint in AzurermFrontdoor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
@@ -287,8 +384,9 @@ public class AzurermFrontdoorFrontendEndpointBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for routing_rule in .
+/// Block type for routing_rule in AzurermFrontdoor.
 /// Nesting mode: list
 /// </summary>
 public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
@@ -355,10 +453,186 @@ public class AzurermFrontdoorRoutingRuleBlock : TerraformBlock
         set => SetArgument("patterns_to_match", value);
     }
 
+    /// <summary>
+    /// ForwardingConfiguration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ForwardingConfiguration block(s) allowed")]
+    public TerraformList<AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock>? ForwardingConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock>>("forwarding_configuration");
+        set => SetArgument("forwarding_configuration", value);
+    }
+
+    /// <summary>
+    /// RedirectConfiguration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectConfiguration block(s) allowed")]
+    public TerraformList<AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock>? RedirectConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock>>("redirect_configuration");
+        set => SetArgument("redirect_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for forwarding_configuration in AzurermFrontdoorRoutingRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFrontdoorRoutingRuleBlockForwardingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "forwarding_configuration";
+
+    /// <summary>
+    /// The backend_pool_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendPoolName is required")]
+    public required TerraformValue<string> BackendPoolName
+    {
+        get => new TerraformReference<string>(this, "backend_pool_name");
+        set => SetArgument("backend_pool_name", value);
+    }
+
+    /// <summary>
+    /// The cache_duration attribute.
+    /// </summary>
+    public TerraformValue<string>? CacheDuration
+    {
+        get => new TerraformReference<string>(this, "cache_duration");
+        set => SetArgument("cache_duration", value);
+    }
+
+    /// <summary>
+    /// The cache_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? CacheEnabled
+    {
+        get => new TerraformReference<bool>(this, "cache_enabled");
+        set => SetArgument("cache_enabled", value);
+    }
+
+    /// <summary>
+    /// The cache_query_parameter_strip_directive attribute.
+    /// </summary>
+    public TerraformValue<string>? CacheQueryParameterStripDirective
+    {
+        get => new TerraformReference<string>(this, "cache_query_parameter_strip_directive");
+        set => SetArgument("cache_query_parameter_strip_directive", value);
+    }
+
+    /// <summary>
+    /// The cache_query_parameters attribute.
+    /// </summary>
+    public TerraformList<string>? CacheQueryParameters
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "cache_query_parameters").ResolveNodes(ctx));
+        set => SetArgument("cache_query_parameters", value);
+    }
+
+    /// <summary>
+    /// The cache_use_dynamic_compression attribute.
+    /// </summary>
+    public TerraformValue<bool>? CacheUseDynamicCompression
+    {
+        get => new TerraformReference<bool>(this, "cache_use_dynamic_compression");
+        set => SetArgument("cache_use_dynamic_compression", value);
+    }
+
+    /// <summary>
+    /// The custom_forwarding_path attribute.
+    /// </summary>
+    public TerraformValue<string>? CustomForwardingPath
+    {
+        get => new TerraformReference<string>(this, "custom_forwarding_path");
+        set => SetArgument("custom_forwarding_path", value);
+    }
+
+    /// <summary>
+    /// The forwarding_protocol attribute.
+    /// </summary>
+    public TerraformValue<string>? ForwardingProtocol
+    {
+        get => new TerraformReference<string>(this, "forwarding_protocol");
+        set => SetArgument("forwarding_protocol", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for redirect_configuration in AzurermFrontdoorRoutingRuleBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermFrontdoorRoutingRuleBlockRedirectConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "redirect_configuration";
+
+    /// <summary>
+    /// The custom_fragment attribute.
+    /// </summary>
+    public TerraformValue<string>? CustomFragment
+    {
+        get => new TerraformReference<string>(this, "custom_fragment");
+        set => SetArgument("custom_fragment", value);
+    }
+
+    /// <summary>
+    /// The custom_host attribute.
+    /// </summary>
+    public TerraformValue<string>? CustomHost
+    {
+        get => new TerraformReference<string>(this, "custom_host");
+        set => SetArgument("custom_host", value);
+    }
+
+    /// <summary>
+    /// The custom_path attribute.
+    /// </summary>
+    public TerraformValue<string>? CustomPath
+    {
+        get => new TerraformReference<string>(this, "custom_path");
+        set => SetArgument("custom_path", value);
+    }
+
+    /// <summary>
+    /// The custom_query_string attribute.
+    /// </summary>
+    public TerraformValue<string>? CustomQueryString
+    {
+        get => new TerraformReference<string>(this, "custom_query_string");
+        set => SetArgument("custom_query_string", value);
+    }
+
+    /// <summary>
+    /// The redirect_protocol attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectProtocol is required")]
+    public required TerraformValue<string> RedirectProtocol
+    {
+        get => new TerraformReference<string>(this, "redirect_protocol");
+        set => SetArgument("redirect_protocol", value);
+    }
+
+    /// <summary>
+    /// The redirect_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectType is required")]
+    public required TerraformValue<string> RedirectType
+    {
+        get => new TerraformReference<string>(this, "redirect_type");
+        set => SetArgument("redirect_type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermFrontdoor.
 /// Nesting mode: single
 /// </summary>
 public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
@@ -405,6 +679,7 @@ public class AzurermFrontdoorTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_frontdoor Terraform resource.

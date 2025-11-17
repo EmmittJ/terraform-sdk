@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for apns_credential in .
+/// Block type for apns_credential in AzurermNotificationHub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
@@ -65,8 +65,9 @@ public class AzurermNotificationHubApnsCredentialBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for browser_credential in .
+/// Block type for browser_credential in AzurermNotificationHub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
@@ -108,8 +109,9 @@ public class AzurermNotificationHubBrowserCredentialBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for gcm_credential in .
+/// Block type for gcm_credential in AzurermNotificationHub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNotificationHubGcmCredentialBlock : TerraformBlock
@@ -131,8 +133,9 @@ public class AzurermNotificationHubGcmCredentialBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNotificationHub.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNotificationHubTimeoutsBlock : TerraformBlock
@@ -179,6 +182,7 @@ public class AzurermNotificationHubTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_notification_hub Terraform resource.

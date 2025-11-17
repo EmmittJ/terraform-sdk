@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermHealthcareMedtechService.
 /// Nesting mode: list
 /// </summary>
 public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
@@ -50,8 +50,9 @@ public class AzurermHealthcareMedtechServiceIdentityBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermHealthcareMedtechService.
 /// Nesting mode: single
 /// </summary>
 public class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlock
@@ -98,6 +99,7 @@ public class AzurermHealthcareMedtechServiceTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_healthcare_medtech_service Terraform resource.

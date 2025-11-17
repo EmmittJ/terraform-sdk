@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for launch in .
+/// Block type for launch in AzurermSpringCloudBuildPackBinding.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSpringCloudBuildPackBindingLaunchBlock : TerraformBlock
@@ -33,8 +33,9 @@ public class AzurermSpringCloudBuildPackBindingLaunchBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSpringCloudBuildPackBinding.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSpringCloudBuildPackBindingTimeoutsBlock : TerraformBlock
@@ -81,6 +82,7 @@ public class AzurermSpringCloudBuildPackBindingTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_spring_cloud_build_pack_binding Terraform resource.

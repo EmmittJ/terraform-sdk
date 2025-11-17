@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for health_probe in .
+/// Block type for health_probe in AzurermCdnFrontdoorOriginGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermCdnFrontdoorOriginGroupHealthProbeBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for load_balancing in .
+/// Block type for load_balancing in AzurermCdnFrontdoorOriginGroup.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
@@ -93,8 +94,9 @@ public class AzurermCdnFrontdoorOriginGroupLoadBalancingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCdnFrontdoorOriginGroup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
@@ -141,6 +143,7 @@ public class AzurermCdnFrontdoorOriginGroupTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_frontdoor_origin_group Terraform resource.

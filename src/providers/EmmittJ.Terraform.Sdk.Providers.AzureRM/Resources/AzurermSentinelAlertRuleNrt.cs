@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for alert_details_override in .
+/// Block type for alert_details_override in AzurermSentinelAlertRuleNrt.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlock : TerraformBlock
@@ -49,10 +49,53 @@ public class AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlock : TerraformBlo
         set => SetArgument("tactics_column_name", value);
     }
 
+    /// <summary>
+    /// DynamicProperty block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlockDynamicPropertyBlock>? DynamicProperty
+    {
+        get => GetArgument<TerraformList<AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlockDynamicPropertyBlock>>("dynamic_property");
+        set => SetArgument("dynamic_property", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for entity_mapping in .
+/// Block type for dynamic_property in AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSentinelAlertRuleNrtAlertDetailsOverrideBlockDynamicPropertyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "dynamic_property";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for entity_mapping in AzurermSentinelAlertRuleNrt.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAlertRuleNrtEntityMappingBlock : TerraformBlock
@@ -72,10 +115,57 @@ public class AzurermSentinelAlertRuleNrtEntityMappingBlock : TerraformBlock
         set => SetArgument("entity_type", value);
     }
 
+    /// <summary>
+    /// FieldMapping block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldMapping is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FieldMapping block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 FieldMapping block(s) allowed")]
+    public required TerraformList<AzurermSentinelAlertRuleNrtEntityMappingBlockFieldMappingBlock> FieldMapping
+    {
+        get => GetRequiredArgument<TerraformList<AzurermSentinelAlertRuleNrtEntityMappingBlockFieldMappingBlock>>("field_mapping");
+        set => SetArgument("field_mapping", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for event_grouping in .
+/// Block type for field_mapping in AzurermSentinelAlertRuleNrtEntityMappingBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSentinelAlertRuleNrtEntityMappingBlockFieldMappingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "field_mapping";
+
+    /// <summary>
+    /// The column_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ColumnName is required")]
+    public required TerraformValue<string> ColumnName
+    {
+        get => new TerraformReference<string>(this, "column_name");
+        set => SetArgument("column_name", value);
+    }
+
+    /// <summary>
+    /// The identifier attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
+    public required TerraformValue<string> Identifier
+    {
+        get => new TerraformReference<string>(this, "identifier");
+        set => SetArgument("identifier", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for event_grouping in AzurermSentinelAlertRuleNrt.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAlertRuleNrtEventGroupingBlock : TerraformBlock
@@ -97,8 +187,9 @@ public class AzurermSentinelAlertRuleNrtEventGroupingBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for incident in .
+/// Block type for incident in AzurermSentinelAlertRuleNrt.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAlertRuleNrtIncidentBlock : TerraformBlock
@@ -118,10 +209,100 @@ public class AzurermSentinelAlertRuleNrtIncidentBlock : TerraformBlock
         set => SetArgument("create_incident_enabled", value);
     }
 
+    /// <summary>
+    /// Grouping block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Grouping is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Grouping block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Grouping block(s) allowed")]
+    public required TerraformList<AzurermSentinelAlertRuleNrtIncidentBlockGroupingBlock> Grouping
+    {
+        get => GetRequiredArgument<TerraformList<AzurermSentinelAlertRuleNrtIncidentBlockGroupingBlock>>("grouping");
+        set => SetArgument("grouping", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for sentinel_entity_mapping in .
+/// Block type for grouping in AzurermSentinelAlertRuleNrtIncidentBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermSentinelAlertRuleNrtIncidentBlockGroupingBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "grouping";
+
+    /// <summary>
+    /// The by_alert_details attribute.
+    /// </summary>
+    public TerraformList<string>? ByAlertDetails
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "by_alert_details").ResolveNodes(ctx));
+        set => SetArgument("by_alert_details", value);
+    }
+
+    /// <summary>
+    /// The by_custom_details attribute.
+    /// </summary>
+    public TerraformList<string>? ByCustomDetails
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "by_custom_details").ResolveNodes(ctx));
+        set => SetArgument("by_custom_details", value);
+    }
+
+    /// <summary>
+    /// The by_entities attribute.
+    /// </summary>
+    public TerraformList<string>? ByEntities
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "by_entities").ResolveNodes(ctx));
+        set => SetArgument("by_entities", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// The entity_matching_method attribute.
+    /// </summary>
+    public TerraformValue<string>? EntityMatchingMethod
+    {
+        get => new TerraformReference<string>(this, "entity_matching_method");
+        set => SetArgument("entity_matching_method", value);
+    }
+
+    /// <summary>
+    /// The lookback_duration attribute.
+    /// </summary>
+    public TerraformValue<string>? LookbackDuration
+    {
+        get => new TerraformReference<string>(this, "lookback_duration");
+        set => SetArgument("lookback_duration", value);
+    }
+
+    /// <summary>
+    /// The reopen_closed_incidents attribute.
+    /// </summary>
+    public TerraformValue<bool>? ReopenClosedIncidents
+    {
+        get => new TerraformReference<bool>(this, "reopen_closed_incidents");
+        set => SetArgument("reopen_closed_incidents", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for sentinel_entity_mapping in AzurermSentinelAlertRuleNrt.
 /// Nesting mode: list
 /// </summary>
 public class AzurermSentinelAlertRuleNrtSentinelEntityMappingBlock : TerraformBlock
@@ -143,8 +324,9 @@ public class AzurermSentinelAlertRuleNrtSentinelEntityMappingBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermSentinelAlertRuleNrt.
 /// Nesting mode: single
 /// </summary>
 public class AzurermSentinelAlertRuleNrtTimeoutsBlock : TerraformBlock
@@ -191,6 +373,7 @@ public class AzurermSentinelAlertRuleNrtTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_sentinel_alert_rule_nrt Terraform resource.

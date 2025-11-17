@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for azuread_based_service_principal in .
+/// Block type for azuread_based_service_principal in AzurermConfidentialLedger.
 /// Nesting mode: list
 /// </summary>
 public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : TerraformBlock
@@ -45,8 +45,9 @@ public class AzurermConfidentialLedgerAzureadBasedServicePrincipalBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for certificate_based_security_principal in .
+/// Block type for certificate_based_security_principal in AzurermConfidentialLedger.
 /// Nesting mode: list
 /// </summary>
 public class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : TerraformBlock
@@ -78,8 +79,9 @@ public class AzurermConfidentialLedgerCertificateBasedSecurityPrincipalBlock : T
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermConfidentialLedger.
 /// Nesting mode: single
 /// </summary>
 public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
@@ -126,6 +128,7 @@ public class AzurermConfidentialLedgerTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_confidential_ledger Terraform resource.

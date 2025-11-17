@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPrivateDnsResolverVirtualNetworkLinkDataSource.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeoutsBlock : TerraformBlock
@@ -23,6 +23,7 @@ public class AzurermPrivateDnsResolverVirtualNetworkLinkDataSourceTimeoutsBlock 
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_private_dns_resolver_virtual_network_link Terraform data source.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermAutomationWatcher.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermAutomationWatcherTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_automation_watcher Terraform resource.

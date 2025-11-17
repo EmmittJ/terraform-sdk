@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermWorkloadsSapDiscoveryVirtualInstance.
 /// Nesting mode: list
 /// </summary>
 public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceIdentityBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermWorkloadsSapDiscoveryVirtualInstance.
 /// Nesting mode: single
 /// </summary>
 public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermWorkloadsSapDiscoveryVirtualInstanceTimeoutsBlock : Terrafor
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_workloads_sap_discovery_virtual_instance Terraform resource.

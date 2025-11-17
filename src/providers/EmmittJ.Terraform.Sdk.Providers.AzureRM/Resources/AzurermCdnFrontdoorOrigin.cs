@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for private_link in .
+/// Block type for private_link in AzurermCdnFrontdoorOrigin.
 /// Nesting mode: list
 /// </summary>
 public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
@@ -53,8 +53,9 @@ public class AzurermCdnFrontdoorOriginPrivateLinkBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermCdnFrontdoorOrigin.
 /// Nesting mode: single
 /// </summary>
 public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
@@ -101,6 +102,7 @@ public class AzurermCdnFrontdoorOriginTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_cdn_frontdoor_origin Terraform resource.

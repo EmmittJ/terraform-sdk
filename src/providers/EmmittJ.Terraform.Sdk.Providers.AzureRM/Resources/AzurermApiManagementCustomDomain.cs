@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for developer_portal in .
+/// Block type for developer_portal in AzurermApiManagementCustomDomain.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlock
@@ -120,8 +120,9 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for gateway in .
+/// Block type for gateway in AzurermApiManagementCustomDomain.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
@@ -247,8 +248,9 @@ public class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for management in .
+/// Block type for management in AzurermApiManagementCustomDomain.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
@@ -365,8 +367,9 @@ public class AzurermApiManagementCustomDomainManagementBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for portal in .
+/// Block type for portal in AzurermApiManagementCustomDomain.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
@@ -483,8 +486,9 @@ public class AzurermApiManagementCustomDomainPortalBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for scm in .
+/// Block type for scm in AzurermApiManagementCustomDomain.
 /// Nesting mode: list
 /// </summary>
 public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
@@ -601,8 +605,9 @@ public class AzurermApiManagementCustomDomainScmBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermApiManagementCustomDomain.
 /// Nesting mode: single
 /// </summary>
 public class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlock
@@ -649,6 +654,7 @@ public class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_api_management_custom_domain Terraform resource.

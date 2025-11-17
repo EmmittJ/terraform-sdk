@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for ipfx_emission in .
+/// Block type for ipfx_emission in AzurermNetworkFunctionCollectorPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock : TerraformBlock
@@ -25,8 +25,9 @@ public class AzurermNetworkFunctionCollectorPolicyIpfxEmissionBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for ipfx_ingestion in .
+/// Block type for ipfx_ingestion in AzurermNetworkFunctionCollectorPolicy.
 /// Nesting mode: list
 /// </summary>
 public class AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock : TerraformBlock
@@ -48,8 +49,9 @@ public class AzurermNetworkFunctionCollectorPolicyIpfxIngestionBlock : Terraform
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermNetworkFunctionCollectorPolicy.
 /// Nesting mode: single
 /// </summary>
 public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
@@ -96,6 +98,7 @@ public class AzurermNetworkFunctionCollectorPolicyTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_network_function_collector_policy Terraform resource.

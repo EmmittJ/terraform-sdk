@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermResourceGroupPolicyRemediation.
 /// Nesting mode: single
 /// </summary>
 public class AzurermResourceGroupPolicyRemediationTimeoutsBlock : TerraformBlock
@@ -50,6 +50,7 @@ public class AzurermResourceGroupPolicyRemediationTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_resource_group_policy_remediation Terraform resource.

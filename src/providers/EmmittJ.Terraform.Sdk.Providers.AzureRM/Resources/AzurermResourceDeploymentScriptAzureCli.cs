@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for container in .
+/// Block type for container in AzurermResourceDeploymentScriptAzureCli.
 /// Nesting mode: list
 /// </summary>
 public class AzurermResourceDeploymentScriptAzureCliContainerBlock : TerraformBlock
@@ -24,8 +24,9 @@ public class AzurermResourceDeploymentScriptAzureCliContainerBlock : TerraformBl
 
 }
 
+
 /// <summary>
-/// Block type for environment_variable in .
+/// Block type for environment_variable in AzurermResourceDeploymentScriptAzureCli.
 /// Nesting mode: set
 /// </summary>
 public class AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock : TerraformBlock
@@ -65,8 +66,9 @@ public class AzurermResourceDeploymentScriptAzureCliEnvironmentVariableBlock : T
 
 }
 
+
 /// <summary>
-/// Block type for identity in .
+/// Block type for identity in AzurermResourceDeploymentScriptAzureCli.
 /// Nesting mode: list
 /// </summary>
 public class AzurermResourceDeploymentScriptAzureCliIdentityBlock : TerraformBlock
@@ -98,8 +100,9 @@ public class AzurermResourceDeploymentScriptAzureCliIdentityBlock : TerraformBlo
 
 }
 
+
 /// <summary>
-/// Block type for storage_account in .
+/// Block type for storage_account in AzurermResourceDeploymentScriptAzureCli.
 /// Nesting mode: list
 /// </summary>
 public class AzurermResourceDeploymentScriptAzureCliStorageAccountBlock : TerraformBlock
@@ -131,8 +134,9 @@ public class AzurermResourceDeploymentScriptAzureCliStorageAccountBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermResourceDeploymentScriptAzureCli.
 /// Nesting mode: single
 /// </summary>
 public class AzurermResourceDeploymentScriptAzureCliTimeoutsBlock : TerraformBlock
@@ -179,6 +183,7 @@ public class AzurermResourceDeploymentScriptAzureCliTimeoutsBlock : TerraformBlo
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_resource_deployment_script_azure_cli Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for github_action_configuration in .
+/// Block type for github_action_configuration in AzurermAppServiceSourceControlSlot.
 /// Nesting mode: list
 /// </summary>
 public class AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock : TerraformBlock
@@ -30,10 +30,115 @@ public class AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock : 
         get => new TerraformReference<bool>(this, "linux_action");
     }
 
+    /// <summary>
+    /// CodeConfiguration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CodeConfiguration block(s) allowed")]
+    public TerraformList<AzurermAppServiceSourceControlSlotGithubActionConfigurationBlockCodeConfigurationBlock>? CodeConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSourceControlSlotGithubActionConfigurationBlockCodeConfigurationBlock>>("code_configuration");
+        set => SetArgument("code_configuration", value);
+    }
+
+    /// <summary>
+    /// ContainerConfiguration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContainerConfiguration block(s) allowed")]
+    public TerraformList<AzurermAppServiceSourceControlSlotGithubActionConfigurationBlockContainerConfigurationBlock>? ContainerConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermAppServiceSourceControlSlotGithubActionConfigurationBlockContainerConfigurationBlock>>("container_configuration");
+        set => SetArgument("container_configuration", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for code_configuration in AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSourceControlSlotGithubActionConfigurationBlockCodeConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "code_configuration";
+
+    /// <summary>
+    /// The value to use for the Runtime Stack in the workflow file content for code base apps.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeStack is required")]
+    public required TerraformValue<string> RuntimeStack
+    {
+        get => new TerraformReference<string>(this, "runtime_stack");
+        set => SetArgument("runtime_stack", value);
+    }
+
+    /// <summary>
+    /// The value to use for the Runtime Version in the workflow file content for code base apps.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
+    public required TerraformValue<string> RuntimeVersion
+    {
+        get => new TerraformReference<string>(this, "runtime_version");
+        set => SetArgument("runtime_version", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for container_configuration in AzurermAppServiceSourceControlSlotGithubActionConfigurationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermAppServiceSourceControlSlotGithubActionConfigurationBlockContainerConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "container_configuration";
+
+    /// <summary>
+    /// The image name for the build.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
+    public required TerraformValue<string> ImageName
+    {
+        get => new TerraformReference<string>(this, "image_name");
+        set => SetArgument("image_name", value);
+    }
+
+    /// <summary>
+    /// The password used to upload the image to the container registry.
+    /// </summary>
+    public TerraformValue<string>? RegistryPassword
+    {
+        get => new TerraformReference<string>(this, "registry_password");
+        set => SetArgument("registry_password", value);
+    }
+
+    /// <summary>
+    /// The server URL for the container registry where the build will be hosted.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryUrl is required")]
+    public required TerraformValue<string> RegistryUrl
+    {
+        get => new TerraformReference<string>(this, "registry_url");
+        set => SetArgument("registry_url", value);
+    }
+
+    /// <summary>
+    /// The username used to upload the image to the container registry.
+    /// </summary>
+    public TerraformValue<string>? RegistryUsername
+    {
+        get => new TerraformReference<string>(this, "registry_username");
+        set => SetArgument("registry_username", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzurermAppServiceSourceControlSlot.
 /// Nesting mode: single
 /// </summary>
 public class AzurermAppServiceSourceControlSlotTimeoutsBlock : TerraformBlock
@@ -71,6 +176,7 @@ public class AzurermAppServiceSourceControlSlotTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_app_service_source_control_slot Terraform resource.

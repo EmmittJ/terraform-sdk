@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermOracleAutonomousDatabaseCloneFromBackup.
 /// Nesting mode: single
 /// </summary>
 public class AzurermOracleAutonomousDatabaseCloneFromBackupTimeoutsBlock : TerraformBlock
@@ -41,6 +41,7 @@ public class AzurermOracleAutonomousDatabaseCloneFromBackupTimeoutsBlock : Terra
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_oracle_autonomous_database_clone_from_backup Terraform resource.

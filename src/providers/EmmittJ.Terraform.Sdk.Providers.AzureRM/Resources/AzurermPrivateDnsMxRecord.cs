@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for record in .
+/// Block type for record in AzurermPrivateDnsMxRecord.
 /// Nesting mode: set
 /// </summary>
 public class AzurermPrivateDnsMxRecordRecordBlock : TerraformBlock
@@ -35,8 +35,9 @@ public class AzurermPrivateDnsMxRecordRecordBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermPrivateDnsMxRecord.
 /// Nesting mode: single
 /// </summary>
 public class AzurermPrivateDnsMxRecordTimeoutsBlock : TerraformBlock
@@ -83,6 +84,7 @@ public class AzurermPrivateDnsMxRecordTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_private_dns_mx_record Terraform resource.

@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for advanced_filter in .
+/// Block type for advanced_filter in AzurermEventgridEventSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridEventSubscriptionAdvancedFilterBlock : TerraformBlock
@@ -13,10 +13,789 @@ public class AzurermEventgridEventSubscriptionAdvancedFilterBlock : TerraformBlo
     /// </summary>
     public override string BlockType => "advanced_filter";
 
+    /// <summary>
+    /// BoolEquals block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockBoolEqualsBlock>? BoolEquals
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockBoolEqualsBlock>>("bool_equals");
+        set => SetArgument("bool_equals", value);
+    }
+
+    /// <summary>
+    /// IsNotNull block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockIsNotNullBlock>? IsNotNull
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockIsNotNullBlock>>("is_not_null");
+        set => SetArgument("is_not_null", value);
+    }
+
+    /// <summary>
+    /// IsNullOrUndefined block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockIsNullOrUndefinedBlock>? IsNullOrUndefined
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockIsNullOrUndefinedBlock>>("is_null_or_undefined");
+        set => SetArgument("is_null_or_undefined", value);
+    }
+
+    /// <summary>
+    /// NumberGreaterThan block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberGreaterThanBlock>? NumberGreaterThan
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberGreaterThanBlock>>("number_greater_than");
+        set => SetArgument("number_greater_than", value);
+    }
+
+    /// <summary>
+    /// NumberGreaterThanOrEquals block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberGreaterThanOrEqualsBlock>? NumberGreaterThanOrEquals
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberGreaterThanOrEqualsBlock>>("number_greater_than_or_equals");
+        set => SetArgument("number_greater_than_or_equals", value);
+    }
+
+    /// <summary>
+    /// NumberIn block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberInBlock>? NumberIn
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberInBlock>>("number_in");
+        set => SetArgument("number_in", value);
+    }
+
+    /// <summary>
+    /// NumberInRange block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberInRangeBlock>? NumberInRange
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberInRangeBlock>>("number_in_range");
+        set => SetArgument("number_in_range", value);
+    }
+
+    /// <summary>
+    /// NumberLessThan block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberLessThanBlock>? NumberLessThan
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberLessThanBlock>>("number_less_than");
+        set => SetArgument("number_less_than", value);
+    }
+
+    /// <summary>
+    /// NumberLessThanOrEquals block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberLessThanOrEqualsBlock>? NumberLessThanOrEquals
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberLessThanOrEqualsBlock>>("number_less_than_or_equals");
+        set => SetArgument("number_less_than_or_equals", value);
+    }
+
+    /// <summary>
+    /// NumberNotIn block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberNotInBlock>? NumberNotIn
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberNotInBlock>>("number_not_in");
+        set => SetArgument("number_not_in", value);
+    }
+
+    /// <summary>
+    /// NumberNotInRange block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberNotInRangeBlock>? NumberNotInRange
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberNotInRangeBlock>>("number_not_in_range");
+        set => SetArgument("number_not_in_range", value);
+    }
+
+    /// <summary>
+    /// StringBeginsWith block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringBeginsWithBlock>? StringBeginsWith
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringBeginsWithBlock>>("string_begins_with");
+        set => SetArgument("string_begins_with", value);
+    }
+
+    /// <summary>
+    /// StringContains block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringContainsBlock>? StringContains
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringContainsBlock>>("string_contains");
+        set => SetArgument("string_contains", value);
+    }
+
+    /// <summary>
+    /// StringEndsWith block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringEndsWithBlock>? StringEndsWith
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringEndsWithBlock>>("string_ends_with");
+        set => SetArgument("string_ends_with", value);
+    }
+
+    /// <summary>
+    /// StringIn block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringInBlock>? StringIn
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringInBlock>>("string_in");
+        set => SetArgument("string_in", value);
+    }
+
+    /// <summary>
+    /// StringNotBeginsWith block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotBeginsWithBlock>? StringNotBeginsWith
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotBeginsWithBlock>>("string_not_begins_with");
+        set => SetArgument("string_not_begins_with", value);
+    }
+
+    /// <summary>
+    /// StringNotContains block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotContainsBlock>? StringNotContains
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotContainsBlock>>("string_not_contains");
+        set => SetArgument("string_not_contains", value);
+    }
+
+    /// <summary>
+    /// StringNotEndsWith block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotEndsWithBlock>? StringNotEndsWith
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotEndsWithBlock>>("string_not_ends_with");
+        set => SetArgument("string_not_ends_with", value);
+    }
+
+    /// <summary>
+    /// StringNotIn block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotInBlock>? StringNotIn
+    {
+        get => GetArgument<TerraformList<AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotInBlock>>("string_not_in");
+        set => SetArgument("string_not_in", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for azure_function_endpoint in .
+/// Block type for bool_equals in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockBoolEqualsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "bool_equals";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<bool> Value
+    {
+        get => new TerraformReference<bool>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for is_not_null in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockIsNotNullBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "is_not_null";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for is_null_or_undefined in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockIsNullOrUndefinedBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "is_null_or_undefined";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for number_greater_than in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberGreaterThanBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "number_greater_than";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<double> Value
+    {
+        get => new TerraformReference<double>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for number_greater_than_or_equals in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberGreaterThanOrEqualsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "number_greater_than_or_equals";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<double> Value
+    {
+        get => new TerraformReference<double>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for number_in in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberInBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "number_in";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<double>? ValuesAttribute
+    {
+        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for number_in_range in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberInRangeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "number_in_range";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<TerraformList<double>>? ValuesAttribute
+    {
+        get => TerraformList<TerraformList<double>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformList<double>>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for number_less_than in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberLessThanBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "number_less_than";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<double> Value
+    {
+        get => new TerraformReference<double>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for number_less_than_or_equals in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberLessThanOrEqualsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "number_less_than_or_equals";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<double> Value
+    {
+        get => new TerraformReference<double>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for number_not_in in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberNotInBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "number_not_in";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<double>? ValuesAttribute
+    {
+        get => TerraformList<double>.Lazy(ctx => new TerraformReference<TerraformList<double>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for number_not_in_range in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockNumberNotInRangeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "number_not_in_range";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<TerraformList<double>>? ValuesAttribute
+    {
+        get => TerraformList<TerraformList<double>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformList<double>>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for string_begins_with in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockStringBeginsWithBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "string_begins_with";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for string_contains in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockStringContainsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "string_contains";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for string_ends_with in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockStringEndsWithBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "string_ends_with";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for string_in in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockStringInBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "string_in";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for string_not_begins_with in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotBeginsWithBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "string_not_begins_with";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for string_not_contains in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotContainsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "string_not_contains";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for string_not_ends_with in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotEndsWithBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "string_not_ends_with";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for string_not_in in AzurermEventgridEventSubscriptionAdvancedFilterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventgridEventSubscriptionAdvancedFilterBlockStringNotInBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "string_not_in";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for azure_function_endpoint in AzurermEventgridEventSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock : TerraformBlock
@@ -56,8 +835,9 @@ public class AzurermEventgridEventSubscriptionAzureFunctionEndpointBlock : Terra
 
 }
 
+
 /// <summary>
-/// Block type for dead_letter_identity in .
+/// Block type for dead_letter_identity in AzurermEventgridEventSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridEventSubscriptionDeadLetterIdentityBlock : TerraformBlock
@@ -88,8 +868,9 @@ public class AzurermEventgridEventSubscriptionDeadLetterIdentityBlock : Terrafor
 
 }
 
+
 /// <summary>
-/// Block type for delivery_identity in .
+/// Block type for delivery_identity in AzurermEventgridEventSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridEventSubscriptionDeliveryIdentityBlock : TerraformBlock
@@ -120,8 +901,9 @@ public class AzurermEventgridEventSubscriptionDeliveryIdentityBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for delivery_property in .
+/// Block type for delivery_property in AzurermEventgridEventSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridEventSubscriptionDeliveryPropertyBlock : TerraformBlock
@@ -180,8 +962,9 @@ public class AzurermEventgridEventSubscriptionDeliveryPropertyBlock : TerraformB
 
 }
 
+
 /// <summary>
-/// Block type for retry_policy in .
+/// Block type for retry_policy in AzurermEventgridEventSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridEventSubscriptionRetryPolicyBlock : TerraformBlock
@@ -213,8 +996,9 @@ public class AzurermEventgridEventSubscriptionRetryPolicyBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for storage_blob_dead_letter_destination in .
+/// Block type for storage_blob_dead_letter_destination in AzurermEventgridEventSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBlock : TerraformBlock
@@ -246,8 +1030,9 @@ public class AzurermEventgridEventSubscriptionStorageBlobDeadLetterDestinationBl
 
 }
 
+
 /// <summary>
-/// Block type for storage_queue_endpoint in .
+/// Block type for storage_queue_endpoint in AzurermEventgridEventSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridEventSubscriptionStorageQueueEndpointBlock : TerraformBlock
@@ -288,8 +1073,9 @@ public class AzurermEventgridEventSubscriptionStorageQueueEndpointBlock : Terraf
 
 }
 
+
 /// <summary>
-/// Block type for subject_filter in .
+/// Block type for subject_filter in AzurermEventgridEventSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridEventSubscriptionSubjectFilterBlock : TerraformBlock
@@ -328,8 +1114,9 @@ public class AzurermEventgridEventSubscriptionSubjectFilterBlock : TerraformBloc
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermEventgridEventSubscription.
 /// Nesting mode: single
 /// </summary>
 public class AzurermEventgridEventSubscriptionTimeoutsBlock : TerraformBlock
@@ -377,8 +1164,9 @@ public class AzurermEventgridEventSubscriptionTimeoutsBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for webhook_endpoint in .
+/// Block type for webhook_endpoint in AzurermEventgridEventSubscription.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventgridEventSubscriptionWebhookEndpointBlock : TerraformBlock
@@ -443,6 +1231,7 @@ public class AzurermEventgridEventSubscriptionWebhookEndpointBlock : TerraformBl
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_eventgrid_event_subscription Terraform resource.

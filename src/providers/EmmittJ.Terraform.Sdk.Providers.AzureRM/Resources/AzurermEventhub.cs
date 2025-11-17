@@ -3,7 +3,7 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for capture_description in .
+/// Block type for capture_description in AzurermEventhub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
@@ -60,10 +60,77 @@ public class AzurermEventhubCaptureDescriptionBlock : TerraformBlock
         set => SetArgument("skip_empty_archives", value);
     }
 
+    /// <summary>
+    /// Destination block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
+    public required TerraformList<AzurermEventhubCaptureDescriptionBlockDestinationBlock> Destination
+    {
+        get => GetRequiredArgument<TerraformList<AzurermEventhubCaptureDescriptionBlockDestinationBlock>>("destination");
+        set => SetArgument("destination", value);
+    }
+
 }
 
 /// <summary>
-/// Block type for retention_description in .
+/// Block type for destination in AzurermEventhubCaptureDescriptionBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermEventhubCaptureDescriptionBlockDestinationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "destination";
+
+    /// <summary>
+    /// The archive_name_format attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArchiveNameFormat is required")]
+    public required TerraformValue<string> ArchiveNameFormat
+    {
+        get => new TerraformReference<string>(this, "archive_name_format");
+        set => SetArgument("archive_name_format", value);
+    }
+
+    /// <summary>
+    /// The blob_container_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlobContainerName is required")]
+    public required TerraformValue<string> BlobContainerName
+    {
+        get => new TerraformReference<string>(this, "blob_container_name");
+        set => SetArgument("blob_container_name", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The storage_account_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
+    public required TerraformValue<string> StorageAccountId
+    {
+        get => new TerraformReference<string>(this, "storage_account_id");
+        set => SetArgument("storage_account_id", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for retention_description in AzurermEventhub.
 /// Nesting mode: list
 /// </summary>
 public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
@@ -103,8 +170,9 @@ public class AzurermEventhubRetentionDescriptionBlock : TerraformBlock
 
 }
 
+
 /// <summary>
-/// Block type for timeouts in .
+/// Block type for timeouts in AzurermEventhub.
 /// Nesting mode: single
 /// </summary>
 public class AzurermEventhubTimeoutsBlock : TerraformBlock
@@ -151,6 +219,7 @@ public class AzurermEventhubTimeoutsBlock : TerraformBlock
     }
 
 }
+
 
 /// <summary>
 /// Represents a azurerm_eventhub Terraform resource.
