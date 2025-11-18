@@ -1,0 +1,6 @@
+﻿resource "test" "special" {
+  description = "Line 1\nLine 2\tTabbed\r\nWindows Line"
+  mixed = "Path: C:\\test\nQuote: \"test\"\tTab"
+  path = "C:\\Users\\Test\\file.txt"
+  quoted = "He said \"hello\""
+}

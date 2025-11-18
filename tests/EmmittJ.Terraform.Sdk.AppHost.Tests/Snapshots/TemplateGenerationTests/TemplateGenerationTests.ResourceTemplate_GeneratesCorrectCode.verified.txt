@@ -17,6 +17,7 @@ public partial class AzurermResourceGroup(string name) : TerraformResource("azur
         get => new TerraformReference<TerraformString>(this, "name");
         set => SetArgument("name", value);
     }
+
     /// <summary>
     /// The Azure Region where the Resource Group should exist.
     /// </summary>
@@ -26,6 +27,7 @@ public partial class AzurermResourceGroup(string name) : TerraformResource("azur
         get => new TerraformReference<TerraformString>(this, "location");
         set => SetArgument("location", value);
     }
+
     /// <summary>
     /// A mapping of tags to assign to the resource.
     /// </summary>
@@ -34,4 +36,13 @@ public partial class AzurermResourceGroup(string name) : TerraformResource("azur
         get => TerraformMap<TerraformString>.Lazy(ctx => new TerraformReference<TerraformMap<TerraformString>>(this, "tags").ResolveNodes(ctx));
         set => SetArgument("tags", value);
     }
+
+    /// <summary>
+    /// The ID of the Resource Group.
+    /// </summary>
+    public TerraformString Id
+    {
+        get => new TerraformReference<TerraformString>(this, "id");
+    }
+
 }

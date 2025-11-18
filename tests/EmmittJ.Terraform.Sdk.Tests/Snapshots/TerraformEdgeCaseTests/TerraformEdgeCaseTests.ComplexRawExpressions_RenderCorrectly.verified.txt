@@ -1,0 +1,5 @@
+﻿resource "test" "raw_expr" {
+  should_deploy = (var.enabled && var.ready) || (var.override && var.force)
+  subnet_ids = [for s in var.subnets : s.id if s.public]
+  tags_map = {for k, v in var.tags : k => upper(v)}
+}

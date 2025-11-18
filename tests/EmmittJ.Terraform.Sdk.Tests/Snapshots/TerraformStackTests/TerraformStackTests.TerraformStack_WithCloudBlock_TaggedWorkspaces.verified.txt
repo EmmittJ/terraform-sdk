@@ -1,0 +1,9 @@
+﻿terraform {
+  required_version = ">= 1.5.0"
+  cloud {
+    organization = "my-org"
+    workspaces {
+      tags = ["app", "networking", "production"]
+    }
+  }
+}

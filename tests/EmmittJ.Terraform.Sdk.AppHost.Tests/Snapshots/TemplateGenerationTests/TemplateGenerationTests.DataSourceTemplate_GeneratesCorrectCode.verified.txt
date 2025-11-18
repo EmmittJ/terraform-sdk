@@ -17,4 +17,21 @@ public partial class AzurermResourceGroup(string name) : TerraformDataSource("az
         get => new TerraformReference<TerraformString>(this, "name");
         set => SetArgument("name", value);
     }
+
+    /// <summary>
+    /// The ID of the Resource Group.
+    /// </summary>
+    public TerraformString Id
+    {
+        get => new TerraformReference<TerraformString>(this, "id");
+    }
+
+    /// <summary>
+    /// The Azure location where the Resource Group exists.
+    /// </summary>
+    public TerraformString Location
+    {
+        get => new TerraformReference<TerraformString>(this, "location");
+    }
+
 }

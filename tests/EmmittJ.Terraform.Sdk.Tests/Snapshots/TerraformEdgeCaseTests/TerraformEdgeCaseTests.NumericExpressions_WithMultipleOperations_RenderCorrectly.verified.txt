@@ -1,0 +1,3 @@
+﻿resource "test" "math" {
+  calculated = 10 + 5 * 2 - 3
+}

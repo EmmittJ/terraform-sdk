@@ -115,12 +115,5 @@ public partial class CloudWorkspacesBlock : TerraformBlock
         get => GetArgument<TerraformValue<string>?>("project");
         set => SetArgument("project", value);
     }
-
-    /// <summary>
-    /// Workspaces block resolves as a nested block: workspaces { ... }
-    /// </summary>
-    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        yield return new TerraformBlockNode(BlockType, BlockLabels, base.ResolveNodes(context));
-    }
 }
+

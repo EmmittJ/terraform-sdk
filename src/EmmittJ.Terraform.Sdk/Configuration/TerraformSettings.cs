@@ -66,12 +66,12 @@ public partial class TerraformSettings : TerraformBlock
     }
 
     /// <summary>
-    /// Gets or sets the required_providers block as a map.
-    /// Each key is the local provider name, value is the provider requirement.
+    /// Gets or sets the required_providers block.
+    /// This is a nested block, not an attribute assignment.
     /// </summary>
-    public TerraformMap<ProviderRequirement>? RequiredProviders
+    public TerraformRequiredProvidersBlock? RequiredProviders
     {
-        get => GetArgument<TerraformMap<ProviderRequirement>?>("required_providers");
+        get => GetArgument<TerraformRequiredProvidersBlock?>("required_providers");
         set => SetArgument("required_providers", value);
     }
 
@@ -89,20 +89,49 @@ public partial class TerraformSettings : TerraformBlock
 }
 
 /// <summary>
-/// Represents a provider requirement with source and version constraint.
-/// Used within the required_providers block.
+/// Represents the required_providers block within terraform settings.
+/// This is a special block that contains provider requirements as nested unlabeled blocks.
 /// </summary>
-public partial class ProviderRequirement : TerraformBlock
+/// <remarks>
+/// Example HCL:
+/// <code>
+/// required_providers {
+///   aws {
+///     source = "hashicorp/aws"
+///     version = "~> 5.0"
+///   }
+/// }
+/// </code>
+/// </remarks>
+public class TerraformRequiredProvidersBlock() : TerraformBlock()
 {
     /// <summary>
     /// Gets the block type.
     /// </summary>
-    public override string BlockType => "provider";
+    public override string BlockType => "required_providers";
+
+    public TerraformList<ProviderRequirement>? ProviderRequirements
+    {
+        get => GetArgument<TerraformList<ProviderRequirement>?>("provider_requirements");
+        set => SetArgument("provider_requirements", value);
+    }
+}
+
+/// <summary>
+/// Represents a provider requirement with source and version constraint.
+/// Used within the required_providers block.
+/// </summary>
+public partial class ProviderRequirement(string provider) : TerraformBlock()
+{
+    /// <summary>
+    /// Gets the block type (empty string as this renders as an unlabeled block).
+    /// </summary>
+    public override string BlockType => provider;
 
     /// <summary>
-    /// Initializes a new instance of ProviderRequirement.
+    /// Gets the block labels (provider requirements have no labels beyond the block type).
     /// </summary>
-    public ProviderRequirement() { }
+    public override string[] BlockLabels => [];
 
     /// <summary>
     /// Gets or sets the provider source (e.g., "hashicorp/aws", "hashicorp/azurerm").

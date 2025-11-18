@@ -20,6 +20,8 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
         get => new TerraformReference<AzurermProviderFeaturesBlock>(this, "features");
         set => SetArgument("features", value);
     }
+
+
     /// <summary>
     /// The Subscription ID which should be used.
     /// </summary>
@@ -28,4 +30,6 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
         get => new TerraformReference<TerraformString>(this, "subscription_id");
         set => SetArgument("subscription_id", value);
     }
+
+
 }

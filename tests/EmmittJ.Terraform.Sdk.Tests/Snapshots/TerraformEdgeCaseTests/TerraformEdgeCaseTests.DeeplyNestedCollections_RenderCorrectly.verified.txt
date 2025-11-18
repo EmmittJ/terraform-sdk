@@ -1,0 +1,12 @@
+﻿resource "test" "nested" {
+  config = {
+    level1 = {
+      level2 = {
+        level3 = [{
+          deep_number = 42
+          deep_value = "success"
+        }]
+      }
+    }
+  }
+}

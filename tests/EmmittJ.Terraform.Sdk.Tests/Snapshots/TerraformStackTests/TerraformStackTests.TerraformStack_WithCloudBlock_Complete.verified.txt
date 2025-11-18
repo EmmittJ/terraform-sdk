@@ -1,0 +1,25 @@
+﻿terraform {
+  required_version = ">= 1.5.0"
+  cloud {
+    hostname = "app.terraform.io"
+    organization = "acme-corp"
+    token = var.tfc_token
+    workspaces {
+      name = "production-infrastructure"
+      project = "cloud-platform"
+    }
+  }
+  required_providers {
+    aws {
+      source = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+provider "aws" {
+  region = "us-east-1"
+}
+resource "aws_instance" "app" {
+  ami = "ami-12345678"
+  instance_type = "t3.medium"
+}

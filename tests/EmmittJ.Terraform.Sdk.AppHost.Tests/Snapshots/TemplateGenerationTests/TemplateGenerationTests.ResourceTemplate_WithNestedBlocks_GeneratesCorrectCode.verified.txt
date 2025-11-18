@@ -3,7 +3,7 @@
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
-/// Block type for subnet in .
+/// Block type for subnet.
 /// Nesting mode: list
 /// </summary>
 public class AzurermVirtualNetworkSubnetBlock : TerraformBlock
@@ -22,6 +22,7 @@ public class AzurermVirtualNetworkSubnetBlock : TerraformBlock
         get => new TerraformReference<TerraformString>(this, "name");
         set => SetArgument("name", value);
     }
+
     /// <summary>
     /// The address prefix to use for the subnet.
     /// </summary>
@@ -31,7 +32,9 @@ public class AzurermVirtualNetworkSubnetBlock : TerraformBlock
         get => new TerraformReference<TerraformString>(this, "address_prefix");
         set => SetArgument("address_prefix", value);
     }
+
 }
+
 
 /// <summary>
 /// Represents a azurerm_virtual_network Terraform resource.
@@ -48,4 +51,14 @@ public partial class AzurermVirtualNetwork(string name) : TerraformResource("azu
         get => new TerraformReference<TerraformString>(this, "name");
         set => SetArgument("name", value);
     }
+
+    /// <summary>
+    /// Subnet block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermVirtualNetworkSubnetBlock>? Subnet
+    {
+        get => GetArgument<TerraformList<AzurermVirtualNetworkSubnetBlock>>("subnet");
+        set => SetArgument("subnet", value);
+    }
+
 }

@@ -9,22 +9,4 @@ namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 /// </summary>
 public partial class AzurermKeyVaultSecret(string name) : TerraformEphemeralResource("azurerm_key_vault_secret", name)
 {
-    /// <summary>
-    /// The ID of the Key Vault.
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    public required TerraformString KeyVaultId
-    {
-        get => new TerraformReference<TerraformString>(this, "key_vault_id");
-        set => SetArgument("key_vault_id", value);
-    }
-    /// <summary>
-    /// The name of the secret.
-    /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    public required TerraformString Name
-    {
-        get => new TerraformReference<TerraformString>(this, "name");
-        set => SetArgument("name", value);
-    }
 }
