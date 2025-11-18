@@ -135,29 +135,31 @@ public class TerraformResourceTests
     // TODO: Re-enable after implementing resource output property generation
     // Resources don't auto-generate properties like "id", "public_ip" etc.
     // Need to either:
-    // 1. Use TerraformExpression.Raw("aws_vpc.main.id") for references
+    // 1. Use vpc["id"] for references
     // 2. Implement dynamic property generation based on provider schemas
-    /*
     [Fact]
     public Task TerraformResource_WithReference()
     {
         var stack = new TerraformStack { Name = "test" };
         var context = new TerraformContext(stack);
 
-        var vpc = new TerraformResource("aws_vpc", "main");
-        vpc["cidr_block"] = "10.0.0.0/16";
+        var vpc = new TerraformResource("aws_vpc", "main")
+        {
+            ["cidr_block"] = "10.0.0.0/16"
+        };
         stack.Add(vpc);
 
-        var subnet = new TerraformResource("aws_subnet", "public");
-        subnet["vpc_id"] = TerraformExpression.Raw("aws_vpc.main.id");
-        subnet["cidr_block"] = "10.0.1.0/24";
+        var subnet = new TerraformResource("aws_subnet", "public")
+        {
+            ["vpc_id"] = vpc["id"],
+            ["cidr_block"] = "10.0.1.0/24"
+        };
         stack.Add(subnet);
 
         var hcl = TerraformTestHelpers.RenderBlock(subnet, context);
 
         return Verify(hcl);
     }
-    */
 
     [Fact]
     public Task TerraformResource_WithMetaArguments()

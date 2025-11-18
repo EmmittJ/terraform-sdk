@@ -125,7 +125,7 @@ public class TerraformStackTests
         var instance = new TerraformResource("aws_instance", "web")
         {
             ["ami"] = "ami-12345678",
-            ["instance_type"] = TerraformExpression.Raw("var.instance_type"),
+            ["instance_type"] = instanceType.AsReference(),
             ["tags"] = new TerraformMap<object>
             {
                 ["Name"] = "Web Server"
@@ -274,11 +274,25 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "provider" };
 
+        var accessKey = new TerraformVariable("aws_access_key")
+        {
+            Type = "string",
+            Description = "AWS Access Key"
+        };
+        stack.Add(accessKey);
+
+        var secretKey = new TerraformVariable("aws_secret_key")
+        {
+            Type = "string",
+            Description = "AWS Secret Key"
+        };
+        stack.Add(secretKey);
+
         var provider = new TerraformProvider("aws")
         {
             ["region"] = "us-west-2",
-            ["access_key"] = TerraformExpression.Raw("var.aws_access_key"),
-            ["secret_key"] = TerraformExpression.Raw("var.aws_secret_key")
+            ["access_key"] = accessKey.AsReference(),
+            ["secret_key"] = secretKey.AsReference()
         };
 
         var instance = new TerraformResource("aws_instance", "web")
@@ -381,21 +395,24 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "locals" };
 
-        var locals = new TerraformLocals();
-        locals.SetArgument("environment", "production");
-        locals.SetArgument("region", "us-west-2");
-        locals.SetArgument("common_tags", new TerraformMap<object>
+        var locals = new TerraformLocals()
         {
-            ["Environment"] = TerraformExpression.Raw("local.environment"),
+            ["environment"] = "production",
+            ["region"] = "us-west-2"
+        };
+
+        locals["common_tags"] = new TerraformMap<object>
+        {
+            ["Environment"] = locals["environment"],
             ["ManagedBy"] = "Terraform",
             ["Project"] = "MyApp"
-        });
+        };
 
         var instance = new TerraformResource("aws_instance", "web")
         {
             ["ami"] = "ami-12345678",
             ["instance_type"] = "t2.micro",
-            ["tags"] = TerraformExpression.Raw("local.common_tags")
+            ["tags"] = locals["common_tags"]
         };
 
         stack.Add(locals);
@@ -432,7 +449,7 @@ public class TerraformStackTests
 
         var instance = new TerraformResource("aws_instance", "web")
         {
-            ["ami"] = TerraformExpression.Raw("data.aws_ami.ubuntu.id"),
+            ["ami"] = ami["id"],
             ["instance_type"] = "t2.micro"
         };
 
@@ -472,12 +489,6 @@ public class TerraformStackTests
             }
         };
 
-        // Provider
-        var provider = new TerraformProvider("aws")
-        {
-            ["region"] = TerraformExpression.Raw("var.region")
-        };
-
         // Variables
         var region = new TerraformVariable("region")
         {
@@ -491,14 +502,22 @@ public class TerraformStackTests
             Default = "production"
         };
 
-        // Locals
-        var locals = new TerraformLocals();
-        locals.SetArgument("name_prefix", TerraformExpression.Raw("\"${var.environment}-myapp\""));
-        locals.SetArgument("common_tags", new TerraformMap<object>
+        // Provider
+        var provider = new TerraformProvider("aws")
         {
-            ["Environment"] = TerraformExpression.Raw("var.environment"),
-            ["ManagedBy"] = "Terraform"
-        });
+            ["region"] = region.AsReference()
+        };
+
+        // Locals
+        var locals = new TerraformLocals()
+        {
+            ["name_prefix"] = $"${environment.AsReference()}-myapp",
+            ["common_tags"] = new TerraformMap<object>
+            {
+                ["Environment"] = environment.AsReference(),
+                ["ManagedBy"] = "Terraform"
+            }
+        };
 
         // Data Sources
         var availabilityZones = new TerraformDataSource("aws_availability_zones", "available")
@@ -511,20 +530,20 @@ public class TerraformStackTests
         {
             Source = "terraform-aws-modules/vpc/aws",
             Version = "5.1.0",
-            ["name"] = TerraformExpression.Raw("local.name_prefix"),
+            ["name"] = locals["name_prefix"],
             ["cidr"] = "10.0.0.0/16",
-            ["azs"] = TerraformExpression.Raw("data.aws_availability_zones.available.names"),
+            ["azs"] = availabilityZones["names"],
             ["private_subnets"] = new TerraformList<string> { "10.0.1.0/24", "10.0.2.0/24" },
             ["public_subnets"] = new TerraformList<string> { "10.0.101.0/24", "10.0.102.0/24" },
             ["enable_nat_gateway"] = true,
-            ["tags"] = TerraformExpression.Raw("local.common_tags")
+            ["tags"] = locals["common_tags"]
         };
 
         // Resources
         var securityGroup = new TerraformResource("aws_security_group", "web")
         {
-            ["name"] = TerraformExpression.Raw("\"${local.name_prefix}-web\""),
-            ["vpc_id"] = TerraformExpression.Raw("module.vpc.vpc_id"),
+            ["name"] = $"{locals["name_prefix"]}-web",
+            ["vpc_id"] = vpcModule["vpc_id"],
             ["ingress"] = new TerraformList<TerraformMap<object>>
             {
                 new TerraformMap<object>
@@ -535,19 +554,19 @@ public class TerraformStackTests
                     ["cidr_blocks"] = new TerraformList<string> { "0.0.0.0/0" }
                 }
             },
-            ["tags"] = TerraformExpression.Raw("local.common_tags")
+            ["tags"] = locals["common_tags"]
         };
 
         // Outputs
         var vpcId = new TerraformOutput("vpc_id")
         {
-            Value = TerraformExpression.Raw("module.vpc.vpc_id"),
+            Value = vpcModule["vpc_id"],
             Description = "The ID of the VPC"
         };
 
         var securityGroupId = new TerraformOutput("security_group_id")
         {
-            Value = TerraformExpression.Raw("aws_security_group.web.id"),
+            Value = securityGroup["id"],
             Description = "The ID of the security group"
         };
 
@@ -676,6 +695,13 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "cloud-complete" };
 
+        var tfcToken = new TerraformVariable("tfc_token")
+        {
+            Type = "string",
+            Description = "Terraform Cloud API Token"
+        };
+        stack.Add(tfcToken);
+
         var settings = new TerraformSettings
         {
             RequiredVersion = ">= 1.5.0",
@@ -694,7 +720,7 @@ public class TerraformStackTests
             {
                 Organization = "acme-corp",
                 Hostname = "app.terraform.io",
-                Token = TerraformExpression.Raw("var.tfc_token"),
+                Token = tfcToken.AsReference(),
                 Workspaces = new CloudWorkspacesBlock
                 {
                     Name = "production-infrastructure",

@@ -78,7 +78,7 @@ public class TerraformValue<T> : ITerraformValue
         // Allow null
         if (value is null)
         {
-            return TerraformValue<T>.Lazy(ctx => new[] { TerraformExpression.Literal(value) });
+            return TerraformValue<T>.Lazy(ctx => [TerraformExpression.Literal(value)]);
         }
 
         // Allow TerraformValue types (they're already values/references, just pass through)
@@ -86,10 +86,10 @@ public class TerraformValue<T> : ITerraformValue
         {
             // This is already a Terraform value type (TerraformMap, TerraformList, etc.)
             // We need to resolve it and wrap it
-            return TerraformValue<T>.Lazy(ctx => terraformValue.ResolveNodes(ctx));
+            return TerraformValue<T>.Lazy(terraformValue.ResolveNodes);
         }
 
-        return TerraformValue<T>.Lazy(ctx => new[] { TerraformExpression.Literal(value) });
+        return TerraformValue<T>.Lazy(ctx => [TerraformExpression.Literal(value)]);
     }
 
     /// <summary>

@@ -31,9 +31,10 @@ public class TerraformLocals : TerraformBlock
     /// </summary>
     /// <param name="name">The name of the local value.</param>
     /// <returns>A reference expression to the local value.</returns>
-    public new TerraformExpression this[string name]
+    public new TerraformValue<object> this[string name]
     {
         get => TerraformExpression.Identifier($"local.{name}");
+        set => base[name] = value;
     }
 
     /// <inheritdoc/>

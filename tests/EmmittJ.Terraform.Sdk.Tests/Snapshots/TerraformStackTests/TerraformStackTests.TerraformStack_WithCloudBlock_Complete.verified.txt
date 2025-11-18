@@ -1,4 +1,8 @@
-﻿terraform {
+﻿variable "tfc_token" {
+  description = "Terraform Cloud API Token"
+  type = "string"
+}
+terraform {
   required_version = ">= 1.5.0"
   cloud {
     hostname = "app.terraform.io"
