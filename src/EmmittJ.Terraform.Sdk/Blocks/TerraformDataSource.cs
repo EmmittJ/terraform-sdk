@@ -59,6 +59,15 @@ public class TerraformDataSource :
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"data.{DataSourceType}.{DataSourceName}");
 
+    /// <summary>
+    /// Implicit conversion to TerraformExpression for natural reference usage.
+    /// Allows using data sources directly in expressions without calling AsReference().
+    /// </summary>
+    /// <param name="dataSource">The data source to convert.</param>
+    /// <returns>A TerraformExpression representing the data source reference.</returns>
+    public static implicit operator TerraformExpression(TerraformDataSource dataSource)
+        => dataSource.AsReference();
+
     // Meta-argument properties
 
     /// <summary>

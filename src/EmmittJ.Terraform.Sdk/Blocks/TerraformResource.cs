@@ -59,6 +59,15 @@ public class TerraformResource : TerraformBlock,
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"{ResourceType}.{ResourceName}");
 
+    /// <summary>
+    /// Implicit conversion to TerraformExpression for natural reference usage.
+    /// Allows using resources directly in expressions without calling AsReference().
+    /// </summary>
+    /// <param name="resource">The resource to convert.</param>
+    /// <returns>A TerraformExpression representing the resource reference.</returns>
+    public static implicit operator TerraformExpression(TerraformResource resource)
+        => resource.AsReference();
+
     // Meta-argument properties
 
     /// <summary>

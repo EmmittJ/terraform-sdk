@@ -71,6 +71,15 @@ public class TerraformModule :
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"module.{Name}");
 
+    /// <summary>
+    /// Implicit conversion to TerraformExpression for natural reference usage.
+    /// Allows using modules directly in expressions without calling AsReference().
+    /// </summary>
+    /// <param name="module">The module to convert.</param>
+    /// <returns>A TerraformExpression representing the module reference.</returns>
+    public static implicit operator TerraformExpression(TerraformModule module)
+        => module.AsReference();
+
     // Meta-argument properties
 
     /// <summary>

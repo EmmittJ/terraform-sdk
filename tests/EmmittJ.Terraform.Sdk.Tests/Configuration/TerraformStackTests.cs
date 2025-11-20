@@ -587,6 +587,78 @@ public class TerraformStackTests
     }
 
     [Fact]
+    public Task TerraformStack_WithImplicitConversions()
+    {
+        var stack = new TerraformStack { Name = "implicit-conversions" };
+
+        // Variables can be used directly with .AsReference() or directly where full reference is needed
+        var region = new TerraformVariable("region")
+        {
+            Type = "string",
+            Default = "us-west-2"
+        };
+
+        var instanceType = new TerraformVariable("instance_type")
+        {
+            Type = "string",
+            Default = "t2.micro"
+        };
+
+        // Data sources can be used directly
+        var ami = new TerraformDataSource("aws_ami", "ubuntu")
+        {
+            ["most_recent"] = true,
+            ["owners"] = new TerraformList<string> { "099720109477" }
+        };
+
+        // Resources can reference each other naturally
+        var vpc = new TerraformResource("aws_vpc", "main")
+        {
+            ["cidr_block"] = "10.0.0.0/16"
+        };
+
+        var subnet = new TerraformResource("aws_subnet", "public")
+        {
+            // Resource attributes accessed via indexer: vpc["id"]
+            ["vpc_id"] = vpc["id"],
+            ["cidr_block"] = "10.0.1.0/24"
+        };
+
+        var instance = new TerraformResource("aws_instance", "web")
+        {
+            // Data source attributes: ami["id"]
+            ["ami"] = ami["id"],
+            // Variable reference using implicit conversion
+            ["instance_type"] = instanceType.AsReference(),
+            // Resource attribute: subnet["id"]
+            ["subnet_id"] = subnet["id"],
+            ["tags"] = new TerraformMap<object>
+            {
+                ["Region"] = region.AsReference(),  // Variable reference
+                ["Name"] = "Web Server"
+            }
+        };
+
+        // Outputs can reference resources naturally
+        var instanceId = new TerraformOutput("instance_id")
+        {
+            Value = instance["id"]
+        };
+
+        stack.Add(region);
+        stack.Add(instanceType);
+        stack.Add(ami);
+        stack.Add(vpc);
+        stack.Add(subnet);
+        stack.Add(instance);
+        stack.Add(instanceId);
+
+        var hcl = stack.ToHcl();
+
+        return Verify(hcl);
+    }
+
+    [Fact]
     public Task TerraformStack_WithCloudBlock_NamedWorkspace()
     {
         var stack = new TerraformStack { Name = "cloud-named" };

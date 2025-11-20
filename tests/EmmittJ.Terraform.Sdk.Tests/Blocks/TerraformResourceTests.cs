@@ -132,11 +132,6 @@ public class TerraformResourceTests
         return Verify(hcl);
     }
 
-    // TODO: Re-enable after implementing resource output property generation
-    // Resources don't auto-generate properties like "id", "public_ip" etc.
-    // Need to either:
-    // 1. Use vpc["id"] for references
-    // 2. Implement dynamic property generation based on provider schemas
     [Fact]
     public Task TerraformResource_WithReference()
     {
@@ -157,6 +152,40 @@ public class TerraformResourceTests
         stack.Add(subnet);
 
         var hcl = TerraformTestHelpers.RenderBlock(subnet, context);
+
+        return Verify(hcl);
+    }
+
+    [Fact]
+    public Task TerraformResource_WithImplicitConversion()
+    {
+        var stack = new TerraformStack { Name = "test" };
+        var context = new TerraformContext(stack);
+
+        var vpc = new TerraformResource("aws_vpc", "main")
+        {
+            ["cidr_block"] = "10.0.0.0/16"
+        };
+        stack.Add(vpc);
+
+        var subnet = new TerraformResource("aws_subnet", "public")
+        {
+            // Using implicit conversion - vpc is automatically converted to TerraformExpression
+            ["vpc_id"] = vpc["id"],
+            ["cidr_block"] = "10.0.1.0/24"
+        };
+        stack.Add(subnet);
+
+        var instance = new TerraformResource("aws_instance", "app")
+        {
+            ["ami"] = "ami-12345678",
+            ["instance_type"] = "t2.micro",
+            // Implicit conversion allows direct block assignment for simple references
+            ["subnet_id"] = subnet["id"]
+        };
+        stack.Add(instance);
+
+        var hcl = TerraformTestHelpers.RenderBlock(instance, context);
 
         return Verify(hcl);
     }

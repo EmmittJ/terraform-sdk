@@ -53,4 +53,13 @@ public partial class TerraformProvider : TerraformBlock
     /// <returns>An identifier expression for this provider.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier(Name);
+
+    /// <summary>
+    /// Implicit conversion to TerraformExpression for natural reference usage.
+    /// Allows using providers directly in expressions without calling AsReference().
+    /// </summary>
+    /// <param name="provider">The provider to convert.</param>
+    /// <returns>A TerraformExpression representing the provider reference.</returns>
+    public static implicit operator TerraformExpression(TerraformProvider provider)
+        => provider.AsReference();
 }
