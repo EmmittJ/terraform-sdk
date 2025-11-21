@@ -46,9 +46,10 @@ internal class TerraformIdentifierExpression<T> : TerraformExpression
 /// <summary>
 /// A literal value expression with type-safe HCL formatting.
 /// </summary>
-internal class LiteralExpression<T>(T value) : TerraformExpression
+internal class LiteralExpression<T>(T value, bool quoteStrings = true) : TerraformExpression
 {
     private readonly T _value = value;
+    private readonly bool _quoteStrings = quoteStrings;
 
     public override string ToHcl(ITerraformContext context)
     {
@@ -56,21 +57,11 @@ internal class LiteralExpression<T>(T value) : TerraformExpression
         {
             null => "null",
             bool b => b ? "true" : "false",
-            string s => $"\"{EscapeString(s)}\"",
+            string s => _quoteStrings ? $"\"{HclStringHelper.EscapeString(s)}\"" : s,
             int or long or short or byte => _value.ToString() ?? string.Empty,
             float or double or decimal => _value.ToString() ?? string.Empty,
             _ => _value.ToString() ?? string.Empty,
         };
-    }
-
-    private static string EscapeString(string value)
-    {
-        return value
-            .Replace("\\", "\\\\")
-            .Replace("\"", "\\\"")
-            .Replace("\n", "\\n")
-            .Replace("\r", "\\r")
-            .Replace("\t", "\\t");
     }
 
     public override bool Equals(object? obj)
@@ -81,15 +72,15 @@ internal class LiteralExpression<T>(T value) : TerraformExpression
         }
 
         return obj is LiteralExpression<T> other
-            && EqualityComparer<T>.Default.Equals(_value, other._value);
+            && EqualityComparer<T>.Default.Equals(_value, other._value)
+            && _quoteStrings == other._quoteStrings;
     }
 
     public override int GetHashCode()
     {
-        // EqualityComparer<T>.Default handles both value and reference types.
-        return _value is null
-            ? 0
-            : EqualityComparer<T>.Default.GetHashCode(_value);
+        return HashCode.Combine(
+            _value is null ? 0 : EqualityComparer<T>.Default.GetHashCode(_value),
+            _quoteStrings);
     }
 }
 
@@ -313,13 +304,11 @@ internal class StringInterpolationExpression : TerraformExpression
         {
             if (part is string str)
             {
-                sb.Append(str.Replace("\\", "\\\\").Replace("\"", "\\\""));
+                sb.Append(HclStringHelper.EscapeString(str));
             }
             else if (part is TerraformExpression expr)
             {
-                sb.Append("${");
-                sb.Append(expr.ToHcl(context));
-                sb.Append("}");
+                sb.Append(HclStringHelper.WrapInterpolation(expr.ToHcl(context)));
             }
         }
         sb.Append("\"");
@@ -377,6 +366,139 @@ internal class StringInterpolationExpression : TerraformExpression
                 TerraformExpression expr => expr.GetHashCode(),
                 _ => 0
             });
+        }
+        return hash.ToHashCode();
+    }
+}
+
+/// <summary>
+/// String interpolation expression that supports lazy resolution of ITerraformResolvable parts.
+/// Used by Tf.Str() interpolated string handler to allow natural syntax like: Tf.Str($"{locals["name"]}-web")
+/// </summary>
+internal class TerraformInterpolationExpression : TerraformExpression
+{
+    private readonly List<object> _parts = new(); // string, TerraformExpression, or ITerraformResolvable
+    private readonly List<string?> _formats = new(); // Format specifiers for each part
+
+    public TerraformInterpolationExpression(object[] parts, string?[] formats)
+    {
+        if (parts.Length != formats.Length)
+        {
+            throw new ArgumentException("Parts and formats arrays must have the same length.");
+        }
+
+        foreach (var part in parts)
+        {
+            _parts.Add(part ?? throw new ArgumentNullException(nameof(parts)));
+        }
+
+        _formats.AddRange(formats);
+    }
+
+    public override string ToHcl(ITerraformContext context)
+    {
+        var sb = new System.Text.StringBuilder("\"");
+        for (var i = 0; i < _parts.Count; i++)
+        {
+            var part = _parts[i];
+            var format = _formats[i];
+
+            switch (part)
+            {
+                case string str:
+                    sb.Append(HclStringHelper.EscapeString(str));
+                    break;
+
+                case TerraformExpression expr:
+                    var hcl = expr.ToHcl(context);
+                    if (!string.IsNullOrEmpty(format))
+                    {
+                        hcl = ApplyFormatSpecifier(hcl, format);
+                    }
+                    sb.Append(HclStringHelper.WrapInterpolation(hcl));
+                    break;
+
+                case ITerraformResolvable resolvable:
+                    // Resolve and get the first node (should be an expression)
+                    var node = resolvable.ResolveNodes(context).FirstOrDefault();
+                    if (node is TerraformExpression resolvedExpr)
+                    {
+                        var resolvedHcl = resolvedExpr.ToHcl(context);
+                        if (!string.IsNullOrEmpty(format))
+                        {
+                            resolvedHcl = ApplyFormatSpecifier(resolvedHcl, format);
+                        }
+                        sb.Append(HclStringHelper.WrapInterpolation(resolvedHcl));
+                    }
+                    break;
+
+                default:
+                    // For primitives, treat as literals
+                    var literal = new LiteralExpression<object>(part, quoteStrings: false).ToHcl(context);
+
+                    if (!string.IsNullOrEmpty(format))
+                    {
+                        // When format is specified, wrap in interpolation with function
+                        var formattedHcl = ApplyFormatSpecifier(literal, format);
+                        sb.Append(HclStringHelper.WrapInterpolation(formattedHcl));
+                    }
+                    else
+                    {
+                        // Without format, just escape and append as literal
+                        sb.Append(HclStringHelper.EscapeString(literal));
+                    }
+                    break;
+            }
+        }
+        sb.Append("\"");
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Applies a Terraform function wrapper based on the format specifier.
+    /// </summary>
+    private static string ApplyFormatSpecifier(string hcl, string format)
+    {
+        return format.ToLowerInvariant() switch
+        {
+            "jsonencode" => $"jsonencode({hcl})",
+            "base64encode" => $"base64encode({hcl})",
+            "base64decode" => $"base64decode({hcl})",
+            "sensitive" => $"sensitive({hcl})",
+            "uri" or "urlencode" => $"urlencode({hcl})",
+            _ => hcl // Unknown format, return as-is
+        };
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        if (obj is not TerraformInterpolationExpression other || _parts.Count != other._parts.Count)
+        {
+            return false;
+        }
+
+        for (var i = 0; i < _parts.Count; i++)
+        {
+            if (!Equals(_parts[i], other._parts[i]))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public override int GetHashCode()
+    {
+        var hash = new HashCode();
+        foreach (var part in _parts)
+        {
+            hash.Add(part);
         }
         return hash.ToHashCode();
     }
@@ -479,6 +601,22 @@ internal class ConditionalExpression(TerraformExpression condition, TerraformExp
     {
         return $"{_condition.ToHcl(context)} ? {_trueValue.ToHcl(context)} : {_falseValue.ToHcl(context)}";
     }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        return obj is ConditionalExpression other
+            && Equals(_condition, other._condition)
+            && Equals(_trueValue, other._trueValue)
+            && Equals(_falseValue, other._falseValue);
+    }
+
+    public override int GetHashCode()
+        => HashCode.Combine(_condition, _trueValue, _falseValue);
 }
 
 /// <summary>

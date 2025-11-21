@@ -104,6 +104,291 @@ string hcl = config.ToHcl();
 config.WriteToFile("main.tf");
 ```
 
+## Referencing Blocks and Attributes
+
+The SDK provides multiple patterns for referencing blocks and their attributes. Understanding these patterns is essential for building correct Terraform configurations.
+
+### Pattern 1: Resource/Data Source/Module Attributes (Using Indexer)
+
+When you need to reference an **attribute** (output property) of a resource, data source, or module, use the **indexer syntax** `block["attribute"]`:
+
+```csharp
+var vpc = new TerraformResource("aws_vpc", "main")
+{
+    ["cidr_block"] = "10.0.0.0/16"
+};
+
+var subnet = new TerraformResource("aws_subnet", "public")
+{
+    // Access the "id" attribute of the vpc resource
+    ["vpc_id"] = vpc["id"],  // Generates: aws_vpc.main.id
+    ["cidr_block"] = "10.0.1.0/24"
+};
+
+var instance = new TerraformResource("aws_instance", "web")
+{
+    // Chain attribute access
+    ["subnet_id"] = subnet["id"],  // Generates: aws_subnet.public.id
+    ["ami"] = "ami-12345678",
+    ["instance_type"] = "t2.micro"
+};
+```
+
+**Generated HCL:**
+
+```hcl
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+}
+
+resource "aws_subnet" "public" {
+  vpc_id = aws_vpc.main.id
+  cidr_block = "10.0.1.0/24"
+}
+
+resource "aws_instance" "web" {
+  subnet_id = aws_subnet.public.id
+  ami = "ami-12345678"
+  instance_type = "t2.micro"
+}
+```
+
+**Why the indexer?** Resources and data sources have dynamic output attributes that are only known after they're created (like `id`, `arn`, `public_ip`, etc.). The indexer allows you to reference any attribute without requiring the SDK to know the provider schema.
+
+### Pattern 2: Variable/Output References (Using .AsReference())
+
+When referencing a **variable** or **output** by its entire value (not a specific attribute), use `.AsReference()`:
+
+```csharp
+var region = new TerraformVariable("region")
+{
+    Type = "string",
+    Default = "us-west-2",
+    Description = "AWS region"
+};
+
+var instanceType = new TerraformVariable("instance_type")
+{
+    Type = "string",
+    Default = "t2.micro"
+};
+
+var instance = new TerraformResource("aws_instance", "web")
+{
+    ["ami"] = "ami-12345678",
+    // Reference the entire variable value
+    ["instance_type"] = instanceType.AsReference(),  // Generates: var.instance_type
+    ["tags"] = new TerraformMap<object>
+    {
+        ["Region"] = region.AsReference()  // Generates: var.region
+    }
+};
+
+var instanceId = new TerraformOutput("instance_id")
+{
+    Value = instance["id"]  // Access resource attribute
+};
+```
+
+**Generated HCL:**
+
+```hcl
+variable "region" {
+  type = "string"
+  default = "us-west-2"
+  description = "AWS region"
+}
+
+variable "instance_type" {
+  type = "string"
+  default = "t2.micro"
+}
+
+resource "aws_instance" "web" {
+  ami = "ami-12345678"
+  instance_type = var.instance_type
+  tags = {
+    Region = var.region
+  }
+}
+
+output "instance_id" {
+  value = aws_instance.web.id
+}
+```
+
+### Pattern 3: Data Source References
+
+Data sources work like resources - use the indexer to access their attributes:
+
+```csharp
+var ami = new TerraformDataSource("aws_ami", "ubuntu")
+{
+    ["most_recent"] = true,
+    ["filter"] = new TerraformList<TerraformMap<object>>
+    {
+        new TerraformMap<object>
+        {
+            ["name"] = "name",
+            ["values"] = new TerraformList<string> { "ubuntu/images/*" }
+        }
+    },
+    ["owners"] = new TerraformList<string> { "099720109477" }
+};
+
+var instance = new TerraformResource("aws_instance", "web")
+{
+    // Reference data source attributes
+    ["ami"] = ami["id"],           // Generates: data.aws_ami.ubuntu.id
+    ["instance_type"] = "t2.micro"
+};
+```
+
+**Generated HCL:**
+
+```hcl
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  filter {
+    name = "name"
+    values = ["ubuntu/images/*"]
+  }
+  owners = ["099720109477"]
+}
+
+resource "aws_instance" "web" {
+  ami = data.aws_ami.ubuntu.id
+  instance_type = "t2.micro"
+}
+```
+
+### Pattern 4: Module Output References
+
+Modules also use the indexer pattern for accessing their outputs:
+
+```csharp
+var vpcModule = new TerraformModule("vpc")
+{
+    Source = "terraform-aws-modules/vpc/aws",
+    Version = "5.1.0",
+    ["name"] = "my-vpc",
+    ["cidr"] = "10.0.0.0/16",
+    ["azs"] = new TerraformList<string> { "us-west-2a", "us-west-2b" },
+    ["public_subnets"] = new TerraformList<string> { "10.0.1.0/24", "10.0.2.0/24" }
+};
+
+var instance = new TerraformResource("aws_instance", "web")
+{
+    // Reference module outputs
+    ["subnet_id"] = vpcModule["public_subnets"][0],  // Generates: module.vpc.public_subnets[0]
+    ["vpc_security_group_ids"] = new TerraformList<object>
+    {
+        vpcModule["default_security_group_id"]  // Generates: module.vpc.default_security_group_id
+    },
+    ["ami"] = "ami-12345678",
+    ["instance_type"] = "t2.micro"
+};
+```
+
+### Pattern 5: Complex Reference Chains
+
+You can build complex reference expressions by chaining indexers:
+
+```csharp
+var vpc = new TerraformResource("aws_vpc", "main")
+{
+    ["cidr_block"] = "10.0.0.0/16"
+};
+
+var subnet = new TerraformResource("aws_subnet", "public")
+{
+    ["vpc_id"] = vpc["id"],
+    ["cidr_block"] = "10.0.1.0/24"
+};
+
+var securityGroup = new TerraformResource("aws_security_group", "web")
+{
+    ["vpc_id"] = vpc["id"],
+    ["name"] = "web-sg"
+};
+
+// Multiple references in a list
+var instance = new TerraformResource("aws_instance", "web")
+{
+    ["ami"] = "ami-12345678",
+    ["instance_type"] = "t2.micro",
+    ["subnet_id"] = subnet["id"],
+    ["vpc_security_group_ids"] = new TerraformList<object>
+    {
+        securityGroup["id"]  // References can be in collections
+    }
+};
+```
+
+### Implicit Conversion Support
+
+The SDK provides implicit conversion operators that allow blocks to be automatically converted to `TerraformExpression` when used with `.AsReference()`:
+
+```csharp
+// These are equivalent:
+["instance_type"] = instanceType.AsReference()
+["instance_type"] = (TerraformExpression)instanceType  // Implicit conversion
+
+// However, due to C# conversion precedence with TerraformValue<T>,
+// you should always use .AsReference() explicitly for clarity
+```
+
+### Quick Reference Guide
+
+| Block Type            | How to Reference         | Example                    | Generates                |
+| --------------------- | ------------------------ | -------------------------- | ------------------------ |
+| Resource attribute    | `resource["attr"]`       | `vpc["id"]`                | `aws_vpc.main.id`        |
+| Data source attribute | `dataSource["attr"]`     | `ami["id"]`                | `data.aws_ami.ubuntu.id` |
+| Module output         | `module["output"]`       | `vpcModule["vpc_id"]`      | `module.vpc.vpc_id`      |
+| Variable              | `variable.AsReference()` | `region.AsReference()`     | `var.region`             |
+| Output                | `output.AsReference()`   | `instanceId.AsReference()` | `output.instance_id`     |
+| Local value           | `locals["name"]`         | `locals["region"]`         | `local.region`           |
+
+### Common Patterns
+
+**Cross-resource dependencies:**
+
+```csharp
+var vpc = new TerraformResource("aws_vpc", "main") { ... };
+var subnet = new TerraformResource("aws_subnet", "public")
+{
+    ["vpc_id"] = vpc["id"]  // Subnet depends on VPC
+};
+var instance = new TerraformResource("aws_instance", "web")
+{
+    ["subnet_id"] = subnet["id"]  // Instance depends on Subnet
+};
+```
+
+**Variables in tags:**
+
+```csharp
+var environment = new TerraformVariable("environment") { ... };
+var resource = new TerraformResource("aws_instance", "app")
+{
+    ["tags"] = new TerraformMap<object>
+    {
+        ["Environment"] = environment.AsReference(),
+        ["Name"] = "Application Server"
+    }
+};
+```
+
+**Data source lookups:**
+
+```csharp
+var latestAmi = new TerraformDataSource("aws_ami", "latest") { ... };
+var instance = new TerraformResource("aws_instance", "web")
+{
+    ["ami"] = latestAmi["id"]  // Use the discovered AMI
+};
+```
+
 ## Phase 2 Features: Backend, Settings, and Lifecycle
 
 The SDK now includes comprehensive support for Terraform's configuration blocks and meta-arguments:

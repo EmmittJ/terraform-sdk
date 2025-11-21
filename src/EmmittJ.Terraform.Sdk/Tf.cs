@@ -1,5 +1,7 @@
 namespace EmmittJ.Terraform.Sdk;
 
+using System.Runtime.CompilerServices;
+
 /// <summary>
 /// Static helper class for Terraform built-in functions and type constraints.
 /// Provides convenient access to Terraform functions and type system.
@@ -542,6 +544,40 @@ public static partial class Tf
             return obj;
         }
     }
+
+    /// <summary>
+    /// Creates a Terraform string template expression from an interpolated string.
+    /// Enables natural C# syntax for building Terraform string templates with embedded expressions.
+    /// Supports format specifiers for Terraform functions (e.g., :jsonencode, :sensitive, :base64encode).
+    /// </summary>
+    /// <param name="handler">The interpolated string handler.</param>
+    /// <returns>A TerraformExpression representing the string template.</returns>
+    /// <example>
+    /// <code>
+    /// // Variable reference
+    /// Tf.Interpolate($"prefix-{variable}-suffix")  // → "prefix-${var.variable}-suffix"
+    ///
+    /// // Local value reference
+    /// Tf.Interpolate($"{locals["name"]}-web")      // → "${local.name}-web"
+    ///
+    /// // Resource attribute reference
+    /// Tf.Interpolate($"vpc-{vpc["id"]}")           // → "vpc-${aws_vpc.main.id}"
+    ///
+    /// // Multiple expressions
+    /// Tf.Interpolate($"{region}/{environment}")    // → "${var.region}/${var.environment}"
+    ///
+    /// // With format specifiers
+    /// Tf.Interpolate($"{data:jsonencode}")         // → "${jsonencode(var.data)}"
+    /// Tf.Interpolate($"{password:sensitive}")      // → "${sensitive(var.password)}"
+    /// Tf.Interpolate($"{value:base64encode}")      // → "${base64encode(var.value)}"
+    /// </code>
+    /// </example>
+    public static TerraformExpression Interpolate(TerraformInterpolatedStringHandler handler)
+    {
+        return handler.GetExpression();
+    }
 }
+
+
 
 

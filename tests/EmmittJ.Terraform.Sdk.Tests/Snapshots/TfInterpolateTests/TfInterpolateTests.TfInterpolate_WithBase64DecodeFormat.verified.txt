@@ -1,0 +1,1 @@
+﻿"decoded-${base64decode(var.encoded_data)}"

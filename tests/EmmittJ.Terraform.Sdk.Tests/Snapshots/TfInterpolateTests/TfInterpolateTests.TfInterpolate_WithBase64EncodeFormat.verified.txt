@@ -1,0 +1,1 @@
+﻿"encoded-${base64encode(var.data)}"

@@ -1,0 +1,1 @@
+﻿"data-${base64encode(local.data)}-config-${jsonencode(local.config)}"

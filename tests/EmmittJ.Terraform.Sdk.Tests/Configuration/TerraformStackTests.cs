@@ -390,7 +390,7 @@ public class TerraformStackTests
         return Verify(hcl);
     }
 
-    [Fact(Skip = "TerraformLocals with SetArgument and Raw expressions needs investigation")]
+    [Fact]
     public Task TerraformStack_WithLocals()
     {
         var stack = new TerraformStack { Name = "locals" };
@@ -461,7 +461,7 @@ public class TerraformStackTests
         return Verify(hcl);
     }
 
-    [Fact(Skip = "TerraformLocals with SetArgument and Raw expressions needs investigation")]
+    [Fact]
     public Task TerraformStack_CompleteInfrastructure()
     {
         var stack = new TerraformStack { Name = "complete" };
@@ -511,7 +511,7 @@ public class TerraformStackTests
         // Locals
         var locals = new TerraformLocals()
         {
-            ["name_prefix"] = $"${environment.AsReference()}-myapp",
+            ["name_prefix"] = Tf.Interpolate($"{environment.AsReference()}-myapp"),
             ["common_tags"] = new TerraformMap<object>
             {
                 ["Environment"] = environment.AsReference(),
@@ -542,7 +542,7 @@ public class TerraformStackTests
         // Resources
         var securityGroup = new TerraformResource("aws_security_group", "web")
         {
-            ["name"] = $"{locals["name_prefix"]}-web",
+            ["name"] = Tf.Interpolate($"{locals["name_prefix"]}-web"),
             ["vpc_id"] = vpcModule["vpc_id"],
             ["ingress"] = new TerraformList<TerraformMap<object>>
             {

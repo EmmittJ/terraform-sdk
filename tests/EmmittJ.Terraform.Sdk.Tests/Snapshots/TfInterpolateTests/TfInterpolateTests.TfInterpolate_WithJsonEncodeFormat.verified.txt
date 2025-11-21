@@ -1,0 +1,1 @@
+﻿"encoded-${jsonencode(var.config)}"
