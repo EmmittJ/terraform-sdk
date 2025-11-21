@@ -193,39 +193,6 @@ public class TerraformMapExpression : TerraformExpression,
     #region Helper Methods
 
     /// <summary>
-    /// Gets a property value (returns null if not found).
-    /// </summary>
-    public TerraformSyntaxNode? Get(string key)
-    {
-        return _properties.TryGetValue(key, out var value) ? value : null;
-    }
-
-    /// <summary>
-    /// Merges another TerraformMapExpression into this one.
-    /// Later values overwrite earlier ones.
-    /// </summary>
-    public void Merge(TerraformMapExpression other)
-    {
-        foreach (var (key, value) in other._properties)
-        {
-            _properties[key] = value;
-        }
-    }
-
-    /// <summary>
-    /// Creates a new TerraformMapExpression from key-value pairs.
-    /// </summary>
-    public static TerraformMapExpression FromPairs(params (string Key, object Value)[] pairs)
-    {
-        var obj = new TerraformMapExpression();
-        foreach (var (key, value) in pairs)
-        {
-            obj.Add(key, value);
-        }
-        return obj;
-    }
-
-    /// <summary>
     /// Implicit conversion from Dictionary to TerraformMapExpression.
     /// </summary>
     public static implicit operator TerraformMapExpression(Dictionary<string, TerraformSyntaxNode> dict)
