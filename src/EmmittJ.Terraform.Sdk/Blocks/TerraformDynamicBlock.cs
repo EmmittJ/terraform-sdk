@@ -106,12 +106,16 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
             }
         }
 
-        yield return new TerraformDynamicBlockNode(
-            Content.BlockType,
-            forEachExpr,
-            contentMap,
-            iteratorName
-        );
+        var forEach = new TerraformArgumentNode("for_each", forEachExpr);
+        var content = new TerraformBlockNode("content", [contentMap]);
+
+        List<TerraformSyntaxNode> nodes = iteratorName is not null
+            ? [forEach, content]
+            : [forEach, new TerraformArgumentNode("iterator", TerraformExpression.Identifier(iteratorName)), content];
+
+        var formatted = context.Formatter.Format(nodes);
+
+        yield return new TerraformBlockNode(BlockType, BlockLabels, formatted);
     }
 }
 

@@ -2,12 +2,11 @@
   dynamic "tag" {
     for_each = {
       Environment = "Production"
-      Owner = "TeamA"
+      Owner       = "TeamA"
     }
-    iterator = tag
-
+    
     content {
-      key = tag.key
+      key   = tag.key
       value = tag.value
     }
   }

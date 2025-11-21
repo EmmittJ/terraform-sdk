@@ -81,7 +81,7 @@ public interface ITerraformHasLifecycle
     /// <summary>
     /// Gets or sets the lifecycle configuration for this block.
     /// </summary>
-    TerraformLifecycleConfig? Lifecycle { get; set; }
+    TerraformLifecycleBlock? Lifecycle { get; set; }
 }
 
 /// <summary>

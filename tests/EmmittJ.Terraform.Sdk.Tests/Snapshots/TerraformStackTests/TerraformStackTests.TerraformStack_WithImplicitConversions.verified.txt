@@ -1,31 +1,37 @@
 ﻿variable "region" {
   default = "us-west-2"
-  type = "string"
+  type    = "string"
 }
+
 variable "instance_type" {
   default = "t2.micro"
-  type = "string"
+  type    = "string"
 }
+
 data "aws_ami" "ubuntu" {
   most_recent = true
-  owners = ["099720109477"]
+  owners      = ["099720109477"]
 }
+
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
 }
+
 resource "aws_subnet" "public" {
   cidr_block = "10.0.1.0/24"
-  vpc_id = aws_vpc.main.id
+  vpc_id     = aws_vpc.main.id
 }
+
 resource "aws_instance" "web" {
-  ami = data.aws_ami.ubuntu.id
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-  subnet_id = aws_subnet.public.id
+  subnet_id     = aws_subnet.public.id
   tags = {
-    Name = "Web Server"
+    Name   = "Web Server"
     Region = var.region
   }
 }
+
 output "instance_id" {
   value = aws_instance.web.id
 }

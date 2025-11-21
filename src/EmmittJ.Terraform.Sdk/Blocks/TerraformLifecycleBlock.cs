@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle"/></para>
 /// </remarks>
-public class TerraformLifecycleConfig : TerraformBlock
+public class TerraformLifecycleBlock : TerraformBlock
 {
     /// <summary>
     /// Gets the block type.
@@ -17,7 +17,7 @@ public class TerraformLifecycleConfig : TerraformBlock
     /// <summary>
     /// Initializes a new instance of the TerraformLifecycleConfig class.
     /// </summary>
-    public TerraformLifecycleConfig()
+    public TerraformLifecycleBlock()
     {
     }
 

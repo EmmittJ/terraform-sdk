@@ -1,7 +1,7 @@
 ﻿output "instance_details" {
   value = {
-    id = "i-1234567890abcdef0"
+    id    = "i-1234567890abcdef0"
     state = "running"
-    type = "t2.micro"
+    type  = "t2.micro"
   }
 }

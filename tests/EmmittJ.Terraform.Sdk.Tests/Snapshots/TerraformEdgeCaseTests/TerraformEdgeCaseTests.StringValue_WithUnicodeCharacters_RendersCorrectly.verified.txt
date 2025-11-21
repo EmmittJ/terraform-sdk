@@ -1,6 +1,6 @@
 ﻿resource "test" "unicode" {
-  accents = "Café résumé naïve"
+  accents     = "Café résumé naïve"
   description = "Hello 世界 🌍"
-  emoji = "Test 🚀 Rocket"
-  symbols = "€ £ ¥ © ®"
+  emoji       = "Test 🚀 Rocket"
+  symbols     = "€ £ ¥ © ®"
 }

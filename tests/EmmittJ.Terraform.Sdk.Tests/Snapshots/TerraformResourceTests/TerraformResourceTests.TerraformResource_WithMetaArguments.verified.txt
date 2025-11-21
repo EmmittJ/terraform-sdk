@@ -1,7 +1,7 @@
 ﻿resource "aws_instance" "example" {
-  count = 3
+  count      = 3
   depends_on = ["aws_vpc.main", "aws_subnet.public"]
   
-  ami = "ami-12345678"
+  ami           = "ami-12345678"
   instance_type = "t2.micro"
 }

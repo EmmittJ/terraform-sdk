@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/terraform#backend"/></para>
 /// </remarks>
-public partial class TerraformBackend : TerraformBlock
+public partial class TerraformBackendBlock : TerraformBlock
 {
     /// <summary>
     /// Gets the block type.
@@ -20,10 +20,10 @@ public partial class TerraformBackend : TerraformBlock
     public override string[] BlockLabels => [Type];
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformBackend"/> class.
+    /// Initializes a new instance of the <see cref="TerraformBackendBlock"/> class.
     /// </summary>
     /// <param name="type">The backend type (e.g., "s3", "azurerm", "remote", "local", "gcs").</param>
-    public TerraformBackend(string type)
+    public TerraformBackendBlock(string type)
     {
         Type = type ?? throw new ArgumentNullException(nameof(type));
     }

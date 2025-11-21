@@ -3,7 +3,7 @@
   cloud {
     organization = "my-org"
     workspaces {
-      name = "my-app"
+      name    = "my-app"
       project = "infrastructure"
     }
   }

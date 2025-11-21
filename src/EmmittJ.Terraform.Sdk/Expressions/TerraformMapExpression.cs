@@ -270,30 +270,33 @@ public class TerraformMapExpression : TerraformExpression,
     /// Returns the rendered properties without surrounding braces, allowing parent expressions
     /// to compose the content within their own block structures.
     /// Dynamic block expressions are rendered as standalone blocks (not as key = value assignments).
+    /// Uses TerraformNodeFormatter to apply equals sign alignment per Terraform style guide.
     /// </summary>
     /// <param name="context">The rendering context providing indentation and scope information.</param>
     /// <returns>The rendered properties as a string.</returns>
     protected internal virtual string RenderProperties(ITerraformContext context)
     {
-        var sb = new System.Text.StringBuilder();
+        // Convert properties to syntax nodes
+        // Expressions become argument nodes for alignment, blocks remain as-is
+        var nodes = _properties
+            .OrderBy(p => p.Key)
+            .Select(p => p.Value switch
+            {
+                TerraformBlockNode => p.Value,
+                TerraformArgumentNode => p.Value,
+                _ => new TerraformArgumentNode(p.Key, p.Value)
+            })
+            .ToList();
 
-        foreach (var (key, value) in _properties.OrderBy(p => p.Key))
+        // Apply formatting using the shared formatter
+        var formatted = context.Formatter.Format(nodes);
+
+        // Render formatted nodes with indentation
+        var sb = new System.Text.StringBuilder();
+        foreach (var node in formatted)
         {
-            // Dynamic blocks are structural nodes, not value expressions - render as blocks
-            if (value is TerraformDynamicBlockNode dynamicBlockNode)
-            {
-                sb.AppendLine(dynamicBlockNode.ToHcl(context));
-            }
-            // All other values are expressions that can be rendered as arguments
-            else if (value is TerraformExpression expr)
-            {
-                sb.AppendLine($"{context.Indent}{key} = {expr.ToHcl(context)}");
-            }
-            else
-            {
-                // Other syntax nodes that aren't expressions
-                sb.AppendLine($"{context.Indent}{key} = {value.ToHcl(context)}");
-            }
+            sb.Append(context.Indent);
+            sb.AppendLine(node.ToHcl(context));
         }
 
         return sb.ToString();

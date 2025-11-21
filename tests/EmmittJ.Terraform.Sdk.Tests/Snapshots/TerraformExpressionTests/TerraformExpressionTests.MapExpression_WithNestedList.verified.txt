@@ -1,4 +1,4 @@
 ﻿{
   items = ["item1", "item2"]
-  name = "test"
+  name  = "test"
 }

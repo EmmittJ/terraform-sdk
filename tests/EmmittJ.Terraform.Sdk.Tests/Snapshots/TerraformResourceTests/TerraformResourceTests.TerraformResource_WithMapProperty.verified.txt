@@ -1,7 +1,7 @@
 ﻿resource "aws_instance" "example" {
   tags = {
     Environment = "Development"
-    ManagedBy = "Terraform"
-    Name = "Example Instance"
+    ManagedBy   = "Terraform"
+    Name        = "Example Instance"
   }
 }

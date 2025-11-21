@@ -115,9 +115,9 @@ public class TerraformResource : TerraformBlock,
     /// Gets or sets the lifecycle configuration for this resource.
     /// Allows customization of lifecycle behavior including create_before_destroy, prevent_destroy, and ignore_changes.
     /// </summary>
-    public TerraformLifecycleConfig? Lifecycle
+    public TerraformLifecycleBlock? Lifecycle
     {
-        get => GetArgument<TerraformLifecycleConfig?>("lifecycle");
+        get => GetArgument<TerraformLifecycleBlock?>("lifecycle");
         set => SetArgument("lifecycle", value);
     }
 }

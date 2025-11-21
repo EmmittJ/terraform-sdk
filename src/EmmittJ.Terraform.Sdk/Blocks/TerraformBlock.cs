@@ -65,25 +65,18 @@ public abstract class TerraformBlock : TerraformMap<object>
 
         foreach (var (key, terraformValue) in _elements)
         {
-            if (terraformValue.Resolvable is TerraformBlock nestedBlock)
+            var resolved = terraformValue.ResolveNodes(context).ToList();
+            foreach (var node in resolved)
             {
-                // Nested blocks resolve themselves to complete BlockNode(s)
-                // Don't wrap them again - just add the resolved nodes directly
-                nodes.AddRange(nestedBlock.ResolveNodes(context));
-            }
-            // Otherwise it's an argument value - resolve to expression
-            else
-            {
-                var resolvedNodes = terraformValue.ResolveNodes(context).ToList();
-
-                if (resolvedNodes.Count == 1 && resolvedNodes[0] is TerraformExpression expr)
+                if (node is TerraformExpression)
                 {
-                    nodes.Add(new TerraformArgumentNode(key, expr));
+                    // Wrap in argument node
+                    nodes.Add(new TerraformArgumentNode(key, node));
                 }
                 else
                 {
-                    // Fallback: add all resolved nodes (shouldn't happen in normal cases)
-                    nodes.AddRange(resolvedNodes);
+                    // Already a dynamic block, block or argument node - add directly
+                    nodes.Add(node);
                 }
             }
         }

@@ -17,7 +17,7 @@ namespace EmmittJ.Terraform.Sdk;
 ///   create_before_destroy = true
 /// }
 /// </example>
-public sealed class TerraformBlockNode : TerraformSyntaxNode
+public class TerraformBlockNode : TerraformSyntaxNode
 {
     /// <summary>
     /// The block type keyword (e.g., "resource", "backend", "provider", "lifecycle", "tags").
@@ -40,15 +40,14 @@ public sealed class TerraformBlockNode : TerraformSyntaxNode
     public IEnumerable<TerraformSyntaxNode> Children { get; }
 
     /// <summary>
-    /// Creates a new block node.
+    /// Creates a new block node with labels as a list.
     /// </summary>
-    /// <param name="blockType">The block type keyword (e.g., "resource", "backend", "lifecycle")</param>
+    /// <param name="blockType">The block type keyword</param>
     /// <param name="children">Child nodes within this block</param>
-    /// <param name="labels">Labels for the block (will be quoted in output)</param>
-    public TerraformBlockNode(string blockType, IEnumerable<TerraformSyntaxNode> children, params string[] labels)
+    public TerraformBlockNode(string blockType, IEnumerable<TerraformSyntaxNode> children)
     {
         BlockType = blockType ?? throw new ArgumentNullException(nameof(blockType));
-        Labels = labels ?? Array.Empty<string>();
+        Labels = [];
         Children = children ?? throw new ArgumentNullException(nameof(children));
     }
 
@@ -61,7 +60,7 @@ public sealed class TerraformBlockNode : TerraformSyntaxNode
     public TerraformBlockNode(string blockType, IReadOnlyList<string> labels, IEnumerable<TerraformSyntaxNode> children)
     {
         BlockType = blockType ?? throw new ArgumentNullException(nameof(blockType));
-        Labels = labels ?? Array.Empty<string>();
+        Labels = labels ?? [];
         Children = children ?? throw new ArgumentNullException(nameof(children));
     }
 
@@ -88,9 +87,17 @@ public sealed class TerraformBlockNode : TerraformSyntaxNode
         {
             foreach (var child in Children)
             {
-                var childHcl = child.ToHcl(context);
-                sb.Append(context.Indent);
-                sb.AppendLine(childHcl);
+                if (child is TerraformMapExpression expr)
+                {
+                    var hcl = expr.RenderProperties(context);
+                    sb.Append(hcl);
+                }
+                else
+                {
+                    var childHcl = child.ToHcl(context);
+                    sb.Append(context.Indent);
+                    sb.AppendLine(childHcl);
+                }
             }
         }
 

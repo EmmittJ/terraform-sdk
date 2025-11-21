@@ -32,58 +32,114 @@ public class TerraformNodeFormatter : ITerraformNodeFormatter
 
     /// <summary>
     /// Formats syntax nodes by sorting and inserting blank lines per HCL conventions.
+    /// Applies equals sign alignment to consecutive single-line arguments.
     /// </summary>
-    public IEnumerable<TerraformSyntaxNode> Format(IEnumerable<TerraformSyntaxNode> nodes)
+    public List<TerraformSyntaxNode> Format(List<TerraformSyntaxNode> nodes)
     {
-        var nodeList = nodes.ToList();
         var sorted = new List<TerraformSyntaxNode>();
 
-        // 1. Meta-arguments first
-        var metaArgs = nodeList
+        // 1. Meta-arguments first (with alignment)
+        var metaArgs = nodes
             .OfType<TerraformArgumentNode>()
             .Where(n => _metaArguments.Contains(n.Key))
-            .OrderBy(n => n.Key);
-        sorted.AddRange(metaArgs);
+            .OrderBy(n => n.Key)
+            .ToList();
+        sorted.AddRange(ApplyAlignment(metaArgs));
 
-        // 2. Blank line after meta-arguments (if any)
-        if (metaArgs.Any())
+        // 2. Blank line after meta-arguments (only if regular content follows)
+        var regularArgs = nodes
+            .OfType<TerraformArgumentNode>()
+            .Where(n => !_metaArguments.Contains(n.Key))
+            .OrderBy(n => n.Key)
+            .ToList();
+
+        var regularBlocks = nodes
+            .OfType<TerraformBlockNode>()
+            .Where(n => !_metaArgumentBlocks.Contains(n.BlockType))
+            .OrderBy(n => n.BlockType)
+            .ToList();
+
+        if (metaArgs.Count > 0 && (regularArgs.Count > 0 || regularBlocks.Count > 0))
         {
             sorted.Add(TerraformEmptyLineNode.Instance);
         }
 
-        // 3. Regular arguments (alphabetically)
-        var regularArgs = nodeList
-            .OfType<TerraformArgumentNode>()
-            .Where(n => !_metaArguments.Contains(n.Key))
-            .OrderBy(n => n.Key);
-        sorted.AddRange(regularArgs);
+        // 3. Regular arguments (alphabetically, with alignment)
+        sorted.AddRange(ApplyAlignment(regularArgs));
 
         // 4. Regular blocks (alphabetically)
-        var regularBlocks = nodeList
-            .OfType<TerraformBlockNode>()
-            .Where(n => !_metaArgumentBlocks.Contains(n.BlockType))
-            .OrderBy(n => n.BlockType);
         sorted.AddRange(regularBlocks);
 
-        // 5. Blank line before meta-argument blocks (if any)
-        var metaBlocks = nodeList
+        // 5. Blank line before meta-argument blocks (only if regular content precedes)
+        var metaBlocks = nodes
             .OfType<TerraformBlockNode>()
             .Where(n => _metaArgumentBlocks.Contains(n.BlockType))
             .OrderBy(n => n.BlockType)
             .ToList();
 
-        if (metaBlocks.Any())
+        if (metaBlocks.Count > 0 && (metaArgs.Count > 0 || regularArgs.Count > 0 || regularBlocks.Count > 0))
         {
             sorted.Add(TerraformEmptyLineNode.Instance);
-            sorted.AddRange(metaBlocks);
         }
+        sorted.AddRange(metaBlocks);
 
         // 6. Any other nodes not matched above (comments, etc.)
-        var otherNodes = nodeList
+        var otherNodes = nodes
             .Where(n => n is not TerraformArgumentNode && n is not TerraformBlockNode)
             .ToList();
         sorted.AddRange(otherNodes);
 
         return sorted;
+    }
+
+    /// <summary>
+    /// Applies equals sign alignment to argument nodes per Terraform style guide.
+    /// Only single-line values participate in alignment; multi-line values (maps) are excluded.
+    /// Alignment column is calculated as the longest key length + 1 space.
+    /// </summary>
+    private static IEnumerable<TerraformArgumentNode> ApplyAlignment(IEnumerable<TerraformArgumentNode> args)
+    {
+        var argsList = args.ToList();
+        if (argsList.Count == 0)
+        {
+            return argsList;
+        }
+
+        // Only align single-line values
+        var singleLineArgs = argsList
+            .Where(arg => !IsMultiLineValue(arg.Value))
+            .ToList();
+
+        if (singleLineArgs.Count == 0)
+        {
+            return argsList;
+        }
+
+        // Calculate alignment column: max key length + 1 space
+        var alignmentColumn = singleLineArgs.Max(arg => arg.Key.Length) + 1;
+
+        // Create aligned nodes
+        return argsList.Select(arg =>
+            IsMultiLineValue(arg.Value)
+                ? arg  // No alignment for multi-line values
+                : new TerraformArgumentNode(arg.Key, arg.Value, alignmentColumn)
+        );
+    }
+
+    /// <summary>
+    /// Determines if a value expression will render as multi-line HCL.
+    /// Currently only TerraformMapExpression produces multi-line output (except empty maps).
+    /// </summary>
+    private static bool IsMultiLineValue(TerraformSyntaxNode node)
+    {
+        return node is TerraformMapExpression map && !IsEmptyMap(map);
+    }
+
+    /// <summary>
+    /// Checks if a TerraformMapExpression is empty (will render as {}).
+    /// </summary>
+    private static bool IsEmptyMap(TerraformMapExpression map)
+    {
+        return map.Count == 0;
     }
 }

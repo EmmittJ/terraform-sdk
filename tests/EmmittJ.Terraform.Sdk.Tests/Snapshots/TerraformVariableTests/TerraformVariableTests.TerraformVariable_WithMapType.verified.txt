@@ -1,7 +1,7 @@
 ﻿variable "tags" {
   default = {
     Environment = "Production"
-    Team = "Platform"
+    Team        = "Platform"
   }
   type = "map(string)"
 }

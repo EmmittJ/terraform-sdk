@@ -1,5 +1,5 @@
 ﻿resource "test" "empty" {
   empty_list = []
-  empty_map = {}
-  empty_set = []
+  empty_map  = {}
+  empty_set  = []
 }

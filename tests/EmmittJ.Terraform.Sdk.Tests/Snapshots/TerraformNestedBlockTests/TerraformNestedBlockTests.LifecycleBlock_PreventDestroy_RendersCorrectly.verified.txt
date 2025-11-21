@@ -1,5 +1,4 @@
 ﻿resource "aws_instance" "web" {
-  
   lifecycle {
     prevent_destroy = true
   }

@@ -1,12 +1,13 @@
 ﻿resource "test" "mixed" {
   config = {
-    boolean = true
+    boolean     = true
     nested_list = ["a", "b", "c"]
     nested_map = {
       count = 10
+      
       inner = "value"
     }
-    number = 42
-    string = "value"
+    number      = 42
+    string      = "value"
   }
 }

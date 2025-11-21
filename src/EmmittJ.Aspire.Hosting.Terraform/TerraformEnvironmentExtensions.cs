@@ -111,16 +111,16 @@ public static class TerraformEnvironmentExtensions
     public static IResourceBuilder<TerraformEnvironmentResource> WithBackend(
         this IResourceBuilder<TerraformEnvironmentResource> builder,
         string backendType,
-        Action<TerraformBackend>? configureBackend = null)
+        Action<TerraformBackendBlock>? configureBackend = null)
     {
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentException.ThrowIfNullOrEmpty(backendType);
 
         // Ensure Settings exists
-        builder.Resource.Settings ??= new TerraformSettings();
+        builder.Resource.Settings ??= new TerraformSettingsBlock();
 
         // Create and configure the backend
-        var backend = new TerraformBackend(backendType);
+        var backend = new TerraformBackendBlock(backendType);
         configureBackend?.Invoke(backend);
 
         builder.Resource.Settings.Backend = backend;
@@ -177,13 +177,13 @@ public static class TerraformEnvironmentExtensions
     /// <returns>A reference to the <see cref="IResourceBuilder{T}"/>.</returns>
     public static IResourceBuilder<TerraformEnvironmentResource> WithSettings(
         this IResourceBuilder<TerraformEnvironmentResource> builder,
-        Action<TerraformSettings> configureSettings)
+        Action<TerraformSettingsBlock> configureSettings)
     {
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentNullException.ThrowIfNull(configureSettings);
 
         // Ensure Settings exists
-        builder.Resource.Settings ??= new TerraformSettings();
+        builder.Resource.Settings ??= new TerraformSettingsBlock();
 
         configureSettings(builder.Resource.Settings);
 

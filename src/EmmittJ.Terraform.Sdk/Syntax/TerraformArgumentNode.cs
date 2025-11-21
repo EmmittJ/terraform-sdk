@@ -8,35 +8,34 @@ namespace EmmittJ.Terraform.Sdk;
 /// instance_type = "t2.micro"
 /// count         = 5
 /// </example>
-public sealed class TerraformArgumentNode : TerraformSyntaxNode
+public sealed class TerraformArgumentNode(string key, TerraformSyntaxNode value, int? alignmentColumn = null) : TerraformSyntaxNode
 {
     /// <summary>
     /// The argument key (left side of =)
     /// </summary>
-    public string Key { get; }
+    public string Key { get; } = key;
 
     /// <summary>
     /// The argument value expression (right side of =)
     /// </summary>
-    public TerraformExpression Value { get; }
+    public TerraformSyntaxNode Value { get; } = value;
 
     /// <summary>
-    /// Creates a new argument node.
+    /// Optional alignment column for equals sign alignment per Terraform style guide.
+    /// When set, the key is padded to align the equals sign with other arguments.
     /// </summary>
-    /// <param name="key">The argument key (left side of =)</param>
-    /// <param name="value">The argument value expression (right side of =)</param>
-    public TerraformArgumentNode(string key, TerraformExpression value)
-    {
-        Key = key ?? throw new ArgumentNullException(nameof(key));
-        Value = value ?? throw new ArgumentNullException(nameof(value));
-    }
+    public int? AlignmentColumn { get; } = alignmentColumn;
 
     /// <summary>
     /// Renders this argument node to HCL format: key = value
+    /// Applies equals sign alignment if AlignmentColumn is set.
     /// </summary>
     public override string ToHcl(ITerraformContext context)
     {
-        // Format: key = value
-        return $"{Key} = {Value.ToHcl(context)}";
+        // Format with alignment: key.PadRight(column) = value
+        // Format without alignment: key = value
+        return AlignmentColumn.HasValue
+            ? $"{Key.PadRight(AlignmentColumn.Value)}= {Value.ToHcl(context)}"
+            : $"{Key} = {Value.ToHcl(context)}";
     }
 }

@@ -1,4 +1,4 @@
 ﻿output "example_output" {
   description = "An example output"
-  value = "example-value"
+  value       = "example-value"
 }

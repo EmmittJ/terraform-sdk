@@ -10,7 +10,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/terraform"/></para>
 /// </remarks>
-public partial class TerraformSettings : TerraformBlock
+public partial class TerraformSettingsBlock : TerraformBlock
 {
     /// <summary>
     /// Gets the block type keyword for the terraform block.
@@ -25,7 +25,7 @@ public partial class TerraformSettings : TerraformBlock
     /// <summary>
     /// Initializes a new instance of TerraformSettings.
     /// </summary>
-    public TerraformSettings() { }
+    public TerraformSettingsBlock() { }
 
     /// <summary>
     /// Gets or sets the required Terraform version constraint (e.g., ">= 1.0", "~> 1.5.0").
@@ -40,9 +40,9 @@ public partial class TerraformSettings : TerraformBlock
     /// Gets or sets the backend configuration for remote state storage.
     /// This is a nested block.
     /// </summary>
-    public TerraformBackend? Backend
+    public TerraformBackendBlock? Backend
     {
-        get => GetArgument<TerraformBackend?>("backend");
+        get => GetArgument<TerraformBackendBlock?>("backend");
         set => SetArgument("backend", value);
     }
 

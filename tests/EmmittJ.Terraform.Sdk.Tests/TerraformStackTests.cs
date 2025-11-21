@@ -314,7 +314,7 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "settings" };
 
-        var settings = new TerraformSettings
+        var settings = new TerraformSettingsBlock
         {
             RequiredVersion = ">= 1.5.0",
             RequiredProviders = new()
@@ -347,9 +347,9 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "backend" };
 
-        var settings = new TerraformSettings
+        var settings = new TerraformSettingsBlock
         {
-            Backend = new TerraformBackend("s3")
+            Backend = new TerraformBackendBlock("s3")
             {
                 ["bucket"] = "my-terraform-state",
                 ["key"] = "terraform.tfstate",
@@ -467,7 +467,7 @@ public class TerraformStackTests
         var stack = new TerraformStack { Name = "complete" };
 
         // Terraform Settings
-        var settings = new TerraformSettings
+        var settings = new TerraformSettingsBlock
         {
             RequiredVersion = ">= 1.5.0",
             RequiredProviders = new()
@@ -663,7 +663,7 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "cloud-named" };
 
-        var settings = new TerraformSettings
+        var settings = new TerraformSettingsBlock
         {
             RequiredVersion = ">= 1.5.0",
             Cloud = new TerraformCloudBlock
@@ -689,7 +689,7 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "cloud-tagged" };
 
-        var settings = new TerraformSettings
+        var settings = new TerraformSettingsBlock
         {
             RequiredVersion = ">= 1.5.0",
             Cloud = new TerraformCloudBlock
@@ -714,7 +714,7 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "cloud-project" };
 
-        var settings = new TerraformSettings
+        var settings = new TerraformSettingsBlock
         {
             RequiredVersion = ">= 1.5.0",
             Cloud = new TerraformCloudBlock
@@ -740,7 +740,7 @@ public class TerraformStackTests
     {
         var stack = new TerraformStack { Name = "cloud-enterprise" };
 
-        var settings = new TerraformSettings
+        var settings = new TerraformSettingsBlock
         {
             RequiredVersion = ">= 1.5.0",
             Cloud = new TerraformCloudBlock
@@ -774,7 +774,7 @@ public class TerraformStackTests
         };
         stack.Add(tfcToken);
 
-        var settings = new TerraformSettings
+        var settings = new TerraformSettingsBlock
         {
             RequiredVersion = ">= 1.5.0",
             RequiredProviders = new()

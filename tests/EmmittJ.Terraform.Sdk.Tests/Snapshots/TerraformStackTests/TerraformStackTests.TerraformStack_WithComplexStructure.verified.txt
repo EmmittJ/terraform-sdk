@@ -1,45 +1,51 @@
 ﻿resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = true
   tags = {
     Name = "Main VPC"
   }
 }
+
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 }
+
 resource "aws_subnet" "public" {
-  availability_zone = "us-west-2a"
-  cidr_block = "10.0.1.0/24"
+  availability_zone       = "us-west-2a"
+  cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = true
-  vpc_id = aws_vpc.main.id
+  vpc_id                  = aws_vpc.main.id
 }
+
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
 }
+
 resource "aws_route" "internet_access" {
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id = aws_internet_gateway.main.id
-  route_table_id = aws_route_table.public.id
+  gateway_id             = aws_internet_gateway.main.id
+  route_table_id         = aws_route_table.public.id
 }
+
 resource "aws_security_group" "web" {
   ingress = [{
     cidr_blocks = ["0.0.0.0/0"]
-    from_port = 80
-    protocol = "tcp"
-    to_port = 80
+    from_port   = 80
+    protocol    = "tcp"
+    to_port     = 80
   }, {
     cidr_blocks = ["0.0.0.0/0"]
-    from_port = 443
-    protocol = "tcp"
-    to_port = 443
+    from_port   = 443
+    protocol    = "tcp"
+    to_port     = 443
   }]
-  name = "web-sg"
-  vpc_id = aws_vpc.main.id
+  name    = "web-sg"
+  vpc_id  = aws_vpc.main.id
 }
+
 resource "aws_instance" "web" {
-  ami = "ami-12345678"
-  instance_type = "t2.micro"
-  subnet_id = aws_subnet.public.id
+  ami                    = "ami-12345678"
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.web.id]
 }

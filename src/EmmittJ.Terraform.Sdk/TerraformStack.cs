@@ -19,12 +19,12 @@ public class TerraformStack
     /// This configures Terraform itself, including backend, required providers, and other settings.
     /// When set, it will be automatically added to the blocks list.
     /// </summary>
-    public TerraformSettings? Terraform
+    public TerraformSettingsBlock? Terraform
     {
         get => _terraform;
         set => _terraform = value;
     }
-    private TerraformSettings? _terraform;
+    private TerraformSettingsBlock? _terraform;
 
     /// <summary>
     /// Adds a block (variable, resource, data source, etc.) to this configuration.
@@ -67,14 +67,22 @@ public class TerraformStack
             }
         }
 
-        // Render all blocks using node resolution
-        foreach (var block in _blocks)
+        // Render all blocks using node resolution with blank lines between blocks
+        for (var i = 0; i < _blocks.Count; i++)
         {
+            var block = _blocks[i];
+
             // All blocks resolve to nodes - top-level blocks will resolve to TerraformBlockNode
             var nodes = block.ResolveNodes(context);
             foreach (var node in nodes)
             {
                 sb.Append(node.ToHcl(context));
+                sb.AppendLine();
+            }
+
+            // Add blank line between blocks (but not after the last one)
+            if (i < _blocks.Count - 1)
+            {
                 sb.AppendLine();
             }
         }

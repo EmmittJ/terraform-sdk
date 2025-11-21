@@ -1,5 +1,6 @@
 ﻿{
   count = 3
+  
   enabled = true
-  name = "example"
+  name    = "example"
 }

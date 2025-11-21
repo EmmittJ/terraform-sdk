@@ -11,5 +11,5 @@ public interface ITerraformNodeFormatter
     /// </summary>
     /// <param name="nodes">The nodes to format</param>
     /// <returns>Formatted nodes with proper ordering and blank lines</returns>
-    IEnumerable<TerraformSyntaxNode> Format(IEnumerable<TerraformSyntaxNode> nodes);
+    List<TerraformSyntaxNode> Format(List<TerraformSyntaxNode> nodes);
 }

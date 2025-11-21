@@ -15,7 +15,7 @@ public class TerraformNestedBlockTests
         // Arrange
         var context = TerraformTestHelpers.CreateContext();
         var resource = new TerraformResource("aws_instance", "web");
-        resource.Lifecycle = new TerraformLifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleBlock
         {
             CreateBeforeDestroy = true
         };
@@ -33,7 +33,7 @@ public class TerraformNestedBlockTests
         // Arrange
         var context = TerraformTestHelpers.CreateContext();
         var resource = new TerraformResource("aws_instance", "web");
-        resource.Lifecycle = new TerraformLifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleBlock
         {
             PreventDestroy = true
         };
@@ -51,7 +51,7 @@ public class TerraformNestedBlockTests
         // Arrange
         var context = TerraformTestHelpers.CreateContext();
         var resource = new TerraformResource("aws_instance", "web");
-        resource.Lifecycle = new TerraformLifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleBlock
         {
             IgnoreChanges = new TerraformList<string> { "tags", "ami" }
         };
@@ -69,7 +69,7 @@ public class TerraformNestedBlockTests
         // Arrange
         var context = TerraformTestHelpers.CreateContext();
         var resource = new TerraformResource("aws_instance", "web");
-        resource.Lifecycle = new TerraformLifecycleConfig
+        resource.Lifecycle = new TerraformLifecycleBlock
         {
             CreateBeforeDestroy = true,
             PreventDestroy = false,

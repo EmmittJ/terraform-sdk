@@ -1,5 +1,5 @@
 ﻿resource "test" "func" {
-  formatted = format("%s-%s", var.env, var.app)
-  joined = join(",", ["one", "two", "three", "four", "five"])
+  formatted  = format("%s-%s", var.env, var.app)
+  joined     = join(",", ["one", "two", "three", "four", "five"])
   upper_name = upper(var.name)
 }

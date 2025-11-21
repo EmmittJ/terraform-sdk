@@ -1,5 +1,5 @@
 ﻿resource "aws_instance" "app" {
-  ami = "ami-12345678"
+  ami           = "ami-12345678"
   instance_type = "t2.micro"
-  subnet_id = aws_subnet.public.id
+  subnet_id     = aws_subnet.public.id
 }

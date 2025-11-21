@@ -4,7 +4,7 @@
       level2 = {
         level3 = [{
           deep_number = 42
-          deep_value = "success"
+          deep_value  = "success"
         }]
       }
     }
