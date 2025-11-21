@@ -1,0 +1,3 @@
+module "myapp" {
+  source = "./myapp"
+}
