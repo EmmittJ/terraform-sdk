@@ -59,6 +59,7 @@ public class TerraformStack
             foreach (var node in terraformNodes)
             {
                 sb.Append(node.ToHcl(context));
+                sb.AppendLine();
             }
 
             if (_blocks.Count > 0)

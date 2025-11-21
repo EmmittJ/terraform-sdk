@@ -72,7 +72,10 @@ internal sealed class TerraformPublishingContext
         Directory.CreateDirectory(_baseOutputPath);
 
         // Create the root stack that will reference all resource modules
-        var stack = new TerraformStack();
+        var stack = new TerraformStack()
+        {
+            Terraform = environment.Settings
+        };
 
         // Process each resource that has a deployment target for this environment
         foreach (var resource in model.Resources)
@@ -189,61 +192,9 @@ internal sealed class TerraformPublishingContext
         _logger.LogInformation("Generated configuration: {FilePath}", filePath);
     }
 
-    private async Task GenerateVariablesFileAsync(string outputPath)
-    {
-        var variablesFilePath = Path.Combine(outputPath, "variables.tf.json");
-
-        // Create variables configuration
-        var variables = new Dictionary<string, object>();
-
-        // Add any variables needed for the configuration
-        // This would be populated based on the resources being deployed
-
-        if (variables.Count > 0)
-        {
-            var variablesWrapper = new { variable = variables };
-            var json = System.Text.Json.JsonSerializer.Serialize(variablesWrapper, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
-            await File.WriteAllTextAsync(variablesFilePath, json, _cancellationToken).ConfigureAwait(false);
-
-            _logger.LogInformation("Generated variables file: {FilePath}", variablesFilePath);
-        }
-    }
-
-    private async Task GenerateOutputsFileAsync(string outputPath)
-    {
-        var outputsFilePath = Path.Combine(outputPath, "outputs.tf.json");
-
-        // Create outputs configuration
-        var outputs = new Dictionary<string, object>();
-
-        // Add any outputs needed from the configuration
-        // This would be populated based on the resources being deployed
-
-        if (outputs.Count > 0)
-        {
-            var outputsWrapper = new { output = outputs };
-            var json = System.Text.Json.JsonSerializer.Serialize(outputsWrapper, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
-            await File.WriteAllTextAsync(outputsFilePath, json, _cancellationToken).ConfigureAwait(false);
-
-            _logger.LogInformation("Generated outputs file: {FilePath}", outputsFilePath);
-        }
-    }
-
     private async Task GenerateRootMainTfAsync(TerraformStack rootStack)
     {
         _logger.LogInformation("Generating root main.tf with {Count} modules", rootStack.Blocks.Count);
-
-        // Add terraform settings to the root stack if specified
-        if (_environment.Settings != null)
-        {
-            rootStack.Terraform = _environment.Settings;
-        }
 
         // Generate root main.tf using the SDK
         var rootMainTfPath = Path.Combine(_baseOutputPath, "main.tf");
