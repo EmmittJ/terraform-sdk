@@ -1,0 +1,6 @@
+﻿output "map_length" {
+  value = length({
+    key1 = "value1"
+    key2 = "value2"
+  })
+}

@@ -1,0 +1,3 @@
+﻿output "number_value" {
+  value = tonumber("123")
+}
