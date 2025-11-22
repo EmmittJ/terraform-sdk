@@ -16,47 +16,42 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     /// <returns>A temporary context.</returns>
     public static TerraformContext Temporary() => new(new() { Name = "temp" });
 
-    private int _indentLevel = 0;
-    private TerraformBlock? _currentBlock;
+    private ITerraformValue? _currentValue;
 
     /// <inheritdoc/>
-    public TerraformStack Scope { get; } = scope ?? throw new ArgumentNullException(nameof(scope));
-
-    /// <inheritdoc/>
-    public int IndentLevel => _indentLevel;
+    public int IndentLevel { get; private set; } = 0;
 
     /// <inheritdoc/>
     public string Indent { get; private set; } = string.Empty;
 
     /// <inheritdoc/>
-    public ITerraformNodeFormatter Formatter { get; } = new TerraformNodeFormatter();
-
-
+    public TerraformStack Scope { get; } = scope ?? throw new ArgumentNullException(nameof(scope));
 
     /// <inheritdoc/>
-    public IDisposable SetCurrentBlock(TerraformBlock? block)
+    public ITerraformNodeFormatter Formatter { get; } = new TerraformNodeFormatter();
+
+    /// <inheritdoc/>
+    public IDisposable PushValue(ITerraformValue? value)
     {
-        var previousBlock = _currentBlock;
-        _currentBlock = block;
-        return new BlockScope(this, previousBlock);
+        var previousValue = _currentValue;
+        _currentValue = value;
+        return new ValueScope(this, previousValue);
     }
-
-
 
     /// <inheritdoc/>
     public IDisposable PushIndent()
     {
-        _indentLevel++;
-        Indent = new string(' ', _indentLevel * 2);
+        IndentLevel++;
+        Indent = new string(' ', IndentLevel * 2);
         return new IndentScope(this);
     }
 
     private void PopIndent()
     {
-        if (_indentLevel > 0)
+        if (IndentLevel > 0)
         {
-            _indentLevel--;
-            Indent = new string(' ', _indentLevel * 2);
+            IndentLevel--;
+            Indent = new string(' ', IndentLevel * 2);
         }
     }
 
@@ -77,20 +72,20 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     /// Disposable helper for managing block scope.
     /// Automatically restores the previous block when disposed.
     /// </summary>
-    private class BlockScope : IDisposable
+    private class ValueScope : IDisposable
     {
         private readonly TerraformContext _context;
-        private readonly TerraformBlock? _previousBlock;
+        private readonly ITerraformValue? _previousValue;
 
-        public BlockScope(TerraformContext context, TerraformBlock? previousBlock)
+        public ValueScope(TerraformContext context, ITerraformValue? previousValue)
         {
             _context = context;
-            _previousBlock = previousBlock;
+            _previousValue = previousValue;
         }
 
         public void Dispose()
         {
-            _context._currentBlock = _previousBlock;
+            _context._currentValue = _previousValue;
         }
     }
 }

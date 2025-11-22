@@ -36,10 +36,10 @@ public interface ITerraformContext
     IDisposable PushIndent();
 
     /// <summary>
-    /// Sets the current block being resolved and returns a disposable scope.
+    /// Sets the current value being resolved and returns a disposable scope.
     /// Use with 'using' statement for automatic scope management.
     /// </summary>
-    /// <param name="block">The current block.</param>
-    /// <returns>A disposable that clears the current block when disposed.</returns>
-    IDisposable SetCurrentBlock(TerraformBlock? block);
+    /// <param name="value">The current value.</param>
+    /// <returns>A disposable that clears the current value when disposed.</returns>
+    IDisposable PushCurrentValue(ITerraformValue? value);
 }
