@@ -183,6 +183,14 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     // Static empty map
     public static TerraformMap<T> Empty
         => new TerraformMap<T>();
+
+    /// <summary>
+    /// Converts this TerraformMap to a lazy TerraformMap of a different type.
+    /// This is useful when the underlying value is known to be of a different type
+    /// but needs to be treated as such in certain contexts (e.g., casting from string to a more specific type).
+    /// /// </summary>
+    public new TerraformMap<TLazy> AsLazy<TLazy>()
+        => TerraformMap<TLazy>.Lazy(ResolveNodes);
 }
 
 /// <summary>

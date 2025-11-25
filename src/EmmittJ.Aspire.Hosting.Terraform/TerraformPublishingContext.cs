@@ -27,6 +27,11 @@ internal sealed class TerraformPublishingContext
     private readonly TerraformEnvironmentResource _environment;
     private readonly CancellationToken _cancellationToken;
 
+    // Lookup dictionaries for tracking outputs and parameters
+    private readonly Dictionary<TerraformOutputReference, TerraformOutput> _outputLookup = new();
+    private readonly Dictionary<ParameterResource, TerraformVariable> _parameterLookup = new();
+    private readonly Dictionary<string, TerraformModule> _moduleMap = new();
+
     public TerraformPublishingContext(
         PipelineStepContext pipelineContext,
         DistributedApplicationExecutionContext executionContext,
@@ -71,7 +76,12 @@ internal sealed class TerraformPublishingContext
         // Ensure base output directory exists
         Directory.CreateDirectory(_baseOutputPath);
 
+        // Create root stack with environment customizations
         var rootStack = CreateRootStack(environment);
+
+        // Phase 1: Process all resources and generate their module files
+        // This also collects all input dependencies (outputs and parameters)
+        var resourceModules = new List<(TerraformResource TerraformResource, TerraformModule Module)>();
 
         foreach (var resource in model.Resources)
         {
@@ -84,12 +94,85 @@ internal sealed class TerraformPublishingContext
             if (resource.GetDeploymentTargetAnnotation(environment)?.DeploymentTarget is TerraformResource terraformResource)
             {
                 var module = await ProcessResourceAsync(terraformResource).ConfigureAwait(false);
-                rootStack.Add(module);
+                resourceModules.Add((terraformResource, module));
+                _moduleMap[resource.Name] = module;
+            }
+        }
+
+        // Phase 2: Discover all referenced outputs for module wiring
+        var referencedOutputs = new HashSet<TerraformOutputReference>();
+
+        foreach (var (terraformResource, _) in resourceModules)
+        {
+            foreach (var input in terraformResource.Inputs.Values)
+            {
+                Visit(input, value =>
+                {
+                    if (value is TerraformOutputReference outputRef)
+                    {
+                        referencedOutputs.Add(outputRef);
+                    }
+                });
+            }
+        }
+
+        // Track output references for resolution
+        foreach (var outputRef in referencedOutputs)
+        {
+            // Check if this is a reference to an environment output (root stack)
+            if (outputRef.Resource == environment)
+            {
+                // For environment outputs, find the actual output in the root stack
+                var existingOutput = rootStack?.Blocks?.OfType<TerraformOutput>()
+                    .FirstOrDefault(o => o.Name == outputRef.Name);
+
+                if (existingOutput is not null)
+                {
+                    _outputLookup[outputRef] = existingOutput;
+                }
+                else
+                {
+                    _logger.LogWarning("Output '{OutputName}' not found in environment '{ResourceName}'. " +
+                        "Ensure the output is defined in the environment's PublishAsTerraform callback.",
+                        outputRef.Name, outputRef.Resource.Name);
+                }
+                continue;
+            }
+
+            // For other resources, verify the module exists
+            if (!_moduleMap.TryGetValue(outputRef.Resource.Name, out _))
+            {
+                _logger.LogWarning("Output reference to '{ResourceName}.{OutputName}' cannot be resolved - source module not found",
+                    outputRef.Resource.Name, outputRef.Name);
+                continue;
+            }
+
+            // Create a placeholder for module outputs (we don't need to store these, just validate they exist)
+        }
+
+        // Phase 3: Wire module blocks with input parameters
+        foreach (var (terraformResource, module) in resourceModules)
+        {
+            foreach (var (inputName, inputValue) in terraformResource.Inputs)
+            {
+                var resolvedValue = ResolveInputValue(inputValue);
+                module.SetArgument(inputName, resolvedValue);
+            }
+
+            rootStack?.Add(module);
+        }
+
+        // Phase 4: Add parameter variables to root stack (for bubbling up to root module)
+        if (rootStack is not null)
+        {
+            foreach (var variable in _parameterLookup.Values)
+            {
+                rootStack.Add(variable);
             }
         }
 
         // Generate the root main.tf if we have any blocks
-        if (rootStack.Blocks.Count > 0)
+        if (rootStack?.Blocks?.Count > 0)
         {
             await GenerateRootMainTfAsync(rootStack).ConfigureAwait(false);
         }
@@ -102,13 +185,11 @@ internal sealed class TerraformPublishingContext
         }
     }
 
-    private static TerraformStack CreateRootStack(TerraformEnvironmentResource environment)
+    private static TerraformStack? CreateRootStack(TerraformEnvironmentResource environment)
     {
         // Check if the environment resource itself has customization annotations
-        // If so, use those for the root main.tf instead of generating module references
         if (environment.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var environmentAnnotations))
         {
-            // Create root stack from environment's customizations
             var stack = new TerraformStack()
             {
                 Terraform = environment.Settings
@@ -116,17 +197,14 @@ internal sealed class TerraformPublishingContext
 
             foreach (var annotation in environmentAnnotations)
             {
-                annotation.Configure(stack, environment);
+                var envInfra = new TerraformResourceInfrastructure(environment, stack);
+                annotation.Configure(envInfra);
             }
 
             return stack;
         }
 
-        // Create the root stack that will reference all resource modules
-        return new TerraformStack()
-        {
-            Terraform = environment.Settings
-        };
+        return null;
     }
 
     private async Task<TerraformModule> ProcessResourceAsync(TerraformResource terraformResource)
@@ -147,14 +225,20 @@ internal sealed class TerraformPublishingContext
                 // Create a new stack for this annotation
                 var stack = new TerraformStack();
 
-                // Apply the customization
-                annotation.Configure(stack, resource);
+                // Create infrastructure context and configure
+                var infra = new TerraformResourceInfrastructure(resource, stack, terraformResource);
+                annotation.Configure(infra);
+
+                // Copy inputs from infrastructure context to terraform resource
+                foreach (var (key, value) in infra.Inputs)
+                {
+                    terraformResource.Inputs[key] = value;
+                }
 
                 // Handle different resource types
                 await ProcessResourceByTypeAsync(resource, stack).ConfigureAwait(false);
 
                 // Generate the Terraform configuration files for this stack
-                // Use stack name if provided, otherwise use "main"
                 var fileName = !string.IsNullOrEmpty(stack.Name) ? $"{stack.Name}.tf" : "main.tf";
                 await GenerateConfigurationFileAsync(stack, resourceOutputPath, fileName).ConfigureAwait(false);
             }
@@ -163,7 +247,6 @@ internal sealed class TerraformPublishingContext
         {
             // If no customization annotations, create a default stack
             var stack = new TerraformStack();
-
             await ProcessResourceByTypeAsync(resource, stack).ConfigureAwait(false);
             await GenerateConfigurationFileAsync(stack, resourceOutputPath, "main.tf").ConfigureAwait(false);
         }
@@ -172,7 +255,7 @@ internal sealed class TerraformPublishingContext
         var relativePath = Path.GetRelativePath(_baseOutputPath, resourceOutputPath);
         return new TerraformModule(resource.Name)
         {
-            Source = $"./{relativePath.Replace("\\", "/")}"  // Implicit conversion from string to TerraformValue<string>
+            Source = $"./{relativePath.Replace("\\", "/")}"
         };
     }
 
@@ -197,23 +280,98 @@ internal sealed class TerraformPublishingContext
 
         // Log the resource type for debugging
         _logger.LogDebug("Processing resource type: {ResourceType}", resource.GetType().Name);
+    }
 
-        // Here you would add logic to create Terraform resources based on the Aspire resource type
-        // For example:
-        // - ProjectResource -> Container/ECS Task/etc
-        // - ContainerResource -> Container/ECS Task/etc
-        // - ExecutableResource -> Custom compute
-        // - Add resources to stack using your SDK
+    private object ResolveInputValue(object inputValue)
+    {
+        return inputValue switch
+        {
+            TerraformOutputReference outputRef => ResolveOutputReference(outputRef),
+
+            ParameterResource param =>
+                GetOrCreateParameterVariable(param).AsReference(),
+
+            string s =>
+                TerraformExpression.Literal(s),
+
+            TerraformExpression expr =>
+                expr,
+
+            _ => throw new NotSupportedException(
+                $"Input value type '{inputValue.GetType().Name}' is not supported for module parameters. " +
+                $"Supported types: TerraformOutputReference, ParameterResource, string, TerraformExpression")
+        };
+    }
+
+    private object ResolveOutputReference(TerraformOutputReference outputRef)
+    {
+        // If the output reference is to the environment resource (root stack),
+        // reference the resource directly instead of as a module
+        if (outputRef.Resource == _environment)
+        {
+            // Find the output in the root stack and get its value expression
+            if (_outputLookup.TryGetValue(outputRef, out var output))
+            {
+                // Return the output's value directly - it will be resolved when the module is rendered
+                return output.Value;
+            }
+
+            throw new InvalidOperationException(
+                $"Output '{outputRef.Name}' from environment '{outputRef.Resource.Name}' not found. " +
+                $"Ensure the output is defined in the environment's PublishAsTerraform callback.");
+        }
+
+        // For other resources, reference as a module output
+        return TerraformExpression.Identifier($"module.{outputRef.Resource.Name}.{outputRef.Name}");
+    }
+
+    private TerraformVariable GetOrCreateParameterVariable(ParameterResource parameter)
+    {
+        if (!_parameterLookup.TryGetValue(parameter, out var variable))
+        {
+            var variableName = parameter.Name.Replace("-", "_");
+            variable = new TerraformVariable(variableName)
+            {
+                Type = "string",
+                Description = parameter.Description ?? $"Parameter '{parameter.Name}'",
+                Sensitive = parameter.Secret
+            };
+            _parameterLookup[parameter] = variable;
+        }
+        return variable;
+    }
+
+    private static void Visit(object? value, Action<object> visitor)
+    {
+        var visited = new HashSet<object>(ReferenceEqualityComparer.Instance);
+        VisitCore(value, visitor, visited);
+    }
+
+    private static void VisitCore(object? value, Action<object> visitor, HashSet<object> visited)
+    {
+        if (value is null || !visited.Add(value))
+        {
+            return;
+        }
+
+        visitor(value);
+
+        // Visit nested values if the object contains references
+        // For now, we handle common cases explicitly
+        if (value is IEnumerable<object> enumerable)
+        {
+            foreach (var item in enumerable)
+            {
+                VisitCore(item, visitor, visited);
+            }
+        }
     }
 
     private async Task GenerateConfigurationFileAsync(TerraformStack stack, string outputPath, string fileName)
     {
         _logger.LogInformation("Generating Terraform configuration file {FileName} in {OutputPath}", fileName, outputPath);
 
-        // Generate the Terraform HCL configuration
         var hcl = stack.ToHcl();
-
-        // Write configuration file as HCL
         var filePath = Path.Combine(outputPath, fileName);
         await File.WriteAllTextAsync(filePath, hcl, _cancellationToken).ConfigureAwait(false);
 
@@ -222,9 +380,8 @@ internal sealed class TerraformPublishingContext
 
     private async Task GenerateRootMainTfAsync(TerraformStack rootStack)
     {
-        _logger.LogInformation("Generating root main.tf with {Count} modules", rootStack.Blocks.Count);
+        _logger.LogInformation("Generating root main.tf with {Count} blocks", rootStack.Blocks.Count);
 
-        // Generate root main.tf using the SDK
         var rootMainTfPath = Path.Combine(_baseOutputPath, "main.tf");
         var hcl = rootStack.ToHcl();
         await File.WriteAllTextAsync(rootMainTfPath, hcl, _cancellationToken).ConfigureAwait(false);
@@ -232,4 +389,3 @@ internal sealed class TerraformPublishingContext
         _logger.LogInformation("Generated root main.tf at {Path}", rootMainTfPath);
     }
 }
-

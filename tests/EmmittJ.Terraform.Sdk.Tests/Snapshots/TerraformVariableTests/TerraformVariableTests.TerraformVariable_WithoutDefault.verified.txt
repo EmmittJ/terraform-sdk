@@ -1,5 +1,5 @@
 ﻿variable "secret_key" {
   description = "Secret key (no default for security)"
   sensitive   = true
-  type        = "string"
+  type        = string
 }

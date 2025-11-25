@@ -11,70 +11,72 @@ public static partial class Tf
 {
     /// <summary>
     /// Terraform type constraint helpers.
+    /// Provides convenient access to <see cref="TerraformTypeExpression"/> factory methods.
     /// </summary>
+    /// <remarks>
+    /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/expressions/types"/></para>
+    /// </remarks>
     public static class Types
     {
         /// <summary>
         /// String type constraint.
         /// </summary>
-        public const string String = "string";
+        public static TerraformTypeExpression String => TerraformTypeExpression.String;
 
         /// <summary>
         /// Number type constraint.
         /// </summary>
-        public const string Number = "number";
+        public static TerraformTypeExpression Number => TerraformTypeExpression.Number;
 
         /// <summary>
         /// Boolean type constraint.
         /// </summary>
-        public const string Bool = "bool";
+        public static TerraformTypeExpression Bool => TerraformTypeExpression.Bool;
 
         /// <summary>
-        /// Any type constraint.
+        /// Any type constraint. Accepts any type.
         /// </summary>
-        public const string Any = "any";
+        public static TerraformTypeExpression Any => TerraformTypeExpression.Any;
 
         /// <summary>
         /// Creates a list type constraint.
         /// </summary>
         /// <param name="elementType">The type of elements in the list.</param>
-        /// <returns>A list type constraint string.</returns>
-        public static string List(string elementType) => $"list({elementType})";
+        /// <returns>A list type constraint.</returns>
+        public static TerraformTypeExpression List(TerraformTypeExpression elementType)
+            => TerraformTypeExpression.List(elementType);
 
         /// <summary>
         /// Creates a set type constraint.
         /// </summary>
         /// <param name="elementType">The type of elements in the set.</param>
-        /// <returns>A set type constraint string.</returns>
-        public static string Set(string elementType) => $"set({elementType})";
+        /// <returns>A set type constraint.</returns>
+        public static TerraformTypeExpression Set(TerraformTypeExpression elementType)
+            => TerraformTypeExpression.Set(elementType);
 
         /// <summary>
         /// Creates a map type constraint.
         /// </summary>
-        /// <param name="elementType">The type of values in the map.</param>
-        /// <returns>A map type constraint string.</returns>
-        public static string Map(string elementType) => $"map({elementType})";
+        /// <param name="valueType">The type of values in the map.</param>
+        /// <returns>A map type constraint.</returns>
+        public static TerraformTypeExpression Map(TerraformTypeExpression valueType)
+            => TerraformTypeExpression.Map(valueType);
 
         /// <summary>
         /// Creates an object type constraint.
         /// </summary>
         /// <param name="attributes">The attributes of the object as (name, type) pairs.</param>
-        /// <returns>An object type constraint string.</returns>
-        public static string Object(params (string Name, string Type)[] attributes)
-        {
-            var props = string.Join(", ", attributes.Select(a => $"{a.Name} = {a.Type}"));
-            return $"object({{{props}}})";
-        }
+        /// <returns>An object type constraint.</returns>
+        public static TerraformTypeExpression Object(params (string Name, TerraformTypeExpression Type)[] attributes)
+            => TerraformTypeExpression.Object(attributes);
 
         /// <summary>
         /// Creates a tuple type constraint.
         /// </summary>
         /// <param name="elementTypes">The types of elements in the tuple.</param>
-        /// <returns>A tuple type constraint string.</returns>
-        public static string Tuple(params string[] elementTypes)
-        {
-            return $"tuple([{string.Join(", ", elementTypes)}])";
-        }
+        /// <returns>A tuple type constraint.</returns>
+        public static TerraformTypeExpression Tuple(params TerraformTypeExpression[] elementTypes)
+            => TerraformTypeExpression.Tuple(elementTypes);
     }
 
     /// <summary>

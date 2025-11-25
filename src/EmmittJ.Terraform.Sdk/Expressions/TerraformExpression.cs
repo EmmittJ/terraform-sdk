@@ -30,8 +30,9 @@ public abstract class TerraformExpression : TerraformSyntaxNode, ITerraformResol
     /// </summary>
     public abstract override string ToHcl(ITerraformContext context);
 
+    /// <inheritdoc/>
     public override string ToString()
-        => throw new NotImplementedException("Use ToHcl() to render the expression to HCL string.");
+        => throw new NotSupportedException($"{GetType().Name}: Use ToHcl(context) to render this expression to HCL. Expression type requires a context for proper indentation and formatting.");
 
     /// <summary>
     /// Creates a literal expression from a value.

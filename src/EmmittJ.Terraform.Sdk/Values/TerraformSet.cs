@@ -52,17 +52,33 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
 
     /// <summary>
     /// Override resolution to handle nested TerraformValue&lt;T&gt; elements.
+    /// If elements are TerraformBlocks, returns them directly as multiple blocks.
+    /// Otherwise wraps elements in a set expression.
     /// </summary>
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        var resolvedElements = new List<TerraformSyntaxNode>();
-        foreach (var e in _elements)
+        var resolved = new List<TerraformSyntaxNode>();
+        foreach (var element in _elements)
         {
-            // Take first resolved node as expression - values should resolve to single expression nodes
-            var nodes = e.ResolveNodes(context);
-            resolvedElements.AddRange(nodes);
+            var nodes = element.ResolveNodes(context);
+            resolved.AddRange(nodes);
         }
-        yield return TerraformExpression.Set(resolvedElements);
+        var formatted = context.Formatter.Format(resolved);
+
+        // Check if T is a TerraformBlock type - if so, resolve as multiple nested blocks
+        // Otherwise, resolve as a set expression
+        var elementType = typeof(T);
+        if (typeof(TerraformBlock).IsAssignableFrom(elementType))
+        {
+            foreach (var node in formatted)
+            {
+                yield return node;
+            }
+        }
+        else
+        {
+            yield return TerraformExpression.Set(resolved);
+        }
     }
 
     // Add method for collection initializer syntax
@@ -113,6 +129,14 @@ public class TerraformSet<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     // Static empty set
     public static TerraformSet<T> Empty
         => new TerraformSet<T>();
+
+    /// <summary>
+    /// Converts this TerraformSet to a lazy TerraformSet of a different type.
+    /// This is useful when the underlying value is known to be of a different type
+    /// but needs to be treated as such in certain contexts (e.g., casting from string to a more specific type).
+    /// /// </summary>
+    public new TerraformSet<TLazy> AsLazy<TLazy>()
+        => TerraformSet<TLazy>.Lazy(ResolveNodes);
 }
 
 /// <summary>

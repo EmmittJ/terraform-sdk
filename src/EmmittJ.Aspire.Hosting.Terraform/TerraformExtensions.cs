@@ -28,18 +28,27 @@ public static class TerraformExtensions
     /// var terraform = builder.AddTerraformEnvironment("azure");
     ///
     /// builder.AddResource(myResource)
-    ///     .PublishAsTerraform((stack, resource) =>
+    ///     .PublishAsTerraform(infra =>
     ///     {
     ///         // Configure the Terraform infrastructure here
-    ///         // stack - the Terraform stack to add resources to
-    ///         // resource - the Aspire resource being published
+    ///         // infra.Stack - the Terraform stack to add resources to
+    ///         // infra.Resource - the Aspire resource being published
+    ///
+    ///         // Reference outputs from other resources
+    ///         var redisHost = redisResource.HostnameOutput.AsVariable(infra);
+    ///
+    ///         var container = new AzurermContainerApp("api")
+    ///         {
+    ///             EnvironmentVariables = new() { ["REDIS_HOST"] = redisHost }
+    ///         };
+    ///         infra.Add(container);
     ///     });
     /// </code>
     /// </example>
     /// </remarks>
     public static IResourceBuilder<T> PublishAsTerraform<T>(
         this IResourceBuilder<T> builder,
-        Action<TerraformStack, IResource> configure)
+        Action<TerraformResourceInfrastructure> configure)
         where T : IResource
     {
         ArgumentNullException.ThrowIfNull(builder);

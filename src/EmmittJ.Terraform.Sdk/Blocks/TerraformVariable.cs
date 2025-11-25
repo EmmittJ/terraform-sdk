@@ -58,11 +58,38 @@ public partial class TerraformVariable : TerraformBlock, ITerraformReferenceable
     }
 
     /// <summary>
-    /// Gets or sets the type constraint (e.g., "string", "list(string)").
+    /// Gets or sets the type constraint for this variable.
+    /// Use <see cref="TerraformTypeExpression"/> static properties and methods to construct types.
     /// </summary>
-    public TerraformValue<string>? Type
+    /// <example>
+    /// <code>
+    /// // Primitive types
+    /// var v1 = new TerraformVariable("name") { Type = TerraformTypeExpression.String };
+    /// // Renders as: type = string
+    ///
+    /// // Collection types
+    /// var v2 = new TerraformVariable("items") { Type = TerraformTypeExpression.List(TerraformTypeExpression.String) };
+    /// // Renders as: type = list(string)
+    ///
+    /// // Object types
+    /// var v3 = new TerraformVariable("config") {
+    ///     Type = TerraformTypeExpression.Object(
+    ///         ("name", TerraformTypeExpression.String),
+    ///         ("count", TerraformTypeExpression.Number)
+    ///     )
+    /// };
+    /// // Renders as: type = object({ name = string, count = number })
+    ///
+    /// // String shorthand (implicit conversion)
+    /// var v4 = new TerraformVariable("tags") { Type = "map(string)" };
+    /// </code>
+    /// </example>
+    /// <remarks>
+    /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/expressions/types"/></para>
+    /// </remarks>
+    public TerraformTypeExpression? Type
     {
-        get => GetArgument<TerraformValue<string>?>("type");
+        get => GetArgument<TerraformTypeExpression?>("type");
         set => SetArgument("type", value);
     }
 

@@ -20,6 +20,12 @@ internal sealed class TerraformResource : Resource
     public TerraformEnvironmentResource Environment { get; }
 
     /// <summary>
+    /// Gets the dictionary of input dependencies for this resource.
+    /// Keys are input names, values are source objects (TerraformOutputReference, ParameterResource, etc.)
+    /// </summary>
+    internal Dictionary<string, object> Inputs { get; } = new();
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="TerraformResource"/> class.
     /// </summary>
     /// <param name="targetResource">The target Aspire resource.</param>

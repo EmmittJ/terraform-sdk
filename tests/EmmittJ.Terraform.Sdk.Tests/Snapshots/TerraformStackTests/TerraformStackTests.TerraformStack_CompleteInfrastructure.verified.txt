@@ -19,12 +19,12 @@ provider "aws" {
 
 variable "region" {
   default = "us-west-2"
-  type    = "string"
+  type    = string
 }
 
 variable "environment" {
   default = "production"
-  type    = "string"
+  type    = string
 }
 
 locals {

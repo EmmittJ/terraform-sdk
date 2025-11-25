@@ -126,6 +126,14 @@ public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
     // Static empty list
     public static TerraformList<T> Empty
         => new TerraformList<T>();
+
+    /// <summary>
+    /// Converts this TerraformList to a lazy TerraformList of a different type.
+    /// This is useful when the underlying value is known to be of a different type
+    /// but needs to be treated as such in certain contexts (e.g., casting from string to a more specific type).
+    /// /// </summary>
+    public new TerraformList<TLazy> AsLazy<TLazy>()
+        => TerraformList<TLazy>.Lazy(ResolveNodes);
 }
 
 /// <summary>

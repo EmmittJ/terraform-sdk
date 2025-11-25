@@ -81,12 +81,12 @@ public class TerraformValue<T> : ITerraformValue
             return TerraformValue<T>.Lazy(ctx => [TerraformExpression.Literal(value)]);
         }
 
-        // Allow TerraformValue types (they're already values/references, just pass through)
-        if (value is ITerraformValue terraformValue)
+        // Allow ITerraformResolvable types (they're already values/references/expressions, just pass through)
+        if (value is ITerraformResolvable resolvable)
         {
             // This is already a Terraform value type (TerraformMap, TerraformList, etc.)
             // We need to resolve it and wrap it
-            return TerraformValue<T>.Lazy(terraformValue.ResolveNodes);
+            return TerraformValue<T>.Lazy(resolvable.ResolveNodes);
         }
 
         return TerraformValue<T>.Lazy(ctx => [TerraformExpression.Literal(value)]);
@@ -104,6 +104,13 @@ public class TerraformValue<T> : ITerraformValue
     public static TerraformValue<T> ConvertFrom(TerraformExpression expression)
         => new TerraformValue<T>(expression);
 
+    /// <summary>
+    /// Converts this TerraformValue to a lazy TerraformValue of a different type.
+    /// This is useful when the underlying value is known to be of a different type
+    /// but needs to be treated as such in certain contexts (e.g., casting from string to a more specific type).
+    /// /// </summary>
+    public TerraformValue<TLazy> AsLazy<TLazy>()
+        => TerraformValue<TLazy>.Lazy(ResolveNodes);
 }
 
 /// <summary>

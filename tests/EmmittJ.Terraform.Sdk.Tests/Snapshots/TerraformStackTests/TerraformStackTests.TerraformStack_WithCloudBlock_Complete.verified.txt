@@ -1,6 +1,6 @@
 ﻿variable "tfc_token" {
   description = "Terraform Cloud API Token"
-  type        = "string"
+  type        = string
 }
 
 terraform {

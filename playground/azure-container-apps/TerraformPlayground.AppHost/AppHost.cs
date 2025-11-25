@@ -8,22 +8,180 @@ using EmmittJ.Terraform.Sdk.Providers.Azurerm;
 var builder = DistributedApplication.CreateBuilder(args);
 
 // ============================================================================
-// Parameters for Secrets
+// Azure Deployment with Local Backend
 // ============================================================================
 
-// PostgreSQL admin password - can be provided via user secrets, environment variables, or command line
-var postgresPassword = builder.AddParameter("postgres-password", secret: true);
+// This demonstrates a typical workflow:
+// - Development: Run locally with containers
+// - Production: Deploy to Azure with Terraform
+// - State: Managed locally (can be moved to Azure Storage later)
+var resourceGroupParameter = builder.AddParameter("resource-group");
+
+var azure = builder.AddTerraformEnvironment("infra")
+    .WithBackend("local")  // Simple local state for getting started
+    .WithOutputPath("infra")
+    .WithAutoOperations(
+        autoInit: true,   // Automatically run terraform init
+        autoPlan: true,   // Automatically run terraform plan
+        autoApply: false  // Manual approval required for apply
+    )
+    // Add shared infrastructure that all resources will use
+    .PublishAsTerraform(infra =>
+    {
+        // Create resource group for all Azure resources
+        var resourceGroup = new AzurermResourceGroup("aspire-rg")
+        {
+            Name = resourceGroupParameter.AsVariable(infra).AsReference(),
+            Location = "eastus",
+            Tags = new()
+            {
+                ["Environment"] = "Development",
+                ["ManagedBy"] = "Aspire"
+            }
+        };
+        infra.Add(resourceGroup);
+
+        // Create Container Apps Environment for hosting containers
+        var containerEnv = new AzurermContainerAppEnvironment("container-env")
+        {
+            Name = "aspire-container-env",
+            Location = resourceGroup.Location,
+            ResourceGroupName = resourceGroup.Name
+        };
+        infra.Add(containerEnv);
+
+        // Export key values for other stacks to reference
+        var rgNameOutput = new TerraformOutput("resource_group_name")
+        {
+            Value = resourceGroup.Name
+        };
+        infra.Add(rgNameOutput);
+
+        var containerEnvIdOutput = new TerraformOutput("container_env_id")
+        {
+            Value = containerEnv.Id
+        };
+        infra.Add(containerEnvIdOutput);
+    });
 
 // ============================================================================
 // Infrastructure Resources
 // ============================================================================
 
 // Redis cache - will be provisioned as Azure Cache for Redis
-var cache = builder.AddRedis("cache");
+var cache = builder
+    .AddRedis("cache")
+    .PublishAsTerraform(infra =>
+    {
+        // Azure Cache for Redis
+        var redisCache = new AzurermRedisCache($"{infra.Resource.Name}")
+        {
+            Name = $"aspire-{infra.Resource.Name}",
+            Location = "eastus",
+            ResourceGroupName = "aspire-playground-rg",
+            Capacity = 0,
+            Family = "C",
+            SkuName = "Basic",
+            MinimumTlsVersion = "1.2",
+            Tags = new()
+            {
+                ["Environment"] = "Development",
+                ["ManagedBy"] = "Aspire"
+            }
+        };
+        infra.Add(redisCache);
+
+        // Output the connection string for the API to use
+        var connectionStringOutput = new TerraformOutput("redis_connection_string")
+        {
+            Value = redisCache.PrimaryConnectionString,
+            Sensitive = true
+        };
+        infra.Add(connectionStringOutput);
+
+        var hostnameOutput = new TerraformOutput("redis_hostname")
+        {
+            Value = redisCache.Hostname
+        };
+        infra.Add(hostnameOutput);
+    });
+
+// PostgreSQL admin password - can be provided via user secrets, environment variables, or command line
+var postgresPassword = builder.AddParameter("postgres-password", secret: true);
 
 // PostgreSQL database - will be provisioned as Azure Database for PostgreSQL
 var db = builder.AddPostgres("postgres", password: postgresPassword)
-    .AddDatabase("appdb");
+    .AddDatabase("appdb")
+    .PublishAsTerraform(infra =>
+    {
+        // Use AsVariable to convert the Aspire parameter to a Terraform variable
+        var passwordVar = postgresPassword.AsVariable(infra);
+
+        // Azure Database for PostgreSQL Flexible Server
+        var postgresServer = new AzurermPostgresqlFlexibleServer($"{infra.Resource.Name}-server")
+        {
+            Name = $"aspire-{infra.Resource.Name}-server",
+            ResourceGroupName = "aspire-playground-rg",
+            Location = "eastus",
+            AdministratorLogin = "aspireAdmin",
+            AdministratorPassword = passwordVar.AsReference(),  // Use the Terraform variable
+            SkuName = "B_Standard_B1ms",
+            StorageMb = 32768,
+            Version = "16",
+            Tags = new()
+            {
+                ["Environment"] = "Development",
+                ["ManagedBy"] = "Aspire"
+            }
+        };
+        infra.Add(postgresServer);
+
+        // Create the database
+        var database = new AzurermPostgresqlFlexibleServerDatabase("appdb")
+        {
+            Name = "appdb",
+            ServerId = postgresServer.Id,
+            Charset = "UTF8",
+            Collation = "en_US.utf8"
+        };
+        infra.Add(database);
+
+        // Allow Azure services to access the server
+        var firewallRule = new AzurermPostgresqlFlexibleServerFirewallRule("allow-azure")
+        {
+            Name = "allow-azure-services",
+            ServerId = postgresServer.Id,
+            StartIpAddress = "0.0.0.0",
+            EndIpAddress = "0.0.0.0"
+        };
+        infra.Add(firewallRule);
+
+        // Output connection information
+        var fqdnOutput = new TerraformOutput("postgres_fqdn")
+        {
+            Value = postgresServer["fqdn"]
+        };
+        infra.Add(fqdnOutput);
+
+        var dbNameOutput = new TerraformOutput("postgres_database_name")
+        {
+            Value = database.Name
+        };
+        infra.Add(dbNameOutput);
+
+        var connectionStringOutput = new TerraformOutput("postgres_connection_string")
+        {
+            Value = Tf.Functions.Format(
+                "Host=%s;Database=%s;Username=%s;Password=%s",
+                postgresServer["fqdn"].AsLazy<string>(),
+                database.Name,
+                "aspireAdmin",
+                passwordVar.AsReference()
+            ),
+            Sensitive = true
+        };
+        infra.Add(connectionStringOutput);
+    });
 
 // ============================================================================
 // Application
@@ -33,16 +191,20 @@ var api = builder.AddProject<Projects.TerraformPlayground_ApiService>("api")
     .WithReference(cache)
     .WithReference(db)
     .WithExternalHttpEndpoints()
-    .PublishAsTerraform((stack, resource) =>
+    .PublishAsTerraform(infra =>
     {
+        // Reference outputs from other modules using TerraformOutputReference
+        // These will automatically be wired as module input variables
+        var containerEnvId = new TerraformOutputReference("container_env_id", azure.Resource).AsVariable(infra);
+        var redisConnectionString = new TerraformOutputReference("redis_connection_string", cache.Resource).AsVariable(infra);
+        var postgresConnectionString = new TerraformOutputReference("postgres_connection_string", db.Resource).AsVariable(infra);
+
         // Create Azure Container App for the API
-        var containerApp = new AzurermContainerApp($"{resource.Name}")
+        var containerApp = new AzurermContainerApp($"{infra.Resource.Name}")
         {
-            // Reference the Container App Environment ID using a data source or variable
-            // This would typically come from the shared infrastructure output
-            // For now, using a placeholder that shows the pattern
-            ContainerAppEnvironmentId = TerraformExpression.Identifier("azurerm_container_app_environment.container-env.id"),
-            Name = $"aspire-{resource.Name}",
+            // Use the container environment ID from the azure environment module
+            ContainerAppEnvironmentId = containerEnvId.AsReference(),
+            Name = $"aspire-{infra.Resource.Name}",
             ResourceGroupName = "aspire-playground-rg",
             RevisionMode = "Single",
             Tags = new()
@@ -55,21 +217,43 @@ var api = builder.AddProject<Projects.TerraformPlayground_ApiService>("api")
                 new()
                 {
                     MinReplicas = 1,
-                    MaxReplicas = 1
+                    MaxReplicas = 1,
+                    Container = [
+                        new () {
+                            Name = "api-container",
+                            Image = "aspireplayground/api:latest", // Replace with actual image
+                            Cpu = 0.5,
+                            Memory = "1Gi",
+                            // Pass connection strings as environment variables
+                            // Note: In real scenarios, you'd use secrets or managed identities
+                            Env = [
+                                new () {
+                                    Name = "ConnectionStrings__cache",
+                                    SecretName = "redis-connection"
+                                },
+                                new () {
+                                    Name = "ConnectionStrings__appdb",
+                                    SecretName = "postgres-connection"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            // Define secrets that reference the connection strings
+            Secret = [
+                new () {
+                    Name = "redis-connection",
+                    Value = redisConnectionString.AsReference()
+                },
+                new () {
+                    Name = "postgres-connection",
+                    Value = postgresConnectionString.AsReference()
                 }
             ]
         };
 
-        // Note: For a complete implementation, you would need to configure:
-        // - Template with container configuration (image, CPU, memory)
-        // - Environment variables for Redis and PostgreSQL connection strings
-        // - Ingress configuration for external HTTP access
-        // - Scaling rules
-        //
-        // The SDK currently requires these to be set via the WithProperty extension
-        // or through nested block support which may need to be added to the SDK.
-
-        stack.Add(containerApp);
+        infra.Add(containerApp);
 
         // Output the app's FQDN
         var fqdnOutput = new TerraformOutput("api_fqdn")
@@ -77,169 +261,8 @@ var api = builder.AddProject<Projects.TerraformPlayground_ApiService>("api")
             Value = containerApp.LatestRevisionFqdn,
             Description = "The FQDN of the API Container App"
         };
-        stack.Add(fqdnOutput);
+        infra.Add(fqdnOutput);
     });
-
-// ============================================================================
-// Azure Deployment with Local Backend
-// ============================================================================
-
-// This demonstrates a typical workflow:
-// - Development: Run locally with containers
-// - Production: Deploy to Azure with Terraform
-// - State: Managed locally (can be moved to Azure Storage later)
-
-var azure = builder.AddTerraformEnvironment("azure")
-    .WithBackend("local")  // Simple local state for getting started
-    .WithOutputPath("infra/azure")
-    .WithAutoOperations(
-        autoInit: true,   // Automatically run terraform init
-        autoPlan: true,   // Automatically run terraform plan
-        autoApply: false  // Manual approval required for apply
-    );
-
-// Add shared infrastructure that all resources will use
-azure.PublishAsTerraform((stack, _) =>
-{
-    // Create resource group for all Azure resources
-    var resourceGroup = new AzurermResourceGroup("aspire-rg")
-    {
-        Name = "aspire-playground-rg",
-        Location = "eastus",
-        Tags = new()
-        {
-            ["Environment"] = "Development",
-            ["ManagedBy"] = "Aspire"
-        }
-    };
-    stack.Add(resourceGroup);
-
-    // Create Container Apps Environment for hosting containers
-    var containerEnv = new AzurermContainerAppEnvironment("container-env")
-    {
-        Name = "aspire-container-env",
-        Location = resourceGroup.Location,
-        ResourceGroupName = resourceGroup.Name
-    };
-    stack.Add(containerEnv);
-
-    // Export key values for other stacks to reference
-    var rgNameOutput = new TerraformOutput("resource_group_name")
-    {
-        Value = resourceGroup.Name
-    };
-    stack.Add(rgNameOutput);
-
-    var containerEnvIdOutput = new TerraformOutput("container_env_id")
-    {
-        Value = containerEnv.Id
-    };
-    stack.Add(containerEnvIdOutput);
-});
-
-cache.PublishAsTerraform((stack, resource) =>
-{
-    // Azure Cache for Redis
-    var redisCache = new AzurermRedisCache($"{resource.Name}")
-    {
-        Name = $"aspire-{resource.Name}",
-        Location = "eastus",
-        ResourceGroupName = "aspire-playground-rg",
-        Capacity = 0,
-        Family = "C",
-        SkuName = "Basic",
-        MinimumTlsVersion = "1.2",
-        Tags = new()
-        {
-            ["Environment"] = "Development",
-            ["ManagedBy"] = "Aspire"
-        }
-    };
-    stack.Add(redisCache);
-
-    // Output the connection string for the API to use
-    var connectionStringOutput = new TerraformOutput("redis_connection_string")
-    {
-        Value = redisCache.PrimaryConnectionString,
-        Sensitive = true
-    };
-    stack.Add(connectionStringOutput);
-
-    var hostnameOutput = new TerraformOutput("redis_hostname")
-    {
-        Value = redisCache.Hostname
-    };
-    stack.Add(hostnameOutput);
-});
-
-db.PublishAsTerraform((stack, resource) =>
-{
-    // Create a Terraform variable for the PostgreSQL password
-    var passwordVar = new TerraformVariable("postgres_admin_password")
-    {
-        Type = "string",
-        Description = "Administrator password for PostgreSQL server",
-        Sensitive = true
-    };
-    stack.Add(passwordVar);
-
-    // Azure Database for PostgreSQL Flexible Server
-    var postgresServer = new AzurermPostgresqlFlexibleServer($"{resource.Name}-server")
-    {
-        Name = $"aspire-{resource.Name}-server",
-        ResourceGroupName = "aspire-playground-rg",
-        Location = "eastus",
-        AdministratorLogin = "aspireAdmin",
-        AdministratorPassword = passwordVar.AsReference(),  // Use the Terraform variable
-        SkuName = "B_Standard_B1ms",
-        StorageMb = 32768,
-        Version = "16",
-        Tags = new()
-        {
-            ["Environment"] = "Development",
-            ["ManagedBy"] = "Aspire"
-        }
-    };
-    stack.Add(postgresServer);
-
-    // Create the database
-    var database = new AzurermPostgresqlFlexibleServerDatabase("appdb")
-    {
-        Name = "appdb",
-        ServerId = postgresServer.Id,
-        Charset = "UTF8",
-        Collation = "en_US.utf8"
-    };
-    stack.Add(database);
-
-    // Allow Azure services to access the server
-    var firewallRule = new AzurermPostgresqlFlexibleServerFirewallRule("allow-azure")
-    {
-        Name = "allow-azure-services",
-        ServerId = postgresServer.Id,
-        StartIpAddress = "0.0.0.0",
-        EndIpAddress = "0.0.0.0"
-    };
-    stack.Add(firewallRule);
-
-    // Output connection information
-    var fqdnOutput = new TerraformOutput("postgres_fqdn")
-    {
-        Value = postgresServer["fqdn"]
-    };
-    stack.Add(fqdnOutput);
-
-    var dbNameOutput = new TerraformOutput("postgres_database_name")
-    {
-        Value = database.Name
-    };
-    stack.Add(dbNameOutput);
-
-    var timeouts = new TerraformOutput("postgres_timeouts")
-    {
-        Value = database.Timeouts?.Read ?? "default"
-    };
-});
 
 // ============================================================================
 // Publishing Instructions

@@ -1,5 +1,5 @@
 ﻿variable "instance_count" {
   default     = 3
   description = "Number of instances to create"
-  type        = "number"
+  type        = number
 }

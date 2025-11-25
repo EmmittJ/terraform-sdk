@@ -1,13 +1,13 @@
 ﻿variable "region" {
   default     = "us-west-2"
   description = "AWS region"
-  type        = "string"
+  type        = string
 }
 
 variable "instance_type" {
   default     = "t2.micro"
   description = "EC2 instance type"
-  type        = "string"
+  type        = string
 }
 
 resource "aws_instance" "web" {

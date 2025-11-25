@@ -3,5 +3,5 @@
     Environment = "Production"
     Team        = "Platform"
   }
-  type = "map(string)"
+  type = map(string)
 }
