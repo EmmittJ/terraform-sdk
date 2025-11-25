@@ -32,11 +32,5 @@ public partial class TerraformBackendBlock : TerraformBlock
     /// Gets the backend type (e.g., "s3", "azurerm", "remote", "local", "gcs").
     /// </summary>
     public string Type { get; }
-
-    /// <summary>
-    /// Cannot generate reference to backend blocks.
-    /// </summary>
-    public override TerraformExpression AsReference()
-        => throw new NotSupportedException("Backend blocks cannot be referenced.");
 }
 

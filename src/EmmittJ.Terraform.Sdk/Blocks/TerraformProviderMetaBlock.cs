@@ -30,10 +30,4 @@ public class TerraformProviderMetaBlock : TerraformBlock
     {
         ProviderName = providerName ?? throw new ArgumentNullException(nameof(providerName));
     }
-
-    /// <summary>
-    /// Cannot generate reference to provider_meta blocks.
-    /// </summary>
-    public override TerraformExpression AsReference()
-        => throw new NotSupportedException("Provider meta blocks cannot be referenced.");
 }

@@ -14,6 +14,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// </remarks>
 public class TerraformModule :
     TerraformBlock,
+    ITerraformNamedReferenceable,
     ITerraformHasDependsOn,
     ITerraformHasCount,
     ITerraformHasForEach,
@@ -64,12 +65,19 @@ public class TerraformModule :
     }
 
     /// <summary>
-    /// Generates a reference to this module (e.g., "module.vpc").
-    /// Used when referencing this module's outputs in other parts of the configuration.
+    /// Generates a reference to this module.
     /// </summary>
-    /// <returns>An identifier expression for this module.</returns>
+    /// <returns>A reference to this module.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"module.{Name}");
+
+    /// <summary>
+    /// Generates a reference to a module output.
+    /// </summary>
+    /// <param name="name">The name of the module output.</param>
+    /// <returns>A reference to the module output.</returns>
+    public TerraformExpression AsReference(string name)
+        => TerraformExpression.Identifier($"module.{Name}.{name}");
 
     /// <summary>
     /// Implicit conversion to TerraformExpression for natural reference usage.

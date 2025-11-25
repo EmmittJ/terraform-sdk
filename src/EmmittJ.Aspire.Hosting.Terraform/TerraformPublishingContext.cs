@@ -71,26 +71,27 @@ internal sealed class TerraformPublishingContext
         // Ensure base output directory exists
         Directory.CreateDirectory(_baseOutputPath);
 
-        // Create the root stack that will reference all resource modules
-        var stack = new TerraformStack()
-        {
-            Terraform = environment.Settings
-        };
+        var rootStack = CreateRootStack(environment);
 
-        // Process each resource that has a deployment target for this environment
         foreach (var resource in model.Resources)
         {
+            // Skip the environment resource itself - it's already in the root stack
+            if (resource == environment)
+            {
+                continue;
+            }
+
             if (resource.GetDeploymentTargetAnnotation(environment)?.DeploymentTarget is TerraformResource terraformResource)
             {
                 var module = await ProcessResourceAsync(terraformResource).ConfigureAwait(false);
-                stack.Add(module);
+                rootStack.Add(module);
             }
         }
 
         // Generate the root main.tf if we have any blocks
-        if (stack.Blocks.Count > 0)
+        if (rootStack.Blocks.Count > 0)
         {
-            await GenerateRootMainTfAsync(stack).ConfigureAwait(false);
+            await GenerateRootMainTfAsync(rootStack).ConfigureAwait(false);
         }
 
         // Generate .terraform-version file at the root if specified
@@ -99,6 +100,33 @@ internal sealed class TerraformPublishingContext
             var versionFilePath = Path.Combine(_baseOutputPath, ".terraform-version");
             await File.WriteAllTextAsync(versionFilePath, _environment.TerraformVersion, _cancellationToken).ConfigureAwait(false);
         }
+    }
+
+    private static TerraformStack CreateRootStack(TerraformEnvironmentResource environment)
+    {
+        // Check if the environment resource itself has customization annotations
+        // If so, use those for the root main.tf instead of generating module references
+        if (environment.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var environmentAnnotations))
+        {
+            // Create root stack from environment's customizations
+            var stack = new TerraformStack()
+            {
+                Terraform = environment.Settings
+            };
+
+            foreach (var annotation in environmentAnnotations)
+            {
+                annotation.Configure(stack, environment);
+            }
+
+            return stack;
+        }
+
+        // Create the root stack that will reference all resource modules
+        return new TerraformStack()
+        {
+            Terraform = environment.Settings
+        };
     }
 
     private async Task<TerraformModule> ProcessResourceAsync(TerraformResource terraformResource)

@@ -80,12 +80,6 @@ public partial class TerraformSettingsBlock : TerraformBlock
     /// Provider metadata allows modules to pass provider-specific information independently of provider configuration.
     /// </summary>
     public TerraformList<TerraformProviderMetaBlock>? ProviderMetas { get; set; }
-
-    /// <summary>
-    /// Cannot generate reference to terraform settings blocks.
-    /// </summary>
-    public override TerraformExpression AsReference()
-        => throw new NotSupportedException("Terraform settings blocks cannot be referenced.");
 }
 
 /// <summary>

@@ -60,10 +60,4 @@ public class TerraformMovedBlock : TerraformBlock
         get => GetRequiredArgument<TerraformValue<string>>("to");
         set => SetArgument("to", value);
     }
-
-    /// <inheritdoc/>
-    public override TerraformReferenceExpression AsReference()
-    {
-        throw new NotSupportedException("Moved blocks cannot be referenced in expressions.");
-    }
 }

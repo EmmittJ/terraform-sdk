@@ -31,7 +31,7 @@ public class TerraformContext(TerraformStack scope) : ITerraformContext
     public ITerraformNodeFormatter Formatter { get; } = new TerraformNodeFormatter();
 
     /// <inheritdoc/>
-    public IDisposable PushValue(ITerraformValue? value)
+    public IDisposable PushCurrentValue(ITerraformValue? value)
     {
         var previousValue = _currentValue;
         _currentValue = value;

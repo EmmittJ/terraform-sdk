@@ -11,7 +11,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Each provider adds a set of resource types and/or data sources that Terraform can manage.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/provider"/></para>
 /// </remarks>
-public partial class TerraformProvider : TerraformBlock
+public partial class TerraformProvider : TerraformBlock, ITerraformReferenceable
 {
     /// <summary>
     /// Gets the provider name.
@@ -48,9 +48,8 @@ public partial class TerraformProvider : TerraformBlock
 
     /// <summary>
     /// Generates a reference to this provider.
-    /// Used when specifying provider configuration in resources or data sources.
     /// </summary>
-    /// <returns>An identifier expression for this provider.</returns>
+    /// <returns>A reference to this provider.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier(Name);
 

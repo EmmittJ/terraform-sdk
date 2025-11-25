@@ -87,6 +87,7 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
     /// <summary>
     /// Sets an argument value with proper handling of ITerraformValue types to avoid double-wrapping.
     /// Used by indexer and derived classes like TerraformBlock.
+    /// Automatically sets Parent on nested blocks that implement ITerraformHasParent.
     /// </summary>
     /// <param name="key">The key name.</param>
     /// <param name="value">The value to store (TerraformValue&lt;T&gt;, TerraformExpression, TerraformList&lt;T&gt;, etc.).</param>
@@ -96,6 +97,12 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
         {
             _elements.Remove(key);
             return;
+        }
+
+        // Auto-set parent for nested blocks that support parent tracking
+        if (value is ITerraformHasParent childBlock && this is ITerraformReferenceable referenceableParent)
+        {
+            childBlock.Parent = referenceableParent;
         }
 
         _elements[key] = TerraformValue<T>.ConvertFrom(value);

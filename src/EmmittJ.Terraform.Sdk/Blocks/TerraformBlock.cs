@@ -11,9 +11,20 @@ namespace EmmittJ.Terraform.Sdk;
 /// The map-like interface (indexer, Add methods) is not typically used directly in block classes.
 /// This design maximizes code reuse of the TerraformMap infrastructure without duplicating
 /// property storage logic.
+/// <para>
+/// Nested blocks automatically track their parent via <see cref="ITerraformHasParent"/> to enable
+/// reference chaining. When a nested block is assigned to a parent's property, the parent is
+/// automatically set by <see cref="TerraformMap{T}.SetArgument"/>.
+/// </para>
 /// </remarks>
-public abstract class TerraformBlock : TerraformMap<object>
+public abstract class TerraformBlock : TerraformMap<object>, ITerraformReferenceable, ITerraformHasParent
 {
+    /// <summary>
+    /// Gets or sets the parent block for reference chaining.
+    /// Automatically set when this block is assigned to a parent's property.
+    /// </summary>
+    public ITerraformReferenceable? Parent { get; set; }
+
     /// <summary>
     /// Gets the block type keyword (e.g., "resource", "data", "lifecycle", "timeouts").
     /// For top-level blocks, this is the first keyword ("resource", "data", "provider").
@@ -37,23 +48,56 @@ public abstract class TerraformBlock : TerraformMap<object>
     /// <summary>
     /// Indexer for block property access.
     /// Getter returns a reference to the property for resource/block attribute references.
+    /// For ITerraformNamedReferenceable blocks (like locals), returns the named reference directly.
+    /// For ITerraformReferenceable blocks, creates a reference to the block's attribute.
     /// Setter delegates to base TerraformMap.SetArgument which handles ITerraformValue unwrapping.
     /// </summary>
     /// <param name="key">The property name.</param>
     /// <returns>A reference to the property that resolves to the correct HCL identifier.</returns>
     public new TerraformValue<object> this[string key]
     {
-        get => new TerraformReference<object>(this, key);
+        get
+        {
+            // For named referenceable blocks (locals, modules), use their AsReference(name) method
+            if (this is ITerraformNamedReferenceable namedReferenceable)
+            {
+                return namedReferenceable.AsReference(key);
+            }
+
+            // For other referenceable blocks (resources, data sources), create a reference to the attribute
+            if (this is ITerraformReferenceable)
+            {
+                return new TerraformReference<object>(this, key);
+            }
+
+            // Fall back to dictionary lookup for non-referenceable blocks
+            return base[key];
+        }
         set => base[key] = value;
     }
 
     /// <summary>
     /// Creates a reference expression to this block.
-    /// Default implementation returns a simple identifier.
-    /// Override in derived classes to provide specific reference formats (e.g., "resource.type.name").
+    /// For nested blocks, chains through the parent's reference.
+    /// For top-level blocks (resources, data sources), override this to return the appropriate reference.
     /// </summary>
+    /// <returns>
+    /// A <see cref="TerraformExpression"/> that represents a reference to this block.
+    /// </returns>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when attempting to reference a nested block without a parent.
+    /// </exception>
     public virtual TerraformExpression AsReference()
-        => TerraformExpression.Identifier(BlockType);
+    {
+        if (Parent is null)
+        {
+            throw new InvalidOperationException(
+                $"Cannot create reference to nested block {GetType().Name} without a parent. " +
+                "Nested blocks must be assigned to a parent resource or data source before they can be referenced.");
+        }
+
+        return Parent.AsReference().Member(BlockType);
+    }
 
     /// <summary>
     /// Resolves this block to multiple syntax nodes (arguments + nested blocks).

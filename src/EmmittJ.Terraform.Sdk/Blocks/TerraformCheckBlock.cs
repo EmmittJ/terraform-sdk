@@ -90,12 +90,6 @@ public class TerraformCheckBlock : TerraformBlock
     /// </summary>
     public IReadOnlyList<TerraformAssertBlock> Asserts => _asserts.AsReadOnly();
 
-    /// <inheritdoc/>
-    public override TerraformExpression AsReference()
-    {
-        throw new NotSupportedException("Check blocks cannot be referenced in expressions.");
-    }
-
     /// <summary>
     /// Resolves this check block to a top-level block node with nested data sources and assert blocks.
     /// </summary>
@@ -174,11 +168,5 @@ public class TerraformAssertBlock : TerraformBlock
 
         Condition = TerraformExpression.Raw(condition);
         ErrorMessage = errorMessage;
-    }
-
-    /// <inheritdoc/>
-    public override TerraformExpression AsReference()
-    {
-        throw new NotSupportedException("Assert blocks cannot be referenced in expressions.");
     }
 }

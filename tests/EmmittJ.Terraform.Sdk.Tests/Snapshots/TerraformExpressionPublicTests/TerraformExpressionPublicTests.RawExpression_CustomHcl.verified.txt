@@ -1,0 +1,3 @@
+﻿output "result" {
+  value = concat(["a"], ["b"])
+}

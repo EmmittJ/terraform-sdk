@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// Output values support the depends_on meta-argument and precondition blocks.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/output"/></para>
 /// </remarks>
-public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
+public class TerraformOutput : TerraformBlock, ITerraformReferenceable, ITerraformHasDependsOn
 {
     /// <summary>
     /// Gets the output name.
@@ -90,10 +90,9 @@ public class TerraformOutput : TerraformBlock, ITerraformHasDependsOn
     }
 
     /// <summary>
-    /// Generates a reference to this output (e.g., "output.connection_string").
-    /// Used when referencing this output's value in other parts of the configuration.
+    /// Generates a reference to this output.
     /// </summary>
-    /// <returns>An identifier expression for this output.</returns>
+    /// <returns>A reference to this output.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"output.{Name}");
 

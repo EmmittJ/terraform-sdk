@@ -14,6 +14,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// </remarks>
 public class TerraformDataSource :
     TerraformBlock,
+    ITerraformNamedReferenceable,
     ITerraformHasDependsOn,
     ITerraformHasProvider,
     ITerraformHasCount,
@@ -51,13 +52,19 @@ public class TerraformDataSource :
     }
 
     /// <summary>
-    /// Generates a reference to this data source (e.g., "data.aws_ami.ubuntu").
-    /// This reference can be used to access the data source's attributes (output values like id, arn, etc.)
-    /// in other parts of the configuration.
+    /// Generates a reference to this data source.
     /// </summary>
-    /// <returns>An identifier expression for this data source.</returns>
+    /// <returns>A reference to this data source.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"data.{DataSourceType}.{DataSourceName}");
+
+    /// <summary>
+    /// Generates a reference to a data output.
+    /// </summary>
+    /// <param name="name">The name of the data output.</param>
+    /// <returns>A reference to the data output.</returns>
+    public TerraformExpression AsReference(string name)
+        => TerraformExpression.Identifier($"data.{DataSourceType}.{DataSourceName}.{name}");
 
     /// <summary>
     /// Implicit conversion to TerraformExpression for natural reference usage.

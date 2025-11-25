@@ -13,6 +13,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/resource"/></para>
 /// </remarks>
 public class TerraformResource : TerraformBlock,
+    ITerraformReferenceable,
     ITerraformHasCount,
     ITerraformHasForEach,
     ITerraformHasDependsOn,
@@ -51,11 +52,9 @@ public class TerraformResource : TerraformBlock,
     }
 
     /// <summary>
-    /// Generates a reference to this resource (e.g., "aws_vpc.main").
-    /// This reference can be used to access the resource's attributes (output values like id, arn, etc.)
-    /// in other parts of the configuration.
+    /// Generates a reference to this resource.
     /// </summary>
-    /// <returns>An identifier expression for this resource.</returns>
+    /// <returns>A reference to this resource.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"{ResourceType}.{ResourceName}");
 

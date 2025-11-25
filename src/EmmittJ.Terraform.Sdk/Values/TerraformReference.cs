@@ -22,73 +22,32 @@ namespace EmmittJ.Terraform.Sdk;
 /// </remarks>
 public class TerraformReference<T> : TerraformValue<T>
 {
-    private readonly TerraformBlock _block;
+    private readonly ITerraformReferenceable _block;
     private readonly string _attributeName;
 
     /// <summary>
-    /// Creates a new reference to a resource attribute.
+    /// Creates a new reference to a block attribute.
     /// </summary>
     /// <param name="block">The block being referenced.</param>
-    /// <param name="attributeName">The attribute name (as it appears in HCL, e.g., "name", "id").</param>
-    public TerraformReference(TerraformBlock block, string attributeName)
-        : base(CreateReferenceResolvable(block, attributeName))
+    /// <param name="attributeName">The attribute name (e.g., "id", "name", "read").</param>
+    public TerraformReference(ITerraformReferenceable block, string attributeName)
     {
         _block = block ?? throw new ArgumentNullException(nameof(block));
         _attributeName = attributeName ?? throw new ArgumentNullException(nameof(attributeName));
     }
 
-    /// <summary>
-    /// Creates the resolvable that produces the reference identifier.
-    /// </summary>
-    private static ITerraformResolvable CreateReferenceResolvable(
-        TerraformBlock block,
-        string attributeName)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        return new TerraformReferenceResolvable(block, attributeName);
-    }
-
-    /// <summary>
-    /// Gets the block being referenced.
-    /// </summary>
-    public TerraformBlock Block => _block;
-
-    /// <summary>
-    /// Gets the attribute name being referenced.
-    /// </summary>
-    public string AttributeName => _attributeName;
-}
-
-/// <summary>
-/// Internal resolvable that produces a reference identifier expression.
-/// </summary>
-internal class TerraformReferenceResolvable : ITerraformResolvable
-{
-    private readonly TerraformBlock _block;
-    private readonly string _attributeName;
-
-    public TerraformReferenceResolvable(TerraformBlock block, string attributeName)
-    {
-        _block = block;
-        _attributeName = attributeName;
-    }
-
-    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
-    {
-        // Generate reference: resource_type.resource_name.attribute_name
-        var reference = _block.AsReference();
-
-        // If attribute is not empty, append it
-        if (!string.IsNullOrEmpty(_attributeName))
+        // Handle ITerraformNamedReferenceable (like locals) which provide their own AsReference(name) method
+        if (_block is ITerraformNamedReferenceable namedBlock)
         {
-            // Get the identifier string from the reference
-            var identifier = reference.ToHcl(TerraformContext.Temporary());
-
-            // Append attribute name
-            yield return TerraformExpression.Identifier($"{identifier}.{_attributeName}");
+            yield return namedBlock.AsReference(_attributeName);
         }
         else
         {
-            yield return reference;
+            // For regular blocks, get block reference and append attribute as member
+            var expr = _block.AsReference().Member(_attributeName);
+            yield return expr;
         }
     }
 }

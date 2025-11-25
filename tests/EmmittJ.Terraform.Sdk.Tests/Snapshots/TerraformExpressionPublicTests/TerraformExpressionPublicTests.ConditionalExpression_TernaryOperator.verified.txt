@@ -1,0 +1,7 @@
+﻿variable "enabled" {
+  type = "bool"
+}
+
+output "result" {
+  value = var.enabled ? "yes" : "no"
+}

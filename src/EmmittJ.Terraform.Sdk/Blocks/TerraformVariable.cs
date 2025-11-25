@@ -12,7 +12,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// different Terraform configurations, making your module composable and reusable.
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/variable"/></para>
 /// </remarks>
-public partial class TerraformVariable : TerraformBlock
+public partial class TerraformVariable : TerraformBlock, ITerraformReferenceable
 {
     /// <summary>
     /// Gets the name of the variable.
@@ -109,10 +109,9 @@ public partial class TerraformVariable : TerraformBlock
     }
 
     /// <summary>
-    /// Generates a reference to this variable (e.g., "var.region").
-    /// Used when referencing this variable's value in other parts of the configuration.
+    /// Generates a reference to this variable.
     /// </summary>
-    /// <returns>An identifier expression for this variable.</returns>
+    /// <returns>A reference to this variable.</returns>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier($"var.{Name}");
 

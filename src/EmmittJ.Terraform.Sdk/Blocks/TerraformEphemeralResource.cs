@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/ephemeral"/></para>
 /// </remarks>
-public class TerraformEphemeralResource(string type, string name) : TerraformBlock()
+public class TerraformEphemeralResource(string type, string name) : TerraformBlock(), ITerraformReferenceable
 {
     /// <summary>
     /// Gets the type of this ephemeral resource (e.g., "random_id").

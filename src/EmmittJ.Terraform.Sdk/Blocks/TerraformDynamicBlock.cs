@@ -58,12 +58,6 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
     }
 
     /// <summary>
-    /// Cannot generate reference to dynamic blocks.
-    /// </summary>
-    public override TerraformExpression AsReference()
-        => throw new NotSupportedException("Dynamic blocks cannot be referenced.");
-
-    /// <summary>
     /// Resolves the dynamic block to a TerraformDynamicBlockNode.
     /// Dynamic blocks have special HCL syntax that requires custom rendering.
     /// </summary>

@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/block/locals"/></para>
 /// </remarks>
-public class TerraformLocals : TerraformBlock
+public class TerraformLocals : TerraformBlock, ITerraformNamedReferenceable
 {
     /// <summary>
     /// Gets the block type keyword for locals.
@@ -25,27 +25,11 @@ public class TerraformLocals : TerraformBlock
     /// </summary>
     public TerraformLocals() { }
 
-    /// <summary>
-    /// Gets a reference to a local value.
-    /// Always returns a reference expression (local.{name}) for use in other blocks.
-    /// </summary>
-    /// <param name="name">The name of the local value.</param>
-    /// <returns>A reference expression to the local value.</returns>
-    public new TerraformValue<object> this[string name]
-    {
-        get => TerraformExpression.Identifier($"local.{name}");
-        set => base[name] = value;
-    }
-
     /// <inheritdoc/>
     public override TerraformExpression AsReference()
         => TerraformExpression.Identifier("local");
 
-    /// <summary>
-    /// Gets the reference expression for a specific local value.
-    /// </summary>
-    /// <param name="name">The name of the local value.</param>
-    /// <returns>A reference expression to the local value.</returns>
+    /// <inheritdoc/>
     public TerraformExpression AsReference(string name)
         => TerraformExpression.Identifier($"local.{name}");
 }

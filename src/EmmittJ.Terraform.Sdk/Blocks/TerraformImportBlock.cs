@@ -80,10 +80,4 @@ public class TerraformImportBlock : TerraformBlock
         get => GetArgument<TerraformValue<IDictionary<string, object>>>("identity");
         set => SetArgument("identity", value);
     }
-
-    /// <inheritdoc/>
-    public override TerraformReferenceExpression AsReference()
-    {
-        throw new NotSupportedException("Import blocks cannot be referenced in expressions.");
-    }
 }
