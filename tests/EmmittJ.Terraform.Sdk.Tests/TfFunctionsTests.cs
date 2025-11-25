@@ -561,16 +561,16 @@ public class TfFunctionsTests
     }
 
     [Fact]
-    public Task Function_WithCustomFunction_GeneratesCorrectFunctionCall()
+    public Task Call_WithCustomFunction_GeneratesCorrectFunctionCall()
     {
         // Arrange
         var stack = new TerraformStack { Name = "test" };
-        var arg1 = "arg1";
-        var arg2 = "arg2";
+        TerraformValue<string> arg1 = "arg1";
+        TerraformValue<string> arg2 = "arg2";
 
         var output = new TerraformOutput("custom")
         {
-            Value = Tf.Functions.Function<string, string>("custom_func", arg1, arg2)
+            Value = Tf.Functions.Call<string>("custom_func", arg1, arg2)
         };
         stack.Add(output);
 

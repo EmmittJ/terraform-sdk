@@ -188,10 +188,10 @@ internal class MemberAccessExpression(TerraformExpression obj, string member) : 
 /// <summary>
 /// Function call expression (e.g., "cidrsubnet(vpc.cidr_block, 8, 1)").
 /// </summary>
-internal class FunctionCallExpression(string functionName, params TerraformExpression[] arguments) : TerraformExpression
+internal class FunctionCallExpression(string functionName, params TerraformSyntaxNode[] arguments) : TerraformExpression
 {
     private readonly string _functionName = functionName ?? throw new ArgumentNullException(nameof(functionName));
-    private readonly TerraformExpression[] _arguments = arguments ?? throw new ArgumentNullException(nameof(arguments));
+    private readonly TerraformSyntaxNode[] _arguments = arguments ?? throw new ArgumentNullException(nameof(arguments));
 
     public override string ToHcl(ITerraformContext context)
     {
@@ -685,7 +685,7 @@ public static class TerraformExpressionExtensions
     /// <summary>
     /// Creates a function call expression.
     /// </summary>
-    public static TerraformExpression Call(string functionName, params TerraformExpression[] arguments)
+    public static TerraformExpression Call(string functionName, params TerraformSyntaxNode[] arguments)
         => new FunctionCallExpression(functionName, arguments);
 
     /// <summary>

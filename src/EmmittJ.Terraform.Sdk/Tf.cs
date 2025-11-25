@@ -92,13 +92,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<string> CidrSubnet(TerraformValue<string> prefix, TerraformValue<int> newbits, TerraformValue<int> netnum)
         {
-            return TerraformValue<string>.Lazy(ctx =>
-            {
-                var prefixExpr = (TerraformExpression)prefix.ResolveNodes(ctx).First();
-                var newbitsExpr = (TerraformExpression)newbits.ResolveNodes(ctx).First();
-                var netnumExpr = (TerraformExpression)netnum.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("cidrsubnet", prefixExpr, newbitsExpr, netnumExpr)];
-            });
+            return Call<string>("cidrsubnet", prefix, newbits, netnum);
         }
 
         /// <summary>
@@ -109,11 +103,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<int> Length<T>(TerraformList<T> list)
         {
-            return TerraformValue<int>.Lazy(ctx =>
-            {
-                var listExpr = (TerraformExpression)list.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("length", listExpr)];
-            });
+            return Call<int>("length", list);
         }
 
         /// <summary>
@@ -124,11 +114,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<int> Length<T>(TerraformMap<T> map)
         {
-            return TerraformValue<int>.Lazy(ctx =>
-            {
-                var mapExpr = (TerraformExpression)map.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("length", mapExpr)];
-            });
+            return Call<int>("length", map);
         }
 
         /// <summary>
@@ -139,11 +125,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<int> Length<T>(TerraformSet<T> set)
         {
-            return TerraformValue<int>.Lazy(ctx =>
-            {
-                var setExpr = (TerraformExpression)set.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("length", setExpr)];
-            });
+            return Call<int>("length", set);
         }
 
         /// <summary>
@@ -154,11 +136,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<int> Length(TerraformValue<string> str)
         {
-            return TerraformValue<int>.Lazy(ctx =>
-            {
-                var strExpr = (TerraformExpression)str.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("length", strExpr)];
-            });
+            return Call<int>("length", str);
         }
 
         /// <summary>
@@ -170,12 +148,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<T> Element<T>(TerraformList<T> list, TerraformValue<int> index)
         {
-            return TerraformValue<T>.Lazy(ctx =>
-            {
-                var listExpr = (TerraformExpression)list.ResolveNodes(ctx).First();
-                var indexExpr = (TerraformExpression)index.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("element", listExpr, indexExpr)];
-            });
+            return Call<T>("element", list, index);
         }
 
         /// <summary>
@@ -187,12 +160,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<string> Join(TerraformValue<string> separator, TerraformList<string> list)
         {
-            return TerraformValue<string>.Lazy(ctx =>
-            {
-                var separatorExpr = (TerraformExpression)separator.ResolveNodes(ctx).First();
-                var listExpr = (TerraformExpression)list.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("join", separatorExpr, listExpr)];
-            });
+            return Call<string>("join", [separator, list]);
         }
 
         /// <summary>
@@ -204,16 +172,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<string> Format<T>(TerraformValue<string> formatString, params TerraformValue<T>[] arguments)
         {
-            return TerraformValue<string>.Lazy(ctx =>
-            {
-                var allArgs = new TerraformExpression[arguments.Length + 1];
-                allArgs[0] = (TerraformExpression)formatString.ResolveNodes(ctx).First();
-                for (int i = 0; i < arguments.Length; i++)
-                {
-                    allArgs[i + 1] = (TerraformExpression)arguments[i].ResolveNodes(ctx).First();
-                }
-                return [TerraformExpressionExtensions.Call("format", allArgs)];
-            });
+            return Call<string>("format", [formatString, .. arguments]);
         }
 
         /// <summary>
@@ -226,20 +185,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<TValue> Lookup<TValue>(TerraformMap<TValue> map, TerraformValue<string> key, TerraformValue<TValue>? defaultValue = null)
         {
-            return TerraformValue<TValue>.Lazy(ctx =>
-            {
-                var mapExpr = (TerraformExpression)map.ResolveNodes(ctx).First();
-                var keyExpr = (TerraformExpression)key.ResolveNodes(ctx).First();
-                if (defaultValue is null)
-                {
-                    return [TerraformExpressionExtensions.Call("lookup", mapExpr, keyExpr)];
-                }
-                else
-                {
-                    var defaultExpr = (TerraformExpression)defaultValue.ResolveNodes(ctx).First();
-                    return [TerraformExpressionExtensions.Call("lookup", mapExpr, keyExpr, defaultExpr)];
-                }
-            });
+            return Call<TValue>("lookup", map, key, defaultValue);
         }
 
         /// <summary>
@@ -250,15 +196,7 @@ public static partial class Tf
         /// <returns>A TerraformList wrapping the function call.</returns>
         public static TerraformList<T> Concat<T>(params TerraformList<T>[] lists)
         {
-            return TerraformList<T>.Lazy(ctx =>
-            {
-                var expressions = new TerraformExpression[lists.Length];
-                for (int i = 0; i < lists.Length; i++)
-                {
-                    expressions[i] = (TerraformExpression)lists[i].ResolveNodes(ctx).First();
-                }
-                return [TerraformExpressionExtensions.Call("concat", expressions)];
-            });
+            return CallList<T>("concat", lists);
         }
 
         /// <summary>
@@ -269,11 +207,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<string> File(TerraformValue<string> path)
         {
-            return TerraformValue<string>.Lazy(ctx =>
-            {
-                var pathExpr = (TerraformExpression)path.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("file", pathExpr)];
-            });
+            return Call<string>("file", path);
         }
 
         /// <summary>
@@ -284,11 +218,7 @@ public static partial class Tf
         /// <returns>A TerraformList wrapping the function call.</returns>
         public static TerraformList<int> Range(TerraformValue<int> max)
         {
-            return TerraformList<int>.Lazy(ctx =>
-            {
-                var maxExpr = (TerraformExpression)max.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("range", maxExpr)];
-            });
+            return CallList<int>("range", max);
         }
 
         /// <summary>
@@ -300,12 +230,7 @@ public static partial class Tf
         /// <returns>A TerraformList wrapping the function call.</returns>
         public static TerraformList<int> Range(TerraformValue<int> start, TerraformValue<int> limit)
         {
-            return TerraformList<int>.Lazy(ctx =>
-            {
-                var startExpr = (TerraformExpression)start.ResolveNodes(ctx).First();
-                var limitExpr = (TerraformExpression)limit.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("range", startExpr, limitExpr)];
-            });
+            return CallList<int>("range", start, limit);
         }
 
         /// <summary>
@@ -318,13 +243,7 @@ public static partial class Tf
         /// <returns>A TerraformList wrapping the function call.</returns>
         public static TerraformList<int> Range(TerraformValue<int> start, TerraformValue<int> limit, TerraformValue<int> step)
         {
-            return TerraformList<int>.Lazy(ctx =>
-            {
-                var startExpr = (TerraformExpression)start.ResolveNodes(ctx).First();
-                var limitExpr = (TerraformExpression)limit.ResolveNodes(ctx).First();
-                var stepExpr = (TerraformExpression)step.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("range", startExpr, limitExpr, stepExpr)];
-            });
+            return CallList<int>("range", start, limit, step);
         }
 
         /// <summary>
@@ -335,11 +254,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<string> ToString<T>(TerraformValue<T> value)
         {
-            return TerraformValue<string>.Lazy(ctx =>
-            {
-                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("tostring", valueExpr)];
-            });
+            return Call<string>("tostring", value);
         }
 
         /// <summary>
@@ -350,11 +265,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<double> ToNumber<T>(TerraformValue<T> value)
         {
-            return TerraformValue<double>.Lazy(ctx =>
-            {
-                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("tonumber", valueExpr)];
-            });
+            return Call<double>("tonumber", value);
         }
 
         /// <summary>
@@ -365,11 +276,7 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<bool> ToBool<T>(TerraformValue<T> value)
         {
-            return TerraformValue<bool>.Lazy(ctx =>
-            {
-                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("tobool", valueExpr)];
-            });
+            return Call<bool>("tobool", value);
         }
 
         /// <summary>
@@ -380,11 +287,7 @@ public static partial class Tf
         /// <returns>A TerraformList wrapping the function call.</returns>
         public static TerraformList<T> ToList<T>(TerraformValue<T> value)
         {
-            return TerraformList<T>.Lazy(ctx =>
-            {
-                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("tolist", valueExpr)];
-            });
+            return CallList<T>("tolist", value);
         }
 
         /// <summary>
@@ -395,11 +298,7 @@ public static partial class Tf
         /// <returns>A TerraformList wrapping the function call.</returns>
         public static TerraformList<T> ToList<T>(TerraformSet<T> set)
         {
-            return TerraformList<T>.Lazy(ctx =>
-            {
-                var setExpr = (TerraformExpression)set.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("tolist", setExpr)];
-            });
+            return CallList<T>("tolist", set);
         }
 
         /// <summary>
@@ -410,11 +309,7 @@ public static partial class Tf
         /// <returns>A TerraformMap wrapping the function call.</returns>
         public static TerraformMap<T> ToMap<T>(TerraformValue<T> value)
         {
-            return TerraformMap<T>.Lazy(ctx =>
-            {
-                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("tomap", valueExpr)];
-            });
+            return CallMap<T>("tomap", value);
         }
 
         /// <summary>
@@ -425,11 +320,7 @@ public static partial class Tf
         /// <returns>A TerraformSet wrapping the function call.</returns>
         public static TerraformSet<T> ToSet<T>(TerraformValue<T> value)
         {
-            return TerraformSet<T>.Lazy(ctx =>
-            {
-                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("toset", valueExpr)];
-            });
+            return CallSet<T>("toset", value);
         }
 
         /// <summary>
@@ -440,11 +331,7 @@ public static partial class Tf
         /// <returns>A TerraformSet wrapping the function call.</returns>
         public static TerraformSet<T> ToSet<T>(TerraformList<T> list)
         {
-            return TerraformSet<T>.Lazy(ctx =>
-            {
-                var listExpr = (TerraformExpression)list.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("toset", listExpr)];
-            });
+            return CallSet<T>("toset", list);
         }
 
         /// <summary>
@@ -455,15 +342,7 @@ public static partial class Tf
         /// <returns>A TerraformMap wrapping the function call.</returns>
         public static TerraformMap<T> Merge<T>(params TerraformMap<T>[] maps)
         {
-            return TerraformMap<T>.Lazy(ctx =>
-            {
-                var expressions = new TerraformExpression[maps.Length];
-                for (int i = 0; i < maps.Length; i++)
-                {
-                    expressions[i] = (TerraformExpression)maps[i].ResolveNodes(ctx).First();
-                }
-                return [TerraformExpressionExtensions.Call("merge", expressions)];
-            });
+            return CallMap<T>("merge", maps);
         }
 
         /// <summary>
@@ -475,32 +354,101 @@ public static partial class Tf
         /// <returns>A TerraformValue wrapping the function call.</returns>
         public static TerraformValue<int> Index<T>(TerraformList<T> list, TerraformValue<T> value)
         {
-            return TerraformValue<int>.Lazy(ctx =>
-            {
-                var listExpr = (TerraformExpression)list.ResolveNodes(ctx).First();
-                var valueExpr = (TerraformExpression)value.ResolveNodes(ctx).First();
-                return [TerraformExpressionExtensions.Call("index", listExpr, valueExpr)];
-            });
+            return Call<int>("index", list, value);
         }
 
         /// <summary>
         /// Calls a Terraform function by name with the given arguments.
         /// This is an escape hatch for functions not explicitly supported.
+        /// Arguments can be any resolvable type (TerraformValue, TerraformList, TerraformExpression, etc.).
         /// </summary>
+        /// <typeparam name="TResult">The expected result type.</typeparam>
         /// <param name="functionName">The name of the function.</param>
-        /// <param name="arguments">The arguments to the function.</param>
+        /// <param name="arguments">The arguments to the function (any ITerraformResolvable).</param>
         /// <returns>A TerraformValue wrapping the function call.</returns>
-        public static TerraformValue<TResult> Function<TResult, TArg>(string functionName, params TerraformValue<TArg>[] arguments)
+        /// <example>
+        /// <code>
+        /// // Call format with mixed argument types
+        /// var result = Tf.Functions.Call&lt;string&gt;("format", "Host=%s;Port=%s", hostVar, portVar);
+        ///
+        /// // Call coalesce with multiple values
+        /// var value = Tf.Functions.Call&lt;string&gt;("coalesce", primary, secondary, "default");
+        /// </code>
+        /// </example>
+        public static TerraformValue<TResult> Call<TResult>(string functionName, params ITerraformResolvable?[] arguments)
         {
             return TerraformValue<TResult>.Lazy(ctx =>
             {
-                var expressions = new TerraformExpression[arguments.Length];
-                for (int i = 0; i < arguments.Length; i++)
-                {
-                    expressions[i] = (TerraformExpression)arguments[i].ResolveNodes(ctx).First();
-                }
+                var expressions = ResolveArguments(ctx, arguments);
                 return [TerraformExpressionExtensions.Call(functionName, expressions)];
             });
+        }
+
+        /// <summary>
+        /// Calls a Terraform function by name with the given arguments, returning a list.
+        /// This is an escape hatch for functions not explicitly supported.
+        /// </summary>
+        /// <typeparam name="TResult">The expected element type of the result list.</typeparam>
+        /// <param name="functionName">The name of the function.</param>
+        /// <param name="arguments">The arguments to the function (any ITerraformResolvable).</param>
+        /// <returns>A TerraformList wrapping the function call.</returns>
+        public static TerraformList<TResult> CallList<TResult>(string functionName, params ITerraformResolvable?[] arguments)
+        {
+            return TerraformList<TResult>.Lazy(ctx =>
+            {
+                var expressions = ResolveArguments(ctx, arguments);
+                return [TerraformExpressionExtensions.Call(functionName, expressions)];
+            });
+        }
+
+        /// <summary>
+        /// Calls a Terraform function by name with the given arguments, returning a map.
+        /// This is an escape hatch for functions not explicitly supported.
+        /// </summary>
+        /// <typeparam name="TResult">The expected value type of the result map.</typeparam>
+        /// <param name="functionName">The name of the function.</param>
+        /// <param name="arguments">The arguments to the function (any ITerraformResolvable).</param>
+        /// <returns>A TerraformMap wrapping the function call.</returns>
+        public static TerraformMap<TResult> CallMap<TResult>(string functionName, params ITerraformResolvable?[] arguments)
+        {
+            return TerraformMap<TResult>.Lazy(ctx =>
+            {
+                var expressions = ResolveArguments(ctx, arguments);
+                return [TerraformExpressionExtensions.Call(functionName, expressions)];
+            });
+        }
+
+        /// <summary>
+        /// Calls a Terraform function by name with the given arguments, returning a set.
+        /// This is an escape hatch for functions not explicitly supported.
+        /// </summary>
+        /// <typeparam name="TResult">The expected element type of the result set.</typeparam>
+        /// <param name="functionName">The name of the function.</param>
+        /// <param name="arguments">The arguments to the function (any ITerraformResolvable).</param>
+        /// <returns>A TerraformSet wrapping the function call.</returns>
+        public static TerraformSet<TResult> CallSet<TResult>(string functionName, params ITerraformResolvable?[] arguments)
+        {
+            return TerraformSet<TResult>.Lazy(ctx =>
+            {
+                var expressions = ResolveArguments(ctx, arguments);
+                return [TerraformExpressionExtensions.Call(functionName, expressions)];
+            });
+        }
+
+        /// <summary>
+        /// Resolves arguments to TerraformSyntaxNode array for function calls.
+        /// </summary>
+        private static TerraformSyntaxNode[] ResolveArguments(ITerraformContext ctx, ITerraformResolvable?[] arguments)
+        {
+            var nodes = new List<TerraformSyntaxNode>();
+            for (var i = 0; i < arguments.Length; i++)
+            {
+                if (arguments[i]?.ResolveNodes(ctx) is { } args)
+                {
+                    nodes.AddRange(args);
+                }
+            }
+            return [.. nodes];
         }
     }
 
