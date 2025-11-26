@@ -17,9 +17,23 @@ var builder = DistributedApplication.CreateBuilder(args);
 // - State: Managed locally (can be moved to Azure Storage later)
 var resourceGroupParameter = builder.AddParameter("resource-group");
 
-var azure = builder.AddTerraformEnvironment("infra")
+// Define outputs at the builder level that will be consumed by other resources
+var containerEnvId = builder.AddTerraformOutput("container-env-id");
+
+var azure = builder.AddTerraformEnvironment("azure")
+    .WithSettings(settings =>
+    {
+        settings.RequiredProviders = new()
+        {
+            ["azurerm"] = new ProviderRequirement()
+            {
+                Source = "hashicorp/azurerm",
+                Version = "~> 4.0"
+            }
+        };
+    })
     .WithBackend("local")  // Simple local state for getting started
-    .WithOutputPath("infra")
+    .WithOutputPath("infra/azure")
     .WithAutoOperations(
         autoInit: true,   // Automatically run terraform init
         autoPlan: true,   // Automatically run terraform plan
@@ -28,6 +42,10 @@ var azure = builder.AddTerraformEnvironment("infra")
     // Add shared infrastructure that all resources will use
     .PublishAsTerraform(infra =>
     {
+        // AzureRM Provider
+        var azurerm = new AzurermProvider("azurerm");
+        infra.Add(azurerm);
+
         // Create resource group for all Azure resources
         var resourceGroup = new AzurermResourceGroup("aspire-rg")
         {
@@ -50,27 +68,20 @@ var azure = builder.AddTerraformEnvironment("infra")
         };
         infra.Add(containerEnv);
 
-        // Export key values for other stacks to reference
-        var rgNameOutput = new TerraformOutput("resource_group_name")
-        {
-            Value = resourceGroup.Name
-        };
-        infra.Add(rgNameOutput);
-
-        var containerEnvIdOutput = new TerraformOutput("container_env_id")
-        {
-            Value = containerEnv.Id
-        };
-        infra.Add(containerEnvIdOutput);
+        // Export key values for other resources to reference
+        infra.Add(new TerraformOutput("resource_group_name") { Value = resourceGroup.Name });
+        infra.Add(containerEnvId.AsOutput(infra, containerEnv.Id));
     });
 
 // ============================================================================
 // Infrastructure Resources
 // ============================================================================
 
+// Define outputs at the builder level that will be consumed by other resources
+var redisConnectionString = builder.AddTerraformOutput("redis-connection-string", sensitive: true);
+
 // Redis cache - will be provisioned as Azure Cache for Redis
-var cache = builder
-    .AddRedis("cache")
+var cache = builder.AddRedis("cache")
     .PublishAsTerraform(infra =>
     {
         // Azure Cache for Redis
@@ -91,23 +102,16 @@ var cache = builder
         };
         infra.Add(redisCache);
 
-        // Output the connection string for the API to use
-        var connectionStringOutput = new TerraformOutput("redis_connection_string")
-        {
-            Value = redisCache.PrimaryConnectionString,
-            Sensitive = true
-        };
-        infra.Add(connectionStringOutput);
-
-        var hostnameOutput = new TerraformOutput("redis_hostname")
-        {
-            Value = redisCache.Hostname
-        };
-        infra.Add(hostnameOutput);
+        // Use the output resources to create outputs - sensitive flag is already set on the resource
+        infra.Add(redisConnectionString.AsOutput(infra, redisCache.PrimaryConnectionString));
+        infra.Add(new TerraformOutput("redis_hostname") { Value = redisCache.Hostname });
     });
 
 // PostgreSQL admin password - can be provided via user secrets, environment variables, or command line
 var postgresPassword = builder.AddParameter("postgres-password", secret: true);
+
+// Define outputs at the builder level that will be consumed by other resources
+var postgresConnectionString = builder.AddTerraformOutput("postgres-connection-string", sensitive: true);
 
 // PostgreSQL database - will be provisioned as Azure Database for PostgreSQL
 var db = builder.AddPostgres("postgres", password: postgresPassword)
@@ -156,54 +160,36 @@ var db = builder.AddPostgres("postgres", password: postgresPassword)
         };
         infra.Add(firewallRule);
 
-        // Output connection information
-        var fqdnOutput = new TerraformOutput("postgres_fqdn")
-        {
-            Value = postgresServer["fqdn"]
-        };
-        infra.Add(fqdnOutput);
-
-        var dbNameOutput = new TerraformOutput("postgres_database_name")
-        {
-            Value = database.Name
-        };
-        infra.Add(dbNameOutput);
-
-        var connectionStringOutput = new TerraformOutput("postgres_connection_string")
-        {
-            Value = Tf.Functions.Format(
+        // Use output resources for shared outputs, inline TerraformOutput for module-only outputs
+        infra.Add(new TerraformOutput("postgres_fqdn") { Value = postgresServer["fqdn"] });
+        infra.Add(new TerraformOutput("postgres_database_name") { Value = database.Name });
+        infra.Add(postgresConnectionString.AsOutput(infra,
+            Tf.Functions.Format(
                 "Host=%s;Database=%s;Username=%s;Password=%s",
                 postgresServer["fqdn"].AsLazy<string>(),
                 database.Name,
                 "aspireAdmin",
                 passwordVar.AsReference()
-            ),
-            Sensitive = true
-        };
-        infra.Add(connectionStringOutput);
+            )
+        ));
     });
 
 // ============================================================================
 // Application
 // ============================================================================
 
+// Define the API's output at the builder level
 var api = builder.AddProject<Projects.TerraformPlayground_ApiService>("api")
     .WithReference(cache)
     .WithReference(db)
     .WithExternalHttpEndpoints()
     .PublishAsTerraform(infra =>
     {
-        // Reference outputs from other modules using TerraformOutputReference
-        // These will automatically be wired as module input variables
-        var containerEnvId = new TerraformOutputReference("container_env_id", azure.Resource).AsVariable(infra);
-        var redisConnectionString = new TerraformOutputReference("redis_connection_string", cache.Resource).AsVariable(infra);
-        var postgresConnectionString = new TerraformOutputReference("postgres_connection_string", db.Resource).AsVariable(infra);
-
         // Create Azure Container App for the API
         var containerApp = new AzurermContainerApp($"{infra.Resource.Name}")
         {
-            // Use the container environment ID from the azure environment module
-            ContainerAppEnvironmentId = containerEnvId.AsReference(),
+            // Use the container environment ID from the azure environment
+            ContainerAppEnvironmentId = containerEnvId.AsVariable(infra).AsReference(),
             Name = $"aspire-{infra.Resource.Name}",
             ResourceGroupName = "aspire-playground-rg",
             RevisionMode = "Single",
@@ -240,28 +226,27 @@ var api = builder.AddProject<Projects.TerraformPlayground_ApiService>("api")
                     ]
                 }
             ],
-            // Define secrets that reference the connection strings
+            // Define secrets using the output references - type-safe, no magic strings!
             Secret = [
                 new () {
                     Name = "redis-connection",
-                    Value = redisConnectionString.AsReference()
+                    Value = redisConnectionString.AsVariable(infra).AsReference()
                 },
                 new () {
                     Name = "postgres-connection",
-                    Value = postgresConnectionString.AsReference()
+                    Value = postgresConnectionString.AsVariable(infra).AsReference()
                 }
             ]
         };
 
         infra.Add(containerApp);
 
-        // Output the app's FQDN
-        var fqdnOutput = new TerraformOutput("api_fqdn")
+        // Use inline TerraformOutput for outputs that aren't consumed by other resources
+        infra.Add(new TerraformOutput("api_fqdn")
         {
             Value = containerApp.LatestRevisionFqdn,
             Description = "The FQDN of the API Container App"
-        };
-        infra.Add(fqdnOutput);
+        });
     });
 
 // ============================================================================

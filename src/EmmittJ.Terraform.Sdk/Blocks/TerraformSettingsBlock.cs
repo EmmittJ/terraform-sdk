@@ -67,11 +67,25 @@ public partial class TerraformSettingsBlock : TerraformBlock
 
     /// <summary>
     /// Gets or sets the required_providers block.
-    /// This is a nested block, not an attribute assignment.
     /// </summary>
-    public TerraformMap<ProviderRequirement>? RequiredProviders
+    /// <remarks>
+    /// <para>See: <see href="https://developer.hashicorp.com/terraform/language/block/terraform#required_providers"/></para>
+    /// <example>
+    /// <code>
+    /// settings.RequiredProviders = new TerraformRequiredProvidersBlock
+    /// {
+    ///     ["azurerm"] = new ProviderRequirement
+    ///     {
+    ///         Source = "hashicorp/azurerm",
+    ///         Version = "~> 4.0"
+    ///     }
+    /// };
+    /// </code>
+    /// </example>
+    /// </remarks>
+    public TerraformRequiredProvidersBlock? RequiredProviders
     {
-        get => GetArgument<TerraformMap<ProviderRequirement>>("required_providers");
+        get => GetArgument<TerraformRequiredProvidersBlock?>("required_providers");
         set => SetArgument("required_providers", value);
     }
 
@@ -83,9 +97,96 @@ public partial class TerraformSettingsBlock : TerraformBlock
 }
 
 /// <summary>
+/// Represents the required_providers block within terraform settings.
+/// This block contains provider requirements as assignments (provider_name = { source, version }).
+/// </summary>
+/// <remarks>
+/// <para>See: <see href="https://developer.hashicorp.com/terraform/language/block/terraform#required_providers"/></para>
+/// <example>
+/// Example HCL output:
+/// <code>
+/// required_providers {
+///   azurerm = {
+///     source  = "hashicorp/azurerm"
+///     version = "~> 4.0"
+///   }
+/// }
+/// </code>
+/// </example>
+/// </remarks>
+public class TerraformRequiredProvidersBlock : TerraformBlock
+{
+    private readonly Dictionary<string, ProviderRequirement> _providers = new();
+
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "required_providers";
+
+    /// <summary>
+    /// Gets or sets a provider requirement by name.
+    /// </summary>
+    /// <param name="providerName">The local name for the provider (e.g., "azurerm", "aws").</param>
+    /// <returns>The provider requirement.</returns>
+    public new ProviderRequirement this[string providerName]
+    {
+        get => _providers[providerName];
+        set => _providers[providerName] = value;
+    }
+
+    /// <summary>
+    /// Adds a provider requirement.
+    /// </summary>
+    /// <param name="providerName">The local name for the provider.</param>
+    /// <param name="requirement">The provider requirement.</param>
+    public void Add(string providerName, ProviderRequirement requirement)
+    {
+        _providers[providerName] = requirement;
+    }
+
+    /// <summary>
+    /// Resolves to a block node containing provider assignments.
+    /// </summary>
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        var nodes = new List<TerraformSyntaxNode>();
+
+        foreach (var (providerName, requirement) in _providers)
+        {
+            // Resolve the ProviderRequirement to a map expression
+            var requirementNodes = ((TerraformMap<string>)requirement).ResolveNodes(context).ToList();
+            if (requirementNodes.FirstOrDefault() is TerraformExpression expr)
+            {
+                nodes.Add(new TerraformArgumentNode(providerName, expr));
+            }
+        }
+
+        yield return new TerraformBlockNode(BlockType, BlockLabels, nodes);
+    }
+}
+
+/// <summary>
 /// Represents a provider requirement with source and version constraint.
 /// Used within the required_providers block.
 /// </summary>
+/// <remarks>
+/// <example>
+/// <code>
+/// new ProviderRequirement
+/// {
+///     Source = "hashicorp/azurerm",
+///     Version = "~> 4.0"
+/// }
+/// </code>
+/// Generates:
+/// <code>
+/// {
+///   source  = "hashicorp/azurerm"
+///   version = "~> 4.0"
+/// }
+/// </code>
+/// </example>
+/// </remarks>
 public partial class ProviderRequirement : TerraformMap<string>
 {
     /// <summary>

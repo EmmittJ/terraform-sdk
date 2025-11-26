@@ -44,7 +44,7 @@ public class ErrorMessageQualityTests
     }
 }
 
-file class EmptyTerraformValue<T> : TerraformValue<T>
+internal class EmptyTerraformValue<T> : TerraformValue<T>
 {
     public EmptyTerraformValue() : base()
     {
