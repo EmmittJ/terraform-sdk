@@ -1,3 +1,3 @@
 variable "var2" {
-  type = "string"
+  type = string
 }

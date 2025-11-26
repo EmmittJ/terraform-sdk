@@ -1,4 +1,4 @@
 variable "allow_ssh" {
   default = "true"
-  type    = "bool"
+  type    = bool
 }

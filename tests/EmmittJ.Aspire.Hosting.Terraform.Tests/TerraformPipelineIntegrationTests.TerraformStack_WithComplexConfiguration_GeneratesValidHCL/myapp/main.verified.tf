@@ -1,15 +1,15 @@
 variable "environment" {
   default     = "development"
   description = "Environment name"
-  type        = "string"
+  type        = string
 }
 
 variable "instance_count" {
   default = "3"
-  type    = "number"
+  type    = number
 }
 
 variable "enable_monitoring" {
   default = "true"
-  type    = "bool"
+  type    = bool
 }

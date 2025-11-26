@@ -1,5 +1,6 @@
 // Licensed under the MIT License.
 
+using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 using EmmittJ.Terraform.Sdk;
 
@@ -49,7 +50,7 @@ public sealed class TerraformResourceInfrastructure
 
     /// <summary>
     /// Gets the dictionary of input parameters for this module.
-    /// Keys are parameter names, values are the source objects (TerraformOutputReference, ParameterResource, etc.)
+    /// Keys are parameter names, values are the source objects (TerraformOutputResource, ParameterResource, etc.)
     /// </summary>
     internal Dictionary<string, object> Inputs { get; } = new();
 

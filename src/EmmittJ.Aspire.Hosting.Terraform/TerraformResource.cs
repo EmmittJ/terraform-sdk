@@ -21,7 +21,7 @@ internal sealed class TerraformResource : Resource
 
     /// <summary>
     /// Gets the dictionary of input dependencies for this resource.
-    /// Keys are input names, values are source objects (TerraformOutputReference, ParameterResource, etc.)
+    /// Keys are input names, values are source objects (TerraformOutputResource, ParameterResource, etc.)
     /// </summary>
     internal Dictionary<string, object> Inputs { get; } = new();
 

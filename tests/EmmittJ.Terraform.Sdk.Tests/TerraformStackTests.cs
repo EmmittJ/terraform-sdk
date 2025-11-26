@@ -319,19 +319,16 @@ public class TerraformStackTests
             RequiredVersion = ">= 1.5.0",
             RequiredProviders = new()
             {
-                ProviderRequirements =
-                [
-                    new("aws")
-                    {
-                        Source = "hashicorp/aws",
-                        Version = "~> 5.0"
-                    },
-                    new("azurerm")
-                    {
-                        Source = "hashicorp/azurerm",
-                        Version = ">= 3.0"
-                    }
-                ]
+                ["aws"] = new ProviderRequirement()
+                {
+                    Source = "hashicorp/aws",
+                    Version = "~> 5.0"
+                },
+                ["azurerm"] = new ProviderRequirement()
+                {
+                    Source = "hashicorp/azurerm",
+                    Version = ">= 3.0"
+                }
             }
         };
 
@@ -472,14 +469,11 @@ public class TerraformStackTests
             RequiredVersion = ">= 1.5.0",
             RequiredProviders = new()
             {
-                ProviderRequirements =
-                [
-                    new("aws")
-                    {
-                        Source = "hashicorp/aws",
-                        Version = "~> 5.0"
-                    }
-                ]
+                ["aws"] = new ProviderRequirement()
+                {
+                    Source = "hashicorp/aws",
+                    Version = "~> 5.0"
+                }
             },
             Backend = new("s3")
             {
@@ -779,14 +773,11 @@ public class TerraformStackTests
             RequiredVersion = ">= 1.5.0",
             RequiredProviders = new()
             {
-                ProviderRequirements =
-                [
-                    new("aws")
-                    {
-                        Source = "hashicorp/aws",
-                        Version = "~> 5.0"
-                    }
-                ]
+                ["aws"] = new ProviderRequirement()
+                {
+                    Source = "hashicorp/aws",
+                    Version = "~> 5.0"
+                }
             },
             Cloud = new TerraformCloudBlock
             {

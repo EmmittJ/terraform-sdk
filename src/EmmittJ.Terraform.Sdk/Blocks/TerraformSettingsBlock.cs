@@ -69,9 +69,9 @@ public partial class TerraformSettingsBlock : TerraformBlock
     /// Gets or sets the required_providers block.
     /// This is a nested block, not an attribute assignment.
     /// </summary>
-    public TerraformRequiredProvidersBlock? RequiredProviders
+    public TerraformMap<ProviderRequirement>? RequiredProviders
     {
-        get => GetArgument<TerraformRequiredProvidersBlock?>("required_providers");
+        get => GetArgument<TerraformMap<ProviderRequirement>>("required_providers");
         set => SetArgument("required_providers", value);
     }
 
@@ -83,50 +83,11 @@ public partial class TerraformSettingsBlock : TerraformBlock
 }
 
 /// <summary>
-/// Represents the required_providers block within terraform settings.
-/// This is a special block that contains provider requirements as nested unlabeled blocks.
-/// </summary>
-/// <remarks>
-/// Example HCL:
-/// <code>
-/// required_providers {
-///   aws {
-///     source = "hashicorp/aws"
-///     version = "~> 5.0"
-///   }
-/// }
-/// </code>
-/// </remarks>
-public class TerraformRequiredProvidersBlock() : TerraformBlock()
-{
-    /// <summary>
-    /// Gets the block type.
-    /// </summary>
-    public override string BlockType => "required_providers";
-
-    public TerraformList<ProviderRequirement>? ProviderRequirements
-    {
-        get => GetArgument<TerraformList<ProviderRequirement>?>("provider_requirements");
-        set => SetArgument("provider_requirements", value);
-    }
-}
-
-/// <summary>
 /// Represents a provider requirement with source and version constraint.
 /// Used within the required_providers block.
 /// </summary>
-public partial class ProviderRequirement(string provider) : TerraformBlock()
+public partial class ProviderRequirement : TerraformMap<string>
 {
-    /// <summary>
-    /// Gets the block type (empty string as this renders as an unlabeled block).
-    /// </summary>
-    public override string BlockType => provider;
-
-    /// <summary>
-    /// Gets the block labels (provider requirements have no labels beyond the block type).
-    /// </summary>
-    public override string[] BlockLabels => [];
-
     /// <summary>
     /// Gets or sets the provider source (e.g., "hashicorp/aws", "hashicorp/azurerm").
     /// </summary>

@@ -1,7 +1,9 @@
 // Licensed under the MIT License.
 
+using System.Diagnostics;
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
+using Aspire.Hosting.Pipelines;
 using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
@@ -60,7 +62,6 @@ public static class TerraformExtensions
         }
 
         builder.ApplicationBuilder.AddTerraformInfrastructureCore();
-
         builder.WithAnnotation(new TerraformCustomizationAnnotation(configure));
 
         return builder;
