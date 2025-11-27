@@ -1,7 +1,6 @@
 // Licensed under the MIT License.
 
 using Aspire.Hosting.ApplicationModel;
-using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
@@ -11,11 +10,11 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// <remarks>
 /// Initializes a new instance of the <see cref="TerraformCustomizationAnnotation"/> class.
 /// </remarks>
-/// <param name="configure">The configuration action for customizing the Terraform infrastructure.</param>
-public sealed class TerraformCustomizationAnnotation(Action<TerraformResourceInfrastructure> configure) : IResourceAnnotation
+/// <param name="configure">The configuration action for customizing the Terraform resource.</param>
+public sealed class TerraformCustomizationAnnotation(Action<TerraformResource> configure) : IResourceAnnotation
 {
     /// <summary>
-    /// Gets the configuration action for customizing the Terraform infrastructure.
+    /// Gets the configuration action for customizing the Terraform resource.
     /// </summary>
-    public Action<TerraformResourceInfrastructure> Configure { get; } = configure ?? throw new ArgumentNullException(nameof(configure));
+    public Action<TerraformResource> Configure { get; } = configure ?? throw new ArgumentNullException(nameof(configure));
 }

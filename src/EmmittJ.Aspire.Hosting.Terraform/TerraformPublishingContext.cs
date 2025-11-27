@@ -195,10 +195,20 @@ internal sealed class TerraformPublishingContext
                 Terraform = environment.Settings
             };
 
+            // Create a TerraformResource for the environment itself to use in callbacks
+            var envTerraformResource = new TerraformResource(environment.Name, environment, environment);
+            // Replace the stack with our configured one
+            // Note: We need to copy blocks from envTerraformResource.Stack to our stack after configuration
+
             foreach (var annotation in environmentAnnotations)
             {
-                var envInfra = new TerraformResourceInfrastructure(environment, stack);
-                annotation.Configure(envInfra);
+                annotation.Configure(envTerraformResource);
+            }
+
+            // Copy blocks from the TerraformResource's stack to our root stack
+            foreach (var block in envTerraformResource.Stack.Blocks)
+            {
+                stack.Add(block);
             }
 
             return stack;
@@ -217,38 +227,27 @@ internal sealed class TerraformPublishingContext
         var resourceOutputPath = PublishingContextUtils.GetResourceOutputPath(_pipelineContext, _environment, resource);
         Directory.CreateDirectory(resourceOutputPath);
 
-        // Process each TerraformCustomizationAnnotation separately (each creates its own stack/file)
+        // Process each TerraformCustomizationAnnotation - pass the TerraformResource directly
         if (resource.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var annotations))
         {
             foreach (var annotation in annotations)
             {
-                // Create a new stack for this annotation
-                var stack = new TerraformStack();
-
-                // Create infrastructure context and configure
-                var infra = new TerraformResourceInfrastructure(resource, stack, terraformResource);
-                annotation.Configure(infra);
-
-                // Copy inputs from infrastructure context to terraform resource
-                foreach (var (key, value) in infra.Inputs)
-                {
-                    terraformResource.Inputs[key] = value;
-                }
+                // Configure the TerraformResource directly
+                annotation.Configure(terraformResource);
 
                 // Handle different resource types
-                await ProcessResourceByTypeAsync(resource, stack).ConfigureAwait(false);
+                await ProcessResourceByTypeAsync(resource, terraformResource.Stack).ConfigureAwait(false);
 
                 // Generate the Terraform configuration files for this stack
-                var fileName = !string.IsNullOrEmpty(stack.Name) ? $"{stack.Name}.tf" : "main.tf";
-                await GenerateConfigurationFileAsync(stack, resourceOutputPath, fileName).ConfigureAwait(false);
+                var fileName = !string.IsNullOrEmpty(terraformResource.Stack.Name) ? $"{terraformResource.Stack.Name}.tf" : "main.tf";
+                await GenerateConfigurationFileAsync(terraformResource.Stack, resourceOutputPath, fileName).ConfigureAwait(false);
             }
         }
         else
         {
-            // If no customization annotations, create a default stack
-            var stack = new TerraformStack();
-            await ProcessResourceByTypeAsync(resource, stack).ConfigureAwait(false);
-            await GenerateConfigurationFileAsync(stack, resourceOutputPath, "main.tf").ConfigureAwait(false);
+            // If no customization annotations, just process the resource type
+            await ProcessResourceByTypeAsync(resource, terraformResource.Stack).ConfigureAwait(false);
+            await GenerateConfigurationFileAsync(terraformResource.Stack, resourceOutputPath, "main.tf").ConfigureAwait(false);
         }
 
         // Compute the relative path from base output to resource output for the module source

@@ -57,7 +57,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     /// This dictionary maps ParameterResource instances to their corresponding TerraformVariable definitions.
     /// </summary>
     /// <remarks>
-    /// Parameters are registered when <see cref="TerraformResourceInfrastructure.AddVariable(ParameterResource, string?)"/> is called.
+    /// Parameters are registered when <see cref="TerraformResource.AddVariable(ParameterResource, string?)"/> is called.
     /// During plan/apply, these parameters are resolved and passed to Terraform via tfvars (non-sensitive)
     /// or TF_VAR_* environment variables (sensitive).
     /// </remarks>
