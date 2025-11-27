@@ -152,16 +152,14 @@ var nodes = value.ResolveNodes(context);  // Returns TerraformExpression nodes
 
 ### TerraformLiteralValue\<T\>
 
-Wraps literal values and resolves them to `LiteralExpression`:
+Wraps literal values and resolves them to `LiteralExpression`. Extends `TerraformValue<T>` and overrides `ResolveNodes`:
 
 ```csharp
-internal class TerraformLiteralValue<T> : ITerraformResolvable
+internal class TerraformLiteralValue<T>(T? value) : TerraformValue<T>
 {
-    private readonly T? _value;
-
-    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
     {
-        yield return TerraformExpression.Literal(_value);
+        yield return TerraformExpression.Literal(value);
     }
 }
 ```
@@ -169,26 +167,39 @@ internal class TerraformLiteralValue<T> : ITerraformResolvable
 Used automatically when literals are assigned:
 
 ```csharp
-// Implicit conversion creates TerraformValue<string> with TerraformLiteralValue<string>
+// Implicit conversion creates TerraformLiteralValue<string>
 TerraformValue<string> region = "us-west-2";
 ```
 
-### TerraformReferenceResolvable
+### TerraformReference\<T\>
 
-Generates reference identifier expressions:
+Represents a reference to another resource's attribute. Extends `TerraformValue<T>` and overrides `ResolveNodes`:
 
 ```csharp
-internal class TerraformReferenceResolvable : ITerraformResolvable
+public class TerraformReference<T> : TerraformValue<T>
 {
-    private readonly TerraformBlock _block;
+    private readonly ITerraformReferenceable _block;
     private readonly string _attributeName;
 
-    public IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    public TerraformReference(ITerraformReferenceable block, string attributeName)
     {
-        // Generate: resource_type.resource_name.attribute_name
-        var reference = _block.AsReference();
-        var identifier = reference.ToHcl(context);
-        yield return TerraformExpression.Identifier($"{identifier}.{_attributeName}");
+        _block = block;
+        _attributeName = attributeName;
+    }
+
+    public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
+    {
+        // For named referenceables (like locals), use AsReference(name)
+        if (_block is ITerraformNamedReferenceable namedBlock)
+        {
+            yield return namedBlock.AsReference(_attributeName);
+        }
+        else
+        {
+            // For regular blocks, get block reference and append attribute as member
+            // Generates: resource_type.resource_name.attribute_name
+            yield return _block.AsReference().Member(_attributeName);
+        }
     }
 }
 ```

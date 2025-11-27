@@ -66,11 +66,12 @@ var terraform = builder.AddTerraformEnvironment("aws")
     .WithVersion(">= 1.9.0");
 
 var api = builder.AddProject<Projects.Api>("api")
-    .PublishAsTerraform((stack, resource) =>
+    .PublishAsTerraform(terraform =>
     {
         // Add AWS infrastructure here
-        // stack - the TerraformStack to add resources to
-        // resource - the IResource being published
+        // terraform.Stack - the TerraformStack to add resources to
+        // terraform.TargetResource - the IResource being published
+        // terraform.Add() - helper to add blocks to the stack
     });
 
 builder.Build().Run();
