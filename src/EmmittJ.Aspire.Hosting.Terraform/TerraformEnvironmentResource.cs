@@ -129,7 +129,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                 Action = async ctx =>
                 {
                     var sensitiveEnvVars = await ResolveAndWriteVariablesAsync(ctx).ConfigureAwait(false);
-                    await RunTerraformCommandAsync(ctx, "apply aspire.tfplan -input=false -no-color -auto-approve", sensitiveEnvVars).ConfigureAwait(false);
+                    await RunTerraformCommandAsync(ctx, "apply -auto-approve -input=false -no-color aspire.tfplan", sensitiveEnvVars).ConfigureAwait(false);
                 },
                 Tags = ["terraform-apply"],
                 DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
@@ -239,15 +239,15 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
         if (process.ExitCode != 0)
         {
             await context.ReportingStep.CompleteAsync(
-                $"Terraform {command} failed with exit code {process.ExitCode}",
+                $"Terraform '{command}' failed with exit code {process.ExitCode}",
                 CompletionState.CompletedWithError,
                 context.CancellationToken).ConfigureAwait(false);
 
-            throw new InvalidOperationException($"Terraform {command} failed with exit code {process.ExitCode}. Error: {error}");
+            throw new InvalidOperationException($"Terraform '{command}' failed with exit code {process.ExitCode}. Error: {error}");
         }
 
         await context.ReportingStep.CompleteAsync(
-            $"Terraform {command} completed successfully",
+            $"Terraform '{command}' completed successfully",
             CompletionState.Completed,
             context.CancellationToken).ConfigureAwait(false);
     }

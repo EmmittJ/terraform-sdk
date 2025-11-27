@@ -1,6 +1,29 @@
 # Terraform Playground
 
-This directory will contain example Aspire applications demonstrating the Terraform deployment model.
+This directory contains example applications demonstrating the Terraform SDK and deployment model.
+
+## Available Samples
+
+| Sample                                          | Description                                                                                         |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [getting-started](./getting-started/)           | **Start here!** Minimal example with variables, resources, and outputs (no cloud provider required) |
+| [azure-container-apps](./azure-container-apps/) | Full Aspire application deploying to Azure Container Apps                                           |
+
+## Getting Started
+
+For your first experience with the Terraform SDK, run the `getting-started` sample:
+
+```bash
+cd playground/getting-started
+dotnet run
+```
+
+This demonstrates:
+
+- Variables with types and defaults
+- Resources with references
+- Outputs exposing values
+- HCL generation
 
 ## Creating a Playground Project
 
