@@ -67,49 +67,56 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             {
                 Name = $"publish-terraform-{Name}",
                 Action = ctx => PublishAsync(ctx),
-                Tags = ["publish-terraform"]
+                Tags = ["publish-terraform"],
+                RequiredBySteps = [WellKnownPipelineSteps.Publish, WellKnownPipelineSteps.Deploy]
             };
-            publishStep.RequiredBy(WellKnownPipelineSteps.Publish);
             steps.Add(publishStep);
 
             // Optionally add terraform init step
-            if (AutoInit)
+            if (!AutoInit)
             {
-                var initStep = new PipelineStep
-                {
-                    Name = $"terraform-init-{Name}",
-                    Action = ctx => RunTerraformCommandAsync(ctx, "init"),
-                    Tags = ["terraform-init"],
-                    DependsOnSteps = [publishStep.Name]
-                };
-                steps.Add(initStep);
-
-                // Optionally add terraform plan step
-                if (AutoPlan)
-                {
-                    var planStep = new PipelineStep
-                    {
-                        Name = $"terraform-plan-{Name}",
-                        Action = ctx => RunTerraformCommandAsync(ctx, "plan"),
-                        Tags = ["terraform-plan"],
-                        DependsOnSteps = [initStep.Name]
-                    };
-                    steps.Add(planStep);
-
-                    // Optionally add terraform apply step
-                    if (AutoApply)
-                    {
-                        var applyStep = new PipelineStep
-                        {
-                            Name = $"terraform-apply-{Name}",
-                            Action = ctx => RunTerraformCommandAsync(ctx, "apply -auto-approve"),
-                            Tags = ["terraform-apply"],
-                            DependsOnSteps = [planStep.Name]
-                        };
-                        steps.Add(applyStep);
-                    }
-                }
+                return steps;
             }
+
+            var initStep = new PipelineStep
+            {
+                Name = $"terraform-init-{Name}",
+                Action = ctx => RunTerraformCommandAsync(ctx, "init"),
+                Tags = ["terraform-init"],
+                DependsOnSteps = [publishStep.Name],
+                RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+            };
+            steps.Add(initStep);
+
+            // Optionally add terraform plan step
+            if (!AutoPlan)
+            {
+                return steps;
+            }
+            var planStep = new PipelineStep
+            {
+                Name = $"terraform-plan-{Name}",
+                Action = ctx => RunTerraformCommandAsync(ctx, "plan"),
+                Tags = ["terraform-plan"],
+                DependsOnSteps = [initStep.Name],
+                RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+            };
+            steps.Add(planStep);
+
+            // Optionally add terraform apply step
+            if (!AutoApply)
+            {
+                return steps;
+            }
+            var applyStep = new PipelineStep
+            {
+                Name = $"terraform-apply-{Name}",
+                Action = ctx => RunTerraformCommandAsync(ctx, "apply -auto-approve"),
+                Tags = ["terraform-apply"],
+                DependsOnSteps = [planStep.Name],
+                RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+            };
+            steps.Add(applyStep);
 
             return steps;
         }));
