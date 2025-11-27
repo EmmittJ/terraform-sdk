@@ -209,9 +209,18 @@ internal sealed class TerraformPublishingContext
 
     private async Task<TerraformModule> ProcessResourceAsync(TerraformResource terraformResource)
     {
-        _logger.LogInformation("Processing resource: {ResourceName}", terraformResource.TargetResource.Name);
-
         var resource = terraformResource.TargetResource;
+
+        _logger.LogInformation("Processing resource: {ResourceName}", resource?.Name ?? terraformResource.Name);
+
+        if (resource is null)
+        {
+            // Standalone Terraform resource without a target Aspire resource
+            return new TerraformModule(terraformResource.Name)
+            {
+                Source = _environment.OutputPath ?? "."
+            };
+        }
 
         // Get the output path for this specific resource
         var resourceOutputPath = PublishingContextUtils.GetResourceOutputPath(_pipelineContext, _environment, resource);

@@ -39,7 +39,7 @@ internal sealed class TerraformEnvironmentContext
             resource.Name,
             resource.GetType().Name);
 
-        var terraformResource = new TerraformResource(resource, _environment);
+        var terraformResource = new TerraformResource($"{resource.Name}-terraform", resource, _environment);
 
         return Task.FromResult(terraformResource);
     }
