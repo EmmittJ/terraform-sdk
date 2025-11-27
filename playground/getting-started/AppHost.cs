@@ -31,9 +31,9 @@ builder.AddTerraformEnvironment("demo")
     .PublishAsTerraform(infra =>
     {
         // Variables - Input values for your configuration
-        var environmentVar = environment.AsVariable(infra);
+        var environmentVar = infra.AddVariable(environment);
 
-        var projectNameVar = projectName.AsVariable(infra);
+        var projectNameVar = infra.AddVariable(projectName);
 
         // Resource - A simple local file (no cloud provider required)
         var configFile = new TerraformResource("local_file", "config")

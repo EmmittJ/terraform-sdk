@@ -37,7 +37,7 @@ public static class TerraformExtensions
     ///         // infra.Resource - the Aspire resource being published
     ///
     ///         // Reference outputs from other resources
-    ///         var redisHost = redisResource.HostnameOutput.AsVariable(infra);
+    ///         var redisHost = infra.AddVariable(redisResource.HostnameOutput);
     ///
     ///         var container = new AzurermContainerApp("api")
     ///         {

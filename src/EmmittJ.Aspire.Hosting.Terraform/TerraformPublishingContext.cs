@@ -28,7 +28,7 @@ internal sealed class TerraformPublishingContext
     private readonly CancellationToken _cancellationToken;
 
     // Lookup dictionaries for tracking outputs and parameters
-    private readonly Dictionary<TerraformOutputResource, TerraformOutput> _outputLookup = new();
+    private readonly Dictionary<TerraformOutputReference, TerraformOutput> _outputLookup = new();
     private readonly Dictionary<ParameterResource, TerraformVariable> _parameterLookup = new();
     private readonly Dictionary<string, TerraformModule> _moduleMap = new();
 
@@ -100,7 +100,7 @@ internal sealed class TerraformPublishingContext
         }
 
         // Phase 2: Discover all referenced outputs for module wiring
-        var referencedOutputs = new HashSet<TerraformOutputResource>();
+        var referencedOutputs = new HashSet<TerraformOutputReference>();
 
         foreach (var (terraformResource, _) in resourceModules)
         {
@@ -108,51 +108,42 @@ internal sealed class TerraformPublishingContext
             {
                 Visit(input, value =>
                 {
-                    if (value is TerraformOutputResource outputRes)
+                    if (value is TerraformOutputReference outputRef)
                     {
-                        referencedOutputs.Add(outputRes);
+                        referencedOutputs.Add(outputRef);
                     }
                 });
             }
         }
 
         // Track output references for resolution
-        foreach (var outputRes in referencedOutputs)
+        foreach (var outputRef in referencedOutputs)
         {
-            // Ensure the output has a producer set
-            if (outputRes.Producer is null)
-            {
-                _logger.LogWarning("Output '{OutputName}' has no producer set. " +
-                    "Ensure AsOutput() is called in the producer's PublishAsTerraform callback.",
-                    outputRes.Name);
-                continue;
-            }
-
             // Check if this is a reference to an environment output (root stack)
-            if (outputRes.Producer == environment)
+            if (outputRef.Resource == environment)
             {
                 // For environment outputs, find the actual output in the root stack
                 var existingOutput = rootStack?.Blocks?.OfType<TerraformOutput>()
-                    .FirstOrDefault(o => o.Name == outputRes.Name);
+                    .FirstOrDefault(o => o.Name == outputRef.Name);
 
                 if (existingOutput is not null)
                 {
-                    _outputLookup[outputRes] = existingOutput;
+                    _outputLookup[outputRef] = existingOutput;
                 }
                 else
                 {
                     _logger.LogWarning("Output '{OutputName}' not found in environment '{ResourceName}'. " +
                         "Ensure the output is defined in the environment's PublishAsTerraform callback.",
-                        outputRes.Name, outputRes.Producer.Name);
+                        outputRef.Name, outputRef.Resource.Name);
                 }
                 continue;
             }
 
             // For other resources, verify the module exists
-            if (!_moduleMap.TryGetValue(outputRes.Producer.Name, out _))
+            if (!_moduleMap.TryGetValue(outputRef.Resource.Name, out _))
             {
                 _logger.LogWarning("Output reference to '{ResourceName}.{OutputName}' cannot be resolved - source module not found",
-                    outputRes.Producer.Name, outputRes.Name);
+                    outputRef.Resource.Name, outputRef.Name);
                 continue;
             }
 
@@ -295,7 +286,7 @@ internal sealed class TerraformPublishingContext
     {
         return inputValue switch
         {
-            TerraformOutputResource outputRes => ResolveOutputResource(outputRes),
+            TerraformOutputReference outputRef => ResolveOutputReference(outputRef),
 
             ParameterResource param =>
                 GetOrCreateParameterVariable(param).AsReference(),
@@ -308,38 +299,30 @@ internal sealed class TerraformPublishingContext
 
             _ => throw new NotSupportedException(
                 $"Input value type '{inputValue.GetType().Name}' is not supported for module parameters. " +
-                $"Supported types: TerraformOutputResource, ParameterResource, string, TerraformExpression")
+                $"Supported types: TerraformOutputReference, ParameterResource, string, TerraformExpression")
         };
     }
 
-    private object ResolveOutputResource(TerraformOutputResource outputRes)
+    private object ResolveOutputReference(TerraformOutputReference outputRef)
     {
-        // Ensure the output has a producer set
-        if (outputRes.Producer is null)
-        {
-            throw new InvalidOperationException(
-                $"Output '{outputRes.Name}' has no producer set. " +
-                $"Ensure AsOutput() is called in the producer's PublishAsTerraform callback.");
-        }
-
         // If the output is produced by the environment resource (root stack),
         // reference the resource directly instead of as a module
-        if (outputRes.Producer == _environment)
+        if (outputRef.Resource == _environment)
         {
             // Find the output in the root stack and get its value expression
-            if (_outputLookup.TryGetValue(outputRes, out var output))
+            if (_outputLookup.TryGetValue(outputRef, out var output))
             {
                 // Return the output's value directly - it will be resolved when the module is rendered
                 return output.Value;
             }
 
             throw new InvalidOperationException(
-                $"Output '{outputRes.Name}' from environment '{outputRes.Producer.Name}' not found. " +
+                $"Output '{outputRef.Name}' from environment '{outputRef.Resource.Name}' not found. " +
                 $"Ensure the output is defined in the environment's PublishAsTerraform callback.");
         }
 
         // For other resources, reference as a module output
-        return TerraformExpression.Identifier($"module.{outputRes.Producer.Name}.{outputRes.Name}");
+        return TerraformExpression.Identifier($"module.{outputRef.Resource.Name}.{outputRef.Name}");
     }
 
     private TerraformVariable GetOrCreateParameterVariable(ParameterResource parameter)
