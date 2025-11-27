@@ -250,8 +250,7 @@ public sealed class TerraformResourceInfrastructure
         Stack.Add(variable);
 
         // Register on the environment for runtime resolution during plan/apply
-        var environment = TerraformResource?.Environment
-            ?? (Resource as TerraformEnvironmentResource);
+        var environment = TerraformResource?.Parent ?? (Resource as TerraformEnvironmentResource);
 
         if (environment is not null)
         {
