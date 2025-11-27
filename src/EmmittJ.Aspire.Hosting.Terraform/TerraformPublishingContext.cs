@@ -190,15 +190,18 @@ internal sealed class TerraformPublishingContext
         // Check if the environment resource itself has customization annotations
         if (environment.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var environmentAnnotations))
         {
-            // Configure the settings on the environment's TerraformResource stack
-            environment.TerraformResource.Stack.Terraform = environment.Settings;
-
             // Run all customization callbacks against the environment's TerraformResource
             foreach (var annotation in environmentAnnotations)
             {
                 annotation.Configure(environment.TerraformResource);
             }
 
+            return environment.TerraformResource.Stack;
+        }
+
+        // Return the stack if it has settings configured (even without customization annotations)
+        if (environment.TerraformResource.Stack.Terraform is not null)
+        {
             return environment.TerraformResource.Stack;
         }
 
@@ -215,30 +218,37 @@ internal sealed class TerraformPublishingContext
         var resourceOutputPath = PublishingContextUtils.GetResourceOutputPath(_pipelineContext, _environment, resource);
         Directory.CreateDirectory(resourceOutputPath);
 
-        // Process each TerraformCustomizationAnnotation - pass the TerraformResource directly
+        // Get all Terraform customization annotations for this resource
+        // Each annotation creates a separate .tf file in the same module directory
         if (resource.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var annotations))
         {
             foreach (var annotation in annotations)
             {
-                // Configure the TerraformResource directly
-                annotation.Configure(terraformResource);
+                // Create a fresh TerraformResource for each annotation so they get separate stacks
+                var annotationTerraformResource = new TerraformResource($"{resource.Name}-terraform", _environment, resource);
+
+                // Apply the customization callback to configure the TerraformResource
+                annotation.Configure(annotationTerraformResource);
 
                 // Handle different resource types
-                await ProcessResourceByTypeAsync(resource, terraformResource.Stack).ConfigureAwait(false);
+                await ProcessResourceByTypeAsync(resource, annotationTerraformResource.Stack).ConfigureAwait(false);
 
-                // Generate the Terraform configuration files for this stack
-                var fileName = !string.IsNullOrEmpty(terraformResource.Stack.Name) ? $"{terraformResource.Stack.Name}.tf" : "main.tf";
-                await GenerateConfigurationFileAsync(terraformResource.Stack, resourceOutputPath, fileName).ConfigureAwait(false);
+                // Generate the Terraform configuration file for this stack
+                var fileName = !string.IsNullOrEmpty(annotationTerraformResource.Stack.Name)
+                    ? $"{annotationTerraformResource.Stack.Name}.tf"
+                    : "main.tf";
+                await GenerateConfigurationFileAsync(annotationTerraformResource.Stack, resourceOutputPath, fileName).ConfigureAwait(false);
             }
         }
         else
         {
-            // If no customization annotations, just process the resource type
+            // No customization annotations - generate default main.tf from the empty terraformResource
             await ProcessResourceByTypeAsync(resource, terraformResource.Stack).ConfigureAwait(false);
             await GenerateConfigurationFileAsync(terraformResource.Stack, resourceOutputPath, "main.tf").ConfigureAwait(false);
         }
 
-        // Compute the relative path from base output to resource output for the module source
+        // Return ONE module reference for this resource's directory
+        // All .tf files in the directory are part of this module
         var relativePath = Path.GetRelativePath(_baseOutputPath, resourceOutputPath);
         return new TerraformModule(resource.Name)
         {

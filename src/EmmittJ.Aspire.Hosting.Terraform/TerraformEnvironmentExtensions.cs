@@ -116,14 +116,16 @@ public static class TerraformEnvironmentExtensions
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentException.ThrowIfNullOrEmpty(backendType);
 
-        // Ensure Settings exists
-        builder.Resource.Settings ??= new TerraformSettingsBlock();
+        var stack = builder.Resource.TerraformResource.Stack;
+
+        // Ensure Terraform settings block exists on the stack
+        stack.Terraform ??= new TerraformSettingsBlock();
 
         // Create and configure the backend
         var backend = new TerraformBackendBlock(backendType);
         configureBackend?.Invoke(backend);
 
-        builder.Resource.Settings.Backend = backend;
+        stack.Terraform.Backend = backend;
 
         return builder;
     }
@@ -182,10 +184,12 @@ public static class TerraformEnvironmentExtensions
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentNullException.ThrowIfNull(configureSettings);
 
-        // Ensure Settings exists
-        builder.Resource.Settings ??= new TerraformSettingsBlock();
+        var stack = builder.Resource.TerraformResource.Stack;
 
-        configureSettings(builder.Resource.Settings);
+        // Ensure Terraform settings block exists on the stack
+        stack.Terraform ??= new TerraformSettingsBlock();
+
+        configureSettings(stack.Terraform);
 
         return builder;
     }

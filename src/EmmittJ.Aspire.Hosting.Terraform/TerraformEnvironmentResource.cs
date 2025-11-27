@@ -38,11 +38,6 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     public string? TerraformVersion { get; set; }
 
     /// <summary>
-    /// Gets or sets the Terraform settings including backend configuration, required providers, and other global settings.
-    /// </summary>
-    public TerraformSettingsBlock? Settings { get; set; }
-
-    /// <summary>
     /// Gets or sets the output path for generated Terraform files relative to the publish output directory.
     /// </summary>
     public string? OutputPath { get; set; }

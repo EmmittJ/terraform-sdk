@@ -40,22 +40,23 @@ internal sealed class TerraformInfrastructure(
             // This includes infrastructure resources like Redis, PostgreSQL, SQL Server, etc.
             foreach (var r in @event.Model.Resources)
             {
-                // Skip if this resource doesn't have Terraform customization
-                if (!r.HasAnnotationOfType<TerraformCustomizationAnnotation>())
-                {
-                    continue;
-                }
-
                 // Skip the environment resource itself - its customizations go in the root main.tf
                 if (r == environment)
                 {
                     continue;
                 }
 
-                // Create a Terraform resource wrapper for the resource
+                // Check if this resource has any Terraform customization annotations
+                if (!r.HasAnnotationOfType<TerraformCustomizationAnnotation>())
+                {
+                    continue;
+                }
+
+                // Create ONE TerraformResource per resource (not per annotation)
+                // Customization annotations will be applied at publish time
                 var terraformResource = await environmentContext.CreateTerraformResourceAsync(r, cancellationToken).ConfigureAwait(false);
 
-                // Add deployment target annotation to the resource
+                // Add ONE deployment target annotation per resource
                 r.Annotations.Add(new DeploymentTargetAnnotation(terraformResource)
                 {
                     ComputeEnvironment = environment

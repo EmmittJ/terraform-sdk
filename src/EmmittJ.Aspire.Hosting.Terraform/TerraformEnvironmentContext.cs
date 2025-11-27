@@ -26,12 +26,15 @@ internal sealed class TerraformEnvironmentContext
     }
 
     /// <summary>
-    /// Creates a Terraform resource wrapper for the given compute resource.
+    /// Creates a Terraform resource wrapper for the given resource.
+    /// Customization annotations are applied at publish time, not here.
     /// </summary>
-    /// <param name="resource">The compute resource to wrap.</param>
+    /// <param name="resource">The resource to wrap.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
-    /// <returns>A <see cref="TerraformResource"/> that wraps the compute resource.</returns>
-    public Task<TerraformResource> CreateTerraformResourceAsync(IResource resource, CancellationToken cancellationToken = default)
+    /// <returns>A <see cref="TerraformResource"/> that wraps the resource.</returns>
+    public Task<TerraformResource> CreateTerraformResourceAsync(
+        IResource resource,
+        CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(resource);
 
