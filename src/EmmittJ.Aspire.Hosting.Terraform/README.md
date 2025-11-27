@@ -30,11 +30,11 @@ var terraform = builder.AddTerraformEnvironment("terraform")
 
 // Add resources - they'll be deployed via Terraform when published
 var api = builder.AddProject<Projects.Api>("api")
-    .PublishAsTerraform((stack, resource) =>
+    .PublishAsTerraform(terraform =>
     {
         // Customize Terraform infrastructure for this resource
-        // stack - the Terraform stack to add resources to
-        // resource - the Aspire resource being published
+        // terraform.Stack - the TerraformStack to add resources to
+        // terraform.TargetResource - the Aspire resource being published
     });
 
 builder.Build().Run();
@@ -67,10 +67,18 @@ Use `PublishAsTerraform` to customize how resources are deployed:
 
 ```csharp
 var api = builder.AddProject<Projects.Api>("api")
-    .PublishAsTerraform((stack, resource) =>
+    .PublishAsTerraform(terraform =>
     {
         // Add cloud-specific infrastructure
-        // Example: AWS ECS task, Azure Container Instance, etc.
+        // terraform.Stack - the TerraformStack to add resources to
+        // terraform.TargetResource - the Aspire resource being published
+
+        // Example: Add an AWS ECS task or Azure Container App
+        var container = new TerraformResource("aws_ecs_task_definition", "api")
+        {
+            ["family"] = "api-task"
+        };
+        terraform.Add(container);
     });
 ```
 
@@ -80,9 +88,10 @@ Customize where Terraform files are generated:
 
 ```csharp
 var api = builder.AddContainer("api", "myapi")
-    .PublishAsTerraform((stack, resource) =>
+    .PublishAsTerraform(terraform =>
     {
         // Configure infrastructure
+        // terraform.Stack - the TerraformStack to add resources to
     })
     .WithTerraformConfiguration(config =>
     {
@@ -113,7 +122,7 @@ builder.AddTerraformEnvironment("terraform")
     });
 ```
 
-For advanced scenarios, you can configure the entire `TerraformSettings` object:
+For advanced scenarios, you can configure the entire `TerraformSettingsBlock` object:
 
 ```csharp
 using EmmittJ.Terraform.Sdk;
@@ -125,6 +134,7 @@ builder.AddTerraformEnvironment("terraform")
         settings.RequiredVersion = ">= 1.9.0";
 
         // Add required providers
+        settings.RequiredProviders ??= new TerraformRequiredProvidersBlock();
         settings.RequiredProviders["aws"] = new ProviderRequirement
         {
             Source = "hashicorp/aws",
@@ -132,7 +142,7 @@ builder.AddTerraformEnvironment("terraform")
         };
 
         // Configure backend
-        var backend = new TerraformBackend("s3");
+        var backend = new TerraformBackendBlock("s3");
         backend["bucket"] = "my-state-bucket";
         backend["key"] = "terraform.tfstate";
         backend["region"] = "us-west-2";
@@ -151,14 +161,20 @@ Publishes a resource to the Terraform environment with customization.
 ```csharp
 IResourceBuilder<T> PublishAsTerraform<T>(
     this IResourceBuilder<T> builder,
-    Action<TerraformStack, IResource> configure)
+    Action<TerraformResource> configure)
     where T : IResource
 ```
 
 **Parameters:**
 
 - `builder` - The resource builder
-- `configure` - Action to configure the Terraform infrastructure with direct access to stack and resource
+- `configure` - Action to configure the Terraform resource. The `TerraformResource` provides:
+  - `Stack` - The `TerraformStack` to add resources to
+  - `TargetResource` - The Aspire `IResource` being published
+  - `Add(block)` - Helper method to add blocks to the stack
+  - `AddOutput(outputRef, value)` - Helper to create outputs
+  - `AddVariable(outputRef)` - Helper to create input variables from output references
+  - `AddVariable(parameterResource)` - Helper to create input variables from Aspire parameters
 
 **Returns:** The resource builder for chaining
 
@@ -166,11 +182,20 @@ IResourceBuilder<T> PublishAsTerraform<T>(
 
 ```csharp
 builder.AddProject<Projects.Api>("api")
-    .PublishAsTerraform((stack, resource) =>
+    .PublishAsTerraform(terraform =>
     {
         // Add infrastructure for this resource
-        // stack - TerraformStack to add resources to
-        // resource - IResource being published
+        // terraform.Stack - TerraformStack to add resources to
+        // terraform.TargetResource - IResource being published
+
+        // Create a variable for a connection string from another resource
+        var connVar = terraform.AddVariable(redisResource.ConnectionStringOutput);
+
+        var container = new TerraformResource("azurerm_container_app", "api")
+        {
+            ["name"] = terraform.TargetResource?.Name ?? "api"
+        };
+        terraform.Add(container);
     });
 ```
 
@@ -212,8 +237,7 @@ Terraform file generation **only occurs during publish mode** (`aspire publish`)
 
 ## Additional documentation
 
-- [Deployment Model Guide](../../../docs/deployment-model.md)
-- [Extension Guide](../../../docs/extention-guide.md)
+- [Architecture Overview](../../../docs/architecture-overview.md)
 - [EmmittJ.Terraform.Sdk Documentation](../EmmittJ.Terraform.Sdk/README.md)
 - [Terraform Documentation](https://www.terraform.io/docs)
 

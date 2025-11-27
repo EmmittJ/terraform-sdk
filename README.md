@@ -277,19 +277,21 @@ var terraform = builder.AddTerraformEnvironment("terraform")
 
 // Publish project with Terraform infrastructure
 var api = builder.AddProject<Projects.ApiService>("api")
-    .PublishAsTerraform((stack, resource) =>
+    .PublishAsTerraform(terraform =>
     {
         // Customize infrastructure for API deployment
-        // stack - the TerraformStack to add resources to
-        // resource - the IResource being published
+        // terraform.Stack - the TerraformStack to add resources to
+        // terraform.TargetResource - the IResource being published
         var container = new TerraformResource("azurerm_container_app", "api")
         {
-            ["name"] = resource.Name,
+            ["name"] = terraform.TargetResource?.Name ?? "api",
             ["container_app_environment_id"] = environment.AsReference()
         };
-        stack.Add(container);
+        terraform.Add(container);
     });
 ```
+
+````
 
 Run `aspire publish` to generate and deploy Terraform infrastructure.
 
@@ -316,7 +318,7 @@ dotnet build
 
 # Run tests
 dotnet test
-```
+````
 
 ### Code Generation
 
