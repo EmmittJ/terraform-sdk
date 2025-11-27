@@ -1,0 +1,111 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for attribute in AwsLbSslNegotiationPolicy.
+/// Nesting mode: set
+/// </summary>
+public class AwsLbSslNegotiationPolicyAttributeBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "attribute";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_lb_ssl_negotiation_policy Terraform resource.
+/// Manages a aws_lb_ssl_negotiation_policy resource.
+/// </summary>
+public partial class AwsLbSslNegotiationPolicy(string name) : TerraformResource("aws_lb_ssl_negotiation_policy", name)
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The lb_port attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbPort is required")]
+    public required TerraformValue<double> LbPort
+    {
+        get => new TerraformReference<double>(this, "lb_port");
+        set => SetArgument("lb_port", value);
+    }
+
+    /// <summary>
+    /// The load_balancer attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancer is required")]
+    public required TerraformValue<string> LoadBalancer
+    {
+        get => new TerraformReference<string>(this, "load_balancer");
+        set => SetArgument("load_balancer", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The triggers attribute.
+    /// </summary>
+    public TerraformMap<string>? Triggers
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "triggers").ResolveNodes(ctx));
+        set => SetArgument("triggers", value);
+    }
+
+    /// <summary>
+    /// Attribute block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AwsLbSslNegotiationPolicyAttributeBlock>? Attribute
+    {
+        get => GetArgument<TerraformSet<AwsLbSslNegotiationPolicyAttributeBlock>>("attribute");
+        set => SetArgument("attribute", value);
+    }
+
+}

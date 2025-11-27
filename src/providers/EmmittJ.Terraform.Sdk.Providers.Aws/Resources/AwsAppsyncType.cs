@@ -1,0 +1,83 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Represents a aws_appsync_type Terraform resource.
+/// Manages a aws_appsync_type resource.
+/// </summary>
+public partial class AwsAppsyncType(string name) : TerraformResource("aws_appsync_type", name)
+{
+    /// <summary>
+    /// The api_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
+    public required TerraformValue<string> ApiId
+    {
+        get => new TerraformReference<string>(this, "api_id");
+        set => SetArgument("api_id", value);
+    }
+
+    /// <summary>
+    /// The definition attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Definition is required")]
+    public required TerraformValue<string> Definition
+    {
+        get => new TerraformReference<string>(this, "definition");
+        set => SetArgument("definition", value);
+    }
+
+    /// <summary>
+    /// The format attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
+    public required TerraformValue<string> Format
+    {
+        get => new TerraformReference<string>(this, "format");
+        set => SetArgument("format", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformValue<string> Arn
+    {
+        get => new TerraformReference<string>(this, "arn");
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+}

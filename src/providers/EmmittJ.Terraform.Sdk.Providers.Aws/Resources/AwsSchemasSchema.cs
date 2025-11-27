@@ -1,0 +1,128 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Represents a aws_schemas_schema Terraform resource.
+/// Manages a aws_schemas_schema resource.
+/// </summary>
+public partial class AwsSchemasSchema(string name) : TerraformResource("aws_schemas_schema", name)
+{
+    /// <summary>
+    /// The content attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
+    public required TerraformValue<string> Content
+    {
+        get => new TerraformReference<string>(this, "content");
+        set => SetArgument("content", value);
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string>? Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The registry_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryName is required")]
+    public required TerraformValue<string> RegistryName
+    {
+        get => new TerraformReference<string>(this, "registry_name");
+        set => SetArgument("registry_name", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The tags_all attribute.
+    /// </summary>
+    public TerraformMap<string> TagsAll
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        set => SetArgument("tags_all", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformValue<string> Arn
+    {
+        get => new TerraformReference<string>(this, "arn");
+    }
+
+    /// <summary>
+    /// The last_modified attribute.
+    /// </summary>
+    public TerraformValue<string> LastModified
+    {
+        get => new TerraformReference<string>(this, "last_modified");
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+    /// <summary>
+    /// The version_created_date attribute.
+    /// </summary>
+    public TerraformValue<string> VersionCreatedDate
+    {
+        get => new TerraformReference<string>(this, "version_created_date");
+    }
+
+}

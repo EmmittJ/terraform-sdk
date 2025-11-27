@@ -1,0 +1,557 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for capacity_provider_strategy in AwsEcsTaskExecutionDataSource.
+/// Nesting mode: set
+/// </summary>
+public class AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "capacity_provider_strategy";
+
+    /// <summary>
+    /// The base attribute.
+    /// </summary>
+    public TerraformValue<double>? BaseAttribute
+    {
+        get => new TerraformReference<double>(this, "base");
+        set => SetArgument("base", value);
+    }
+
+    /// <summary>
+    /// The capacity_provider attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
+    public required TerraformValue<string> CapacityProvider
+    {
+        get => new TerraformReference<string>(this, "capacity_provider");
+        set => SetArgument("capacity_provider", value);
+    }
+
+    /// <summary>
+    /// The weight attribute.
+    /// </summary>
+    public TerraformValue<double>? Weight
+    {
+        get => new TerraformReference<double>(this, "weight");
+        set => SetArgument("weight", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for network_configuration in AwsEcsTaskExecutionDataSource.
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "network_configuration";
+
+    /// <summary>
+    /// The assign_public_ip attribute.
+    /// </summary>
+    public TerraformValue<bool>? AssignPublicIp
+    {
+        get => new TerraformReference<bool>(this, "assign_public_ip");
+        set => SetArgument("assign_public_ip", value);
+    }
+
+    /// <summary>
+    /// The security_groups attribute.
+    /// </summary>
+    public TerraformSet<string>? SecurityGroups
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups").ResolveNodes(ctx));
+        set => SetArgument("security_groups", value);
+    }
+
+    /// <summary>
+    /// The subnets attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
+    public required TerraformSet<string> Subnets
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnets").ResolveNodes(ctx));
+        set => SetArgument("subnets", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for overrides in AwsEcsTaskExecutionDataSource.
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsTaskExecutionDataSourceOverridesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "overrides";
+
+    /// <summary>
+    /// The cpu attribute.
+    /// </summary>
+    public TerraformValue<string>? Cpu
+    {
+        get => new TerraformReference<string>(this, "cpu");
+        set => SetArgument("cpu", value);
+    }
+
+    /// <summary>
+    /// The execution_role_arn attribute.
+    /// </summary>
+    public TerraformValue<string>? ExecutionRoleArn
+    {
+        get => new TerraformReference<string>(this, "execution_role_arn");
+        set => SetArgument("execution_role_arn", value);
+    }
+
+    /// <summary>
+    /// The memory attribute.
+    /// </summary>
+    public TerraformValue<string>? Memory
+    {
+        get => new TerraformReference<string>(this, "memory");
+        set => SetArgument("memory", value);
+    }
+
+    /// <summary>
+    /// The task_role_arn attribute.
+    /// </summary>
+    public TerraformValue<string>? TaskRoleArn
+    {
+        get => new TerraformReference<string>(this, "task_role_arn");
+        set => SetArgument("task_role_arn", value);
+    }
+
+    /// <summary>
+    /// ContainerOverrides block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlock>? ContainerOverrides
+    {
+        get => GetArgument<TerraformList<AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlock>>("container_overrides");
+        set => SetArgument("container_overrides", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for container_overrides in AwsEcsTaskExecutionDataSourceOverridesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "container_overrides";
+
+    /// <summary>
+    /// The command attribute.
+    /// </summary>
+    public TerraformList<string>? Command
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "command").ResolveNodes(ctx));
+        set => SetArgument("command", value);
+    }
+
+    /// <summary>
+    /// The cpu attribute.
+    /// </summary>
+    public TerraformValue<double>? Cpu
+    {
+        get => new TerraformReference<double>(this, "cpu");
+        set => SetArgument("cpu", value);
+    }
+
+    /// <summary>
+    /// The memory attribute.
+    /// </summary>
+    public TerraformValue<double>? Memory
+    {
+        get => new TerraformReference<double>(this, "memory");
+        set => SetArgument("memory", value);
+    }
+
+    /// <summary>
+    /// The memory_reservation attribute.
+    /// </summary>
+    public TerraformValue<double>? MemoryReservation
+    {
+        get => new TerraformReference<double>(this, "memory_reservation");
+        set => SetArgument("memory_reservation", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// Environment block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlockEnvironmentBlock>? Environment
+    {
+        get => GetArgument<TerraformSet<AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlockEnvironmentBlock>>("environment");
+        set => SetArgument("environment", value);
+    }
+
+    /// <summary>
+    /// ResourceRequirements block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlockResourceRequirementsBlock>? ResourceRequirements
+    {
+        get => GetArgument<TerraformSet<AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlockResourceRequirementsBlock>>("resource_requirements");
+        set => SetArgument("resource_requirements", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for environment in AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlock.
+/// Nesting mode: set
+/// </summary>
+public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlockEnvironmentBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "environment";
+
+    /// <summary>
+    /// The key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
+    public required TerraformValue<string> Key
+    {
+        get => new TerraformReference<string>(this, "key");
+        set => SetArgument("key", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for resource_requirements in AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlock.
+/// Nesting mode: set
+/// </summary>
+public class AwsEcsTaskExecutionDataSourceOverridesBlockContainerOverridesBlockResourceRequirementsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "resource_requirements";
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+    /// <summary>
+    /// The value attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
+    public required TerraformValue<string> Value
+    {
+        get => new TerraformReference<string>(this, "value");
+        set => SetArgument("value", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for placement_constraints in AwsEcsTaskExecutionDataSource.
+/// Nesting mode: set
+/// </summary>
+public class AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "placement_constraints";
+
+    /// <summary>
+    /// The expression attribute.
+    /// </summary>
+    public TerraformValue<string>? Expression
+    {
+        get => new TerraformReference<string>(this, "expression");
+        set => SetArgument("expression", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for placement_strategy in AwsEcsTaskExecutionDataSource.
+/// Nesting mode: list
+/// </summary>
+public class AwsEcsTaskExecutionDataSourcePlacementStrategyBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "placement_strategy";
+
+    /// <summary>
+    /// The field attribute.
+    /// </summary>
+    public TerraformValue<string>? Field
+    {
+        get => new TerraformReference<string>(this, "field");
+        set => SetArgument("field", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_ecs_task_execution Terraform data source.
+/// Retrieves information about a aws_ecs_task_execution.
+/// </summary>
+public partial class AwsEcsTaskExecutionDataSource(string name) : TerraformDataSource("aws_ecs_task_execution", name)
+{
+    /// <summary>
+    /// The client_token attribute.
+    /// </summary>
+    public TerraformValue<string>? ClientToken
+    {
+        get => new TerraformReference<string>(this, "client_token");
+        set => SetArgument("client_token", value);
+    }
+
+    /// <summary>
+    /// The cluster attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
+    public required TerraformValue<string> Cluster
+    {
+        get => new TerraformReference<string>(this, "cluster");
+        set => SetArgument("cluster", value);
+    }
+
+    /// <summary>
+    /// The desired_count attribute.
+    /// </summary>
+    public TerraformValue<double>? DesiredCount
+    {
+        get => new TerraformReference<double>(this, "desired_count");
+        set => SetArgument("desired_count", value);
+    }
+
+    /// <summary>
+    /// The enable_ecs_managed_tags attribute.
+    /// </summary>
+    public TerraformValue<bool>? EnableEcsManagedTags
+    {
+        get => new TerraformReference<bool>(this, "enable_ecs_managed_tags");
+        set => SetArgument("enable_ecs_managed_tags", value);
+    }
+
+    /// <summary>
+    /// The enable_execute_command attribute.
+    /// </summary>
+    public TerraformValue<bool>? EnableExecuteCommand
+    {
+        get => new TerraformReference<bool>(this, "enable_execute_command");
+        set => SetArgument("enable_execute_command", value);
+    }
+
+    /// <summary>
+    /// The group attribute.
+    /// </summary>
+    public TerraformValue<string>? Group
+    {
+        get => new TerraformReference<string>(this, "group");
+        set => SetArgument("group", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The launch_type attribute.
+    /// </summary>
+    public TerraformValue<string>? LaunchType
+    {
+        get => new TerraformReference<string>(this, "launch_type");
+        set => SetArgument("launch_type", value);
+    }
+
+    /// <summary>
+    /// The platform_version attribute.
+    /// </summary>
+    public TerraformValue<string>? PlatformVersion
+    {
+        get => new TerraformReference<string>(this, "platform_version");
+        set => SetArgument("platform_version", value);
+    }
+
+    /// <summary>
+    /// The propagate_tags attribute.
+    /// </summary>
+    public TerraformValue<string>? PropagateTags
+    {
+        get => new TerraformReference<string>(this, "propagate_tags");
+        set => SetArgument("propagate_tags", value);
+    }
+
+    /// <summary>
+    /// The reference_id attribute.
+    /// </summary>
+    public TerraformValue<string>? ReferenceId
+    {
+        get => new TerraformReference<string>(this, "reference_id");
+        set => SetArgument("reference_id", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The started_by attribute.
+    /// </summary>
+    public TerraformValue<string>? StartedBy
+    {
+        get => new TerraformReference<string>(this, "started_by");
+        set => SetArgument("started_by", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The task_definition attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
+    public required TerraformValue<string> TaskDefinition
+    {
+        get => new TerraformReference<string>(this, "task_definition");
+        set => SetArgument("task_definition", value);
+    }
+
+    /// <summary>
+    /// The task_arns attribute.
+    /// </summary>
+    public TerraformList<string> TaskArns
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "task_arns").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// CapacityProviderStrategy block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock>? CapacityProviderStrategy
+    {
+        get => GetArgument<TerraformSet<AwsEcsTaskExecutionDataSourceCapacityProviderStrategyBlock>>("capacity_provider_strategy");
+        set => SetArgument("capacity_provider_strategy", value);
+    }
+
+    /// <summary>
+    /// NetworkConfiguration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
+    public TerraformList<AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock>? NetworkConfiguration
+    {
+        get => GetArgument<TerraformList<AwsEcsTaskExecutionDataSourceNetworkConfigurationBlock>>("network_configuration");
+        set => SetArgument("network_configuration", value);
+    }
+
+    /// <summary>
+    /// Overrides block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Overrides block(s) allowed")]
+    public TerraformList<AwsEcsTaskExecutionDataSourceOverridesBlock>? Overrides
+    {
+        get => GetArgument<TerraformList<AwsEcsTaskExecutionDataSourceOverridesBlock>>("overrides");
+        set => SetArgument("overrides", value);
+    }
+
+    /// <summary>
+    /// PlacementConstraints block (nesting mode: set).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 PlacementConstraints block(s) allowed")]
+    public TerraformSet<AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock>? PlacementConstraints
+    {
+        get => GetArgument<TerraformSet<AwsEcsTaskExecutionDataSourcePlacementConstraintsBlock>>("placement_constraints");
+        set => SetArgument("placement_constraints", value);
+    }
+
+    /// <summary>
+    /// PlacementStrategy block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 PlacementStrategy block(s) allowed")]
+    public TerraformList<AwsEcsTaskExecutionDataSourcePlacementStrategyBlock>? PlacementStrategy
+    {
+        get => GetArgument<TerraformList<AwsEcsTaskExecutionDataSourcePlacementStrategyBlock>>("placement_strategy");
+        set => SetArgument("placement_strategy", value);
+    }
+
+}

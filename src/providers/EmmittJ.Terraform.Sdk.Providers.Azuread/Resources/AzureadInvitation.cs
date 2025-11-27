@@ -1,0 +1,175 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Azuread;
+
+/// <summary>
+/// Block type for message in AzureadInvitation.
+/// Nesting mode: list
+/// </summary>
+public class AzureadInvitationMessageBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "message";
+
+    /// <summary>
+    /// Email addresses of additional recipients the invitation message should be sent to
+    /// </summary>
+    public TerraformList<string>? AdditionalRecipients
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "additional_recipients").ResolveNodes(ctx));
+        set => SetArgument("additional_recipients", value);
+    }
+
+    /// <summary>
+    /// Customized message body you want to send if you don&#39;t want to send the default message
+    /// </summary>
+    public TerraformValue<string>? Body
+    {
+        get => new TerraformReference<string>(this, "body");
+        set => SetArgument("body", value);
+    }
+
+    /// <summary>
+    /// The language you want to send the default message in
+    /// </summary>
+    public TerraformValue<string>? Language
+    {
+        get => new TerraformReference<string>(this, "language");
+        set => SetArgument("language", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AzureadInvitation.
+/// Nesting mode: single
+/// </summary>
+public class AzureadInvitationTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The read attribute.
+    /// </summary>
+    public TerraformValue<string>? Read
+    {
+        get => new TerraformReference<string>(this, "read");
+        set => SetArgument("read", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a azuread_invitation Terraform resource.
+/// Manages a azuread_invitation resource.
+/// </summary>
+public partial class AzureadInvitation(string name) : TerraformResource("azuread_invitation", name)
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The URL that the user should be redirected to once the invitation is redeemed
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUrl is required")]
+    public required TerraformValue<string> RedirectUrl
+    {
+        get => new TerraformReference<string>(this, "redirect_url");
+        set => SetArgument("redirect_url", value);
+    }
+
+    /// <summary>
+    /// The display name of the user being invited
+    /// </summary>
+    public TerraformValue<string>? UserDisplayName
+    {
+        get => new TerraformReference<string>(this, "user_display_name");
+        set => SetArgument("user_display_name", value);
+    }
+
+    /// <summary>
+    /// The email address of the user being invited
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserEmailAddress is required")]
+    public required TerraformValue<string> UserEmailAddress
+    {
+        get => new TerraformReference<string>(this, "user_email_address");
+        set => SetArgument("user_email_address", value);
+    }
+
+    /// <summary>
+    /// The user type of the user being invited
+    /// </summary>
+    public TerraformValue<string>? UserType
+    {
+        get => new TerraformReference<string>(this, "user_type");
+        set => SetArgument("user_type", value);
+    }
+
+    /// <summary>
+    /// The URL the user can use to redeem their invitation
+    /// </summary>
+    public TerraformValue<string> RedeemUrl
+    {
+        get => new TerraformReference<string>(this, "redeem_url");
+    }
+
+    /// <summary>
+    /// Object ID of the invited user
+    /// </summary>
+    public TerraformValue<string> UserId
+    {
+        get => new TerraformReference<string>(this, "user_id");
+    }
+
+    /// <summary>
+    /// Message block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Message block(s) allowed")]
+    public TerraformList<AzureadInvitationMessageBlock>? Message
+    {
+        get => GetArgument<TerraformList<AzureadInvitationMessageBlock>>("message");
+        set => SetArgument("message", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AzureadInvitationTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AzureadInvitationTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+}

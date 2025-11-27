@@ -10,15 +10,16 @@ var codeGenEnv = builder.AddTerraformCodeGenEnvironment("terraform-codegen")
     .WithNamespace("EmmittJ.Terraform.Sdk.Providers");
 
 // Add Terraform providers for code generation
-// The new eventing system will automatically process these during publish mode
-// Provider names become the namespace suffix (e.g., "AzureRM" -> "EmmittJ.Terraform.Sdk.Providers.AzureRM")
-// var aws = builder.AddTerraformProvider("aws", "aws", "~> 6.0");
+var aws = builder
+    .AddTerraformProvider("aws", "~> 6.0");
 
 var azurerm = builder
     .AddTerraformProvider("azurerm", "~> 4.0");
 
-// var azuread = builder.AddTerraformProvider("AzureAD", "azuread", "~> 3.0");
+var azuread = builder
+    .AddTerraformProvider("azuread", "~> 3.0");
 
-// var google = builder.AddTerraformProvider("Google", "google", "~> 7.0");
+var google = builder
+    .AddTerraformProvider("google", "~> 7.0");
 
 builder.Build().Run();

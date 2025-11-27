@@ -1,0 +1,518 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for kafka_cluster in AwsMskReplicator.
+/// Nesting mode: list
+/// </summary>
+public class AwsMskReplicatorKafkaClusterBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "kafka_cluster";
+
+    /// <summary>
+    /// AmazonMskCluster block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AmazonMskCluster is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AmazonMskCluster block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AmazonMskCluster block(s) allowed")]
+    public required TerraformList<AwsMskReplicatorKafkaClusterBlockAmazonMskClusterBlock> AmazonMskCluster
+    {
+        get => GetRequiredArgument<TerraformList<AwsMskReplicatorKafkaClusterBlockAmazonMskClusterBlock>>("amazon_msk_cluster");
+        set => SetArgument("amazon_msk_cluster", value);
+    }
+
+    /// <summary>
+    /// VpcConfig block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConfig is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfig block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
+    public required TerraformList<AwsMskReplicatorKafkaClusterBlockVpcConfigBlock> VpcConfig
+    {
+        get => GetRequiredArgument<TerraformList<AwsMskReplicatorKafkaClusterBlockVpcConfigBlock>>("vpc_config");
+        set => SetArgument("vpc_config", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for amazon_msk_cluster in AwsMskReplicatorKafkaClusterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsMskReplicatorKafkaClusterBlockAmazonMskClusterBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "amazon_msk_cluster";
+
+    /// <summary>
+    /// The msk_cluster_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MskClusterArn is required")]
+    public required TerraformValue<string> MskClusterArn
+    {
+        get => new TerraformReference<string>(this, "msk_cluster_arn");
+        set => SetArgument("msk_cluster_arn", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for vpc_config in AwsMskReplicatorKafkaClusterBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsMskReplicatorKafkaClusterBlockVpcConfigBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "vpc_config";
+
+    /// <summary>
+    /// The security_groups_ids attribute.
+    /// </summary>
+    public TerraformSet<string>? SecurityGroupsIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_groups_ids").ResolveNodes(ctx));
+        set => SetArgument("security_groups_ids", value);
+    }
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
+    public required TerraformSet<string> SubnetIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        set => SetArgument("subnet_ids", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for replication_info_list in AwsMskReplicator.
+/// Nesting mode: list
+/// </summary>
+public class AwsMskReplicatorReplicationInfoListBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "replication_info_list";
+
+    /// <summary>
+    /// The source_kafka_cluster_alias attribute.
+    /// </summary>
+    public TerraformValue<string> SourceKafkaClusterAlias
+    {
+        get => new TerraformReference<string>(this, "source_kafka_cluster_alias");
+    }
+
+    /// <summary>
+    /// The source_kafka_cluster_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceKafkaClusterArn is required")]
+    public required TerraformValue<string> SourceKafkaClusterArn
+    {
+        get => new TerraformReference<string>(this, "source_kafka_cluster_arn");
+        set => SetArgument("source_kafka_cluster_arn", value);
+    }
+
+    /// <summary>
+    /// The target_compression_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetCompressionType is required")]
+    public required TerraformValue<string> TargetCompressionType
+    {
+        get => new TerraformReference<string>(this, "target_compression_type");
+        set => SetArgument("target_compression_type", value);
+    }
+
+    /// <summary>
+    /// The target_kafka_cluster_alias attribute.
+    /// </summary>
+    public TerraformValue<string> TargetKafkaClusterAlias
+    {
+        get => new TerraformReference<string>(this, "target_kafka_cluster_alias");
+    }
+
+    /// <summary>
+    /// The target_kafka_cluster_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetKafkaClusterArn is required")]
+    public required TerraformValue<string> TargetKafkaClusterArn
+    {
+        get => new TerraformReference<string>(this, "target_kafka_cluster_arn");
+        set => SetArgument("target_kafka_cluster_arn", value);
+    }
+
+    /// <summary>
+    /// ConsumerGroupReplication block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerGroupReplication is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConsumerGroupReplication block(s) required")]
+    public required TerraformList<AwsMskReplicatorReplicationInfoListBlockConsumerGroupReplicationBlock> ConsumerGroupReplication
+    {
+        get => GetRequiredArgument<TerraformList<AwsMskReplicatorReplicationInfoListBlockConsumerGroupReplicationBlock>>("consumer_group_replication");
+        set => SetArgument("consumer_group_replication", value);
+    }
+
+    /// <summary>
+    /// TopicReplication block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicReplication is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TopicReplication block(s) required")]
+    public required TerraformList<AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlock> TopicReplication
+    {
+        get => GetRequiredArgument<TerraformList<AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlock>>("topic_replication");
+        set => SetArgument("topic_replication", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for consumer_group_replication in AwsMskReplicatorReplicationInfoListBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsMskReplicatorReplicationInfoListBlockConsumerGroupReplicationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "consumer_group_replication";
+
+    /// <summary>
+    /// The consumer_groups_to_exclude attribute.
+    /// </summary>
+    public TerraformSet<string>? ConsumerGroupsToExclude
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "consumer_groups_to_exclude").ResolveNodes(ctx));
+        set => SetArgument("consumer_groups_to_exclude", value);
+    }
+
+    /// <summary>
+    /// The consumer_groups_to_replicate attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConsumerGroupsToReplicate is required")]
+    public required TerraformSet<string> ConsumerGroupsToReplicate
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "consumer_groups_to_replicate").ResolveNodes(ctx));
+        set => SetArgument("consumer_groups_to_replicate", value);
+    }
+
+    /// <summary>
+    /// The detect_and_copy_new_consumer_groups attribute.
+    /// </summary>
+    public TerraformValue<bool>? DetectAndCopyNewConsumerGroups
+    {
+        get => new TerraformReference<bool>(this, "detect_and_copy_new_consumer_groups");
+        set => SetArgument("detect_and_copy_new_consumer_groups", value);
+    }
+
+    /// <summary>
+    /// The synchronise_consumer_group_offsets attribute.
+    /// </summary>
+    public TerraformValue<bool>? SynchroniseConsumerGroupOffsets
+    {
+        get => new TerraformReference<bool>(this, "synchronise_consumer_group_offsets");
+        set => SetArgument("synchronise_consumer_group_offsets", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for topic_replication in AwsMskReplicatorReplicationInfoListBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "topic_replication";
+
+    /// <summary>
+    /// The copy_access_control_lists_for_topics attribute.
+    /// </summary>
+    public TerraformValue<bool>? CopyAccessControlListsForTopics
+    {
+        get => new TerraformReference<bool>(this, "copy_access_control_lists_for_topics");
+        set => SetArgument("copy_access_control_lists_for_topics", value);
+    }
+
+    /// <summary>
+    /// The copy_topic_configurations attribute.
+    /// </summary>
+    public TerraformValue<bool>? CopyTopicConfigurations
+    {
+        get => new TerraformReference<bool>(this, "copy_topic_configurations");
+        set => SetArgument("copy_topic_configurations", value);
+    }
+
+    /// <summary>
+    /// The detect_and_copy_new_topics attribute.
+    /// </summary>
+    public TerraformValue<bool>? DetectAndCopyNewTopics
+    {
+        get => new TerraformReference<bool>(this, "detect_and_copy_new_topics");
+        set => SetArgument("detect_and_copy_new_topics", value);
+    }
+
+    /// <summary>
+    /// The topics_to_exclude attribute.
+    /// </summary>
+    public TerraformSet<string>? TopicsToExclude
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "topics_to_exclude").ResolveNodes(ctx));
+        set => SetArgument("topics_to_exclude", value);
+    }
+
+    /// <summary>
+    /// The topics_to_replicate attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicsToReplicate is required")]
+    public required TerraformSet<string> TopicsToReplicate
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "topics_to_replicate").ResolveNodes(ctx));
+        set => SetArgument("topics_to_replicate", value);
+    }
+
+    /// <summary>
+    /// StartingPosition block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StartingPosition block(s) allowed")]
+    public TerraformList<AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlockStartingPositionBlock>? StartingPosition
+    {
+        get => GetArgument<TerraformList<AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlockStartingPositionBlock>>("starting_position");
+        set => SetArgument("starting_position", value);
+    }
+
+    /// <summary>
+    /// TopicNameConfiguration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TopicNameConfiguration block(s) allowed")]
+    public TerraformList<AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlockTopicNameConfigurationBlock>? TopicNameConfiguration
+    {
+        get => GetArgument<TerraformList<AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlockTopicNameConfigurationBlock>>("topic_name_configuration");
+        set => SetArgument("topic_name_configuration", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for starting_position in AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlockStartingPositionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "starting_position";
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string>? Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for topic_name_configuration in AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsMskReplicatorReplicationInfoListBlockTopicReplicationBlockTopicNameConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "topic_name_configuration";
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    public TerraformValue<string>? Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AwsMskReplicator.
+/// Nesting mode: single
+/// </summary>
+public class AwsMskReplicatorTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_msk_replicator Terraform resource.
+/// Manages a aws_msk_replicator resource.
+/// </summary>
+public partial class AwsMskReplicator(string name) : TerraformResource("aws_msk_replicator", name)
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string>? Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The replicator_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicatorName is required")]
+    public required TerraformValue<string> ReplicatorName
+    {
+        get => new TerraformReference<string>(this, "replicator_name");
+        set => SetArgument("replicator_name", value);
+    }
+
+    /// <summary>
+    /// The service_execution_role_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRoleArn is required")]
+    public required TerraformValue<string> ServiceExecutionRoleArn
+    {
+        get => new TerraformReference<string>(this, "service_execution_role_arn");
+        set => SetArgument("service_execution_role_arn", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The tags_all attribute.
+    /// </summary>
+    public TerraformMap<string> TagsAll
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        set => SetArgument("tags_all", value);
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformValue<string> Arn
+    {
+        get => new TerraformReference<string>(this, "arn");
+    }
+
+    /// <summary>
+    /// The current_version attribute.
+    /// </summary>
+    public TerraformValue<string> CurrentVersion
+    {
+        get => new TerraformReference<string>(this, "current_version");
+    }
+
+    /// <summary>
+    /// KafkaCluster block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 KafkaCluster block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 KafkaCluster block(s) allowed")]
+    public TerraformList<AwsMskReplicatorKafkaClusterBlock>? KafkaCluster
+    {
+        get => GetArgument<TerraformList<AwsMskReplicatorKafkaClusterBlock>>("kafka_cluster");
+        set => SetArgument("kafka_cluster", value);
+    }
+
+    /// <summary>
+    /// ReplicationInfoList block (nesting mode: list).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInfoList is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReplicationInfoList block(s) required")]
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationInfoList block(s) allowed")]
+    public required TerraformList<AwsMskReplicatorReplicationInfoListBlock> ReplicationInfoList
+    {
+        get => GetRequiredArgument<TerraformList<AwsMskReplicatorReplicationInfoListBlock>>("replication_info_list");
+        set => SetArgument("replication_info_list", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AwsMskReplicatorTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AwsMskReplicatorTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+}

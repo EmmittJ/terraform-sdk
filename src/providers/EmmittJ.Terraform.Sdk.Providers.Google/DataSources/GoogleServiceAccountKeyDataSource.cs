@@ -1,0 +1,55 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Represents a google_service_account_key Terraform data source.
+/// Retrieves information about a google_service_account_key.
+/// </summary>
+public partial class GoogleServiceAccountKeyDataSource(string name) : TerraformDataSource("google_service_account_key", name)
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The public_key_type attribute.
+    /// </summary>
+    public TerraformValue<string>? PublicKeyType
+    {
+        get => new TerraformReference<string>(this, "public_key_type");
+        set => SetArgument("public_key_type", value);
+    }
+
+    /// <summary>
+    /// The key_algorithm attribute.
+    /// </summary>
+    public TerraformValue<string> KeyAlgorithm
+    {
+        get => new TerraformReference<string>(this, "key_algorithm");
+    }
+
+    /// <summary>
+    /// The public_key attribute.
+    /// </summary>
+    public TerraformValue<string> PublicKey
+    {
+        get => new TerraformReference<string>(this, "public_key");
+    }
+
+}

@@ -1,0 +1,125 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Block type for timeouts in GoogleBigtableLogicalView.
+/// Nesting mode: single
+/// </summary>
+public class GoogleBigtableLogicalViewTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a google_bigtable_logical_view Terraform resource.
+/// Manages a google_bigtable_logical_view resource.
+/// </summary>
+public partial class GoogleBigtableLogicalView(string name) : TerraformResource("google_bigtable_logical_view", name)
+{
+    /// <summary>
+    /// Set to true to make the logical view protected against deletion.
+    /// </summary>
+    public TerraformValue<bool>? DeletionProtection
+    {
+        get => new TerraformReference<bool>(this, "deletion_protection");
+        set => SetArgument("deletion_protection", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The name of the instance to create the logical view within.
+    /// </summary>
+    public TerraformValue<string>? Instance
+    {
+        get => new TerraformReference<string>(this, "instance");
+        set => SetArgument("instance", value);
+    }
+
+    /// <summary>
+    /// The unique name of the logical view in the form &#39;[_a-zA-Z0-9][-_.a-zA-Z0-9]*&#39;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicalViewId is required")]
+    public required TerraformValue<string> LogicalViewId
+    {
+        get => new TerraformReference<string>(this, "logical_view_id");
+        set => SetArgument("logical_view_id", value);
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public TerraformValue<string> Project
+    {
+        get => new TerraformReference<string>(this, "project");
+        set => SetArgument("project", value);
+    }
+
+    /// <summary>
+    /// The logical view&#39;s select query.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Query is required")]
+    public required TerraformValue<string> Query
+    {
+        get => new TerraformReference<string>(this, "query");
+        set => SetArgument("query", value);
+    }
+
+    /// <summary>
+    /// The unique name of the requested logical view. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/logicalViews/&amp;lt;logicalViewId&amp;gt;&#39;.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public GoogleBigtableLogicalViewTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<GoogleBigtableLogicalViewTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+}

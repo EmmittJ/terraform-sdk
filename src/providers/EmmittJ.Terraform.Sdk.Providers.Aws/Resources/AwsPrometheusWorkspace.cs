@@ -1,0 +1,115 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for logging_configuration in AwsPrometheusWorkspace.
+/// Nesting mode: list
+/// </summary>
+public class AwsPrometheusWorkspaceLoggingConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "logging_configuration";
+
+    /// <summary>
+    /// The log_group_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupArn is required")]
+    public required TerraformValue<string> LogGroupArn
+    {
+        get => new TerraformReference<string>(this, "log_group_arn");
+        set => SetArgument("log_group_arn", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_prometheus_workspace Terraform resource.
+/// Manages a aws_prometheus_workspace resource.
+/// </summary>
+public partial class AwsPrometheusWorkspace(string name) : TerraformResource("aws_prometheus_workspace", name)
+{
+    /// <summary>
+    /// The alias attribute.
+    /// </summary>
+    public TerraformValue<string>? Alias
+    {
+        get => new TerraformReference<string>(this, "alias");
+        set => SetArgument("alias", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The kms_key_arn attribute.
+    /// </summary>
+    public TerraformValue<string>? KmsKeyArn
+    {
+        get => new TerraformReference<string>(this, "kms_key_arn");
+        set => SetArgument("kms_key_arn", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The tags_all attribute.
+    /// </summary>
+    public TerraformMap<string> TagsAll
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        set => SetArgument("tags_all", value);
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformValue<string> Arn
+    {
+        get => new TerraformReference<string>(this, "arn");
+    }
+
+    /// <summary>
+    /// The prometheus_endpoint attribute.
+    /// </summary>
+    public TerraformValue<string> PrometheusEndpoint
+    {
+        get => new TerraformReference<string>(this, "prometheus_endpoint");
+    }
+
+    /// <summary>
+    /// LoggingConfiguration block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfiguration block(s) allowed")]
+    public TerraformList<AwsPrometheusWorkspaceLoggingConfigurationBlock>? LoggingConfiguration
+    {
+        get => GetArgument<TerraformList<AwsPrometheusWorkspaceLoggingConfigurationBlock>>("logging_configuration");
+        set => SetArgument("logging_configuration", value);
+    }
+
+}

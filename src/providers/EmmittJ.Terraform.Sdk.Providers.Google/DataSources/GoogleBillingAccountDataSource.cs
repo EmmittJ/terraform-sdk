@@ -1,0 +1,80 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Represents a google_billing_account Terraform data source.
+/// Retrieves information about a google_billing_account.
+/// </summary>
+public partial class GoogleBillingAccountDataSource(string name) : TerraformDataSource("google_billing_account", name)
+{
+    /// <summary>
+    /// The billing_account attribute.
+    /// </summary>
+    public TerraformValue<string>? BillingAccount
+    {
+        get => new TerraformReference<string>(this, "billing_account");
+        set => SetArgument("billing_account", value);
+    }
+
+    /// <summary>
+    /// The display_name attribute.
+    /// </summary>
+    public TerraformValue<string> DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+        set => SetArgument("display_name", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The lookup_projects attribute.
+    /// </summary>
+    public TerraformValue<bool>? LookupProjects
+    {
+        get => new TerraformReference<bool>(this, "lookup_projects");
+        set => SetArgument("lookup_projects", value);
+    }
+
+    /// <summary>
+    /// The open attribute.
+    /// </summary>
+    public TerraformValue<bool> Open
+    {
+        get => new TerraformReference<bool>(this, "open");
+        set => SetArgument("open", value);
+    }
+
+    /// <summary>
+    /// The currency_code attribute.
+    /// </summary>
+    public TerraformValue<string> CurrencyCode
+    {
+        get => new TerraformReference<string>(this, "currency_code");
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
+    /// The project_ids attribute.
+    /// </summary>
+    public TerraformSet<string> ProjectIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "project_ids").ResolveNodes(ctx));
+    }
+
+}

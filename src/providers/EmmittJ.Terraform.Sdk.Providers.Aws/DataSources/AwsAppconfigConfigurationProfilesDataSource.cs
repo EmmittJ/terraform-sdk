@@ -1,0 +1,47 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Represents a aws_appconfig_configuration_profiles Terraform data source.
+/// Retrieves information about a aws_appconfig_configuration_profiles.
+/// </summary>
+public partial class AwsAppconfigConfigurationProfilesDataSource(string name) : TerraformDataSource("aws_appconfig_configuration_profiles", name)
+{
+    /// <summary>
+    /// The application_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
+    public required TerraformValue<string> ApplicationId
+    {
+        get => new TerraformReference<string>(this, "application_id");
+        set => SetArgument("application_id", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The configuration_profile_ids attribute.
+    /// </summary>
+    public TerraformSet<string> ConfigurationProfileIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "configuration_profile_ids").ResolveNodes(ctx));
+    }
+
+}

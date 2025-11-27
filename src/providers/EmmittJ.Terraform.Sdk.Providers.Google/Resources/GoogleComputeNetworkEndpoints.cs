@@ -1,0 +1,155 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Block type for network_endpoints in GoogleComputeNetworkEndpoints.
+/// Nesting mode: set
+/// </summary>
+public class GoogleComputeNetworkEndpointsNetworkEndpointsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "network_endpoints";
+
+    /// <summary>
+    /// The name for a specific VM instance that the IP address belongs to.
+    /// This is required for network endpoints of type GCE_VM_IP_PORT.
+    /// The instance must be in the same zone as the network endpoint group.
+    /// </summary>
+    public TerraformValue<string>? Instance
+    {
+        get => new TerraformReference<string>(this, "instance");
+        set => SetArgument("instance", value);
+    }
+
+    /// <summary>
+    /// IPv4 address of network endpoint. The IP address must belong
+    /// to a VM in GCE (either the primary IP or as part of an aliased IP
+    /// range).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpAddress is required")]
+    public required TerraformValue<string> IpAddress
+    {
+        get => new TerraformReference<string>(this, "ip_address");
+        set => SetArgument("ip_address", value);
+    }
+
+    /// <summary>
+    /// Port number of network endpoint.
+    /// **Note** &#39;port&#39; is required unless the Network Endpoint Group is created
+    /// with the type of &#39;GCE_VM_IP&#39;
+    /// </summary>
+    public TerraformValue<double>? Port
+    {
+        get => new TerraformReference<double>(this, "port");
+        set => SetArgument("port", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in GoogleComputeNetworkEndpoints.
+/// Nesting mode: single
+/// </summary>
+public class GoogleComputeNetworkEndpointsTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a google_compute_network_endpoints Terraform resource.
+/// Manages a google_compute_network_endpoints resource.
+/// </summary>
+public partial class GoogleComputeNetworkEndpoints(string name) : TerraformResource("google_compute_network_endpoints", name)
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The network endpoint group these endpoints are part of.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointGroup is required")]
+    public required TerraformValue<string> NetworkEndpointGroup
+    {
+        get => new TerraformReference<string>(this, "network_endpoint_group");
+        set => SetArgument("network_endpoint_group", value);
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public TerraformValue<string> Project
+    {
+        get => new TerraformReference<string>(this, "project");
+        set => SetArgument("project", value);
+    }
+
+    /// <summary>
+    /// Zone where the containing network endpoint group is located.
+    /// </summary>
+    public TerraformValue<string> Zone
+    {
+        get => new TerraformReference<string>(this, "zone");
+        set => SetArgument("zone", value);
+    }
+
+    /// <summary>
+    /// NetworkEndpoints block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<GoogleComputeNetworkEndpointsNetworkEndpointsBlock>? NetworkEndpoints
+    {
+        get => GetArgument<TerraformSet<GoogleComputeNetworkEndpointsNetworkEndpointsBlock>>("network_endpoints");
+        set => SetArgument("network_endpoints", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public GoogleComputeNetworkEndpointsTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<GoogleComputeNetworkEndpointsTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+}

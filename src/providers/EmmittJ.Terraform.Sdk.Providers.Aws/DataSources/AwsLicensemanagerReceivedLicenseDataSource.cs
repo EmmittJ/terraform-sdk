@@ -1,0 +1,151 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Represents a aws_licensemanager_received_license Terraform data source.
+/// Retrieves information about a aws_licensemanager_received_license.
+/// </summary>
+public partial class AwsLicensemanagerReceivedLicenseDataSource(string name) : TerraformDataSource("aws_licensemanager_received_license", name)
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The license_arn attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseArn is required")]
+    public required TerraformValue<string> LicenseArn
+    {
+        get => new TerraformReference<string>(this, "license_arn");
+        set => SetArgument("license_arn", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The beneficiary attribute.
+    /// </summary>
+    public TerraformValue<string> Beneficiary
+    {
+        get => new TerraformReference<string>(this, "beneficiary");
+    }
+
+    /// <summary>
+    /// The consumption_configuration attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ConsumptionConfiguration
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "consumption_configuration").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The create_time attribute.
+    /// </summary>
+    public TerraformValue<string> CreateTime
+    {
+        get => new TerraformReference<string>(this, "create_time");
+    }
+
+    /// <summary>
+    /// The entitlements attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> Entitlements
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "entitlements").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The home_region attribute.
+    /// </summary>
+    public TerraformValue<string> HomeRegion
+    {
+        get => new TerraformReference<string>(this, "home_region");
+    }
+
+    /// <summary>
+    /// The issuer attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Issuer
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "issuer").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The license_metadata attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> LicenseMetadata
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "license_metadata").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The license_name attribute.
+    /// </summary>
+    public TerraformValue<string> LicenseName
+    {
+        get => new TerraformReference<string>(this, "license_name");
+    }
+
+    /// <summary>
+    /// The product_name attribute.
+    /// </summary>
+    public TerraformValue<string> ProductName
+    {
+        get => new TerraformReference<string>(this, "product_name");
+    }
+
+    /// <summary>
+    /// The product_sku attribute.
+    /// </summary>
+    public TerraformValue<string> ProductSku
+    {
+        get => new TerraformReference<string>(this, "product_sku");
+    }
+
+    /// <summary>
+    /// The received_metadata attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ReceivedMetadata
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "received_metadata").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformValue<string> Status
+    {
+        get => new TerraformReference<string>(this, "status");
+    }
+
+    /// <summary>
+    /// The validity attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Validity
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "validity").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The version attribute.
+    /// </summary>
+    public TerraformValue<string> Version
+    {
+        get => new TerraformReference<string>(this, "version");
+    }
+
+}

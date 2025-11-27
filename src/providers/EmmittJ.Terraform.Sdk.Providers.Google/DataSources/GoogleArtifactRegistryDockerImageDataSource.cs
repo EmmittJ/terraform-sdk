@@ -1,0 +1,123 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Represents a google_artifact_registry_docker_image Terraform data source.
+/// Retrieves information about a google_artifact_registry_docker_image.
+/// </summary>
+public partial class GoogleArtifactRegistryDockerImageDataSource(string name) : TerraformDataSource("google_artifact_registry_docker_image", name)
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The image name to fetch.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageName is required")]
+    public required TerraformValue<string> ImageName
+    {
+        get => new TerraformReference<string>(this, "image_name");
+        set => SetArgument("image_name", value);
+    }
+
+    /// <summary>
+    /// The region of the artifact registry repository. For example, &amp;quot;us-west1&amp;quot;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+        set => SetArgument("location", value);
+    }
+
+    /// <summary>
+    /// Project ID of the project.
+    /// </summary>
+    public TerraformValue<string>? Project
+    {
+        get => new TerraformReference<string>(this, "project");
+        set => SetArgument("project", value);
+    }
+
+    /// <summary>
+    /// The last part of the repository name to fetch from.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
+    public required TerraformValue<string> RepositoryId
+    {
+        get => new TerraformReference<string>(this, "repository_id");
+        set => SetArgument("repository_id", value);
+    }
+
+    /// <summary>
+    /// The time, as a RFC 3339 string, this image was built.
+    /// </summary>
+    public TerraformValue<string> BuildTime
+    {
+        get => new TerraformReference<string>(this, "build_time");
+    }
+
+    /// <summary>
+    /// Calculated size of the image in bytes.
+    /// </summary>
+    public TerraformValue<string> ImageSizeBytes
+    {
+        get => new TerraformReference<string>(this, "image_size_bytes");
+    }
+
+    /// <summary>
+    /// Media type of this image.
+    /// </summary>
+    public TerraformValue<string> MediaType
+    {
+        get => new TerraformReference<string>(this, "media_type");
+    }
+
+    /// <summary>
+    /// The fully qualified name of the fetched image.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
+    /// The URI to access the image.
+    /// </summary>
+    public TerraformValue<string> SelfLink
+    {
+        get => new TerraformReference<string>(this, "self_link");
+    }
+
+    /// <summary>
+    /// All tags associated with the image.
+    /// </summary>
+    public TerraformList<string> Tags
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tags").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The time, as a RFC 3339 string, this image was updated.
+    /// </summary>
+    public TerraformValue<string> UpdateTime
+    {
+        get => new TerraformReference<string>(this, "update_time");
+    }
+
+    /// <summary>
+    /// The time, as a RFC 3339 string, the image was uploaded.
+    /// </summary>
+    public TerraformValue<string> UploadTime
+    {
+        get => new TerraformReference<string>(this, "upload_time");
+    }
+
+}

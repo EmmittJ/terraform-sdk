@@ -1,0 +1,129 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for resource in AwsGlobalacceleratorCrossAccountAttachment.
+/// Nesting mode: set
+/// </summary>
+public class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "resource";
+
+    /// <summary>
+    /// The cidr_block attribute.
+    /// </summary>
+    public TerraformValue<string>? CidrBlock
+    {
+        get => new TerraformReference<string>(this, "cidr_block");
+        set => SetArgument("cidr_block", value);
+    }
+
+    /// <summary>
+    /// The endpoint_id attribute.
+    /// </summary>
+    public TerraformValue<string>? EndpointId
+    {
+        get => new TerraformReference<string>(this, "endpoint_id");
+        set => SetArgument("endpoint_id", value);
+    }
+
+    /// <summary>
+    /// The region attribute.
+    /// </summary>
+    public TerraformValue<string>? Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_globalaccelerator_cross_account_attachment Terraform resource.
+/// Manages a aws_globalaccelerator_cross_account_attachment resource.
+/// </summary>
+public partial class AwsGlobalacceleratorCrossAccountAttachment(string name) : TerraformResource("aws_globalaccelerator_cross_account_attachment", name)
+{
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The principals attribute.
+    /// </summary>
+    public TerraformSet<string>? Principals
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "principals").ResolveNodes(ctx));
+        set => SetArgument("principals", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformValue<string> Arn
+    {
+        get => new TerraformReference<string>(this, "arn");
+    }
+
+    /// <summary>
+    /// The created_time attribute.
+    /// </summary>
+    public TerraformValue<string> CreatedTime
+    {
+        get => new TerraformReference<string>(this, "created_time");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
+
+    /// <summary>
+    /// The last_modified_time attribute.
+    /// </summary>
+    public TerraformValue<string> LastModifiedTime
+    {
+        get => new TerraformReference<string>(this, "last_modified_time");
+    }
+
+    /// <summary>
+    /// The tags_all attribute.
+    /// </summary>
+    public TerraformMap<string> TagsAll
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// Resource block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AwsGlobalacceleratorCrossAccountAttachmentResourceBlock>? Resource
+    {
+        get => GetArgument<TerraformSet<AwsGlobalacceleratorCrossAccountAttachmentResourceBlock>>("resource");
+        set => SetArgument("resource", value);
+    }
+
+}

@@ -1,0 +1,94 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for parameter_value in AwsDatapipelinePipelineDefinitionDataSource.
+/// Nesting mode: set
+/// </summary>
+public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "parameter_value";
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
+
+    /// <summary>
+    /// The string_value attribute.
+    /// </summary>
+    public TerraformValue<string> StringValue
+    {
+        get => new TerraformReference<string>(this, "string_value");
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_datapipeline_pipeline_definition Terraform data source.
+/// Retrieves information about a aws_datapipeline_pipeline_definition.
+/// </summary>
+public partial class AwsDatapipelinePipelineDefinitionDataSource(string name) : TerraformDataSource("aws_datapipeline_pipeline_definition", name)
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The pipeline_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
+    public required TerraformValue<string> PipelineId
+    {
+        get => new TerraformReference<string>(this, "pipeline_id");
+        set => SetArgument("pipeline_id", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The parameter_object attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> ParameterObject
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "parameter_object").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The pipeline_object attribute.
+    /// </summary>
+    public TerraformSet<TerraformMap<object>> PipelineObject
+    {
+        get => TerraformSet<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformSet<TerraformMap<object>>>(this, "pipeline_object").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// ParameterValue block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>? ParameterValue
+    {
+        get => GetArgument<TerraformSet<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>>("parameter_value");
+        set => SetArgument("parameter_value", value);
+    }
+
+}

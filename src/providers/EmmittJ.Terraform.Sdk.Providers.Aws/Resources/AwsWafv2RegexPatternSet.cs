@@ -1,0 +1,133 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for regular_expression in AwsWafv2RegexPatternSet.
+/// Nesting mode: set
+/// </summary>
+public class AwsWafv2RegexPatternSetRegularExpressionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "regular_expression";
+
+    /// <summary>
+    /// The regex_string attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegexString is required")]
+    public required TerraformValue<string> RegexString
+    {
+        get => new TerraformReference<string>(this, "regex_string");
+        set => SetArgument("regex_string", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_wafv2_regex_pattern_set Terraform resource.
+/// Manages a aws_wafv2_regex_pattern_set resource.
+/// </summary>
+public partial class AwsWafv2RegexPatternSet(string name) : TerraformResource("aws_wafv2_regex_pattern_set", name)
+{
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string>? Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The name_prefix attribute.
+    /// </summary>
+    public TerraformValue<string> NamePrefix
+    {
+        get => new TerraformReference<string>(this, "name_prefix");
+        set => SetArgument("name_prefix", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The scope attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
+    public required TerraformValue<string> Scope
+    {
+        get => new TerraformReference<string>(this, "scope");
+        set => SetArgument("scope", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The tags_all attribute.
+    /// </summary>
+    public TerraformMap<string> TagsAll
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        set => SetArgument("tags_all", value);
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformValue<string> Arn
+    {
+        get => new TerraformReference<string>(this, "arn");
+    }
+
+    /// <summary>
+    /// The lock_token attribute.
+    /// </summary>
+    public TerraformValue<string> LockToken
+    {
+        get => new TerraformReference<string>(this, "lock_token");
+    }
+
+    /// <summary>
+    /// RegularExpression block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AwsWafv2RegexPatternSetRegularExpressionBlock>? RegularExpression
+    {
+        get => GetArgument<TerraformSet<AwsWafv2RegexPatternSetRegularExpressionBlock>>("regular_expression");
+        set => SetArgument("regular_expression", value);
+    }
+
+}

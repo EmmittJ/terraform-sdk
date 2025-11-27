@@ -1,0 +1,106 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Represents a aws_verifiedaccess_instance Terraform resource.
+/// Manages a aws_verifiedaccess_instance resource.
+/// </summary>
+public partial class AwsVerifiedaccessInstance(string name) : TerraformResource("aws_verifiedaccess_instance", name)
+{
+    /// <summary>
+    /// The cidr_endpoints_custom_subdomain attribute.
+    /// </summary>
+    public TerraformValue<string>? CidrEndpointsCustomSubdomain
+    {
+        get => new TerraformReference<string>(this, "cidr_endpoints_custom_subdomain");
+        set => SetArgument("cidr_endpoints_custom_subdomain", value);
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string>? Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// The fips_enabled attribute.
+    /// </summary>
+    public TerraformValue<bool>? FipsEnabled
+    {
+        get => new TerraformReference<bool>(this, "fips_enabled");
+        set => SetArgument("fips_enabled", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The tags_all attribute.
+    /// </summary>
+    public TerraformMap<string> TagsAll
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        set => SetArgument("tags_all", value);
+    }
+
+    /// <summary>
+    /// The creation_time attribute.
+    /// </summary>
+    public TerraformValue<string> CreationTime
+    {
+        get => new TerraformReference<string>(this, "creation_time");
+    }
+
+    /// <summary>
+    /// The last_updated_time attribute.
+    /// </summary>
+    public TerraformValue<string> LastUpdatedTime
+    {
+        get => new TerraformReference<string>(this, "last_updated_time");
+    }
+
+    /// <summary>
+    /// The name_servers attribute.
+    /// </summary>
+    public TerraformSet<string> NameServers
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "name_servers").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The verified_access_trust_providers attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> VerifiedAccessTrustProviders
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "verified_access_trust_providers").ResolveNodes(ctx));
+    }
+
+}

@@ -1,0 +1,320 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for key_attributes in AwsPaymentcryptographyKey.
+/// Nesting mode: list
+/// </summary>
+public class AwsPaymentcryptographyKeyKeyAttributesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "key_attributes";
+
+    /// <summary>
+    /// The key_algorithm attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
+    public required TerraformValue<string> KeyAlgorithm
+    {
+        get => new TerraformReference<string>(this, "key_algorithm");
+        set => SetArgument("key_algorithm", value);
+    }
+
+    /// <summary>
+    /// The key_class attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyClass is required")]
+    public required TerraformValue<string> KeyClass
+    {
+        get => new TerraformReference<string>(this, "key_class");
+        set => SetArgument("key_class", value);
+    }
+
+    /// <summary>
+    /// The key_usage attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyUsage is required")]
+    public required TerraformValue<string> KeyUsage
+    {
+        get => new TerraformReference<string>(this, "key_usage");
+        set => SetArgument("key_usage", value);
+    }
+
+    /// <summary>
+    /// KeyModesOfUse block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock>? KeyModesOfUse
+    {
+        get => GetArgument<TerraformList<AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock>>("key_modes_of_use");
+        set => SetArgument("key_modes_of_use", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for key_modes_of_use in AwsPaymentcryptographyKeyKeyAttributesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsPaymentcryptographyKeyKeyAttributesBlockKeyModesOfUseBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "key_modes_of_use";
+
+    /// <summary>
+    /// The decrypt attribute.
+    /// </summary>
+    public TerraformValue<bool> Decrypt
+    {
+        get => new TerraformReference<bool>(this, "decrypt");
+        set => SetArgument("decrypt", value);
+    }
+
+    /// <summary>
+    /// The derive_key attribute.
+    /// </summary>
+    public TerraformValue<bool> DeriveKey
+    {
+        get => new TerraformReference<bool>(this, "derive_key");
+        set => SetArgument("derive_key", value);
+    }
+
+    /// <summary>
+    /// The encrypt attribute.
+    /// </summary>
+    public TerraformValue<bool> Encrypt
+    {
+        get => new TerraformReference<bool>(this, "encrypt");
+        set => SetArgument("encrypt", value);
+    }
+
+    /// <summary>
+    /// The generate attribute.
+    /// </summary>
+    public TerraformValue<bool> Generate
+    {
+        get => new TerraformReference<bool>(this, "generate");
+        set => SetArgument("generate", value);
+    }
+
+    /// <summary>
+    /// The no_restrictions attribute.
+    /// </summary>
+    public TerraformValue<bool> NoRestrictions
+    {
+        get => new TerraformReference<bool>(this, "no_restrictions");
+        set => SetArgument("no_restrictions", value);
+    }
+
+    /// <summary>
+    /// The sign attribute.
+    /// </summary>
+    public TerraformValue<bool> Sign
+    {
+        get => new TerraformReference<bool>(this, "sign");
+        set => SetArgument("sign", value);
+    }
+
+    /// <summary>
+    /// The unwrap attribute.
+    /// </summary>
+    public TerraformValue<bool> Unwrap
+    {
+        get => new TerraformReference<bool>(this, "unwrap");
+        set => SetArgument("unwrap", value);
+    }
+
+    /// <summary>
+    /// The verify attribute.
+    /// </summary>
+    public TerraformValue<bool> Verify
+    {
+        get => new TerraformReference<bool>(this, "verify");
+        set => SetArgument("verify", value);
+    }
+
+    /// <summary>
+    /// The wrap attribute.
+    /// </summary>
+    public TerraformValue<bool> Wrap
+    {
+        get => new TerraformReference<bool>(this, "wrap");
+        set => SetArgument("wrap", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AwsPaymentcryptographyKey.
+/// Nesting mode: single
+/// </summary>
+public class AwsPaymentcryptographyKeyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_paymentcryptography_key Terraform resource.
+/// Manages a aws_paymentcryptography_key resource.
+/// </summary>
+public partial class AwsPaymentcryptographyKey(string name) : TerraformResource("aws_paymentcryptography_key", name)
+{
+    /// <summary>
+    /// The deletion_window_in_days attribute.
+    /// </summary>
+    public TerraformValue<double> DeletionWindowInDays
+    {
+        get => new TerraformReference<double>(this, "deletion_window_in_days");
+        set => SetArgument("deletion_window_in_days", value);
+    }
+
+    /// <summary>
+    /// The enabled attribute.
+    /// </summary>
+    public TerraformValue<bool> Enabled
+    {
+        get => new TerraformReference<bool>(this, "enabled");
+        set => SetArgument("enabled", value);
+    }
+
+    /// <summary>
+    /// The exportable attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Exportable is required")]
+    public required TerraformValue<bool> Exportable
+    {
+        get => new TerraformReference<bool>(this, "exportable");
+        set => SetArgument("exportable", value);
+    }
+
+    /// <summary>
+    /// The key_check_value_algorithm attribute.
+    /// </summary>
+    public TerraformValue<string> KeyCheckValueAlgorithm
+    {
+        get => new TerraformReference<string>(this, "key_check_value_algorithm");
+        set => SetArgument("key_check_value_algorithm", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformValue<string> Arn
+    {
+        get => new TerraformReference<string>(this, "arn");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
+
+    /// <summary>
+    /// The key_check_value attribute.
+    /// </summary>
+    public TerraformValue<string> KeyCheckValue
+    {
+        get => new TerraformReference<string>(this, "key_check_value");
+    }
+
+    /// <summary>
+    /// The key_origin attribute.
+    /// </summary>
+    public TerraformValue<string> KeyOrigin
+    {
+        get => new TerraformReference<string>(this, "key_origin");
+    }
+
+    /// <summary>
+    /// The key_state attribute.
+    /// </summary>
+    public TerraformValue<string> KeyState
+    {
+        get => new TerraformReference<string>(this, "key_state");
+    }
+
+    /// <summary>
+    /// The tags_all attribute.
+    /// </summary>
+    public TerraformMap<string> TagsAll
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// KeyAttributes block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AwsPaymentcryptographyKeyKeyAttributesBlock>? KeyAttributes
+    {
+        get => GetArgument<TerraformList<AwsPaymentcryptographyKeyKeyAttributesBlock>>("key_attributes");
+        set => SetArgument("key_attributes", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AwsPaymentcryptographyKeyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AwsPaymentcryptographyKeyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+}

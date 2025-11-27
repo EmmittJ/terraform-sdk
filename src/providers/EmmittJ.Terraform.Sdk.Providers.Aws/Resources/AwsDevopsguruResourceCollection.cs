@@ -1,0 +1,114 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for cloudformation in AwsDevopsguruResourceCollection.
+/// Nesting mode: list
+/// </summary>
+public class AwsDevopsguruResourceCollectionCloudformationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cloudformation";
+
+    /// <summary>
+    /// The stack_names attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackNames is required")]
+    public TerraformList<string>? StackNames
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "stack_names").ResolveNodes(ctx));
+        set => SetArgument("stack_names", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for tags in AwsDevopsguruResourceCollection.
+/// Nesting mode: list
+/// </summary>
+public class AwsDevopsguruResourceCollectionTagsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "tags";
+
+    /// <summary>
+    /// The app_boundary_key attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppBoundaryKey is required")]
+    public required TerraformValue<string> AppBoundaryKey
+    {
+        get => new TerraformReference<string>(this, "app_boundary_key");
+        set => SetArgument("app_boundary_key", value);
+    }
+
+    /// <summary>
+    /// The tag_values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValues is required")]
+    public TerraformList<string>? TagValues
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "tag_values").ResolveNodes(ctx));
+        set => SetArgument("tag_values", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_devopsguru_resource_collection Terraform resource.
+/// Manages a aws_devopsguru_resource_collection resource.
+/// </summary>
+public partial class AwsDevopsguruResourceCollection(string name) : TerraformResource("aws_devopsguru_resource_collection", name)
+{
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
+
+    /// <summary>
+    /// Cloudformation block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AwsDevopsguruResourceCollectionCloudformationBlock>? Cloudformation
+    {
+        get => GetArgument<TerraformList<AwsDevopsguruResourceCollectionCloudformationBlock>>("cloudformation");
+        set => SetArgument("cloudformation", value);
+    }
+
+    /// <summary>
+    /// Tags block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AwsDevopsguruResourceCollectionTagsBlock>? Tags
+    {
+        get => GetArgument<TerraformList<AwsDevopsguruResourceCollectionTagsBlock>>("tags");
+        set => SetArgument("tags", value);
+    }
+
+}

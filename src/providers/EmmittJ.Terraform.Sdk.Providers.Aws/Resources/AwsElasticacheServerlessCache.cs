@@ -1,0 +1,357 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for cache_usage_limits in AwsElasticacheServerlessCache.
+/// Nesting mode: list
+/// </summary>
+public class AwsElasticacheServerlessCacheCacheUsageLimitsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cache_usage_limits";
+
+    /// <summary>
+    /// DataStorage block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AwsElasticacheServerlessCacheCacheUsageLimitsBlockDataStorageBlock>? DataStorage
+    {
+        get => GetArgument<TerraformList<AwsElasticacheServerlessCacheCacheUsageLimitsBlockDataStorageBlock>>("data_storage");
+        set => SetArgument("data_storage", value);
+    }
+
+    /// <summary>
+    /// EcpuPerSecond block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AwsElasticacheServerlessCacheCacheUsageLimitsBlockEcpuPerSecondBlock>? EcpuPerSecond
+    {
+        get => GetArgument<TerraformList<AwsElasticacheServerlessCacheCacheUsageLimitsBlockEcpuPerSecondBlock>>("ecpu_per_second");
+        set => SetArgument("ecpu_per_second", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for data_storage in AwsElasticacheServerlessCacheCacheUsageLimitsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockDataStorageBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "data_storage";
+
+    /// <summary>
+    /// The maximum attribute.
+    /// </summary>
+    public TerraformValue<double> Maximum
+    {
+        get => new TerraformReference<double>(this, "maximum");
+        set => SetArgument("maximum", value);
+    }
+
+    /// <summary>
+    /// The minimum attribute.
+    /// </summary>
+    public TerraformValue<double> Minimum
+    {
+        get => new TerraformReference<double>(this, "minimum");
+        set => SetArgument("minimum", value);
+    }
+
+    /// <summary>
+    /// The unit attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Unit is required")]
+    public required TerraformValue<string> Unit
+    {
+        get => new TerraformReference<string>(this, "unit");
+        set => SetArgument("unit", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for ecpu_per_second in AwsElasticacheServerlessCacheCacheUsageLimitsBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsElasticacheServerlessCacheCacheUsageLimitsBlockEcpuPerSecondBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "ecpu_per_second";
+
+    /// <summary>
+    /// The maximum attribute.
+    /// </summary>
+    public TerraformValue<double> Maximum
+    {
+        get => new TerraformReference<double>(this, "maximum");
+        set => SetArgument("maximum", value);
+    }
+
+    /// <summary>
+    /// The minimum attribute.
+    /// </summary>
+    public TerraformValue<double> Minimum
+    {
+        get => new TerraformReference<double>(this, "minimum");
+        set => SetArgument("minimum", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in AwsElasticacheServerlessCache.
+/// Nesting mode: single
+/// </summary>
+public class AwsElasticacheServerlessCacheTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_elasticache_serverless_cache Terraform resource.
+/// Manages a aws_elasticache_serverless_cache resource.
+/// </summary>
+public partial class AwsElasticacheServerlessCache(string name) : TerraformResource("aws_elasticache_serverless_cache", name)
+{
+    /// <summary>
+    /// The daily_snapshot_time attribute.
+    /// </summary>
+    public TerraformValue<string> DailySnapshotTime
+    {
+        get => new TerraformReference<string>(this, "daily_snapshot_time");
+        set => SetArgument("daily_snapshot_time", value);
+    }
+
+    /// <summary>
+    /// The description attribute.
+    /// </summary>
+    public TerraformValue<string> Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// The engine attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Engine is required")]
+    public required TerraformValue<string> Engine
+    {
+        get => new TerraformReference<string>(this, "engine");
+        set => SetArgument("engine", value);
+    }
+
+    /// <summary>
+    /// The kms_key_id attribute.
+    /// </summary>
+    public TerraformValue<string>? KmsKeyId
+    {
+        get => new TerraformReference<string>(this, "kms_key_id");
+        set => SetArgument("kms_key_id", value);
+    }
+
+    /// <summary>
+    /// The major_engine_version attribute.
+    /// </summary>
+    public TerraformValue<string> MajorEngineVersion
+    {
+        get => new TerraformReference<string>(this, "major_engine_version");
+        set => SetArgument("major_engine_version", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The security_group_ids attribute.
+    /// </summary>
+    public TerraformSet<string> SecurityGroupIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "security_group_ids").ResolveNodes(ctx));
+        set => SetArgument("security_group_ids", value);
+    }
+
+    /// <summary>
+    /// The snapshot_arns_to_restore attribute.
+    /// </summary>
+    public TerraformList<string>? SnapshotArnsToRestore
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "snapshot_arns_to_restore").ResolveNodes(ctx));
+        set => SetArgument("snapshot_arns_to_restore", value);
+    }
+
+    /// <summary>
+    /// The snapshot_retention_limit attribute.
+    /// </summary>
+    public TerraformValue<double> SnapshotRetentionLimit
+    {
+        get => new TerraformReference<double>(this, "snapshot_retention_limit");
+        set => SetArgument("snapshot_retention_limit", value);
+    }
+
+    /// <summary>
+    /// The subnet_ids attribute.
+    /// </summary>
+    public TerraformSet<string> SubnetIds
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "subnet_ids").ResolveNodes(ctx));
+        set => SetArgument("subnet_ids", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The user_group_id attribute.
+    /// </summary>
+    public TerraformValue<string>? UserGroupId
+    {
+        get => new TerraformReference<string>(this, "user_group_id");
+        set => SetArgument("user_group_id", value);
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformValue<string> Arn
+    {
+        get => new TerraformReference<string>(this, "arn");
+    }
+
+    /// <summary>
+    /// The create_time attribute.
+    /// </summary>
+    public TerraformValue<string> CreateTime
+    {
+        get => new TerraformReference<string>(this, "create_time");
+    }
+
+    /// <summary>
+    /// The endpoint attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> Endpoint
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "endpoint").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The full_engine_version attribute.
+    /// </summary>
+    public TerraformValue<string> FullEngineVersion
+    {
+        get => new TerraformReference<string>(this, "full_engine_version");
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+    }
+
+    /// <summary>
+    /// The reader_endpoint attribute.
+    /// </summary>
+    public TerraformList<TerraformMap<object>> ReaderEndpoint
+    {
+        get => TerraformList<TerraformMap<object>>.Lazy(ctx => new TerraformReference<TerraformList<TerraformMap<object>>>(this, "reader_endpoint").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The status attribute.
+    /// </summary>
+    public TerraformValue<string> Status
+    {
+        get => new TerraformReference<string>(this, "status");
+    }
+
+    /// <summary>
+    /// The tags_all attribute.
+    /// </summary>
+    public TerraformMap<string> TagsAll
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// CacheUsageLimits block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AwsElasticacheServerlessCacheCacheUsageLimitsBlock>? CacheUsageLimits
+    {
+        get => GetArgument<TerraformList<AwsElasticacheServerlessCacheCacheUsageLimitsBlock>>("cache_usage_limits");
+        set => SetArgument("cache_usage_limits", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AwsElasticacheServerlessCacheTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AwsElasticacheServerlessCacheTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+}

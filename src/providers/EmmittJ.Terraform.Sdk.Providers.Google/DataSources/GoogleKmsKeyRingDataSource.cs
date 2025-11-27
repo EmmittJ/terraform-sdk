@@ -1,0 +1,50 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Represents a google_kms_key_ring Terraform data source.
+/// Retrieves information about a google_kms_key_ring.
+/// </summary>
+public partial class GoogleKmsKeyRingDataSource(string name) : TerraformDataSource("google_kms_key_ring", name)
+{
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The location for the KeyRing.
+    /// A full list of valid locations can be found by running &#39;gcloud kms locations list&#39;.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
+    public required TerraformValue<string> Location
+    {
+        get => new TerraformReference<string>(this, "location");
+        set => SetArgument("location", value);
+    }
+
+    /// <summary>
+    /// The resource name for the KeyRing.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public TerraformValue<string>? Project
+    {
+        get => new TerraformReference<string>(this, "project");
+        set => SetArgument("project", value);
+    }
+
+}

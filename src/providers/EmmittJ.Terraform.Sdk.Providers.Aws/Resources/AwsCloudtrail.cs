@@ -1,0 +1,428 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for advanced_event_selector in AwsCloudtrail.
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudtrailAdvancedEventSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "advanced_event_selector";
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    public TerraformValue<string>? Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// FieldSelector block (nesting mode: set).
+    /// This block is required.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldSelector is required")]
+    [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FieldSelector block(s) required")]
+    public required TerraformSet<AwsCloudtrailAdvancedEventSelectorBlockFieldSelectorBlock> FieldSelector
+    {
+        get => GetRequiredArgument<TerraformSet<AwsCloudtrailAdvancedEventSelectorBlockFieldSelectorBlock>>("field_selector");
+        set => SetArgument("field_selector", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for field_selector in AwsCloudtrailAdvancedEventSelectorBlock.
+/// Nesting mode: set
+/// </summary>
+public class AwsCloudtrailAdvancedEventSelectorBlockFieldSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "field_selector";
+
+    /// <summary>
+    /// The ends_with attribute.
+    /// </summary>
+    public TerraformList<string>? EndsWith
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "ends_with").ResolveNodes(ctx));
+        set => SetArgument("ends_with", value);
+    }
+
+    /// <summary>
+    /// The equals attribute.
+    /// </summary>
+    public TerraformList<string>? EqualsAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "equals").ResolveNodes(ctx));
+        set => SetArgument("equals", value);
+    }
+
+    /// <summary>
+    /// The field attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
+    public required TerraformValue<string> Field
+    {
+        get => new TerraformReference<string>(this, "field");
+        set => SetArgument("field", value);
+    }
+
+    /// <summary>
+    /// The not_ends_with attribute.
+    /// </summary>
+    public TerraformList<string>? NotEndsWith
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_ends_with").ResolveNodes(ctx));
+        set => SetArgument("not_ends_with", value);
+    }
+
+    /// <summary>
+    /// The not_equals attribute.
+    /// </summary>
+    public TerraformList<string>? NotEquals
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_equals").ResolveNodes(ctx));
+        set => SetArgument("not_equals", value);
+    }
+
+    /// <summary>
+    /// The not_starts_with attribute.
+    /// </summary>
+    public TerraformList<string>? NotStartsWith
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "not_starts_with").ResolveNodes(ctx));
+        set => SetArgument("not_starts_with", value);
+    }
+
+    /// <summary>
+    /// The starts_with attribute.
+    /// </summary>
+    public TerraformList<string>? StartsWith
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "starts_with").ResolveNodes(ctx));
+        set => SetArgument("starts_with", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for event_selector in AwsCloudtrail.
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudtrailEventSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "event_selector";
+
+    /// <summary>
+    /// The exclude_management_event_sources attribute.
+    /// </summary>
+    public TerraformSet<string>? ExcludeManagementEventSources
+    {
+        get => TerraformSet<string>.Lazy(ctx => new TerraformReference<TerraformSet<string>>(this, "exclude_management_event_sources").ResolveNodes(ctx));
+        set => SetArgument("exclude_management_event_sources", value);
+    }
+
+    /// <summary>
+    /// The include_management_events attribute.
+    /// </summary>
+    public TerraformValue<bool>? IncludeManagementEvents
+    {
+        get => new TerraformReference<bool>(this, "include_management_events");
+        set => SetArgument("include_management_events", value);
+    }
+
+    /// <summary>
+    /// The read_write_type attribute.
+    /// </summary>
+    public TerraformValue<string>? ReadWriteType
+    {
+        get => new TerraformReference<string>(this, "read_write_type");
+        set => SetArgument("read_write_type", value);
+    }
+
+    /// <summary>
+    /// DataResource block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AwsCloudtrailEventSelectorBlockDataResourceBlock>? DataResource
+    {
+        get => GetArgument<TerraformList<AwsCloudtrailEventSelectorBlockDataResourceBlock>>("data_resource");
+        set => SetArgument("data_resource", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for data_resource in AwsCloudtrailEventSelectorBlock.
+/// Nesting mode: list
+/// </summary>
+public class AwsCloudtrailEventSelectorBlockDataResourceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "data_resource";
+
+    /// <summary>
+    /// The type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
+    public required TerraformValue<string> Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+    /// <summary>
+    /// The values attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValuesAttribute is required")]
+    public TerraformList<string>? ValuesAttribute
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "values").ResolveNodes(ctx));
+        set => SetArgument("values", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for insight_selector in AwsCloudtrail.
+/// Nesting mode: set
+/// </summary>
+public class AwsCloudtrailInsightSelectorBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "insight_selector";
+
+    /// <summary>
+    /// The insight_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InsightType is required")]
+    public required TerraformValue<string> InsightType
+    {
+        get => new TerraformReference<string>(this, "insight_type");
+        set => SetArgument("insight_type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_cloudtrail Terraform resource.
+/// Manages a aws_cloudtrail resource.
+/// </summary>
+public partial class AwsCloudtrail(string name) : TerraformResource("aws_cloudtrail", name)
+{
+    /// <summary>
+    /// The cloud_watch_logs_group_arn attribute.
+    /// </summary>
+    public TerraformValue<string>? CloudWatchLogsGroupArn
+    {
+        get => new TerraformReference<string>(this, "cloud_watch_logs_group_arn");
+        set => SetArgument("cloud_watch_logs_group_arn", value);
+    }
+
+    /// <summary>
+    /// The cloud_watch_logs_role_arn attribute.
+    /// </summary>
+    public TerraformValue<string>? CloudWatchLogsRoleArn
+    {
+        get => new TerraformReference<string>(this, "cloud_watch_logs_role_arn");
+        set => SetArgument("cloud_watch_logs_role_arn", value);
+    }
+
+    /// <summary>
+    /// The enable_log_file_validation attribute.
+    /// </summary>
+    public TerraformValue<bool>? EnableLogFileValidation
+    {
+        get => new TerraformReference<bool>(this, "enable_log_file_validation");
+        set => SetArgument("enable_log_file_validation", value);
+    }
+
+    /// <summary>
+    /// The enable_logging attribute.
+    /// </summary>
+    public TerraformValue<bool>? EnableLogging
+    {
+        get => new TerraformReference<bool>(this, "enable_logging");
+        set => SetArgument("enable_logging", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The include_global_service_events attribute.
+    /// </summary>
+    public TerraformValue<bool>? IncludeGlobalServiceEvents
+    {
+        get => new TerraformReference<bool>(this, "include_global_service_events");
+        set => SetArgument("include_global_service_events", value);
+    }
+
+    /// <summary>
+    /// The is_multi_region_trail attribute.
+    /// </summary>
+    public TerraformValue<bool>? IsMultiRegionTrail
+    {
+        get => new TerraformReference<bool>(this, "is_multi_region_trail");
+        set => SetArgument("is_multi_region_trail", value);
+    }
+
+    /// <summary>
+    /// The is_organization_trail attribute.
+    /// </summary>
+    public TerraformValue<bool>? IsOrganizationTrail
+    {
+        get => new TerraformReference<bool>(this, "is_organization_trail");
+        set => SetArgument("is_organization_trail", value);
+    }
+
+    /// <summary>
+    /// The kms_key_id attribute.
+    /// </summary>
+    public TerraformValue<string>? KmsKeyId
+    {
+        get => new TerraformReference<string>(this, "kms_key_id");
+        set => SetArgument("kms_key_id", value);
+    }
+
+    /// <summary>
+    /// The name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
+    public required TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+        set => SetArgument("name", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The s3_bucket_name attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
+    public required TerraformValue<string> S3BucketName
+    {
+        get => new TerraformReference<string>(this, "s3_bucket_name");
+        set => SetArgument("s3_bucket_name", value);
+    }
+
+    /// <summary>
+    /// The s3_key_prefix attribute.
+    /// </summary>
+    public TerraformValue<string>? S3KeyPrefix
+    {
+        get => new TerraformReference<string>(this, "s3_key_prefix");
+        set => SetArgument("s3_key_prefix", value);
+    }
+
+    /// <summary>
+    /// The sns_topic_name attribute.
+    /// </summary>
+    public TerraformValue<string>? SnsTopicName
+    {
+        get => new TerraformReference<string>(this, "sns_topic_name");
+        set => SetArgument("sns_topic_name", value);
+    }
+
+    /// <summary>
+    /// The tags attribute.
+    /// </summary>
+    public TerraformMap<string>? Tags
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags").ResolveNodes(ctx));
+        set => SetArgument("tags", value);
+    }
+
+    /// <summary>
+    /// The tags_all attribute.
+    /// </summary>
+    public TerraformMap<string> TagsAll
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "tags_all").ResolveNodes(ctx));
+        set => SetArgument("tags_all", value);
+    }
+
+    /// <summary>
+    /// The arn attribute.
+    /// </summary>
+    public TerraformValue<string> Arn
+    {
+        get => new TerraformReference<string>(this, "arn");
+    }
+
+    /// <summary>
+    /// The home_region attribute.
+    /// </summary>
+    public TerraformValue<string> HomeRegion
+    {
+        get => new TerraformReference<string>(this, "home_region");
+    }
+
+    /// <summary>
+    /// The sns_topic_arn attribute.
+    /// </summary>
+    public TerraformValue<string> SnsTopicArn
+    {
+        get => new TerraformReference<string>(this, "sns_topic_arn");
+    }
+
+    /// <summary>
+    /// AdvancedEventSelector block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AwsCloudtrailAdvancedEventSelectorBlock>? AdvancedEventSelector
+    {
+        get => GetArgument<TerraformList<AwsCloudtrailAdvancedEventSelectorBlock>>("advanced_event_selector");
+        set => SetArgument("advanced_event_selector", value);
+    }
+
+    /// <summary>
+    /// EventSelector block (nesting mode: list).
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 EventSelector block(s) allowed")]
+    public TerraformList<AwsCloudtrailEventSelectorBlock>? EventSelector
+    {
+        get => GetArgument<TerraformList<AwsCloudtrailEventSelectorBlock>>("event_selector");
+        set => SetArgument("event_selector", value);
+    }
+
+    /// <summary>
+    /// InsightSelector block (nesting mode: set).
+    /// </summary>
+    public TerraformSet<AwsCloudtrailInsightSelectorBlock>? InsightSelector
+    {
+        get => GetArgument<TerraformSet<AwsCloudtrailInsightSelectorBlock>>("insight_selector");
+        set => SetArgument("insight_selector", value);
+    }
+
+}

@@ -1,0 +1,236 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Google;
+
+/// <summary>
+/// Block type for required_aspects in GoogleDataplexEntryType.
+/// Nesting mode: list
+/// </summary>
+public class GoogleDataplexEntryTypeRequiredAspectsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "required_aspects";
+
+    /// <summary>
+    /// Required aspect type for the entry type.
+    /// </summary>
+    public TerraformValue<string>? Type
+    {
+        get => new TerraformReference<string>(this, "type");
+        set => SetArgument("type", value);
+    }
+
+}
+
+
+/// <summary>
+/// Block type for timeouts in GoogleDataplexEntryType.
+/// Nesting mode: single
+/// </summary>
+public class GoogleDataplexEntryTypeTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// The delete attribute.
+    /// </summary>
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// The update attribute.
+    /// </summary>
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a google_dataplex_entry_type Terraform resource.
+/// Manages a google_dataplex_entry_type resource.
+/// </summary>
+public partial class GoogleDataplexEntryType(string name) : TerraformResource("google_dataplex_entry_type", name)
+{
+    /// <summary>
+    /// Description of the EntryType.
+    /// </summary>
+    public TerraformValue<string>? Description
+    {
+        get => new TerraformReference<string>(this, "description");
+        set => SetArgument("description", value);
+    }
+
+    /// <summary>
+    /// User friendly display name.
+    /// </summary>
+    public TerraformValue<string>? DisplayName
+    {
+        get => new TerraformReference<string>(this, "display_name");
+        set => SetArgument("display_name", value);
+    }
+
+    /// <summary>
+    /// The entry type id of the entry type.
+    /// </summary>
+    public TerraformValue<string>? EntryTypeId
+    {
+        get => new TerraformReference<string>(this, "entry_type_id");
+        set => SetArgument("entry_type_id", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// User-defined labels for the EntryType.
+    /// 
+    /// 
+    /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+    /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
+    /// </summary>
+    public TerraformMap<string>? Labels
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "labels").ResolveNodes(ctx));
+        set => SetArgument("labels", value);
+    }
+
+    /// <summary>
+    /// The location where entry type will be created in.
+    /// </summary>
+    public TerraformValue<string>? Location
+    {
+        get => new TerraformReference<string>(this, "location");
+        set => SetArgument("location", value);
+    }
+
+    /// <summary>
+    /// The platform that Entries of this type belongs to.
+    /// </summary>
+    public TerraformValue<string>? Platform
+    {
+        get => new TerraformReference<string>(this, "platform");
+        set => SetArgument("platform", value);
+    }
+
+    /// <summary>
+    /// The project attribute.
+    /// </summary>
+    public TerraformValue<string> Project
+    {
+        get => new TerraformReference<string>(this, "project");
+        set => SetArgument("project", value);
+    }
+
+    /// <summary>
+    /// The system that Entries of this type belongs to.
+    /// </summary>
+    public TerraformValue<string>? System
+    {
+        get => new TerraformReference<string>(this, "system");
+        set => SetArgument("system", value);
+    }
+
+    /// <summary>
+    /// Indicates the class this Entry Type belongs to, for example, TABLE, DATABASE, MODEL.
+    /// </summary>
+    public TerraformList<string>? TypeAliases
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "type_aliases").ResolveNodes(ctx));
+        set => SetArgument("type_aliases", value);
+    }
+
+    /// <summary>
+    /// The time when the EntryType was created.
+    /// </summary>
+    public TerraformValue<string> CreateTime
+    {
+        get => new TerraformReference<string>(this, "create_time");
+    }
+
+    /// <summary>
+    /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
+    /// </summary>
+    public TerraformMap<string> EffectiveLabels
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "effective_labels").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The relative resource name of the EntryType, of the form: projects/{project_number}/locations/{location_id}/entryTypes/{entry_type_id}
+    /// </summary>
+    public TerraformValue<string> Name
+    {
+        get => new TerraformReference<string>(this, "name");
+    }
+
+    /// <summary>
+    /// The combination of labels configured directly on the resource
+    ///  and default labels configured on the provider.
+    /// </summary>
+    public TerraformMap<string> TerraformLabels
+    {
+        get => TerraformMap<string>.Lazy(ctx => new TerraformReference<TerraformMap<string>>(this, "terraform_labels").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// System generated globally unique ID for the EntryType. This ID will be different if the EntryType is deleted and re-created with the same name.
+    /// </summary>
+    public TerraformValue<string> Uid
+    {
+        get => new TerraformReference<string>(this, "uid");
+    }
+
+    /// <summary>
+    /// The time when the EntryType was last updated.
+    /// </summary>
+    public TerraformValue<string> UpdateTime
+    {
+        get => new TerraformReference<string>(this, "update_time");
+    }
+
+    /// <summary>
+    /// RequiredAspects block (nesting mode: list).
+    /// </summary>
+    public TerraformList<GoogleDataplexEntryTypeRequiredAspectsBlock>? RequiredAspects
+    {
+        get => GetArgument<TerraformList<GoogleDataplexEntryTypeRequiredAspectsBlock>>("required_aspects");
+        set => SetArgument("required_aspects", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public GoogleDataplexEntryTypeTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<GoogleDataplexEntryTypeTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+}

@@ -1,0 +1,144 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for timeouts in AwsNetworkmanagerAttachmentAccepter.
+/// Nesting mode: single
+/// </summary>
+public class AwsNetworkmanagerAttachmentAccepterTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// The create attribute.
+    /// </summary>
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_networkmanager_attachment_accepter Terraform resource.
+/// Manages a aws_networkmanager_attachment_accepter resource.
+/// </summary>
+public partial class AwsNetworkmanagerAttachmentAccepter(string name) : TerraformResource("aws_networkmanager_attachment_accepter", name)
+{
+    /// <summary>
+    /// The attachment_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentId is required")]
+    public required TerraformValue<string> AttachmentId
+    {
+        get => new TerraformReference<string>(this, "attachment_id");
+        set => SetArgument("attachment_id", value);
+    }
+
+    /// <summary>
+    /// The attachment_type attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentType is required")]
+    public required TerraformValue<string> AttachmentType
+    {
+        get => new TerraformReference<string>(this, "attachment_type");
+        set => SetArgument("attachment_type", value);
+    }
+
+    /// <summary>
+    /// The id attribute.
+    /// </summary>
+    public TerraformValue<string> Id
+    {
+        get => new TerraformReference<string>(this, "id");
+        set => SetArgument("id", value);
+    }
+
+    /// <summary>
+    /// The attachment_policy_rule_number attribute.
+    /// </summary>
+    public TerraformValue<double> AttachmentPolicyRuleNumber
+    {
+        get => new TerraformReference<double>(this, "attachment_policy_rule_number");
+    }
+
+    /// <summary>
+    /// The core_network_arn attribute.
+    /// </summary>
+    public TerraformValue<string> CoreNetworkArn
+    {
+        get => new TerraformReference<string>(this, "core_network_arn");
+    }
+
+    /// <summary>
+    /// The core_network_id attribute.
+    /// </summary>
+    public TerraformValue<string> CoreNetworkId
+    {
+        get => new TerraformReference<string>(this, "core_network_id");
+    }
+
+    /// <summary>
+    /// The edge_location attribute.
+    /// </summary>
+    public TerraformValue<string> EdgeLocation
+    {
+        get => new TerraformReference<string>(this, "edge_location");
+    }
+
+    /// <summary>
+    /// The edge_locations attribute.
+    /// </summary>
+    public TerraformList<string> EdgeLocations
+    {
+        get => TerraformList<string>.Lazy(ctx => new TerraformReference<TerraformList<string>>(this, "edge_locations").ResolveNodes(ctx));
+    }
+
+    /// <summary>
+    /// The owner_account_id attribute.
+    /// </summary>
+    public TerraformValue<string> OwnerAccountId
+    {
+        get => new TerraformReference<string>(this, "owner_account_id");
+    }
+
+    /// <summary>
+    /// The resource_arn attribute.
+    /// </summary>
+    public TerraformValue<string> ResourceArn
+    {
+        get => new TerraformReference<string>(this, "resource_arn");
+    }
+
+    /// <summary>
+    /// The segment_name attribute.
+    /// </summary>
+    public TerraformValue<string> SegmentName
+    {
+        get => new TerraformReference<string>(this, "segment_name");
+    }
+
+    /// <summary>
+    /// The state attribute.
+    /// </summary>
+    public TerraformValue<string> State
+    {
+        get => new TerraformReference<string>(this, "state");
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AwsNetworkmanagerAttachmentAccepterTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AwsNetworkmanagerAttachmentAccepterTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+}

@@ -1,0 +1,99 @@
+using EmmittJ.Terraform.Sdk;
+
+namespace EmmittJ.Terraform.Sdk.Providers.Aws;
+
+/// <summary>
+/// Block type for timeouts in AwsPrometheusResourcePolicy.
+/// Nesting mode: single
+/// </summary>
+public class AwsPrometheusResourcePolicyTimeoutsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "timeouts";
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformValue<string>? Create
+    {
+        get => new TerraformReference<string>(this, "create");
+        set => SetArgument("create", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    /// </summary>
+    public TerraformValue<string>? Delete
+    {
+        get => new TerraformReference<string>(this, "delete");
+        set => SetArgument("delete", value);
+    }
+
+    /// <summary>
+    /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
+    /// </summary>
+    public TerraformValue<string>? Update
+    {
+        get => new TerraformReference<string>(this, "update");
+        set => SetArgument("update", value);
+    }
+
+}
+
+
+/// <summary>
+/// Represents a aws_prometheus_resource_policy Terraform resource.
+/// Manages a aws_prometheus_resource_policy resource.
+/// </summary>
+public partial class AwsPrometheusResourcePolicy(string name) : TerraformResource("aws_prometheus_resource_policy", name)
+{
+    /// <summary>
+    /// The policy_document attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
+    public required TerraformValue<string> PolicyDocument
+    {
+        get => new TerraformReference<string>(this, "policy_document");
+        set => SetArgument("policy_document", value);
+    }
+
+    /// <summary>
+    /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+    /// </summary>
+    public TerraformValue<string> Region
+    {
+        get => new TerraformReference<string>(this, "region");
+        set => SetArgument("region", value);
+    }
+
+    /// <summary>
+    /// The revision_id attribute.
+    /// </summary>
+    public TerraformValue<string> RevisionId
+    {
+        get => new TerraformReference<string>(this, "revision_id");
+        set => SetArgument("revision_id", value);
+    }
+
+    /// <summary>
+    /// The workspace_id attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
+    public required TerraformValue<string> WorkspaceId
+    {
+        get => new TerraformReference<string>(this, "workspace_id");
+        set => SetArgument("workspace_id", value);
+    }
+
+    /// <summary>
+    /// Timeouts block (nesting mode: single).
+    /// </summary>
+    public AwsPrometheusResourcePolicyTimeoutsBlock? Timeouts
+    {
+        get => GetArgument<AwsPrometheusResourcePolicyTimeoutsBlock>("timeouts");
+        set => SetArgument("timeouts", value);
+    }
+
+}
