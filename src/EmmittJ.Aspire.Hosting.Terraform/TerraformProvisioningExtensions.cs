@@ -62,6 +62,15 @@ public static class TerraformProvisioningExtensions
             infrastructure.Stack.Add(variable);
         }
 
+        // Register on the environment for runtime resolution during plan/apply
+        var environment = infrastructure.TerraformResource?.Environment
+            ?? (infrastructure.Resource as TerraformEnvironmentResource);
+
+        if (environment is not null)
+        {
+            environment.ParameterVariables[parameterResource] = variable;
+        }
+
         return variable;
     }
 

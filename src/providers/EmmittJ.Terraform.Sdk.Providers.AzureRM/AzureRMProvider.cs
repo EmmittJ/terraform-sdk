@@ -3,6 +3,800 @@ using EmmittJ.Terraform.Sdk;
 namespace EmmittJ.Terraform.Sdk.Providers.Azurerm;
 
 /// <summary>
+/// Block type for features in AzurermProvider.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "features";
+
+    /// <summary>
+    /// ApiManagement block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockApiManagementBlock>? ApiManagement
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockApiManagementBlock>>("api_management");
+        set => SetArgument("api_management", value);
+    }
+
+    /// <summary>
+    /// AppConfiguration block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockAppConfigurationBlock>? AppConfiguration
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockAppConfigurationBlock>>("app_configuration");
+        set => SetArgument("app_configuration", value);
+    }
+
+    /// <summary>
+    /// ApplicationInsights block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockApplicationInsightsBlock>? ApplicationInsights
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockApplicationInsightsBlock>>("application_insights");
+        set => SetArgument("application_insights", value);
+    }
+
+    /// <summary>
+    /// CognitiveAccount block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockCognitiveAccountBlock>? CognitiveAccount
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockCognitiveAccountBlock>>("cognitive_account");
+        set => SetArgument("cognitive_account", value);
+    }
+
+    /// <summary>
+    /// DatabricksWorkspace block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockDatabricksWorkspaceBlock>? DatabricksWorkspace
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockDatabricksWorkspaceBlock>>("databricks_workspace");
+        set => SetArgument("databricks_workspace", value);
+    }
+
+    /// <summary>
+    /// KeyVault block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockKeyVaultBlock>? KeyVault
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockKeyVaultBlock>>("key_vault");
+        set => SetArgument("key_vault", value);
+    }
+
+    /// <summary>
+    /// LogAnalyticsWorkspace block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockLogAnalyticsWorkspaceBlock>? LogAnalyticsWorkspace
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockLogAnalyticsWorkspaceBlock>>("log_analytics_workspace");
+        set => SetArgument("log_analytics_workspace", value);
+    }
+
+    /// <summary>
+    /// MachineLearning block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockMachineLearningBlock>? MachineLearning
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockMachineLearningBlock>>("machine_learning");
+        set => SetArgument("machine_learning", value);
+    }
+
+    /// <summary>
+    /// ManagedDisk block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockManagedDiskBlock>? ManagedDisk
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockManagedDiskBlock>>("managed_disk");
+        set => SetArgument("managed_disk", value);
+    }
+
+    /// <summary>
+    /// Netapp block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockNetappBlock>? Netapp
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockNetappBlock>>("netapp");
+        set => SetArgument("netapp", value);
+    }
+
+    /// <summary>
+    /// PostgresqlFlexibleServer block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockPostgresqlFlexibleServerBlock>? PostgresqlFlexibleServer
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockPostgresqlFlexibleServerBlock>>("postgresql_flexible_server");
+        set => SetArgument("postgresql_flexible_server", value);
+    }
+
+    /// <summary>
+    /// RecoveryService block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockRecoveryServiceBlock>? RecoveryService
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockRecoveryServiceBlock>>("recovery_service");
+        set => SetArgument("recovery_service", value);
+    }
+
+    /// <summary>
+    /// RecoveryServicesVaults block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockRecoveryServicesVaultsBlock>? RecoveryServicesVaults
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockRecoveryServicesVaultsBlock>>("recovery_services_vaults");
+        set => SetArgument("recovery_services_vaults", value);
+    }
+
+    /// <summary>
+    /// ResourceGroup block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockResourceGroupBlock>? ResourceGroup
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockResourceGroupBlock>>("resource_group");
+        set => SetArgument("resource_group", value);
+    }
+
+    /// <summary>
+    /// Storage block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockStorageBlock>? Storage
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockStorageBlock>>("storage");
+        set => SetArgument("storage", value);
+    }
+
+    /// <summary>
+    /// Subscription block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockSubscriptionBlock>? Subscription
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockSubscriptionBlock>>("subscription");
+        set => SetArgument("subscription", value);
+    }
+
+    /// <summary>
+    /// TemplateDeployment block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockTemplateDeploymentBlock>? TemplateDeployment
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockTemplateDeploymentBlock>>("template_deployment");
+        set => SetArgument("template_deployment", value);
+    }
+
+    /// <summary>
+    /// VirtualMachine block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockVirtualMachineBlock>? VirtualMachine
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockVirtualMachineBlock>>("virtual_machine");
+        set => SetArgument("virtual_machine", value);
+    }
+
+    /// <summary>
+    /// VirtualMachineScaleSet block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlockVirtualMachineScaleSetBlock>? VirtualMachineScaleSet
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlockVirtualMachineScaleSetBlock>>("virtual_machine_scale_set");
+        set => SetArgument("virtual_machine_scale_set", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for api_management in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockApiManagementBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "api_management";
+
+    /// <summary>
+    /// The purge_soft_delete_on_destroy attribute.
+    /// </summary>
+    public TerraformValue<bool>? PurgeSoftDeleteOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_soft_delete_on_destroy");
+        set => SetArgument("purge_soft_delete_on_destroy", value);
+    }
+
+    /// <summary>
+    /// The recover_soft_deleted attribute.
+    /// </summary>
+    public TerraformValue<bool>? RecoverSoftDeleted
+    {
+        get => new TerraformReference<bool>(this, "recover_soft_deleted");
+        set => SetArgument("recover_soft_deleted", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for app_configuration in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockAppConfigurationBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "app_configuration";
+
+    /// <summary>
+    /// The purge_soft_delete_on_destroy attribute.
+    /// </summary>
+    public TerraformValue<bool>? PurgeSoftDeleteOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_soft_delete_on_destroy");
+        set => SetArgument("purge_soft_delete_on_destroy", value);
+    }
+
+    /// <summary>
+    /// The recover_soft_deleted attribute.
+    /// </summary>
+    public TerraformValue<bool>? RecoverSoftDeleted
+    {
+        get => new TerraformReference<bool>(this, "recover_soft_deleted");
+        set => SetArgument("recover_soft_deleted", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for application_insights in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockApplicationInsightsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "application_insights";
+
+    /// <summary>
+    /// The disable_generated_rule attribute.
+    /// </summary>
+    public TerraformValue<bool>? DisableGeneratedRule
+    {
+        get => new TerraformReference<bool>(this, "disable_generated_rule");
+        set => SetArgument("disable_generated_rule", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for cognitive_account in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockCognitiveAccountBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "cognitive_account";
+
+    /// <summary>
+    /// The purge_soft_delete_on_destroy attribute.
+    /// </summary>
+    public TerraformValue<bool>? PurgeSoftDeleteOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_soft_delete_on_destroy");
+        set => SetArgument("purge_soft_delete_on_destroy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for databricks_workspace in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockDatabricksWorkspaceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "databricks_workspace";
+
+    /// <summary>
+    /// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
+    /// </summary>
+    public TerraformValue<bool>? ForceDelete
+    {
+        get => new TerraformReference<bool>(this, "force_delete");
+        set => SetArgument("force_delete", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for key_vault in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockKeyVaultBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "key_vault";
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault` resources will be permanently deleted (e.g purged), when destroyed
+    /// </summary>
+    public TerraformValue<bool>? PurgeSoftDeleteOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_soft_delete_on_destroy");
+        set => SetArgument("purge_soft_delete_on_destroy", value);
+    }
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault_certificate` resources will be permanently deleted (e.g purged), when destroyed
+    /// </summary>
+    public TerraformValue<bool>? PurgeSoftDeletedCertificatesOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_soft_deleted_certificates_on_destroy");
+        set => SetArgument("purge_soft_deleted_certificates_on_destroy", value);
+    }
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault_managed_hardware_security_module_key` resources will be permanently deleted (e.g purged), when destroyed
+    /// </summary>
+    public TerraformValue<bool>? PurgeSoftDeletedHardwareSecurityModuleKeysOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_soft_deleted_hardware_security_module_keys_on_destroy");
+        set => SetArgument("purge_soft_deleted_hardware_security_module_keys_on_destroy", value);
+    }
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault_managed_hardware_security_module` resources will be permanently deleted (e.g purged), when destroyed
+    /// </summary>
+    public TerraformValue<bool>? PurgeSoftDeletedHardwareSecurityModulesOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_soft_deleted_hardware_security_modules_on_destroy");
+        set => SetArgument("purge_soft_deleted_hardware_security_modules_on_destroy", value);
+    }
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault_key` resources will be permanently deleted (e.g purged), when destroyed
+    /// </summary>
+    public TerraformValue<bool>? PurgeSoftDeletedKeysOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_soft_deleted_keys_on_destroy");
+        set => SetArgument("purge_soft_deleted_keys_on_destroy", value);
+    }
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault_secret` resources will be permanently deleted (e.g purged), when destroyed
+    /// </summary>
+    public TerraformValue<bool>? PurgeSoftDeletedSecretsOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_soft_deleted_secrets_on_destroy");
+        set => SetArgument("purge_soft_deleted_secrets_on_destroy", value);
+    }
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault_certificate` resources will be restored, instead of creating new ones
+    /// </summary>
+    public TerraformValue<bool>? RecoverSoftDeletedCertificates
+    {
+        get => new TerraformReference<bool>(this, "recover_soft_deleted_certificates");
+        set => SetArgument("recover_soft_deleted_certificates", value);
+    }
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault_managed_hardware_security_module_key` resources will be restored, instead of creating new ones
+    /// </summary>
+    public TerraformValue<bool>? RecoverSoftDeletedHardwareSecurityModuleKeys
+    {
+        get => new TerraformReference<bool>(this, "recover_soft_deleted_hardware_security_module_keys");
+        set => SetArgument("recover_soft_deleted_hardware_security_module_keys", value);
+    }
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault` resources will be restored, instead of creating new ones
+    /// </summary>
+    public TerraformValue<bool>? RecoverSoftDeletedKeyVaults
+    {
+        get => new TerraformReference<bool>(this, "recover_soft_deleted_key_vaults");
+        set => SetArgument("recover_soft_deleted_key_vaults", value);
+    }
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault_key` resources will be restored, instead of creating new ones
+    /// </summary>
+    public TerraformValue<bool>? RecoverSoftDeletedKeys
+    {
+        get => new TerraformReference<bool>(this, "recover_soft_deleted_keys");
+        set => SetArgument("recover_soft_deleted_keys", value);
+    }
+
+    /// <summary>
+    /// When enabled soft-deleted `azurerm_key_vault_secret` resources will be restored, instead of creating new ones
+    /// </summary>
+    public TerraformValue<bool>? RecoverSoftDeletedSecrets
+    {
+        get => new TerraformReference<bool>(this, "recover_soft_deleted_secrets");
+        set => SetArgument("recover_soft_deleted_secrets", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for log_analytics_workspace in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockLogAnalyticsWorkspaceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "log_analytics_workspace";
+
+    /// <summary>
+    /// The permanently_delete_on_destroy attribute.
+    /// </summary>
+    public TerraformValue<bool>? PermanentlyDeleteOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "permanently_delete_on_destroy");
+        set => SetArgument("permanently_delete_on_destroy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for machine_learning in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockMachineLearningBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "machine_learning";
+
+    /// <summary>
+    /// The purge_soft_deleted_workspace_on_destroy attribute.
+    /// </summary>
+    public TerraformValue<bool>? PurgeSoftDeletedWorkspaceOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_soft_deleted_workspace_on_destroy");
+        set => SetArgument("purge_soft_deleted_workspace_on_destroy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for managed_disk in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockManagedDiskBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "managed_disk";
+
+    /// <summary>
+    /// The expand_without_downtime attribute.
+    /// </summary>
+    public TerraformValue<bool>? ExpandWithoutDowntime
+    {
+        get => new TerraformReference<bool>(this, "expand_without_downtime");
+        set => SetArgument("expand_without_downtime", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for netapp in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockNetappBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "netapp";
+
+    /// <summary>
+    /// When enabled, backups will be deleted when the `azurerm_netapp_backup_vault` resource is destroyed
+    /// </summary>
+    public TerraformValue<bool>? DeleteBackupsOnBackupVaultDestroy
+    {
+        get => new TerraformReference<bool>(this, "delete_backups_on_backup_vault_destroy");
+        set => SetArgument("delete_backups_on_backup_vault_destroy", value);
+    }
+
+    /// <summary>
+    /// When enabled, the volume will not be destroyed, safeguarding from severe data loss
+    /// </summary>
+    public TerraformValue<bool>? PreventVolumeDestruction
+    {
+        get => new TerraformReference<bool>(this, "prevent_volume_destruction");
+        set => SetArgument("prevent_volume_destruction", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for postgresql_flexible_server in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockPostgresqlFlexibleServerBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "postgresql_flexible_server";
+
+    /// <summary>
+    /// The restart_server_on_configuration_value_change attribute.
+    /// </summary>
+    public TerraformValue<bool>? RestartServerOnConfigurationValueChange
+    {
+        get => new TerraformReference<bool>(this, "restart_server_on_configuration_value_change");
+        set => SetArgument("restart_server_on_configuration_value_change", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for recovery_service in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockRecoveryServiceBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "recovery_service";
+
+    /// <summary>
+    /// The purge_protected_items_from_vault_on_destroy attribute.
+    /// </summary>
+    public TerraformValue<bool>? PurgeProtectedItemsFromVaultOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "purge_protected_items_from_vault_on_destroy");
+        set => SetArgument("purge_protected_items_from_vault_on_destroy", value);
+    }
+
+    /// <summary>
+    /// The vm_backup_stop_protection_and_retain_data_on_destroy attribute.
+    /// </summary>
+    public TerraformValue<bool>? VmBackupStopProtectionAndRetainDataOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "vm_backup_stop_protection_and_retain_data_on_destroy");
+        set => SetArgument("vm_backup_stop_protection_and_retain_data_on_destroy", value);
+    }
+
+    /// <summary>
+    /// The vm_backup_suspend_protection_and_retain_data_on_destroy attribute.
+    /// </summary>
+    public TerraformValue<bool>? VmBackupSuspendProtectionAndRetainDataOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "vm_backup_suspend_protection_and_retain_data_on_destroy");
+        set => SetArgument("vm_backup_suspend_protection_and_retain_data_on_destroy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for recovery_services_vaults in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockRecoveryServicesVaultsBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "recovery_services_vaults";
+
+    /// <summary>
+    /// The recover_soft_deleted_backup_protected_vm attribute.
+    /// </summary>
+    public TerraformValue<bool>? RecoverSoftDeletedBackupProtectedVm
+    {
+        get => new TerraformReference<bool>(this, "recover_soft_deleted_backup_protected_vm");
+        set => SetArgument("recover_soft_deleted_backup_protected_vm", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for resource_group in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockResourceGroupBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "resource_group";
+
+    /// <summary>
+    /// The prevent_deletion_if_contains_resources attribute.
+    /// </summary>
+    public TerraformValue<bool>? PreventDeletionIfContainsResources
+    {
+        get => new TerraformReference<bool>(this, "prevent_deletion_if_contains_resources");
+        set => SetArgument("prevent_deletion_if_contains_resources", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for storage in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockStorageBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "storage";
+
+    /// <summary>
+    /// The data_plane_available attribute.
+    /// </summary>
+    public TerraformValue<bool>? DataPlaneAvailable
+    {
+        get => new TerraformReference<bool>(this, "data_plane_available");
+        set => SetArgument("data_plane_available", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for subscription in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockSubscriptionBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "subscription";
+
+    /// <summary>
+    /// The prevent_cancellation_on_destroy attribute.
+    /// </summary>
+    public TerraformValue<bool>? PreventCancellationOnDestroy
+    {
+        get => new TerraformReference<bool>(this, "prevent_cancellation_on_destroy");
+        set => SetArgument("prevent_cancellation_on_destroy", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for template_deployment in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockTemplateDeploymentBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "template_deployment";
+
+    /// <summary>
+    /// The delete_nested_items_during_deletion attribute.
+    /// </summary>
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeleteNestedItemsDuringDeletion is required")]
+    public required TerraformValue<bool> DeleteNestedItemsDuringDeletion
+    {
+        get => new TerraformReference<bool>(this, "delete_nested_items_during_deletion");
+        set => SetArgument("delete_nested_items_during_deletion", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for virtual_machine in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockVirtualMachineBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "virtual_machine";
+
+    /// <summary>
+    /// The delete_os_disk_on_deletion attribute.
+    /// </summary>
+    public TerraformValue<bool>? DeleteOsDiskOnDeletion
+    {
+        get => new TerraformReference<bool>(this, "delete_os_disk_on_deletion");
+        set => SetArgument("delete_os_disk_on_deletion", value);
+    }
+
+    /// <summary>
+    /// The detach_implicit_data_disk_on_deletion attribute.
+    /// </summary>
+    public TerraformValue<bool>? DetachImplicitDataDiskOnDeletion
+    {
+        get => new TerraformReference<bool>(this, "detach_implicit_data_disk_on_deletion");
+        set => SetArgument("detach_implicit_data_disk_on_deletion", value);
+    }
+
+    /// <summary>
+    /// The graceful_shutdown attribute.
+    /// </summary>
+    [Obsolete("This property is deprecated.")]
+    public TerraformValue<bool>? GracefulShutdown
+    {
+        get => new TerraformReference<bool>(this, "graceful_shutdown");
+        set => SetArgument("graceful_shutdown", value);
+    }
+
+    /// <summary>
+    /// The skip_shutdown_and_force_delete attribute.
+    /// </summary>
+    public TerraformValue<bool>? SkipShutdownAndForceDelete
+    {
+        get => new TerraformReference<bool>(this, "skip_shutdown_and_force_delete");
+        set => SetArgument("skip_shutdown_and_force_delete", value);
+    }
+
+}
+
+/// <summary>
+/// Block type for virtual_machine_scale_set in AzurermProviderFeaturesBlock.
+/// Nesting mode: list
+/// </summary>
+public class AzurermProviderFeaturesBlockVirtualMachineScaleSetBlock : TerraformBlock
+{
+    /// <summary>
+    /// Gets the block type.
+    /// </summary>
+    public override string BlockType => "virtual_machine_scale_set";
+
+    /// <summary>
+    /// The force_delete attribute.
+    /// </summary>
+    public TerraformValue<bool>? ForceDelete
+    {
+        get => new TerraformReference<bool>(this, "force_delete");
+        set => SetArgument("force_delete", value);
+    }
+
+    /// <summary>
+    /// The reimage_on_manual_upgrade attribute.
+    /// </summary>
+    public TerraformValue<bool>? ReimageOnManualUpgrade
+    {
+        get => new TerraformReference<bool>(this, "reimage_on_manual_upgrade");
+        set => SetArgument("reimage_on_manual_upgrade", value);
+    }
+
+    /// <summary>
+    /// The roll_instances_when_required attribute.
+    /// </summary>
+    public TerraformValue<bool>? RollInstancesWhenRequired
+    {
+        get => new TerraformReference<bool>(this, "roll_instances_when_required");
+        set => SetArgument("roll_instances_when_required", value);
+    }
+
+    /// <summary>
+    /// The scale_to_zero_before_deletion attribute.
+    /// </summary>
+    public TerraformValue<bool>? ScaleToZeroBeforeDeletion
+    {
+        get => new TerraformReference<bool>(this, "scale_to_zero_before_deletion");
+        set => SetArgument("scale_to_zero_before_deletion", value);
+    }
+
+}
+
+
+/// <summary>
 /// Represents the azurerm Terraform provider.
 /// Version: ~&gt; 4.0
 /// Resources: 1120
@@ -310,5 +1104,14 @@ public partial class AzurermProvider(string name = "azurerm") : TerraformProvide
         set => SetArgument("use_oidc", value);
     }
 
+
+    /// <summary>
+    /// Features block (nesting mode: list).
+    /// </summary>
+    public TerraformList<AzurermProviderFeaturesBlock>? Features
+    {
+        get => GetArgument<TerraformList<AzurermProviderFeaturesBlock>>("features");
+        set => SetArgument("features", value);
+    }
 
 }

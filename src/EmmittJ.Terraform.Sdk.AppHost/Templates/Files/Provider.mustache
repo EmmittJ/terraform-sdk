@@ -2,6 +2,10 @@ using EmmittJ.Terraform.Sdk;
 
 namespace {{Namespace}};
 
+{{#BlockTypes}}
+{{>_block}}
+
+{{/BlockTypes}}
 /// <summary>
 /// Represents the {{ProviderName}} Terraform provider.
 {{#Description}}
@@ -17,4 +21,7 @@ public partial class {{ClassName}}(string name = "{{ProviderName}}") : Terraform
 {{>_argument}}
 
 {{/Arguments}}
+{{#BlockTypes}}
+{{>_blockproperty}}
+{{/BlockTypes}}
 }

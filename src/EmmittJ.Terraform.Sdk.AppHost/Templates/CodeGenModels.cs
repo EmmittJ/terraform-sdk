@@ -10,6 +10,7 @@ public class ProviderConfig
     public int ResourceCount { get; set; }
     public int DataSourceCount { get; set; }
     public List<PropertyModel> Arguments { get; set; } = new();
+    public List<BlockTypeModel> BlockTypes { get; set; } = new();
 }
 
 public class ResourceModel

@@ -9,7 +9,17 @@ terraform {
   }
 }
 
+variable "azure_subscription_id" {
+  description = "Parameter 'azure-subscription-id'"
+  sensitive   = false
+  type        = string
+}
+
 provider "azurerm" {
+  subscription_id = var.azure_subscription_id
+  use_cli         = true
+  features {
+  }
 }
 
 variable "resource_group" {

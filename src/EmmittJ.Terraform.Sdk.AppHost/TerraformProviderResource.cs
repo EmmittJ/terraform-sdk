@@ -184,12 +184,22 @@ public sealed class TerraformProviderResource : Resource
         services.FileSystem.CreateDirectory(outputDirectory);
 
         var configAttributes = new List<Models.PropertyModel>();
+        var blockTypes = new List<Models.BlockTypeModel>();
+        var providerClassName = GetProviderClassName(providerNamespace);
+
         if (providerSchema.Provider?.Block != null)
         {
             foreach (var (attrName, attr) in providerSchema.Provider.Block.Attributes)
             {
                 var property = services.ModelBuilder.BuildPropertyModel(attr, attrName);
                 configAttributes.Add(property);
+            }
+
+            // Parse block types for the provider (e.g., features block in azurerm)
+            foreach (var (blockName, blockType) in providerSchema.Provider.Block.BlockTypes)
+            {
+                var block = services.SchemaParser.ParseBlockType(blockName, blockType, providerClassName);
+                blockTypes.Add(block);
             }
         }
 
@@ -202,11 +212,11 @@ public sealed class TerraformProviderResource : Resource
             Description = providerSchema.Provider?.Block?.Description,
             ResourceCount = providerSchema.ResourceSchemas.Count,
             DataSourceCount = providerSchema.DataSourceSchemas.Count,
-            Arguments = configAttributes
+            Arguments = configAttributes,
+            BlockTypes = blockTypes
         };
 
         var providerCode = services.ProviderTemplate.Generate(providerModel);
-        var providerClassName = GetProviderClassName(providerNamespace);
         var providerClassPath = Path.Combine(outputDirectory, $"{providerClassName}.cs");
         await services.FileSystem.WriteAllTextAsync(providerClassPath, providerCode, cancellationToken);
     }

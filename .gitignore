@@ -487,8 +487,13 @@ $RECYCLE.BIN/
 .terraform-codegen/
 .terraform/
 .terraform.lock.hcl
+*.tfplan
+*.tfstate
+*.tfstate.backup
+*.auto.tfvars
 
 # Verify Snapshots
 *.received.*
 *.received/
 
+playground/azure-container-apps/TerraformPlayground.AppHost/aspire-output/infra/azure/aspire

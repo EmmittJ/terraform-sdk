@@ -22,4 +22,13 @@ public interface ISchemaParser
     /// Parses data sources from a provider schema.
     /// </summary>
     List<ResourceModel> ParseDataSources(ProviderSchema providerSchema, string providerName);
+
+    /// <summary>
+    /// Parses a block type definition into a block type model.
+    /// </summary>
+    /// <param name="name">The name of the block type.</param>
+    /// <param name="blockType">The schema block type definition.</param>
+    /// <param name="parentClassName">The parent class name for nested block references.</param>
+    /// <returns>A block type model.</returns>
+    BlockTypeModel ParseBlockType(string name, SchemaBlockType blockType, string parentClassName);
 }

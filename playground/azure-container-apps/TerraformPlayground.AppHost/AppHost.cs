@@ -15,6 +15,7 @@ var builder = DistributedApplication.CreateBuilder(args);
 // - Development: Run locally with containers
 // - Production: Deploy to Azure with Terraform
 // - State: Managed locally (can be moved to Azure Storage later)
+var subscriptionIdParameter = builder.AddParameter("azure-subscription-id");
 var resourceGroupParameter = builder.AddParameter("resource-group");
 
 // Define outputs at the builder level that will be consumed by other resources
@@ -43,7 +44,12 @@ var azure = builder.AddTerraformEnvironment("azure")
     .PublishAsTerraform(infra =>
     {
         // AzureRM Provider
-        var azurerm = new AzurermProvider("azurerm");
+        var azurerm = new AzurermProvider("azurerm")
+        {
+            UseCli = true,
+            SubscriptionId = subscriptionIdParameter.AsVariable(infra).AsReference(),
+            Features = [new()]
+        };
         infra.Add(azurerm);
 
         // Create resource group for all Azure resources

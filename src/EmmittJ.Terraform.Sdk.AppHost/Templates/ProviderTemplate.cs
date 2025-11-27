@@ -17,7 +17,9 @@ public class ProviderTemplate(TerraformCodeGenOptions options)
             Description = providerConfig.Description != null ? TemplateHelpers.EscapeXmlDoc(providerConfig.Description) : null,
             ResourceCount = providerConfig.ResourceCount,
             DataSourceCount = providerConfig.DataSourceCount,
-            Arguments = providerConfig.Arguments.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList()
+            Arguments = providerConfig.Arguments.Select(p => TemplateHelpers.PreparePropertyForTemplate(p, false)).ToList(),
+            BlockTypes = providerConfig.BlockTypes.Select(b => TemplateHelpers.PrepareBlockTypeForTemplate(b)).ToList(),
+            HasBlockTypes = providerConfig.BlockTypes.Count > 0
         };
 
         return Render(data);
