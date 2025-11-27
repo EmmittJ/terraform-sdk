@@ -2,15 +2,12 @@
 
 #pragma warning disable ASPIREPIPELINES001
 #pragma warning disable ASPIRECOMPUTE002
-#pragma warning disable ASPIREINTERACTION001
 
-using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
 using Aspire.Hosting.Publishing;
 using Aspire.Hosting.Utils;
 using EmmittJ.Terraform.Sdk;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
@@ -116,7 +113,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                     await RunTerraformCommandAsync(ctx, "plan -out=aspire.tfplan -input=false -no-color", sensitiveEnvVars).ConfigureAwait(false);
                 },
                 Tags = ["terraform-plan"],
-                DependsOnSteps = [initStep.Name],
+                DependsOnSteps = [initStep.Name, WellKnownPipelineSteps.DeployPrereq],
                 RequiredBySteps = [WellKnownPipelineSteps.Deploy]
             };
             steps.Add(planStep);
@@ -135,7 +132,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                     await RunTerraformCommandAsync(ctx, "apply aspire.tfplan -input=false -no-color -auto-approve", sensitiveEnvVars).ConfigureAwait(false);
                 },
                 Tags = ["terraform-apply"],
-                DependsOnSteps = [planStep.Name],
+                DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
                 RequiredBySteps = [WellKnownPipelineSteps.Deploy]
             };
             steps.Add(applyStep);
@@ -272,14 +269,12 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
 
         context.Logger.LogInformation("Resolving {Count} Terraform variables", ParameterVariables.Count);
 
-        // Use ParameterProcessor to initialize parameters (handles prompting for missing values)
-        var parameterProcessor = context.Services.GetRequiredService<ParameterProcessor>();
-        var parameters = ParameterVariables.Keys.ToList();
-        await parameterProcessor.InitializeParametersAsync(parameters, waitForResolution: true).ConfigureAwait(false);
+        // Parameters are initialized by DeployPrereq step (which runs before our terraform steps)
+        // via ParameterProcessor.InitializeParametersAsync - we just need to get the values here
 
         foreach (var (parameter, variable) in ParameterVariables)
         {
-            // Now that ParameterProcessor has initialized the parameters, we can safely get the value
+            // Parameters should already be resolved by DeployPrereq step
             var value = await parameter.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
 
             if (string.IsNullOrEmpty(value))
