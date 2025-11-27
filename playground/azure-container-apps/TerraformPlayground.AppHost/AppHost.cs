@@ -293,15 +293,21 @@ builder.Build().Run();
 
 public static class TerraformOutputReferenceExtensions
 {
+    extension(IResourceBuilder<IResourceWithConnectionString> builder)
+    {
+        public TerraformOutputReference TerraformConnectionString =>
+            builder.GetOutput("connection-string", sensitive: true);
+    }
+
     extension(IResourceWithConnectionString resource)
     {
         public TerraformOutputReference TerraformConnectionString =>
-            new("connection-string", resource, sensitive: true);
+            resource.GetOutput("connection-string", sensitive: true);
     }
 
     extension(TerraformEnvironmentResource environment)
     {
         public TerraformOutputReference ContainerEnvironmentId =>
-            new("container-env-id", environment);
+            environment.GetOutput("container-env-id");
     }
 }

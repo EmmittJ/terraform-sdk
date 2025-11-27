@@ -174,6 +174,7 @@ public static class TerraformOutputReferenceExtensions
     /// <typeparam name="T">The type of resource.</typeparam>
     /// <param name="builder">The resource builder.</param>
     /// <param name="name">The name of the output.</param>
+    /// <param name="sensitive">Whether this output contains sensitive data.</param>
     /// <returns>A <see cref="TerraformOutputReference"/> that represents the output.</returns>
     /// <remarks>
     /// The output must be defined in the resource's <see cref="TerraformExtensions.PublishAsTerraform"/> callback
@@ -193,13 +194,13 @@ public static class TerraformOutputReferenceExtensions
     /// api.WithEnvironment("REDIS_CONNECTION", connectionString);
     /// </code>
     /// </example>
-    public static TerraformOutputReference GetOutput<T>(this IResourceBuilder<T> builder, string name)
+    public static TerraformOutputReference GetOutput<T>(this IResourceBuilder<T> builder, string name, bool sensitive = false)
         where T : IResource
     {
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentException.ThrowIfNullOrEmpty(name);
 
-        return new TerraformOutputReference(name, builder.Resource);
+        return new TerraformOutputReference(name, builder.Resource, sensitive);
     }
 
     /// <summary>
@@ -207,6 +208,7 @@ public static class TerraformOutputReferenceExtensions
     /// </summary>
     /// <param name="resource">The resource that produces this output.</param>
     /// <param name="name">The name of the output.</param>
+    /// <param name="sensitive">Whether this output contains sensitive data.</param>
     /// <returns>A <see cref="TerraformOutputReference"/> that represents the output.</returns>
     /// <remarks>
     /// The output must be defined in the resource's <see cref="TerraformExtensions.PublishAsTerraform"/> callback
@@ -227,11 +229,11 @@ public static class TerraformOutputReferenceExtensions
     /// });
     /// </code>
     /// </example>
-    public static TerraformOutputReference GetOutput(this IResource resource, string name)
+    public static TerraformOutputReference GetOutput(this IResource resource, string name, bool sensitive = false)
     {
         ArgumentNullException.ThrowIfNull(resource);
         ArgumentException.ThrowIfNullOrEmpty(name);
 
-        return new TerraformOutputReference(name, resource);
+        return new TerraformOutputReference(name, resource, sensitive);
     }
 }
