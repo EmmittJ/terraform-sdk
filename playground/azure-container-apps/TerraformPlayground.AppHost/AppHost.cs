@@ -234,11 +234,11 @@ var api = builder.AddProject<Projects.TerraformPlayground_ApiService>("api")
             Secret = [
                 new () {
                     Name = "redis-connection",
-                    Value = infra.AddVariable(cache.Resource.TerraformConnectionString).AsReference()
+                    Value = infra.AddVariable(cache.TerraformConnectionString).AsReference()
                 },
                 new () {
                     Name = "postgres-connection",
-                    Value = infra.AddVariable(db.Resource.TerraformConnectionString).AsReference()
+                    Value = infra.AddVariable(db.TerraformConnectionString).AsReference()
                 }
             ]
         };
@@ -296,18 +296,18 @@ public static class TerraformOutputReferenceExtensions
     extension(IResourceBuilder<IResourceWithConnectionString> builder)
     {
         public TerraformOutputReference TerraformConnectionString =>
-            builder.GetOutput("connection-string", sensitive: true);
+            builder.GetTerraformOutput("connection-string", sensitive: true);
     }
 
     extension(IResourceWithConnectionString resource)
     {
         public TerraformOutputReference TerraformConnectionString =>
-            resource.GetOutput("connection-string", sensitive: true);
+            resource.GetTerraformOutput("connection-string", sensitive: true);
     }
 
     extension(TerraformEnvironmentResource environment)
     {
         public TerraformOutputReference ContainerEnvironmentId =>
-            environment.GetOutput("container-env-id");
+            environment.GetTerraformOutput("container-env-id");
     }
 }

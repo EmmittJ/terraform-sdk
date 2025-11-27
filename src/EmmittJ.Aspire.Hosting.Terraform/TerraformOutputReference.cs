@@ -15,7 +15,7 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// It represents a reference to a specific output from a resource that will be deployed via Terraform.
 /// </para>
 /// <para>
-/// Outputs can be retrieved using the <see cref="TerraformOutputReferenceExtensions.GetOutput"/> extension method:
+/// Outputs can be retrieved using the <see cref="TerraformOutputReferenceExtensions.GetTerraformOutput"/> extension method:
 /// <code>
 /// var redis = builder.AddRedis("cache")
 ///     .PublishAsTerraform(infra =>
@@ -194,7 +194,7 @@ public static class TerraformOutputReferenceExtensions
     /// api.WithEnvironment("REDIS_CONNECTION", connectionString);
     /// </code>
     /// </example>
-    public static TerraformOutputReference GetOutput<T>(this IResourceBuilder<T> builder, string name, bool sensitive = false)
+    public static TerraformOutputReference GetTerraformOutput<T>(this IResourceBuilder<T> builder, string name, bool sensitive = false)
         where T : IResource
     {
         ArgumentNullException.ThrowIfNull(builder);
@@ -229,7 +229,7 @@ public static class TerraformOutputReferenceExtensions
     /// });
     /// </code>
     /// </example>
-    public static TerraformOutputReference GetOutput(this IResource resource, string name, bool sensitive = false)
+    public static TerraformOutputReference GetTerraformOutput(this IResource resource, string name, bool sensitive = false)
     {
         ArgumentNullException.ThrowIfNull(resource);
         ArgumentException.ThrowIfNullOrEmpty(name);
