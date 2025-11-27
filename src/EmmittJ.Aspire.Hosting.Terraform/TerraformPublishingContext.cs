@@ -190,28 +190,16 @@ internal sealed class TerraformPublishingContext
         // Check if the environment resource itself has customization annotations
         if (environment.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var environmentAnnotations))
         {
-            var stack = new TerraformStack()
-            {
-                Terraform = environment.Settings
-            };
+            // Configure the settings on the environment's TerraformResource stack
+            environment.TerraformResource.Stack.Terraform = environment.Settings;
 
-            // Create a TerraformResource for the environment itself to use in callbacks
-            var envTerraformResource = new TerraformResource(environment.Name, environment, environment);
-            // Replace the stack with our configured one
-            // Note: We need to copy blocks from envTerraformResource.Stack to our stack after configuration
-
+            // Run all customization callbacks against the environment's TerraformResource
             foreach (var annotation in environmentAnnotations)
             {
-                annotation.Configure(envTerraformResource);
+                annotation.Configure(environment.TerraformResource);
             }
 
-            // Copy blocks from the TerraformResource's stack to our root stack
-            foreach (var block in envTerraformResource.Stack.Blocks)
-            {
-                stack.Add(block);
-            }
-
-            return stack;
+            return environment.TerraformResource.Stack;
         }
 
         return null;

@@ -18,6 +18,16 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironmentResource
 {
     /// <summary>
+    /// Gets the <see cref="TerraformResource"/> for this environment, which provides the root stack
+    /// and helper methods for configuring the environment's Terraform infrastructure.
+    /// </summary>
+    /// <remarks>
+    /// This is the same resource passed to callbacks when using <c>PublishAsTerraform</c> on the environment itself.
+    /// The <see cref="TerraformResource.Stack"/> contains the root Terraform blocks (providers, outputs, etc.).
+    /// </remarks>
+    public TerraformResource TerraformResource { get; }
+
+    /// <summary>
     /// Gets or sets the Terraform workspace name.
     /// </summary>
     public string? WorkspaceName { get; set; }
@@ -69,6 +79,8 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     /// <param name="name">The name of the Terraform environment.</param>
     public TerraformEnvironmentResource(string name) : base(name)
     {
+        // Create the TerraformResource for this environment (it references itself as the target)
+        TerraformResource = new TerraformResource(name, this, this);
         Annotations.Add(new PipelineStepAnnotation(context =>
         {
             var steps = new List<PipelineStep>();
