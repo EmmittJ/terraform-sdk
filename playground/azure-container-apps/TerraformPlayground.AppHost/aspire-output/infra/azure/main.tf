@@ -61,10 +61,10 @@ module "appdb" {
 }
 
 module "api" {
-  appdb_postgres-connection-string = module.appdb.postgres-connection-string
-  azure_container-env-id           = azurerm_container_app_environment.container-env.id
-  cache_redis-connection-string    = module.cache.redis-connection-string
-  source                           = "./api"
+  appdb_connection_string = module.appdb.connection-string
+  azure_container_env_id  = azurerm_container_app_environment.container-env.id
+  cache_connection_string = module.cache.connection-string
+  source                  = "./api"
 }
 
 variable "postgres_password" {

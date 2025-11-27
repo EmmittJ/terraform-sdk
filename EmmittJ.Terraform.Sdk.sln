@@ -31,6 +31,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "providers", "providers", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmmittJ.Terraform.Sdk.Providers.Azurerm", "src\providers\EmmittJ.Terraform.Sdk.Providers.Azurerm\EmmittJ.Terraform.Sdk.Providers.Azurerm.csproj", "{CD552CD0-CB92-C563-C678-2FA83C29741C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "getting-started", "getting-started", "{FD356F4B-E7AA-44DA-8C63-72CD0457631B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GettingStarted", "playground\getting-started\GettingStarted.csproj", "{E68A09ED-381E-08C6-8E55-D57E6F60D01D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +153,18 @@ Global
 		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Release|x64.Build.0 = Release|Any CPU
 		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Release|x86.ActiveCfg = Release|Any CPU
 		{CD552CD0-CB92-C563-C678-2FA83C29741C}.Release|x86.Build.0 = Release|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Debug|x64.Build.0 = Debug|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Debug|x86.Build.0 = Debug|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Release|x64.ActiveCfg = Release|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Release|x64.Build.0 = Release|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Release|x86.ActiveCfg = Release|Any CPU
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -165,6 +181,8 @@ Global
 		{A4D084EE-C8D9-8D53-7EB0-711A241DD113} = {A1935115-9B73-40A1-85AA-AC8886971478}
 		{707CD9D0-5EA5-4439-A4C0-9C9257E16BC0} = {8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}
 		{CD552CD0-CB92-C563-C678-2FA83C29741C} = {707CD9D0-5EA5-4439-A4C0-9C9257E16BC0}
+		{FD356F4B-E7AA-44DA-8C63-72CD0457631B} = {174DE0C1-C29B-4B12-8421-D48F6B893E57}
+		{E68A09ED-381E-08C6-8E55-D57E6F60D01D} = {FD356F4B-E7AA-44DA-8C63-72CD0457631B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {352C09AF-BF74-4C47-ABC6-B780865591B3}

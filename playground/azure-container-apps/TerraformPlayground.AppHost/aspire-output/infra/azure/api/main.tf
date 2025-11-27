@@ -1,19 +1,19 @@
-variable "azure_container-env-id" {
+variable "azure_container_env_id" {
   type = string
 }
 
-variable "cache_redis-connection-string" {
+variable "cache_connection_string" {
   sensitive = true
   type      = string
 }
 
-variable "appdb_postgres-connection-string" {
+variable "appdb_connection_string" {
   sensitive = true
   type      = string
 }
 
 resource "azurerm_container_app" "api" {
-  container_app_environment_id = var.azure_container-env-id
+  container_app_environment_id = var.azure_container_env_id
   name                         = "aspire-api"
   resource_group_name          = "aspire-playground-rg"
   revision_mode                = "Single"
@@ -23,11 +23,11 @@ resource "azurerm_container_app" "api" {
   }
   secret {
     name  = "redis-connection"
-    value = var.cache_redis-connection-string
+    value = var.cache_connection_string
   }
   secret {
     name  = "postgres-connection"
-    value = var.appdb_postgres-connection-string
+    value = var.appdb_connection_string
   }
   template {
     max_replicas = 1

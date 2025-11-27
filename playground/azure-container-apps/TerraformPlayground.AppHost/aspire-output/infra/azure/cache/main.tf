@@ -12,11 +12,11 @@ resource "azurerm_redis_cache" "cache" {
   }
 }
 
-output "redis-connection-string" {
-  sensitive = true
-  value     = azurerm_redis_cache.cache.primary_connection_string
-}
-
 output "redis_hostname" {
   value = azurerm_redis_cache.cache.hostname
+}
+
+output "connection-string" {
+  sensitive = true
+  value     = azurerm_redis_cache.cache.primary_connection_string
 }

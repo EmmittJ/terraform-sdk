@@ -41,7 +41,7 @@ output "postgres_database_name" {
   value = azurerm_postgresql_flexible_server_database.appdb.name
 }
 
-output "postgres-connection-string" {
+output "connection-string" {
   sensitive = true
   value     = format("Host=%s;Database=%s;Username=%s;Password=%s", azurerm_postgresql_flexible_server.appdb-server.fqdn, azurerm_postgresql_flexible_server_database.appdb.name, "aspireAdmin", var.postgres_password)
 }
