@@ -1,0 +1,266 @@
+name: Publish NuGet Packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version_suffix:
+        description: 'Version suffix (e.g., preview, alpha, beta, or empty for release)'
+        required: false
+        default: ''
+      skip_tests:
+        description: 'Skip running tests'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_NOLOGO: true
+
+jobs:
+  # Phase 1: Build and pack the core SDK
+  build-sdk:
+    name: Build Core SDK
+    runs-on: ubuntu-latest
+    outputs:
+      version_prefix: ${{ steps.version.outputs.version_prefix }}
+      version_suffix: ${{ steps.version.outputs.version_suffix }}
+      full_version: ${{ steps.version.outputs.full_version }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Determine version
+        id: version
+        run: |
+          if [[ "${{ github.event_name }}" == "push" && "${{ github.ref_type }}" == "tag" ]]; then
+            VERSION="${{ github.ref_name }}"
+            VERSION="${VERSION#v}"
+
+            if [[ "$VERSION" == *-* ]]; then
+              VERSION_PREFIX="${VERSION%%-*}"
+              VERSION_SUFFIX="${VERSION#*-}"
+            else
+              VERSION_PREFIX="$VERSION"
+              VERSION_SUFFIX=""
+            fi
+          else
+            VERSION_PREFIX=$(grep -oP '(?<=<VersionPrefix>)[^<]+' Directory.Build.props)
+            VERSION_SUFFIX="${{ github.event.inputs.version_suffix }}"
+          fi
+
+          echo "version_prefix=$VERSION_PREFIX" >> $GITHUB_OUTPUT
+          echo "version_suffix=$VERSION_SUFFIX" >> $GITHUB_OUTPUT
+
+          if [[ -n "$VERSION_SUFFIX" ]]; then
+            echo "full_version=$VERSION_PREFIX-$VERSION_SUFFIX" >> $GITHUB_OUTPUT
+          else
+            echo "full_version=$VERSION_PREFIX" >> $GITHUB_OUTPUT
+          fi
+
+          echo "📦 Version: $VERSION_PREFIX (suffix: ${VERSION_SUFFIX:-none})"
+
+      - name: Update package versions
+        run: |
+          FULL_VERSION="${{ steps.version.outputs.full_version }}"
+          echo "📦 Updating EmmittJ package versions to: $FULL_VERSION"
+          sed -i "s/Version=\"42.42.42\"/Version=\"$FULL_VERSION\"/g" Directory.Packages.props
+
+      - name: Build and pack core SDK
+        run: |
+          dotnet restore src/EmmittJ.Terraform.Sdk/EmmittJ.Terraform.Sdk.csproj
+          dotnet build src/EmmittJ.Terraform.Sdk/EmmittJ.Terraform.Sdk.csproj \
+            --no-restore --configuration Release \
+            -p:VersionPrefix=${{ steps.version.outputs.version_prefix }} \
+            -p:VersionSuffix=${{ steps.version.outputs.version_suffix }} \
+            -p:ContinuousIntegrationBuild=true
+          dotnet pack src/EmmittJ.Terraform.Sdk/EmmittJ.Terraform.Sdk.csproj \
+            --no-build --configuration Release \
+            -p:VersionPrefix=${{ steps.version.outputs.version_prefix }} \
+            -p:VersionSuffix=${{ steps.version.outputs.version_suffix }} \
+            --output ./artifacts
+
+      - name: Upload SDK package
+        uses: actions/upload-artifact@v4
+        with:
+          name: sdk-package
+          path: |
+            ./artifacts/*.nupkg
+            ./artifacts/*.snupkg
+          retention-days: 1
+
+  # Phase 2: Build dependent packages in parallel
+  build-dependent:
+    name: Build ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    needs: build-sdk
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - name: Aspire.Hosting.Terraform
+            project: src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.Hosting.Terraform.csproj
+          - name: Providers.Aws
+            project: src/providers/EmmittJ.Terraform.Sdk.Providers.Aws/EmmittJ.Terraform.Sdk.Providers.Aws.csproj
+          - name: Providers.Azuread
+            project: src/providers/EmmittJ.Terraform.Sdk.Providers.Azuread/EmmittJ.Terraform.Sdk.Providers.Azuread.csproj
+          - name: Providers.Azurerm
+            project: src/providers/EmmittJ.Terraform.Sdk.Providers.Azurerm/EmmittJ.Terraform.Sdk.Providers.Azurerm.csproj
+          - name: Providers.Google
+            project: src/providers/EmmittJ.Terraform.Sdk.Providers.Google/EmmittJ.Terraform.Sdk.Providers.Google.csproj
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Download SDK package
+        uses: actions/download-artifact@v4
+        with:
+          name: sdk-package
+          path: ./artifacts
+
+      - name: Update package versions
+        run: |
+          FULL_VERSION="${{ needs.build-sdk.outputs.full_version }}"
+          sed -i "s/Version=\"42.42.42\"/Version=\"$FULL_VERSION\"/g" Directory.Packages.props
+
+      - name: Setup local NuGet source
+        run: |
+          cat > nuget.config << 'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <configuration>
+            <packageSources>
+              <clear />
+              <add key="local" value="./artifacts" />
+              <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
+            </packageSources>
+          </configuration>
+          EOF
+
+      - name: Build and pack
+        run: |
+          dotnet restore "${{ matrix.project }}" -p:UseProjectReference=false
+          dotnet build "${{ matrix.project }}" \
+            --no-restore --configuration Release \
+            -p:UseProjectReference=false \
+            -p:VersionPrefix=${{ needs.build-sdk.outputs.version_prefix }} \
+            -p:VersionSuffix=${{ needs.build-sdk.outputs.version_suffix }} \
+            -p:ContinuousIntegrationBuild=true
+          dotnet pack "${{ matrix.project }}" \
+            --no-build --configuration Release \
+            -p:UseProjectReference=false \
+            -p:VersionPrefix=${{ needs.build-sdk.outputs.version_prefix }} \
+            -p:VersionSuffix=${{ needs.build-sdk.outputs.version_suffix }} \
+            --output ./artifacts
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-${{ matrix.name }}
+          path: |
+            ./artifacts/EmmittJ.*${{ needs.build-sdk.outputs.full_version }}.nupkg
+            ./artifacts/EmmittJ.*${{ needs.build-sdk.outputs.full_version }}.snupkg
+          retention-days: 1
+
+  # Phase 3: Run tests
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: [build-sdk, build-dependent]
+    if: ${{ github.event.inputs.skip_tests != 'true' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Run tests
+        run: |
+          dotnet restore tests/
+          dotnet build tests/ --no-restore --configuration Release
+          dotnet test tests/ --no-build --configuration Release --verbosity normal
+
+  # Phase 4: Publish all packages
+  publish:
+    name: Publish to NuGet
+    runs-on: ubuntu-latest
+    needs: [build-sdk, build-dependent, test]
+    if: always() && needs.build-sdk.result == 'success' && needs.build-dependent.result == 'success' && (needs.test.result == 'success' || needs.test.result == 'skipped')
+
+    steps:
+      - name: Download all packages
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+          pattern: '*-package*'
+          merge-multiple: true
+
+      - name: Download SDK package
+        uses: actions/download-artifact@v4
+        with:
+          name: sdk-package
+          path: ./artifacts
+
+      - name: List packages
+        run: |
+          echo "📦 Packages to publish:"
+          ls -la ./artifacts/*.nupkg
+          echo "📦 Symbol packages:"
+          ls -la ./artifacts/*.snupkg || echo "No symbol packages found"
+
+      - name: Upload combined artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: |
+            ./artifacts/*.nupkg
+            ./artifacts/*.snupkg
+          retention-days: 30
+
+      - name: Publish to NuGet.org
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          echo "📦 Publishing all packages to NuGet.org..."
+          for package in ./artifacts/*.nupkg; do
+            echo "Publishing $package..."
+            dotnet nuget push "$package" \
+              --api-key ${{ secrets.NUGET_API_KEY }} \
+              --source https://api.nuget.org/v3/index.json \
+              --skip-duplicate
+          done
+          # Symbol packages (.snupkg) are automatically pushed alongside .nupkg by NuGet
+
+      - name: Create GitHub Release
+        if: github.event_name == 'push' && github.ref_type == 'tag'
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ needs.build-sdk.outputs.full_version }}
+          draft: false
+          prerelease: ${{ contains(needs.build-sdk.outputs.version_suffix, 'preview') || contains(needs.build-sdk.outputs.version_suffix, 'alpha') || contains(needs.build-sdk.outputs.version_suffix, 'beta') }}
+          files: |
+            ./artifacts/*.nupkg
+            ./artifacts/*.snupkg
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
