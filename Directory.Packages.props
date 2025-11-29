@@ -37,4 +37,18 @@
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
   </ItemGroup>
 
+  <ItemGroup Label="Source Link">
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
+  </ItemGroup>
+
+  <!-- EmmittJ Terraform SDK packages (marker version replaced during publish) -->
+  <ItemGroup Label="EmmittJ Terraform SDK">
+    <PackageVersion Include="EmmittJ.Terraform.Sdk" Version="42.42.42" />
+    <PackageVersion Include="EmmittJ.Aspire.Hosting.Terraform" Version="42.42.42" />
+    <PackageVersion Include="EmmittJ.Terraform.Sdk.Providers.Aws" Version="42.42.42" />
+    <PackageVersion Include="EmmittJ.Terraform.Sdk.Providers.Azuread" Version="42.42.42" />
+    <PackageVersion Include="EmmittJ.Terraform.Sdk.Providers.Azurerm" Version="42.42.42" />
+    <PackageVersion Include="EmmittJ.Terraform.Sdk.Providers.Google" Version="42.42.42" />
+  </ItemGroup>
+
 </Project>
