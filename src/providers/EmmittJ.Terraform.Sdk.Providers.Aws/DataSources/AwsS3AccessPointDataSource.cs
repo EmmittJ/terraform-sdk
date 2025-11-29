@@ -79,7 +79,7 @@ public partial class AwsS3AccessPointDataSource(string name) : TerraformDataSour
     /// <summary>
     /// The data_source_type attribute.
     /// </summary>
-    public TerraformValue<string> DataSourceType
+    public TerraformValue<string> DataSourceTypeAttribute
     {
         get => new TerraformReference<string>(this, "data_source_type");
     }

@@ -32,5 +32,5 @@ public interface ITerraformHasParent
     /// Gets or sets the parent block for reference chaining.
     /// Automatically set when this block is assigned to a parent's property.
     /// </summary>
-    ITerraformReferenceable? Parent { get; set; }
+    ITerraformReferenceable? ParentBlock { get; set; }
 }

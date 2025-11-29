@@ -50,7 +50,7 @@ public static class TerraformExtensions
     /// </remarks>
     public static IResourceBuilder<T> PublishAsTerraform<T>(
         this IResourceBuilder<T> builder,
-        Action<TerraformResource> configure)
+        Action<TerraformProvisioningResource> configure)
         where T : IResource
     {
         ArgumentNullException.ThrowIfNull(builder);

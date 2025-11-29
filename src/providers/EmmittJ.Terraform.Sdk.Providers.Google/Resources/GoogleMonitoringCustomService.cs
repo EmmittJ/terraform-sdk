@@ -18,7 +18,7 @@ public class GoogleMonitoringCustomServiceTelemetryBlock : TerraformBlock
     /// Formatted as described in
     /// https://cloud.google.com/apis/design/resource_names.
     /// </summary>
-    public TerraformValue<string>? ResourceName
+    public TerraformValue<string>? ResourceNameAttribute
     {
         get => new TerraformReference<string>(this, "resource_name");
         set => SetArgument("resource_name", value);

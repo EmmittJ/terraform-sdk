@@ -39,8 +39,8 @@ public partial class AwsLightsailBucketResourceAccess(string name) : TerraformRe
     /// <summary>
     /// The resource_name attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
-    public required TerraformValue<string> ResourceName
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceNameAttribute is required")]
+    public required TerraformValue<string> ResourceNameAttribute
     {
         get => new TerraformReference<string>(this, "resource_name");
         set => SetArgument("resource_name", value);

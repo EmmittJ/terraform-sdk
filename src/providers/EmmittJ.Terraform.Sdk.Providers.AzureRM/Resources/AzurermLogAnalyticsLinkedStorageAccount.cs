@@ -61,8 +61,8 @@ public partial class AzurermLogAnalyticsLinkedStorageAccount(string name) : Terr
     /// <summary>
     /// The data_source_type attribute.
     /// </summary>
-    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceType is required")]
-    public required TerraformValue<string> DataSourceType
+    [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceTypeAttribute is required")]
+    public required TerraformValue<string> DataSourceTypeAttribute
     {
         get => new TerraformReference<string>(this, "data_source_type");
         set => SetArgument("data_source_type", value);

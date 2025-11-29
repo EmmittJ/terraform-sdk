@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EmmittJ.Terraform.Sdk\EmmittJ.Terraform.Sdk.csproj" />
+    <ProjectOrPackageReference Include="EmmittJ.Terraform.Sdk" />
   </ItemGroup>
 
 </Project>

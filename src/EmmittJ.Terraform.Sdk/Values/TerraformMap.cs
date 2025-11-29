@@ -102,7 +102,7 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
         // Auto-set parent for nested blocks that support parent tracking
         if (value is ITerraformHasParent childBlock && this is ITerraformReferenceable referenceableParent)
         {
-            childBlock.Parent = referenceableParent;
+            childBlock.ParentBlock = referenceableParent;
         }
 
         _elements[key] = TerraformValue<T>.ConvertFrom(value);

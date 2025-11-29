@@ -114,7 +114,7 @@ public partial class AwsServicecatalogTagOptionResourceAssociation(string name) 
     /// <summary>
     /// The resource_name attribute.
     /// </summary>
-    public TerraformValue<string> ResourceName
+    public TerraformValue<string> ResourceNameAttribute
     {
         get => new TerraformReference<string>(this, "resource_name");
     }

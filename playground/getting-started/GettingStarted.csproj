@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\EmmittJ.Aspire.Hosting.Terraform\EmmittJ.Aspire.Hosting.Terraform.csproj" IsAspireProjectResource="false" />
+    <ProjectReference Include="..\..\src\EmmittJ.Terraform.Sdk\EmmittJ.Terraform.Sdk.csproj" IsAspireProjectResource="false" />
   </ItemGroup>
 
 </Project>

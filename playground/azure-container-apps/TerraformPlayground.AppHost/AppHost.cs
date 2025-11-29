@@ -72,7 +72,7 @@ var azure = builder.AddTerraformEnvironment("azure")
 
         // Export key values for other resources to reference
         infra.Add(new TerraformOutput("resource_group_name") { Value = resourceGroup.Name });
-        if (infra.Resource is TerraformEnvironmentResource env)
+        if (infra.TargetResource is TerraformEnvironmentResource env)
         {
             infra.AddOutput(env.ContainerEnvironmentId, containerEnv.Id);
         }
@@ -86,10 +86,15 @@ var azure = builder.AddTerraformEnvironment("azure")
 var cache = builder.AddRedis("cache")
     .PublishAsTerraform(infra =>
     {
-        // Azure Cache for Redis
-        var redisCache = new AzurermRedisCache($"{infra.Resource.Name}")
+        if (infra.TargetResource is not RedisResource redis)
         {
-            Name = $"aspire-{infra.Resource.Name}",
+            return;
+        }
+
+        // Azure Cache for Redis
+        var redisCache = new AzurermRedisCache($"{redis.Name}")
+        {
+            Name = $"aspire-{redis.Name}",
             Location = "eastus",
             ResourceGroupName = "aspire-playground-rg",
             Capacity = 0,
@@ -105,10 +110,7 @@ var cache = builder.AddRedis("cache")
         infra.Add(redisCache);
 
         infra.Add(new TerraformOutput("redis_hostname") { Value = redisCache.Hostname });
-        if (infra.Resource is RedisResource redis)
-        {
-            infra.AddOutput(redis.TerraformConnectionString, redisCache.PrimaryConnectionString);
-        }
+        infra.AddOutput(redis.TerraformConnectionString, redisCache.PrimaryConnectionString);
     });
 
 // PostgreSQL admin password - can be provided via user secrets, environment variables, or command line
@@ -119,13 +121,17 @@ var db = builder.AddPostgres("postgres", password: postgresPassword)
     .AddDatabase("appdb")
     .PublishAsTerraform(infra =>
     {
+        if (infra.TargetResource is not PostgresDatabaseResource pgDb)
+        {
+            return;
+        }
         // Use AddVariable to convert the Aspire parameter to a Terraform variable
         var passwordVar = infra.AddVariable(postgresPassword);
 
         // Azure Database for PostgreSQL Flexible Server
-        var postgresServer = new AzurermPostgresqlFlexibleServer($"{infra.Resource.Name}-server")
+        var postgresServer = new AzurermPostgresqlFlexibleServer($"{pgDb.Name}-server")
         {
-            Name = $"aspire-{infra.Resource.Name}-server",
+            Name = $"aspire-{pgDb.Name}-server",
             ResourceGroupName = "aspire-playground-rg",
             Location = "eastus",
             AdministratorLogin = "aspireAdmin",
@@ -164,18 +170,15 @@ var db = builder.AddPostgres("postgres", password: postgresPassword)
         // Use output resources for shared outputs, inline TerraformOutput for module-only outputs
         infra.Add(new TerraformOutput("postgres_fqdn") { Value = postgresServer["fqdn"] });
         infra.Add(new TerraformOutput("postgres_database_name") { Value = database.Name });
-        if (infra.Resource is PostgresDatabaseResource pgDb)
-        {
-            infra.AddOutput(pgDb.TerraformConnectionString,
-                Tf.Functions.Format(
-                    "Host=%s;Database=%s;Username=%s;Password=%s",
-                    postgresServer["fqdn"].AsLazy<string>(),
-                    database.Name,
-                    "aspireAdmin",
-                    passwordVar.AsReference()
-                )
-            );
-        }
+        infra.AddOutput(pgDb.TerraformConnectionString,
+            Tf.Functions.Format(
+                "Host=%s;Database=%s;Username=%s;Password=%s",
+                postgresServer["fqdn"].AsLazy<string>(),
+                database.Name,
+                "aspireAdmin",
+                passwordVar.AsReference()
+            )
+        );
     });
 
 // ============================================================================
@@ -189,12 +192,17 @@ var api = builder.AddProject<Projects.TerraformPlayground_ApiService>("api")
     .WithExternalHttpEndpoints()
     .PublishAsTerraform(infra =>
     {
+        if (infra.TargetResource is not { } resource)
+        {
+            return;
+        }
+
         // Create Azure Container App for the API
-        var containerApp = new AzurermContainerApp($"{infra.Resource.Name}")
+        var containerApp = new AzurermContainerApp($"{resource.Name}")
         {
             // Use the container environment ID from the azure environment
             ContainerAppEnvironmentId = infra.AddVariable(azure.Resource.ContainerEnvironmentId).AsReference(),
-            Name = $"aspire-{infra.Resource.Name}",
+            Name = $"aspire-{resource.Name}",
             ResourceGroupName = "aspire-playground-rg",
             RevisionMode = "Single",
             Tags = new()

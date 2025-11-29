@@ -31,8 +31,8 @@ internal sealed class TerraformEnvironmentContext
     /// </summary>
     /// <param name="resource">The resource to wrap.</param>
     /// <param name="cancellationToken">Cancellation token.</param>
-    /// <returns>A <see cref="TerraformResource"/> that wraps the resource.</returns>
-    public Task<TerraformResource> CreateTerraformResourceAsync(
+    /// <returns>A <see cref="TerraformProvisioningResource"/> that wraps the resource.</returns>
+    public Task<TerraformProvisioningResource> CreateTerraformResourceAsync(
         IResource resource,
         CancellationToken cancellationToken = default)
     {
@@ -42,7 +42,7 @@ internal sealed class TerraformEnvironmentContext
             resource.Name,
             resource.GetType().Name);
 
-        var terraformResource = new TerraformResource($"{resource.Name}-terraform", _environment, resource);
+        var terraformResource = new TerraformProvisioningResource($"{resource.Name}-terraform", _environment, resource);
 
         return Task.FromResult(terraformResource);
     }

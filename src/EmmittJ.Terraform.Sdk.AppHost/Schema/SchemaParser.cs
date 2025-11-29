@@ -46,7 +46,7 @@ public class SchemaParser : ISchemaParser
         "TerraformName", "TerraformType", "Stack", "Node", "DependsOn", "ForEach", "Provider",
         "Lifecycle", "Connection", "Provisioner", "Count", "TerraformResourceType",
         "TerraformGeneratorMetadata", "TerraformMetaArguments", "FriendlyUniqueId", "Fqn",
-        "ResourceType" // TerraformResource.ResourceType property
+        "ResourceType", "ResourceName", "DataSourceType", "ParentBlock"
     };
 
     // Reserved class/namespace names that would cause conflicts

@@ -75,7 +75,7 @@ public sealed class TerraformOutputReference(string name, IResource resource, bo
     /// <returns>The value of the output, or <c>null</c> if not available.</returns>
     /// <remarks>
     /// <para>
-    /// This method looks for the output value in the <see cref="TerraformResource"/> that wraps this resource.
+    /// This method looks for the output value in the <see cref="TerraformProvisioningResource"/> that wraps this resource.
     /// The outputs are populated after Terraform apply completes with the actual output values.
     /// </para>
     /// <para>
@@ -92,7 +92,7 @@ public sealed class TerraformOutputReference(string name, IResource resource, bo
     /// Gets the current value of the output.
     /// </summary>
     /// <remarks>
-    /// The value is retrieved from the <see cref="TerraformResource"/> that wraps this resource.
+    /// The value is retrieved from the <see cref="TerraformProvisioningResource"/> that wraps this resource.
     /// </remarks>
     /// <exception cref="InvalidOperationException">Thrown when no output with the specified name exists.</exception>
     public string? Value
@@ -118,16 +118,16 @@ public sealed class TerraformOutputReference(string name, IResource resource, bo
     }
 
     /// <summary>
-    /// Finds the <see cref="TerraformResource"/> that wraps this resource.
+    /// Finds the <see cref="TerraformProvisioningResource"/> that wraps this resource.
     /// </summary>
-    private TerraformResource? FindTerraformResource()
+    private TerraformProvisioningResource? FindTerraformResource()
     {
         // Look through all deployment target annotations to find the TerraformResource
         if (Resource.TryGetAnnotationsOfType<DeploymentTargetAnnotation>(out var annotations))
         {
             foreach (var annotation in annotations)
             {
-                if (annotation.DeploymentTarget is TerraformResource terraformResource && terraformResource.TargetResource == Resource)
+                if (annotation.DeploymentTarget is TerraformProvisioningResource terraformResource && terraformResource.TargetResource == Resource)
                 {
                     return terraformResource;
                 }

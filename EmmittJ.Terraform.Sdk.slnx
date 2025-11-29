@@ -1,0 +1,31 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/playground/" />
+  <Folder Name="/playground/azure-container-apps/">
+    <Project Path="playground/azure-container-apps/TerraformPlayground.ApiService/TerraformPlayground.ApiService.csproj" />
+    <Project Path="playground/azure-container-apps/TerraformPlayground.AppHost/TerraformPlayground.AppHost.csproj" />
+    <Project Path="playground/azure-container-apps/TerraformPlayground.ServiceDefaults/TerraformPlayground.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/playground/getting-started/">
+    <Project Path="playground/getting-started/GettingStarted.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/EmmittJ.Aspire.Hosting.Terraform/EmmittJ.Aspire.Hosting.Terraform.csproj" />
+    <Project Path="src/EmmittJ.Terraform.Sdk.AppHost/EmmittJ.Terraform.Sdk.AppHost.csproj" />
+    <Project Path="src/EmmittJ.Terraform.Sdk/EmmittJ.Terraform.Sdk.csproj" />
+  </Folder>
+  <Folder Name="/src/providers/">
+    <Project Path="src/providers/EmmittJ.Terraform.Sdk.Providers.Aws/EmmittJ.Terraform.Sdk.Providers.Aws.csproj" />
+    <Project Path="src/providers/EmmittJ.Terraform.Sdk.Providers.Azuread/EmmittJ.Terraform.Sdk.Providers.Azuread.csproj" />
+    <Project Path="src/providers/EmmittJ.Terraform.Sdk.Providers.Azurerm/EmmittJ.Terraform.Sdk.Providers.Azurerm.csproj" />
+    <Project Path="src/providers/EmmittJ.Terraform.Sdk.Providers.Google/EmmittJ.Terraform.Sdk.Providers.Google.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/EmmittJ.Aspire.Hosting.Terraform.Tests/EmmittJ.Aspire.Hosting.Terraform.Tests.csproj" />
+    <Project Path="tests/EmmittJ.Terraform.Sdk.Tests/EmmittJ.Terraform.Sdk.Tests.csproj" />
+  </Folder>
+</Solution>

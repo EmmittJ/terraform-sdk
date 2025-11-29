@@ -11,13 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost"/>
-    <PackageReference Include="Aspire.Hosting.Redis"/>
-    <PackageReference Include="Aspire.Hosting.PostgreSQL"/>
+    <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.Redis" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\EmmittJ.Aspire.Hosting.Terraform\EmmittJ.Aspire.Hosting.Terraform.csproj" IsAspireProjectResource="false" />
+    <ProjectReference Include="..\..\..\src\EmmittJ.Terraform.Sdk\EmmittJ.Terraform.Sdk.csproj" IsAspireProjectResource="false" />
     <ProjectReference Include="..\..\..\src\providers\EmmittJ.Terraform.Sdk.Providers.Azurerm\EmmittJ.Terraform.Sdk.Providers.Azurerm.csproj" IsAspireProjectResource="false" />
     <ProjectReference Include="..\TerraformPlayground.ApiService\TerraformPlayground.ApiService.csproj" />
     <ProjectReference Include="..\TerraformPlayground.ServiceDefaults\TerraformPlayground.ServiceDefaults.csproj" IsAspireProjectResource="false" />

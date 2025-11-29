@@ -189,7 +189,7 @@ public partial class GoogleManagedKafkaAcl(string name) : TerraformResource("goo
     /// <summary>
     /// The acl resource name derived from the name. For cluster resource_type, this is always &amp;quot;kafka-cluster&amp;quot;. Can be the wildcard literal &amp;quot;*&amp;quot;.
     /// </summary>
-    public TerraformValue<string> ResourceName
+    public TerraformValue<string> ResourceNameAttribute
     {
         get => new TerraformReference<string>(this, "resource_name");
     }

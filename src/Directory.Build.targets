@@ -1,0 +1,77 @@
+<Project>
+  <!--
+    MSBuild Reference Swap System
+
+    This implements the ability to switch between PackageReference and ProjectReference
+    dependencies using a single UseProjectReference property.
+
+    Usage:
+    - Use <ProjectOrPackageReference Include="EmmittJ.Terraform.Sdk" /> in your csproj
+    - Set UseProjectReference=true (default) to use local project references
+    - Set UseProjectReference=false to use NuGet package references
+  -->
+
+  <PropertyGroup>
+    <!-- Default to project references for local development -->
+    <UseProjectReference>true</UseProjectReference>
+
+    <!-- Path patterns for resolving project references -->
+    <!-- If we're in a tests folder, go up two levels to src -->
+    <ReferenceProjectPathPattern Condition="'$(ReferenceProjectPathPattern)' == '' AND $(MSBuildProjectDirectory.Contains('\tests\'))">..\..\src\{0}\{0}.csproj</ReferenceProjectPathPattern>
+    <!-- If we're in src/providers, go up two levels to src -->
+    <ReferenceProjectPathPattern Condition="'$(ReferenceProjectPathPattern)' == '' AND $(MSBuildProjectDirectory.Contains('\providers\'))">..\..\{0}\{0}.csproj</ReferenceProjectPathPattern>
+    <!-- Standard path pattern for src projects -->
+    <ReferenceProjectPathPattern Condition="'$(ReferenceProjectPathPattern)' == ''">..\{0}\{0}.csproj</ReferenceProjectPathPattern>
+  </PropertyGroup>
+
+  <!-- Target that runs before restore to resolve Reference items -->
+  <Target Name="ResolveSimpleReferences" BeforeTargets="CollectPackageReferences;Restore">
+
+    <!-- Process Reference items for project reference mode -->
+    <ItemGroup Condition="'$(UseProjectReference)' == 'true' AND @(ProjectOrPackageReference -> Count()) > 0">
+      <!-- Generate candidate project paths for each Reference -->
+      <_CandidateProjectReference Include="@(ProjectOrPackageReference)" Condition="'%(ProjectOrPackageReference.ProjectPath)' != ''">
+        <ProjectPath>%(ProjectOrPackageReference.ProjectPath)</ProjectPath>
+        <OriginalReference>%(ProjectOrPackageReference.Identity)</OriginalReference>
+      </_CandidateProjectReference>
+
+      <_CandidateProjectReference Include="@(ProjectOrPackageReference)" Condition="'%(ProjectOrPackageReference.ProjectPath)' == ''">
+        <ProjectPath>$([System.IO.Path]::Combine('$(MSBuildProjectDirectory)', '$([System.String]::Format('$(ReferenceProjectPathPattern)', '%(ProjectOrPackageReference.Identity)'))'))</ProjectPath>
+        <OriginalReference>%(ProjectOrPackageReference.Identity)</OriginalReference>
+      </_CandidateProjectReference>
+
+      <!-- Add ProjectReferences -->
+      <ProjectReference Include="@(_CandidateProjectReference -> '%(ProjectPath)')" Condition="@(_CandidateProjectReference -> Count()) > 0">
+        <OriginalReference>%(_CandidateProjectReference.OriginalReference)</OriginalReference>
+      </ProjectReference>
+
+      <!-- Remove all processed Reference items -->
+      <Reference Remove="@(ProjectOrPackageReference)" />
+    </ItemGroup>
+
+    <!-- Process Reference items for package reference mode -->
+    <ItemGroup Condition="'$(UseProjectReference)' == 'false' AND @(ProjectOrPackageReference -> Count()) > 0">
+      <!-- Convert all Reference items to PackageReferences -->
+      <PackageReference Include="@(ProjectOrPackageReference)" Condition="'%(ProjectOrPackageReference.Version)' != ''">
+        <Version>%(ProjectOrPackageReference.Version)</Version>
+      </PackageReference>
+
+      <!-- PackageReference without version -->
+      <PackageReference Include="@(ProjectOrPackageReference)" Condition="'%(ProjectOrPackageReference.Version)' == ''" />
+
+      <!-- Remove the original Reference items -->
+      <Reference Remove="@(ProjectOrPackageReference)" />
+    </ItemGroup>
+
+    <!-- Logging for debugging -->
+    <Message Text="ResolveSimpleReferences: UseProjectReference=$(UseProjectReference)" Importance="low" />
+    <Message Text="ResolveSimpleReferences: Checking project path '%(_CandidateProjectReference.ProjectPath)' for '%(_CandidateProjectReference.OriginalReference)'" Importance="normal" Condition="'$(UseProjectReference)' == 'true' AND @(_CandidateProjectReference -> Count()) > 0" />
+    <Message Text="ResolveSimpleReferences: Found project reference for '%(_CandidateProjectReference.OriginalReference)' at '%(_ExistingProjectReference.ProjectPath)'" Importance="normal" Condition="'$(UseProjectReference)' == 'true' AND @(_ExistingProjectReference -> Count()) > 0" />
+    <Message Text="ResolveSimpleReferences: Using package reference for '%(ProjectOrPackageReference.Identity)' version '%(ProjectOrPackageReference.Version)'" Importance="low" Condition="'$(UseProjectReference)' == 'false'" />
+
+    <!-- Warnings for missing projects when UseProjectReference=true -->
+    <Warning Text="ResolveSimpleReferences: Project not found for '%(_MissingProjectReference.OriginalReference)' at '%(_MissingProjectReference.ProjectPath)' - falling back to package reference" Condition="'$(UseProjectReference)' == 'true' AND @(_MissingProjectReference -> Count()) > 0" />
+
+  </Target>
+
+</Project>

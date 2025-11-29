@@ -23,7 +23,7 @@ public abstract class TerraformBlock : TerraformMap<object>, ITerraformReference
     /// Gets or sets the parent block for reference chaining.
     /// Automatically set when this block is assigned to a parent's property.
     /// </summary>
-    public ITerraformReferenceable? Parent { get; set; }
+    public ITerraformReferenceable? ParentBlock { get; set; }
 
     /// <summary>
     /// Gets the block type keyword (e.g., "resource", "data", "lifecycle", "timeouts").
@@ -89,14 +89,14 @@ public abstract class TerraformBlock : TerraformMap<object>, ITerraformReference
     /// </exception>
     public virtual TerraformExpression AsReference()
     {
-        if (Parent is null)
+        if (ParentBlock is null)
         {
             throw new InvalidOperationException(
                 $"Cannot create reference to nested block {GetType().Name} without a parent. " +
                 "Nested blocks must be assigned to a parent resource or data source before they can be referenced.");
         }
 
-        return Parent.AsReference().Member(BlockType);
+        return ParentBlock.AsReference().Member(BlockType);
     }
 
     /// <summary>

@@ -1840,12 +1840,12 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
     }
 
     /// <summary>
-    /// DataSourceType block (nesting mode: list).
+    /// DataSourceTypeAttribute block (nesting mode: list).
     /// </summary>
-    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSourceType block(s) allowed")]
-    public TerraformList<GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTargetBlockDataSourceTypeBlock>? DataSourceType
+    [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSourceTypeAttribute block(s) allowed")]
+    public TerraformList<GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTargetBlockDataSourceTypeAttributeBlock>? DataSourceTypeAttribute
     {
-        get => GetArgument<TerraformList<GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTargetBlockDataSourceTypeBlock>>("data_source_type");
+        get => GetArgument<TerraformList<GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTargetBlockDataSourceTypeAttributeBlock>>("data_source_type");
         set => SetArgument("data_source_type", value);
     }
 
@@ -1951,7 +1951,7 @@ public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTarget
 /// Block type for data_source_type in GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTargetBlock.
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTargetBlockDataSourceTypeBlock : TerraformBlock
+public class GoogleDataLossPreventionDiscoveryConfigTargetsBlockOtherCloudTargetBlockDataSourceTypeAttributeBlock : TerraformBlock
 {
     /// <summary>
     /// Gets the block type.

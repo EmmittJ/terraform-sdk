@@ -81,7 +81,7 @@ internal sealed class TerraformPublishingContext
 
         // Phase 1: Process all resources and generate their module files
         // This also collects all input dependencies (outputs and parameters)
-        var resourceModules = new List<(TerraformResource TerraformResource, TerraformModule Module)>();
+        var resourceModules = new List<(TerraformProvisioningResource TerraformResource, TerraformModule Module)>();
 
         foreach (var resource in model.Resources)
         {
@@ -91,7 +91,7 @@ internal sealed class TerraformPublishingContext
                 continue;
             }
 
-            if (resource.GetDeploymentTargetAnnotation(environment)?.DeploymentTarget is TerraformResource terraformResource)
+            if (resource.GetDeploymentTargetAnnotation(environment)?.DeploymentTarget is TerraformProvisioningResource terraformResource)
             {
                 var module = await ProcessResourceAsync(terraformResource).ConfigureAwait(false);
                 resourceModules.Add((terraformResource, module));
@@ -208,7 +208,7 @@ internal sealed class TerraformPublishingContext
         return null;
     }
 
-    private async Task<TerraformModule> ProcessResourceAsync(TerraformResource terraformResource)
+    private async Task<TerraformModule> ProcessResourceAsync(TerraformProvisioningResource terraformResource)
     {
         var resource = terraformResource.TargetResource ?? terraformResource;
 
@@ -225,7 +225,7 @@ internal sealed class TerraformPublishingContext
             foreach (var annotation in annotations)
             {
                 // Create a fresh TerraformResource for each annotation so they get separate stacks
-                var annotationTerraformResource = new TerraformResource($"{resource.Name}-terraform", _environment, resource);
+                var annotationTerraformResource = new TerraformProvisioningResource($"{resource.Name}-terraform", _environment, resource);
 
                 // Apply the customization callback to configure the TerraformResource
                 annotation.Configure(annotationTerraformResource);

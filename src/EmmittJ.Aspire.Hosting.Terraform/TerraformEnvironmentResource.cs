@@ -23,9 +23,9 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     /// </summary>
     /// <remarks>
     /// This is the same resource passed to callbacks when using <c>PublishAsTerraform</c> on the environment itself.
-    /// The <see cref="TerraformResource.Stack"/> contains the root Terraform blocks (providers, outputs, etc.).
+    /// The <see cref="TerraformProvisioningResource.Stack"/> contains the root Terraform blocks (providers, outputs, etc.).
     /// </remarks>
-    public TerraformResource TerraformResource { get; }
+    public TerraformProvisioningResource TerraformResource { get; }
 
     /// <summary>
     /// Gets or sets the Terraform workspace name.
@@ -62,7 +62,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     /// This dictionary maps ParameterResource instances to their corresponding TerraformVariable definitions.
     /// </summary>
     /// <remarks>
-    /// Parameters are registered when <see cref="TerraformResource.AddVariable(ParameterResource, string?)"/> is called.
+    /// Parameters are registered when <see cref="TerraformProvisioningResource.AddVariable(ParameterResource, string?)"/> is called.
     /// During plan/apply, these parameters are resolved and passed to Terraform via tfvars (non-sensitive)
     /// or TF_VAR_* environment variables (sensitive).
     /// </remarks>
@@ -75,7 +75,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     public TerraformEnvironmentResource(string name) : base(name)
     {
         // Create the TerraformResource for this environment (it references itself as the target)
-        TerraformResource = new TerraformResource(name, this, this);
+        TerraformResource = new TerraformProvisioningResource(name, this, this);
         Annotations.Add(new PipelineStepAnnotation(context =>
         {
             var steps = new List<PipelineStep>();

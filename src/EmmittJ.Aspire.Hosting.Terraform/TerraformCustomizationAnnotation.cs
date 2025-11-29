@@ -11,10 +11,10 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// Initializes a new instance of the <see cref="TerraformCustomizationAnnotation"/> class.
 /// </remarks>
 /// <param name="configure">The configuration action for customizing the Terraform resource.</param>
-public sealed class TerraformCustomizationAnnotation(Action<TerraformResource> configure) : IResourceAnnotation
+public sealed class TerraformCustomizationAnnotation(Action<TerraformProvisioningResource> configure) : IResourceAnnotation
 {
     /// <summary>
     /// Gets the configuration action for customizing the Terraform resource.
     /// </summary>
-    public Action<TerraformResource> Configure { get; } = configure ?? throw new ArgumentNullException(nameof(configure));
+    public Action<TerraformProvisioningResource> Configure { get; } = configure ?? throw new ArgumentNullException(nameof(configure));
 }

@@ -38,7 +38,7 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// </code>
 /// </example>
 /// </remarks>
-public sealed class TerraformResource : Resource, IResourceWithParent<TerraformEnvironmentResource>
+public sealed class TerraformProvisioningResource : Resource, IResourceWithParent<TerraformEnvironmentResource>
 {
     /// <summary>
     /// Gets the target Aspire resource that this Terraform resource represents, if any.
@@ -74,12 +74,12 @@ public sealed class TerraformResource : Resource, IResourceWithParent<TerraformE
     internal Dictionary<string, TerraformVariable> Parameters { get; } = [];
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TerraformResource"/> class.
+    /// Initializes a new instance of the <see cref="TerraformProvisioningResource"/> class.
     /// </summary>
     /// <param name="name">The name of the Terraform resource.</param>
     /// <param name="environment">The Terraform environment this resource belongs to.</param>
     /// <param name="targetResource">The target Aspire resource, or <c>null</c> if this is a standalone Terraform resource.</param>
-    internal TerraformResource(string name, TerraformEnvironmentResource environment, IResource? targetResource = null)
+    internal TerraformProvisioningResource(string name, TerraformEnvironmentResource environment, IResource? targetResource = null)
         : base(name)
     {
         Parent = environment ?? throw new ArgumentNullException(nameof(environment));
