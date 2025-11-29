@@ -80,16 +80,23 @@ jobs:
 
       - name: Build and pack core SDK
         run: |
+          # Build version args - only include VersionSuffix if it's not empty
+          VERSION_ARGS="-p:VersionPrefix=${{ steps.version.outputs.version_prefix }}"
+          if [[ -n "${{ steps.version.outputs.version_suffix }}" ]]; then
+            VERSION_ARGS="$VERSION_ARGS -p:VersionSuffix=${{ steps.version.outputs.version_suffix }}"
+          else
+            # Explicitly clear VersionSuffix to override the default in Directory.Build.props
+            VERSION_ARGS="$VERSION_ARGS -p:VersionSuffix="
+          fi
+          
           dotnet restore src/EmmittJ.Terraform.Sdk/EmmittJ.Terraform.Sdk.csproj
           dotnet build src/EmmittJ.Terraform.Sdk/EmmittJ.Terraform.Sdk.csproj \
             --no-restore --configuration Release \
-            -p:VersionPrefix=${{ steps.version.outputs.version_prefix }} \
-            -p:VersionSuffix=${{ steps.version.outputs.version_suffix }} \
+            $VERSION_ARGS \
             -p:ContinuousIntegrationBuild=true
           dotnet pack src/EmmittJ.Terraform.Sdk/EmmittJ.Terraform.Sdk.csproj \
             --no-build --configuration Release \
-            -p:VersionPrefix=${{ steps.version.outputs.version_prefix }} \
-            -p:VersionSuffix=${{ steps.version.outputs.version_suffix }} \
+            $VERSION_ARGS \
             --output ./artifacts
 
       - name: Upload SDK package
@@ -156,18 +163,24 @@ jobs:
 
       - name: Build and pack
         run: |
+          # Build version args - only include VersionSuffix if it's not empty
+          VERSION_ARGS="-p:VersionPrefix=${{ needs.build-sdk.outputs.version_prefix }}"
+          if [[ -n "${{ needs.build-sdk.outputs.version_suffix }}" ]]; then
+            VERSION_ARGS="$VERSION_ARGS -p:VersionSuffix=${{ needs.build-sdk.outputs.version_suffix }}"
+          else
+            VERSION_ARGS="$VERSION_ARGS -p:VersionSuffix="
+          fi
+          
           dotnet restore "${{ matrix.project }}" -p:UseProjectReference=false
           dotnet build "${{ matrix.project }}" \
             --no-restore --configuration Release \
             -p:UseProjectReference=false \
-            -p:VersionPrefix=${{ needs.build-sdk.outputs.version_prefix }} \
-            -p:VersionSuffix=${{ needs.build-sdk.outputs.version_suffix }} \
+            $VERSION_ARGS \
             -p:ContinuousIntegrationBuild=true
           dotnet pack "${{ matrix.project }}" \
             --no-build --configuration Release \
             -p:UseProjectReference=false \
-            -p:VersionPrefix=${{ needs.build-sdk.outputs.version_prefix }} \
-            -p:VersionSuffix=${{ needs.build-sdk.outputs.version_suffix }} \
+            $VERSION_ARGS \
             --output ./artifacts
 
       - name: Upload package
