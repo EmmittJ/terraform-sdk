@@ -35,7 +35,7 @@ public class TerraformConditionalExpressionTests
         var condition = (TerraformExpression)Activator.CreateInstance(
             binaryExprType!,
             TerraformExpression.Identifier("var.environment"),
-            BinaryOperator.Equal,
+            TerraformBinaryOperator.Equal,
             TerraformExpression.Literal("production")
         )!;
 
@@ -75,14 +75,14 @@ public class TerraformConditionalExpressionTests
         var outerCondition = (TerraformExpression)Activator.CreateInstance(
             binaryExprType!,
             TerraformExpression.Identifier("var.environment"),
-            BinaryOperator.Equal,
+            TerraformBinaryOperator.Equal,
             TerraformExpression.Literal("production")
         )!;
 
         var innerCondition = (TerraformExpression)Activator.CreateInstance(
             binaryExprType!,
             TerraformExpression.Identifier("var.size"),
-            BinaryOperator.Equal,
+            TerraformBinaryOperator.Equal,
             TerraformExpression.Literal("large")
         )!;
 

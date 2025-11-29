@@ -233,16 +233,16 @@ public abstract class TerraformExpression : TerraformSyntaxNode, ITerraformResol
 
     // Arithmetic operators
     public static TerraformExpression operator +(TerraformExpression left, TerraformExpression right)
-        => new BinaryExpression(left, BinaryOperator.Add, right);
+        => new BinaryExpression(left, TerraformBinaryOperator.Add, right);
 
     public static TerraformExpression operator -(TerraformExpression left, TerraformExpression right)
-        => new BinaryExpression(left, BinaryOperator.Subtract, right);
+        => new BinaryExpression(left, TerraformBinaryOperator.Subtract, right);
 
     public static TerraformExpression operator *(TerraformExpression left, TerraformExpression right)
-        => new BinaryExpression(left, BinaryOperator.Multiply, right);
+        => new BinaryExpression(left, TerraformBinaryOperator.Multiply, right);
 
     public static TerraformExpression operator /(TerraformExpression left, TerraformExpression right)
-        => new BinaryExpression(left, BinaryOperator.Divide, right);
+        => new BinaryExpression(left, TerraformBinaryOperator.Divide, right);
 
     public virtual TerraformExpression this[string key]
     {
@@ -254,7 +254,7 @@ public abstract class TerraformExpression : TerraformSyntaxNode, ITerraformResol
 /// <summary>
 /// Binary operators for Terraform expressions.
 /// </summary>
-public enum BinaryOperator
+public enum TerraformBinaryOperator
 {
     Add,
     Subtract,

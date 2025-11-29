@@ -111,29 +111,29 @@ internal class RawExpression(string hcl) : TerraformExpression
 /// <summary>
 /// Binary expression (e.g., "a + b", "x == y").
 /// </summary>
-internal class BinaryExpression(TerraformExpression left, BinaryOperator op, TerraformExpression right) : TerraformExpression
+internal class BinaryExpression(TerraformExpression left, TerraformBinaryOperator op, TerraformExpression right) : TerraformExpression
 {
     private readonly TerraformExpression _left = left ?? throw new ArgumentNullException(nameof(left));
-    private readonly BinaryOperator _operator = op;
+    private readonly TerraformBinaryOperator _operator = op;
     private readonly TerraformExpression _right = right ?? throw new ArgumentNullException(nameof(right));
 
     public override string ToHcl(ITerraformContext context)
     {
         var opString = _operator switch
         {
-            BinaryOperator.Add => "+",
-            BinaryOperator.Subtract => "-",
-            BinaryOperator.Multiply => "*",
-            BinaryOperator.Divide => "/",
-            BinaryOperator.Modulo => "%",
-            BinaryOperator.Equal => "==",
-            BinaryOperator.NotEqual => "!=",
-            BinaryOperator.LessThan => "<",
-            BinaryOperator.LessThanOrEqual => "<=",
-            BinaryOperator.GreaterThan => ">",
-            BinaryOperator.GreaterThanOrEqual => ">=",
-            BinaryOperator.And => "&&",
-            BinaryOperator.Or => "||",
+            TerraformBinaryOperator.Add => "+",
+            TerraformBinaryOperator.Subtract => "-",
+            TerraformBinaryOperator.Multiply => "*",
+            TerraformBinaryOperator.Divide => "/",
+            TerraformBinaryOperator.Modulo => "%",
+            TerraformBinaryOperator.Equal => "==",
+            TerraformBinaryOperator.NotEqual => "!=",
+            TerraformBinaryOperator.LessThan => "<",
+            TerraformBinaryOperator.LessThanOrEqual => "<=",
+            TerraformBinaryOperator.GreaterThan => ">",
+            TerraformBinaryOperator.GreaterThanOrEqual => ">=",
+            TerraformBinaryOperator.And => "&&",
+            TerraformBinaryOperator.Or => "||",
             _ => throw new NotSupportedException(
                 $"Operator '{_operator}' is not supported for HCL generation. " +
                 $"Supported operators: +, -, *, /, %, ==, !=, <, <=, >, >=, &&, ||, !")

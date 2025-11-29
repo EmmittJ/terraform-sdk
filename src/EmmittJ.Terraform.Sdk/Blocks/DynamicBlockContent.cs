@@ -7,12 +7,12 @@ namespace EmmittJ.Terraform.Sdk;
 /// </summary>
 /// <example>
 /// // Create dynamic block for "setting" without a SettingBlock class
-/// var content = new DynamicBlockContent("setting");
+/// var content = new TerraformDynamicBlockContent("setting");
 /// content.SetArgument("namespace", TerraformExpression.Identifier("setting.value.namespace"));
 /// content.SetArgument("name", TerraformExpression.Identifier("setting.value.name"));
 /// var dynamicBlock = new TerraformDynamicBlock(content, var.settings);
 /// </example>
-public class DynamicBlockContent : TerraformBlock
+public class TerraformDynamicBlockContent : TerraformBlock
 {
     /// <summary>
     /// Gets the block type.
@@ -20,10 +20,10 @@ public class DynamicBlockContent : TerraformBlock
     public override string BlockType { get; }
 
     /// <summary>
-    /// Creates a new DynamicBlockContent with the specified block type.
+    /// Creates a new TerraformDynamicBlockContent with the specified block type.
     /// </summary>
     /// <param name="blockType">The type of block being generated (e.g., "setting", "ingress", "egress")</param>
-    public DynamicBlockContent(string blockType)
+    public TerraformDynamicBlockContent(string blockType)
     {
         BlockType = blockType ?? throw new ArgumentNullException(nameof(blockType));
     }

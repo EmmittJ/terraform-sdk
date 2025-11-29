@@ -15,7 +15,7 @@ public class TerraformOperatorExpressionTests
     /// <summary>
     /// Helper method to create binary expressions using reflection (since BinaryExpression is internal).
     /// </summary>
-    private static TerraformExpression CreateBinaryExpression(TerraformExpression left, BinaryOperator op, TerraformExpression right)
+    private static TerraformExpression CreateBinaryExpression(TerraformExpression left, TerraformBinaryOperator op, TerraformExpression right)
     {
         var binaryExprType = typeof(TerraformExpression).Assembly.GetType("EmmittJ.Terraform.Sdk.BinaryExpression");
         return (TerraformExpression)Activator.CreateInstance(binaryExprType!, left, op, right)!;
@@ -124,7 +124,7 @@ public class TerraformOperatorExpressionTests
         // Arrange
         var left = TerraformExpression.Identifier("var.environment");
         var right = TerraformExpression.Literal("production");
-        var expression = CreateBinaryExpression(left, BinaryOperator.Equal, right);
+        var expression = CreateBinaryExpression(left, TerraformBinaryOperator.Equal, right);
 
         // Act
         var hcl = expression.ToHcl(_context);
@@ -139,7 +139,7 @@ public class TerraformOperatorExpressionTests
         // Arrange
         var left = TerraformExpression.Identifier("var.region");
         var right = TerraformExpression.Literal("us-east-1");
-        var expression = CreateBinaryExpression(left, BinaryOperator.NotEqual, right);
+        var expression = CreateBinaryExpression(left, TerraformBinaryOperator.NotEqual, right);
 
         // Act
         var hcl = expression.ToHcl(_context);
@@ -154,7 +154,7 @@ public class TerraformOperatorExpressionTests
         // Arrange
         var left = TerraformExpression.Identifier("var.instance_count");
         var right = TerraformExpression.Literal(10);
-        var expression = CreateBinaryExpression(left, BinaryOperator.LessThan, right);
+        var expression = CreateBinaryExpression(left, TerraformBinaryOperator.LessThan, right);
 
         // Act
         var hcl = expression.ToHcl(_context);
@@ -169,7 +169,7 @@ public class TerraformOperatorExpressionTests
         // Arrange
         var left = TerraformExpression.Identifier("var.cpu_count");
         var right = TerraformExpression.Literal(2);
-        var expression = CreateBinaryExpression(left, BinaryOperator.GreaterThan, right);
+        var expression = CreateBinaryExpression(left, TerraformBinaryOperator.GreaterThan, right);
 
         // Act
         var hcl = expression.ToHcl(_context);
@@ -184,7 +184,7 @@ public class TerraformOperatorExpressionTests
         // Arrange
         var left = TerraformExpression.Literal(5);
         var right = TerraformExpression.Literal(10);
-        var expression = CreateBinaryExpression(left, BinaryOperator.LessThanOrEqual, right);
+        var expression = CreateBinaryExpression(left, TerraformBinaryOperator.LessThanOrEqual, right);
 
         // Act
         var hcl = expression.ToHcl(_context);
@@ -199,7 +199,7 @@ public class TerraformOperatorExpressionTests
         // Arrange
         var left = TerraformExpression.Literal(10);
         var right = TerraformExpression.Literal(5);
-        var expression = CreateBinaryExpression(left, BinaryOperator.GreaterThanOrEqual, right);
+        var expression = CreateBinaryExpression(left, TerraformBinaryOperator.GreaterThanOrEqual, right);
 
         // Act
         var hcl = expression.ToHcl(_context);
@@ -218,15 +218,15 @@ public class TerraformOperatorExpressionTests
         // Arrange
         var left = CreateBinaryExpression(
             TerraformExpression.Identifier("var.enabled"),
-            BinaryOperator.Equal,
+            TerraformBinaryOperator.Equal,
             TerraformExpression.Literal(true)
         );
         var right = CreateBinaryExpression(
             TerraformExpression.Identifier("var.environment"),
-            BinaryOperator.Equal,
+            TerraformBinaryOperator.Equal,
             TerraformExpression.Literal("production")
         );
-        var expression = CreateBinaryExpression(left, BinaryOperator.And, right);
+        var expression = CreateBinaryExpression(left, TerraformBinaryOperator.And, right);
 
         // Act
         var hcl = expression.ToHcl(_context);
@@ -241,15 +241,15 @@ public class TerraformOperatorExpressionTests
         // Arrange
         var left = CreateBinaryExpression(
             TerraformExpression.Identifier("var.environment"),
-            BinaryOperator.Equal,
+            TerraformBinaryOperator.Equal,
             TerraformExpression.Literal("production")
         );
         var right = CreateBinaryExpression(
             TerraformExpression.Identifier("var.environment"),
-            BinaryOperator.Equal,
+            TerraformBinaryOperator.Equal,
             TerraformExpression.Literal("staging")
         );
-        var expression = CreateBinaryExpression(left, BinaryOperator.Or, right);
+        var expression = CreateBinaryExpression(left, TerraformBinaryOperator.Or, right);
 
         // Act
         var hcl = expression.ToHcl(_context);

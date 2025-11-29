@@ -118,7 +118,7 @@ public class TerraformDynamicBlock<TContent> : TerraformBlock
 /// Use this when you don't have a strongly-typed block class and need to configure
 /// properties dynamically using string names.
 /// </summary>
-public class TerraformDynamicBlock : TerraformDynamicBlock<DynamicBlockContent>
+public class TerraformDynamicBlock : TerraformDynamicBlock<TerraformDynamicBlockContent>
 {
     /// <summary>
     /// Creates a new dynamic block with untyped content.
@@ -126,7 +126,7 @@ public class TerraformDynamicBlock : TerraformDynamicBlock<DynamicBlockContent>
     /// <param name="blockType">The type of block being generated (e.g., "setting", "ingress")</param>
     /// <param name="forEach">The collection to iterate over</param>
     public TerraformDynamicBlock(string blockType, ITerraformValue forEach)
-        : base(new DynamicBlockContent(blockType), forEach)
+        : base(new TerraformDynamicBlockContent(blockType), forEach)
     {
     }
 }

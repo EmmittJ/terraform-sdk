@@ -22,13 +22,13 @@ public class TerraformDynamicBlockTests
         var ports = new TerraformList<int> { 80, 443, 8080 };
 
         // Create dynamic block content with the block type
-        var ingressContent = new DynamicBlockContent("ingress");
+        var ingressContent = new TerraformDynamicBlockContent("ingress");
         ingressContent["from_port"] = TerraformExpression.Identifier("ingress.value");
         ingressContent["to_port"] = TerraformExpression.Identifier("ingress.value");
         ingressContent["protocol"] = "tcp";
 
         // Create the dynamic block
-        var dynamicBlock = new TerraformDynamicBlock<DynamicBlockContent>(ingressContent, ports)
+        var dynamicBlock = new TerraformDynamicBlock<TerraformDynamicBlockContent>(ingressContent, ports)
         {
             Iterator = "ingress"
         };
@@ -57,11 +57,11 @@ public class TerraformDynamicBlockTests
         tags["Owner"] = "TeamA";
 
         // Create dynamic block content that uses key and value
-        var tagContent = new DynamicBlockContent("tag");
+        var tagContent = new TerraformDynamicBlockContent("tag");
         tagContent["key"] = TerraformExpression.Identifier("tag.key");
         tagContent["value"] = TerraformExpression.Identifier("tag.value");
 
-        var dynamicBlock = new TerraformDynamicBlock<DynamicBlockContent>(tagContent, tags)
+        var dynamicBlock = new TerraformDynamicBlock<TerraformDynamicBlockContent>(tagContent, tags)
         {
             Iterator = "tag"
         };
@@ -87,7 +87,7 @@ public class TerraformDynamicBlockTests
         TerraformValue<object> varPorts = TerraformExpression.Identifier("var.ingress_ports");
 
         // Create ingress block content
-        var ingressContent = new DynamicBlockContent("ingress");
+        var ingressContent = new TerraformDynamicBlockContent("ingress");
         ingressContent["from_port"] = TerraformExpression.Identifier("port.value");
         ingressContent["to_port"] = TerraformExpression.Identifier("port.value");
         ingressContent["protocol"] = "tcp";
