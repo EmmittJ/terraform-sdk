@@ -17,7 +17,7 @@ The EmmittJ Terraform SDK is a .NET library that enables infrastructure-as-code 
 - 📝 **IntelliSense support** - Full IDE support with documentation
 - 🏛️ **Compositional AST** - Build complex HCL from simple expression nodes
 - 🌐 **Multi-cloud** - AWS, Azure, GCP support via auto-generated providers
-- 🔌 **Aspire integration** - Deploy infrastructure with .NET Aspire
+- 🔌 **Aspire integration** - Deploy infrastructure with Aspire
 
 ## 📦 Installation
 
@@ -401,7 +401,7 @@ Contributions are welcome! Please read the development guidelines in [`.github/c
 - [GitHub Repository](https://github.com/EmmittJ/terraform-sdk)
 - [Terraform Documentation](https://developer.hashicorp.com/terraform)
 - [Terraform Registry](https://registry.terraform.io/)
-- [.NET Aspire Documentation](https://learn.microsoft.com/dotnet/aspire/)
+- [Aspire Documentation](https://learn.microsoft.com/dotnet/aspire/)
 
 ## 📄 License
 

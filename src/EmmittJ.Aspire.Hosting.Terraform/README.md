@@ -1,6 +1,6 @@
 # EmmittJ.Aspire.Hosting.Terraform library
 
-Provides extension methods for deploying .NET Aspire applications using Terraform infrastructure-as-code.
+Provides extension methods for deploying Aspire applications using Terraform infrastructure-as-code.
 
 ## Getting started
 
@@ -44,7 +44,7 @@ builder.Build().Run();
 
 ### Deployment Model
 
-This library implements a complete Terraform deployment environment for .NET Aspire, following the same pattern as Azure Container Apps and Kubernetes deployments.
+This library implements a complete Terraform deployment environment for Aspire, following the same pattern as Azure Container Apps and Kubernetes deployments.
 
 **Key Components:**
 

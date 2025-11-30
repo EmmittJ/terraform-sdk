@@ -1,6 +1,6 @@
 # EmmittJ.Aspire.Hosting.Terraform Tests
 
-Comprehensive test suite for the Terraform hosting integration for .NET Aspire.
+Comprehensive test suite for the Terraform hosting integration for Aspire.
 
 ## Test Structure
 

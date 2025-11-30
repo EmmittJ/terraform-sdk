@@ -1,6 +1,6 @@
 # Terraform SDK Code Generation - Aspire Integration
 
-This project uses .NET Aspire's distributed application model and eventing system for orchestrating Terraform provider code generation.
+This project uses Aspire's distributed application model and eventing system for orchestrating Terraform provider code generation.
 
 ## Architecture
 
