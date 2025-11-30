@@ -113,7 +113,7 @@ public class TerraformPipelineIntegrationTests
     }
 
     [Fact]
-    public async Task MultipleStacks_GenerateSeparateFiles()
+    public async Task MultipleAnnotations_ContributeToSingleStack()
     {
         // Arrange
         var tempDir = Path.Combine(Path.GetTempPath(), "terraform-test", Guid.NewGuid().ToString());
@@ -131,7 +131,6 @@ public class TerraformPipelineIntegrationTests
             var container = builder.AddContainer("myapp", "image")
                 .PublishAsTerraform(infra =>
                 {
-                    infra.Stack.Name = "network";
                     var vpc = new TerraformVariable("vpc_cidr")
                     {
                         Type = "string",
@@ -141,7 +140,6 @@ public class TerraformPipelineIntegrationTests
                 })
                 .PublishAsTerraform(infra =>
                 {
-                    infra.Stack.Name = "security";
                     var allowSsh = new TerraformVariable("allow_ssh")
                     {
                         Type = "bool",
@@ -190,7 +188,6 @@ public class TerraformPipelineIntegrationTests
                 .WithTerraformConfiguration(config => config.OutputPath = parentOutputDir)
                 .PublishAsTerraform(infra =>
                 {
-                    infra.Stack.Name = "stack1";
                     var var1 = new TerraformVariable("var1")
                     {
                         Type = "string"
@@ -199,7 +196,6 @@ public class TerraformPipelineIntegrationTests
                 })
                 .PublishAsTerraform(infra =>
                 {
-                    infra.Stack.Name = "stack2";
                     var var2 = new TerraformVariable("var2")
                     {
                         Type = "string"

@@ -163,11 +163,19 @@ internal sealed class TerraformPublishingContext
         }
 
         // Phase 4: Add parameter variables to root stack (for bubbling up to root module)
+        // Only add variables that aren't already present in the root stack
         if (rootStack is not null)
         {
+            var existingVariables = rootStack.Blocks.OfType<TerraformVariable>()
+                .Select(v => v.Name)
+                .ToHashSet(StringComparer.Ordinal);
+
             foreach (var variable in _parameterLookup.Values)
             {
-                rootStack.Add(variable);
+                if (!existingVariables.Contains(variable.Name))
+                {
+                    rootStack.Add(variable);
+                }
             }
         }
 
@@ -218,37 +226,25 @@ internal sealed class TerraformPublishingContext
         var resourceOutputPath = PublishingContextUtils.GetResourceOutputPath(_pipelineContext, _environment, resource);
         Directory.CreateDirectory(resourceOutputPath);
 
-        // Get all Terraform customization annotations for this resource
-        // Each annotation creates a separate .tf file in the same module directory
+        // Apply all customization annotations to the same stack
         if (resource.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var annotations))
         {
             foreach (var annotation in annotations)
             {
-                // Create a fresh TerraformResource for each annotation so they get separate stacks
-                var annotationTerraformResource = new TerraformProvisioningResource($"{resource.Name}-terraform", _environment, resource);
-
-                // Apply the customization callback to configure the TerraformResource
-                annotation.Configure(annotationTerraformResource);
-
-                // Handle different resource types
-                await ProcessResourceByTypeAsync(resource, annotationTerraformResource.Stack).ConfigureAwait(false);
-
-                // Generate the Terraform configuration file for this stack
-                var fileName = !string.IsNullOrEmpty(annotationTerraformResource.Stack.Name)
-                    ? $"{annotationTerraformResource.Stack.Name}.tf"
-                    : "main.tf";
-                await GenerateConfigurationFileAsync(annotationTerraformResource.Stack, resourceOutputPath, fileName).ConfigureAwait(false);
+                // Apply the customization callback
+                // This populates terraformResource.Inputs with any dependencies from AddVariable calls
+                annotation.Configure(terraformResource);
             }
         }
-        else
-        {
-            // No customization annotations - generate default main.tf from the empty terraformResource
-            await ProcessResourceByTypeAsync(resource, terraformResource.Stack).ConfigureAwait(false);
-            await GenerateConfigurationFileAsync(terraformResource.Stack, resourceOutputPath, "main.tf").ConfigureAwait(false);
-        }
 
-        // Return ONE module reference for this resource's directory
-        // All .tf files in the directory are part of this module
+        // Handle different resource types
+        await ProcessResourceByTypeAsync(resource, terraformResource.Stack).ConfigureAwait(false);
+
+        // Generate .tf file using stack name (defaults to "main")
+        var fileName = $"{terraformResource.Stack.Name}.tf";
+        await GenerateConfigurationFileAsync(terraformResource.Stack, resourceOutputPath, fileName).ConfigureAwait(false);
+
+        // Return module reference for this resource's directory
         var relativePath = Path.GetRelativePath(_baseOutputPath, resourceOutputPath);
         return new TerraformModule(resource.Name)
         {
