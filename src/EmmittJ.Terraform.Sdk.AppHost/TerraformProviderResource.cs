@@ -148,9 +148,6 @@ public sealed class TerraformProviderResource : Resource
         var providerNamespace = GetNamespace(environment);
         var outputDirectory = Path.Combine(services.Options.OutputDirectory, providerNamespace);
 
-        // Generate provider class
-        await GenerateProviderClassAsync(outputDirectory, providerSchema, providerNamespace, services, context.CancellationToken);
-
         // Generate resources
         var resources = services.SchemaParser.ParseResources(providerSchema, ProviderName);
         await GenerateResourcesAsync(outputDirectory, resources, providerNamespace, services, context.CancellationToken);
@@ -159,8 +156,11 @@ public sealed class TerraformProviderResource : Resource
         var dataSources = services.SchemaParser.ParseDataSources(providerSchema, ProviderName);
         await GenerateDataSourcesAsync(outputDirectory, dataSources, providerNamespace, services, context.CancellationToken);
 
-        // Generate project file
-        await GenerateProjectFileAsync(outputDirectory, providerNamespace, services, context.CancellationToken);
+        // Generate provider class and get the model for project/readme generation
+        var providerModel = await GenerateProviderClassAsync(outputDirectory, providerSchema, providerNamespace, services, context.CancellationToken);
+
+        // Generate project file and README
+        await GenerateProjectFilesAsync(outputDirectory, providerModel, services, context.CancellationToken);
 
         await context.ReportingStep.CompleteAsync(
             $"Code generated for {ProviderName}: {resources.Count} resources, {dataSources.Count} data sources",
@@ -174,7 +174,7 @@ public sealed class TerraformProviderResource : Resource
         return $"{environment.Namespace}.{normalizedName}";
     }
 
-    private async Task GenerateProviderClassAsync(
+    private async Task<Models.ProviderConfig> GenerateProviderClassAsync(
         string outputDirectory,
         Schema.ProviderSchema providerSchema,
         string providerNamespace,
@@ -219,6 +219,8 @@ public sealed class TerraformProviderResource : Resource
         var providerCode = services.ProviderTemplate.Generate(providerModel);
         var providerClassPath = Path.Combine(outputDirectory, $"{providerClassName}.cs");
         await services.FileSystem.WriteAllTextAsync(providerClassPath, providerCode, cancellationToken);
+
+        return providerModel;
     }
 
     private async Task GenerateResourcesAsync(
@@ -257,16 +259,25 @@ public sealed class TerraformProviderResource : Resource
         }
     }
 
-    private async Task GenerateProjectFileAsync(
+    private async Task GenerateProjectFilesAsync(
         string outputDirectory,
-        string providerNamespace,
+        Models.ProviderConfig providerModel,
         TerraformCodeGenServices services,
         CancellationToken cancellationToken)
     {
-        var templatePath = Path.Combine(services.Options.TemplatesDirectory, "provider.csproj.mustache");
-        var projectContent = await services.FileSystem.ReadAllTextAsync(templatePath, cancellationToken);
-        var projectPath = Path.Combine(outputDirectory, $"{providerNamespace}.csproj");
-        await services.FileSystem.WriteAllTextAsync(projectPath, projectContent, cancellationToken);
+        // Generate project file from template
+        var csprojTemplatePath = Path.Combine(services.Options.TemplatesDirectory, "provider.csproj.mustache");
+        var csprojTemplate = await services.FileSystem.ReadAllTextAsync(csprojTemplatePath, cancellationToken);
+        var csprojContent = services.TemplateRenderer.RenderContent(csprojTemplate, providerModel);
+        var csprojPath = Path.Combine(outputDirectory, $"{providerModel.Namespace}.csproj");
+        await services.FileSystem.WriteAllTextAsync(csprojPath, csprojContent, cancellationToken);
+
+        // Generate README from template
+        var readmeTemplatePath = Path.Combine(services.Options.TemplatesDirectory, "README.md.mustache");
+        var readmeTemplate = await services.FileSystem.ReadAllTextAsync(readmeTemplatePath, cancellationToken);
+        var readmeContent = services.TemplateRenderer.RenderContent(readmeTemplate, providerModel);
+        var readmePath = Path.Combine(outputDirectory, "README.md");
+        await services.FileSystem.WriteAllTextAsync(readmePath, readmeContent, cancellationToken);
     }
 
     private static string GetProviderClassName(string @namespace)

@@ -6,7 +6,18 @@ namespace EmmittJ.Terraform.Sdk.AppHost;
 public interface ITemplateRenderer
 {
     /// <summary>
-    /// Renders a template with the provided data.
+    /// Renders a template file with the provided data.
     /// </summary>
+    /// <param name="templateName">The name of the template file to render.</param>
+    /// <param name="data">The data to use when rendering the template.</param>
+    /// <returns>The rendered template output.</returns>
     string Render(string templateName, object data);
+
+    /// <summary>
+    /// Renders template content directly with the provided data.
+    /// </summary>
+    /// <param name="templateContent">The template content to render.</param>
+    /// <param name="data">The data to use when rendering the template.</param>
+    /// <returns>The rendered template output.</returns>
+    string RenderContent(string templateContent, object data);
 }

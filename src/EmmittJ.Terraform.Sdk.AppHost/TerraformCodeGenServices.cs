@@ -8,6 +8,7 @@ public sealed class TerraformCodeGenServices(
     ITerraformCli terraformCli,
     ISchemaParser schemaParser,
     IModelBuilder modelBuilder,
+    ITemplateRenderer templateRenderer,
     TerraformCodeGenOptions options,
     Templates.ResourceTemplate resourceTemplate,
     Templates.DataSourceTemplate dataSourceTemplate,
@@ -18,6 +19,7 @@ public sealed class TerraformCodeGenServices(
     public ITerraformCli TerraformCli { get; } = terraformCli;
     public ISchemaParser SchemaParser { get; } = schemaParser;
     public IModelBuilder ModelBuilder { get; } = modelBuilder;
+    public ITemplateRenderer TemplateRenderer { get; } = templateRenderer;
     public TerraformCodeGenOptions Options { get; } = options;
     public Templates.ResourceTemplate ResourceTemplate { get; } = resourceTemplate;
     public Templates.DataSourceTemplate DataSourceTemplate { get; } = dataSourceTemplate;

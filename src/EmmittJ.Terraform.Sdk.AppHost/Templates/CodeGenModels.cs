@@ -11,6 +11,23 @@ public class ProviderConfig
     public int DataSourceCount { get; set; }
     public List<PropertyModel> Arguments { get; set; } = new();
     public List<BlockTypeModel> BlockTypes { get; set; } = new();
+
+    /// <summary>
+    /// Gets the provider class name (e.g., "AwsProvider", "AzurermProvider").
+    /// </summary>
+    public string ProviderClassName => $"{char.ToUpper(Name[0])}{Name.Substring(1)}Provider";
+
+    /// <summary>
+    /// Gets the provider title for display (e.g., "AWS", "Azure RM", "Google Cloud").
+    /// </summary>
+    public string ProviderTitle => Name.ToLowerInvariant() switch
+    {
+        "aws" => "AWS",
+        "azurerm" => "Azure RM",
+        "azuread" => "Azure AD",
+        "google" => "Google Cloud",
+        _ => char.ToUpper(Name[0]) + Name.Substring(1)
+    };
 }
 
 public class ResourceModel

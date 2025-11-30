@@ -1,0 +1,45 @@
+# {{Namespace}}
+
+{{ProviderTitle}} provider bindings for [EmmittJ.Terraform.Sdk](https://www.nuget.org/packages/EmmittJ.Terraform.Sdk) - strongly-typed C# classes for {{ProviderTitle}} Terraform resources.
+
+## Installation
+
+```bash
+dotnet add package {{Namespace}}
+```
+
+## Usage
+
+```csharp
+using EmmittJ.Terraform.Sdk;
+using {{Namespace}};
+
+var stack = new TerraformStack();
+
+// Add {{ProviderTitle}} provider
+var provider = stack.Add(new {{ProviderClassName}}("{{Name}}"));
+
+// Generate HCL
+Console.WriteLine(stack.ToHcl());
+```
+
+## Features
+
+- **Strongly-typed resources**: All {{ProviderTitle}} resources and data sources as C# classes
+- **IntelliSense support**: Full autocomplete for resource properties
+- **Compile-time safety**: Catch configuration errors before deployment
+- **Auto-generated**: Bindings generated from official Terraform {{ProviderTitle}} provider schema
+
+## Package Contents
+
+| | |
+|---|---|
+| **Provider Version** | {{Version}} |
+| **Resources** | {{ResourceCount}} |
+| **Data Sources** | {{DataSourceCount}} |
+
+## Documentation
+
+- [EmmittJ.Terraform.Sdk Documentation](https://github.com/EmmittJ/terraform-sdk)
+- [Terraform {{ProviderTitle}} Provider Documentation](https://registry.terraform.io/providers/hashicorp/{{Name}}/{{Version}}/docs)
+

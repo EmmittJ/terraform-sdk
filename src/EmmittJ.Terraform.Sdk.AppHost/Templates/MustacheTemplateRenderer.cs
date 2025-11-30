@@ -20,7 +20,7 @@ public class MustacheTemplateRenderer : ITemplateRenderer
     }
 
     /// <summary>
-    /// Renders a template with the provided data.
+    /// Renders a template file with the provided data.
     /// </summary>
     public string Render(string templateName, object data)
     {
@@ -38,5 +38,13 @@ public class MustacheTemplateRenderer : ITemplateRenderer
 
         var template = _fileSystem.ReadAllTextAsync(templatePath).GetAwaiter().GetResult();
         return _renderer.Render(template, data);
+    }
+
+    /// <summary>
+    /// Renders template content directly with the provided data.
+    /// </summary>
+    public string RenderContent(string templateContent, object data)
+    {
+        return _renderer.Render(templateContent, data);
     }
 }
