@@ -21,6 +21,9 @@ env:
   DOTNET_CLI_TELEMETRY_OPTOUT: true
   DOTNET_NOLOGO: true
 
+permissions:
+  contents: write
+
 jobs:
   # Phase 1: Build and pack the core SDK
   build-sdk:
