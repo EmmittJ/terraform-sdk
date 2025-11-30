@@ -20,4 +20,9 @@
     <Product>EmmittJ Terraform SDK</Product>
   </PropertyGroup>
 
+  <!-- Source Link for GitHub -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+  </ItemGroup>
+
 </Project>
