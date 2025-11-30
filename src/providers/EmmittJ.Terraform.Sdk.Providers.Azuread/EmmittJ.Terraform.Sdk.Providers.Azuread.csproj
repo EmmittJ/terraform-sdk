@@ -8,7 +8,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Description>Azure AD provider bindings for EmmittJ.Terraform.Sdk - strongly-typed C# classes for Azure AD Terraform resources.</Description>
+    <Description>Azure AD provider bindings for EmmittJ.Terraform.Sdk - strongly-typed C# classes for Azure AD Terraform resources. Generated from provider schema v~&gt; 3.0.</Description>
   </PropertyGroup>
 
   <ItemGroup>

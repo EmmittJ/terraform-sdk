@@ -1,6 +1,6 @@
 # EmmittJ.Terraform.Sdk.Providers.Azurerm
 
-Azure RM provider bindings for [EmmittJ.Terraform.Sdk](https://www.nuget.org/packages/EmmittJ.Terraform.Sdk) - strongly-typed C# classes for Azure Terraform resources.
+Azure RM provider bindings for [EmmittJ.Terraform.Sdk](https://www.nuget.org/packages/EmmittJ.Terraform.Sdk) - strongly-typed C# classes for Azure RM Terraform resources.
 
 ## Installation
 
@@ -17,17 +17,7 @@ using EmmittJ.Terraform.Sdk.Providers.Azurerm;
 var stack = new TerraformStack();
 
 // Add Azure RM provider
-var azurerm = stack.Add(new AzurermProvider("azurerm")
-{
-    ["features"] = new TerraformBlock("features")
-});
-
-// Create a resource group
-var rg = stack.Add(new AzurermResourceGroup("my-rg")
-{
-    ["name"] = "my-resource-group",
-    ["location"] = "East US"
-});
+var provider = stack.Add(new AzurermProvider());
 
 // Generate HCL
 Console.WriteLine(stack.ToHcl());
@@ -38,9 +28,18 @@ Console.WriteLine(stack.ToHcl());
 - **Strongly-typed resources**: All Azure RM resources and data sources as C# classes
 - **IntelliSense support**: Full autocomplete for resource properties
 - **Compile-time safety**: Catch configuration errors before deployment
-- **Auto-generated**: Bindings generated from official Terraform AzureRM provider schema
+- **Auto-generated**: Bindings generated from official Terraform Azure RM provider schema
+
+## Package Contents
+
+| | |
+|---|---|
+| **Provider Version** | ~&gt; 4.0 |
+| **Resources** | 1120 |
+| **Data Sources** | 399 |
 
 ## Documentation
 
 - [EmmittJ.Terraform.Sdk Documentation](https://github.com/EmmittJ/terraform-sdk)
-- [Terraform AzureRM Provider Documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+- [Terraform Azure RM Provider Documentation](https://registry.terraform.io/providers/hashicorp/azurerm/~&gt; 4.0/docs)
+

@@ -17,7 +17,7 @@ using {{Namespace}};
 var stack = new TerraformStack();
 
 // Add {{ProviderTitle}} provider
-var provider = stack.Add(new {{ProviderClassName}}("{{Name}}"));
+var provider = stack.Add(new {{ProviderClassName}}());
 
 // Generate HCL
 Console.WriteLine(stack.ToHcl());

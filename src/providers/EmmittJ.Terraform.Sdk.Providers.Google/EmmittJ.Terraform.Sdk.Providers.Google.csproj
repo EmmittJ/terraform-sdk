@@ -8,7 +8,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Description>Google Cloud provider bindings for EmmittJ.Terraform.Sdk - strongly-typed C# classes for GCP Terraform resources.</Description>
+    <Description>Google Cloud provider bindings for EmmittJ.Terraform.Sdk - strongly-typed C# classes for Google Cloud Terraform resources. Generated from provider schema v~&gt; 7.0.</Description>
   </PropertyGroup>
 
   <ItemGroup>

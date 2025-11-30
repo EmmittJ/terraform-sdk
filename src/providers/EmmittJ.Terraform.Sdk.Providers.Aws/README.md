@@ -17,16 +17,7 @@ using EmmittJ.Terraform.Sdk.Providers.Aws;
 var stack = new TerraformStack();
 
 // Add AWS provider
-var aws = stack.Add(new AwsProvider("aws")
-{
-    ["region"] = "us-west-2"
-});
-
-// Create an S3 bucket
-var bucket = stack.Add(new AwsS3Bucket("my-bucket")
-{
-    ["bucket"] = "my-unique-bucket-name"
-});
+var provider = stack.Add(new AwsProvider());
 
 // Generate HCL
 Console.WriteLine(stack.ToHcl());
@@ -39,7 +30,16 @@ Console.WriteLine(stack.ToHcl());
 - **Compile-time safety**: Catch configuration errors before deployment
 - **Auto-generated**: Bindings generated from official Terraform AWS provider schema
 
+## Package Contents
+
+| | |
+|---|---|
+| **Provider Version** | ~&gt; 6.0 |
+| **Resources** | 1561 |
+| **Data Sources** | 630 |
+
 ## Documentation
 
 - [EmmittJ.Terraform.Sdk Documentation](https://github.com/EmmittJ/terraform-sdk)
-- [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+- [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/~&gt; 6.0/docs)
+

@@ -17,13 +17,7 @@ using EmmittJ.Terraform.Sdk.Providers.Azuread;
 var stack = new TerraformStack();
 
 // Add Azure AD provider
-var azuread = stack.Add(new AzureadProvider("azuread"));
-
-// Create an application registration
-var app = stack.Add(new AzureadApplication("my-app")
-{
-    ["display_name"] = "My Application"
-});
+var provider = stack.Add(new AzureadProvider());
 
 // Generate HCL
 Console.WriteLine(stack.ToHcl());
@@ -34,9 +28,18 @@ Console.WriteLine(stack.ToHcl());
 - **Strongly-typed resources**: All Azure AD resources and data sources as C# classes
 - **IntelliSense support**: Full autocomplete for resource properties
 - **Compile-time safety**: Catch configuration errors before deployment
-- **Auto-generated**: Bindings generated from official Terraform AzureAD provider schema
+- **Auto-generated**: Bindings generated from official Terraform Azure AD provider schema
+
+## Package Contents
+
+| | |
+|---|---|
+| **Provider Version** | ~&gt; 3.0 |
+| **Resources** | 53 |
+| **Data Sources** | 20 |
 
 ## Documentation
 
 - [EmmittJ.Terraform.Sdk Documentation](https://github.com/EmmittJ/terraform-sdk)
-- [Terraform AzureAD Provider Documentation](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs)
+- [Terraform Azure AD Provider Documentation](https://registry.terraform.io/providers/hashicorp/azuread/~&gt; 3.0/docs)
+
