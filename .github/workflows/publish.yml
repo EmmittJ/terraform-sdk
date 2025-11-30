@@ -209,10 +209,7 @@ jobs:
           global-json-file: global.json
 
       - name: Run tests
-        run: |
-          dotnet restore tests/
-          dotnet build tests/ --no-restore --configuration Release
-          dotnet test tests/ --no-build --configuration Release --verbosity normal
+        run: dotnet test --configuration Release --verbosity normal
 
   # Phase 4: Publish all packages
   publish:
