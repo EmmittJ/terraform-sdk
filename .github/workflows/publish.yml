@@ -88,7 +88,7 @@ jobs:
             # Explicitly clear VersionSuffix to override the default in Directory.Build.props
             VERSION_ARGS="$VERSION_ARGS -p:VersionSuffix="
           fi
-          
+
           dotnet restore src/EmmittJ.Terraform.Sdk/EmmittJ.Terraform.Sdk.csproj
           dotnet build src/EmmittJ.Terraform.Sdk/EmmittJ.Terraform.Sdk.csproj \
             --no-restore --configuration Release \
@@ -123,8 +123,8 @@ jobs:
             project: src/providers/EmmittJ.Terraform.Sdk.Providers.Aws/EmmittJ.Terraform.Sdk.Providers.Aws.csproj
           - name: Providers.Azuread
             project: src/providers/EmmittJ.Terraform.Sdk.Providers.Azuread/EmmittJ.Terraform.Sdk.Providers.Azuread.csproj
-          - name: Providers.Azurerm
-            project: src/providers/EmmittJ.Terraform.Sdk.Providers.Azurerm/EmmittJ.Terraform.Sdk.Providers.Azurerm.csproj
+          - name: Providers.AzureRM
+            project: src/providers/EmmittJ.Terraform.Sdk.Providers.AzureRM/EmmittJ.Terraform.Sdk.Providers.AzureRM.csproj
           - name: Providers.Google
             project: src/providers/EmmittJ.Terraform.Sdk.Providers.Google/EmmittJ.Terraform.Sdk.Providers.Google.csproj
 
@@ -170,7 +170,7 @@ jobs:
           else
             VERSION_ARGS="$VERSION_ARGS -p:VersionSuffix="
           fi
-          
+
           dotnet restore "${{ matrix.project }}" -p:UseProjectReference=false
           dotnet build "${{ matrix.project }}" \
             --no-restore --configuration Release \
