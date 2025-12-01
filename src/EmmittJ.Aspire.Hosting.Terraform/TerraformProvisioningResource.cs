@@ -79,6 +79,121 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
     /// </summary>
     internal Dictionary<string, TerraformVariable> Parameters { get; } = [];
 
+    // Lazy-initialized backing fields for container properties
+    private TerraformVariable? _containerImage;
+    private TerraformVariable? _registryEndpoint;
+    private TerraformVariable? _registryName;
+
+    /// <summary>
+    /// Gets the container image variable for this resource. Auto-creates on first access.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown if the target resource doesn't require image build/push.
+    /// </exception>
+    /// <remarks>
+    /// <para>
+    /// This property provides lazy access to the container image variable. The variable is created
+    /// on first access and reused for subsequent accesses. This is equivalent to calling
+    /// <see cref="GetContainerImage()"/> but with property syntax for cleaner code.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     var containerApp = new AzurermContainerApp("app")
+    ///     {
+    ///         Template = [new()
+    ///         {
+    ///             Container = [new()
+    ///             {
+    ///                 Name = "app",
+    ///                 Image = infra.ContainerImage.AsReference()  // Lazy-creates variable
+    ///             }]
+    ///         }]
+    ///     };
+    ///     infra.Add(containerApp);
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformVariable ContainerImage => _containerImage ??= GetContainerImage();
+
+    /// <summary>
+    /// Gets the registry endpoint variable. Auto-creates on first access.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown if no container registry is configured for the environment.
+    /// </exception>
+    /// <remarks>
+    /// <para>
+    /// This property provides lazy access to the container registry endpoint variable. The variable
+    /// is created on first access from the parent environment's container registry configuration.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     var containerApp = new AzurermContainerApp("app")
+    ///     {
+    ///         Registry = [new()
+    ///         {
+    ///             Server = infra.RegistryEndpoint.AsReference()  // Lazy-creates variable
+    ///         }]
+    ///     };
+    ///     infra.Add(containerApp);
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformVariable RegistryEndpoint => _registryEndpoint ??= CreateRegistryEndpointVariable();
+
+    /// <summary>
+    /// Gets the registry name variable. Auto-creates on first access.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown if no container registry is configured for the environment.
+    /// </exception>
+    /// <remarks>
+    /// <para>
+    /// This property provides lazy access to the container registry name variable. The variable
+    /// is created on first access from the parent environment's container registry configuration.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     // Use registry name for data source lookups
+    ///     var acrDataSource = new TerraformDataSource("azurerm_container_registry", "acr")
+    ///     {
+    ///         ["name"] = infra.RegistryName.AsReference()  // Lazy-creates variable
+    ///     };
+    ///     infra.Add(acrDataSource);
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformVariable RegistryName => _registryName ??= CreateRegistryNameVariable();
+
+    private TerraformVariable CreateRegistryEndpointVariable()
+    {
+        var endpoint = Parent.ContainerRegistryEndpoint()
+            ?? throw new InvalidOperationException(
+                $"No container registry configured for environment '{Parent.Name}'. " +
+                "Use AddTerraformEnvironment(name, containerRegistry) to configure one.");
+
+        return AddVariable(endpoint);
+    }
+
+    private TerraformVariable CreateRegistryNameVariable()
+    {
+        var name = Parent.ContainerRegistryName()
+            ?? throw new InvalidOperationException(
+                $"No container registry configured for environment '{Parent.Name}'. " +
+                "Use AddTerraformEnvironment(name, containerRegistry) to configure one.");
+
+        return AddVariable(name);
+    }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="TerraformProvisioningResource"/> class.
     /// </summary>
@@ -268,6 +383,49 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
     }
 
     /// <summary>
+    /// Creates a Terraform output with the specified name and value, and registers it for cross-resource reference.
+    /// </summary>
+    /// <param name="name">The name of the output.</param>
+    /// <param name="value">The value expression for the output.</param>
+    /// <param name="sensitive">Whether this output contains sensitive data.</param>
+    /// <param name="description">Optional description for the output.</param>
+    /// <returns>The created <see cref="TerraformOutput"/>.</returns>
+    /// <remarks>
+    /// This method creates both:
+    /// <list type="bullet">
+    /// <item>A <see cref="TerraformOutput"/> in the current stack</item>
+    /// <item>A <see cref="TerraformOutputReference"/> on the parent environment for cross-resource consumption</item>
+    /// </list>
+    /// Other resources can consume this output via <see cref="AddVariable(string, string?)"/> or <c>Parent.GetTerraformOutput(name)</c>.
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// terraform.PublishAsTerraform(infra =>
+    /// {
+    ///     var containerAppEnvironment = new AzurermContainerAppEnvironment("cae") { ... };
+    ///     infra.Add(containerAppEnvironment);
+    ///
+    ///     // Single method - creates reference and adds output internally
+    ///     infra.AddOutput("container_env_id", containerAppEnvironment.Id);
+    ///
+    ///     // With sensitivity
+    ///     infra.AddOutput("connection_string", db.ConnectionString, sensitive: true);
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformOutput AddOutput(string name, TerraformValue<object> value, bool sensitive = false, string? description = null)
+    {
+        ArgumentException.ThrowIfNullOrEmpty(name);
+        ArgumentNullException.ThrowIfNull(value);
+
+        // Create the output reference for cross-resource consumption
+        var outputRef = Parent.GetTerraformOutput(name, sensitive);
+
+        // Delegate to existing method
+        return AddOutput(outputRef, value, description);
+    }
+
+    /// <summary>
     /// Creates a Terraform variable for consuming the specified output reference and adds it to the stack.
     /// </summary>
     /// <param name="outputReference">The output reference to consume as a variable.</param>
@@ -326,6 +484,41 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
         Stack.Add(variable);
 
         return variable;
+    }
+
+    /// <summary>
+    /// Creates a Terraform variable that imports an output from the parent environment.
+    /// </summary>
+    /// <param name="outputName">The name of the output to import from the parent environment.</param>
+    /// <param name="variableName">Optional custom name for the variable. If not provided, derived from output name.</param>
+    /// <returns>A <see cref="TerraformVariable"/> that receives the output value.</returns>
+    /// <remarks>
+    /// This is a convenience overload that combines <c>Parent.GetTerraformOutput(name)</c> with <c>AddVariable(outputRef)</c>.
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     // Single method - gets parent output and creates variable internally
+    ///     var containerEnvIdVar = infra.AddVariable("container_env_id");
+    ///     var managedIdentityIdVar = infra.AddVariable("managed_identity_id");
+    ///     var resourceGroupVar = infra.AddVariable("resource_group_name");
+    ///
+    ///     var containerApp = new AzurermContainerApp("app")
+    ///     {
+    ///         ContainerAppEnvironmentId = containerEnvIdVar.AsReference()
+    ///     };
+    ///     infra.Add(containerApp);
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformVariable AddVariable(string outputName, string? variableName = null)
+    {
+        ArgumentException.ThrowIfNullOrEmpty(outputName);
+
+        var outputRef = Parent.GetTerraformOutput(outputName);
+
+        return AddVariable(outputRef, variableName);
     }
 
     /// <summary>

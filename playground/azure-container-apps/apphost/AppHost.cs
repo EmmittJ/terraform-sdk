@@ -160,14 +160,10 @@ terraform.PublishAsTerraform(infra =>
         var baseNameVar = infra.AddVariable(baseNameParameter);
         var locationVar = infra.AddVariable(locationParameter);
 
-        // Get registry outputs for reference (these are passed as variables from registry stage)
-        // Use the environment's extension method to get the container registry
-        var registryEndpointOutput = infra.Parent.ContainerRegistryEndpoint()
-            ?? throw new InvalidOperationException("Container registry not configured");
-        var registryNameOutput = infra.Parent.ContainerRegistryName()
-            ?? throw new InvalidOperationException("Container registry not configured");
-        var registryEndpointVar = infra.AddVariable(registryEndpointOutput);
-        var registryNameVar = infra.AddVariable(registryNameOutput);
+        // Get registry outputs using lazy-initialized properties (NEW API)
+        // Properties auto-create variables on first access - much cleaner!
+        var registryEndpointVar = infra.RegistryEndpoint;
+        var registryNameVar = infra.RegistryName;
 
         // Common tags
         var tags = new TerraformMap<string>
@@ -257,15 +253,11 @@ terraform.PublishAsTerraform(infra =>
             Description = "The default domain for the Container App Environment"
         });
 
-        // Export for dependent resources to reference
-        // Use infra.Parent (the environment) and its GetTerraformOutput method
-        var containerEnvIdOutput = infra.Parent.GetTerraformOutput("container_env_id");
-        var managedIdentityIdOutput = infra.Parent.GetTerraformOutput("managed_identity_id");
-        var resourceGroupNameOutput = infra.Parent.GetTerraformOutput("resource_group_name");
-
-        infra.AddOutput(containerEnvIdOutput, containerAppEnvironment.Id);
-        infra.AddOutput(managedIdentityIdOutput, managedIdentity.Id);
-        infra.AddOutput(resourceGroupNameOutput, resourceGroup.Name);
+        // Export for dependent resources using simplified AddOutput API (NEW API)
+        // Single method - creates reference and adds output internally
+        infra.AddOutput("container_env_id", containerAppEnvironment.Id);
+        infra.AddOutput("managed_identity_id", managedIdentity.Id);
+        infra.AddOutput("resource_group_name", resourceGroup.Name);
     });
 
 // ============================================================================
@@ -288,19 +280,16 @@ var app = builder.AddYarp("app")
     .PublishWithStaticFiles(frontend)
     .PublishAsTerraform(infra =>
     {
-        // Get references from the terraform environment outputs
-        // Use infra.Parent to access the environment's outputs
-        var containerEnvIdVar = infra.AddVariable(infra.Parent.GetTerraformOutput("container_env_id"));
-        var managedIdentityIdVar = infra.AddVariable(infra.Parent.GetTerraformOutput("managed_identity_id"));
-        var resourceGroupVar = infra.AddVariable(infra.Parent.GetTerraformOutput("resource_group_name"));
+        // Get references using simplified AddVariable API (NEW API)
+        // Single method - gets parent output and creates variable internally
+        var containerEnvIdVar = infra.AddVariable("container_env_id");
+        var managedIdentityIdVar = infra.AddVariable("managed_identity_id");
+        var resourceGroupVar = infra.AddVariable("resource_group_name");
 
-        // Get the container image reference - this includes registry, name, and tag from the build/push process
-        var containerImageVar = infra.GetContainerImage();
-
-        // Get registry endpoint for the registry configuration
-        var registryEndpointOutput = infra.Parent.ContainerRegistryEndpoint()
-            ?? throw new InvalidOperationException("Container registry not configured");
-        var registryEndpointVar = infra.AddVariable(registryEndpointOutput);
+        // Use lazy-initialized properties for container image and registry (NEW API)
+        // Properties auto-create variables on first access - much cleaner!
+        var containerImageVar = infra.ContainerImage;
+        var registryEndpointVar = infra.RegistryEndpoint;
 
         // Container App for the YARP application
         var containerApp = new AzurermContainerApp("app")
