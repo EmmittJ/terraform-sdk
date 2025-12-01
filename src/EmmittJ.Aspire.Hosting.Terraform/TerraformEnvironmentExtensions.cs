@@ -30,12 +30,62 @@ public static class TerraformEnvironmentExtensions
         this IDistributedApplicationBuilder builder,
         string name)
     {
+        return builder.AddTerraformEnvironment(name, containerRegistry: null);
+    }
+
+    /// <summary>
+    /// Adds a Terraform environment to the application model with an associated container registry.
+    /// </summary>
+    /// <param name="builder">The <see cref="IDistributedApplicationBuilder"/>.</param>
+    /// <param name="name">The name of the Terraform environment resource.</param>
+    /// <param name="containerRegistry">The container registry to associate with this environment.</param>
+    /// <returns>A reference to the <see cref="IResourceBuilder{TerraformEnvironmentResource}"/>.</returns>
+    /// <remarks>
+    /// <para>
+    /// When a container registry is provided, the environment will:
+    /// <list type="bullet">
+    /// <item>Associate the registry with the environment for image push operations</item>
+    /// <item>Ensure the registry is provisioned before environment deployment</item>
+    /// <item>Make registry outputs available via <see cref="TerraformContainerRegistryExtensions.ContainerRegistryName"/> and <see cref="TerraformContainerRegistryExtensions.ContainerRegistryEndpoint"/></item>
+    /// </list>
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// var acr = builder.AddTerraformContainerRegistry("acr")
+    ///     .ConfigureInfrastructure(registry => { ... })
+    ///     .WithLoginCallback(TerraformContainerRegistryHelpers.CreateAzureCliLoginCallback());
+    ///
+    /// var terraform = builder.AddTerraformEnvironment("azure", acr)
+    ///     .PublishAsTerraform(infra => { ... });
+    /// </code>
+    /// </example>
+    public static IResourceBuilder<TerraformEnvironmentResource> AddTerraformEnvironment(
+        this IDistributedApplicationBuilder builder,
+        string name,
+        IResourceBuilder<TerraformContainerRegistryResource>? containerRegistry)
+    {
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentException.ThrowIfNullOrEmpty(name);
 
         builder.AddTerraformInfrastructureCore();
 
         var resource = new TerraformEnvironmentResource(name);
+
+        // Associate container registry with environment if provided
+        if (containerRegistry is not null)
+        {
+            var registryResource = containerRegistry.Resource;
+
+            // Associate the registry with the environment
+            registryResource.SetEnvironment(resource);
+
+            // Set the container registry on the environment
+            resource.ContainerRegistry = registryResource;
+
+            // Add the ContainerRegistryReferenceAnnotation to the environment (for IContainerRegistry lookup)
+            resource.Annotations.Add(new ContainerRegistryReferenceAnnotation(registryResource));
+        }
 
         if (builder.ExecutionContext.IsRunMode)
         {
@@ -160,7 +210,7 @@ public static class TerraformEnvironmentExtensions
         this IResourceBuilder<TerraformEnvironmentResource> builder,
         bool autoInit = true,
         bool autoPlan = true,
-        bool autoApply = false)
+        bool autoApply = true)
     {
         ArgumentNullException.ThrowIfNull(builder);
 

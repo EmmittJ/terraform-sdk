@@ -27,7 +27,6 @@ var projectName = builder.AddParameter("project-name");
 builder.AddTerraformEnvironment("demo")
     .WithBackend("local")
     .WithOutputPath("infra")
-    .WithAutoOperations(autoApply: true)
     .PublishAsTerraform(infra =>
     {
         // Variables - Input values for your configuration

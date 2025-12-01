@@ -36,12 +36,26 @@ internal sealed class TerraformInfrastructure(
         {
             var environmentContext = new TerraformEnvironmentContext(environment, logger, executionContext);
 
+            // Check for container registry and set deployment target annotation
+            if (environment.TryGetLastAnnotation<ContainerRegistryReferenceAnnotation>(out var registryAnnotation))
+            {
+                logger.LogDebug("Found container registry '{RegistryName}' for environment '{EnvironmentName}'",
+                    (registryAnnotation.Registry as IResource)?.Name ?? "unknown",
+                    environment.Name);
+            }
+
             // Process all resources that have Terraform customization annotations, not just compute resources
             // This includes infrastructure resources like Redis, PostgreSQL, SQL Server, etc.
             foreach (var r in @event.Model.Resources)
             {
                 // Skip the environment resource itself - its customizations go in the root main.tf
                 if (r == environment)
+                {
+                    continue;
+                }
+
+                // Skip container registry resources - they have their own pipeline
+                if (r is TerraformContainerRegistryResource)
                 {
                     continue;
                 }
@@ -54,13 +68,23 @@ internal sealed class TerraformInfrastructure(
 
                 // Create ONE TerraformResource per resource (not per annotation)
                 // Customization annotations will be applied at publish time
+                // Note: The TerraformProvisioningResource is NOT added to the model - instead, the
+                // TerraformEnvironmentResource expands its pipeline steps via PipelineStepAnnotation
                 var terraformResource = await environmentContext.CreateTerraformResourceAsync(r, cancellationToken).ConfigureAwait(false);
 
                 // Add ONE deployment target annotation per resource
-                r.Annotations.Add(new DeploymentTargetAnnotation(terraformResource)
+                var deploymentTargetAnnotation = new DeploymentTargetAnnotation(terraformResource)
                 {
                     ComputeEnvironment = environment
-                });
+                };
+
+                // Set container registry if available
+                if (registryAnnotation is not null)
+                {
+                    deploymentTargetAnnotation.ContainerRegistry = registryAnnotation.Registry;
+                }
+
+                r.Annotations.Add(deploymentTargetAnnotation);
             }
         }
     }

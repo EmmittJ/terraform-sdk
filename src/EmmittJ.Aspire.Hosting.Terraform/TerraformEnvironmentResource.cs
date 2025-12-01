@@ -55,7 +55,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     /// <summary>
     /// Gets or sets whether to automatically run terraform apply during publishing.
     /// </summary>
-    public bool AutoApply { get; set; } = false;
+    public bool AutoApply { get; set; } = true;
 
     /// <summary>
     /// Gets the collection of parameter resources that have been registered as Terraform variables.
@@ -69,6 +69,15 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     internal Dictionary<ParameterResource, TerraformVariable> ParameterVariables { get; } = new();
 
     /// <summary>
+    /// Gets the container registry associated with this environment, if any.
+    /// </summary>
+    /// <remarks>
+    /// When set, the environment's plan step will depend on the registry's login step,
+    /// ensuring the registry is provisioned and authenticated before deployment.
+    /// </remarks>
+    internal TerraformContainerRegistryResource? ContainerRegistry { get; set; }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="TerraformEnvironmentResource"/> class.
     /// </summary>
     /// <param name="name">The name of the Terraform environment.</param>
@@ -76,8 +85,11 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     {
         // Create the TerraformResource for this environment (it references itself as the target)
         TerraformResource = new TerraformProvisioningResource(name, this, this);
-        Annotations.Add(new PipelineStepAnnotation(context =>
+
+        // Add pipeline step annotation to create steps and expand deployment target steps
+        Annotations.Add(new PipelineStepAnnotation(async (factoryContext) =>
         {
+            var model = factoryContext.PipelineContext.Model;
             var steps = new List<PipelineStep>();
 
             // Add the publish step that generates Terraform files
@@ -91,60 +103,127 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             steps.Add(publishStep);
 
             // Optionally add terraform init step
-            if (!AutoInit)
+            if (AutoInit)
             {
-                return steps;
-            }
-
-            var initStep = new PipelineStep
-            {
-                Name = $"terraform-init-{Name}",
-                Action = ctx => RunTerraformCommandAsync(ctx, "init -input=false -no-color"),
-                Tags = ["terraform-init"],
-                DependsOnSteps = [publishStep.Name],
-                RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-            };
-            steps.Add(initStep);
-
-            // Optionally add terraform plan step
-            if (!AutoPlan)
-            {
-                return steps;
-            }
-            var planStep = new PipelineStep
-            {
-                Name = $"terraform-plan-{Name}",
-                Action = async ctx =>
+                var initStep = new PipelineStep
                 {
-                    var sensitiveEnvVars = await ResolveAndWriteVariablesAsync(ctx).ConfigureAwait(false);
-                    await RunTerraformCommandAsync(ctx, "plan -out=aspire.tfplan -input=false -no-color", sensitiveEnvVars).ConfigureAwait(false);
-                },
-                Tags = ["terraform-plan"],
-                DependsOnSteps = [initStep.Name, WellKnownPipelineSteps.DeployPrereq],
-                RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-            };
-            steps.Add(planStep);
+                    Name = $"terraform-init-{Name}",
+                    Action = ctx => RunTerraformCommandAsync(ctx, "init -input=false -no-color"),
+                    Tags = ["terraform-init"],
+                    DependsOnSteps = [publishStep.Name],
+                    RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+                };
+                steps.Add(initStep);
 
-            // Optionally add terraform apply step
-            if (!AutoApply)
-            {
-                return steps;
-            }
-            var applyStep = new PipelineStep
-            {
-                Name = $"terraform-apply-{Name}",
-                Action = async ctx =>
+                // Optionally add terraform plan step
+                if (AutoPlan)
                 {
-                    var sensitiveEnvVars = await ResolveAndWriteVariablesAsync(ctx).ConfigureAwait(false);
-                    await RunTerraformCommandAsync(ctx, "apply -auto-approve -input=false -no-color aspire.tfplan", sensitiveEnvVars).ConfigureAwait(false);
-                },
-                Tags = ["terraform-apply"],
-                DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
-                RequiredBySteps = [WellKnownPipelineSteps.Deploy]
-            };
-            steps.Add(applyStep);
+                    // Build dependencies for plan step - if there's a registry, depend on its login step
+                    var planDependencies = new List<string> { initStep.Name, WellKnownPipelineSteps.DeployPrereq };
+                    if (ContainerRegistry is not null)
+                    {
+                        // The environment's plan step must wait for the registry's login step to complete
+                        planDependencies.Add($"login-registry-{ContainerRegistry.Name}");
+                    }
+
+                    var planStep = new PipelineStep
+                    {
+                        Name = $"terraform-plan-{Name}",
+                        Action = async ctx =>
+                        {
+                            var sensitiveEnvVars = await ResolveAndWriteVariablesAsync(ctx).ConfigureAwait(false);
+                            await RunTerraformCommandAsync(ctx, "plan -out=aspire.tfplan -input=false -no-color", sensitiveEnvVars).ConfigureAwait(false);
+                        },
+                        Tags = ["terraform-plan"],
+                        DependsOnSteps = [.. planDependencies],
+                        RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+                    };
+                    steps.Add(planStep);
+
+                    // Optionally add terraform apply step
+                    if (AutoApply)
+                    {
+                        var applyStep = new PipelineStep
+                        {
+                            Name = $"terraform-apply-{Name}",
+                            Action = async ctx =>
+                            {
+                                var sensitiveEnvVars = await ResolveAndWriteVariablesAsync(ctx).ConfigureAwait(false);
+                                await RunTerraformCommandAsync(ctx, "apply -auto-approve -input=false -no-color aspire.tfplan", sensitiveEnvVars).ConfigureAwait(false);
+                            },
+                            Tags = ["terraform-apply", WellKnownPipelineTags.ProvisionInfrastructure],
+                            DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
+                            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+                        };
+                        steps.Add(applyStep);
+                    }
+                }
+            }
+
+            // Expand deployment target steps for all compute resources
+            // This ensures the push/provision steps from deployment targets are included in the pipeline
+            foreach (var computeResource in model.GetComputeResources())
+            {
+                var deploymentTarget = computeResource.GetDeploymentTargetAnnotation(this)?.DeploymentTarget;
+
+                if (deploymentTarget is not null && deploymentTarget.TryGetAnnotationsOfType<PipelineStepAnnotation>(out var annotations))
+                {
+                    // Resolve the deployment target's PipelineStepAnnotation and expand its steps
+                    // We do this because the deployment target is not in the model
+                    foreach (var annotation in annotations)
+                    {
+                        var childFactoryContext = new PipelineStepFactoryContext
+                        {
+                            PipelineContext = factoryContext.PipelineContext,
+                            Resource = deploymentTarget
+                        };
+
+                        var deploymentTargetSteps = await annotation.CreateStepsAsync(childFactoryContext).ConfigureAwait(false);
+
+                        foreach (var step in deploymentTargetSteps)
+                        {
+                            // Ensure the step is associated with the deployment target resource
+                            step.Resource ??= deploymentTarget;
+                        }
+
+                        steps.AddRange(deploymentTargetSteps);
+                    }
+                }
+            }
 
             return steps;
+        }));
+
+        // Add pipeline configuration annotation to wire up dependencies
+        Annotations.Add(new PipelineConfigurationAnnotation(context =>
+        {
+            // Wire up build step dependencies for compute resources
+            foreach (var computeResource in context.Model.GetComputeResources())
+            {
+                var deploymentTarget = computeResource.GetDeploymentTargetAnnotation(this)?.DeploymentTarget;
+
+                if (deploymentTarget is null)
+                {
+                    continue;
+                }
+
+                // Execute the PipelineConfigurationAnnotation callbacks on the deployment target
+                if (deploymentTarget.TryGetAnnotationsOfType<PipelineConfigurationAnnotation>(out var annotations))
+                {
+                    foreach (var annotation in annotations)
+                    {
+                        annotation.Callback(context);
+                    }
+                }
+            }
+
+            // Ensure build resources are wired up for deployment
+            foreach (var computeResource in context.Model.GetBuildResources())
+            {
+                context.GetSteps(computeResource, WellKnownPipelineTags.BuildCompute)
+                    .RequiredBy(WellKnownPipelineSteps.Deploy)
+                    .DependsOn(WellKnownPipelineSteps.DeployPrereq);
+            }
         }));
     }
 
@@ -260,50 +339,144 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     }
 
     /// <summary>
-    /// Resolves parameter values and writes non-sensitive values to aspire.auto.tfvars.
+    /// Resolves parameter values and output references, writing non-sensitive values to aspire.auto.tfvars.
     /// Returns sensitive values as a dictionary to be passed as TF_VAR_* environment variables.
     /// </summary>
     private async Task<Dictionary<string, string>> ResolveAndWriteVariablesAsync(PipelineStepContext context)
     {
-        if (ParameterVariables.Count == 0)
-        {
-            return new Dictionary<string, string>();
-        }
-
         var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(context, this);
         var sensitiveVars = new Dictionary<string, string>();
         var nonSensitiveVars = new List<(string Name, string Value)>();
 
-        context.Logger.LogInformation("Resolving {Count} Terraform variables", ParameterVariables.Count);
-
-        // Parameters are initialized by DeployPrereq step (which runs before our terraform steps)
-        // via ParameterProcessor.InitializeParametersAsync - we just need to get the values here
-
-        foreach (var (parameter, variable) in ParameterVariables)
+        // Resolve Aspire parameter values
+        if (ParameterVariables.Count > 0)
         {
-            // Parameters should already be resolved by DeployPrereq step
-            var value = await parameter.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
+            context.Logger.LogInformation("Resolving {Count} Terraform parameter variables", ParameterVariables.Count);
 
-            if (string.IsNullOrEmpty(value))
-            {
-                context.Logger.LogWarning(
-                    "Parameter '{ParameterName}' (variable '{VariableName}') has no value. " +
-                    "Terraform may prompt for it or use a default if defined.",
-                    parameter.Name, variable.Name);
-                continue;
-            }
+            // Parameters are initialized by DeployPrereq step (which runs before our terraform steps)
+            // via ParameterProcessor.InitializeParametersAsync - we just need to get the values here
 
-            if (parameter.Secret)
+            foreach (var (parameter, variable) in ParameterVariables)
             {
-                // Sensitive values go to TF_VAR_* environment variables
-                sensitiveVars[variable.Name] = value;
-                context.Logger.LogDebug("Sensitive variable '{VariableName}' will be passed via TF_VAR_* environment variable", variable.Name);
+                // Parameters should already be resolved by DeployPrereq step
+                var value = await parameter.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
+
+                if (string.IsNullOrEmpty(value))
+                {
+                    context.Logger.LogWarning(
+                        "Parameter '{ParameterName}' (variable '{VariableName}') has no value. " +
+                        "Terraform may prompt for it or use a default if defined.",
+                        parameter.Name, variable.Name);
+                    continue;
+                }
+
+                if (parameter.Secret)
+                {
+                    // Sensitive values go to TF_VAR_* environment variables
+                    sensitiveVars[variable.Name] = value;
+                    context.Logger.LogDebug("Sensitive variable '{VariableName}' will be passed via TF_VAR_* environment variable", variable.Name);
+                }
+                else
+                {
+                    // Non-sensitive values go to aspire.auto.tfvars
+                    nonSensitiveVars.Add((variable.Name, value));
+                    context.Logger.LogDebug("Variable '{VariableName}' will be written to aspire.auto.tfvars", variable.Name);
+                }
             }
-            else
+        }
+
+        // Collect all inputs from the environment's TerraformResource and all compute resources
+        // Use a dictionary to avoid duplicates (same variable can be referenced from multiple places)
+        var allInputs = new Dictionary<string, object>();
+
+        // Add environment-level inputs
+        foreach (var (inputName, inputValue) in TerraformResource.Inputs)
+        {
+            allInputs[inputName] = inputValue;
+        }
+
+        // Add inputs from all compute resources that are deployed to this environment
+        foreach (var computeResource in context.Model.GetComputeResources())
+        {
+            if (computeResource.GetDeploymentTargetAnnotation(this)?.DeploymentTarget is TerraformProvisioningResource terraformResource)
             {
-                // Non-sensitive values go to aspire.auto.tfvars
-                nonSensitiveVars.Add((variable.Name, value));
-                context.Logger.LogDebug("Variable '{VariableName}' will be written to aspire.auto.tfvars", variable.Name);
+                foreach (var (inputName, inputValue) in terraformResource.Inputs)
+                {
+                    // Only add if not already present (environment-level takes precedence)
+                    if (!allInputs.ContainsKey(inputName))
+                    {
+                        allInputs[inputName] = inputValue;
+                    }
+                }
+            }
+        }
+
+        // Resolve all collected inputs
+        foreach (var (inputName, inputValue) in allInputs)
+        {
+            if (inputValue is TerraformOutputReference outputRef)
+            {
+                // Skip output references to the environment itself - these are wired up at publish time
+                // as direct references to root module outputs, not runtime values
+                if (outputRef.Resource == this)
+                {
+                    context.Logger.LogDebug(
+                        "Skipping output reference '{OutputName}' - environment outputs are wired at publish time",
+                        outputRef.Name);
+                    continue;
+                }
+
+                // Skip output references to other modules - these are wired up at publish time
+                // as module.{name}.{output} references
+                if (outputRef.Resource is not TerraformContainerRegistryResource)
+                {
+                    context.Logger.LogDebug(
+                        "Skipping output reference '{ResourceName}.{OutputName}' - module outputs are wired at publish time",
+                        outputRef.Resource.Name, outputRef.Name);
+                    continue;
+                }
+
+                // Container registry outputs need runtime resolution (separate state)
+                var value = outputRef.Value;
+                if (string.IsNullOrEmpty(value))
+                {
+                    context.Logger.LogWarning(
+                        "Output reference '{ResourceName}.{OutputName}' (variable '{VariableName}') has no value. " +
+                        "Ensure the source resource has been applied and outputs read.",
+                        outputRef.Resource.Name, outputRef.Name, inputName);
+                    continue;
+                }
+
+                if (outputRef.Sensitive)
+                {
+                    // Sensitive values go to TF_VAR_* environment variables
+                    sensitiveVars[inputName] = value;
+                    context.Logger.LogDebug("Sensitive output reference '{VariableName}' will be passed via TF_VAR_* environment variable", inputName);
+                }
+                else
+                {
+                    // Non-sensitive values go to aspire.auto.tfvars
+                    nonSensitiveVars.Add((inputName, value));
+                    context.Logger.LogDebug("Output reference '{VariableName}' will be written to aspire.auto.tfvars", inputName);
+                }
+            }
+            else if (inputValue is ContainerImageReference imageRef)
+            {
+                // Resolve the container image reference (includes registry, name, and tag)
+                var provider = imageRef as IValueProvider;
+                var value = await provider.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
+                if (string.IsNullOrEmpty(value))
+                {
+                    context.Logger.LogWarning(
+                        "Container image reference for '{ResourceName}' (variable '{VariableName}') has no value. " +
+                        "Ensure the image has been built and pushed.",
+                        imageRef.Resource.Name, inputName);
+                    continue;
+                }
+
+                // Container images are not sensitive
+                nonSensitiveVars.Add((inputName, value));
+                context.Logger.LogDebug("Container image '{VariableName}' = '{Value}' will be written to aspire.auto.tfvars", inputName, value);
             }
         }
 

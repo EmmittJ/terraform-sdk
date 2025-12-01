@@ -95,8 +95,7 @@ var azure = builder.AddTerraformEnvironment("azure-staging")
 
 ```csharp
 var dev = builder.AddTerraformEnvironment("dev")
-    .WithBackend("local")
-    .WithAutoOperations(autoApply: true); // Auto-apply for dev
+    .WithBackend("local");
 ```
 
 ## Publishing

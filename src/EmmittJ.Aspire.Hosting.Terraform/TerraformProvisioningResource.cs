@@ -1,8 +1,14 @@
 // Licensed under the MIT License.
 
+#pragma warning disable ASPIREPIPELINES001
+#pragma warning disable ASPIREPIPELINES003
+
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
+using Aspire.Hosting.Pipelines;
+using Aspire.Hosting.Publishing;
 using EmmittJ.Terraform.Sdk;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
@@ -85,6 +91,84 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
         Parent = environment ?? throw new ArgumentNullException(nameof(environment));
         TargetResource = targetResource;
         Stack = new TerraformStack();
+
+        // Add pipeline step annotation for container image push (if this resource needs it)
+        Annotations.Add(new PipelineStepAnnotation(CreatePipelineSteps));
+
+        // Add pipeline configuration annotation to wire up dependencies
+        Annotations.Add(new PipelineConfigurationAnnotation(ConfigurePipeline));
+    }
+
+    private IEnumerable<PipelineStep> CreatePipelineSteps(PipelineStepFactoryContext factoryContext)
+    {
+        // Only create push step if we have a target resource that needs image push
+        if (TargetResource is null || !TargetResource.RequiresImageBuildAndPush())
+        {
+            return [];
+        }
+
+        // Get the registry from the target resource's deployment target annotation
+        var deploymentTargetAnnotation = TargetResource.GetDeploymentTargetAnnotation();
+        if (deploymentTargetAnnotation?.ContainerRegistry is not IContainerRegistry registry)
+        {
+            return [];
+        }
+
+        var steps = new List<PipelineStep>();
+
+        // Create push step for this deployment target
+        var pushStep = new PipelineStep
+        {
+            Name = $"push-{TargetResource.Name}",
+            Action = async ctx =>
+            {
+                var containerImageBuilder = ctx.Services.GetRequiredService<IResourceContainerImageBuilder>();
+
+                await TerraformImagePushHelpers.PushImageToRegistryAsync(
+                    registry,
+                    TargetResource,
+                    ctx,
+                    containerImageBuilder).ConfigureAwait(false);
+            },
+            Tags = [WellKnownPipelineTags.PushContainerImage]
+        };
+
+        steps.Add(pushStep);
+
+        return steps;
+    }
+
+    private void ConfigurePipeline(PipelineConfigurationContext context)
+    {
+        if (TargetResource is null)
+        {
+            return;
+        }
+
+        // Find the push step for this resource
+        var pushSteps = context.GetSteps(this, WellKnownPipelineTags.PushContainerImage);
+
+        // Make push step depend on build steps of the target resource
+        var buildSteps = context.GetSteps(TargetResource, WellKnownPipelineTags.BuildCompute);
+        pushSteps.DependsOn(buildSteps);
+
+        // Make push step depend on the registry being provisioned
+        var deploymentTargetAnnotation = TargetResource.GetDeploymentTargetAnnotation();
+        if (deploymentTargetAnnotation?.ContainerRegistry is IResource registryResource)
+        {
+            var registryProvisionSteps = context.GetSteps(registryResource, WellKnownPipelineTags.ProvisionInfrastructure);
+            pushSteps.DependsOn(registryProvisionSteps);
+        }
+
+        // Make environment terraform steps depend on push steps
+        // The plan step needs push to complete so it can reference the pushed images
+        // Use both provision-infra (for apply) and terraform-plan tags to cover both cases
+        var envProvisionSteps = context.GetSteps(Parent, WellKnownPipelineTags.ProvisionInfrastructure);
+        envProvisionSteps.DependsOn(pushSteps);
+
+        // Also make the plan step depend on push, in case apply is disabled
+        var envPlanSteps = context.GetSteps(Parent, "terraform-plan");
+        envPlanSteps.DependsOn(pushSteps);
     }
 
     /// <summary>
@@ -272,5 +356,86 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
     {
         ArgumentNullException.ThrowIfNull(parameterBuilder);
         return AddVariable(parameterBuilder.Resource, variableName);
+    }
+
+    /// <summary>
+    /// Gets the container image reference for the target resource.
+    /// </summary>
+    /// <returns>A <see cref="TerraformVariable"/> that will contain the fully-qualified container image reference
+    /// (e.g., "myregistry.azurecr.io/myapp:latest") at deployment time.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method creates a Terraform variable that will receive the fully-qualified container image
+    /// reference after the image is built and pushed. The value follows the format:
+    /// <c>{registry-endpoint}/{resource-name}:{tag}</c>
+    /// </para>
+    /// <para>
+    /// The tag is determined by the build/push process and may include timestamps, git commits, or
+    /// custom values configured via <c>DeploymentImageTagCallbackAnnotation</c>.
+    /// </para>
+    /// </remarks>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown if this resource doesn't have a target resource or if the target resource doesn't require image build and push.
+    /// </exception>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     var imageVar = infra.GetContainerImage();
+    ///
+    ///     var containerApp = new AzurermContainerApp("app")
+    ///     {
+    ///         Template = [new()
+    ///         {
+    ///             Container = [new()
+    ///             {
+    ///                 Name = "app",
+    ///                 Image = imageVar.AsReference()
+    ///             }]
+    ///         }]
+    ///     };
+    ///     infra.Add(containerApp);
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformVariable GetContainerImage()
+    {
+        if (TargetResource is null)
+        {
+            throw new InvalidOperationException(
+                "Cannot get container image for a Terraform resource without a target resource.");
+        }
+
+        if (!TargetResource.RequiresImageBuildAndPush())
+        {
+            throw new InvalidOperationException(
+                $"Resource '{TargetResource.Name}' does not require image build and push. " +
+                "This method is only available for project resources and resources with Dockerfiles.");
+        }
+
+        var variableName = $"{TargetResource.Name}_container_image".Replace("-", "_");
+
+        // Check if we already have this variable
+        if (Parameters.TryGetValue(variableName, out var existingVariable))
+        {
+            return existingVariable;
+        }
+
+        // Register the container image reference as an input dependency
+        // The publishing context will resolve this to the actual pushed image reference
+        var imageReference = new ContainerImageReference(TargetResource);
+        Inputs[variableName] = imageReference;
+
+        // Create the variable
+        var variable = new TerraformVariable(variableName)
+        {
+            Type = "string",
+            Description = $"Container image reference for '{TargetResource.Name}'"
+        };
+
+        Parameters[variableName] = variable;
+        Stack.Add(variable);
+
+        return variable;
     }
 }

@@ -99,8 +99,9 @@ internal sealed class TerraformPublishingContext
             }
         }
 
-        // Phase 2: Discover all referenced outputs for module wiring
+        // Phase 2: Discover all referenced outputs and container images for module wiring
         var referencedOutputs = new HashSet<TerraformOutputReference>();
+        var referencedContainerImages = new HashSet<ContainerImageReference>();
 
         foreach (var (terraformResource, _) in resourceModules)
         {
@@ -111,6 +112,10 @@ internal sealed class TerraformPublishingContext
                     if (value is TerraformOutputReference outputRef)
                     {
                         referencedOutputs.Add(outputRef);
+                    }
+                    else if (value is ContainerImageReference imageRef)
+                    {
+                        referencedContainerImages.Add(imageRef);
                     }
                 });
             }
@@ -162,7 +167,7 @@ internal sealed class TerraformPublishingContext
             rootStack?.Add(module);
         }
 
-        // Phase 4: Add parameter variables to root stack (for bubbling up to root module)
+        // Phase 4: Add parameter and container image variables to root stack (for bubbling up to root module)
         // Only add variables that aren't already present in the root stack
         if (rootStack is not null)
         {
@@ -175,6 +180,22 @@ internal sealed class TerraformPublishingContext
                 if (!existingVariables.Contains(variable.Name))
                 {
                     rootStack.Add(variable);
+                }
+            }
+
+            // Add container image variables - these will be resolved at runtime
+            foreach (var imageRef in referencedContainerImages)
+            {
+                var variableName = $"{imageRef.Resource.Name}_container_image".Replace("-", "_");
+                if (!existingVariables.Contains(variableName))
+                {
+                    var variable = new TerraformVariable(variableName)
+                    {
+                        Type = "string",
+                        Description = $"Container image reference for '{imageRef.Resource.Name}'"
+                    };
+                    rootStack.Add(variable);
+                    existingVariables.Add(variableName);
                 }
             }
         }
@@ -284,6 +305,9 @@ internal sealed class TerraformPublishingContext
             ParameterResource param =>
                 GetOrCreateParameterVariable(param).AsReference(),
 
+            ContainerImageReference imageRef =>
+                ResolveContainerImageReference(imageRef),
+
             string s =>
                 TerraformExpression.Literal(s),
 
@@ -292,8 +316,16 @@ internal sealed class TerraformPublishingContext
 
             _ => throw new NotSupportedException(
                 $"Input value type '{inputValue.GetType().Name}' is not supported for module parameters. " +
-                $"Supported types: TerraformOutputReference, ParameterResource, string, TerraformExpression")
+                $"Supported types: TerraformOutputReference, ParameterResource, ContainerImageReference, string, TerraformExpression")
         };
+    }
+
+    private object ResolveContainerImageReference(ContainerImageReference imageRef)
+    {
+        // Container images are passed as variables to modules
+        // The value is resolved at runtime from the pushed image
+        var variableName = $"{imageRef.Resource.Name}_container_image".Replace("-", "_");
+        return TerraformExpression.Identifier($"var.{variableName}");
     }
 
     private object ResolveOutputReference(TerraformOutputReference outputRef)
@@ -312,6 +344,15 @@ internal sealed class TerraformPublishingContext
             throw new InvalidOperationException(
                 $"Output '{outputRef.Name}' from environment '{outputRef.Resource.Name}' not found. " +
                 $"Ensure the output is defined in the environment's PublishAsTerraform callback.");
+        }
+
+        // If the output is from a container registry, it's passed as a variable to the root module
+        // (registry has separate state and its outputs are resolved at runtime)
+        if (outputRef.Resource is TerraformContainerRegistryResource)
+        {
+            // The variable name follows the pattern: {resourceName}_{outputName}
+            var variableName = $"{outputRef.Resource.Name}_{outputRef.Name}".Replace("-", "_");
+            return TerraformExpression.Identifier($"var.{variableName}");
         }
 
         // For other resources, reference as a module output
@@ -380,5 +421,46 @@ internal sealed class TerraformPublishingContext
         await File.WriteAllTextAsync(rootMainTfPath, hcl, _cancellationToken).ConfigureAwait(false);
 
         _logger.LogInformation("Generated root main.tf at {Path}", rootMainTfPath);
+    }
+
+    /// <summary>
+    /// Writes Terraform configuration for a container registry resource.
+    /// </summary>
+    /// <param name="registry">The container registry resource.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    internal async Task WriteRegistryAsync(TerraformContainerRegistryResource registry)
+    {
+        _logger.LogInformation("Starting Terraform configuration generation for registry '{RegistryName}'", registry.Name);
+
+        // Ensure the output directory exists
+        Directory.CreateDirectory(_baseOutputPath);
+
+        // Apply customization annotations if any
+        if (registry.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var annotations))
+        {
+            foreach (var annotation in annotations)
+            {
+                annotation.Configure(registry.RegistryTerraformResource);
+            }
+        }
+
+        // The registry stack should be configured by the user's callback
+        // Settings (providers, backend) must be configured explicitly since
+        // the registry has its own state directory and may need different configuration
+        var stack = registry.RegistryTerraformResource.Stack;
+
+        // Generate main.tf
+        var mainTfPath = Path.Combine(_baseOutputPath, "main.tf");
+        var hcl = stack.ToHcl();
+        await File.WriteAllTextAsync(mainTfPath, hcl, _cancellationToken).ConfigureAwait(false);
+
+        _logger.LogInformation("Generated registry Terraform configuration at {Path}", mainTfPath);
+
+        // Generate .terraform-version file if specified
+        if (!string.IsNullOrEmpty(_environment.TerraformVersion))
+        {
+            var versionFilePath = Path.Combine(_baseOutputPath, ".terraform-version");
+            await File.WriteAllTextAsync(versionFilePath, _environment.TerraformVersion, _cancellationToken).ConfigureAwait(false);
+        }
     }
 }
