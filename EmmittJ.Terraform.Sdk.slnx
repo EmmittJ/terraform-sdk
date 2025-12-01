@@ -6,9 +6,7 @@
   </Configurations>
   <Folder Name="/playground/" />
   <Folder Name="/playground/azure-container-apps/">
-    <Project Path="playground/azure-container-apps/TerraformPlayground.ApiService/TerraformPlayground.ApiService.csproj" />
-    <Project Path="playground/azure-container-apps/TerraformPlayground.AppHost/TerraformPlayground.AppHost.csproj" />
-    <Project Path="playground/azure-container-apps/TerraformPlayground.ServiceDefaults/TerraformPlayground.ServiceDefaults.csproj" />
+    <Project Path="playground/azure-container-apps/apphost/AppHost.csproj" />
   </Folder>
   <Folder Name="/playground/getting-started/">
     <Project Path="playground/getting-started/GettingStarted.csproj" />
