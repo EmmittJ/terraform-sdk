@@ -3,6 +3,7 @@
 #pragma warning disable ASPIREPIPELINES001
 
 using System.ComponentModel;
+using System.Diagnostics;
 using Aspire.Hosting.Pipelines;
 using Aspire.Hosting.Publishing;
 using Microsoft.Extensions.Logging;
@@ -12,8 +13,53 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// <summary>
 /// Provides factory methods for creating common container registry login callbacks.
 /// </summary>
+/// <remarks>
+/// <para>
+/// These helpers use CLI-based authentication which requires the respective CLI tools
+/// (Azure CLI, AWS CLI, Docker) to be installed and configured. For Azure Container Registry,
+/// the user must be logged in via <c>az login</c>. For AWS ECR, valid credentials must be configured.
+/// </para>
+/// <para>
+/// On Windows, CLI tools like <c>az</c> and <c>aws</c> are implemented as batch scripts (.cmd files).
+/// When using <see cref="ProcessStartInfo"/> with <c>UseShellExecute = false</c>, batch scripts
+/// require the command interpreter (<c>cmd.exe /c</c>) to execute. This is handled internally
+/// by the <see cref="CreateCliProcessStartInfo"/> method.
+/// </para>
+/// </remarks>
 public static class TerraformContainerRegistryHelpers
 {
+    /// <summary>
+    /// Creates a <see cref="ProcessStartInfo"/> for running a CLI command.
+    /// </summary>
+    /// <param name="command">The CLI command to run (e.g., "az", "aws", "docker").</param>
+    /// <param name="arguments">The arguments to pass to the command.</param>
+    /// <param name="isNativeExecutable">
+    /// <c>true</c> if the command is a native executable (e.g., docker);
+    /// <c>false</c> if it's a batch script on Windows (e.g., az.cmd, aws.cmd).
+    /// </param>
+    /// <returns>A configured <see cref="ProcessStartInfo"/>.</returns>
+    /// <remarks>
+    /// On Windows, CLI tools like <c>az</c> and <c>aws</c> are batch scripts (.cmd files).
+    /// When <paramref name="isNativeExecutable"/> is <c>false</c> and running on Windows,
+    /// this method uses <c>cmd.exe /c</c> to execute the command.
+    /// </remarks>
+    private static ProcessStartInfo CreateCliProcessStartInfo(string command, string arguments, bool isNativeExecutable)
+    {
+        // On Windows, batch scripts (.cmd files) need cmd.exe to execute them
+        // when UseShellExecute = false (required for stdout/stderr redirection).
+        var needsShellWrapper = OperatingSystem.IsWindows() && !isNativeExecutable;
+
+        return new ProcessStartInfo
+        {
+            FileName = needsShellWrapper ? "cmd.exe" : command,
+            Arguments = needsShellWrapper ? $"/c {command} {arguments}" : arguments,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+    }
+
     /// <summary>
     /// Creates a login callback for Azure Container Registry using Azure CLI.
     /// </summary>
@@ -50,20 +96,9 @@ public static class TerraformContainerRegistryHelpers
                 CompletionState.InProgress,
                 context.CancellationToken).ConfigureAwait(false);
 
-            // On Windows, az is actually az.cmd which requires shell execution
-            // TODO: fix this?
-            var isWindows = OperatingSystem.IsWindows();
-            var processStartInfo = new System.Diagnostics.ProcessStartInfo
-            {
-                FileName = isWindows ? "cmd.exe" : "az",
-                Arguments = isWindows ? $"/c az acr login --name {registryName}" : $"acr login --name {registryName}",
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
+            var processStartInfo = CreateCliProcessStartInfo("az", $"acr login --name {registryName}", isNativeExecutable: false);
 
-            using var process = new System.Diagnostics.Process { StartInfo = processStartInfo };
+            using var process = new Process { StartInfo = processStartInfo };
 
             try
             {
@@ -87,7 +122,7 @@ public static class TerraformContainerRegistryHelpers
 
             if (!string.IsNullOrWhiteSpace(output))
             {
-                context.Logger.LogInformation("Azure CLI output: {Output}", output);
+                context.Logger.LogDebug("Azure CLI output: {Output}", output);
             }
 
             if (process.ExitCode != 0)
@@ -148,21 +183,10 @@ public static class TerraformContainerRegistryHelpers
             var regionArg = string.IsNullOrEmpty(region) ? "" : $" --region {region}";
             var awsCommand = $"ecr get-login-password{regionArg}";
 
-            // On Windows, aws is actually aws.cmd which requires shell execution
-            var isWindows = OperatingSystem.IsWindows();
-
             // Get the password from AWS CLI
-            var awsProcessStartInfo = new System.Diagnostics.ProcessStartInfo
-            {
-                FileName = isWindows ? "cmd.exe" : "aws",
-                Arguments = isWindows ? $"/c aws {awsCommand}" : awsCommand,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
+            var awsProcessStartInfo = CreateCliProcessStartInfo("aws", awsCommand, isNativeExecutable: false);
 
-            using var awsProcess = new System.Diagnostics.Process { StartInfo = awsProcessStartInfo };
+            using var awsProcess = new Process { StartInfo = awsProcessStartInfo };
 
             try
             {
@@ -194,19 +218,11 @@ public static class TerraformContainerRegistryHelpers
                 throw new InvalidOperationException($"AWS ECR get-login-password failed with exit code {awsProcess.ExitCode}. Error: {awsError}");
             }
 
-            // Docker login with the password
-            var dockerProcessStartInfo = new System.Diagnostics.ProcessStartInfo
-            {
-                FileName = "docker",
-                Arguments = $"login --username AWS --password-stdin {registryEndpoint}",
-                RedirectStandardInput = true,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
+            // Docker login with the password via stdin (password is not logged)
+            var dockerProcessStartInfo = CreateCliProcessStartInfo("docker", $"login --username AWS --password-stdin {registryEndpoint}", isNativeExecutable: true);
+            dockerProcessStartInfo.RedirectStandardInput = true;
 
-            using var dockerProcess = new System.Diagnostics.Process { StartInfo = dockerProcessStartInfo };
+            using var dockerProcess = new Process { StartInfo = dockerProcessStartInfo };
 
             try
             {
@@ -220,6 +236,7 @@ public static class TerraformContainerRegistryHelpers
                     ex);
             }
 
+            // Write password to stdin (never log the password)
             await dockerProcess.StandardInput.WriteAsync(password).ConfigureAwait(false);
             dockerProcess.StandardInput.Close();
 
@@ -233,7 +250,7 @@ public static class TerraformContainerRegistryHelpers
 
             if (!string.IsNullOrWhiteSpace(dockerOutput))
             {
-                context.Logger.LogInformation("Docker login output: {Output}", dockerOutput);
+                context.Logger.LogDebug("Docker login output: {Output}", dockerOutput);
             }
 
             if (dockerProcess.ExitCode != 0)
@@ -258,11 +275,15 @@ public static class TerraformContainerRegistryHelpers
     /// </summary>
     /// <param name="usernameOutputName">The name of the Terraform output containing the username.</param>
     /// <param name="passwordOutputName">The name of the Terraform output containing the password.</param>
-    /// <returns>A callback that runs <c>docker login -u {username} -p {password} {endpoint}</c>.</returns>
+    /// <returns>A callback that runs <c>docker login --password-stdin {endpoint}</c>.</returns>
     /// <remarks>
     /// <para>
     /// This callback requires Docker to be installed. The username and password are obtained from the
     /// specified Terraform outputs, and the endpoint from the <c>endpoint</c> output.
+    /// </para>
+    /// <para>
+    /// The password is passed via stdin using <c>--password-stdin</c> to avoid exposing it in process
+    /// arguments or logs.
     /// </para>
     /// </remarks>
     /// <example>
@@ -314,6 +335,7 @@ public static class TerraformContainerRegistryHelpers
             var username = usernameValue.ToString() ?? "";
             var password = passwordValue.ToString() ?? "";
 
+            // Log endpoint but never log credentials
             context.Logger.LogInformation("Logging in to Docker registry '{RegistryEndpoint}'", registryEndpoint);
 
             await context.ReportingStep.CompleteAsync(
@@ -321,19 +343,11 @@ public static class TerraformContainerRegistryHelpers
                 CompletionState.InProgress,
                 context.CancellationToken).ConfigureAwait(false);
 
-            // Use --password-stdin for security
-            var processStartInfo = new System.Diagnostics.ProcessStartInfo
-            {
-                FileName = "docker",
-                Arguments = $"login --username {username} --password-stdin {registryEndpoint}",
-                RedirectStandardInput = true,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                UseShellExecute = false,
-                CreateNoWindow = true
-            };
+            // Use --password-stdin to avoid exposing password in process arguments
+            var processStartInfo = CreateCliProcessStartInfo("docker", $"login --username {username} --password-stdin {registryEndpoint}", isNativeExecutable: true);
+            processStartInfo.RedirectStandardInput = true;
 
-            using var process = new System.Diagnostics.Process { StartInfo = processStartInfo };
+            using var process = new Process { StartInfo = processStartInfo };
 
             try
             {
@@ -347,6 +361,7 @@ public static class TerraformContainerRegistryHelpers
                     ex);
             }
 
+            // Write password to stdin (never log the password)
             await process.StandardInput.WriteAsync(password).ConfigureAwait(false);
             process.StandardInput.Close();
 
@@ -360,7 +375,7 @@ public static class TerraformContainerRegistryHelpers
 
             if (!string.IsNullOrWhiteSpace(output))
             {
-                context.Logger.LogInformation("Docker login output: {Output}", output);
+                context.Logger.LogDebug("Docker login output: {Output}", output);
             }
 
             if (process.ExitCode != 0)

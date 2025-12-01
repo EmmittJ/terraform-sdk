@@ -108,7 +108,10 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                 var initStep = new PipelineStep
                 {
                     Name = $"terraform-init-{Name}",
-                    Action = ctx => RunTerraformCommandAsync(ctx, "init -input=false -no-color"),
+                    Action = ctx => TerraformCommandRunner.RunTerraformCommandAsync(
+                        ctx,
+                        "init -input=false -no-color",
+                        PublishingContextUtils.GetEnvironmentOutputPath(ctx, this)),
                     Tags = ["terraform-init"],
                     DependsOnSteps = [publishStep.Name],
                     RequiredBySteps = [WellKnownPipelineSteps.Deploy]
@@ -131,8 +134,13 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                         Name = $"terraform-plan-{Name}",
                         Action = async ctx =>
                         {
-                            var sensitiveEnvVars = await ResolveAndWriteVariablesAsync(ctx).ConfigureAwait(false);
-                            await RunTerraformCommandAsync(ctx, "plan -out=aspire.tfplan -input=false -no-color", sensitiveEnvVars).ConfigureAwait(false);
+                            var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(ctx, this);
+                            var sensitiveEnvVars = await TerraformVariableResolver.ResolveAllVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
+                            await TerraformCommandRunner.RunTerraformCommandAsync(
+                                ctx,
+                                "plan -out=aspire.tfplan -input=false -no-color",
+                                outputPath,
+                                sensitiveEnvVars).ConfigureAwait(false);
                         },
                         Tags = ["terraform-plan"],
                         DependsOnSteps = [.. planDependencies],
@@ -148,8 +156,13 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                             Name = $"terraform-apply-{Name}",
                             Action = async ctx =>
                             {
-                                var sensitiveEnvVars = await ResolveAndWriteVariablesAsync(ctx).ConfigureAwait(false);
-                                await RunTerraformCommandAsync(ctx, "apply -auto-approve -input=false -no-color aspire.tfplan", sensitiveEnvVars).ConfigureAwait(false);
+                                var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(ctx, this);
+                                var sensitiveEnvVars = await TerraformVariableResolver.ResolveAllVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
+                                await TerraformCommandRunner.RunTerraformCommandAsync(
+                                    ctx,
+                                    "apply -auto-approve -input=false -no-color aspire.tfplan",
+                                    outputPath,
+                                    sensitiveEnvVars).ConfigureAwait(false);
                             },
                             Tags = ["terraform-apply", WellKnownPipelineTags.ProvisionInfrastructure],
                             DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
@@ -255,252 +268,5 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             context.CancellationToken);
 
         return terraformContext.WriteModelAsync(context.Model, this);
-    }
-
-    private async Task RunTerraformCommandAsync(
-        PipelineStepContext context,
-        string command,
-        Dictionary<string, string>? sensitiveEnvironmentVariables = null)
-    {
-        // Get the correct output path using the pipeline output service
-        var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(context, this);
-
-        if (!Directory.Exists(outputPath))
-        {
-            throw new InvalidOperationException($"Terraform configuration directory does not exist: {outputPath}");
-        }
-
-        context.Logger.LogInformation("Running terraform {Command} in {Path}", command, outputPath);
-
-        await context.ReportingStep.CompleteAsync(
-            $"Running terraform {command}",
-            CompletionState.InProgress,
-            context.CancellationToken).ConfigureAwait(false);
-
-        var processStartInfo = new System.Diagnostics.ProcessStartInfo
-        {
-            FileName = "terraform",
-            Arguments = command,
-            WorkingDirectory = outputPath,
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            UseShellExecute = false,
-            CreateNoWindow = true,
-            // Set TF_IN_AUTOMATION to suppress "next step" suggestions
-            Environment = { ["TF_IN_AUTOMATION"] = "true" }
-        };
-
-        // Add sensitive variables as TF_VAR_* environment variables
-        if (sensitiveEnvironmentVariables is not null)
-        {
-            foreach (var (varName, varValue) in sensitiveEnvironmentVariables)
-            {
-                processStartInfo.Environment[$"TF_VAR_{varName}"] = varValue;
-            }
-        }
-
-        using var process = new System.Diagnostics.Process { StartInfo = processStartInfo };
-
-        process.Start();
-
-        // Read output asynchronously to prevent deadlocks
-        var outputTask = process.StandardOutput.ReadToEndAsync(context.CancellationToken);
-        var errorTask = process.StandardError.ReadToEndAsync(context.CancellationToken);
-
-        await process.WaitForExitAsync(context.CancellationToken).ConfigureAwait(false);
-
-        var output = await outputTask.ConfigureAwait(false);
-        var error = await errorTask.ConfigureAwait(false);
-
-        if (!string.IsNullOrWhiteSpace(output))
-        {
-            context.Logger.LogInformation("Terraform output: {Output}", output);
-        }
-
-        if (!string.IsNullOrWhiteSpace(error))
-        {
-            context.Logger.LogWarning("Terraform stderr: {Error}", error);
-        }
-
-        if (process.ExitCode != 0)
-        {
-            await context.ReportingStep.CompleteAsync(
-                $"Terraform '{command}' failed with exit code {process.ExitCode}",
-                CompletionState.CompletedWithError,
-                context.CancellationToken).ConfigureAwait(false);
-
-            throw new InvalidOperationException($"Terraform '{command}' failed with exit code {process.ExitCode}. Error: {error}");
-        }
-
-        await context.ReportingStep.CompleteAsync(
-            $"Terraform '{command}' completed successfully",
-            CompletionState.Completed,
-            context.CancellationToken).ConfigureAwait(false);
-    }
-
-    /// <summary>
-    /// Resolves parameter values and output references, writing non-sensitive values to aspire.auto.tfvars.
-    /// Returns sensitive values as a dictionary to be passed as TF_VAR_* environment variables.
-    /// </summary>
-    private async Task<Dictionary<string, string>> ResolveAndWriteVariablesAsync(PipelineStepContext context)
-    {
-        var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(context, this);
-        var sensitiveVars = new Dictionary<string, string>();
-        var nonSensitiveVars = new List<(string Name, string Value)>();
-
-        // Resolve Aspire parameter values
-        if (ParameterVariables.Count > 0)
-        {
-            context.Logger.LogInformation("Resolving {Count} Terraform parameter variables", ParameterVariables.Count);
-
-            // Parameters are initialized by DeployPrereq step (which runs before our terraform steps)
-            // via ParameterProcessor.InitializeParametersAsync - we just need to get the values here
-
-            foreach (var (parameter, variable) in ParameterVariables)
-            {
-                // Parameters should already be resolved by DeployPrereq step
-                var value = await parameter.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
-
-                if (string.IsNullOrEmpty(value))
-                {
-                    context.Logger.LogWarning(
-                        "Parameter '{ParameterName}' (variable '{VariableName}') has no value. " +
-                        "Terraform may prompt for it or use a default if defined.",
-                        parameter.Name, variable.Name);
-                    continue;
-                }
-
-                if (parameter.Secret)
-                {
-                    // Sensitive values go to TF_VAR_* environment variables
-                    sensitiveVars[variable.Name] = value;
-                    context.Logger.LogDebug("Sensitive variable '{VariableName}' will be passed via TF_VAR_* environment variable", variable.Name);
-                }
-                else
-                {
-                    // Non-sensitive values go to aspire.auto.tfvars
-                    nonSensitiveVars.Add((variable.Name, value));
-                    context.Logger.LogDebug("Variable '{VariableName}' will be written to aspire.auto.tfvars", variable.Name);
-                }
-            }
-        }
-
-        // Collect all inputs from the environment's TerraformResource and all compute resources
-        // Use a dictionary to avoid duplicates (same variable can be referenced from multiple places)
-        var allInputs = new Dictionary<string, object>();
-
-        // Add environment-level inputs
-        foreach (var (inputName, inputValue) in TerraformResource.Inputs)
-        {
-            allInputs[inputName] = inputValue;
-        }
-
-        // Add inputs from all compute resources that are deployed to this environment
-        foreach (var computeResource in context.Model.GetComputeResources())
-        {
-            if (computeResource.GetDeploymentTargetAnnotation(this)?.DeploymentTarget is TerraformProvisioningResource terraformResource)
-            {
-                foreach (var (inputName, inputValue) in terraformResource.Inputs)
-                {
-                    // Only add if not already present (environment-level takes precedence)
-                    if (!allInputs.ContainsKey(inputName))
-                    {
-                        allInputs[inputName] = inputValue;
-                    }
-                }
-            }
-        }
-
-        // Resolve all collected inputs
-        foreach (var (inputName, inputValue) in allInputs)
-        {
-            if (inputValue is TerraformOutputReference outputRef)
-            {
-                // Skip output references to the environment itself - these are wired up at publish time
-                // as direct references to root module outputs, not runtime values
-                if (outputRef.Resource == this)
-                {
-                    context.Logger.LogDebug(
-                        "Skipping output reference '{OutputName}' - environment outputs are wired at publish time",
-                        outputRef.Name);
-                    continue;
-                }
-
-                // Skip output references to other modules - these are wired up at publish time
-                // as module.{name}.{output} references
-                if (outputRef.Resource is not TerraformContainerRegistryResource)
-                {
-                    context.Logger.LogDebug(
-                        "Skipping output reference '{ResourceName}.{OutputName}' - module outputs are wired at publish time",
-                        outputRef.Resource.Name, outputRef.Name);
-                    continue;
-                }
-
-                // Container registry outputs need runtime resolution (separate state)
-                var value = outputRef.Value;
-                if (string.IsNullOrEmpty(value))
-                {
-                    context.Logger.LogWarning(
-                        "Output reference '{ResourceName}.{OutputName}' (variable '{VariableName}') has no value. " +
-                        "Ensure the source resource has been applied and outputs read.",
-                        outputRef.Resource.Name, outputRef.Name, inputName);
-                    continue;
-                }
-
-                if (outputRef.Sensitive)
-                {
-                    // Sensitive values go to TF_VAR_* environment variables
-                    sensitiveVars[inputName] = value;
-                    context.Logger.LogDebug("Sensitive output reference '{VariableName}' will be passed via TF_VAR_* environment variable", inputName);
-                }
-                else
-                {
-                    // Non-sensitive values go to aspire.auto.tfvars
-                    nonSensitiveVars.Add((inputName, value));
-                    context.Logger.LogDebug("Output reference '{VariableName}' will be written to aspire.auto.tfvars", inputName);
-                }
-            }
-            else if (inputValue is ContainerImageReference imageRef)
-            {
-                // Resolve the container image reference (includes registry, name, and tag)
-                var provider = imageRef as IValueProvider;
-                var value = await provider.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
-                if (string.IsNullOrEmpty(value))
-                {
-                    context.Logger.LogWarning(
-                        "Container image reference for '{ResourceName}' (variable '{VariableName}') has no value. " +
-                        "Ensure the image has been built and pushed.",
-                        imageRef.Resource.Name, inputName);
-                    continue;
-                }
-
-                // Container images are not sensitive
-                nonSensitiveVars.Add((inputName, value));
-                context.Logger.LogDebug("Container image '{VariableName}' = '{Value}' will be written to aspire.auto.tfvars", inputName, value);
-            }
-        }
-
-        // Write non-sensitive values to aspire.auto.tfvars in HCL format
-        if (nonSensitiveVars.Count > 0)
-        {
-            var tfvarsPath = Path.Combine(outputPath, "aspire.auto.tfvars");
-            await using var writer = new StreamWriter(tfvarsPath, append: false);
-
-            await writer.WriteLineAsync("# Auto-generated by Aspire Terraform publishing").ConfigureAwait(false);
-            await writer.WriteLineAsync($"# Generated at {DateTime.UtcNow:O}").ConfigureAwait(false);
-            await writer.WriteLineAsync().ConfigureAwait(false);
-
-            // Use TerraformArgumentNode for consistent HCL formatting
-            var hclContext = TerraformContext.Temporary();
-            foreach (var (name, value) in nonSensitiveVars)
-            {
-                var argumentNode = new TerraformArgumentNode(name, TerraformExpression.Literal(value));
-                await writer.WriteLineAsync(argumentNode.ToHcl(hclContext)).ConfigureAwait(false);
-            }
-
-            context.Logger.LogInformation("Wrote {Count} variables to {Path}", nonSensitiveVars.Count, tfvarsPath);
-        }
-
-        return sensitiveVars;
     }
 }

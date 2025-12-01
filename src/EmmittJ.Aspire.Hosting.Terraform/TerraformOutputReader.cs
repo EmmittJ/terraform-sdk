@@ -71,11 +71,23 @@ internal static class TerraformOutputReader
         }
 
         // Parse the JSON output
-        var terraformOutputs = JsonSerializer.Deserialize<Dictionary<string, TerraformOutputValue>>(output, JsonSerializerOptions);
+        Dictionary<string, TerraformOutputValue>? terraformOutputs;
+        try
+        {
+            terraformOutputs = JsonSerializer.Deserialize<Dictionary<string, TerraformOutputValue>>(output, JsonSerializerOptions);
+        }
+        catch (JsonException ex)
+        {
+            // Don't log raw output as it may contain sensitive values
+            logger.LogError(ex, "Failed to parse Terraform output JSON.");
+            throw new InvalidOperationException(
+                $"Failed to parse Terraform output JSON. Ensure 'terraform output -json' produces valid JSON. " +
+                $"Error: {ex.Message}", ex);
+        }
 
         if (terraformOutputs is null)
         {
-            logger.LogWarning("Failed to parse Terraform outputs");
+            logger.LogWarning("Failed to parse Terraform outputs - deserialization returned null");
             return new Dictionary<string, object?>();
         }
 

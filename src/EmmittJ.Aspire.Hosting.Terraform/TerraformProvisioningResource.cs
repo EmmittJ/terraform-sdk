@@ -120,22 +120,65 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
         var pushStep = new PipelineStep
         {
             Name = $"push-{TargetResource.Name}",
-            Action = async ctx =>
-            {
-                var containerImageBuilder = ctx.Services.GetRequiredService<IResourceContainerImageBuilder>();
-
-                await TerraformImagePushHelpers.PushImageToRegistryAsync(
-                    registry,
-                    TargetResource,
-                    ctx,
-                    containerImageBuilder).ConfigureAwait(false);
-            },
+            Action = ctx => PushImageToRegistryAsync(registry, TargetResource, ctx),
             Tags = [WellKnownPipelineTags.PushContainerImage]
         };
 
         steps.Add(pushStep);
 
         return steps;
+    }
+
+    private static async Task PushImageToRegistryAsync(
+        IContainerRegistry registry,
+        IResource resource,
+        PipelineStepContext context)
+    {
+        var containerImageBuilder = context.Services.GetRequiredService<IResourceContainerImageBuilder>();
+
+        var registryEndpoint = await registry.Endpoint.GetValueAsync(context.CancellationToken).ConfigureAwait(false) ??
+            throw new InvalidOperationException("Failed to retrieve container registry endpoint.");
+
+        // Get the local image name (defaults to resource name)
+        if (!resource.TryGetContainerImageName(out var localImageName))
+        {
+            localImageName = resource.Name.ToLowerInvariant();
+        }
+
+        // Get the target tag using ContainerImageReference
+        IValueProvider cir = new ContainerImageReference(resource);
+        var targetTag = await cir.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
+
+        var pushTask = await context.ReportingStep.CreateTaskAsync(
+            $"Pushing **{resource.Name}** to **{registryEndpoint}**",
+            context.CancellationToken).ConfigureAwait(false);
+
+        await using (pushTask.ConfigureAwait(false))
+        {
+            try
+            {
+                if (targetTag is null)
+                {
+                    throw new InvalidOperationException($"Failed to get target tag for {resource.Name}");
+                }
+
+                await containerImageBuilder.TagImageAsync(localImageName, targetTag, context.CancellationToken).ConfigureAwait(false);
+                await containerImageBuilder.PushImageAsync(targetTag, context.CancellationToken).ConfigureAwait(false);
+
+                await pushTask.CompleteAsync(
+                    $"Successfully pushed **{resource.Name}** to `{targetTag}`",
+                    CompletionState.Completed,
+                    context.CancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                await pushTask.CompleteAsync(
+                    $"Failed to push **{resource.Name}**: {ex.Message}",
+                    CompletionState.CompletedWithError,
+                    context.CancellationToken).ConfigureAwait(false);
+                throw;
+            }
+        }
     }
 
     private void ConfigurePipeline(PipelineConfigurationContext context)

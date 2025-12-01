@@ -157,6 +157,42 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
 
         // Apply the configuration callback if one was set
         ConfigureCallback?.Invoke(_registryTerraformResource);
+
+        // Validate that required outputs are defined
+        ValidateRequiredOutputs(Name, _registryTerraformResource);
+    }
+
+    /// <summary>
+    /// Validates that the registry's Terraform configuration contains the required outputs.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when the required 'name' or 'endpoint' outputs are not defined in the registry's Terraform stack.
+    /// </exception>
+    private static void ValidateRequiredOutputs(string name, TerraformProvisioningResource resource)
+    {
+        var stack = resource.Stack;
+        var outputs = stack.Blocks.OfType<TerraformOutput>().Select(o => o.Name).ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        var missingOutputs = new List<string>();
+
+        if (!outputs.Contains("name"))
+        {
+            missingOutputs.Add("name");
+        }
+
+        if (!outputs.Contains("endpoint"))
+        {
+            missingOutputs.Add("endpoint");
+        }
+
+        if (missingOutputs.Count > 0)
+        {
+            throw new InvalidOperationException(
+                $"Container registry '{name}' is missing required Terraform outputs: {string.Join(", ", missingOutputs)}. " +
+                $"Add the following to your ConfigureInfrastructure callback:\n" +
+                $"  registry.Add(new TerraformOutput(\"name\") {{ Value = <registry-name-expression> }});\n" +
+                $"  registry.Add(new TerraformOutput(\"endpoint\") {{ Value = <registry-endpoint-expression> }});");
+        }
     }
 
     private IEnumerable<PipelineStep> CreatePipelineSteps(PipelineStepFactoryContext context)
@@ -203,11 +239,12 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
             Name = $"plan-registry-{Name}",
             Action = async ctx =>
             {
-                var sensitiveEnvVars = await ResolveAndWriteVariablesAsync(ctx).ConfigureAwait(false);
+                var outputPath = GetRegistryOutputPath(ctx);
+                var sensitiveEnvVars = await TerraformVariableResolver.ResolveParameterVariablesAsync(ctx, ParentEnvironment, outputPath).ConfigureAwait(false);
                 await TerraformCommandRunner.RunTerraformCommandAsync(
                     ctx,
                     "plan -out=aspire.tfplan -input=false -no-color",
-                    GetRegistryOutputPath(ctx),
+                    outputPath,
                     sensitiveEnvVars).ConfigureAwait(false);
             },
             Tags = ["terraform-plan", "registry"],
@@ -227,11 +264,12 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
             Name = $"apply-registry-{Name}",
             Action = async ctx =>
             {
-                var sensitiveEnvVars = await ResolveAndWriteVariablesAsync(ctx).ConfigureAwait(false);
+                var outputPath = GetRegistryOutputPath(ctx);
+                var sensitiveEnvVars = await TerraformVariableResolver.ResolveParameterVariablesAsync(ctx, ParentEnvironment, outputPath).ConfigureAwait(false);
                 await TerraformCommandRunner.RunTerraformCommandAsync(
                     ctx,
                     "apply -auto-approve -input=false -no-color aspire.tfplan",
-                    GetRegistryOutputPath(ctx),
+                    outputPath,
                     sensitiveEnvVars).ConfigureAwait(false);
             },
             Tags = ["terraform-apply", "registry"],
@@ -308,63 +346,5 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
     {
         var basePath = PublishingContextUtils.GetEnvironmentOutputPath(context, ParentEnvironment);
         return Path.Combine(basePath, "registry");
-    }
-
-    private async Task<Dictionary<string, string>> ResolveAndWriteVariablesAsync(PipelineStepContext context)
-    {
-        if (ParentEnvironment.ParameterVariables.Count == 0)
-        {
-            return new Dictionary<string, string>();
-        }
-
-        var outputPath = GetRegistryOutputPath(context);
-        var sensitiveVars = new Dictionary<string, string>();
-        var nonSensitiveVars = new List<(string Name, string Value)>();
-
-        context.Logger.LogInformation("Resolving {Count} Terraform variables for registry", ParentEnvironment.ParameterVariables.Count);
-
-        foreach (var (parameter, variable) in ParentEnvironment.ParameterVariables)
-        {
-            var value = await parameter.GetValueAsync(context.CancellationToken).ConfigureAwait(false);
-
-            if (string.IsNullOrEmpty(value))
-            {
-                context.Logger.LogWarning(
-                    "Parameter '{ParameterName}' (variable '{VariableName}') has no value.",
-                    parameter.Name, variable.Name);
-                continue;
-            }
-
-            if (parameter.Secret)
-            {
-                sensitiveVars[variable.Name] = value;
-            }
-            else
-            {
-                nonSensitiveVars.Add((variable.Name, value));
-            }
-        }
-
-        // Write non-sensitive values to aspire.auto.tfvars
-        if (nonSensitiveVars.Count > 0)
-        {
-            var tfvarsPath = Path.Combine(outputPath, "aspire.auto.tfvars");
-            await using var writer = new StreamWriter(tfvarsPath, append: false);
-
-            await writer.WriteLineAsync("# Auto-generated by Aspire Terraform publishing").ConfigureAwait(false);
-            await writer.WriteLineAsync($"# Generated at {DateTime.UtcNow:O}").ConfigureAwait(false);
-            await writer.WriteLineAsync().ConfigureAwait(false);
-
-            var hclContext = TerraformContext.Temporary();
-            foreach (var (name, value) in nonSensitiveVars)
-            {
-                var argumentNode = new TerraformArgumentNode(name, TerraformExpression.Literal(value));
-                await writer.WriteLineAsync(argumentNode.ToHcl(hclContext)).ConfigureAwait(false);
-            }
-
-            context.Logger.LogInformation("Wrote {Count} variables to {Path}", nonSensitiveVars.Count, tfvarsPath);
-        }
-
-        return sensitiveVars;
     }
 }
