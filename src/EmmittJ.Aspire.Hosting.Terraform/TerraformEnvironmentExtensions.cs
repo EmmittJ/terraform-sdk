@@ -53,7 +53,7 @@ public static class TerraformEnvironmentExtensions
     /// <example>
     /// <code>
     /// var acr = builder.AddTerraformContainerRegistry("acr")
-    ///     .ConfigureInfrastructure(registry => { ... })
+    ///     .PublishAsTerraform(registry => { ... })
     ///     .WithLoginCallback(TerraformContainerRegistryHelpers.CreateAzureCliLoginCallback());
     ///
     /// var terraform = builder.AddTerraformEnvironment("azure", acr)

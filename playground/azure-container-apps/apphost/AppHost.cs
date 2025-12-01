@@ -33,7 +33,7 @@ var baseNameParameter = builder.AddParameter("base-name", "aspire-aca");
 // NOTE: Provider configuration must be duplicated in both callbacks since
 // registry and environment have separate state directories.
 var acr = builder.AddTerraformContainerRegistry("acr")
-    .ConfigureInfrastructure(registry =>
+    .PublishAsTerraform(registry =>
     {
         // Provider Configuration - must be duplicated per stage
         var azurerm = new AzurermProvider("azurerm")
@@ -138,14 +138,13 @@ var terraform = builder.AddTerraformEnvironment("azure", acr)
                 Version = "~> 3.0"
             }
         };
-    });
-
-// ========================================================================
-// Stage 2: Environment Infrastructure (provisioned AFTER image push)
-// ========================================================================
-// NOTE: Each stage is self-contained. The environment creates its own
-// resource group and does not reference resources from Stage 1 via data sources.
-terraform.PublishAsTerraform(infra =>
+    })
+    // ========================================================================
+    // Stage 2: Environment Infrastructure (provisioned AFTER image push)
+    // ========================================================================
+    // NOTE: Each stage is self-contained. The environment creates its own
+    // resource group and does not reference resources from Stage 1 via data sources.
+    .PublishAsTerraform(infra =>
     {
         // Provider Configuration - must be duplicated per stage
         var azurerm = new AzurermProvider("azurerm")

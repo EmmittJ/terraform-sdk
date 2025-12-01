@@ -96,14 +96,6 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
     public Func<PipelineStepContext, TerraformContainerRegistryResource, Task>? LoginCallback { get; set; }
 
     /// <summary>
-    /// Gets or sets the callback to configure the registry's Terraform infrastructure.
-    /// </summary>
-    /// <remarks>
-    /// This callback is invoked when the registry is associated with an environment.
-    /// </remarks>
-    internal Action<TerraformProvisioningResource>? ConfigureCallback { get; set; }
-
-    /// <summary>
     /// Gets or sets whether to automatically run terraform init for the registry.
     /// </summary>
     public bool AutoInit { get; set; } = true;
@@ -155,8 +147,14 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         _parentEnvironment = environment;
         _registryTerraformResource = new TerraformProvisioningResource($"{Name}-terraform", environment, this);
 
-        // Apply the configuration callback if one was set
-        ConfigureCallback?.Invoke(_registryTerraformResource);
+        // Apply all customization annotations
+        if (this.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var annotations))
+        {
+            foreach (var annotation in annotations)
+            {
+                annotation.Configure(_registryTerraformResource);
+            }
+        }
 
         // Validate that required outputs are defined
         ValidateRequiredOutputs(Name, _registryTerraformResource);
@@ -189,7 +187,7 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         {
             throw new InvalidOperationException(
                 $"Container registry '{name}' is missing required Terraform outputs: {string.Join(", ", missingOutputs)}. " +
-                $"Add the following to your ConfigureInfrastructure callback:\n" +
+                $"Add the following to your PublishAsTerraform callback:\n" +
                 $"  registry.Add(new TerraformOutput(\"name\") {{ Value = <registry-name-expression> }});\n" +
                 $"  registry.Add(new TerraformOutput(\"endpoint\") {{ Value = <registry-endpoint-expression> }});");
         }

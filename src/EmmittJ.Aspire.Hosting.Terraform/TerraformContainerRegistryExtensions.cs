@@ -37,7 +37,7 @@ public static class TerraformContainerRegistryExtensions
     /// <example>
     /// <code>
     /// var acr = builder.AddTerraformContainerRegistry("acr")
-    ///     .ConfigureInfrastructure(registry =>
+    ///     .PublishAsTerraform(registry =>
     ///     {
     ///         var azurerm = new AzurermProvider("azurerm") { ... };
     ///         registry.Add(azurerm);
@@ -69,44 +69,6 @@ public static class TerraformContainerRegistryExtensions
     }
 
     /// <summary>
-    /// Configures the Terraform infrastructure for the container registry.
-    /// </summary>
-    /// <param name="builder">The container registry resource builder.</param>
-    /// <param name="configure">A callback to configure the registry's Terraform infrastructure.</param>
-    /// <returns>The updated resource builder.</returns>
-    /// <remarks>
-    /// <para>
-    /// Use this method to define the Terraform resources that create the container registry.
-    /// The configuration must define at minimum two outputs: <c>name</c> and <c>endpoint</c>.
-    /// </para>
-    /// </remarks>
-    /// <example>
-    /// <code>
-    /// var acr = builder.AddTerraformContainerRegistry("acr")
-    ///     .ConfigureInfrastructure(registry =>
-    ///     {
-    ///         var acr = new AzurermContainerRegistry("acr") { ... };
-    ///         registry.Add(acr);
-    ///
-    ///         registry.Add(new TerraformOutput("name") { Value = acr.Name });
-    ///         registry.Add(new TerraformOutput("endpoint") { Value = acr.LoginServer });
-    ///     });
-    /// </code>
-    /// </example>
-    public static IResourceBuilder<TerraformContainerRegistryResource> ConfigureInfrastructure(
-        this IResourceBuilder<TerraformContainerRegistryResource> builder,
-        Action<TerraformProvisioningResource> configure)
-    {
-        ArgumentNullException.ThrowIfNull(builder);
-        ArgumentNullException.ThrowIfNull(configure);
-
-        // Store the configuration callback - it will be applied when the environment is set
-        builder.Resource.ConfigureCallback = configure;
-
-        return builder;
-    }
-
-    /// <summary>
     /// Configures the authentication callback for the container registry.
     /// </summary>
     /// <param name="builder">The container registry resource builder.</param>
@@ -129,7 +91,7 @@ public static class TerraformContainerRegistryExtensions
     /// <example>
     /// <code>
     /// var acr = builder.AddTerraformContainerRegistry("acr")
-    ///     .ConfigureInfrastructure(registry => { ... })
+    ///     .PublishAsTerraform(registry => { ... })
     ///     .WithLoginCallback(TerraformContainerRegistryHelpers.CreateAzureCliLoginCallback());
     /// </code>
     /// </example>
