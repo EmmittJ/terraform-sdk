@@ -15,7 +15,7 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// <summary>
 /// Represents a Terraform environment resource that can host application resources.
 /// </summary>
-public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironmentResource
+public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironmentResource, ITerraformEnvironment
 {
     /// <summary>
     /// Gets the <see cref="TerraformResource"/> for this environment, which provides the root stack
@@ -57,25 +57,11 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     /// </summary>
     public bool AutoApply { get; set; } = true;
 
-    /// <summary>
-    /// Gets the collection of parameter resources that have been registered as Terraform variables.
-    /// This dictionary maps ParameterResource instances to their corresponding TerraformVariable definitions.
-    /// </summary>
-    /// <remarks>
-    /// Parameters are registered when <see cref="TerraformProvisioningResource.AddVariable(ParameterResource, string?)"/> is called.
-    /// During plan/apply, these parameters are resolved and passed to Terraform via tfvars (non-sensitive)
-    /// or TF_VAR_* environment variables (sensitive).
-    /// </remarks>
-    internal Dictionary<ParameterResource, TerraformVariable> ParameterVariables { get; } = new();
+    /// <inheritdoc />
+    public Dictionary<ParameterResource, TerraformVariable> ParameterVariables { get; } = new();
 
-    /// <summary>
-    /// Gets the container registry associated with this environment, if any.
-    /// </summary>
-    /// <remarks>
-    /// When set, the environment's plan step will depend on the registry's login step,
-    /// ensuring the registry is provisioned and authenticated before deployment.
-    /// </remarks>
-    internal TerraformContainerRegistryResource? ContainerRegistry { get; set; }
+    /// <inheritdoc />
+    public IContainerRegistry? ContainerRegistry { get; }
 
     /// <summary>
     /// Gets the dictionary of Terraform outputs produced by this environment.
@@ -88,8 +74,10 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     /// Initializes a new instance of the <see cref="TerraformEnvironmentResource"/> class.
     /// </summary>
     /// <param name="name">The name of the Terraform environment.</param>
-    public TerraformEnvironmentResource(string name) : base(name)
+    /// <param name="containerRegistry">The container registry to associate with this environment, or <c>null</c> if none.</param>
+    public TerraformEnvironmentResource(string name, IContainerRegistry? containerRegistry = null) : base(name)
     {
+        ContainerRegistry = containerRegistry;
         // Create the TerraformResource for this environment (it references itself as the target)
         TerraformResource = new TerraformProvisioningResource(name, this, this);
 
@@ -104,7 +92,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             {
                 Name = $"publish-terraform-{Name}",
                 Action = ctx => PublishAsync(ctx),
-                Tags = ["publish-terraform"],
+                Tags = [TerraformPipelineTags.PublishTerraform],
                 RequiredBySteps = [WellKnownPipelineSteps.Publish, WellKnownPipelineSteps.Deploy]
             };
             steps.Add(publishStep);
@@ -119,7 +107,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                         ctx,
                         "init -input=false -no-color",
                         PublishingContextUtils.GetEnvironmentOutputPath(ctx, this)),
-                    Tags = ["terraform-init"],
+                    Tags = [TerraformPipelineTags.TerraformInit],
                     DependsOnSteps = [publishStep.Name],
                     RequiredBySteps = [WellKnownPipelineSteps.Deploy]
                 };
@@ -128,14 +116,6 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                 // Optionally add terraform plan step
                 if (AutoPlan)
                 {
-                    // Build dependencies for plan step - if there's a registry, depend on its login step
-                    var planDependencies = new List<string> { initStep.Name, WellKnownPipelineSteps.DeployPrereq };
-                    if (ContainerRegistry is not null)
-                    {
-                        // The environment's plan step must wait for the registry's login step to complete
-                        planDependencies.Add($"login-registry-{ContainerRegistry.Name}");
-                    }
-
                     var planStep = new PipelineStep
                     {
                         Name = $"terraform-plan-{Name}",
@@ -149,8 +129,8 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                                 outputPath,
                                 sensitiveEnvVars).ConfigureAwait(false);
                         },
-                        Tags = ["terraform-plan"],
-                        DependsOnSteps = [.. planDependencies],
+                        Tags = [TerraformPipelineTags.TerraformPlan],
+                        DependsOnSteps = [initStep.Name, WellKnownPipelineSteps.DeployPrereq],
                         RequiredBySteps = [WellKnownPipelineSteps.Deploy]
                     };
                     steps.Add(planStep);
@@ -171,7 +151,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                                     outputPath,
                                     sensitiveEnvVars).ConfigureAwait(false);
                             },
-                            Tags = ["terraform-apply", WellKnownPipelineTags.ProvisionInfrastructure],
+                            Tags = [TerraformPipelineTags.TerraformApply, WellKnownPipelineTags.ProvisionInfrastructure],
                             DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
                             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
                         };
@@ -182,7 +162,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                         {
                             Name = $"read-outputs-{Name}",
                             Action = ctx => ReadEnvironmentOutputsAsync(ctx),
-                            Tags = ["terraform-outputs"],
+                            Tags = [TerraformPipelineTags.TerraformOutputs],
                             DependsOnSteps = [applyStep.Name],
                             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
                         };
@@ -193,7 +173,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                         {
                             Name = $"print-summary-{Name}",
                             Action = ctx => PrintOutputSummaryAsync(ctx),
-                            Tags = ["terraform-summary"],
+                            Tags = [TerraformPipelineTags.TerraformSummary],
                             DependsOnSteps = [readOutputsStep.Name],
                             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
                         };
@@ -239,6 +219,15 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
         // Add pipeline configuration annotation to wire up dependencies
         Annotations.Add(new PipelineConfigurationAnnotation(context =>
         {
+            // If there's a container registry, make the environment's plan step depend on its provision steps
+            // This ensures the registry is provisioned and login completed before we can deploy
+            if (ContainerRegistry is IResource registryResource)
+            {
+                var registryProvisionSteps = context.GetSteps(registryResource, WellKnownPipelineTags.ProvisionInfrastructure);
+                var envPlanSteps = context.GetSteps(this, TerraformPipelineTags.TerraformPlan);
+                envPlanSteps.DependsOn(registryProvisionSteps);
+            }
+
             // Wire up build step dependencies for compute resources
             foreach (var computeResource in context.Model.GetComputeResources())
             {
@@ -259,12 +248,14 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                 }
             }
 
-            // Ensure build resources are wired up for deployment
-            foreach (var computeResource in context.Model.GetBuildResources())
+            // Ensure the Build meta-step is wired up correctly for deployment
+            // Individual build steps should already be RequiredBy(Build), so we just need to ensure
+            // the Build step is ordered correctly relative to Deploy
+            var buildStep = context.Steps.FirstOrDefault(s => s.Name == WellKnownPipelineSteps.Build);
+            if (buildStep is not null)
             {
-                context.GetSteps(computeResource, WellKnownPipelineTags.BuildCompute)
-                    .RequiredBy(WellKnownPipelineSteps.Deploy)
-                    .DependsOn(WellKnownPipelineSteps.DeployPrereq);
+                buildStep.RequiredBy(WellKnownPipelineSteps.Deploy);
+                buildStep.DependsOn(WellKnownPipelineSteps.DeployPrereq);
             }
         }));
     }

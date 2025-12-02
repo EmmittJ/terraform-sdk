@@ -1,22 +1,25 @@
 // Licensed under the MIT License.
 
 #pragma warning disable ASPIREPIPELINES001
+#pragma warning disable ASPIREPIPELINES004
 
 using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
 using Aspire.Hosting.Publishing;
 using EmmittJ.Terraform.Sdk;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
 /// <summary>
-/// Represents a Terraform-managed container registry resource that implements <see cref="IContainerRegistry"/>.
+/// Represents a Terraform-managed container registry resource that implements both <see cref="IContainerRegistry"/>
+/// and <see cref="ITerraformEnvironment"/>.
 /// </summary>
 /// <remarks>
 /// <para>
 /// This resource manages a container registry (like Azure Container Registry or AWS ECR) through Terraform.
-/// It has its own <see cref="TerraformProvisioningResource"/> with a separate state directory from the parent environment,
+/// It is a self-contained Terraform environment with its own state, configuration, and lifecycle,
 /// allowing the registry to be provisioned independently before image builds and pushes.
 /// </para>
 /// <para>
@@ -30,33 +33,39 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// <item>login-registry: Authenticates to the registry using the configured callback</item>
 /// </list>
 /// </para>
+/// <para>
+/// Unlike child resources, the container registry is a first-class <see cref="ITerraformEnvironment"/>
+/// with its own settings for version, backend, providers, and automatic operations.
+/// </para>
 /// </remarks>
-public sealed class TerraformContainerRegistryResource : Resource, IContainerRegistry
+public sealed class TerraformContainerRegistryResource : Resource, IContainerRegistry, ITerraformEnvironment
 {
-    private TerraformProvisioningResource? _registryTerraformResource;
-    private TerraformEnvironmentResource? _parentEnvironment;
+    /// <inheritdoc />
+    public TerraformProvisioningResource TerraformResource { get; }
 
-    /// <summary>
-    /// Gets the <see cref="TerraformProvisioningResource"/> that manages the registry's Terraform infrastructure.
-    /// </summary>
+    /// <inheritdoc />
+    public string? TerraformVersion { get; set; }
+
+    /// <inheritdoc />
+    public string? OutputPath { get; set; }
+
+    /// <inheritdoc />
+    public bool AutoInit { get; set; } = true;
+
+    /// <inheritdoc />
+    public bool AutoPlan { get; set; } = true;
+
+    /// <inheritdoc />
+    public bool AutoApply { get; set; } = true;
+
+    /// <inheritdoc />
+    public Dictionary<ParameterResource, TerraformVariable> ParameterVariables { get; } = new();
+
+    /// <inheritdoc />
     /// <remarks>
-    /// This resource has its own <see cref="TerraformStack"/> and state directory, separate from the parent environment.
-    /// This property is only available after the registry has been associated with an environment.
+    /// For a container registry resource, this returns itself since the registry IS the container registry.
     /// </remarks>
-    /// <exception cref="InvalidOperationException">Thrown if accessed before the registry is associated with an environment.</exception>
-    public TerraformProvisioningResource RegistryTerraformResource =>
-        _registryTerraformResource ?? throw new InvalidOperationException(
-            $"Container registry '{Name}' has not been associated with a Terraform environment. " +
-            $"Use builder.AddTerraformEnvironment(\"name\", {Name}) to associate it.");
-
-    /// <summary>
-    /// Gets the parent <see cref="TerraformEnvironmentResource"/> that this registry belongs to.
-    /// </summary>
-    /// <exception cref="InvalidOperationException">Thrown if accessed before the registry is associated with an environment.</exception>
-    public TerraformEnvironmentResource ParentEnvironment =>
-        _parentEnvironment ?? throw new InvalidOperationException(
-            $"Container registry '{Name}' has not been associated with a Terraform environment. " +
-            $"Use builder.AddTerraformEnvironment(\"name\", {Name}) to associate it.");
+    public IContainerRegistry? ContainerRegistry => this;
 
     /// <summary>
     /// Gets the output reference for the registry name.
@@ -96,32 +105,26 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
     public Func<PipelineStepContext, TerraformContainerRegistryResource, Task>? LoginCallback { get; set; }
 
     /// <summary>
-    /// Gets or sets whether to automatically run terraform init for the registry.
-    /// </summary>
-    public bool AutoInit { get; set; } = true;
-
-    /// <summary>
-    /// Gets or sets whether to automatically run terraform plan for the registry.
-    /// </summary>
-    public bool AutoPlan { get; set; } = true;
-
-    /// <summary>
-    /// Gets or sets whether to automatically run terraform apply for the registry.
-    /// </summary>
-    public bool AutoApply { get; set; } = true;
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="TerraformContainerRegistryResource"/> class.
     /// </summary>
     /// <param name="name">The name of the container registry resource.</param>
     /// <remarks>
-    /// The registry must be associated with a Terraform environment using
-    /// <see cref="TerraformEnvironmentExtensions.AddTerraformEnvironment(IDistributedApplicationBuilder, string, IResourceBuilder{TerraformContainerRegistryResource})"/>
-    /// before it can be used.
+    /// <para>
+    /// The container registry is a self-contained Terraform environment. Configure it using extension methods:
+    /// </para>
+    /// <list type="bullet">
+    /// <item><c>WithVersion</c> - Set Terraform version</item>
+    /// <item><c>WithBackend</c> - Configure state backend</item>
+    /// <item><c>WithSettings</c> - Configure providers and required versions</item>
+    /// <item><c>PublishAsTerraform</c> - Define Terraform resources</item>
+    /// </list>
     /// </remarks>
     public TerraformContainerRegistryResource(string name)
         : base(name)
     {
+        // Create the TerraformResource for this registry (it references itself as the environment)
+        TerraformResource = new TerraformProvisioningResource($"{name}-terraform", this, this);
+
         // Create output references for required outputs
         NameOutput = new TerraformOutputReference("name", this);
         EndpointOutput = new TerraformOutputReference("endpoint", this);
@@ -131,44 +134,14 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
     }
 
     /// <summary>
-    /// Associates this registry with a Terraform environment.
-    /// </summary>
-    /// <param name="environment">The parent Terraform environment.</param>
-    internal void SetEnvironment(TerraformEnvironmentResource environment)
-    {
-        ArgumentNullException.ThrowIfNull(environment);
-
-        if (_parentEnvironment is not null)
-        {
-            throw new InvalidOperationException(
-                $"Container registry '{Name}' is already associated with environment '{_parentEnvironment.Name}'.");
-        }
-
-        _parentEnvironment = environment;
-        _registryTerraformResource = new TerraformProvisioningResource($"{Name}-terraform", environment, this);
-
-        // Apply all customization annotations
-        if (this.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var annotations))
-        {
-            foreach (var annotation in annotations)
-            {
-                annotation.Configure(_registryTerraformResource);
-            }
-        }
-
-        // Validate that required outputs are defined
-        ValidateRequiredOutputs(Name, _registryTerraformResource);
-    }
-
-    /// <summary>
     /// Validates that the registry's Terraform configuration contains the required outputs.
     /// </summary>
     /// <exception cref="InvalidOperationException">
     /// Thrown when the required 'name' or 'endpoint' outputs are not defined in the registry's Terraform stack.
     /// </exception>
-    private static void ValidateRequiredOutputs(string name, TerraformProvisioningResource resource)
+    internal void ValidateRequiredOutputs()
     {
-        var stack = resource.Stack;
+        var stack = TerraformResource.Stack;
         var outputs = stack.Blocks.OfType<TerraformOutput>().Select(o => o.Name).ToHashSet(StringComparer.OrdinalIgnoreCase);
 
         var missingOutputs = new List<string>();
@@ -186,7 +159,7 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         if (missingOutputs.Count > 0)
         {
             throw new InvalidOperationException(
-                $"Container registry '{name}' is missing required Terraform outputs: {string.Join(", ", missingOutputs)}. " +
+                $"Container registry '{Name}' is missing required Terraform outputs: {string.Join(", ", missingOutputs)}. " +
                 $"Add the following to your PublishAsTerraform callback:\n" +
                 $"  registry.Add(new TerraformOutput(\"name\") {{ Value = <registry-name-expression> }});\n" +
                 $"  registry.Add(new TerraformOutput(\"endpoint\") {{ Value = <registry-endpoint-expression> }});");
@@ -202,7 +175,7 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         {
             Name = $"publish-registry-{Name}",
             Action = ctx => PublishRegistryAsync(ctx),
-            Tags = ["publish-terraform", "registry"],
+            Tags = [TerraformPipelineTags.PublishTerraform, TerraformPipelineTags.Registry],
             RequiredBySteps = [WellKnownPipelineSteps.Publish, WellKnownPipelineSteps.Deploy]
         };
         steps.Add(publishStep);
@@ -220,7 +193,7 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
                 ctx,
                 "init -input=false -no-color",
                 GetRegistryOutputPath(ctx)),
-            Tags = ["terraform-init", "registry"],
+            Tags = [TerraformPipelineTags.TerraformInit, TerraformPipelineTags.Registry],
             DependsOnSteps = [publishStep.Name],
             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
         };
@@ -238,14 +211,14 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
             Action = async ctx =>
             {
                 var outputPath = GetRegistryOutputPath(ctx);
-                var sensitiveEnvVars = await TerraformVariableResolver.ResolveParameterVariablesAsync(ctx, ParentEnvironment, outputPath).ConfigureAwait(false);
+                var sensitiveEnvVars = await TerraformVariableResolver.ResolveParameterVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
                 await TerraformCommandRunner.RunTerraformCommandAsync(
                     ctx,
                     "plan -out=aspire.tfplan -input=false -no-color",
                     outputPath,
                     sensitiveEnvVars).ConfigureAwait(false);
             },
-            Tags = ["terraform-plan", "registry"],
+            Tags = [TerraformPipelineTags.TerraformPlan, TerraformPipelineTags.Registry],
             DependsOnSteps = [initStep.Name, WellKnownPipelineSteps.DeployPrereq],
             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
         };
@@ -263,14 +236,14 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
             Action = async ctx =>
             {
                 var outputPath = GetRegistryOutputPath(ctx);
-                var sensitiveEnvVars = await TerraformVariableResolver.ResolveParameterVariablesAsync(ctx, ParentEnvironment, outputPath).ConfigureAwait(false);
+                var sensitiveEnvVars = await TerraformVariableResolver.ResolveParameterVariablesAsync(ctx, this, outputPath).ConfigureAwait(false);
                 await TerraformCommandRunner.RunTerraformCommandAsync(
                     ctx,
                     "apply -auto-approve -input=false -no-color aspire.tfplan",
                     outputPath,
                     sensitiveEnvVars).ConfigureAwait(false);
             },
-            Tags = ["terraform-apply", "registry"],
+            Tags = [TerraformPipelineTags.Registry, TerraformPipelineTags.TerraformApply, WellKnownPipelineTags.ProvisionInfrastructure],
             DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
         };
@@ -281,19 +254,19 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         {
             Name = $"read-registry-outputs-{Name}",
             Action = ctx => ReadRegistryOutputsAsync(ctx),
-            Tags = ["terraform-outputs", "registry"],
+            Tags = [TerraformPipelineTags.TerraformOutputs, TerraformPipelineTags.Registry],
             DependsOnSteps = [applyStep.Name],
             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
         };
         steps.Add(readOutputsStep);
 
         // Login step - authenticates to the registry
-        // Include ProvisionInfrastructure tag so that image push steps wait for this to complete
+        // Tagged with ProvisionInfrastructure so other code can hook into registry provisioning
         var loginStep = new PipelineStep
         {
             Name = $"login-registry-{Name}",
             Action = ctx => LoginToRegistryAsync(ctx),
-            Tags = ["registry-login", "registry", WellKnownPipelineTags.ProvisionInfrastructure],
+            Tags = [TerraformPipelineTags.Registry, WellKnownPipelineTags.ProvisionInfrastructure],
             DependsOnSteps = [readOutputsStep.Name],
             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
         };
@@ -306,15 +279,43 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
     {
         var outputPath = GetRegistryOutputPath(context);
 
-        var terraformContext = new TerraformPublishingContext(
-            context,
-            context.ExecutionContext,
-            outputPath,
-            context.Logger,
-            ParentEnvironment,
-            context.CancellationToken);
+        // Apply all customization annotations
+        if (this.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var annotations))
+        {
+            foreach (var annotation in annotations)
+            {
+                annotation.Configure(TerraformResource);
+            }
+        }
 
-        return terraformContext.WriteRegistryAsync(this);
+        // Validate required outputs
+        ValidateRequiredOutputs();
+
+        // Write the registry's Terraform configuration
+        return WriteRegistryConfigurationAsync(context, outputPath);
+    }
+
+    private async Task WriteRegistryConfigurationAsync(PipelineStepContext context, string outputPath)
+    {
+        context.Logger.LogInformation("Generating Terraform configuration for registry '{RegistryName}' at {OutputPath}", Name, outputPath);
+
+        // Ensure the output directory exists
+        Directory.CreateDirectory(outputPath);
+
+        // Generate main.tf
+        var stack = TerraformResource.Stack;
+        var mainTfPath = Path.Combine(outputPath, "main.tf");
+        var hcl = stack.ToHcl();
+        await File.WriteAllTextAsync(mainTfPath, hcl, context.CancellationToken).ConfigureAwait(false);
+
+        context.Logger.LogInformation("Generated registry Terraform configuration at {Path}", mainTfPath);
+
+        // Generate .terraform-version file if specified
+        if (!string.IsNullOrEmpty(TerraformVersion))
+        {
+            var versionFilePath = Path.Combine(outputPath, ".terraform-version");
+            await File.WriteAllTextAsync(versionFilePath, TerraformVersion, context.CancellationToken).ConfigureAwait(false);
+        }
     }
 
     private async Task ReadRegistryOutputsAsync(PipelineStepContext context)
@@ -325,7 +326,7 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         // Populate the outputs dictionary
         foreach (var (key, (value, _)) in outputs)
         {
-            RegistryTerraformResource.Outputs[key] = value;
+            TerraformResource.Outputs[key] = value;
         }
     }
 
@@ -342,7 +343,16 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
 
     private string GetRegistryOutputPath(PipelineStepContext context)
     {
-        var basePath = PublishingContextUtils.GetEnvironmentOutputPath(context, ParentEnvironment);
-        return Path.Combine(basePath, "registry");
+        var outputService = context.Services.GetRequiredService<IPipelineOutputService>();
+
+        // Use the registry's own output path if specified, otherwise use the default
+        if (!string.IsNullOrEmpty(OutputPath))
+        {
+            var basePath = outputService.GetOutputDirectory();
+            return Path.Combine(basePath, OutputPath);
+        }
+
+        // Default: put registry in its own directory based on resource name
+        return outputService.GetOutputDirectory(this);
     }
 }

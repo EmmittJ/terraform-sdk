@@ -318,14 +318,14 @@ public static class TerraformContainerRegistryHelpers
             }
 
             // Get username and password from outputs
-            if (!registry.RegistryTerraformResource.Outputs.TryGetValue(usernameOutputName, out var usernameValue) ||
+            if (!registry.TerraformResource.Outputs.TryGetValue(usernameOutputName, out var usernameValue) ||
                 usernameValue is null)
             {
                 throw new InvalidOperationException(
                     $"Username output '{usernameOutputName}' not found for registry '{registry.Name}'.");
             }
 
-            if (!registry.RegistryTerraformResource.Outputs.TryGetValue(passwordOutputName, out var passwordValue) ||
+            if (!registry.TerraformResource.Outputs.TryGetValue(passwordOutputName, out var passwordValue) ||
                 passwordValue is null)
             {
                 throw new InvalidOperationException(

@@ -422,39 +422,4 @@ internal sealed class TerraformPublishingContext
 
         _logger.LogInformation("Generated root main.tf at {Path}", rootMainTfPath);
     }
-
-    /// <summary>
-    /// Writes Terraform configuration for a container registry resource.
-    /// </summary>
-    /// <param name="registry">The container registry resource.</param>
-    /// <returns>A task representing the asynchronous operation.</returns>
-    internal async Task WriteRegistryAsync(TerraformContainerRegistryResource registry)
-    {
-        _logger.LogInformation("Starting Terraform configuration generation for registry '{RegistryName}'", registry.Name);
-
-        // Ensure the output directory exists
-        Directory.CreateDirectory(_baseOutputPath);
-
-        // NOTE: Customization annotations are already applied in SetEnvironment() when the registry
-        // is associated with the environment. We don't apply them again here to avoid duplicates.
-
-        // The registry stack should be configured by the user's callback
-        // Settings (providers, backend) must be configured explicitly since
-        // the registry has its own state directory and may need different configuration
-        var stack = registry.RegistryTerraformResource.Stack;
-
-        // Generate main.tf
-        var mainTfPath = Path.Combine(_baseOutputPath, "main.tf");
-        var hcl = stack.ToHcl();
-        await File.WriteAllTextAsync(mainTfPath, hcl, _cancellationToken).ConfigureAwait(false);
-
-        _logger.LogInformation("Generated registry Terraform configuration at {Path}", mainTfPath);
-
-        // Generate .terraform-version file if specified
-        if (!string.IsNullOrEmpty(_environment.TerraformVersion))
-        {
-            var versionFilePath = Path.Combine(_baseOutputPath, ".terraform-version");
-            await File.WriteAllTextAsync(versionFilePath, _environment.TerraformVersion, _cancellationToken).ConfigureAwait(false);
-        }
-    }
 }

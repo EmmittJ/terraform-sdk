@@ -44,7 +44,7 @@ namespace EmmittJ.Aspire.Hosting.Terraform;
 /// </code>
 /// </example>
 /// </remarks>
-public sealed class TerraformProvisioningResource : Resource, IResourceWithParent<TerraformEnvironmentResource>
+public sealed class TerraformProvisioningResource : Resource
 {
     /// <summary>
     /// Gets the target Aspire resource that this Terraform resource represents, if any.
@@ -54,7 +54,7 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
     /// <summary>
     /// Gets the Terraform environment this resource belongs to.
     /// </summary>
-    public TerraformEnvironmentResource Parent { get; }
+    public ITerraformEnvironment Environment { get; }
 
     /// <summary>
     /// Gets the Terraform stack where resources should be added.
@@ -176,20 +176,20 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
 
     private TerraformVariable CreateRegistryEndpointVariable()
     {
-        var endpoint = Parent.ContainerRegistryEndpoint()
+        var endpoint = Environment.ContainerRegistryEndpoint()
             ?? throw new InvalidOperationException(
-                $"No container registry configured for environment '{Parent.Name}'. " +
-                "Use AddTerraformEnvironment(name, containerRegistry) to configure one.");
+                $"No container registry configured for environment '{Environment.Name}'. " +
+                "Use AddTerraformEnvironment(name, registry) to configure one.");
 
         return AddVariable(endpoint);
     }
 
     private TerraformVariable CreateRegistryNameVariable()
     {
-        var name = Parent.ContainerRegistryName()
+        var name = Environment.ContainerRegistryName()
             ?? throw new InvalidOperationException(
-                $"No container registry configured for environment '{Parent.Name}'. " +
-                "Use AddTerraformEnvironment(name, containerRegistry) to configure one.");
+                $"No container registry configured for environment '{Environment.Name}'. " +
+                "Use AddTerraformEnvironment(name, registry) to configure one.");
 
         return AddVariable(name);
     }
@@ -200,10 +200,10 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
     /// <param name="name">The name of the Terraform resource.</param>
     /// <param name="environment">The Terraform environment this resource belongs to.</param>
     /// <param name="targetResource">The target Aspire resource, or <c>null</c> if this is a standalone Terraform resource.</param>
-    internal TerraformProvisioningResource(string name, TerraformEnvironmentResource environment, IResource? targetResource = null)
+    internal TerraformProvisioningResource(string name, ITerraformEnvironment environment, IResource? targetResource = null)
         : base(name)
     {
-        Parent = environment ?? throw new ArgumentNullException(nameof(environment));
+        Environment = environment ?? throw new ArgumentNullException(nameof(environment));
         TargetResource = targetResource;
         Stack = new TerraformStack();
 
@@ -232,6 +232,7 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
         var steps = new List<PipelineStep>();
 
         // Create push step for this deployment target
+        // Tagged with PushContainerImage so environments can hook into push steps
         var pushStep = new PipelineStep
         {
             Name = $"push-{TargetResource.Name}",
@@ -303,12 +304,11 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
             return;
         }
 
-        // Find the push step for this resource
+        // Find the push step for this resource using tag
         var pushSteps = context.GetSteps(this, WellKnownPipelineTags.PushContainerImage);
 
-        // Make push step depend on build steps of the target resource
-        var buildSteps = context.GetSteps(TargetResource, WellKnownPipelineTags.BuildCompute);
-        pushSteps.DependsOn(buildSteps);
+        // Make push step depend on the Build meta-step which orchestrates all build operations
+        pushSteps.DependsOn(WellKnownPipelineSteps.Build);
 
         // Make push step depend on the registry being provisioned
         var deploymentTargetAnnotation = TargetResource.GetDeploymentTargetAnnotation();
@@ -318,14 +318,9 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
             pushSteps.DependsOn(registryProvisionSteps);
         }
 
-        // Make environment terraform steps depend on push steps
+        // Make environment terraform plan step depend on push steps
         // The plan step needs push to complete so it can reference the pushed images
-        // Use both provision-infra (for apply) and terraform-plan tags to cover both cases
-        var envProvisionSteps = context.GetSteps(Parent, WellKnownPipelineTags.ProvisionInfrastructure);
-        envProvisionSteps.DependsOn(pushSteps);
-
-        // Also make the plan step depend on push, in case apply is disabled
-        var envPlanSteps = context.GetSteps(Parent, "terraform-plan");
+        var envPlanSteps = context.GetSteps(Environment, TerraformPipelineTags.TerraformPlan);
         envPlanSteps.DependsOn(pushSteps);
     }
 
@@ -396,7 +391,7 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
     /// <item>A <see cref="TerraformOutput"/> in the current stack</item>
     /// <item>A <see cref="TerraformOutputReference"/> on the parent environment for cross-resource consumption</item>
     /// </list>
-    /// Other resources can consume this output via <see cref="AddVariable(string, string?)"/> or <c>Parent.GetTerraformOutput(name)</c>.
+    /// Other resources can consume this output via <see cref="AddVariable(string, string?)"/> or <c>Environment.GetTerraformOutput(name)</c>.
     /// </remarks>
     /// <example>
     /// <code>
@@ -419,7 +414,7 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
         ArgumentNullException.ThrowIfNull(value);
 
         // Create the output reference for cross-resource consumption
-        var outputRef = Parent.GetTerraformOutput(name, sensitive);
+        var outputRef = Environment.GetTerraformOutput(name, sensitive);
 
         // Delegate to existing method
         return AddOutput(outputRef, value, description);
@@ -493,7 +488,7 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
     /// <param name="variableName">Optional custom name for the variable. If not provided, derived from output name.</param>
     /// <returns>A <see cref="TerraformVariable"/> that receives the output value.</returns>
     /// <remarks>
-    /// This is a convenience overload that combines <c>Parent.GetTerraformOutput(name)</c> with <c>AddVariable(outputRef)</c>.
+    /// This is a convenience overload that combines <c>Environment.GetTerraformOutput(name)</c> with <c>AddVariable(outputRef)</c>.
     /// </remarks>
     /// <example>
     /// <code>
@@ -516,7 +511,7 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
     {
         ArgumentException.ThrowIfNullOrEmpty(outputName);
 
-        var outputRef = Parent.GetTerraformOutput(outputName);
+        var outputRef = Environment.GetTerraformOutput(outputName);
 
         return AddVariable(outputRef, variableName);
     }
@@ -577,7 +572,7 @@ public sealed class TerraformProvisioningResource : Resource, IResourceWithParen
         Stack.Add(variable);
 
         // Register on the environment for runtime resolution during plan/apply
-        Parent.ParameterVariables[parameterResource] = variable;
+        Environment.ParameterVariables[parameterResource] = variable;
 
         return variable;
     }

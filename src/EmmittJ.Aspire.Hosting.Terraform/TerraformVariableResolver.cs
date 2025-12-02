@@ -25,7 +25,7 @@ internal static class TerraformVariableResolver
     /// <returns>A dictionary of sensitive variable names to values for TF_VAR_* environment variables.</returns>
     public static async Task<Dictionary<string, string>> ResolveParameterVariablesAsync(
         PipelineStepContext context,
-        TerraformEnvironmentResource environment,
+        ITerraformEnvironment environment,
         string outputPath)
     {
         var sensitiveVars = new Dictionary<string, string>();

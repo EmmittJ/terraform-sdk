@@ -5,6 +5,7 @@
 using Aspire.Hosting;
 using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Pipelines;
+using EmmittJ.Terraform.Sdk;
 
 namespace EmmittJ.Aspire.Hosting.Terraform;
 
@@ -21,10 +22,8 @@ public static class TerraformContainerRegistryExtensions
     /// <returns>A resource builder for the container registry.</returns>
     /// <remarks>
     /// <para>
-    /// This creates a <see cref="TerraformContainerRegistryResource"/> that can be associated with a
-    /// Terraform environment using <see cref="TerraformEnvironmentExtensions.AddTerraformEnvironment(IDistributedApplicationBuilder, string, IResourceBuilder{TerraformContainerRegistryResource})"/>.
-    /// The registry is provisioned first, allowing images to be built and pushed before the
-    /// environment resources are deployed.
+    /// This creates a <see cref="TerraformContainerRegistryResource"/> that is a self-contained
+    /// Terraform environment with its own state, configuration, and lifecycle.
     /// </para>
     /// <para>
     /// The registry configuration must define two outputs:
@@ -37,6 +36,9 @@ public static class TerraformContainerRegistryExtensions
     /// <example>
     /// <code>
     /// var acr = builder.AddTerraformContainerRegistry("acr")
+    ///     .WithVersion("1.9.0")
+    ///     .WithBackend("azurerm", backend => { ... })
+    ///     .WithSettings(settings => { ... })
     ///     .PublishAsTerraform(registry =>
     ///     {
     ///         var azurerm = new AzurermProvider("azurerm") { ... };
@@ -61,7 +63,7 @@ public static class TerraformContainerRegistryExtensions
         ArgumentNullException.ThrowIfNull(builder);
         ArgumentException.ThrowIfNullOrEmpty(name);
 
-        // Create the container registry resource (environment will be set later via WithContainerRegistry)
+        // Create the container registry resource (self-contained environment)
         var registryResource = new TerraformContainerRegistryResource(name);
 
         // Add the registry resource to the application model and return its builder
@@ -110,24 +112,24 @@ public static class TerraformContainerRegistryExtensions
     /// <summary>
     /// Gets a <see cref="TerraformOutputReference"/> for the container registry name from the environment.
     /// </summary>
-    /// <param name="environment">The Terraform environment resource.</param>
-    /// <returns>A reference to the registry name output, or <c>null</c> if no registry is configured.</returns>
-    public static TerraformOutputReference? ContainerRegistryName(this TerraformEnvironmentResource environment)
+    /// <param name="environment">The Terraform environment.</param>
+    /// <returns>A reference to the registry name output, or <c>null</c> if no Terraform container registry is configured.</returns>
+    public static TerraformOutputReference? ContainerRegistryName(this ITerraformEnvironment environment)
     {
         ArgumentNullException.ThrowIfNull(environment);
 
-        return environment.ContainerRegistry?.NameOutput;
+        return (environment.ContainerRegistry as TerraformContainerRegistryResource)?.NameOutput;
     }
 
     /// <summary>
     /// Gets a <see cref="TerraformOutputReference"/> for the container registry endpoint from the environment.
     /// </summary>
-    /// <param name="environment">The Terraform environment resource.</param>
-    /// <returns>A reference to the registry endpoint output, or <c>null</c> if no registry is configured.</returns>
-    public static TerraformOutputReference? ContainerRegistryEndpoint(this TerraformEnvironmentResource environment)
+    /// <param name="environment">The Terraform environment.</param>
+    /// <returns>A reference to the registry endpoint output, or <c>null</c> if no Terraform container registry is configured.</returns>
+    public static TerraformOutputReference? ContainerRegistryEndpoint(this ITerraformEnvironment environment)
     {
         ArgumentNullException.ThrowIfNull(environment);
 
-        return environment.ContainerRegistry?.EndpointOutput;
+        return (environment.ContainerRegistry as TerraformContainerRegistryResource)?.EndpointOutput;
     }
 }

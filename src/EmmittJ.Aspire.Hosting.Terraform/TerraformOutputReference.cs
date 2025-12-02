@@ -122,16 +122,10 @@ public sealed class TerraformOutputReference(string name, IResource resource, bo
     /// </summary>
     private TerraformProvisioningResource? FindTerraformResource()
     {
-        // Special case: TerraformContainerRegistryResource has its own RegistryTerraformResource
-        if (Resource is TerraformContainerRegistryResource registryResource)
+        // Special case: ITerraformEnvironment resources have their own TerraformResource
+        if (Resource is ITerraformEnvironment terraformEnvironment)
         {
-            return registryResource.RegistryTerraformResource;
-        }
-
-        // Special case: TerraformEnvironmentResource has its own TerraformResource
-        if (Resource is TerraformEnvironmentResource environmentResource)
-        {
-            return environmentResource.TerraformResource;
+            return terraformEnvironment.TerraformResource;
         }
 
         // Look through all deployment target annotations to find the TerraformResource
