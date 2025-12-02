@@ -75,7 +75,7 @@ public sealed class TerraformOutputReference(string name, IResource resource, bo
     /// <returns>The value of the output, or <c>null</c> if not available.</returns>
     /// <remarks>
     /// <para>
-    /// This method looks for the output value in the <see cref="TerraformProvisioningResource"/> that wraps this resource.
+    /// This method waits for the Terraform provisioning to complete before returning the output value.
     /// The outputs are populated after Terraform apply completes with the actual output values.
     /// </para>
     /// <para>
@@ -83,32 +83,38 @@ public sealed class TerraformOutputReference(string name, IResource resource, bo
     /// method will throw an exception.
     /// </para>
     /// </remarks>
-    public ValueTask<string?> GetValueAsync(CancellationToken cancellationToken = default)
+    public async ValueTask<string?> GetValueAsync(CancellationToken cancellationToken = default)
     {
-        return new ValueTask<string?>(Value);
+        var outputsAnnotation = GetOutputsAnnotation();
+        var provisioning = outputsAnnotation?.ProvisioningTaskCompletionSource;
+        if (provisioning is not null)
+        {
+            await provisioning.Task.WaitAsync(cancellationToken).ConfigureAwait(false);
+        }
+
+        return Value;
     }
 
     /// <summary>
     /// Gets the current value of the output.
     /// </summary>
     /// <remarks>
-    /// The value is retrieved from the <see cref="TerraformProvisioningResource"/> that wraps this resource.
+    /// The value is retrieved from the resource's <see cref="TerraformOutputsAnnotation"/>.
     /// </remarks>
     /// <exception cref="InvalidOperationException">Thrown when no output with the specified name exists.</exception>
     public string? Value
     {
         get
         {
-            // Find the TerraformResource that wraps this resource
-            var terraformResource = FindTerraformResource();
-            if (terraformResource is null)
+            var outputsAnnotation = GetOutputsAnnotation();
+            if (outputsAnnotation is null)
             {
                 throw new InvalidOperationException(
-                    $"No Terraform deployment target found for resource '{Resource.Name}'. " +
+                    $"No Terraform outputs found for resource '{Resource.Name}'. " +
                     $"Ensure the resource has been configured with PublishAsTerraform().");
             }
 
-            if (!terraformResource.Outputs.TryGetValue(Name, out var value))
+            if (!outputsAnnotation.Outputs.TryGetValue(Name, out var value))
             {
                 throw new InvalidOperationException($"No output for '{Name}' on resource '{Resource.Name}'.");
             }
@@ -118,26 +124,14 @@ public sealed class TerraformOutputReference(string name, IResource resource, bo
     }
 
     /// <summary>
-    /// Finds the <see cref="TerraformProvisioningResource"/> that wraps this resource.
+    /// Gets the <see cref="TerraformOutputsAnnotation"/> for this resource.
     /// </summary>
-    private TerraformProvisioningResource? FindTerraformResource()
+    private TerraformOutputsAnnotation? GetOutputsAnnotation()
     {
-        // Special case: ITerraformEnvironment resources have their own TerraformResource
-        if (Resource is ITerraformEnvironment terraformEnvironment)
+        // Check for outputs annotation directly on the resource
+        if (Resource.TryGetAnnotationsOfType<TerraformOutputsAnnotation>(out var annotations))
         {
-            return terraformEnvironment.TerraformResource;
-        }
-
-        // Look through all deployment target annotations to find the TerraformResource
-        if (Resource.TryGetAnnotationsOfType<DeploymentTargetAnnotation>(out var annotations))
-        {
-            foreach (var annotation in annotations)
-            {
-                if (annotation.DeploymentTarget is TerraformProvisioningResource terraformResource && terraformResource.TargetResource == Resource)
-                {
-                    return terraformResource;
-                }
-            }
+            return annotations.FirstOrDefault();
         }
 
         return null;

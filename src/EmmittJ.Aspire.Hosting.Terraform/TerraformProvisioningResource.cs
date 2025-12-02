@@ -75,6 +75,12 @@ public sealed class TerraformProvisioningResource : Resource
     internal Dictionary<string, object?> Outputs { get; } = new(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
+    /// Gets or sets the <see cref="TerraformOutputsAnnotation"/> for the target resource.
+    /// This annotation stores outputs directly on the target resource for easy access.
+    /// </summary>
+    internal TerraformOutputsAnnotation? OutputsAnnotation { get; set; }
+
+    /// <summary>
     /// Gets the dictionary of variables created for this module's inputs.
     /// </summary>
     internal Dictionary<string, TerraformVariable> Parameters { get; } = [];

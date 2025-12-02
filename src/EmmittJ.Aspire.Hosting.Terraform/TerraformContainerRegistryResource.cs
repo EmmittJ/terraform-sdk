@@ -105,6 +105,12 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
     public Func<PipelineStepContext, TerraformContainerRegistryResource, Task>? LoginCallback { get; set; }
 
     /// <summary>
+    /// Gets the <see cref="TerraformOutputsAnnotation"/> for this registry.
+    /// This annotation stores outputs directly on the resource for easy access via <see cref="TerraformOutputReference"/>.
+    /// </summary>
+    internal TerraformOutputsAnnotation OutputsAnnotation { get; }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="TerraformContainerRegistryResource"/> class.
     /// </summary>
     /// <param name="name">The name of the container registry resource.</param>
@@ -128,6 +134,13 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         // Create output references for required outputs
         NameOutput = new TerraformOutputReference("name", this);
         EndpointOutput = new TerraformOutputReference("endpoint", this);
+
+        // Add TerraformOutputsAnnotation to store outputs directly on the resource
+        OutputsAnnotation = new TerraformOutputsAnnotation
+        {
+            ProvisioningTaskCompletionSource = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously)
+        };
+        Annotations.Add(OutputsAnnotation);
 
         // Add pipeline step annotation for registry provisioning
         Annotations.Add(new PipelineStepAnnotation(CreatePipelineSteps));
@@ -323,11 +336,20 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         var outputPath = GetRegistryOutputPath(context);
         var outputs = await TerraformOutputReader.ReadOutputsAsync(context, outputPath).ConfigureAwait(false);
 
-        // Populate the outputs dictionary
+        // Populate the OutputsAnnotation for TerraformOutputReference access
+        foreach (var (key, (value, _)) in outputs)
+        {
+            OutputsAnnotation.Outputs[key] = value;
+        }
+
+        // Also populate the TerraformResource.Outputs for backwards compatibility
         foreach (var (key, (value, _)) in outputs)
         {
             TerraformResource.Outputs[key] = value;
         }
+
+        // Signal that provisioning is complete so TerraformOutputReference.GetValueAsync can return
+        OutputsAnnotation.ProvisioningTaskCompletionSource?.TrySetResult();
     }
 
     private async Task LoginToRegistryAsync(PipelineStepContext context)

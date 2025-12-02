@@ -72,6 +72,17 @@ internal sealed class TerraformInfrastructure(
                 // TerraformEnvironmentResource expands its pipeline steps via PipelineStepAnnotation
                 var terraformResource = await environmentContext.CreateTerraformResourceAsync(r, cancellationToken).ConfigureAwait(false);
 
+                // Add TerraformOutputsAnnotation to store outputs directly on the resource
+                // This enables TerraformOutputReference to access outputs without searching through annotations
+                var outputsAnnotation = new TerraformOutputsAnnotation
+                {
+                    ProvisioningTaskCompletionSource = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously)
+                };
+                r.Annotations.Add(outputsAnnotation);
+
+                // Store the annotation on the TerraformProvisioningResource for easy access during output population
+                terraformResource.OutputsAnnotation = outputsAnnotation;
+
                 // Add ONE deployment target annotation per resource
                 var deploymentTargetAnnotation = new DeploymentTargetAnnotation(terraformResource)
                 {
