@@ -101,17 +101,7 @@ resource "azurerm_container_app_environment" "cae" {
   }
 }
 
-output "AZURE_LOG_ANALYTICS_WORKSPACE_NAME" {
-  description = "The name of the Log Analytics workspace"
-  value       = azurerm_log_analytics_workspace.law.name
-}
-
-output "AZURE_CONTAINER_APPS_ENVIRONMENT_ID" {
-  description = "The ID of the Container App Environment"
-  value       = azurerm_container_app_environment.cae.id
-}
-
-output "AZURE_CONTAINER_APPS_ENVIRONMENT_DEFAULT_DOMAIN" {
+output "container_apps_domain" {
   description = "The default domain for the Container App Environment"
   value       = azurerm_container_app_environment.cae.default_domain
 }
@@ -126,6 +116,11 @@ output "managed_identity_id" {
 
 output "resource_group_name" {
   value = azurerm_resource_group.rg.name
+}
+
+output "app_url" {
+  description = "The URL of the deployed application"
+  value       = module.app.app_url
 }
 
 module "app" {

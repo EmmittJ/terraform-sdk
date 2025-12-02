@@ -320,10 +320,10 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
     private async Task ReadRegistryOutputsAsync(PipelineStepContext context)
     {
         var outputPath = GetRegistryOutputPath(context);
-        var outputs = await TerraformOutputReader.ReadOutputsAsync(outputPath, context.Logger, context.CancellationToken).ConfigureAwait(false);
+        var outputs = await TerraformOutputReader.ReadOutputsAsync(context, outputPath).ConfigureAwait(false);
 
         // Populate the outputs dictionary
-        foreach (var (key, value) in outputs)
+        foreach (var (key, (value, _)) in outputs)
         {
             RegistryTerraformResource.Outputs[key] = value;
         }

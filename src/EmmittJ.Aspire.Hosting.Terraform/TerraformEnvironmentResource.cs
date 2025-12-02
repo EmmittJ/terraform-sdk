@@ -78,6 +78,13 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     internal TerraformContainerRegistryResource? ContainerRegistry { get; set; }
 
     /// <summary>
+    /// Gets the dictionary of Terraform outputs produced by this environment.
+    /// Keys are output names (case-insensitive), values are tuples of (value, sensitive flag).
+    /// This dictionary is populated after Terraform apply completes.
+    /// </summary>
+    internal Dictionary<string, (object? Value, bool Sensitive)> Outputs { get; } = new(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="TerraformEnvironmentResource"/> class.
     /// </summary>
     /// <param name="name">The name of the Terraform environment.</param>
@@ -169,6 +176,28 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                             RequiredBySteps = [WellKnownPipelineSteps.Deploy]
                         };
                         steps.Add(applyStep);
+
+                        // Read outputs step - reads terraform outputs after apply
+                        var readOutputsStep = new PipelineStep
+                        {
+                            Name = $"read-outputs-{Name}",
+                            Action = ctx => ReadEnvironmentOutputsAsync(ctx),
+                            Tags = ["terraform-outputs"],
+                            DependsOnSteps = [applyStep.Name],
+                            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+                        };
+                        steps.Add(readOutputsStep);
+
+                        // Print summary step - displays non-sensitive outputs
+                        var printSummaryStep = new PipelineStep
+                        {
+                            Name = $"print-summary-{Name}",
+                            Action = ctx => PrintOutputSummaryAsync(ctx),
+                            Tags = ["terraform-summary"],
+                            DependsOnSteps = [readOutputsStep.Name],
+                            RequiredBySteps = [WellKnownPipelineSteps.Deploy]
+                        };
+                        steps.Add(printSummaryStep);
                     }
                 }
             }
@@ -268,5 +297,75 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             context.CancellationToken);
 
         return terraformContext.WriteModelAsync(context.Model, this);
+    }
+
+    private async Task ReadEnvironmentOutputsAsync(PipelineStepContext context)
+    {
+        var outputPath = PublishingContextUtils.GetEnvironmentOutputPath(context, this);
+        var outputs = await TerraformOutputReader.ReadOutputsAsync(context, outputPath).ConfigureAwait(false);
+
+        // Populate the outputs dictionary
+        foreach (var (key, value) in outputs)
+        {
+            Outputs[key] = value;
+        }
+
+        // Also populate the TerraformResource.Outputs for backwards compatibility
+        foreach (var (key, (value, _)) in outputs)
+        {
+            TerraformResource.Outputs[key] = value;
+        }
+
+        context.Logger.LogInformation("Read {Count} Terraform outputs for environment '{EnvironmentName}'", outputs.Count, Name);
+    }
+
+    private async Task PrintOutputSummaryAsync(PipelineStepContext context)
+    {
+        var nonSensitiveOutputs = Outputs
+            .Where(kvp => !kvp.Value.Sensitive)
+            .OrderBy(kvp => kvp.Key)
+            .ToList();
+
+        if (nonSensitiveOutputs.Count == 0)
+        {
+            await context.ReportingStep.CompleteAsync(
+                "Deployment complete (no outputs to display)",
+                CompletionState.Completed,
+                context.CancellationToken).ConfigureAwait(false);
+            return;
+        }
+
+        // Build a summary message with non-sensitive outputs
+        var summaryLines = new List<string>
+        {
+            $"**Deployment Summary for '{Name}':**",
+            ""
+        };
+
+        foreach (var (name, (value, _)) in nonSensitiveOutputs)
+        {
+            var displayValue = FormatOutputValue(value);
+            summaryLines.Add($"- **{name}**: `{displayValue}`");
+        }
+
+        var summary = string.Join("\n", summaryLines);
+
+        context.Logger.LogInformation("Terraform deployment complete for environment '{EnvironmentName}':\n{Summary}",
+            Name, string.Join(Environment.NewLine, nonSensitiveOutputs.Select(o => $"  {o.Key}: {FormatOutputValue(o.Value.Value)}")));
+
+        await context.ReportingStep.CompleteAsync(
+            summary,
+            CompletionState.Completed,
+            context.CancellationToken).ConfigureAwait(false);
+    }
+
+    private static string FormatOutputValue(object? value)
+    {
+        return value switch
+        {
+            null => "(null)",
+            string s => s,
+            _ => value.ToString() ?? "(null)"
+        };
     }
 }

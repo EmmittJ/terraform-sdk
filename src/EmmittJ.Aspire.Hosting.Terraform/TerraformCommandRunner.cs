@@ -20,9 +20,9 @@ internal static class TerraformCommandRunner
     /// <param name="command">The Terraform command to run (e.g., "init -input=false").</param>
     /// <param name="workingDirectory">The working directory for the command.</param>
     /// <param name="sensitiveEnvironmentVariables">Optional dictionary of sensitive variables to pass as TF_VAR_* environment variables.</param>
-    /// <returns>A task representing the asynchronous operation.</returns>
+    /// <returns>The standard output from the command.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the command fails.</exception>
-    public static async Task RunTerraformCommandAsync(
+    public static async Task<string> RunTerraformCommandAsync(
         PipelineStepContext context,
         string command,
         string workingDirectory,
@@ -98,5 +98,7 @@ internal static class TerraformCommandRunner
             $"Terraform '{command}' completed successfully",
             CompletionState.Completed,
             context.CancellationToken).ConfigureAwait(false);
+
+        return output;
     }
 }

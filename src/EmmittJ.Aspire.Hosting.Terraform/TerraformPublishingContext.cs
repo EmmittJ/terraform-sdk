@@ -435,14 +435,8 @@ internal sealed class TerraformPublishingContext
         // Ensure the output directory exists
         Directory.CreateDirectory(_baseOutputPath);
 
-        // Apply customization annotations if any
-        if (registry.TryGetAnnotationsOfType<TerraformCustomizationAnnotation>(out var annotations))
-        {
-            foreach (var annotation in annotations)
-            {
-                annotation.Configure(registry.RegistryTerraformResource);
-            }
-        }
+        // NOTE: Customization annotations are already applied in SetEnvironment() when the registry
+        // is associated with the environment. We don't apply them again here to avoid duplicates.
 
         // The registry stack should be configured by the user's callback
         // Settings (providers, backend) must be configured explicitly since
