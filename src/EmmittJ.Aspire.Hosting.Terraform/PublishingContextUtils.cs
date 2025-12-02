@@ -31,10 +31,12 @@ internal static class PublishingContextUtils
             ? outputService.GetOutputDirectory(environment)
             : outputService.GetOutputDirectory();
 
-        // If the environment has a custom OutputPath configured, append it to the base path
-        return !string.IsNullOrEmpty(environment.OutputPath)
-            ? Path.Combine(basePath, environment.OutputPath)
-            : basePath;
+        // If the environment has a custom OutputPath configured, use it; otherwise default to the environment name
+        var outputPath = !string.IsNullOrEmpty(environment.OutputPath)
+            ? environment.OutputPath
+            : environment.Name;
+
+        return Path.Combine(basePath, outputPath);
     }
 
     /// <summary>

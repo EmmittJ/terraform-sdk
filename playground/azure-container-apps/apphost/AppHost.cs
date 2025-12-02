@@ -21,6 +21,15 @@ var tags = new TerraformMap<string>
 
 // Container Registry (Stage 1 - provisioned before image build/push)
 var acr = builder.AddTerraformContainerRegistry("acr")
+    .WithBackend("local")
+    .WithSettings(settings =>
+    {
+        settings.RequiredProviders = new()
+        {
+            ["azurerm"] = new ProviderRequirement { Source = "hashicorp/azurerm", Version = "~> 4.0" },
+            ["random"] = new ProviderRequirement { Source = "hashicorp/random", Version = "~> 3.0" }
+        };
+    })
     .PublishAsTerraform(registry =>
     {
         var azurerm = new AzurermProvider("azurerm")

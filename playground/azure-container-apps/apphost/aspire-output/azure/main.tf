@@ -101,11 +101,6 @@ resource "azurerm_container_app_environment" "cae" {
   }
 }
 
-output "container_apps_domain" {
-  description = "The default domain for the Container App Environment"
-  value       = azurerm_container_app_environment.cae.default_domain
-}
-
 output "container_env_id" {
   value = azurerm_container_app_environment.cae.id
 }

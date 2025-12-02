@@ -1,3 +1,18 @@
+terraform {
+  backend "local" {
+  }
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 4.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.0"
+    }
+  }
+}
+
 variable "azure_subscription_id" {
   description = "Parameter 'azure-subscription-id'"
   sensitive   = false
