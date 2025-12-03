@@ -33,4 +33,11 @@ public interface ITerraformHasParent
     /// Automatically set when this block is assigned to a parent's property.
     /// </summary>
     ITerraformReferenceable? ParentBlock { get; set; }
+
+    /// <summary>
+    /// Gets or sets the attribute name this value was assigned to in the parent (e.g., "ingress", "timeouts").
+    /// Used for building references like <c>resource.ingress[0].fqdn</c>.
+    /// Automatically set when this value is assigned to a parent's property via SetArgument.
+    /// </summary>
+    string? ParentAttributeName { get; set; }
 }

@@ -249,6 +249,21 @@ public abstract class TerraformExpression : TerraformSyntaxNode, ITerraformResol
         get => new MemberAccessExpression(this, key);
         set => throw new NotSupportedException("Indexer set is not supported on TerraformExpression.");
     }
+
+    /// <summary>
+    /// Creates a member access expression (e.g., "resource.name.member").
+    /// </summary>
+    /// <param name="member">The member name to access.</param>
+    /// <returns>A new expression representing the member access.</returns>
+    public TerraformExpression Member(string member) => new MemberAccessExpression(this, member);
+
+    /// <summary>
+    /// Creates an indexed member access expression (e.g., "resource.name.ingress[0]").
+    /// </summary>
+    /// <param name="member">The member name containing the list/set.</param>
+    /// <param name="index">The index into the list/set.</param>
+    /// <returns>A new expression representing the indexed member access.</returns>
+    public TerraformExpression Index(string member, int index) => new IndexAccessExpression(this, member, index);
 }
 
 /// <summary>

@@ -99,10 +99,12 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
             return;
         }
 
-        // Auto-set parent for nested blocks that support parent tracking
-        if (value is ITerraformHasParent childBlock && this is ITerraformReferenceable referenceableParent)
+        // Auto-set parent for nested blocks/lists that support parent tracking
+        // Skip TerraformReference as it's immutable and already has its parent set at construction
+        if (value is ITerraformHasParent { ParentBlock: null } childBlock && this is ITerraformReferenceable referenceableParent)
         {
             childBlock.ParentBlock = referenceableParent;
+            childBlock.ParentAttributeName = key;
         }
 
         _elements[key] = TerraformValue<T>.ConvertFrom(value);
@@ -122,6 +124,13 @@ public class TerraformMap<T> : TerraformValue<IDictionary<string, T>>, IEnumerab
         {
             return default;
         }
+
+        // Check if this is a lazy value with preserved identity
+        if (value is TerraformLazyValue<T> lazy && lazy.Original is TValue unwrapped)
+        {
+            return unwrapped;
+        }
+
         return value is TValue directValue ? directValue : default;
     }
 

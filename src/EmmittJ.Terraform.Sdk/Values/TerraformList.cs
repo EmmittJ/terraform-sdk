@@ -8,10 +8,23 @@ namespace EmmittJ.Terraform.Sdk;
 /// Inherits from TerraformValue&lt;IEnumerable&lt;T&gt;&gt; for clean typing.
 /// </summary>
 /// <typeparam name="T">The element type (string, double, bool, TerraformBlock&lt;T&gt;, etc.)</typeparam>
-public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable
+public class TerraformList<T> : TerraformValue<IEnumerable<T>>, IEnumerable, ITerraformHasParent
 {
     // Internal: Store elements as TerraformValue<T> to preserve unknowns (Pulumi pattern)
     private readonly List<TerraformValue<T>> _elements;
+
+    /// <summary>
+    /// Gets or sets the parent block for reference chaining.
+    /// Automatically set when this list is assigned to a parent's property via SetArgument.
+    /// </summary>
+    public ITerraformReferenceable? ParentBlock { get; set; }
+
+    /// <summary>
+    /// Gets or sets the attribute name this list was assigned to (e.g., "ingress").
+    /// Used for building indexed references like <c>resource.ingress[0].fqdn</c>.
+    /// Automatically set when this list is assigned to a parent's property via SetArgument.
+    /// </summary>
+    public string? ParentAttributeName { get; set; }
 
     // Parameterless constructor for collection initializer syntax
     public TerraformList()

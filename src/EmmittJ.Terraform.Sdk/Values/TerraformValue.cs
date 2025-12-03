@@ -60,6 +60,16 @@ public class TerraformValue<T> : ITerraformValue
         => new TerraformLazyValue<T>(producer);
 
     /// <summary>
+    /// Creates a lazy TerraformValue that wraps an ITerraformResolvable, preserving its identity.
+    /// Used when storing values that implement ITerraformHasParent (like TerraformList, TerraformBlock)
+    /// so that GetArgument can retrieve the original object with parent tracking intact.
+    /// </summary>
+    /// <param name="original">The original resolvable object whose identity should be preserved.</param>
+    /// <returns>A TerraformValue that wraps the original and preserves identity.</returns>
+    public static TerraformValue<T> Lazy(ITerraformResolvable original)
+        => new TerraformLazyValue<T>(original);
+
+    /// <summary>
     /// Implicit conversion for primitive values only. This validates at compile/assignment time
     /// that only supported Terraform primitive types are used as literals.
     /// For complex types, use TerraformExpression.Map(), TerraformExpression.List(), or other expression builders.
@@ -75,18 +85,23 @@ public class TerraformValue<T> : ITerraformValue
         // Allow null
         if (value is null)
         {
-            return TerraformValue<T>.Lazy(ctx => [TerraformExpression.Literal(value)]);
+            return TerraformValue<T>.Lazy(TerraformExpression.Literal(value));
         }
 
-        // Allow ITerraformResolvable types (they're already values/references/expressions, just pass through)
+        // If already the exact target type, return as-is to preserve identity
+        // This allows GetArgument<TerraformList<T>> to return the original list
+        if (value is TerraformValue<T> exactMatch)
+        {
+            return exactMatch;
+        }
+
+        // Allow other ITerraformResolvable types - wrap in lazy to resolve later
         if (value is ITerraformResolvable resolvable)
         {
-            // This is already a Terraform value type (TerraformMap, TerraformList, etc.)
-            // We need to resolve it and wrap it
-            return TerraformValue<T>.Lazy(resolvable.ResolveNodes);
+            return TerraformValue<T>.Lazy(resolvable);
         }
 
-        return TerraformValue<T>.Lazy(ctx => [TerraformExpression.Literal(value)]);
+        return TerraformValue<T>.Lazy(TerraformExpression.Literal(value));
     }
 
     /// <summary>
@@ -107,21 +122,34 @@ public class TerraformValue<T> : ITerraformValue
     /// but needs to be treated as such in certain contexts (e.g., casting from string to a more specific type).
     /// /// </summary>
     public TerraformValue<TLazy> AsLazy<TLazy>()
-        => TerraformValue<TLazy>.Lazy(ResolveNodes);
+        => TerraformValue<TLazy>.Lazy(this);
 }
 
 /// <summary>
 /// Represents a lazy Terraform value that will be computed during resolution.
 /// Internal implementation detail used by TerraformValue&lt;T&gt;.Lazy() factory method.
+/// Optionally preserves the identity of the original object for GetArgument retrieval.
 /// </summary>
 internal class TerraformLazyValue<T> : TerraformValue<T>
 {
+    public ITerraformResolvable? Original { get; private set; } = null;
     private readonly Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> _producer;
 
-    public TerraformLazyValue(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer)
-        : base()
+    /// <summary>
+    /// Creates a lazy value with a custom producer function (no identity preservation).
+    /// </summary>
+    public TerraformLazyValue(Func<ITerraformContext, IEnumerable<TerraformSyntaxNode>> producer) : base()
     {
         _producer = producer ?? throw new ArgumentNullException(nameof(producer));
+    }
+
+    /// <summary>
+    /// Creates a lazy value that wraps an ITerraformResolvable, preserving its identity.
+    /// Resolution delegates to the original object's ResolveNodes method.
+    /// </summary>
+    public TerraformLazyValue(ITerraformResolvable original) : this(original.ResolveNodes)
+    {
+        Original = original ?? throw new ArgumentNullException(nameof(original));
     }
 
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)

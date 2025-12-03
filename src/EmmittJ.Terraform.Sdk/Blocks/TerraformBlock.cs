@@ -26,6 +26,12 @@ public abstract class TerraformBlock : TerraformMap<object>, ITerraformReference
     public ITerraformReferenceable? ParentBlock { get; set; }
 
     /// <summary>
+    /// Gets or sets the attribute name this block was assigned to in the parent.
+    /// Automatically set when this block is assigned to a parent's property via SetArgument.
+    /// </summary>
+    public string? ParentAttributeName { get; set; }
+
+    /// <summary>
     /// Gets the block type keyword (e.g., "resource", "data", "lifecycle", "timeouts").
     /// For top-level blocks, this is the first keyword ("resource", "data", "provider").
     /// For nested blocks, this is the block name ("lifecycle", "timeouts", "tags").

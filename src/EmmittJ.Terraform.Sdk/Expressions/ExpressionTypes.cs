@@ -186,6 +186,34 @@ internal class MemberAccessExpression(TerraformExpression obj, string member) : 
 }
 
 /// <summary>
+/// Index access expression for accessing elements in a list/set by index (e.g., "ingress[0]").
+/// </summary>
+internal class IndexAccessExpression(TerraformExpression obj, string member, int index) : TerraformExpression
+{
+    private readonly TerraformExpression _object = obj ?? throw new ArgumentNullException(nameof(obj));
+    private readonly string _member = member ?? throw new ArgumentNullException(nameof(member));
+    private readonly int _index = index;
+
+    public override string ToHcl(ITerraformContext context) => $"{_object.ToHcl(context)}.{_member}[{_index}]";
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+        {
+            return true;
+        }
+
+        return obj is IndexAccessExpression other
+            && Equals(_object, other._object)
+            && string.Equals(_member, other._member, StringComparison.Ordinal)
+            && _index == other._index;
+    }
+
+    public override int GetHashCode()
+        => HashCode.Combine(_object, StringComparer.Ordinal.GetHashCode(_member), _index);
+}
+
+/// <summary>
 /// Function call expression (e.g., "cidrsubnet(vpc.cidr_block, 8, 1)").
 /// </summary>
 internal class FunctionCallExpression(string functionName, params TerraformSyntaxNode[] arguments) : TerraformExpression

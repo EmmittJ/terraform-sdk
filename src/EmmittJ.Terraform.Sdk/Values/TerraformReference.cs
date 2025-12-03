@@ -20,7 +20,7 @@ namespace EmmittJ.Terraform.Sdk;
 /// <remarks>
 /// <para>Spec: <see href="https://developer.hashicorp.com/terraform/language/expressions/references"/></para>
 /// </remarks>
-public class TerraformReference<T> : TerraformValue<T>
+public class TerraformReference<T> : TerraformValue<T>, ITerraformHasParent
 {
     private readonly ITerraformReferenceable _block;
     private readonly string _attributeName;
@@ -34,6 +34,20 @@ public class TerraformReference<T> : TerraformValue<T>
     {
         _block = block ?? throw new ArgumentNullException(nameof(block));
         _attributeName = attributeName ?? throw new ArgumentNullException(nameof(attributeName));
+    }
+
+    /// <inheritdoc />
+    public ITerraformReferenceable? ParentBlock
+    {
+        get => _block;
+        set => throw new NotSupportedException("TerraformReference parent block is immutable.");
+    }
+
+    /// <inheritdoc />
+    public string? ParentAttributeName
+    {
+        get => _attributeName;
+        set => throw new NotSupportedException("TerraformReference parent attribute name is immutable.");
     }
 
     public override IEnumerable<TerraformSyntaxNode> ResolveNodes(ITerraformContext context)
