@@ -344,12 +344,6 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
             OutputsAnnotation.Outputs[key] = value;
         }
 
-        // Also populate the TerraformResource.Outputs for backwards compatibility
-        foreach (var (key, (value, _)) in outputs)
-        {
-            TerraformResource.Outputs[key] = value;
-        }
-
         // Signal that provisioning is complete so TerraformOutputReference.GetValueAsync can return
         OutputsAnnotation.ProvisioningTaskCompletionSource?.TrySetResult();
     }

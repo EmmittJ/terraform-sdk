@@ -328,12 +328,6 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             Outputs[key] = value;
         }
 
-        // Also populate the TerraformResource.Outputs for backwards compatibility
-        foreach (var (key, (value, _)) in outputs)
-        {
-            TerraformResource.Outputs[key] = value;
-        }
-
         context.Logger.LogDebug("Read {Count} Terraform outputs for environment '{EnvironmentName}'", outputs.Count, Name);
     }
 

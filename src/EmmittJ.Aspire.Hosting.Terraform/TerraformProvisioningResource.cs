@@ -68,13 +68,6 @@ public sealed class TerraformProvisioningResource : Resource
     internal Dictionary<string, object> Inputs { get; } = [];
 
     /// <summary>
-    /// Gets the dictionary of Terraform outputs produced by this resource.
-    /// Keys are output names (case-insensitive), values are the output values.
-    /// This dictionary is populated after Terraform apply completes.
-    /// </summary>
-    internal Dictionary<string, object?> Outputs { get; } = new(StringComparer.OrdinalIgnoreCase);
-
-    /// <summary>
     /// Gets or sets the <see cref="TerraformOutputsAnnotation"/> for the target resource.
     /// This annotation stores outputs directly on the target resource for easy access.
     /// </summary>
