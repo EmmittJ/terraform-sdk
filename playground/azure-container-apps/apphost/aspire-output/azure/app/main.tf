@@ -75,7 +75,6 @@ resource "azurerm_container_app" "app" {
   }
 }
 
-output "app_url" {
-  description = "The URL of the deployed application"
-  value       = "https://${azurerm_container_app.app.latest_revision_fqdn}"
+output "http_endpoint" {
+  value = "https://${azurerm_container_app.app.ingress[0].fqdn}"
 }

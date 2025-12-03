@@ -178,13 +178,6 @@ var terraform = builder.AddTerraformEnvironment("azure", acr)
         infra.AddOutput("container_env_id", containerAppEnvironment.Id);
         infra.AddOutput("managed_identity_id", managedIdentity.Id);
         infra.AddOutput("resource_group_name", resourceGroup.Name);
-
-        // Bubble up the app URL from child module to root for visibility
-        infra.Add(new TerraformOutput("app_url")
-        {
-            Value = TerraformExpression.Identifier("module.app.app_url"),
-            Description = "The URL of the deployed application"
-        });
     });
 
 // Frontend Vite app
@@ -287,11 +280,20 @@ var app = builder.AddYarp("app")
 
         infra.Add(containerApp);
 
-        infra.Add(new TerraformOutput("app_url")
+        if (infra.TargetResource is IResourceWithEndpoints resource)
         {
-            Value = Tf.Interpolate($"https://{containerApp.LatestRevisionFqdn}"),
-            Description = "The URL of the deployed application"
-        });
+            // Export the stable endpoint URL (not latest_revision_fqdn which changes per revision)
+            // This matches Aspire's pattern: {resourcename}.{environment_default_domain}
+            var fqdn = containerApp.Ingress.Index(0, m => m.Fqdn);
+            infra.AddOutput(resource.GetEndpoint("http"), Tf.Interpolate($"https://{fqdn}"));
+        }
+    });
+
+terraform
+    .PublishAsTerraform(infra =>
+    {
+        // Pass through the child module's endpoint output to the root module
+        infra.AddOutput(app.GetEndpoint("http"));
     });
 
 builder.Build().Run();

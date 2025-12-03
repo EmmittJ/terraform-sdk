@@ -596,6 +596,179 @@ public sealed class TerraformProvisioningResource : Resource
     }
 
     /// <summary>
+    /// Gets the output name for the specified endpoint reference using the standard naming convention.
+    /// </summary>
+    /// <param name="endpointReference">The endpoint reference to get the output name for.</param>
+    /// <returns>The output name in the format <c>{endpoint_name}_endpoint</c>.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method returns the standard output name that should be used when exporting an endpoint.
+    /// The naming convention matches what <see cref="IComputeEnvironmentResource.GetHostAddressExpression"/>
+    /// expects when resolving endpoint references across resources.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     var containerApp = new AzurermContainerApp("app") { ... };
+    ///     infra.Add(containerApp);
+    ///
+    ///     // Export the endpoint using the standard naming convention
+    ///     // Use the stable ingress FQDN, not LatestRevisionFqdn which changes per deployment
+    ///     var outputName = TerraformProvisioningResource.GetEndpointOutputName(app.GetEndpoint("http"));
+    ///     infra.AddOutput(outputName, Tf.Interpolate($"https://{containerApp["ingress[0].fqdn"]}"));
+    /// });
+    /// </code>
+    /// </example>
+    public static string GetEndpointOutputName(EndpointReference endpointReference)
+    {
+        ArgumentNullException.ThrowIfNull(endpointReference);
+        return $"{endpointReference.EndpointName}_endpoint";
+    }
+
+    /// <summary>
+    /// Creates a Terraform output for the specified endpoint reference.
+    /// </summary>
+    /// <param name="endpointReference">The endpoint reference to create an output for.</param>
+    /// <param name="value">The value expression for the endpoint (e.g., the URL or FQDN).</param>
+    /// <param name="description">Optional description for the output.</param>
+    /// <returns>The created <see cref="TerraformOutput"/> that was added to the stack.</returns>
+    /// <remarks>
+    /// <para>
+    /// This is a convenience method that combines <see cref="GetEndpointOutputName"/> with <see cref="AddOutput(string, TerraformValue{object}, bool, string?)"/>.
+    /// It creates an output using the standard naming convention (<c>{endpoint_name}_endpoint</c>) that
+    /// can be consumed by other resources via <see cref="IComputeEnvironmentResource.GetHostAddressExpression"/>.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     var containerApp = new AzurermContainerApp("app") { ... };
+    ///     infra.Add(containerApp);
+    ///
+    ///     // Export the HTTP endpoint for cross-resource references
+    ///     // Use the stable ingress FQDN, not LatestRevisionFqdn which changes per deployment
+    ///     infra.AddOutput(app.GetEndpoint("http"), Tf.Interpolate($"https://{containerApp["ingress[0].fqdn"]}"));
+    /// });
+    ///
+    /// // Another resource can then reference this endpoint:
+    /// worker.PublishAsTerraform(infra =>
+    /// {
+    ///     var appUrl = infra.AddVariable("http_endpoint"); // From app's output
+    ///     // Use appUrl in configuration...
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformOutput AddOutput(EndpointReference endpointReference, TerraformValue<object> value, string? description = null)
+    {
+        ArgumentNullException.ThrowIfNull(endpointReference);
+        ArgumentNullException.ThrowIfNull(value);
+
+        var outputName = GetEndpointOutputName(endpointReference);
+        return AddOutput(outputName, value, sensitive: false, description);
+    }
+
+    /// <summary>
+    /// Gets a reference to an endpoint output from a child module.
+    /// </summary>
+    /// <param name="endpointReference">The endpoint reference to get from the child module.</param>
+    /// <returns>A <see cref="TerraformExpression"/> that references the child module's endpoint output.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method returns a reference to a child module's endpoint output using the pattern
+    /// <c>module.{resource_name}.{endpoint_name}_endpoint</c>. Use this to read a child module's
+    /// output value or to expose it in the parent module via <see cref="AddOutput(string, TerraformValue{object}, bool, string?)"/>.
+    /// </para>
+    /// <para>
+    /// The child module must have previously exported the endpoint using <see cref="AddOutput(EndpointReference, TerraformValue{object}, string?)"/>.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// // In the child module (app resource):
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     var containerApp = new AzurermContainerApp("app") { ... };
+    ///     infra.Add(containerApp);
+    ///     // Use the stable ingress FQDN, not LatestRevisionFqdn
+    ///     infra.AddOutput(app.GetEndpoint("http"), Tf.Interpolate($"https://{containerApp["ingress[0].fqdn"]}"));
+    /// });
+    ///
+    /// // In the parent module (environment):
+    /// terraform.PublishAsTerraform(infra =>
+    /// {
+    ///     // Get reference to child module's output, then expose it
+    ///     var appEndpoint = infra.GetOutput(app.GetEndpoint("http"));
+    ///     infra.AddOutput("http_endpoint", appEndpoint);
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformExpression GetOutput(EndpointReference endpointReference)
+    {
+        ArgumentNullException.ThrowIfNull(endpointReference);
+
+        var resource = endpointReference.Resource;
+        var outputName = GetEndpointOutputName(endpointReference);
+
+        // Return a reference to the child module's output: module.{resource_name}.{output_name}
+        return TerraformExpression.Identifier($"module.{resource.Name}.{outputName}");
+    }
+
+    /// <summary>
+    /// Exposes a child module's endpoint output as an output of the current module.
+    /// </summary>
+    /// <param name="endpointReference">The endpoint reference from a child resource to pass through.</param>
+    /// <param name="outputName">
+    /// Optional custom name for the output. If <see langword="null"/>, uses the pattern
+    /// <c>{resource_name}_{endpoint_name}_endpoint</c>.
+    /// </param>
+    /// <param name="description">Optional description for the output.</param>
+    /// <returns>The created <see cref="TerraformOutput"/> that was added to the stack.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method combines <see cref="GetOutput(EndpointReference)"/> and <see cref="AddOutput(string, TerraformValue{object}, bool, string?)"/>
+    /// for the common pattern of exposing a child module's endpoint at the parent level.
+    /// </para>
+    /// <para>
+    /// Use this method in parent modules (like the environment) to pass through endpoint outputs
+    /// from child modules (like container apps) to the root module or external consumers.
+    /// </para>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// // In a child module (app resource):
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     var containerApp = new AzurermContainerApp("app") { ... };
+    ///     infra.Add(containerApp);
+    ///     infra.AddOutput(app.GetEndpoint("http"), Tf.Interpolate($"https://{containerApp["ingress[0].fqdn"]}"));
+    /// });
+    ///
+    /// // In the parent module (environment) - pass through with default name "app_http_endpoint":
+    /// terraform.PublishAsTerraform(infra =>
+    /// {
+    ///     infra.AddOutput(app.GetEndpoint("http"));
+    /// });
+    ///
+    /// // Or with a custom name:
+    /// terraform.PublishAsTerraform(infra =>
+    /// {
+    ///     infra.AddOutput(app.GetEndpoint("http"), "my_app_url");
+    /// });
+    /// </code>
+    /// </example>
+    public TerraformOutput AddOutput(EndpointReference endpointReference, string? outputName = null, string? description = null)
+    {
+        ArgumentNullException.ThrowIfNull(endpointReference);
+
+        var value = GetOutput(endpointReference);
+        var name = outputName ?? $"{endpointReference.Resource.Name}_{GetEndpointOutputName(endpointReference)}";
+        return AddOutput(name, value, sensitive: false, description);
+    }
+
+    /// <summary>
     /// Gets the container image reference for the target resource.
     /// </summary>
     /// <returns>A <see cref="TerraformVariable"/> that will contain the fully-qualified container image reference

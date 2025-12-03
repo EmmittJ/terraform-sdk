@@ -265,13 +265,38 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
     /// </summary>
     /// <param name="endpointReference">The endpoint reference to compute the host address for.</param>
     /// <returns>A <see cref="ReferenceExpression"/> representing the host address.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method returns a <see cref="ReferenceExpression"/> that wraps a <see cref="TerraformOutputReference"/>
+    /// for the endpoint. The output name follows the convention: <c>{endpoint_name}_endpoint</c>.
+    /// </para>
+    /// <para>
+    /// Resources should define corresponding outputs in their <c>PublishAsTerraform</c> callback:
+    /// </para>
+    /// <example>
+    /// <code>
+    /// app.PublishAsTerraform(infra =>
+    /// {
+    ///     var containerApp = new AzurermContainerApp("app") { ... };
+    ///     infra.Add(containerApp);
+    ///
+    ///     // Export the endpoint for cross-resource references
+    ///     infra.AddOutput("http_endpoint", Tf.Interpolate($"https://{containerApp.LatestRevisionFqdn}"));
+    /// });
+    /// </code>
+    /// </example>
+    /// </remarks>
     ReferenceExpression IComputeEnvironmentResource.GetHostAddressExpression(EndpointReference endpointReference)
     {
         var resource = endpointReference.Resource;
+        var endpointName = endpointReference.EndpointName;
 
-        // For Terraform, we'll use the resource name as a placeholder
-        // This can be customized based on the actual Terraform output
-        return ReferenceExpression.Create($"{resource.Name}");
+        // Create an output reference using the naming convention: {endpoint_name}_endpoint
+        // Examples: "http_endpoint", "https_endpoint", "grpc_endpoint"
+        var outputName = $"{endpointName}_endpoint";
+        var outputRef = new TerraformOutputReference(outputName, resource);
+
+        return ReferenceExpression.Create($"{outputRef}");
     }
 
     private Task PublishAsync(PipelineStepContext context)

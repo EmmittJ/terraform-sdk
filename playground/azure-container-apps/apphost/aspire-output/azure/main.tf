@@ -113,9 +113,8 @@ output "resource_group_name" {
   value = azurerm_resource_group.rg.name
 }
 
-output "app_url" {
-  description = "The URL of the deployed application"
-  value       = module.app.app_url
+output "app_http_endpoint" {
+  value = module.app.http_endpoint
 }
 
 module "app" {

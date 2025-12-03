@@ -9,20 +9,20 @@ This sample demonstrates deploying an Aspire application to Azure Container Apps
 │                         Azure Resource Group                            │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│  ┌─────────────────────┐    ┌─────────────────────────────────────────┐│
-│  │  Log Analytics      │    │  Container App Environment              ││
-│  │  Workspace          │───▶│  (Consumption workload profile)         ││
-│  └─────────────────────┘    │                                         ││
-│                              │  ┌─────────────────────────────────┐   ││
-│  ┌─────────────────────┐    │  │  Container App: app             │   ││
-│  │  Azure Container    │    │  │  - YARP reverse proxy           │   ││
-│  │  Registry (ACR)     │───▶│  │  - Static files baked in        │   ││
-│  └─────────────────────┘    │  │  - External HTTPS ingress       │   ││
-│           │                  │  └─────────────────────────────────┘   ││
+│  ┌─────────────────────┐     ┌─────────────────────────────────────────┐│
+│  │  Log Analytics      │     │  Container App Environment              ││
+│  │  Workspace          │────>│  (Consumption workload profile)         ││
+│  └─────────────────────┘     │                                         ││
+│                              │  ┌─────────────────────────────────┐    ││
+│  ┌─────────────────────┐     │  │  Container App: app             │    ││
+│  │  Azure Container    │     │  │  - YARP reverse proxy           │    ││
+│  │  Registry (ACR)     │────>│  │  - Static files baked in        │    ││
+│  └─────────────────────┘     │  │  - External HTTPS ingress       │    ││
+│           │                  │  └─────────────────────────────────┘    ││
 │           │                  └─────────────────────────────────────────┘│
 │           │                                                             │
 │  ┌─────────────────────┐                                                │
-│  │  User Assigned      │◀──── AcrPull role assignment                   │
+│  │  User Assigned      │<──── AcrPull role assignment                   │
 │  │  Managed Identity   │                                                │
 │  └─────────────────────┘                                                │
 │                                                                         │
@@ -68,7 +68,7 @@ Run the application locally with the Vite dev server:
 
 ```bash
 cd apphost
-dotnet run
+aspire run
 ```
 
 This starts:
@@ -78,42 +78,38 @@ This starts:
 
 ## Publishing to Azure
 
-### Step 1: Generate Terraform Configuration
+### Option 1: Full Deployment with `aspire deploy`
+
+The easiest way to deploy is using the Aspire CLI, which handles all steps automatically:
 
 ```bash
-cd apphost
-dotnet run -- --publisher manifest
-# or
-aspire publish --output-path ../aspire-output
+# From the azure-container-apps directory
+aspire deploy
+```
+
+This command:
+
+1. Generates Terraform configuration
+2. Runs `terraform init` and `terraform apply`
+3. Builds and publishes container images
+4. Pushes images to the created ACR
+5. Updates the Container App with the new image
+
+### Option 2: Preview Generated Terraform with `aspire publish`
+
+To inspect the generated Terraform configuration without deploying:
+
+```bash
+# From the azure-container-apps directory
+aspire publish
 ```
 
 This generates:
 
-- `aspire-output/main.tf` - Main Terraform configuration
-- `aspire-output/app/main.tf` - Container App specific configuration
+- `aspire-output/azure/main.tf` - Main Terraform configuration
+- `aspire-output/azure/app/main.tf` - Container App specific configuration
 
-### Step 2: Configure Parameters
-
-Create a `aspire.auto.tfvars` file or set environment variables:
-
-```hcl
-# aspire.auto.tfvars
-azure-subscription-id = "your-subscription-id"
-resource-group        = "rg-aspire-aca-demo"
-location              = "westus2"
-image-tag             = "v1.0.0"
-```
-
-Or use environment variables:
-
-```bash
-export TF_VAR_azure_subscription_id="your-subscription-id"
-export TF_VAR_resource_group="rg-aspire-aca-demo"
-export TF_VAR_location="westus2"
-export TF_VAR_image_tag="v1.0.0"
-```
-
-### Step 3: Deploy Infrastructure
+You can then review the generated HCL and optionally run Terraform manually:
 
 ```bash
 cd aspire-output
@@ -124,34 +120,27 @@ terraform init
 # Preview changes
 terraform plan
 
-# Apply infrastructure
+# Apply infrastructure (when ready)
 terraform apply
 ```
 
-### Step 4: Build and Push Container Image
+### Configuration
 
-After the infrastructure is deployed, build and push your container:
+You can configure deployment parameters via environment variables:
 
 ```bash
-# Get ACR login server from Terraform output
-ACR_LOGIN_SERVER=$(terraform output -raw AZURE_CONTAINER_REGISTRY_ENDPOINT)
+export Parameters__azure_subscription_id="your-subscription-id"
+export Parameters__resource_group="rg-aspire-aca-demo"
+export Parameters__location="westus2"
 
-# Login to ACR
-az acr login --name $(terraform output -raw AZURE_CONTAINER_REGISTRY_NAME)
-
-# Build the container (from the apphost directory)
-cd ../apphost
-dotnet publish -c Release
-
-# Tag and push the image
-docker build -t ${ACR_LOGIN_SERVER}/app:v1.0.0 .
-docker push ${ACR_LOGIN_SERVER}/app:v1.0.0
+aspire deploy
 ```
 
-### Step 5: Verify Deployment
+### Verify Deployment
 
 ```bash
 # Get the application URL
+cd aspire-output
 terraform output app_url
 
 # Open in browser
@@ -176,10 +165,25 @@ The Terraform configuration exports these outputs (matching Aspire's Azure.AppCo
 
 ## CI/CD Integration
 
-For GitHub Actions or Azure DevOps, you can use these outputs to automate the deployment:
+For GitHub Actions or Azure DevOps, you can use `aspire deploy` for a streamlined workflow:
 
 ```yaml
 # Example GitHub Actions workflow
+- name: Deploy to Azure
+  run: aspire deploy
+  env:
+    Parameters__azure_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    Parameters__resource_group: rg-aspire-aca-demo
+    Parameters__location: westus2
+```
+
+Or for more control, use the generated Terraform directly:
+
+```yaml
+# Example GitHub Actions workflow with manual Terraform steps
+- name: Generate Terraform
+  run: aspire publish
+
 - name: Deploy Infrastructure
   run: |
     cd aspire-output
@@ -188,14 +192,14 @@ For GitHub Actions or Azure DevOps, you can use these outputs to automate the de
 
 - name: Build and Push Image
   run: |
-    ACR_NAME=$(terraform output -raw AZURE_CONTAINER_REGISTRY_NAME)
+    ACR_NAME=$(cd aspire-output && terraform output -raw AZURE_CONTAINER_REGISTRY_NAME)
     az acr login --name $ACR_NAME
-    docker build -t $(terraform output -raw AZURE_CONTAINER_REGISTRY_ENDPOINT)/app:${{ github.sha }} .
-    docker push $(terraform output -raw AZURE_CONTAINER_REGISTRY_ENDPOINT)/app:${{ github.sha }}
+    docker build -t $(cd aspire-output && terraform output -raw AZURE_CONTAINER_REGISTRY_ENDPOINT)/app:${{ github.sha }} .
+    docker push $(cd aspire-output && terraform output -raw AZURE_CONTAINER_REGISTRY_ENDPOINT)/app:${{ github.sha }}
 
 - name: Update Container App
   run: |
-    # Update the image tag and re-apply
+    cd aspire-output
     terraform apply -auto-approve -var="image-tag=${{ github.sha }}"
 ```
 
