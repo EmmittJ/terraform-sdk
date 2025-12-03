@@ -33,7 +33,7 @@ internal static class TerraformVariableResolver
 
         if (environment.ParameterVariables.Count > 0)
         {
-            context.Logger.LogInformation("Resolving {Count} Terraform parameter variables", environment.ParameterVariables.Count);
+            context.Logger.LogDebug("Resolving {Count} Terraform parameter variables", environment.ParameterVariables.Count);
 
             foreach (var (parameter, variable) in environment.ParameterVariables)
             {
@@ -82,7 +82,7 @@ internal static class TerraformVariableResolver
         // Resolve Aspire parameter values
         if (environment.ParameterVariables.Count > 0)
         {
-            context.Logger.LogInformation("Resolving {Count} Terraform parameter variables", environment.ParameterVariables.Count);
+            context.Logger.LogDebug("Resolving {Count} Terraform parameter variables", environment.ParameterVariables.Count);
 
             foreach (var (parameter, variable) in environment.ParameterVariables)
             {
@@ -268,6 +268,6 @@ internal static class TerraformVariableResolver
             await writer.WriteLineAsync(argumentNode.ToHcl(hclContext)).ConfigureAwait(false);
         }
 
-        logger.LogInformation("Wrote {Count} variables to {Path}", nonSensitiveVars.Count, tfvarsPath);
+        logger.LogDebug("Wrote {Count} variables to {Path}", nonSensitiveVars.Count, tfvarsPath);
     }
 }

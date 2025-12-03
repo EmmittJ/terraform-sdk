@@ -127,7 +127,8 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                                 ctx,
                                 "plan -out=aspire.tfplan -input=false -no-color",
                                 outputPath,
-                                sensitiveEnvVars).ConfigureAwait(false);
+                                sensitiveEnvVars,
+                                logOutput: true).ConfigureAwait(false);
                         },
                         Tags = [TerraformPipelineTags.TerraformPlan],
                         DependsOnSteps = [initStep.Name, WellKnownPipelineSteps.DeployPrereq],
@@ -149,7 +150,8 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
                                     ctx,
                                     "apply -auto-approve -input=false -no-color aspire.tfplan",
                                     outputPath,
-                                    sensitiveEnvVars).ConfigureAwait(false);
+                                    sensitiveEnvVars,
+                                    logOutput: true).ConfigureAwait(false);
                             },
                             Tags = [TerraformPipelineTags.TerraformApply, WellKnownPipelineTags.ProvisionInfrastructure],
                             DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
@@ -332,7 +334,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             TerraformResource.Outputs[key] = value;
         }
 
-        context.Logger.LogInformation("Read {Count} Terraform outputs for environment '{EnvironmentName}'", outputs.Count, Name);
+        context.Logger.LogDebug("Read {Count} Terraform outputs for environment '{EnvironmentName}'", outputs.Count, Name);
     }
 
     private async Task PrintOutputSummaryAsync(PipelineStepContext context)
@@ -361,7 +363,7 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
         foreach (var (name, (value, _)) in nonSensitiveOutputs)
         {
             var displayValue = FormatOutputValue(value);
-            summaryLines.Add($"- **{name}**: `{displayValue}`");
+            summaryLines.Add($"- `{name}`: `{displayValue}`");
         }
 
         var summary = string.Join("\n", summaryLines);

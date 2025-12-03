@@ -20,20 +20,22 @@ internal static class TerraformCommandRunner
     /// <param name="command">The Terraform command to run (e.g., "init -input=false").</param>
     /// <param name="workingDirectory">The working directory for the command.</param>
     /// <param name="sensitiveEnvironmentVariables">Optional dictionary of sensitive variables to pass as TF_VAR_* environment variables.</param>
+    /// <param name="logOutput">Whether to log the command output at Information level. When <c>false</c>, output is logged at Debug level.</param>
     /// <returns>The standard output from the command.</returns>
     /// <exception cref="InvalidOperationException">Thrown when the command fails.</exception>
     public static async Task<string> RunTerraformCommandAsync(
         PipelineStepContext context,
         string command,
         string workingDirectory,
-        Dictionary<string, string>? sensitiveEnvironmentVariables = null)
+        Dictionary<string, string>? sensitiveEnvironmentVariables = null,
+        bool logOutput = false)
     {
         if (!Directory.Exists(workingDirectory))
         {
             Directory.CreateDirectory(workingDirectory);
         }
 
-        context.Logger.LogInformation("Running terraform {Command} in {Path}", command, workingDirectory);
+        context.Logger.LogDebug("Running terraform {Command} in {Path}", command, workingDirectory);
 
         await context.ReportingStep.CompleteAsync(
             $"Running terraform {command}",
@@ -76,7 +78,14 @@ internal static class TerraformCommandRunner
 
         if (!string.IsNullOrWhiteSpace(output))
         {
-            context.Logger.LogInformation("Terraform output: {Output}", output);
+            if (logOutput)
+            {
+                context.Logger.LogInformation("Terraform output: {Output}", output);
+            }
+            else
+            {
+                context.Logger.LogDebug("Terraform output: {Output}", output);
+            }
         }
 
         if (!string.IsNullOrWhiteSpace(error))

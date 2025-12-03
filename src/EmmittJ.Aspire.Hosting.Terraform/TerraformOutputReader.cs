@@ -25,7 +25,7 @@ internal static class TerraformOutputReader
         PipelineStepContext context,
         string workingDirectory)
     {
-        context.Logger.LogInformation("Reading Terraform outputs from {Path}", workingDirectory);
+        context.Logger.LogDebug("Reading Terraform outputs from {Path}", workingDirectory);
 
         var output = await TerraformCommandRunner.RunTerraformCommandAsync(
             context,
@@ -75,7 +75,7 @@ internal static class TerraformOutputReader
             }
         }
 
-        context.Logger.LogInformation("Read {Count} Terraform outputs", result.Count);
+        context.Logger.LogDebug("Read {Count} Terraform outputs", result.Count);
         return result;
     }
 

@@ -144,6 +144,13 @@ internal sealed class TerraformPublishingContext
                 continue;
             }
 
+            // Container registry outputs are resolved at runtime (separate state),
+            // so we don't need to validate them here - just verify it's our registry
+            if (outputRef.Resource == environment.ContainerRegistry)
+            {
+                continue;
+            }
+
             // For other resources, verify the module exists
             if (!_moduleMap.TryGetValue(outputRef.Resource.Name, out _))
             {
@@ -241,7 +248,7 @@ internal sealed class TerraformPublishingContext
     {
         var resource = terraformResource.TargetResource ?? terraformResource;
 
-        _logger.LogInformation("Processing resource: {ResourceName}", resource.Name);
+        _logger.LogDebug("Processing resource: {ResourceName}", resource.Name);
 
         // Get the output path for this specific resource
         var resourceOutputPath = PublishingContextUtils.GetResourceOutputPath(_pipelineContext, _environment, resource);
@@ -403,23 +410,23 @@ internal sealed class TerraformPublishingContext
 
     private async Task GenerateConfigurationFileAsync(TerraformStack stack, string outputPath, string fileName)
     {
-        _logger.LogInformation("Generating Terraform configuration file {FileName} in {OutputPath}", fileName, outputPath);
+        _logger.LogDebug("Generating Terraform configuration file {FileName} in {OutputPath}", fileName, outputPath);
 
         var hcl = stack.ToHcl();
         var filePath = Path.Combine(outputPath, fileName);
         await File.WriteAllTextAsync(filePath, hcl, _cancellationToken).ConfigureAwait(false);
 
-        _logger.LogInformation("Generated configuration: {FilePath}", filePath);
+        _logger.LogDebug("Generated configuration: {FilePath}", filePath);
     }
 
     private async Task GenerateRootMainTfAsync(TerraformStack rootStack)
     {
-        _logger.LogInformation("Generating root main.tf with {Count} blocks", rootStack.Blocks.Count);
+        _logger.LogDebug("Generating root main.tf with {Count} blocks", rootStack.Blocks.Count);
 
         var rootMainTfPath = Path.Combine(_baseOutputPath, "main.tf");
         var hcl = rootStack.ToHcl();
         await File.WriteAllTextAsync(rootMainTfPath, hcl, _cancellationToken).ConfigureAwait(false);
 
-        _logger.LogInformation("Generated root main.tf at {Path}", rootMainTfPath);
+        _logger.LogDebug("Generated root main.tf at {Path}", rootMainTfPath);
     }
 }

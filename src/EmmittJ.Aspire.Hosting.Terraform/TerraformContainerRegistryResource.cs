@@ -229,7 +229,8 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
                     ctx,
                     "plan -out=aspire.tfplan -input=false -no-color",
                     outputPath,
-                    sensitiveEnvVars).ConfigureAwait(false);
+                    sensitiveEnvVars,
+                    logOutput: true).ConfigureAwait(false);
             },
             Tags = [TerraformPipelineTags.TerraformPlan, TerraformPipelineTags.Registry],
             DependsOnSteps = [initStep.Name, WellKnownPipelineSteps.DeployPrereq],
@@ -254,7 +255,8 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
                     ctx,
                     "apply -auto-approve -input=false -no-color aspire.tfplan",
                     outputPath,
-                    sensitiveEnvVars).ConfigureAwait(false);
+                    sensitiveEnvVars,
+                    logOutput: true).ConfigureAwait(false);
             },
             Tags = [TerraformPipelineTags.Registry, TerraformPipelineTags.TerraformApply, WellKnownPipelineTags.ProvisionInfrastructure],
             DependsOnSteps = [planStep.Name, WellKnownPipelineSteps.DeployPrereq],
@@ -310,7 +312,7 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
 
     private async Task WriteRegistryConfigurationAsync(PipelineStepContext context, string outputPath)
     {
-        context.Logger.LogInformation("Generating Terraform configuration for registry '{RegistryName}' at {OutputPath}", Name, outputPath);
+        context.Logger.LogDebug("Generating Terraform configuration for registry '{RegistryName}' at {OutputPath}", Name, outputPath);
 
         // Ensure the output directory exists
         Directory.CreateDirectory(outputPath);
@@ -321,7 +323,7 @@ public sealed class TerraformContainerRegistryResource : Resource, IContainerReg
         var hcl = stack.ToHcl();
         await File.WriteAllTextAsync(mainTfPath, hcl, context.CancellationToken).ConfigureAwait(false);
 
-        context.Logger.LogInformation("Generated registry Terraform configuration at {Path}", mainTfPath);
+        context.Logger.LogDebug("Generated registry Terraform configuration at {Path}", mainTfPath);
 
         // Generate .terraform-version file if specified
         if (!string.IsNullOrEmpty(TerraformVersion))
