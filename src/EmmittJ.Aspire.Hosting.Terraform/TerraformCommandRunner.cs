@@ -80,17 +80,17 @@ internal static class TerraformCommandRunner
         {
             if (logOutput)
             {
-                context.Logger.LogInformation("Terraform output: {Output}", output);
+                context.Logger.LogInformation("Terraform output:\n{Output}", output);
             }
             else
             {
-                context.Logger.LogDebug("Terraform output: {Output}", output);
+                context.Logger.LogDebug("Terraform output:\n{Output}", output);
             }
         }
 
         if (!string.IsNullOrWhiteSpace(error))
         {
-            context.Logger.LogWarning("Terraform stderr: {Error}", error);
+            context.Logger.LogWarning("Terraform stderr:\n{Error}", error);
         }
 
         if (process.ExitCode != 0)

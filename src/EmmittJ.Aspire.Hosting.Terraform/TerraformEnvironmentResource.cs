@@ -344,35 +344,18 @@ public sealed class TerraformEnvironmentResource : Resource, IComputeEnvironment
             .OrderBy(kvp => kvp.Key)
             .ToList();
 
-        if (nonSensitiveOutputs.Count == 0)
+        if (nonSensitiveOutputs.Count > 0)
         {
-            await context.ReportingStep.CompleteAsync(
-                "Deployment complete (no outputs to display)",
-                CompletionState.Completed,
-                context.CancellationToken).ConfigureAwait(false);
-            return;
+            // Log non-sensitive outputs
+            context.Logger.LogInformation("Terraform outputs for '{EnvironmentName}':", Name);
+            foreach (var (name, (value, _)) in nonSensitiveOutputs)
+            {
+                context.Logger.LogInformation("  {OutputName}: {OutputValue}", name, FormatOutputValue(value));
+            }
         }
-
-        // Build a summary message with non-sensitive outputs
-        var summaryLines = new List<string>
-        {
-            $"**Deployment Summary for '{Name}':**",
-            ""
-        };
-
-        foreach (var (name, (value, _)) in nonSensitiveOutputs)
-        {
-            var displayValue = FormatOutputValue(value);
-            summaryLines.Add($"- `{name}`: `{displayValue}`");
-        }
-
-        var summary = string.Join("\n", summaryLines);
-
-        context.Logger.LogInformation("Terraform deployment complete for environment '{EnvironmentName}':\n{Summary}",
-            Name, string.Join(Environment.NewLine, nonSensitiveOutputs.Select(o => $"  {o.Key}: {FormatOutputValue(o.Value.Value)}")));
 
         await context.ReportingStep.CompleteAsync(
-            summary,
+            $"Deployment complete for '{Name}'",
             CompletionState.Completed,
             context.CancellationToken).ConfigureAwait(false);
     }

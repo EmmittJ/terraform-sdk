@@ -282,8 +282,6 @@ var app = builder.AddYarp("app")
 
         if (infra.TargetResource is IResourceWithEndpoints resource)
         {
-            // Export the stable endpoint URL (not latest_revision_fqdn which changes per revision)
-            // This matches Aspire's pattern: {resourcename}.{environment_default_domain}
             var fqdn = containerApp.Ingress.Index(0, m => m.Fqdn);
             infra.AddOutput(resource.GetEndpoint("http"), Tf.Interpolate($"https://{fqdn}"));
         }
